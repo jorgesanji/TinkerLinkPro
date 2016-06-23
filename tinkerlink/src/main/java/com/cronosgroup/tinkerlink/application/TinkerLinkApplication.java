@@ -2,6 +2,7 @@ package com.cronosgroup.tinkerlink.application;
 
 import com.adjust.sdk.Adjust;
 import com.adjust.sdk.AdjustConfig;
+import com.cronosgroup.core.managers.AnalyticsManager;
 import com.cronosgroup.core.managers.LocationManager;
 import com.cronosgroup.core.managers.PermissionsManager;
 import com.cronosgroup.core.view.application.BaseApplication;
@@ -96,7 +97,7 @@ public class TinkerLinkApplication extends BaseApplication implements Permission
     }
 
     private void initAnalytics() {
-//        AnalyticsManager.initTracker(this, R.string.google_analytics_key);
+        AnalyticsManager.initTracker(this, R.string.google_analytics_key);
 
         String appToken = getString(R.string.adjust_token);
         String environment = AdjustConfig.ENVIRONMENT_SANDBOX;
