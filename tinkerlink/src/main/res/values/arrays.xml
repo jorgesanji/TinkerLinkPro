@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="arr_cam">
+        <item>@string/camera_title</item>
+        <item>@string/gallery_title</item>
+    </array>
+
+    <array name="arr_share">
+        <item>@string/share_news_feed</item>
+        <item>@string/share_facebook</item>
+    </array>
+
+    <array name="arr_experience">
+        <item>@string/create_year_0_to_1</item>
+        <item>@string/create_year_1_to_3</item>
+        <item>@string/create_year_3_to_5</item>
+        <item>@string/create_year_more_5</item>
+    </array>
+
+    <array name="arr_price">
+        <item>@string/create_price_lower_1000</item>
+        <item>@string/create_between_1000_to_3000</item>
+        <item>@string/create_between_3000_to_5000</item>
+        <item>@string/create_between_agreement</item>
+    </array>
+
+    <array name="arr_currency">
+        <item>@string/create_currency_pesos</item>
+        <item>@string/create_currency_dolars</item>
+        <item>@string/create_currency_euros</item>
+        <item>@string/create_currency_pounds</item>
+    </array>
+
+    <array name="arr_by_time">
+        <item>@string/create_time_by_hour</item>
+        <item>@string/create_time_by_day</item>
+        <item>@string/create_time_by_proyecto</item>
+        <item>@string/create_time_agreement</item>
+    </array>
+</resources>

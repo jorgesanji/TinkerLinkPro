@@ -1,0 +1,153 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <!-- Per the design guidelines, navigation drawers should be between 240dp and 320dp:
+         https://developer.android.com/design/patterns/navigation-drawer.html -->
+    <dimen name="navigation_drawer_width">240dp</dimen>
+
+    <dimen name="loader_round">6dp</dimen>
+
+    <!-- Empty message-->
+    <dimen name="message_empty_size">16sp</dimen>
+
+    <!-- Menu -->
+    <dimen name="menu_section_height">20dp</dimen>
+    <dimen name="menu_item_height">45dp</dimen>
+    <dimen name="menu_icon_leftmargin">20dp</dimen>
+    <dimen name="menu_badge_rightmargin">20dp</dimen>
+    <dimen name="menu_title_leftmargin">30dp</dimen>
+    <dimen name="menu_title_item_size">18sp</dimen>
+    <dimen name="menu_title_edit_size">18sp</dimen>
+    <dimen name="menu_edit_rigthmargin">10dp</dimen>
+    <dimen name="menu_edit_bottommargin">10dp</dimen>
+    <dimen name="menu_edit_size">14dp</dimen>
+    <dimen name="menu_edit_padding">20dp</dimen>
+    <dimen name="menu_edit_marginTop">10dp</dimen>
+    <dimen name="menu_title_text_size">14sp</dimen>
+
+
+    <!-- Tutorial -->
+    <dimen name="tutorial_size_button">15sp</dimen>
+    <dimen name="tutorial_round_button">2dp</dimen>
+    <dimen name="tutorial_title_round_corners">2dp</dimen>
+    <dimen name="tutorial_title_size">16sp</dimen>
+    <dimen name="tutorial_subtitle_size">24sp</dimen>
+
+    <!-- sign -->
+    <dimen name="sign_size_title">18sp</dimen>
+    <dimen name="sign_size_policy">12sp</dimen>
+    <dimen name="sign_image_profile_size">80dp</dimen>
+    <dimen name="round_corners_button_facebook">4dp</dimen>
+    <dimen name="gener_container_border">1dp</dimen>
+    <dimen name="page_margin">20dp</dimen>
+    <dimen name="facebook_button_size">40dp</dimen>
+    <dimen name="facebook_button_margin">25dp</dimen>
+    <dimen name="facebook_margin_item">10dp</dimen>
+    <dimen name="sign_next_title_size">15sp</dimen>
+    <dimen name="gener_button_size">12sp</dimen>
+    <dimen name="sign_phone_container_size">40dp</dimen>
+    <dimen name="sign_container_margin_top">10dp</dimen>
+    <dimen name="sign_code_margin_top">40dp</dimen>
+    <dimen name="sign_phone_container_margin_left_right">60dp</dimen>
+    <dimen name="sign_subtitle_width">220dp</dimen>
+
+    <!-- Dialog -->
+    <dimen name="dialog_row_height">40dp</dimen>
+
+    <!-- News feed -->
+    <dimen name="news_feed_item_size">160dp</dimen>
+    <dimen name="news_feed_shared_name_size">14sp</dimen>
+    <dimen name="news_feed_shared_time_size">12sp</dimen>
+    <dimen name="news_feed_image_size">60dp</dimen>
+
+    <!-- Recommendations-->
+    <dimen name="recommendations_row_size">50dp</dimen>
+
+    <!-- Create Cards-->
+    <dimen name="create_marginbottom_whole_form">47dp</dimen>
+    <dimen name="create_margin_form">25dp</dimen>
+    <dimen name="create_title_size">16sp</dimen>
+    <dimen name="create_tiny_size">14sp</dimen>
+    <dimen name="create_tiny_margin">15dp</dimen>
+    <dimen name="create_item_hability_margin">10dp</dimen>
+    <dimen name="create_item_round">30dp</dimen>
+
+    <!-- Profile-->
+    <dimen name="profile_margin_study_view">5dp</dimen>
+
+    <!-- Settings -->
+
+    <dimen name="settings_height_item">50dp</dimen>
+
+    <!-- Recomendations -->
+
+    <dimen name="recomendation_size_thumb">30dp</dimen>
+
+    <!-- text size -->
+    <dimen name="text_size_super_tiny">10sp</dimen>
+    <dimen name="text_size_tiny">12sp</dimen>
+    <dimen name="text_size_small">14sp</dimen>
+    <dimen name="text_size_mediun">16sp</dimen>
+    <dimen name="text_size_big">20sp</dimen>
+    <dimen name="text_size_super_big">22sp</dimen>
+
+    <!-- thumb text size -->
+    <dimen name="thumb_size_tiny">30dp</dimen>
+    <dimen name="thumb_size_mediun">40dp</dimen>
+    <dimen name="thumb_size_big">60dp</dimen>
+    <dimen name="thumb_size_plus_big">100dp</dimen>
+
+    <!-- paddings -->
+    <dimen name="padding_content_plus_tiny">1dp</dimen>
+    <dimen name="padding_content_super_tiny">3dp</dimen>
+    <dimen name="padding_content_tiny">5dp</dimen>
+    <dimen name="padding_content_small">10dp</dimen>
+    <dimen name="padding_content_big">15dp</dimen>
+
+    <!-- margins -->
+    <dimen name="margin_mini">2dp</dimen>
+    <dimen name="margin_tiny">5dp</dimen>
+    <dimen name="margin_small">10dp</dimen>
+    <dimen name="margin_mediun">15dp</dimen>
+    <dimen name="margin_big">20dp</dimen>
+    <dimen name="margin_plus_big">30dp</dimen>
+    <dimen name="margin_plus_biggest">40dp</dimen>
+    <dimen name="margin_plus_plus_biggest">60dp</dimen>
+    <dimen name="margin_plus_plus_plus_biggest">100dp</dimen>
+
+    <!-- rows size -->
+    <dimen name="row_size_big">100dp</dimen>
+    <dimen name="row_size_mediun">70dp</dimen>
+    <dimen name="view_max_height_row_mediun">50dp</dimen>
+    <dimen name="view_max_width_row_big">220dp</dimen>
+
+    <!-- view cases-->
+    <dimen name="view_height_card_image">350dp</dimen>
+    <dimen name="view_big_width">160dp</dimen>
+    <dimen name="view_max_width_mediun">100dp</dimen>
+    <dimen name="view_max_width">100dp</dimen>
+    <dimen name="view_max_height">100dp</dimen>
+    <dimen name="view_max_height_big">80dp</dimen>
+    <dimen name="view_min_width">60dp</dimen>
+    <dimen name="view_height_big">60dp</dimen>
+    <dimen name="view_min_height_card">50dp</dimen>
+    <dimen name="view_min_height_contacts">40dp</dimen>
+    <dimen name="view_min_height">25dp</dimen>
+    <dimen name="view_tiny_height">6dp</dimen>
+    <dimen name="view_super_tiny_height">1dp</dimen>
+    <dimen name="view_height_super_tiny">0.1dp</dimen>
+    <dimen name="view_tab_item_width">150dp</dimen>
+
+
+    <!-- View Elevation -->
+    <dimen name="view_elevation_min">3dp</dimen>
+    <dimen name="view_elevation">6dp</dimen>
+    <dimen name="toolbar_elevation">8dp</dimen>
+
+    <!-- Radius -->
+    <dimen name="radius_big">20dp</dimen>
+
+
+</resources>

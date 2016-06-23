@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--100% — FF-->
+    <!--95% — F2-->
+    <!--90% — E6-->
+    <!--85% — D9-->
+    <!--80% — CC-->
+    <!--75% — BF-->
+    <!--70% — B3-->
+    <!--65% — A6-->
+    <!--60% — 99-->
+    <!--55% — 8C-->
+    <!--50% — 80-->
+    <!--45% — 73-->
+    <!--40% — 66-->
+    <!--35% — 59-->
+    <!--30% — 4D-->
+    <!--25% — 40-->
+    <!--20% — 33-->
+    <!--15% — 26-->
+    <!--10% — 1A-->
+    <!--5% — 0D-->
+    <!--0% — 00-->
+
+
+    <color name="background_gradient_start">#000000</color>
+    <color name="background_gradient_end">#DDDDDD</color>
+    <color name="fastlane_background">#0096a6</color>
+    <color name="search_opaque">#ffaa3f</color>
+    <color name="detail_background">#0096a6</color>
+    <color name="soft_opaque">#30000000</color>
+    <color name="img_soft_opaque">#30FF0000</color>
+    <color name="img_full_opaque">#00000000</color>
+    <color name="black_opaque">#AA000000</color>
+    <color name="black_app">#59000000</color>
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="orange_transparent">#AAFADCA7</color>
+    <color name="orange">#FADCA7</color>
+    <color name="yellow">#FEC30B</color>
+    <color name="default_background">#3d3d3d</color>
+    <color name="black_opaque_50">#73000000</color>
+    <color name="black_opaque_30">#4D000000</color>
+
+    <!-- ToolBar -->
+    <color name="backgroundToolBar">#FADCA7</color>
+    <color name="colorControlToolBar">#59000000</color>
+    <color name="textColorSecondaryToolBar">#FFFFFF</color>
+    <color name="homeToolbarcolor">#D4D4D4</color>
+    <color name="homeToolbarcolor_50">#80D4D4D4</color>
+
+    <!-- APP colors -->
+    <color name="recommendationcolor">#ffc000</color>
+    <color name="linkercolor">#88bf00</color>
+    <color name="linkercolor_30">#4D88bf00</color>
+    <color name="linkercolor_50">#8088bf00</color>
+    <color name="linkercolor_80">#CC88bf00</color>
+
+    <color name="tinkercolor">#9c27b0</color>
+    <color name="tinkercolor_30">#4D9c27b0</color>
+    <color name="tinkercolor_50">#809c27b0</color>
+    <color name="tinkercolor_80">#CC9c27b0</color>
+
+    <color name="warningcolor">#ECD420</color>
+    <color name="errorcolor">#DE0707</color>
+
+    <color name="gray_color">#E2E2E2</color>
+    <color name="gray_50">#80E2E2E2</color>
+    <color name="gray_30">#4D000000</color>
+    <color name="gray_card">#D5D5D5</color>
+
+    <!-- Sign colors-->
+    <color name="sign_button">#E2E2E2</color>
+    <color name="sign_background">#ECEFEF</color>
+    <color name="sign_camera_background">#DBDCDC</color>
+    <color name="com_facebook_blue">#3B5998</color>
+    <color name="sign_text_color">#7A7A7D</color>
+
+    <!-- News Feed -->
+    <color name="news_feed_color_card_border">#E6E5E5</color>
+    <color name="news_feed_detail_info">#4D000000</color>
+    <color name="news_feed_chat_button_background">#E2E2E2</color>
+
+    <!-- Recomendations -->
+    <color name="recomendation_background">#F1F1F1</color>
+    <color name="recomendation_separator">#d5d5d5</color>
+    <color name="chat_background">#DAD9DA</color>
+
+
+
+
+</resources>

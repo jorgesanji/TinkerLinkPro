@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/jorgesanmartin/Documents/Repositories/android/Tinkerlink_V2/tinkerlink/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="0fea98c8a4266024dd326279a562972d759798af">
+        <dex dex="/Users/jorgesanmartin/Documents/Repositories/android/Tinkerlink_V2/tinkerlink/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_ca93eb492ed0d4736b1da3e388a4d8309870a475/classes.dex" />
+    </item>
+
+</items>

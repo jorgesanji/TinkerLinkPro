@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="horizontal">
+
+    <com.cronosgroup.tinkerlink.view.customviews.TLImageView
+        android:id="@+id/iconTabItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="2dp" />
+
+    <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+        android:id="@+id/titleTabItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_small"
+        android:ellipsize="end"
+        android:lines="1"
+        android:singleLine="true"
+        android:textColor="@color/black_opaque"
+        android:textSize="@dimen/text_size_small"
+        android:layout_marginRight="@dimen/margin_mediun"
+        app:fontName="Regular" />
+
+</LinearLayout>

@@ -1,0 +1,6 @@
+{
+  "dev_ip": "https://52.38.56.11:3010/",
+  "prod": "https://api.tinkerlink.com:3010/",
+  "qa": "http://107.170.80.82:3002/",
+  "dev": "https://api.tinkerlink.com:3010/"
+}

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="url_terms_en" translatable="false">http://107.170.80.82/privacy_policy_EN.html#terms</string>
+    <string name="url_terms_es" translatable="false">http://107.170.80.82/privacy_policy_ES.html#terms</string>
+    <string name="url_policy_es" translatable="false">http://107.170.80.82/privacy_policy_ES.html</string>
+    <string name="url_policy_en" translatable="false">http://107.170.80.82/privacy_policy_EN.html</string>
+</resources>

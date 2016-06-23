@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_small"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <com.cronosgroup.tinkerlink.view.customviews.TLUserView
+            android:id="@+id/userContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_small"
+            app:userSubTitleColor="@color/gray_30"
+            app:userSubTitleFont="Regular"
+            app:userSubTitleSize="@dimen/text_size_tiny"
+            app:userTitleColor="@color/black"
+            app:userTitleFont="Bold"
+            app:userTitleSize="@dimen/text_size_mediun" />
+
+        <RelativeLayout
+            android:id="@+id/containerInfocard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/padding_content_small">
+
+            <RelativeLayout
+                android:id="@+id/containerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_plus_big"
+                android:background="@drawable/background_recomendation_card">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical"
+                        android:visibility="visible">
+
+                        <LinearLayout
+                            android:id="@+id/cardContentDescription"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_plus_big"
+                            android:gravity="center_horizontal"
+                            android:orientation="vertical"
+                            android:padding="@dimen/margin_small"
+                            android:visibility="visible">
+
+                            <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                                android:id="@+id/userName"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:inputType="textCapSentences"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/text_size_mediun"
+                                android:visibility="visible"
+                                app:fontName="Bold" />
+
+                            <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                                android:id="@+id/userOcupation"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/text_size_mediun"
+                                android:visibility="visible"
+                                app:fontName="Regular" />
+
+                            <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                                android:id="@+id/userLocation"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/gray_30"
+                                android:textSize="@dimen/text_size_tiny"
+                                android:visibility="visible"
+                                app:fontName="Light" />
+
+                            <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                                android:id="@+id/cardDescription"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/margin_tiny"
+                                android:minHeight="@dimen/view_min_height"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/text_size_small"
+                                android:visibility="visible"
+                                app:fontName="Regular" />
+
+                        </LinearLayout>
+
+                        <View
+                            android:id="@+id/dividerView"
+                            android:layout_width="match_parent"
+                            android:layout_height="2dp"
+                            android:background="@color/yellow" />
+
+                        <include
+                            layout="@layout/lay_tab_actions"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/margin_tiny" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <include
+                layout="@layout/lay_user_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

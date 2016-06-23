@@ -1,0 +1,483 @@
+<resources>
+    <string name="app_name">Tinkerlink</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <!-- USER tinker -->
+    <string name="support_name">tinkerlink Support</string>
+
+    <!-- ERROR MESSAGES -->
+    <string name="sign_email_error">Invalid email</string>
+    <string name="sign_name_error">Invalid name</string>
+    <string name="sign_datebirth_error">Invalid birthdate</string>
+    <string name="sign_imageProfile_error">Please add a photo to your profile</string>
+    <string name="sign_sex_error">Choose your gender</string>
+    <string name="sign_phone_error">Please add your phone number</string>
+    <string name="sign_request_error">There was a connection error. Try again</string>
+    <string name="sign_code_error">You have to add the 6 digits password that you received via SMS</string>
+    <string name="sign_code_validation_title_error">The password is incorrect</string>
+    <string name="sign_code_validation_message_error">Try again</string>
+    <string name="login_enter_code_error">Please add the 6 digits password received via SMS</string>
+    <string name="login_enter_email_error">Please add your email</string>
+    <string name="login_user_duplicate_error">The number associated with your account has been validated with a different user. Please validate a new phone number so you can access</string>
+    <string name="login_code_expire_error">This password has expired. We are sending you a new one.</string>
+    <string name="login_code_error">Wrong password. Try again</string>
+    <string name="login_recover_error">Wrong phone number or password. Try again</string>
+    <string name="login_enter_email_pasword_error">Wrong email or password. Try again</string>
+    <string name="newsFeed_like_error">There was an error while trying to process your petition. Check your internet connection</string>
+    <string name="newsFeed_chat_error">We couldn\'t send the message. Try again</string>
+    <string name="newsFeed_share_error">We couldn\'t share this post. Try again</string>
+    <string name="newsFeed_contact_error">We couldn\'t connect with this user. Try again</string>
+    <string name="newsFeed_delete_contact_error">We couldn\'t delete this user. Try again</string>
+    <string name="newsFeed_block_contact_error">We couldn\'t block this contact. Try again</string>
+    <string name="create_category_error">Type in your occupation</string>
+    <string name="create_invalid_number_photos_error">The number of photos is limited to 3 photos</string>
+    <string name="profile_upload_photo_error">We couldn\'t update your photo. Try again</string>
+    <string name="profile_delete_photo_error">We couldn\'t delete your photo. Try again</string>
+    <string name="profile_update_profile_error">We couldn\'t update your profile. Try again</string>
+    <string name="profile_no_selecte_users_error">Select at least one user to ask for recommendations</string>
+    <string name="profile_request_recommendation_error">We couldn\'t process the recommendation. Try again</string>
+    <string name="profile_give_recommendation_error">We couldn\'t process the recommendation. Try again</string>
+    <string name="profile_give_recommendation_no_description_error">Please type a text to give a recommendation</string>
+    <string name="setttings_logout_error">Log out failure. Try again</string>
+
+    <string name="create_category_form_error">There was an error when selecting this profession, please choose another</string>
+    <string name="create_prefession_form_error">Choose your occupation</string>
+    <string name="create_experience_form_error">Choose your years of experience</string>
+    <string name="create_currency_form_error">Choose a currency</string>
+    <string name="create_pay_form_error">Choose your budget</string>
+    <string name="create_time_form_error">Choose a period</string>
+    <string name="create_time_publish_form_error">We couldn\'t post your card. Try again</string>
+    <string name="create_address_form_error">Choose your location</string>
+
+    <string name="contacts_invite_error">The request contact has an error. Please try again</string>
+    <string name="newsFeed_status_error">It status is invalid. Please fill status properly</string>
+
+
+    <!-- SUCCESS MESSAGES -->
+
+    <string name="newsFeed_share_success">Post shared</string>
+    <string name="newsFeed_chat_success">Message sent</string>
+    <string name="newsFeed_like_success">Liked</string>
+
+    <string name="newsFeed_request_user_contact">Contact request sent</string>
+    <string name="newsFeed_cancel_user_contact">Conctact request cancelled</string>
+    <string name="newsFeed_delete_user_contact">The contact has been eliminated</string>
+    <string name="newsFeed_sms_user_contact">Invitation sent</string>
+    <string name="newsFeed_block_contact">Contact was blocked</string>
+
+    <string name="profile_update_photo_success">Photo updated</string>
+    <string name="profile_delete_photo_success">Photo deleted</string>
+    <string name="profile_update_profile_success">Profile updated</string>
+    <string name="profile_give_recommendation_success">Recommendation processed</string>
+    <string name="card_deleted_success">Your card has been deleted</string>
+    <string name="newsFeed_status_success">Status updated</string>
+    <string name="contacts_invite">Invitation sent</string>
+    <string name="newsFeed_accept_contact">New user added</string>
+
+    <!-- title buttons menus-->
+    <string name="action_search">search</string>
+    <string name="action_chat">chat</string>
+    <string name="action_notifications">notifications</string>
+    <string name="action_search_card">Search</string>
+    <string name="action_create_card">Create a card</string>
+    <string name="action_invite">Invite</string>
+    <string name="action_watch_profile">Show profile</string>
+    <string name="action_send_message">Send message</string>
+    <string name="action_start_chat">Chat</string>
+    <string name="action_back">back</string>
+    <string name="action_edit_photo">Edit photo</string>
+    <string name="action_delete_photo">Delete Photo</string>
+    <string name="action_add_contact">Add contact</string>
+    <string name="action_cancel_contact">Cancel contact</string>
+    <string name="action_accept_contact">Accept contact</string>
+    <string name="action_add_block_contact">Block contact</string>
+    <string name="action_add_delete_contact">Delete contact</string>
+    <string name="action_edit_profile">Edit Profile</string>
+    <string name="action_gallery">Gallery</string>
+    <string name="action_camera">Camera</string>
+    <string name="action_delete_chat">Delete chat</string>
+    <string name="action_delete_notifications">Delete notification</string>
+
+
+    <string name="action_onlyme">Only me</string>
+    <string name="action_everybody">Everybody</string>
+    <string name="action_my_contacts">My contacts</string>
+
+    <string name="cancel_button_title">Cancel</string>
+    <string name="ok_button_title">OK</string>
+    <string name="send_button_title">Send</string>
+    <string name="add_button_title">Add</string>
+
+    <!-- Menu Drawer Options -->
+    <string name="menu_item_title_inicio">Home</string>
+    <string name="menu_item_title_contactos">Contacts</string>
+    <string name="menu_item_title_chats">Chats</string>
+    <string name="menu_item_title_notifications">Notifications</string>
+    <string name="menu_item_title_settings">Settings</string>
+    <string name="menu_item_edit_profile">My profile</string>
+
+    <!-- Tutorial-->
+    <string name="tutorial_register">SIGN UP</string>
+    <string name="tutorial_login">LOG IN</string>
+    <string name="tutorial_cover1_title">Search, find and connect with reliable experts recommended by people you know</string>
+    <string name="tutorial_cover2_title">Searching for a job?</string>
+    <string name="tutorial_cover2_subtitle">You are a tinker</string>
+    <string name="tutorial_cover3_title">Search, find and connect with reliable experts recommended by people you know</string>
+    <string name="tutorial_cover4_title">Need any help?</string>
+    <string name="tutorial_cover4_subtitle">You are a linker</string>
+    <string name="tutorial_cover5_title">Post your request and wait no longer to start</string>
+
+    <!-- Sign-->
+
+    <string name="sign_hint_phone">Type your phone number</string>
+
+
+    <!--Warning messages -->
+
+    <string name="search_post_no_founded">We couldn\'t find any result</string>
+
+    <string name="sign_title_start">Start now!</string>
+    <string name="sign_add_profile_image">Add a profile photo</string>
+    <string name="sign_hint_email">email</string>
+    <string name="sign_hint_name">Your Full Name</string>
+    <string name="sign_hint_date">dd/mm/yyyy</string>
+    <string name="sign_title_female">Female</string>
+    <string name="sign_title_male">Male</string>
+    <string name="sign_policies">By registering, you agree to our Terms of Use and Privacy Policy</string>
+    <string name="sign_use_policies"> Terms of Use and Privacy Policy</string>
+    <string name="registration_connect_with_facebook">Use your Facebook profile</string>
+    <string name="sign_next_button">Next</string>
+
+    <string name="sign_valid_info">We want to keep the security of your account and the trust in our network by creating unique records through a quick validation process. Select your country code and introduce your phone number.</string>
+    <string name="sign_title_picker_image">Select an option:</string>
+
+    <string name="sign_code_info">We have sent you an SMS with your password. To complete your verification please enter the 6 digits code.</string>
+    <string name="sign_title_validate">Validate your ID</string>
+    <string name="sign_title_send_message">Send message</string>
+
+    <string name="sign_title_enter_code">Enter received code</string>
+    <string name="sign_title_send_code">Send code</string>
+
+    <string name="camera_title">Camera</string>
+    <string name="gallery_title">Gallery</string>
+
+    <string name="hint_country_search_text">Select your country</string>
+    <string name="sign_resend_code_time">Send code again</string>
+    <string name="sign_resend_code_sended">Have not received the code yet?</string>
+    <string name="sign_sucess_validation">Welcome to TinkerLink</string>
+
+    <string name="sign_user_active_title">Existing user. Please Login</string>
+    <string name="sign_user_active_message">Please log in</string>
+    <string name="sign_user_receovery_title">Existing user. Please Login</string>
+    <string name="sign_user_recovery_message">We\'ve sent you a SMS with the password. Check your messages</string>
+
+
+    <!-- Loging -->
+
+    <string name="login_forgot_password">Forgot your password?</string>
+    <string name="login_enter_your_information">Type your user name and access code</string>
+    <string name="login_enter_button">Log In</string>
+    <string name="login_recovery_button">Reset password</string>
+    <string name="login_recovery_title">Reset password</string>
+    <string name="login_enter_code">Password</string>
+
+
+    <!-- Search activity-->
+
+    <string name="search_hint">What are you looking for?</string>
+
+
+    <!-- News Feed-->
+
+    <string name="newsFeed_send_chat">You have something to say</string>
+    <string name="news_feed_sugerencias_title">People you may know</string>
+    <string name="news_feed_sugerencias_new_contacts"> %s has new contacts</string>
+    <string name="news_feed_views">views</string>
+    <string name="news_feed_likes">likes</string>
+    <string name="news_feed_share">share</string>
+    <string name="news_feed_share_title">Share in:</string>
+    <string name="share_news_feed">News Feed</string>
+    <string name="share_facebook">Facebook</string>
+    <string name="share_contact_with">Share contact with: %s</string>
+    <string name="news_feed_recommended">%s has a new recommendation</string>
+    <string name="news_feed_show_recommendations">Show my recommendations</string>
+    <string name="news_feed_recommendations_from">%s recommendations</string>
+    <string name="news_feed_ready_share">You\'ve already shared this post</string>
+    <string name="news_feed_ready_status">%s posted an update</string>
+    <string name="news_feed_update_status">%s has a profile update</string>
+    <string name="news_feed_update_photo">%s has an image update</string>
+    <string name="news_feed_share_profile" formatted="false"> %s shared %s profile</string>
+    <string name="news_feed_suggestions_profiles">People you may know</string>
+    <string name="news_feed_publishtinker_card">%s posted a tinkercard</string>
+    <string name="news_feed_publishlinker_card">%s posted linkercard</string>
+    <string name="news_feed_status_placeholder">Update your status</string>
+    <string name="news_feed_status_title">Status</string>
+
+    <!-- Create tinker and linker card-->
+
+    <string name="stack_empty_message">This user doesn\'t have any cards yet</string>
+    <string name="title_linkercard_stack">LinkerCards</string>
+    <string name="title_tinkercard_stack">TinkerCards</string>
+    <string name="title_linkercard_stack_name">%s LinkerCards </string>
+    <string name="title_tinkercard_stack_name">%s TinkerCards </string>
+    <string name="title_publishcard_stack">Post a card</string>
+
+    <string name="create_tinker_card_title">Edit your tinkercard</string>
+    <string name="create_linker_card_title">Edit your linkercard</string>
+    <string name="create_use_profile_information">Use your profile information</string>
+    <string name="create_use_profile_job_title">OCCUPATION</string>
+    <string name="create_use_profile_job">What is your occupation?</string>
+
+    <string name="create_use_profile_linker_job">What are you looking for?</string>
+    <string name="create_use_profile_linker_select_habilities">What skills should he/she have?</string>
+    <string name="create_use_profile_linker_description_hint">Give a brief description of the requirements of the work</string>
+    <string name="create_use_profile_linker_year_experience">How many years of experience needed?</string>
+    <string name="create_use_profile_linker_budget_job">How much are you wiling to pay?</string>
+    <string name="create_use_profile_linker_budget_time">Timeframe?</string>
+    <string name="create_use_profile_linker_added_hability_title">Select some skills</string>
+    <string name="card_user_linker_knowledge">With skills in</string>
+
+
+    <string name="create_use_profile_habilities">SKILLS</string>
+    <string name="create_use_profile_select_habilities">Select your skills</string>
+    <string name="create_use_profile_added_hability_error">Type a skill</string>
+    <string name="create_use_profile_added_hability_title">Select your skills</string>
+    <string name="create_use_profile_add_custom_hability">+ Add</string>
+    <string name="create_use_profile_add_other_custom_hability">Add other</string>
+    <string name="create_use_profile_experience">EXPERIENCE</string>
+    <string name="create_use_profile_year_experience">How many years of experience do you have?</string>
+    <string name="create_use_profile_budget">BUDGET</string>
+    <string name="create_use_profile_budget_job">How much do you want to charge for your work?</string>
+    <string name="create_use_profile_budget_Currency">Currency</string>
+    <string name="create_use_profile_budget_time">Timeframe?</string>
+    <string name="create_use_profile_my_photos">MY PHOTOS</string>
+    <string name="create_use_profile_add_photos">Add a picture to your description.</string>
+    <string name="create_use_profile_place_title">Location</string>
+    <string name="create_use_profile_place_select">What location?</string>
+    <string name="create_use_profile_description">DESCRIPTION</string>
+    <string name="create_use_profile_description_hint">Give a brief description of your work</string>
+    <string name="create_use_error_empty_profile">You professional profile is incomplete</string>
+
+    <string name="create_use_profile_publish_button">POST</string>
+    <string name="create_use_profile_button_tinkercard">ADD TINKERKARD</string>
+    <string name="create_use_profile_button_linkercard">ADD LINKERKARD</string>
+
+    <string name="create_year_0_to_1">0 to 1 year</string>
+    <string name="create_year_1_to_3">1 to 2 years</string>
+    <string name="create_year_3_to_5">3 to 5 years</string>
+    <string name="create_year_more_5">over 5 years</string>
+
+    <string name="create_price_lower_1000">1000 or less</string>
+    <string name="create_between_1000_to_3000">1000 to 3000</string>
+    <string name="create_between_3000_to_5000">3000 to 5000</string>
+    <string name="create_between_agreement">To discuss</string>
+
+    <string name="create_currency_pesos">Pesos</string>
+    <string name="create_currency_dolars">Dollars</string>
+    <string name="create_currency_euros">Euros</string>
+    <string name="create_currency_pounds">Pounds</string>
+    <string name="create_currency_other">Other</string>
+
+
+    <string name="create_time_by_hour">Per hour</string>
+    <string name="create_time_by_day">per day</string>
+    <string name="create_time_by_proyecto">By project</string>
+    <string name="create_time_agreement">To discuss</string>
+
+    <string name="create_search_hint">Type your occupation</string>
+    <string name="create_search_place_hint">What location?</string>
+
+    <string name="card_send_message">Send message</string>
+    <string name="card_add_contact">Add contact</string>
+    <string name="card_remove">Delete card</string>
+
+
+    <string name="card_user_iam">I am %s</string>
+    <string name="card_user_at">in %s</string>
+    <string name="card_user_knowledge">my skills </string>
+    <string name="news_feed_knowledge" formatted="false">%s skills are%s</string>
+    <string name="news_feed_seek_to" formatted="false">Searching %s with the following skills %s</string>
+    <string name="news_feed_seek">Searching %s</string>
+    <string name="news_feed_empty_message">You haven\'t posted lately</string>
+
+
+    <!-- Contacts -->
+
+    <string name="contacts_tinkerlink_title">TINKERLINK</string>
+    <string name="contacts_suggestions_title">SUGGESTED</string>
+    <string name="contacts_agenda_title">CONTACT LIST</string>
+
+    <string name="list_contact_search_empty_message">No matches found</string>
+    <string name="list_contact_tinkerlink_empty_message">You don\'t have any contacts on tinkerlink yet</string>
+    <string name="list_contact_recommedations_empty_message">No recommendations at this time</string>
+    <string name="list_contact_phonebook_empty_message">You don\'t have any contacts yet</string>
+
+    <!-- Profile -->
+
+    <string name="profile_profile">PROFILE</string>
+    <string name="profile_recomendations">RECOMENDATIONS</string>
+    <string name="profile_activity">ACTIVITY</string>
+    <string name="profile_education">EDUCATION</string>
+    <string name="profile_education_introduce">Add your studies</string>
+    <string name="profile_add_education">Add more</string>
+    <string name="profile_recommendations_empty_messages">You have no recommendations yet. Ask for some</string>
+    <string name="profile_profession_empty_messages">Add your occupation</string>
+    <string name="profile_habilities_empty_messages">Add skills</string>
+    <string name="profile_education_empty_messages">Add education</string>
+    <string name="profile_gallery_empty_messages">No photos</string>
+    <string name="profile_edit_title">EDIT</string>
+    <string name="profile_edit_nombre_curso_placeholder">Course Name</string>
+    <string name="profile_edit_institucion_study_placeholder">School</string>
+    <string name="profile_edit_add_study">Add your education:</string>
+    <string name="profile_recommendation_hint">Help me to improve my profile by recommending my skills</string>
+    <string name="profile_recommendation_select_contacts">+ Select all</string>
+    <string name="profile_recommendation_send_to">Send to:</string>
+    <string name="profile_recommendation_introduce_name_conctact">Add a name</string>
+    <string name="profile_request_recommendation_title">Ask for recommendations</string>
+    <string name="profile_give_recommendation_title">Recommend</string>
+    <string name="profile_recommendation_number_contacts_selected">%s Selected contacts</string>
+    <string name="profile_recommendation_number_contacts_sended">You send a request to %s selected contacts</string>
+    <string name="profile_recommendation_habilities">Recommend skills:</string>
+    <string name="profile_recommendation_description_hint">Say something about the performance</string>
+    <string name="profile_recommendation_request_recommendation_to_user">ASK FOR A RECOMMENDATION TO %s</string>
+    <string name="profile_request_recommendations">%s Recommendations</string>
+    <string name="profile_emptyList">There isn\'t any active post</string>
+    <string name="profile_share">Profile shared</string>
+    <string name="profile_ready_share">Profile ready shared</string>
+
+
+    <!-- Settings -->
+    <string name="settings_name">Name</string>
+    <string name="settings_name_hint">Type your full name</string>
+    <string name="settings_birthdate">Birthdate</string>
+    <string name="settings_birthdate_hint">Type your birthday</string>
+    <string name="settings_mail">Email</string>
+    <string name="settings_mail_hint">Type your email</string>
+    <string name="settings_phone">Phone number</string>
+    <string name="settings_phone_hint">Type your phone number</string>
+    <string name="settings_password">Password</string>
+    <string name="settings_password_hint">Type a new password</string>
+    <string name="settings_confirm_password_hint">Confirm your password</string>
+    <string name="settings_privacy">Privacy</string>
+    <string name="settings_privacy_activity">Who can see my activity?</string>
+    <string name="settings_notifications">Notifications</string>
+    <string name="settings_notifications_request">Contact Request</string>
+    <string name="settings_notifications_messages">Messages</string>
+    <string name="settings_notifications_likes">Likes</string>
+    <string name="settings_notifications_shares">Shares</string>
+    <string name="settings_support_tinkerlink">Tinkerlink Support</string>
+    <string name="settings_use_terms">Terms and Conditions</string>
+    <string name="settings_privacy_policy">Privacy Policy</string>
+    <string name="settings_feedback">Feedback</string>
+    <string name="settings_logout">Log Out</string>
+    <string name="settings_message_logout">Are you sure you want to quit?</string>
+    <string name="settings_feedback_message">Rate us in the Play Store</string>
+
+
+    <!-- Chat -->
+    <string name="chat_delete_message">Are you sure you want to delete this conversation?</string>
+    <string name="chat_user_placeholder">Type something nice</string>
+    <string name="chat_emptyList">There isn\'t any active chat</string>
+
+    <!-- Notifications -->
+    <string name="notifications_delete_notification">Are you sure you want to delete this conversation?</string>
+    <string name="notifications_request_contact_with_me">%s sent you a contact request</string>
+    <string name="notifications_request_accept_contact_with_me">%s accepted your request</string>
+    <string name="notifications_request_accept_contact_from_me">%s was accepted</string>
+    <string name="notifications_request_recommendation_accept">%s accepted your recommendation</string>
+    <string name="notifications_request_recommendation_my_profile">%s wants to recommend your profile</string>
+    <string name="notifications_request_recommendation_from_someone">%s asks you for a recommendation</string>
+    <string name="notifications_request_share_my_post">%s shared a post</string>
+    <string name="notifications_request_share_my_profile">%s shared my profile</string>
+    <string name="notification_request_contact_to_me">Do you want to connect with %s ?</string>
+    <string name="notification_request_recommended_to_me">Do you accept %s recommendation?</string>
+    <string name="notification_empty_message">You don\'t have any notifications</string>
+    <string name="notification_recommends_to_you">%s recommended to you</string>
+    <string name="notification_recommends_habilities">Habilities :</string>
+
+    <string name="share_text_recommendation" formatted="false">%s recommended %s in tinkerlink</string>
+    <string name="share_text_help_linker">Help %s to find linker in tinkerlink</string>
+    <string name="share_text_help_tinker">Help %s to find tinker in tinkerlink</string>
+
+    <string name="app_exit_message">Are you sure you want to exit?</string>
+
+    <!--
+    ******************************************************************
+    *
+    * News Strings Added
+    *
+    ******************************************************************
+-->
+
+    <!--  Time Strings-->
+
+    <string name="time_just_now">just now</string>
+    <string name="time_minutes_ago">%s minutes ago</string>
+    <string name="time_minute_ago">a minute ago</string>
+    <string name="time_hour_ago">an hour ago</string>
+    <string name="time_hours_ago">%s hours ago</string>
+    <string name="time_yesterday">yesterday</string>
+    <string name="time_days_ago">%s days ago</string>
+
+    <!-- News Feed -->
+    <string name="watch_tinkers">I\'m Tinker</string>
+    <string name="watch_linkers">Searching Tinker</string>
+    <string name="newsfeed_search_post">POSTS</string>
+    <string name="newsfeed_search_users">USERS</string>
+    <string name="newsfeed_new_messages">There are new posts</string>
+    <string name="newsfeed_search_users_empty_message">There\'s no coincidences</string>
+
+    <string name="newsfeed_share_recommendations_text">%s shared a recommendation</string>
+    <string name="newsfeed_share_updateprofile_text">%s shared a profile update</string>
+    <string name="newsfeed_share_updatephoto_text">%s shared a profile image update</string>
+    <string name="newsfeed_share_status_text">%s shared a status update</string>
+    <string name="newsfeed_share_tinker_text">%s shared a new card I\'m Tinker</string>
+    <string name="newsfeed_share_linker_text">%s shared a new card Searching Tinker</string>
+
+    <!-- Profile -->
+
+    <string name="profile_recomendations_number">RECOMENDATIONS (%s)</string>
+    <string name="profile_send_request">Add</string>
+    <string name="profile_request_sent">Requested</string>
+    <string name="profile_request_received">Requested</string>
+    <string name="profile_friends">Friends</string>
+
+    <string name="profile_write_message">Write a message</string>
+    <string name="profile_services">I\'m Tinker</string>
+    <string name="profile_offers">Searching Tinker</string>
+
+    <string name="profile_description_title">DESCRIPTION</string>
+
+    <string name="newsFeed_reject_user_contact">Request contact rejected</string>
+
+    <string name="profile_contacts_common">Common contacts</string>
+
+
+    <!-- Edit Profile-->
+
+    <string name="edit_profile_profile_photo">PROFILE PHOTO</string>
+
+
+    <!-- Recommendations -->
+
+    <string name="profile_recomendations_title">Recomendations</string>
+    <string name="profile_cancel_request_sent">are you sure that you want cancel request to %s?</string>
+    <string name="profile_cancel_request_received">Accept to %s like contact?</string>
+    <string name="profile_delete_contact">are you sure that you want delete to %s from your contacts?</string>
+    <!--<string name="news_feed_recomendations_to" formatted="false"> %s recommended to %s</string>-->
+    <string name="news_feed_recomendations_to"> %s made a recommendation</string>
+    <string name="news_feed_status_message"> %s, share something with your friends...</string>
+
+    <!-- Linker card -->
+
+    <string name="card_seek">Searching</string>
+    <string name="card_skills">SKILLS</string>
+
+    <!-- Tinker card -->
+    <string name="card_showmore">Show more</string>
+    <string name="card_me">I\'m</string>
+    <string name="card_requirements">REQUIREMENTS</string>
+
+</resources>

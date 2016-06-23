@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.cronosgroup.tinkerlink.view.customviews.TLImageView
+        android:id="@+id/background1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <com.cronosgroup.tinkerlink.view.customviews.TLImageView
+        android:id="@+id/background2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <com.cronosgroup.tinkerlink.view.customviews.TLViewPager
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/containerButtons"
+        app:scrollDuration="4" />
+
+    <com.cronosgroup.tinkerlink.view.customviews.TLViewPagerIndicator
+        android:id="@+id/pageIndicator"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_above="@+id/containerButtons"
+        android:layout_centerHorizontal="true"
+        android:background="@android:color/transparent"
+        app:currentSelected="0"
+        app:imageSelectedDot="@drawable/tutorial_dot_selected"
+        app:imageUnSelectedDot="@drawable/tutorial_dot_unselected"
+        app:numDots="4"
+        app:sizeDot="12dp" />
+
+    <LinearLayout
+        android:id="@+id/containerButtons"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        android:orientation="horizontal">
+
+        <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+            android:id="@+id/signButton"
+            style="@style/SignButtonStyle"
+            android:text="@string/tutorial_register" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/tinkercolor_30" />
+
+        <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+            android:id="@+id/loginButton"
+            style="@style/SignButtonStyle"
+            android:text="@string/tutorial_login" />
+
+    </LinearLayout>
+</RelativeLayout>

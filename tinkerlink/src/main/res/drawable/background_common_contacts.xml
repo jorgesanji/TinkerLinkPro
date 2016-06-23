@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?><!--<shape xmlns:android="http://schemas.android.com/apk/res/android"--><!--android:shape="rectangle">-->
+
+<!--&lt;!&ndash;<solid android:color="@color/tinkercolor_50" />&ndash;&gt;-->
+
+<!--&lt;!&ndash;<padding&ndash;&gt;--><!--&lt;!&ndash;android:bottom="@dimen/tutorial_round_button"&ndash;&gt;--><!--&lt;!&ndash;android:left="@dimen/tutorial_round_button"&ndash;&gt;--><!--&lt;!&ndash;android:right="@dimen/tutorial_round_button"&ndash;&gt;--><!--&lt;!&ndash;android:top="@dimen/tutorial_round_button" />&ndash;&gt;-->
+
+<!--&lt;!&ndash;<corners&ndash;&gt;--><!--&lt;!&ndash;android:bottomLeftRadius="@dimen/loader_round"&ndash;&gt;--><!--&lt;!&ndash;android:bottomRightRadius="0dp"&ndash;&gt;--><!--&lt;!&ndash;android:topLeftRadius="@dimen/loader_round"&ndash;&gt;--><!--&lt;!&ndash;android:topRightRadius="0dp" />&ndash;&gt;-->
+
+<!--<solid android:color="@android:color/transparent" />-->
+
+<!--<stroke--><!--android:width="2dp"--><!--android:color="@color/gray_card" />-->
+
+<!--<padding--><!--android:bottom="10dp"--><!--android:left="10dp"--><!--android:right="10dp"--><!--android:top="10dp" />-->
+
+<!--<corners android:topLeftRadius="6dp" android:topRightRadius="6dp"--><!--android:bottomLeftRadius="0.1dp" android:bottomRightRadius="0.1dp"/>-->
+
+<!--<corners--><!--android:bottomLeftRadius="30dp"--><!--android:bottomRightRadius="0.11dp"--><!--android:topLeftRadius="0.11dp"--><!--android:topRightRadius="30dp" />-->
+
+<!--</shape>-->
+
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/white" />
+            <stroke
+                android:width="@dimen/view_super_tiny_height"
+                android:color="@color/gray_card" />
+            <corners
+                android:bottomLeftRadius="@dimen/radius_big"
+                android:bottomRightRadius="@dimen/view_height_super_tiny"
+                android:topLeftRadius="@dimen/radius_big"
+                android:topRightRadius="@dimen/view_height_super_tiny" />
+        </shape>
+    </item>
+    <item android:left="@dimen/radius_big">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/white" />
+        </shape>
+    </item>
+
+
+</layer-list>

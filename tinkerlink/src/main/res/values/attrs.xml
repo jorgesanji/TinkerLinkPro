@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- APP FONTS
+
+    <flag name="Regular" value="0" />
+    <flag name="Bold" value="1" />
+    <flag name="Light" value="2" />
+    <flag name="SemiBold" value="3" />
+
+    /-->
+
+    <declare-styleable name="TLImageView">
+        <attr name="imageError" format="reference" />
+        <attr name="imageEmptyUri" format="reference" />
+        <attr name="imageRounded" format="boolean" />
+        <attr name="imageType" format="integer">
+            <flag name="Default" value="0" />
+            <flag name="User" value="1" />
+            <flag name="UpdateProfile" value="2" />
+            <flag name="None" value="3" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="TLViewPagerIndicator">
+        <attr name="numDots" format="integer" />
+        <attr name="imageUnSelectedDot" format="reference" />
+        <attr name="imageSelectedDot" format="reference" />
+        <attr name="currentSelected" format="integer" />
+        <attr name="sizeDot" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="TLTextView">
+        <attr name="fontName" format="integer">
+            <flag name="Regular" value="0" />
+            <flag name="Bold" value="1" />
+            <flag name="Light" value="2" />
+            <flag name="SemiBold" value="3" />
+        </attr>
+        <attr name="underLineColor" format="color" />
+        <attr name="underLineText" format="string" />
+        <attr name="hasMessageStyle" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="TLEditText">
+        <attr name="fontNameEdit" format="integer">
+            <flag name="Regular" value="0" />
+            <flag name="Bold" value="1" />
+            <flag name="Light" value="2" />
+            <flag name="SemiBold" value="3" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="TLButton">
+        <attr name="fontNameButton" format="integer">
+            <flag name="Regular" value="0" />
+            <flag name="Bold" value="1" />
+            <flag name="Light" value="2" />
+            <flag name="SemiBold" value="3" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="TLViewPager">
+        <attr name="scrollDuration" format="float" />
+        <attr name="disableSwipe" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="TLRecyclerView">
+        <attr name="factorVelocity" format="float" />
+    </declare-styleable>
+
+    <declare-styleable name="TLSelectorForm">
+        <attr name="text" format="string" />
+        <attr name="textColorForm" format="color" />
+        <attr name="textSide" format="integer">
+            <flag name="right" value="0" />
+            <flag name="left" value="1" />
+            <flag name="center" value="2" />
+        </attr>
+        <attr name="decoratorImage" format="reference" />
+        <attr name="decoratorVisible" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="TLSelectorGridView">
+        <attr name="textTitle" format="string" />
+        <attr name="subTitleText" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="TLCardField">
+        <attr name="TitleField" format="string" />
+        <attr name="subTitleField" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="TLTabItem">
+        <attr name="iconItem" format="reference" />
+        <attr name="textItem" format="string" />
+        <attr name="textItemColor" format="color" />
+        <attr name="textItemSize" format="dimension" />
+        <attr name="textItemFont" format="integer">
+            <flag name="Regular" value="0" />
+            <flag name="Bold" value="1" />
+            <flag name="Light" value="2" />
+            <flag name="SemiBold" value="3" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="TLSettingsField">
+        <attr name="titleItem" format="string" />
+        <attr name="subTitleItem" format="string" />
+        <attr name="subTitleHintItem" format="string" />
+        <attr name="titleSize" format="dimension" />
+        <attr name="subTitleSize" format="dimension" />
+        <attr name="titleColor" format="color" />
+        <attr name="subTitleColor" format="color" />
+
+        <attr name="settingType" format="integer">
+            <flag name="Type_Text" value="0" />
+            <flag name="Type_Phone" value="1" />
+            <flag name="Type_Password" value="2" />
+            <flag name="Type_Date" value="3" />
+            <flag name="Type_Mail" value="4" />
+        </attr>
+
+        <attr name="titleFont" format="integer">
+            <flag name="Regular" value="0" />
+            <flag name="Bold" value="1" />
+            <flag name="Light" value="2" />
+            <flag name="SemiBold" value="3" />
+        </attr>
+
+        <attr name="subTitleFont" format="integer">
+            <flag name="Regular" value="0" />
+            <flag name="Bold" value="1" />
+            <flag name="Light" value="2" />
+            <flag name="SemiBold" value="3" />
+        </attr>
+
+    </declare-styleable>
+
+    <declare-styleable name="TLSwitch">
+        <attr name="fontSwitchName" format="integer">
+            <flag name="Regular" value="0" />
+            <flag name="Bold" value="1" />
+            <flag name="Light" value="2" />
+            <flag name="SemiBold" value="3" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="MenuItem">
+        <attr name="menuItemTitleFont" format="integer">
+            <flag name="Regular" value="0" />
+            <flag name="Bold" value="1" />
+            <flag name="Light" value="2" />
+            <flag name="SemiBold" value="3" />
+        </attr>
+        <attr name="menuItemTitle" format="string" />
+        <attr name="menuItemTitleSize" format="dimension" />
+        <attr name="menuItemTitleColor" format="color" />
+        <attr name="menuItemImageResource" format="reference" />
+        <attr name="menuItemBackgroundTintColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="TLMenuButton">
+        <attr name="menuButtonStateExpandedImageResource" format="reference" />
+        <attr name="menuButtonImageResource" format="reference" />
+        <attr name="menuButtonBackgroundTintColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="TLUserView">
+        <attr name="userTitle" format="string" />
+        <attr name="userTitleFont" format="integer">
+            <flag name="Regular" value="0" />
+            <flag name="Bold" value="1" />
+            <flag name="Light" value="2" />
+            <flag name="SemiBold" value="3" />
+        </attr>
+        <attr name="userTitleSize" format="dimension" />
+        <attr name="userTitleColor" format="color" />
+
+        <attr name="userSubTitle" format="string" />
+        <attr name="userSubTitleFont" format="integer">
+            <flag name="Regular" value="0" />
+            <flag name="Bold" value="1" />
+            <flag name="Light" value="2" />
+            <flag name="SemiBold" value="3" />
+        </attr>
+        <attr name="userSubTitleSize" format="dimension" />
+        <attr name="userSubTitleColor" format="color" />
+
+        <attr name="userIcon" format="reference" />
+
+    </declare-styleable>
+
+    <!-- CORE STYLES -->
+
+    <declare-styleable name="SwipeListView">
+        <attr name="swipeOpenOnLongPress" format="boolean" />
+        <attr name="onlyOneOpenedWhenSwipe" format="boolean" />
+        <attr name="swipeAnimationTime" format="integer" />
+        <attr name="swipeOffsetLeft" format="dimension" />
+        <attr name="swipeOffsetRight" format="dimension" />
+        <attr name="swipeCloseAllItemsWhenMoveList" format="boolean" />
+        <attr name="swipeFrontView" format="reference" />
+        <attr name="swipeBackView" format="reference" />
+        <attr name="swipeMode" format="enum">
+            <enum name="none" value="0" />
+            <enum name="both" value="1" />
+            <enum name="right" value="2" />
+            <enum name="left" value="3" />
+        </attr>
+        <attr name="swipeActionLeft" format="enum">
+            <enum name="reveal" value="0" />
+            <enum name="dismiss" value="1" />
+            <enum name="choice" value="2" />
+        </attr>
+        <attr name="swipeActionRight" format="enum">
+            <enum name="reveal" value="0" />
+            <enum name="dismiss" value="1" />
+            <enum name="choice" value="2" />
+        </attr>
+        <attr name="swipeDrawableChecked" format="reference" />
+        <attr name="swipeDrawableUnchecked" format="reference" />
+    </declare-styleable>
+
+</resources>
