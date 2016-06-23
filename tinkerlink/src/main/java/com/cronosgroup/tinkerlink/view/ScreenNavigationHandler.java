@@ -5,15 +5,18 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 
+import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.presenter.contacts.ContactsPresenter;
 import com.cronosgroup.tinkerlink.presenter.home.HomePresenter;
 import com.cronosgroup.tinkerlink.presenter.messages.MessagesPresenter;
 import com.cronosgroup.tinkerlink.presenter.newsfeed.NewsFeedPresenter;
 import com.cronosgroup.tinkerlink.presenter.profile.ProfilePresenter;
 import com.cronosgroup.tinkerlink.presenter.stack.CardPresenter;
+import com.cronosgroup.tinkerlink.presenter.stack.DetailStackPresenter;
 import com.cronosgroup.tinkerlink.presenter.stack.StackPresenter;
 import com.cronosgroup.tinkerlink.presenter.tutorial.TutorialPresenter;
 import com.cronosgroup.tinkerlink.view.home.HomeActivity;
+import com.cronosgroup.tinkerlink.view.stack.detail.DetailStackActivity;
 import com.cronosgroup.tinkerlink.view.stack.main.StackActivity;
 
 /**
@@ -21,7 +24,8 @@ import com.cronosgroup.tinkerlink.view.stack.main.StackActivity;
  */
 public final class ScreenNavigationHandler implements HomePresenter.Actions, TutorialPresenter.Actions,
         ContactsPresenter.Actions, ProfilePresenter.Actions, MessagesPresenter.Actions,
-        StackPresenter.Actions, NewsFeedPresenter.Actions, CardPresenter.Actions {
+        StackPresenter.Actions, NewsFeedPresenter.Actions, CardPresenter.Actions,
+        DetailStackPresenter.Actions {
 
     //Instance
     private static ScreenNavigationHandler instance = null;
@@ -41,14 +45,22 @@ public final class ScreenNavigationHandler implements HomePresenter.Actions, Tut
 
     // ---------------------------- LAUNCH INTENT -------------------------------
 
-    private static void startActivity(Activity context, Intent intent) {
+    private static void startActivity(Activity context, int enterAnim, int exitAnim, Intent intent) {
         context.startActivity(intent);
-        context.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+        context.overridePendingTransition(enterAnim, exitAnim);
     }
 
-    private static void startActivityWithResult(Activity context, Intent intent, int code) {
+    private static void startActivityForResult(Activity context, int enterAnim, int exitAnim, int code, Intent intent) {
         context.startActivityForResult(intent, code);
-        context.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+        context.overridePendingTransition(enterAnim, exitAnim);
+    }
+
+    private static void startActivity(Activity context, Intent intent) {
+        startActivity(context, android.R.anim.fade_in, android.R.anim.fade_out, intent);
+    }
+
+    private static void startActivityWithResult(Activity context, int code, Intent intent) {
+        startActivityForResult(context, android.R.anim.fade_in, android.R.anim.fade_out, code, intent);
     }
 
     private static Intent newTask(@NonNull Activity context, @NonNull Class clazz, Bundle bundle) {
@@ -81,8 +93,12 @@ public final class ScreenNavigationHandler implements HomePresenter.Actions, Tut
         return newTask(context, StackActivity.class, bundle, false);
     }
 
+    private static Intent detailStack(@NonNull Activity context, Bundle bundle) {
+        return newTask(context, DetailStackActivity.class, bundle, false);
+    }
+
     // ******************************
-    // ****** ACTIONS DEFINITION ****
+    //      ACTIONS DEFINITION
     // *************************++***
 
     // ------------------------ REGISTRATION -----------------------------------
@@ -114,5 +130,12 @@ public final class ScreenNavigationHandler implements HomePresenter.Actions, Tut
     @Override
     public void onLaunchSearchTinkerStack(Activity activity, Bundle bundle) {
         startActivity(activity, stack(activity, bundle));
+    }
+
+    // ------------------------ STACK -----------------------------------
+
+    @Override
+    public void onLaunchDetailStack(Activity activity, Bundle bundle) {
+        startActivity(activity, R.anim.anim_activity_up, R.anim.anim_activity_down, detailStack(activity, bundle));
     }
 }

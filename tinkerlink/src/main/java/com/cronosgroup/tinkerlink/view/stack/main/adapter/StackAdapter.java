@@ -5,6 +5,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
+import com.cronosgroup.tinkerlink.view.stack.main.adapter.card.CardFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +29,8 @@ public class StackAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public int getCount() {
-        return items.size();
+        return 20;
+//        return items.size();
     }
 
     public void setItems(List<RestPost> items) {

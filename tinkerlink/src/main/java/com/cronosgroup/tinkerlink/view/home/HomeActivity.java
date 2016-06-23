@@ -22,7 +22,7 @@ public class HomeActivity extends TinkerLinkActivity {
 
     @Override
     public StyleToolBar getActivityStyle() {
-        return StyleToolBar.TINKERSTYLE;
+        return StyleToolBar.WHITESTYLE;
     }
 
     @Override

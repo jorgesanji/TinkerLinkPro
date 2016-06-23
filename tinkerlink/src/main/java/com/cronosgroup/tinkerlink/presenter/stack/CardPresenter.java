@@ -1,5 +1,8 @@
 package com.cronosgroup.tinkerlink.presenter.stack;
 
+import android.app.Activity;
+import android.os.Bundle;
+
 import com.cronosgroup.core.presenter.Presenter;
 import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenter;
 
@@ -21,7 +24,7 @@ public class CardPresenter extends TinkerLinkPresenter<CardPresenter.View> {
      * Card actions.
      */
     public interface Actions {
-
+        void onLaunchDetailStack(Activity activity, Bundle bundle);
     }
 
     /**
@@ -31,5 +34,11 @@ public class CardPresenter extends TinkerLinkPresenter<CardPresenter.View> {
         this.listener = navigationListener;
     }
 
+
+    //Actions
+
+    public void onLaunhDetailStack() {
+        listener.onLaunchDetailStack(getView().getActivity(), null);
+    }
 
 }

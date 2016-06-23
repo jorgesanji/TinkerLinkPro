@@ -1,9 +1,6 @@
 package com.cronosgroup.tinkerlink.presenter.stack;
 
 import com.cronosgroup.core.presenter.Presenter;
-import com.cronosgroup.core.rest.Callback;
-import com.cronosgroup.tinkerlink.model.business.logic.CardUseCases;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestError;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestUser;
 import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenter;
@@ -18,7 +15,7 @@ public class StackPresenter extends TinkerLinkPresenter<StackPresenter.View> {
     private final Actions listener;
 
     /**
-     * Message listeners.
+     * Stack listeners.
      */
     public interface View extends Presenter.View {
         void setCards(List<RestPost> cars);
@@ -31,7 +28,7 @@ public class StackPresenter extends TinkerLinkPresenter<StackPresenter.View> {
     }
 
     /**
-     * Mesage actions.
+     * Stack actions.
      */
     public interface Actions {
 
@@ -47,40 +44,40 @@ public class StackPresenter extends TinkerLinkPresenter<StackPresenter.View> {
 
     public void getAllCards(String offset) {
 
-        getView().showLoading();
-
-        if (getView().isUser()) {
-            CardUseCases.getUserCards(getView().getUser().getId(), getView().getType(), offset, new Callback<List<RestPost>, RestError>() {
-
-                @Override
-                public void onResponse(List<RestPost> response) {
-                    getView().setCards(response);
-                    getView().hideLoading();
-                }
-
-                @Override
-                public void onErrorResponse(RestError error) {
-                    getStatusView().showNetworkError();
-                    getView().hideLoading();
-                }
-
-            }, getView().getActivity());
-        } else {
-            CardUseCases.getAllCards(getView().getType(), offset, new Callback<List<RestPost>, RestError>() {
-
-                @Override
-                public void onResponse(List<RestPost> response) {
-                    getView().setCards(response);
-                    getView().hideLoading();
-                }
-
-                @Override
-                public void onErrorResponse(RestError error) {
-                    getStatusView().showNetworkError();
-                    getView().hideLoading();
-                }
-
-            }, getView().getActivity());
-        }
+//        getView().showLoading();
+//
+//        if (getView().isUser()) {
+//            CardUseCases.getUserCards(getView().getUser().getId(), getView().getType(), offset, new Callback<List<RestPost>, RestError>() {
+//
+//                @Override
+//                public void onResponse(List<RestPost> response) {
+//                    getView().setCards(response);
+//                    getView().hideLoading();
+//                }
+//
+//                @Override
+//                public void onErrorResponse(RestError error) {
+//                    getStatusView().showNetworkError();
+//                    getView().hideLoading();
+//                }
+//
+//            }, getView().getActivity());
+//        } else {
+//            CardUseCases.getAllCards(getView().getType(), offset, new Callback<List<RestPost>, RestError>() {
+//
+//                @Override
+//                public void onResponse(List<RestPost> response) {
+//                    getView().setCards(response);
+//                    getView().hideLoading();
+//                }
+//
+//                @Override
+//                public void onErrorResponse(RestError error) {
+//                    getStatusView().showNetworkError();
+//                    getView().hideLoading();
+//                }
+//
+//            }, getView().getActivity());
+//        }
     }
 }
