@@ -10,9 +10,8 @@ public class DetailStackActivity extends TinkerLinkActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        getSupportActionBar().setHomeButtonEnabled(true);
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-//        getSupportActionBar().setDisplayShowHomeEnabled(false);
+        getSupportActionBar().setDisplayShowHomeEnabled(false);
+        getSupportActionBar().setHomeButtonEnabled(true);
     }
 
     @Override
@@ -22,7 +21,7 @@ public class DetailStackActivity extends TinkerLinkActivity {
 
     @Override
     public StyleToolBar getActivityStyle() {
-        return StyleToolBar.TINKERSTYLE;
+        return StyleToolBar.WHITESTYLE;
     }
 
     @Override

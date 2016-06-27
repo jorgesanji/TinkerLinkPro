@@ -19,8 +19,11 @@ import com.cronosgroup.tinkerlink.utils.TypeFaceUtils;
 public class TLTextView extends TextView {
 
     private static final String TAG = TLTextView.class.toString();
-    private static final int DEFAULT_FONT = 0;
+    public static final int DEFAULT_FONT = 0;
+    public static final int DEFAULT_SIZE = 12;
+    public static final int DEFAULT_COLOR = Color.BLACK;
     private static final int DEFAULT_UNDERLINE_COLOR = Color.TRANSPARENT;
+
 
     // Vars
     private int fontName;

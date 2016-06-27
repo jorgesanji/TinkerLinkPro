@@ -12,7 +12,7 @@ import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 
 
 /**
- * Login Fragment
+ * Home Fragment
  */
 public class HomeFragment extends MVPFragment<HomePresenter, HomePresenter.View>
         implements HomePresenter.View, HomePresenter.Actions, HomeScreen.Listener {

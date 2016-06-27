@@ -40,7 +40,7 @@ public class CardFragment extends MVPFragment<CardPresenter, CardPresenter.View>
     //region **************  CardScreen.Listener **************
 
     @Override
-    public void shoDetailPressed() {
+    public void showDetailPressed() {
         getPresenter().onLaunhDetailStack();
     }
 }

@@ -1,6 +1,9 @@
 package com.cronosgroup.tinkerlink.view.stack.main;
 
-import android.graphics.Color;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 
 import com.cronosgroup.core.view.MVPFragment;
@@ -19,11 +22,17 @@ import java.util.List;
  * Stack Fragment
  */
 public class StackFragment extends MVPFragment<StackPresenter, StackPresenter.View>
-        implements StackPresenter.View, StackPresenter.Actions, StackScreen.Listener {
+        implements StackPresenter.View, StackScreen.Listener {
 
     private StackScreen stackScreen;
 
     //region **************  Fragment **************
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
+    }
 
     @Override
     protected View getRootView() {
@@ -31,6 +40,22 @@ public class StackFragment extends MVPFragment<StackPresenter, StackPresenter.Vi
         stackScreen.setListener(this);
         return stackScreen;
     }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.stack_search_menu, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.action_search_stack) {
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
     //endregion
 
     //region **************  MVPFragment **************
@@ -47,13 +72,17 @@ public class StackFragment extends MVPFragment<StackPresenter, StackPresenter.Vi
 
     @Override
     protected void onDidAppear() {
-        Animations.revealFromTop(stackScreen, R.color.tinkercolor_30, Color.WHITE, null);
+        Animations.revealFromTop(stackScreen, R.color.tinkercolor_30, getContext().getResources().getColor(R.color.white), null);
         stackScreen.initAdapter(getFragmentManager());
         getPresenter().getAllCards("0");
     }
 
     //region **************  StackScreen.Listener **************
 
+    @Override
+    public void onSelectCardsPressed() {
+        getPresenter().onSelectCardsType();
+    }
 
     //endregion
 

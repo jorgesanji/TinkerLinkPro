@@ -17,6 +17,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 
 /**
@@ -24,14 +25,13 @@ import butterknife.ButterKnife;
  */
 public class StackScreen extends LinearLayout {
 
-    public static final int DEFAULT_PAGES = 4;
+    public static final int DEFAULT_PAGES = 3;
 
     /**
      * listeners of the stack's screen.
      */
     public interface Listener {
-
-
+        void onSelectCardsPressed();
     }
 
     // Vars
@@ -100,11 +100,10 @@ public class StackScreen extends LinearLayout {
 
     // **************  UI Actions **************
 
-//    @OnClick(R.id.newsfeedbt)
-//    protected void newsFeedbtPressed() {
-//        listener.onNewsFeedPresed();
-//    }
-
+    @OnClick(R.id.selectCardsType)
+    protected void selectCardsPressed() {
+        listener.onSelectCardsPressed();
+    }
 
     // Public methods
 

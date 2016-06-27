@@ -11,25 +11,41 @@
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:layout_margin="1dp"
-        android:background="@color/white"
+        android:background="@color/gray_50"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
         <com.cronosgroup.tinkerlink.view.customviews.TLActionButton
             android:id="@+id/newsfeedbt"
-            style="@style/TLActionButtonStyle" />
+            style="@style/TLActionButtonStyle"
+            android:layout_marginLeft="0.5dp"
+            android:layout_marginRight="1dp"
+            app:actionIcon="@drawable/button_newsfeed_states"
+            app:actionTitle="@string/home_newsfeed" />
 
         <com.cronosgroup.tinkerlink.view.customviews.TLActionButton
             android:id="@+id/contactsbt"
-            style="@style/TLActionButtonStyle" />
+            style="@style/TLActionButtonStyle"
+            android:layout_marginLeft="0.5dp"
+            android:layout_marginRight="0.5dp"
+            app:actionIcon="@drawable/button_contacts_states"
+            app:actionTitle="@string/home_contacts" />
 
         <com.cronosgroup.tinkerlink.view.customviews.TLActionButton
             android:id="@+id/mensajesbt"
-            style="@style/TLActionButtonStyle" />
+            style="@style/TLActionButtonStyle"
+            android:layout_marginLeft="0.5dp"
+            android:layout_marginRight="0.5dp"
+            app:actionIcon="@drawable/button_messages_states"
+            app:actionTitle="@string/home_messages" />
 
         <com.cronosgroup.tinkerlink.view.customviews.TLActionButton
             android:id="@+id/profilebt"
-            style="@style/TLActionButtonStyle" />
+            style="@style/TLActionButtonStyle"
+            android:layout_marginLeft="0.5dp"
+            android:layout_marginRight="1.0dp"
+            app:actionIcon="@drawable/button_account_states"
+            app:actionTitle="@string/home_account" />
 
     </LinearLayout>
 

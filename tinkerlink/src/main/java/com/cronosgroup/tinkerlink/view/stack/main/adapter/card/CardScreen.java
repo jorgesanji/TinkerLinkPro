@@ -4,6 +4,8 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
 import android.util.AttributeSet;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 
 import com.cronosgroup.tinkerlink.R;
@@ -21,7 +23,7 @@ public class CardScreen extends LinearLayout {
      * listeners of the Card's screen.
      */
     public interface Listener {
-        void shoDetailPressed();
+        void showDetailPressed();
     }
 
     // Vars
@@ -83,7 +85,25 @@ public class CardScreen extends LinearLayout {
 
     @OnClick(R.id.test)
     protected void showDetailPressed() {
-        listener.shoDetailPressed();
+        Animation animation = AnimationUtils.loadAnimation(getContext(), R.anim.anim_bounce);
+        startAnimation(animation);
+
+        animation.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                listener.showDetailPressed();
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
     }
 
 

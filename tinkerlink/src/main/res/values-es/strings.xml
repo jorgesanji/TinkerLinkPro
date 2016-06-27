@@ -484,4 +484,12 @@
     <string name="card_me">Soy</string>
     <string name="card_requirements">REQUISITOS</string>
 
+    <!-- ******************* New version Strings********************** -->
+
+    <!--  Home  -->
+    <string name="home_newsfeed">NewsFeed</string>
+    <string name="home_contacts">Contactos</string>
+    <string name="home_messages">Mensajes</string>
+    <string name="home_account">Cuenta</string>
+
 </resources>

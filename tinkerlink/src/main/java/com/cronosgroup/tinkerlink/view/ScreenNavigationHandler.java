@@ -136,6 +136,6 @@ public final class ScreenNavigationHandler implements HomePresenter.Actions, Tut
 
     @Override
     public void onLaunchDetailStack(Activity activity, Bundle bundle) {
-        startActivity(activity, R.anim.anim_activity_up, R.anim.anim_activity_down, detailStack(activity, bundle));
+        startActivity(activity, R.anim.anim_activity_up, R.anim.anim_activity_stay, detailStack(activity, bundle));
     }
 }

@@ -34,4 +34,5 @@ public class HomeActivity extends TinkerLinkActivity {
     public Fragment getFragment() {
         return new HomeFragment();
     }
+
 }

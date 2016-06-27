@@ -37,7 +37,7 @@ public class Animations {
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                     int cx = (view.getLeft() + view.getRight()) / 2;
-                    int cy = view.getTop();
+                    int cy = view.getBottom();
                     int finalRadius = Math.max(view.getWidth(), view.getHeight());
 
                     Animator anim = ViewAnimationUtils.createCircularReveal(view, cx, cy, 0, finalRadius);

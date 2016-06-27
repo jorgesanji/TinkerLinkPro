@@ -1,5 +1,8 @@
 package com.cronosgroup.tinkerlink.presenter.stack;
 
+import android.app.Activity;
+import android.os.Bundle;
+
 import com.cronosgroup.core.presenter.Presenter;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestUser;
@@ -31,7 +34,7 @@ public class StackPresenter extends TinkerLinkPresenter<StackPresenter.View> {
      * Stack actions.
      */
     public interface Actions {
-
+        void onLaunchDetailStack(Activity activity, Bundle bundle);
     }
 
     /**
@@ -41,6 +44,11 @@ public class StackPresenter extends TinkerLinkPresenter<StackPresenter.View> {
         this.listener = navigationListener;
     }
 
+    //Public methods
+
+    public void onSelectCardsType() {
+        listener.onLaunchDetailStack(getView().getActivity(), null);
+    }
 
     public void getAllCards(String offset) {
 

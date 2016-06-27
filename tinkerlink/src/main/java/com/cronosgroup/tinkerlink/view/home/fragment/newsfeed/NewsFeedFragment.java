@@ -1,9 +1,14 @@
 package com.cronosgroup.tinkerlink.view.home.fragment.newsfeed;
 
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 
 import com.cronosgroup.core.view.MVPFragment;
 import com.cronosgroup.core.view.ToolBarActivity;
+import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContacto;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
 import com.cronosgroup.tinkerlink.presenter.newsfeed.NewsFeedPresenter;
@@ -21,10 +26,31 @@ public class NewsFeedFragment extends MVPFragment<NewsFeedPresenter, NewsFeedPre
     //region **************  Fragment **************
 
     @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
+    }
+
+    @Override
     protected View getRootView() {
         newsFeedScreen = new NewsFeedScreen(getActivity());
         newsFeedScreen.setListener(this);
         return newsFeedScreen;
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.newsfeed_search_menu, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.action_search_newsfeed) {
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
     //endregion
 

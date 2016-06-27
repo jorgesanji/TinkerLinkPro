@@ -191,35 +191,40 @@
 
     </declare-styleable>
 
-    <!-- CORE STYLES -->
+    <declare-styleable name="TLActionButton">
+        <attr name="actionIcon" format="reference" />
+        <attr name="actionTitle" format="string" />
+        <attr name="actionUpdateStatus" format="boolean" />
+        <attr name="actionTitleFont" format="integer">
+            <flag name="Regular" value="0" />
+            <flag name="Bold" value="1" />
+            <flag name="Light" value="2" />
+            <flag name="SemiBold" value="3" />
+        </attr>
 
-    <declare-styleable name="SwipeListView">
-        <attr name="swipeOpenOnLongPress" format="boolean" />
-        <attr name="onlyOneOpenedWhenSwipe" format="boolean" />
-        <attr name="swipeAnimationTime" format="integer" />
-        <attr name="swipeOffsetLeft" format="dimension" />
-        <attr name="swipeOffsetRight" format="dimension" />
-        <attr name="swipeCloseAllItemsWhenMoveList" format="boolean" />
-        <attr name="swipeFrontView" format="reference" />
-        <attr name="swipeBackView" format="reference" />
-        <attr name="swipeMode" format="enum">
-            <enum name="none" value="0" />
-            <enum name="both" value="1" />
-            <enum name="right" value="2" />
-            <enum name="left" value="3" />
+    </declare-styleable>
+
+    <declare-styleable name="TLStackButton">
+        <attr name="stackTitle" format="string" />
+        <attr name="stackSubTitle" format="string" />
+        <attr name="stackLineColor" format="color" />
+        <attr name="stackTitleColor" format="color" />
+        <attr name="stackSubTitleColor" format="color" />
+        <attr name="stackIcon" format="reference" />
+        <attr name="stackTitleFont" format="integer">
+            <flag name="Regular" value="0" />
+            <flag name="Bold" value="1" />
+            <flag name="Light" value="2" />
+            <flag name="SemiBold" value="3" />
         </attr>
-        <attr name="swipeActionLeft" format="enum">
-            <enum name="reveal" value="0" />
-            <enum name="dismiss" value="1" />
-            <enum name="choice" value="2" />
+
+        <attr name="stackSubTitleFont" format="integer">
+            <flag name="Regular" value="0" />
+            <flag name="Bold" value="1" />
+            <flag name="Light" value="2" />
+            <flag name="SemiBold" value="3" />
         </attr>
-        <attr name="swipeActionRight" format="enum">
-            <enum name="reveal" value="0" />
-            <enum name="dismiss" value="1" />
-            <enum name="choice" value="2" />
-        </attr>
-        <attr name="swipeDrawableChecked" format="reference" />
-        <attr name="swipeDrawableUnchecked" format="reference" />
+
     </declare-styleable>
 
 </resources>
