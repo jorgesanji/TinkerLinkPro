@@ -16,7 +16,6 @@ import com.cronosgroup.tinkerlink.R;
 public class TLImageButton extends ImageButton {
 
     private static final String TAG = ImageButton.class.toString();
-    public static final int DEFAULT_FONT = 0;
 
     /**
      * @param context

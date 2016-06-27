@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/sign_background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/page_margin"
+        android:layout_marginRight="@dimen/page_margin"
+        android:layout_marginTop="@dimen/sign_container_margin_top"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+            android:id="@+id/titleValidation"
+            style="@style/loginPolicyStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="@string/sign_code_info"
+            android:textColor="@color/black"
+            app:fontName="Regular" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/sign_phone_container_margin_left_right"
+            android:layout_marginRight="@dimen/sign_phone_container_margin_left_right"
+            android:layout_marginTop="@dimen/sign_code_margin_top"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal">
+
+            <com.cronosgroup.tinkerlink.view.customviews.TLEditText
+                android:id="@+id/userCodeSign"
+                style="@style/EdiTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/sign_phone_container_size"
+                android:gravity="center"
+                android:hint="@string/login_enter_code"
+                android:inputType="textPassword"
+                android:maxLength="6"
+                android:textColor="@color/black_opaque"
+                app:fontNameEdit="Regular" />
+
+        </LinearLayout>
+
+        <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+            android:id="@+id/timeToReSend"
+            style="@style/loginPolicyStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/sign_code_margin_top"
+            android:gravity="left"
+            android:text="@string/sign_resend_code_time"
+            android:textColor="@color/black"
+            app:fontName="Regular" />
+
+    </LinearLayout>
+
+</RelativeLayout>

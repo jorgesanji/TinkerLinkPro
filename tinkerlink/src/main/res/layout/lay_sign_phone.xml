@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/sign_background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/page_margin"
+        android:layout_marginRight="@dimen/page_margin"
+        android:layout_marginTop="@dimen/sign_container_margin_top"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+            android:id="@+id/usePolicy"
+            style="@style/loginPolicyStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="@string/sign_valid_info"
+            android:textColor="@color/black"
+            app:fontName="Regular" />
+
+        <com.cronosgroup.tinkerlink.view.customviews.TLSelectorCountry
+            android:id="@+id/countrySelected"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/sign_container_margin_top" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/sign_phone_container_size"
+            android:layout_marginTop="@dimen/sign_container_margin_top"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                android:id="@+id/countryCodeSelected"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.2"
+                android:gravity="center"
+                android:textColor="@color/black_opaque"
+                app:fontName="Regular" />
+
+            <com.cronosgroup.tinkerlink.view.customviews.TLEditText
+                android:id="@+id/phoneNumber"
+                style="@style/EdiTextStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1.0"
+                android:digits="0123456789"
+                android:gravity="center"
+                android:hint="@string/sign_hint_phone"
+                android:inputType="phone"
+                android:maxLength="25"
+                android:textColor="@color/black_opaque"
+                app:fontNameEdit="Regular" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

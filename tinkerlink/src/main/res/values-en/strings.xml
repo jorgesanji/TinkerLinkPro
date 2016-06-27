@@ -480,4 +480,16 @@
     <string name="card_me">I\'m</string>
     <string name="card_requirements">REQUIREMENTS</string>
 
+    <!-- ******************* New version Strings********************** -->
+
+    <!--  Home  -->
+    <string name="home_newsfeed">NewsFeed</string>
+    <string name="home_contacts">Contacts</string>
+    <string name="home_messages">Messages</string>
+    <string name="home_account">Account</string>
+
+    <!--  Stack  -->
+    <string name="stack_watch_tinker">Watch i\'m tinker</string>
+    <string name="stack_watch_linker">Watch search tinker</string>
+
 </resources>

@@ -1,0 +1,13 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".view.">
+
+    <item
+        android:id="@+id/action_camera"
+        android:title="@string/camera_title" />
+
+    <item
+        android:id="@+id/action_gallery"
+        android:title="@string/gallery_title" />
+
+</menu>

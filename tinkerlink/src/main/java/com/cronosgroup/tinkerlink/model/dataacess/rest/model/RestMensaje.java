@@ -1,5 +1,6 @@
 package com.cronosgroup.tinkerlink.model.dataacess.rest.model;
 
+import com.cronosgroup.core.rest.RestBase;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Date;
@@ -49,7 +50,7 @@ public class RestMensaje extends RestBase {
     }
 
     public String getMensaje() {
-        return removeQuoationMarks(mensaje);
+        return mensaje;
     }
 
     public void setMensaje(String mensaje) {

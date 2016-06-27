@@ -3,9 +3,9 @@ package com.cronosgroup.tinkerlink.manager;
 import android.content.Context;
 
 import com.cronosgroup.core.rest.Callback;
+import com.cronosgroup.core.rest.RestError;
 import com.cronosgroup.tinkerlink.model.business.logic.ProfileUseCases;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContacto;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestError;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestUser;
 
 /**

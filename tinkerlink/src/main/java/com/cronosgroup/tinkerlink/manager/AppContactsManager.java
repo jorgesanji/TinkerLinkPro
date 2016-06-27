@@ -9,6 +9,7 @@ import android.util.Log;
 import android.util.Pair;
 
 import com.cronosgroup.core.rest.Callback;
+import com.cronosgroup.core.rest.RestError;
 import com.cronosgroup.core.view.sectionable.Item;
 import com.cronosgroup.tinkerlink.application.TinkerLinkApplication;
 import com.cronosgroup.tinkerlink.event.UpdateUserContactsEvent;
@@ -17,7 +18,6 @@ import com.cronosgroup.tinkerlink.manager.model.EntryItem;
 import com.cronosgroup.tinkerlink.manager.model.SectionItem;
 import com.cronosgroup.tinkerlink.model.business.logic.ContactsUseCases;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContacto;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestError;
 import com.cronosgroup.tinkerlink.utils.AsyncLoader;
 import com.google.gson.Gson;
 

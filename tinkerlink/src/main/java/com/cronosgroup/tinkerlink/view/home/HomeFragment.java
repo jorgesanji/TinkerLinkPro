@@ -4,17 +4,17 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 
-import com.cronosgroup.core.view.MVPFragment;
 import com.cronosgroup.core.view.ToolBarActivity;
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.presenter.home.HomePresenter;
 import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
+import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
 
 
 /**
- * Login Fragment
+ * Home Fragment
  */
-public class HomeFragment extends MVPFragment<HomePresenter, HomePresenter.View>
+public class HomeFragment extends MVPTinkerLinkFragment<HomePresenter, HomePresenter.View>
         implements HomePresenter.View, HomePresenter.Actions, HomeScreen.Listener {
 
     private HomeScreen homeScreen;

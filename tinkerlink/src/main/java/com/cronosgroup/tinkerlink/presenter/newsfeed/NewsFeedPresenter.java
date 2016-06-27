@@ -5,8 +5,15 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.cronosgroup.core.presenter.Presenter;
+import com.cronosgroup.core.rest.Callback;
+import com.cronosgroup.core.rest.RestError;
 import com.cronosgroup.tinkerlink.manager.AppFacebookShareManager;
+import com.cronosgroup.tinkerlink.model.business.logic.NewsFeedUseCases;
+import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
 import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenter;
+import com.cronosgroup.tinkerlink.view.stack.main.StackActivity;
+
+import java.util.List;
 
 
 /**
@@ -25,16 +32,14 @@ public class NewsFeedPresenter extends TinkerLinkPresenter<NewsFeedPresenter.Vie
      * NewsFeed listeners.
      */
     public interface View extends Presenter.View {
-
+        void addPosts(List<RestPost> list);
     }
 
     /**
      * NewsFeed actions.
      */
     public interface Actions {
-        void onLaunchImTinkerStack(Activity activity, Bundle bundle);
-
-        void onLaunchSearchTinkerStack(Activity activity, Bundle bundle);
+        void onLaunchStack(Activity activity, Bundle bundle);
     }
 
     /**
@@ -75,11 +80,37 @@ public class NewsFeedPresenter extends TinkerLinkPresenter<NewsFeedPresenter.Vie
 
 
     public void onLaunchImTinker() {
-        listener.onLaunchImTinkerStack(getView().getActivity(), null);
+        Bundle bundle = new Bundle();
+        bundle.putSerializable(StackActivity.STACK_TYPE, StackActivity.Stack.TINKER);
+        listener.onLaunchStack(getView().getActivity(), bundle);
     }
 
     public void onLaunchSearchTinker() {
-        listener.onLaunchSearchTinkerStack(getView().getActivity(), null);
+        Bundle bundle = new Bundle();
+        bundle.putSerializable(StackActivity.STACK_TYPE, StackActivity.Stack.LINKER);
+        listener.onLaunchStack(getView().getActivity(), bundle);
+    }
+
+    public void getPosts(String idLastPost) {
+
+        if (idLastPost.equalsIgnoreCase("0")) {
+            getView().showLoading();
+        }
+
+        NewsFeedUseCases.getPosts(idLastPost, new Callback<List<RestPost>, RestError>() {
+            @Override
+            public void onResponse(List<RestPost> list) {
+                getView().hideLoading();
+                getView().addPosts(list);
+            }
+
+            @Override
+            public void onErrorResponse(RestError error) {
+                getView().hideLoading();
+                getStatusView().showNetworkError();
+            }
+
+        }, getView().getActivity());
     }
 
 }

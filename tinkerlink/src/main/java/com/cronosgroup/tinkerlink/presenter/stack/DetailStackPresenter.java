@@ -1,11 +1,9 @@
 package com.cronosgroup.tinkerlink.presenter.stack;
 
 import com.cronosgroup.core.presenter.Presenter;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestUser;
 import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenter;
-
-import java.util.List;
+import com.cronosgroup.tinkerlink.view.stack.main.StackActivity;
 
 /**
  * Created by jorgesanmartin on 3/6/16.
@@ -18,13 +16,11 @@ public class DetailStackPresenter extends TinkerLinkPresenter<DetailStackPresent
      * Message listeners.
      */
     public interface View extends Presenter.View {
-        void setCards(List<RestPost> cars);
-
         boolean isUser();
 
         RestUser getUser();
 
-        int getType();
+        StackActivity.Stack getType();
     }
 
     /**

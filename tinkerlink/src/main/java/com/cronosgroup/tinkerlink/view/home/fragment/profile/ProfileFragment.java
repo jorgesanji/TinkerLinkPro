@@ -2,16 +2,16 @@ package com.cronosgroup.tinkerlink.view.home.fragment.profile;
 
 import android.view.View;
 
-import com.cronosgroup.core.view.MVPFragment;
-import com.cronosgroup.core.view.ToolBarActivity;
 import com.cronosgroup.tinkerlink.presenter.profile.ProfilePresenter;
 import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
+import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
+import com.cronosgroup.tinkerlink.view.base.TinkerLinkActivity;
 
 
 /**
  * Profile Fragment
  */
-public class ProfileFragment extends MVPFragment<ProfilePresenter, ProfilePresenter.View>
+public class ProfileFragment extends MVPTinkerLinkFragment<ProfilePresenter, ProfilePresenter.View>
         implements ProfilePresenter.View, ProfilePresenter.Actions, ProfileScreen.Listener {
 
     private ProfileScreen profileScreen;
@@ -53,7 +53,7 @@ public class ProfileFragment extends MVPFragment<ProfilePresenter, ProfilePresen
     public void showLoading() {
         super.showLoading();
         if (getActivity() != null) {
-            ((ToolBarActivity) getActivity()).showLoading();
+            ((TinkerLinkActivity) getActivity()).showLoading();
         }
     }
 
@@ -61,7 +61,7 @@ public class ProfileFragment extends MVPFragment<ProfilePresenter, ProfilePresen
     public void hideLoading() {
         super.hideLoading();
         if (getActivity() != null) {
-            ((ToolBarActivity) getActivity()).hideLoading();
+            ((TinkerLinkActivity) getActivity()).hideLoading();
         }
     }
 

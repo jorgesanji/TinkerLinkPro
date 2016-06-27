@@ -2,14 +2,14 @@ package com.cronosgroup.tinkerlink.view.tutorial;
 
 import android.view.View;
 
-import com.cronosgroup.core.view.MVPFragment;
 import com.cronosgroup.tinkerlink.presenter.tutorial.TutorialPresenter;
 import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
+import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
 
 /**
  * Tutorial Fragment
  */
-public class TutorialFragment extends MVPFragment<TutorialPresenter, TutorialPresenter.View>
+public class TutorialFragment extends MVPTinkerLinkFragment<TutorialPresenter, TutorialPresenter.View>
         implements TutorialPresenter.View, TutorialScreen.Listener {
 
     private TutorialScreen tutorialScreen;

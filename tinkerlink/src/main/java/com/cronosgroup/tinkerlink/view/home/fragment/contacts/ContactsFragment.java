@@ -2,16 +2,16 @@ package com.cronosgroup.tinkerlink.view.home.fragment.contacts;
 
 import android.view.View;
 
-import com.cronosgroup.core.view.MVPFragment;
-import com.cronosgroup.core.view.ToolBarActivity;
 import com.cronosgroup.tinkerlink.presenter.contacts.ContactsPresenter;
 import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
+import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
+import com.cronosgroup.tinkerlink.view.base.TinkerLinkActivity;
 
 
 /**
  * Login Fragment
  */
-public class ContactsFragment extends MVPFragment<ContactsPresenter, ContactsPresenter.View>
+public class ContactsFragment extends MVPTinkerLinkFragment<ContactsPresenter, ContactsPresenter.View>
         implements ContactsPresenter.View, ContactsPresenter.Actions, ContactsScreen.Listener {
 
     private ContactsScreen contactsScreen;
@@ -53,7 +53,7 @@ public class ContactsFragment extends MVPFragment<ContactsPresenter, ContactsPre
     public void showLoading() {
         super.showLoading();
         if (getActivity() != null) {
-            ((ToolBarActivity) getActivity()).showLoading();
+            ((TinkerLinkActivity) getActivity()).showLoading();
         }
     }
 
@@ -61,7 +61,7 @@ public class ContactsFragment extends MVPFragment<ContactsPresenter, ContactsPre
     public void hideLoading() {
         super.hideLoading();
         if (getActivity() != null) {
-            ((ToolBarActivity) getActivity()).hideLoading();
+            ((TinkerLinkActivity) getActivity()).hideLoading();
         }
     }
 

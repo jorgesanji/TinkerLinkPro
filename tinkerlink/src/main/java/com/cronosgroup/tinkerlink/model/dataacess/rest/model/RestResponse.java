@@ -1,5 +1,7 @@
 package com.cronosgroup.tinkerlink.model.dataacess.rest.model;
 
+import com.cronosgroup.core.rest.RestBase;
+import com.cronosgroup.core.rest.RestError;
 import com.google.gson.annotations.SerializedName;
 
 /**

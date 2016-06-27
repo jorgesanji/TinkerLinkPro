@@ -7,12 +7,15 @@ import com.cronosgroup.tinkerlink.view.base.TinkerLinkActivity;
 
 public class DetailStackActivity extends TinkerLinkActivity {
 
+    public static final String STACK_ITEMS = "items";
+    public static final String STACK_CURRENT_ITEM = "currenIndexPage";
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        getSupportActionBar().setHomeButtonEnabled(true);
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-//        getSupportActionBar().setDisplayShowHomeEnabled(false);
+        getSupportActionBar().setDisplayShowHomeEnabled(false);
+        getSupportActionBar().setHomeButtonEnabled(true);
     }
 
     @Override
@@ -22,7 +25,7 @@ public class DetailStackActivity extends TinkerLinkActivity {
 
     @Override
     public StyleToolBar getActivityStyle() {
-        return StyleToolBar.TINKERSTYLE;
+        return StyleToolBar.WHITESTYLE;
     }
 
     @Override
@@ -32,6 +35,8 @@ public class DetailStackActivity extends TinkerLinkActivity {
 
     @Override
     public Fragment getFragment() {
-        return new DetailStackFragment();
+        DetailStackFragment fragment = new DetailStackFragment();
+        fragment.setArguments(getIntent().getExtras());
+        return fragment;
     }
 }

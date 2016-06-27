@@ -7,6 +7,7 @@ import com.cronosgroup.tinkerlink.application.TinkerLinkApplication;
 import com.cronosgroup.tinkerlink.logger.Logger;
 import com.cronosgroup.tinkerlink.manager.AppConfigManager;
 import com.cronosgroup.tinkerlink.manager.AppContactsManager;
+import com.cronosgroup.tinkerlink.manager.AppCountryManager;
 import com.cronosgroup.tinkerlink.manager.AppMessagesManager;
 import com.cronosgroup.tinkerlink.manager.AppNotificationsManager;
 import com.cronosgroup.tinkerlink.manager.AppUserSessionManager;
@@ -74,6 +75,12 @@ public class AppModule {
     @Singleton
     LocationManager provideLocationManager() {
         return new LocationManager(provideApplicationContext());
+    }
+
+    @Provides
+    @Singleton
+    AppCountryManager provideCountryManager() {
+        return new AppCountryManager(provideApplicationContext());
     }
 
     @Provides

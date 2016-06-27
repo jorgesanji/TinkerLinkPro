@@ -110,7 +110,7 @@ public class TLImageView extends ImageView {
     }
 
 
-    private void init(AttributeSet attributeSet) {
+    protected void init(AttributeSet attributeSet) {
         if (attributeSet != null) {
             TypedArray attributes = null;
             try {

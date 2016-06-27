@@ -3,10 +3,10 @@ package com.cronosgroup.tinkerlink.model.business.logic;
 import android.util.Pair;
 
 import com.cronosgroup.core.rest.Callback;
+import com.cronosgroup.core.rest.RestError;
 import com.cronosgroup.core.view.sectionable.Item;
 import com.cronosgroup.tinkerlink.manager.AppContactsManager;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContacto;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestError;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestNotificacion;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.services.ContactsServices;
 import com.cronosgroup.tinkerlink.utils.DateUtils;

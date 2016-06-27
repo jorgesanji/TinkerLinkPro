@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/sign_background"
+    android:orientation="vertical">
+
+    <!--<ScrollView-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:cacheColorHint="@color/linkercolor">-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/page_margin"
+        android:layout_marginRight="@dimen/page_margin"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/facebook_margin_item"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/login_camera_background"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ProgressBar
+                        android:id="@+id/progressBar"
+                        style="?android:attr/progressBarStyleSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:indeterminate="true"
+                        android:indeterminateBehavior="cycle"
+                        android:visibility="gone" />
+
+                    <com.cronosgroup.tinkerlink.view.customviews.TLImageView
+                        android:layout_width="20dp"
+                        android:layout_height="15dp"
+                        android:layout_centerInParent="true"
+                        android:contentDescription="cam"
+                        android:scaleType="fitXY"
+                        android:src="@mipmap/cam_sign" />
+
+                    <com.cronosgroup.tinkerlink.view.customviews.TLImageView
+                        android:id="@+id/imageProfile"
+                        android:layout_width="@dimen/sign_image_profile_size"
+                        android:layout_height="@dimen/sign_image_profile_size"
+                        android:contentDescription="Image profile"
+                        android:scaleType="centerCrop"
+                        app:imageType="User"
+                        />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dp"
+                    android:text="@string/sign_add_profile_image"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    android:visibility="gone"
+                    app:fontName="Regular" />
+
+                <com.cronosgroup.tinkerlink.view.customviews.TLButton
+                    android:id="@+id/login_with_facebook_button"
+                    style="@style/facebookButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/facebook_button_size"
+                    app:fontNameButton="Regular" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <com.cronosgroup.tinkerlink.view.customviews.TLEditText
+            android:id="@+id/loginEmail"
+            style="@style/EdiTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/sign_hint_email"
+            android:inputType="textEmailAddress"
+            app:fontNameEdit="Regular" />
+
+        <com.cronosgroup.tinkerlink.view.customviews.TLEditText
+            android:id="@+id/loginName"
+            style="@style/EdiTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/sign_hint_name"
+            android:inputType="text"
+            app:fontNameEdit="Regular" />
+
+        <com.cronosgroup.tinkerlink.view.customviews.TLEditText
+            android:id="@+id/loginBirthDate"
+            style="@style/EdiTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/sign_hint_date"
+            android:inputType="datetime"
+            app:fontNameEdit="Regular" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/sign_genere_background"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <com.cronosgroup.tinkerlink.view.customviews.TLButton
+                android:id="@+id/loginFemale"
+                style="@style/GenereButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/gener_container_border"
+                android:layout_marginLeft="@dimen/gener_container_border"
+                android:layout_marginTop="@dimen/gener_container_border"
+                android:layout_weight="1"
+                android:text="@string/sign_title_female"
+                app:fontNameButton="Regular" />
+
+            <com.cronosgroup.tinkerlink.view.customviews.TLButton
+                android:id="@+id/loginMale"
+                style="@style/GenereButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/gener_container_border"
+                android:layout_marginRight="@dimen/gener_container_border"
+                android:layout_marginTop="@dimen/gener_container_border"
+                android:layout_weight="1"
+                android:text="@string/sign_title_male"
+                app:fontNameButton="Regular" />
+
+        </LinearLayout>
+
+        <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+            android:id="@+id/usePolicy"
+            style="@style/loginPolicyStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:text="@string/sign_policies"
+            android:textColor="@color/black"
+            app:fontName="Regular"
+            app:underLineColor="@color/tinkercolor"
+            app:underLineText="@string/sign_use_policies" />
+
+    </LinearLayout>
+
+    <!--</ScrollView>-->
+
+</RelativeLayout>

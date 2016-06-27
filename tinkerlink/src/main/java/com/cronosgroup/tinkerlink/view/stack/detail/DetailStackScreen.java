@@ -3,11 +3,20 @@ package com.cronosgroup.tinkerlink.view.stack.detail;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
+import android.support.v4.app.FragmentManager;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
 
 import com.cronosgroup.tinkerlink.R;
+import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
+import com.cronosgroup.tinkerlink.view.customviews.TLViewPager;
+import com.cronosgroup.tinkerlink.view.stack.main.StackActivity;
 import com.cronosgroup.tinkerlink.view.stack.main.adapter.StackAdapter;
+
+import java.util.List;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 /**
  * DetailStack view.
@@ -25,8 +34,21 @@ public class DetailStackScreen extends LinearLayout {
     // Vars
     private Listener listener;
     private StackAdapter adapter;
+    private StackActivity.Stack stackType;
+    private FragmentManager fragmentManager;
 
     // Views
+    @BindView(R.id.detailPager)
+    TLViewPager mDetailPager;
+
+    /**
+     * @param context
+     */
+    public DetailStackScreen(Context context, Listener listener, FragmentManager fragmentManager) {
+        this(context);
+        this.listener = listener;
+        this.fragmentManager = fragmentManager;
+    }
 
     /**
      * @param context
@@ -75,12 +97,17 @@ public class DetailStackScreen extends LinearLayout {
 
     private void init() {
         inflate(getContext(), R.layout.lay_detailstack, this);
-//        ButterKnife.bind(this);
+        ButterKnife.bind(this);
         initUI();
     }
 
     private void initUI() {
-
+        // Disable clip to padding
+        mDetailPager.setClipToPadding(false);
+        // set padding manually, the more you set the padding the more you see of prev & next page
+        mDetailPager.setPadding(100, 0, 100, 0);
+        // sets a margin b/w individual pages to ensure that there is a gap b/w them
+        mDetailPager.setPageMargin(0);
     }
 
     // **************  UI Actions **************
@@ -94,6 +121,16 @@ public class DetailStackScreen extends LinearLayout {
 
     public void setListener(Listener listener) {
         this.listener = listener;
+    }
+
+    public void initView(StackActivity.Stack stackType, List<RestPost> list, int indexPage) {
+        this.stackType = stackType;
+        adapter = new StackAdapter(fragmentManager);
+        adapter.setDetail(false);
+        adapter.setStackType(stackType);
+        adapter.setItems(list);
+        mDetailPager.setAdapter(adapter);
+        mDetailPager.setCurrentItem(indexPage);
     }
 
 }

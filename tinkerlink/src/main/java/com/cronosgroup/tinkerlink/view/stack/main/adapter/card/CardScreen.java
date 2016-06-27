@@ -4,30 +4,105 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
 import android.util.AttributeSet;
+import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import com.cronosgroup.tinkerlink.R;
+import com.cronosgroup.tinkerlink.manager.AppConfigManager;
+import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContacto;
+import com.cronosgroup.tinkerlink.view.customviews.TLCircularImageView;
+import com.cronosgroup.tinkerlink.view.customviews.TLCommonContactsView;
+import com.cronosgroup.tinkerlink.view.customviews.TLHabilityView;
+import com.cronosgroup.tinkerlink.view.customviews.TLImageView;
+import com.cronosgroup.tinkerlink.view.customviews.TLTextView;
 
+import java.util.List;
+
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
  * Main contacts view.
  */
-public class CardScreen extends LinearLayout {
-
+public class CardScreen extends RelativeLayout {
 
     /**
      * listeners of the Card's screen.
      */
     public interface Listener {
-        void shoDetailPressed();
+        void showDetailPressed();
     }
 
     // Vars
     private Listener listener;
+    private AppConfigManager appConfigManager;
+
+    // Properties
+    private String urlUser;
+    private String userName;
+    private String userCardJob;
+    private String userCardType;
+    private String userLocation;
+    private List<String> userSkills;
+    private List<RestContacto> userCommonContacts;
+    private String userCardDescription;
+    private int iconContactStatus;
+    private int overlayColor;
 
     // Views
+
+    @BindView(R.id.cardBackground)
+    TLImageView mCardBackground;
+
+    @BindView(R.id.cardOverlay)
+    TLImageView mCardOverlay;
+
+    @BindView(R.id.userCardImage)
+    TLCircularImageView mUserCardImage;
+
+    @BindView(R.id.userName)
+    TLTextView mUserName;
+
+    @BindView(R.id.userCardType)
+    TLTextView mUserCardType;
+
+    @BindView(R.id.userJob)
+    TLTextView mUserJob;
+
+    @BindView(R.id.userCardLocation)
+    TLTextView mUserCardLocation;
+
+    @BindView(R.id.userStatusContact)
+    TLImageView mUserStatusContact;
+
+    @BindView(R.id.contactsView)
+    TLCommonContactsView mContactsView;
+
+    @BindView(R.id.containerSkills)
+    LinearLayout mContainerSkills;
+
+    @BindView(R.id.descriptionTitle)
+    TLTextView mDescriptionTitle;
+
+    @BindView(R.id.descriptionText)
+    TLTextView mDescriptionText;
+
+    @BindView(R.id.touchView)
+    View mTouchView;
+
+    /**
+     * @param context
+     */
+    public CardScreen(Context context, Listener listener, AppConfigManager appConfigManager) {
+        this(context);
+        this.listener = listener;
+        this.appConfigManager = appConfigManager;
+    }
+
 
     /**
      * @param context
@@ -81,11 +156,32 @@ public class CardScreen extends LinearLayout {
 
     // **************  UI Actions **************
 
-    @OnClick(R.id.test)
+    @OnClick(R.id.touchView)
     protected void showDetailPressed() {
-        listener.shoDetailPressed();
+        Animation animation = AnimationUtils.loadAnimation(getContext(), R.anim.anim_bounce);
+        startAnimation(animation);
+
+        animation.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                listener.showDetailPressed();
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
     }
 
+    private void setStatusIcon(int resource) {
+        mUserStatusContact.setImageResource(resource);
+    }
 
     // Public methods
 
@@ -95,6 +191,126 @@ public class CardScreen extends LinearLayout {
 
     public void setListener(Listener listener) {
         this.listener = listener;
+    }
+
+    public String getUrlUser() {
+        return urlUser;
+    }
+
+    public void setUrlUser(String urlUser) {
+        this.urlUser = urlUser;
+        mUserCardImage.setImageFromUrl(urlUser);
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+        mUserName.setText(userName);
+    }
+
+    public String getUserCardType() {
+        return userCardType;
+    }
+
+    public void setUserCardType(String userCardType) {
+        this.userCardType = userCardType;
+        mUserCardType.setText(userCardType);
+    }
+
+    public String getUserLocation() {
+        return userLocation;
+    }
+
+    public void setUserLocation(String userLocation) {
+        this.userLocation = userLocation;
+        mUserCardLocation.setText(userLocation);
+    }
+
+    public List<String> getUserSkills() {
+        return userSkills;
+    }
+
+    public void setUserSkills(List<String> userSkills) {
+        this.userSkills = userSkills;
+        if (userSkills != null && userSkills.size() > 0) {
+            for (String habilidad : userSkills) {
+                TLHabilityView view = new TLHabilityView(getContext());
+                view.setTitleText(habilidad);
+                view.setEnabled(false);
+                view.setChecked(true);
+                mContainerSkills.addView(view);
+            }
+        }
+    }
+
+    public List<RestContacto> getUserCommonContacts() {
+        return userCommonContacts;
+    }
+
+    public void setUserCommonContacts(List<RestContacto> userCommonContacts) {
+        this.userCommonContacts = userCommonContacts;
+        mContactsView.setContacts(userCommonContacts, appConfigManager);
+    }
+
+    public String getUserCardDescription() {
+        return userCardDescription;
+    }
+
+    public void setUserCardDescription(String userCardDescription) {
+        this.userCardDescription = userCardDescription;
+        if (userCardDescription != null && userCardDescription.isEmpty()) {
+            mDescriptionText.setText(userCardDescription);
+        } else {
+            mDescriptionTitle.setVisibility(GONE);
+        }
+    }
+
+    public int getIconContactStatus() {
+        return iconContactStatus;
+    }
+
+    public void setIconContactStatus(int iconContactStatus) {
+        this.iconContactStatus = iconContactStatus;
+        mUserStatusContact.setImageResource(iconContactStatus);
+    }
+
+    public String getUserCardJob() {
+        return userCardJob;
+    }
+
+    public void setUserCardJob(String userCardJob) {
+        this.userCardJob = userCardJob;
+        mUserJob.setText(userCardJob);
+    }
+
+    public int getOverlayColor() {
+        return overlayColor;
+    }
+
+    public void setOverlayColor(int overlayColor) {
+        this.overlayColor = overlayColor;
+        mCardOverlay.setImageResource(overlayColor);
+    }
+
+    public void showDetail(boolean showDetail) {
+        mTouchView.setVisibility(showDetail ? VISIBLE : GONE);
+    }
+
+    public void setStatus(RestContacto contacto) {
+        if (!contacto.getUser().isMe()) {
+            if (contacto.isAccepted()) {
+                setStatusIcon(R.mipmap.profile_contactoagregado);
+            } else if (contacto.meRequestedLikeContact()) {
+                setStatusIcon(R.mipmap.profile_solicitudenviada);
+            } else if (contacto.wasRequestedToMeLikeContact()) {
+                setStatusIcon(R.mipmap.profile_solicitudenviada);
+            } else {
+                setStatusIcon(R.mipmap.profile_agregarcontacto);
+            }
+        }
     }
 
 

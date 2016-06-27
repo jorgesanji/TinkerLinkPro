@@ -25,9 +25,6 @@ import butterknife.ButterKnife;
  */
 public class TLTabItem extends LinearLayout {
 
-    public static final int DEFAULT_FONT = 0;
-    public static final int DEFAULT_SIZE = 12;
-
     // Vars
     private Drawable icon;
     private String text;
@@ -87,8 +84,8 @@ public class TLTabItem extends LinearLayout {
                 setIcon(attributes.getDrawable(R.styleable.TLTabItem_iconItem));
                 setText(attributes.getString(R.styleable.TLTabItem_textItem));
                 setTextColor(attributes.getColor(R.styleable.TLTabItem_textItemColor, Color.BLACK));
-                setTextFont(attributes.getInt(R.styleable.TLTabItem_textItemFont, DEFAULT_FONT));
-                setTextSize(attributes.getDimensionPixelSize(R.styleable.TLTabItem_textItemSize, DEFAULT_SIZE));
+                setTextFont(attributes.getInt(R.styleable.TLTabItem_textItemFont, TLTextView.DEFAULT_FONT));
+                setTextSize(attributes.getDimensionPixelSize(R.styleable.TLTabItem_textItemSize, TLTextView.DEFAULT_SIZE));
             } catch (Exception ex) {
                 Log.e("", ex.getMessage(), ex);
             } finally {

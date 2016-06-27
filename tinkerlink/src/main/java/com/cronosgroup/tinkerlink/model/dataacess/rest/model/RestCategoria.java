@@ -1,5 +1,6 @@
 package com.cronosgroup.tinkerlink.model.dataacess.rest.model;
 
+import com.cronosgroup.core.rest.RestBase;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 
 import com.cronosgroup.core.rest.Callback;
+import com.cronosgroup.core.rest.RestError;
 import com.cronosgroup.core.rest.SessionStatus;
 import com.cronosgroup.tinkerlink.application.TinkerLinkApplication;
 import com.cronosgroup.tinkerlink.model.dataacess.database.entities.TLUser;
@@ -11,7 +12,6 @@ import com.cronosgroup.tinkerlink.model.dataacess.database.manager.ChatManager;
 import com.cronosgroup.tinkerlink.model.dataacess.database.manager.NotificationsManager;
 import com.cronosgroup.tinkerlink.model.dataacess.database.manager.UserManager;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.manager.AppRestManager;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestError;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestUser;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.services.base.AppService;
 import com.cronosgroup.tinkerlink.utils.AppUserPreferences;

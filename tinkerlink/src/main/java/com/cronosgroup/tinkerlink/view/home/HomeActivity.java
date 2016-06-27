@@ -12,7 +12,6 @@ public class HomeActivity extends TinkerLinkActivity {
         super.onCreate(savedInstanceState);
         getSupportActionBar().setHomeButtonEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
-//        getSupportActionBar().setDisplayShowHomeEnabled(false);
     }
 
     @Override
@@ -34,4 +33,5 @@ public class HomeActivity extends TinkerLinkActivity {
     public Fragment getFragment() {
         return new HomeFragment();
     }
+
 }

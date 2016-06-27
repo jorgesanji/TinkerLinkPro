@@ -17,7 +17,6 @@ import com.cronosgroup.tinkerlink.utils.TypeFaceUtils;
 public class TLButton extends Button {
 
     private static final String TAG = TLButton.class.toString();
-    public static final int DEFAULT_FONT = 0;
 
     private int fontName;
 
@@ -65,7 +64,7 @@ public class TLButton extends Button {
             TypedArray attributes = null;
             try {
                 attributes = getContext().obtainStyledAttributes(attributeSet, R.styleable.TLButton);
-                setFontName(attributes.getInt(R.styleable.TLButton_fontNameButton, DEFAULT_FONT));
+                setFontName(attributes.getInt(R.styleable.TLButton_fontNameButton, TLTextView.DEFAULT_FONT));
             } catch (Exception ex) {
                 Log.e(TAG, ex.getMessage(), ex);
             } finally {

@@ -291,20 +291,18 @@ public class NewsFeedScreen extends RelativeLayout {
     @OnClick(R.id.linkerButton)
     protected void btnLinkerPressed() {
         mMenuButton.collapseMenu();
-        listener.onImTinkerStackPressed();
+        listener.onSearchTinkerStackPressed();
     }
 
     @OnClick(R.id.tinkerButton)
     protected void btnTinkerPressed() {
         mMenuButton.collapseMenu();
-        listener.onSearchTinkerStackPressed();
+        listener.onImTinkerStackPressed();
     }
 
     @OnClick(R.id.statusCard)
     protected void btnStatusPressed() {
-        if (listener != null) {
-            listener.onUserActivityPressed();
-        }
+        listener.onUserActivityPressed();
     }
 
     @OnClick(R.id.newPosts)

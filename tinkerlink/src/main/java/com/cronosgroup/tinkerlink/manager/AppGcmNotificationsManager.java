@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.util.Pair;
 
+import com.cronosgroup.core.rest.RestBase;
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.application.TinkerLinkApplication;
 import com.cronosgroup.tinkerlink.event.UpdateContactStatus;
@@ -11,7 +12,6 @@ import com.cronosgroup.tinkerlink.event.UpdateNotificationsEvent;
 import com.cronosgroup.tinkerlink.model.dataacess.database.entities.TLNotification;
 import com.cronosgroup.tinkerlink.model.dataacess.database.manager.NotificationsManager;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.manager.AppRestManager;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestBase;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestMensaje;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestNotificacion;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestResponse;

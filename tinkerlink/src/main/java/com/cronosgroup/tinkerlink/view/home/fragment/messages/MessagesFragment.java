@@ -2,16 +2,16 @@ package com.cronosgroup.tinkerlink.view.home.fragment.messages;
 
 import android.view.View;
 
-import com.cronosgroup.core.view.MVPFragment;
-import com.cronosgroup.core.view.ToolBarActivity;
 import com.cronosgroup.tinkerlink.presenter.messages.MessagesPresenter;
 import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
+import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
+import com.cronosgroup.tinkerlink.view.base.TinkerLinkActivity;
 
 
 /**
  * Messages Fragment
  */
-public class MessagesFragment extends MVPFragment<MessagesPresenter, MessagesPresenter.View>
+public class MessagesFragment extends MVPTinkerLinkFragment<MessagesPresenter, MessagesPresenter.View>
         implements MessagesPresenter.View, MessagesPresenter.Actions, MessagesScreen.Listener {
 
     private MessagesScreen messagesScreen;
@@ -53,7 +53,7 @@ public class MessagesFragment extends MVPFragment<MessagesPresenter, MessagesPre
     public void showLoading() {
         super.showLoading();
         if (getActivity() != null) {
-            ((ToolBarActivity) getActivity()).showLoading();
+            ((TinkerLinkActivity) getActivity()).showLoading();
         }
     }
 
@@ -61,7 +61,7 @@ public class MessagesFragment extends MVPFragment<MessagesPresenter, MessagesPre
     public void hideLoading() {
         super.hideLoading();
         if (getActivity() != null) {
-            ((ToolBarActivity) getActivity()).hideLoading();
+            ((TinkerLinkActivity) getActivity()).hideLoading();
         }
     }
 

@@ -3,11 +3,11 @@ package com.cronosgroup.tinkerlink.manager;
 import android.content.Context;
 
 import com.cronosgroup.core.rest.Callback;
+import com.cronosgroup.core.rest.RestError;
 import com.cronosgroup.tinkerlink.event.UpdateNotificationsEvent;
 import com.cronosgroup.tinkerlink.model.business.logic.NotificationsUseCases;
 import com.cronosgroup.tinkerlink.model.dataacess.database.entities.TLNotification;
 import com.cronosgroup.tinkerlink.model.dataacess.database.manager.NotificationsManager;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestError;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestNotificacion;
 import com.cronosgroup.tinkerlink.utils.AsyncLoader;
 

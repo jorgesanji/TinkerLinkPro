@@ -6,7 +6,9 @@ import com.cronosgroup.tinkerlink.internal.di.module.AppModule;
 import com.cronosgroup.tinkerlink.manager.AppContactsManager;
 import com.cronosgroup.tinkerlink.manager.AppFacebookShareManager;
 import com.cronosgroup.tinkerlink.manager.model.EntryItem;
+import com.cronosgroup.tinkerlink.view.base.TinkerDialogFragment;
 import com.cronosgroup.tinkerlink.view.base.TinkerLinkActivity;
+import com.cronosgroup.tinkerlink.view.base.TinkerLinkFragment;
 
 import javax.inject.Singleton;
 
@@ -27,11 +29,12 @@ public interface AppComponent {
 
     void inject(GcmRegistrationDevice manager);
 
-//    void inject(ViewHolderPostBase viewHolderPostBase);
-
     void inject(AppFacebookShareManager appFacebookShareManager);
 
     void inject(EntryItem entryItem);
 
-//    void inject(TinkerLinkPresenter tinkerLinkPresenter);
+    void inject(TinkerDialogFragment dialogFragment);
+
+    void inject(TinkerLinkFragment tinkerLinkFragment);
+
 }

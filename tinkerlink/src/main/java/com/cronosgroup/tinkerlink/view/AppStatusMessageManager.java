@@ -16,17 +16,17 @@ public class AppStatusMessageManager extends StatusMessageManager {
 
     @Override
     public int getErrorColor() {
-        return getContext().getResources().getColor(R.color.errorcolor);
+        return R.color.errorcolor;
     }
 
     @Override
     public int getSucessColor() {
-        return getContext().getResources().getColor(R.color.tinkercolor);
+        return R.color.tinkercolor;
     }
 
     @Override
     public int getWarningColor() {
-        return getContext().getResources().getColor(R.color.warningcolor);
+        return R.color.warningcolor;
     }
 
     ////// SHOW SUCCESSFULL MESSAGES

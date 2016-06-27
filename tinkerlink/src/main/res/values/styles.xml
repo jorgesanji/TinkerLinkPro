@@ -12,7 +12,7 @@
         <!-- Tool bar background -->
         <item name="android:background">@android:color/transparent</item>
         <!-- navigation icon color -->
-        <item name="colorControlNormal">@color/white</item>
+        <item name="colorControlNormal">@color/black</item>
         <item name="colorControlActivated">@color/white</item>
         <item name="colorControlHighlight">@color/white</item>
         <!-- colorPrimaryDark is used for the status bar -->
@@ -25,6 +25,14 @@
 
         <item name="android:displayOptions">showHome|homeAsUp|showTitle</item>
 
+        <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
+
+    </style>
+
+    <!-- Style for the navigation drawer icon -->
+    <style name="DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
+        <item name="spinBars">true</item>
+        <item name="color">@color/black</item>
     </style>
 
     <style name="ActivityTransparentTheme" parent="AppTheme">
@@ -467,6 +475,8 @@
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_weight">1</item>
         <item name="android:background">@drawable/list_states</item>
+        <item name="android:layout_marginBottom">1dp</item>
+        <item name="android:layout_marginTop">1dp</item>
     </style>
 
 </resources>

@@ -1,10 +1,12 @@
 package com.cronosgroup.tinkerlink.view.stack.main.adapter;
 
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
+import com.cronosgroup.tinkerlink.view.stack.main.StackActivity;
 import com.cronosgroup.tinkerlink.view.stack.main.adapter.card.CardFragment;
 
 import java.util.ArrayList;
@@ -15,7 +17,9 @@ import java.util.List;
  */
 public class StackAdapter extends FragmentStatePagerAdapter {
 
-    private List<RestPost> items;
+    private List<RestPost> items = new ArrayList<>();
+    private StackActivity.Stack stackType;
+    private boolean detail;
 
     public StackAdapter(FragmentManager fm) {
         super(fm);
@@ -24,13 +28,18 @@ public class StackAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        return new CardFragment();
+        Fragment fragment = new CardFragment();
+        Bundle bundle = new Bundle();
+        bundle.putSerializable(StackActivity.STACK_TYPE, stackType);
+        bundle.putSerializable(CardFragment.CARD, getItems().get(position));
+        bundle.putBoolean(CardFragment.SHOW_CARD_DETAIL, isDetail());
+        fragment.setArguments(bundle);
+        return fragment;
     }
 
     @Override
     public int getCount() {
-        return 20;
-//        return items.size();
+        return items.size();
     }
 
     public void setItems(List<RestPost> items) {
@@ -39,5 +48,25 @@ public class StackAdapter extends FragmentStatePagerAdapter {
 
     public void addItems(List<RestPost> postList) {
         items.addAll(postList);
+    }
+
+    public List<RestPost> getItems() {
+        return items;
+    }
+
+    public StackActivity.Stack getStackType() {
+        return stackType;
+    }
+
+    public void setStackType(StackActivity.Stack stackType) {
+        this.stackType = stackType;
+    }
+
+    public boolean isDetail() {
+        return detail;
+    }
+
+    public void setDetail(boolean detail) {
+        this.detail = detail;
     }
 }

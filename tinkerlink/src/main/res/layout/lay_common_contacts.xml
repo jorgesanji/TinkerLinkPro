@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/view_min_height_contacts"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/margin_plus_plus_plus_biggest"
+        android:background="@drawable/background_common_contacts">
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/view_super_tiny_height"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="@dimen/radius_big"
+            android:background="@color/gray_card" />
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/view_super_tiny_height"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="@dimen/radius_big"
+            android:background="@color/gray_card" />
+
+        <RelativeLayout
+            android:id="@+id/contactsContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/margin_tiny">
+
+            <com.cronosgroup.tinkerlink.view.customviews.TLImageView
+                android:id="@+id/contact1"
+                style="@style/ContactThumbStyle" />
+
+            <com.cronosgroup.tinkerlink.view.customviews.TLImageView
+                android:id="@+id/contact2"
+                style="@style/ContactThumbStyle"
+                android:layout_marginLeft="@dimen/margin_big" />
+
+            <com.cronosgroup.tinkerlink.view.customviews.TLImageView
+                android:id="@+id/contact3"
+                style="@style/ContactThumbStyle"
+                android:layout_marginLeft="@dimen/margin_plus_biggest" />
+
+            <com.cronosgroup.tinkerlink.view.customviews.TLImageView
+                android:id="@+id/contact4"
+                style="@style/ContactThumbStyle"
+                android:layout_marginLeft="@dimen/margin_plus_plus_biggest" />
+
+        </RelativeLayout>
+
+
+        <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+            android:id="@+id/numberContacts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/margin_mini"
+            android:layout_toRightOf="@+id/contactsContainer"
+            android:ellipsize="end"
+            android:maxWidth="@dimen/view_min_width"
+            android:singleLine="true"
+            android:text="0"
+            android:textColor="@color/gray_30"
+            android:textSize="@dimen/text_size_small"
+            app:fontName="Light" />
+
+        <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/margin_mini"
+            android:layout_toRightOf="@+id/numberContacts"
+            android:text="@string/profile_contacts_common"
+            android:textColor="@color/gray_30"
+            android:textSize="@dimen/text_size_small"
+            app:fontName="Light" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

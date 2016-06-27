@@ -27,9 +27,6 @@ import butterknife.OnClick;
  */
 public class TLUserView extends LinearLayout {
 
-    public static final int DEFAULT_FONT = 0;
-    public static final int DEFAULT_SIZE = 12;
-
     //Vars
     SpannableString userTitle;
     String userSubTitle;
@@ -97,12 +94,12 @@ public class TLUserView extends LinearLayout {
                 attributes = getContext().obtainStyledAttributes(attributeSet, R.styleable.TLUserView);
                 setTitle(attributes.getString(R.styleable.TLUserView_userTitle));
                 setTitleColor(attributes.getColor(R.styleable.TLUserView_userTitleColor, Color.BLACK));
-                setTitleFont(attributes.getInt(R.styleable.TLUserView_userTitleFont, DEFAULT_FONT));
-                setTitleSize(attributes.getDimensionPixelSize(R.styleable.TLUserView_userTitleSize, DEFAULT_SIZE));
+                setTitleFont(attributes.getInt(R.styleable.TLUserView_userTitleFont, TLTextView.DEFAULT_FONT));
+                setTitleSize(attributes.getDimensionPixelSize(R.styleable.TLUserView_userTitleSize, TLTextView.DEFAULT_SIZE));
                 setSubTitle(attributes.getString(R.styleable.TLUserView_userSubTitle));
                 setSubTitleColor(attributes.getColor(R.styleable.TLUserView_userSubTitleColor, Color.BLACK));
-                setSubTitleFont(attributes.getInt(R.styleable.TLUserView_userSubTitleFont, DEFAULT_FONT));
-                setSubTitleSize(attributes.getDimensionPixelSize(R.styleable.TLUserView_userSubTitleSize, DEFAULT_SIZE));
+                setSubTitleFont(attributes.getInt(R.styleable.TLUserView_userSubTitleFont, TLTextView.DEFAULT_FONT));
+                setSubTitleSize(attributes.getDimensionPixelSize(R.styleable.TLUserView_userSubTitleSize, TLTextView.DEFAULT_SIZE));
                 setUserIcon(attributes.getResourceId(R.styleable.TLUserView_userIcon, R.mipmap.placeholder));
             } catch (Exception ex) {
                 Log.e("", ex.getMessage(), ex);

@@ -1,10 +1,10 @@
 package com.cronosgroup.tinkerlink.model.dataacess.rest.services;
 
 import com.cronosgroup.core.rest.Callback;
+import com.cronosgroup.core.rest.RestBase;
+import com.cronosgroup.core.rest.RestError;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.mapping.JsonToModel;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestBase;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContacto;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestError;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestResponse;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.services.base.AppService;
 

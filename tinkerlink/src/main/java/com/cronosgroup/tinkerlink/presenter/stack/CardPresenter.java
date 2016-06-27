@@ -1,10 +1,11 @@
 package com.cronosgroup.tinkerlink.presenter.stack;
 
-import android.app.Activity;
-import android.os.Bundle;
-
 import com.cronosgroup.core.presenter.Presenter;
+import com.cronosgroup.tinkerlink.event.ShowDetailCardsEvent;
 import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenter;
+import com.cronosgroup.tinkerlink.view.stack.main.StackActivity;
+
+import org.greenrobot.eventbus.EventBus;
 
 /**
  * Created by jorgesanmartin on 6/22/16.
@@ -17,14 +18,13 @@ public class CardPresenter extends TinkerLinkPresenter<CardPresenter.View> {
      * Card listeners.
      */
     public interface View extends Presenter.View {
-
+        StackActivity.Stack getType();
     }
 
     /**
      * Card actions.
      */
     public interface Actions {
-        void onLaunchDetailStack(Activity activity, Bundle bundle);
     }
 
     /**
@@ -38,7 +38,7 @@ public class CardPresenter extends TinkerLinkPresenter<CardPresenter.View> {
     //Actions
 
     public void onLaunhDetailStack() {
-        listener.onLaunchDetailStack(getView().getActivity(), null);
+        EventBus.getDefault().post(new ShowDetailCardsEvent());
     }
 
 }

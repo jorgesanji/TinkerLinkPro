@@ -2,7 +2,7 @@ package com.cronosgroup.tinkerlink.model.dataacess.rest.mapping;
 
 import android.util.Log;
 
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestError;
+import com.cronosgroup.core.rest.RestError;
 import com.cronosgroup.tinkerlink.utils.AsyncLoader;
 import com.google.gson.Gson;
 import com.google.gson.JsonDeserializationContext;

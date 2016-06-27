@@ -1,7 +1,7 @@
 package com.cronosgroup.tinkerlink.model.business.logic;
 
 import com.cronosgroup.core.rest.Callback;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestError;
+import com.cronosgroup.core.rest.RestError;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.services.GcmServices;
 
 import java.util.HashMap;

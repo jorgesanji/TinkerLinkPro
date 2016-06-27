@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 
 import com.cronosgroup.core.managers.PermissionsManager;
@@ -81,6 +82,16 @@ public abstract class TinkerLinkActivity extends BaseActivity {
         initFragment();
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem menuItem) {
+        switch (menuItem.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+        }
+        return (super.onOptionsItemSelected(menuItem));
+    }
+
     private void initToolbar() {
 
         if (!hasToolbar()) {
@@ -108,7 +119,8 @@ public abstract class TinkerLinkActivity extends BaseActivity {
                     getSupportActionBar().setHomeAsUpIndicator(getActivityIconBack());
                 }
                 getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-                getSupportActionBar().setIcon(getResources().getDrawable(R.mipmap.logo_home));
+                getSupportActionBar().setIcon(getResources().getDrawable(R.mipmap.ic_tinker));
+                getSupportActionBar().setTitle(getString(R.string.app_name));
             }
         }
     }
@@ -131,7 +143,7 @@ public abstract class TinkerLinkActivity extends BaseActivity {
 
     protected void configToolBarWhiteMode() {
         configToolbar(getResources().getColor(R.color.white), "", getResources().getColor(R.color.black), null);
-        mLoader.findViewById(R.id.backgroundColor).setBackgroundResource(R.drawable.background_tinker_loader);
+        mLoader.findViewById(R.id.backgroundColor).setBackgroundResource(R.drawable.background_loader);
     }
 
     protected void configLinkerDefaultMode() {
@@ -141,27 +153,27 @@ public abstract class TinkerLinkActivity extends BaseActivity {
 
     protected void configTinkerDefaultMode() {
         configToolbar(getResources().getColor(R.color.tinkercolor), "", getResources().getColor(R.color.white), getResources().getDrawable(R.mipmap.ic_ti_02));
-        mLoader.findViewById(R.id.backgroundColor).setBackgroundResource(R.drawable.background_tinker_loader);
+        mLoader.findViewById(R.id.backgroundColor).setBackgroundResource(R.drawable.background_loader);
     }
 
     protected void configClearMode() {
         configToolbar(getResources().getColor(android.R.color.transparent), "", getResources().getColor(R.color.black), null);
-        mLoader.findViewById(R.id.backgroundColor).setBackgroundResource(R.drawable.background_tinker_loader);
+        mLoader.findViewById(R.id.backgroundColor).setBackgroundResource(R.drawable.background_loader);
     }
 
     protected void configLinkerCardMode() {
         configToolbar(getResources().getColor(R.color.linkercolor), "", getResources().getColor(R.color.white), getResources().getDrawable(R.mipmap.ic_ti_02));
-        mLoader.findViewById(R.id.backgroundColor).setBackgroundResource(R.drawable.background_tinker_loader);
+        mLoader.findViewById(R.id.backgroundColor).setBackgroundResource(R.drawable.background_loader);
     }
 
     protected void configTinkerCardMode() {
         configToolbar(getResources().getColor(R.color.tinkercolor), "", getResources().getColor(R.color.white), getResources().getDrawable(R.mipmap.ic_ti_02));
-        mLoader.findViewById(R.id.backgroundColor).setBackgroundResource(R.drawable.background_tinker_loader);
+        mLoader.findViewById(R.id.backgroundColor).setBackgroundResource(R.drawable.background_loader);
     }
 
     protected void configHomeStyle() {
         configToolbar(getResources().getColor(R.color.tinkercolor), "", getResources().getColor(R.color.white), getResources().getDrawable(R.mipmap.ic_ti_02));
-        mLoader.findViewById(R.id.backgroundColor).setBackgroundResource(R.drawable.background_tinker_loader);
+        mLoader.findViewById(R.id.backgroundColor).setBackgroundResource(R.drawable.background_loader);
     }
 
     public Toolbar getToolbar() {
@@ -200,5 +212,4 @@ public abstract class TinkerLinkActivity extends BaseActivity {
         super.finish();
         overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
     }
-
 }

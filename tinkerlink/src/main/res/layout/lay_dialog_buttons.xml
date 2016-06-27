@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="right|center_vertical"
+    android:orientation="horizontal">
+
+    <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+        android:id="@+id/cancelButton"
+        style="@style/buttonsDialogStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cancel_button_title"
+        android:textColor="@color/gray_30" />
+
+    <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+        android:id="@+id/sendButton"
+        style="@style/buttonsDialogStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/send_button_title"
+        android:textColor="@color/tinkercolor" />
+
+</LinearLayout>

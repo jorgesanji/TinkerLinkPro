@@ -1,9 +1,11 @@
 package com.cronosgroup.tinkerlink.model.dataacess.rest.model;
 
+import com.cronosgroup.core.rest.RestBase;
+
 /**
  * Created by jorgesanmartin on 10/26/15.
  */
-public class RestCountry extends RestBase{
+public class RestCountry extends RestBase {
 
     private String es;
     private String en;

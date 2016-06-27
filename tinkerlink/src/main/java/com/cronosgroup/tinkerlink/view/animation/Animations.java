@@ -6,28 +6,24 @@ import android.os.Build;
 import android.view.View;
 import android.view.ViewAnimationUtils;
 
-import com.nineoldandroids.animation.ObjectAnimator;
-
 /**
  * Created by jorgesanmartin on 6/22/16.
  */
 public class Animations {
-
-    public static int COLOR_DEFAULT = 001;
 
     public interface Listener {
         void onFinishAnimation();
     }
 
     public static void revealFromTop(final View view, final int color) {
-        reveal(view, color, COLOR_DEFAULT, null);
+        reveal(view, color, null);
     }
 
-    public static void revealFromTop(final View view, final int color, final int endColor, final Listener listener) {
-        reveal(view, color, endColor, listener);
+    public static void revealFromTop(final View view, final int color, final Listener listener) {
+        reveal(view, color, listener);
     }
 
-    public static void reveal(final View view, final int color, final int endColor, final Listener listener) {
+    public static void reveal(final View view, final int color, final Listener listener) {
 
         view.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
             @TargetApi(Build.VERSION_CODES.LOLLIPOP)
@@ -37,7 +33,7 @@ public class Animations {
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                     int cx = (view.getLeft() + view.getRight()) / 2;
-                    int cy = view.getTop();
+                    int cy = view.getBottom();
                     int finalRadius = Math.max(view.getWidth(), view.getHeight());
 
                     Animator anim = ViewAnimationUtils.createCircularReveal(view, cx, cy, 0, finalRadius);
@@ -55,13 +51,6 @@ public class Animations {
                                 listener.onFinishAnimation();
                             }
 
-                            if (endColor != COLOR_DEFAULT) {
-                                ObjectAnimator colorFade = ObjectAnimator.ofInt(view, "backgroundColor", color, endColor);
-                                colorFade.setRepeatCount(0);
-                                colorFade.setStartDelay(50);
-                                colorFade.setDuration(300);
-                                colorFade.start();
-                            }
                         }
 
                         @Override

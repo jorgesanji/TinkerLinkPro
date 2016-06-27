@@ -11,11 +11,16 @@ import com.cronosgroup.tinkerlink.presenter.home.HomePresenter;
 import com.cronosgroup.tinkerlink.presenter.messages.MessagesPresenter;
 import com.cronosgroup.tinkerlink.presenter.newsfeed.NewsFeedPresenter;
 import com.cronosgroup.tinkerlink.presenter.profile.ProfilePresenter;
+import com.cronosgroup.tinkerlink.presenter.sign.FacebookPresenter;
+import com.cronosgroup.tinkerlink.presenter.sign.PhonePresenter;
+import com.cronosgroup.tinkerlink.presenter.sign.SignPresenter;
+import com.cronosgroup.tinkerlink.presenter.sign.ValidationPresenter;
 import com.cronosgroup.tinkerlink.presenter.stack.CardPresenter;
 import com.cronosgroup.tinkerlink.presenter.stack.DetailStackPresenter;
 import com.cronosgroup.tinkerlink.presenter.stack.StackPresenter;
 import com.cronosgroup.tinkerlink.presenter.tutorial.TutorialPresenter;
 import com.cronosgroup.tinkerlink.view.home.HomeActivity;
+import com.cronosgroup.tinkerlink.view.sign.SignActivity;
 import com.cronosgroup.tinkerlink.view.stack.detail.DetailStackActivity;
 import com.cronosgroup.tinkerlink.view.stack.main.StackActivity;
 
@@ -25,7 +30,10 @@ import com.cronosgroup.tinkerlink.view.stack.main.StackActivity;
 public final class ScreenNavigationHandler implements HomePresenter.Actions, TutorialPresenter.Actions,
         ContactsPresenter.Actions, ProfilePresenter.Actions, MessagesPresenter.Actions,
         StackPresenter.Actions, NewsFeedPresenter.Actions, CardPresenter.Actions,
-        DetailStackPresenter.Actions {
+        DetailStackPresenter.Actions
+        , SignPresenter.Actions, FacebookPresenter.Actions,
+        ValidationPresenter.Actions, PhonePresenter.Actions
+{
 
     //Instance
     private static ScreenNavigationHandler instance = null;
@@ -81,27 +89,28 @@ public final class ScreenNavigationHandler implements HomePresenter.Actions, Tut
 
     // ------------------------ CREATION INTENTS -----------------------------------
 
-    private static Intent list(@NonNull Activity context, Bundle bundle) {
-        return newTask(context, HomeActivity.class, bundle);
-    }
-
     private static Intent home(@NonNull Activity context, Bundle bundle) {
         return newTask(context, HomeActivity.class, bundle, true);
     }
 
     private static Intent stack(@NonNull Activity context, Bundle bundle) {
-        return newTask(context, StackActivity.class, bundle, false);
+        return newTask(context, StackActivity.class, bundle);
     }
 
     private static Intent detailStack(@NonNull Activity context, Bundle bundle) {
         return newTask(context, DetailStackActivity.class, bundle, false);
     }
 
+    private static Intent sign(@NonNull Activity context, Bundle bundle) {
+        return newTask(context, SignActivity.class, bundle);
+    }
+
     // ******************************
     //      ACTIONS DEFINITION
     // *************************++***
 
-    // ------------------------ REGISTRATION -----------------------------------
+
+    // ------------------------ TUTORIAL -----------------------------------
 
     @Override
     public void onLoginPressed(Activity activity, Bundle bundle) {
@@ -110,6 +119,23 @@ public final class ScreenNavigationHandler implements HomePresenter.Actions, Tut
 
     @Override
     public void onSignPressed(Activity activity, Bundle bundle) {
+        startActivity(activity, sign(activity, bundle));
+    }
+
+    // ------------------------ REGISTRATION -----------------------------------
+
+    @Override
+    public void onSuccessValidation(Activity activity, Bundle bundle) {
+        startActivity(activity, home(activity, null));
+    }
+
+    @Override
+    public void onGoToLogin(Activity activity, Bundle bundle) {
+
+    }
+
+    @Override
+    public void onUsePolicyPressed(Activity activity, Bundle bundle) {
 
     }
 
@@ -123,12 +149,7 @@ public final class ScreenNavigationHandler implements HomePresenter.Actions, Tut
     // ------------------------ NEWSFEED -----------------------------------
 
     @Override
-    public void onLaunchImTinkerStack(Activity activity, Bundle bundle) {
-        startActivity(activity, stack(activity, bundle));
-    }
-
-    @Override
-    public void onLaunchSearchTinkerStack(Activity activity, Bundle bundle) {
+    public void onLaunchStack(Activity activity, Bundle bundle) {
         startActivity(activity, stack(activity, bundle));
     }
 
@@ -136,6 +157,6 @@ public final class ScreenNavigationHandler implements HomePresenter.Actions, Tut
 
     @Override
     public void onLaunchDetailStack(Activity activity, Bundle bundle) {
-        startActivity(activity, R.anim.anim_activity_up, R.anim.anim_activity_down, detailStack(activity, bundle));
+        startActivity(activity, R.anim.anim_activity_up, R.anim.anim_activity_stay, detailStack(activity, bundle));
     }
 }

@@ -1,33 +1,53 @@
 package com.cronosgroup.tinkerlink.view.stack.detail;
 
+import android.os.Bundle;
 import android.view.View;
 
-import com.cronosgroup.core.view.MVPFragment;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestUser;
 import com.cronosgroup.tinkerlink.presenter.stack.DetailStackPresenter;
 import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
+import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
 import com.cronosgroup.tinkerlink.view.base.TinkerLinkActivity;
 import com.cronosgroup.tinkerlink.view.stack.main.StackActivity;
 
 import java.util.List;
 
-
 /**
  * Stack Fragment
  */
-public class DetailStackFragment extends MVPFragment<DetailStackPresenter, DetailStackPresenter.View>
+public class DetailStackFragment extends MVPTinkerLinkFragment<DetailStackPresenter, DetailStackPresenter.View>
         implements DetailStackPresenter.View, DetailStackPresenter.Actions, DetailStackScreen.Listener {
 
     private DetailStackScreen detailStackScreen;
+    private StackActivity.Stack stackType;
+    private List<RestPost> list;
+    private int currentItem;
 
     //region **************  Fragment **************
 
     @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        stackType = (StackActivity.Stack) getArguments().getSerializable(StackActivity.STACK_TYPE);
+        list = (List<RestPost>) getArguments().getSerializable(DetailStackActivity.STACK_ITEMS);
+        currentItem = getArguments().getInt(DetailStackActivity.STACK_CURRENT_ITEM);
+        if (getActivity() != null) {
+            ((TinkerLinkActivity) getActivity()).getSupportActionBar().setTitle(getString(stackType.getStackTitle()));
+        }
+    }
+
+    @Override
     protected View getRootView() {
-        detailStackScreen = new DetailStackScreen(getActivity(), this);
+        detailStackScreen = new DetailStackScreen(getActivity(), this, getFragmentManager());
         return detailStackScreen;
     }
+
+    @Override
+    protected void onDidAppear() {
+        detailStackScreen.initView(stackType, list, currentItem);
+    }
+
     //endregion
 
     //region **************  MVPFragment **************
@@ -42,22 +62,12 @@ public class DetailStackFragment extends MVPFragment<DetailStackPresenter, Detai
         return this;
     }
 
-    @Override
-    protected void onDidAppear() {
-
-    }
-
     //region **************  DetailStackScreen.Listener **************
 
 
     //endregion
 
     //region **************  DetailStackPresenter.View **************
-
-    @Override
-    public void setCards(List<RestPost> cars) {
-
-    }
 
     @Override
     public boolean isUser() {
@@ -70,8 +80,8 @@ public class DetailStackFragment extends MVPFragment<DetailStackPresenter, Detai
     }
 
     @Override
-    public int getType() {
-        return StackActivity.TYPE_LINKER;
+    public StackActivity.Stack getType() {
+        return stackType;
     }
 
     @Override
@@ -89,7 +99,6 @@ public class DetailStackFragment extends MVPFragment<DetailStackPresenter, Detai
             ((TinkerLinkActivity) getActivity()).hideLoading();
         }
     }
-
 
     //endregion
 }

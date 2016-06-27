@@ -1,5 +1,6 @@
 package com.cronosgroup.tinkerlink.model.dataacess.rest.model;
 
+import com.cronosgroup.core.rest.RestBase;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
@@ -63,7 +64,7 @@ public class RestConfigApp extends RestBase {
     }
 
     public String getImageGalleryThumbnailPath() {
-        return removeQuoationMarks(imageGalleryThumbnailPath);
+        return imageGalleryThumbnailPath;
     }
 
     public void setImageGalleryThumbnailPath(String imageGalleryThumbnailPath) {
@@ -71,7 +72,7 @@ public class RestConfigApp extends RestBase {
     }
 
     public String getImageProfilePath() {
-        return removeQuoationMarks(imageProfilePath);
+        return imageProfilePath;
     }
 
     public void setImageProfilePath(String imageProfilePath) {
@@ -79,7 +80,7 @@ public class RestConfigApp extends RestBase {
     }
 
     public String getImageProfileThumbnailPath() {
-        return removeQuoationMarks(imageProfileThumbnailPath);
+        return imageProfileThumbnailPath;
     }
 
     public void setImageProfileThumbnailPath(String imageProfileThumbnailPath) {
@@ -87,7 +88,7 @@ public class RestConfigApp extends RestBase {
     }
 
     public String getImageProfileCroppedPath() {
-        return removeQuoationMarks(imageProfileCroppedPath);
+        return imageProfileCroppedPath;
     }
 
     public void setImageProfileCroppedPath(String imageProfileCroppedPath) {
@@ -95,7 +96,7 @@ public class RestConfigApp extends RestBase {
     }
 
     public String getImageProfileCroppedThumbnailPath() {
-        return removeQuoationMarks(imageProfileCroppedThumbnailPath);
+        return imageProfileCroppedThumbnailPath;
     }
 
     public void setImageProfileCroppedThumbnailPath(String imageProfileCroppedThumbnailPath) {
@@ -103,7 +104,7 @@ public class RestConfigApp extends RestBase {
     }
 
     public String getIconPath() {
-        return removeQuoationMarks(iconPath);
+        return iconPath;
     }
 
     public void setIconPath(String iconPath) {

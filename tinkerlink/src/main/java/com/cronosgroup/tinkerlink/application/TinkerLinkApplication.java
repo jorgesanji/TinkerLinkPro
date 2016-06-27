@@ -13,8 +13,10 @@ import com.cronosgroup.tinkerlink.internal.di.component.DaggerAppComponent;
 import com.cronosgroup.tinkerlink.internal.di.module.AppModule;
 import com.cronosgroup.tinkerlink.manager.AppConfigManager;
 import com.cronosgroup.tinkerlink.manager.AppContactsManager;
+import com.cronosgroup.tinkerlink.manager.AppCountryManager;
 import com.cronosgroup.tinkerlink.manager.AppDataBaseManager;
 import com.cronosgroup.tinkerlink.manager.AppFacebookManager;
+import com.cronosgroup.tinkerlink.manager.AppImageLoaderManager;
 import com.cronosgroup.tinkerlink.manager.AppMessagesManager;
 import com.cronosgroup.tinkerlink.manager.AppNotificationsManager;
 import com.cronosgroup.tinkerlink.manager.AppUserSessionManager;
@@ -52,6 +54,9 @@ public class TinkerLinkApplication extends BaseApplication implements Permission
     @Inject
     AppContactsManager appContactsManager;
 
+    @Inject
+    AppCountryManager appCountryManager;
+
     private AppComponent component;
 
     @Override
@@ -78,14 +83,20 @@ public class TinkerLinkApplication extends BaseApplication implements Permission
     @Override
     public void onForeground() {
         mLocationManager.stopLocationUpdates();
+        appConfigManager.loadConfig();
         if (Adjust.getDefaultInstance() != null) {
             Adjust.onResume();
         }
     }
 
-    @Override
-    public void permission(PermissionsManager.Permission permission, boolean enable) {
+    private void buildComponentAndInject() {
+        component = DaggerAppComponent.builder().appModule(new AppModule(this)).build();
+        component.inject(this);
+    }
 
+    private void initImageLoader() {
+        AppImageLoaderManager appImageLoaderManager = new AppImageLoaderManager(getApplicationContext());
+        appImageLoaderManager.initImageLoader();
     }
 
     private void initFacebook() {
@@ -105,17 +116,18 @@ public class TinkerLinkApplication extends BaseApplication implements Permission
         Adjust.onCreate(config);
     }
 
+    private void initcountryManager() {
+        appCountryManager.loadCountries();
+    }
+
     private void init() {
         AppDataBaseManager.initDataBase(getApplicationContext());
         buildComponentAndInject();
         AppRestManager.configureRestManager(getConfig(), appUserSessionManager);
         initFacebook();
         initAnalytics();
-    }
-
-    public void buildComponentAndInject() {
-        component = DaggerAppComponent.builder().appModule(new AppModule(this)).build();
-        component.inject(this);
+        initcountryManager();
+        initImageLoader();
     }
 
     public void AppUpdateData() {
@@ -138,5 +150,17 @@ public class TinkerLinkApplication extends BaseApplication implements Permission
 
     public TLUser getCurrentUserLoged() {
         return appUserSessionManager.getCurrentUser();
+    }
+
+    /**
+     * Callback rermissions received from any Activity
+     *
+     * @param permission
+     * @param enable
+     */
+
+    @Override
+    public void permission(PermissionsManager.Permission permission, boolean enable) {
+
     }
 }

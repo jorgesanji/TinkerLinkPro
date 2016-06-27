@@ -3,11 +3,11 @@ package com.cronosgroup.tinkerlink.manager;
 import android.content.Context;
 
 import com.cronosgroup.core.rest.Callback;
+import com.cronosgroup.core.rest.RestError;
 import com.cronosgroup.tinkerlink.event.UpdateMessagesEvent;
 import com.cronosgroup.tinkerlink.model.business.logic.ChatUseCases;
 import com.cronosgroup.tinkerlink.model.dataacess.database.manager.ChatManager;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestChat;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestError;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestMensaje;
 
 import org.greenrobot.eventbus.EventBus;

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="vertical"
+    android:paddingBottom="10dp"
+    android:paddingTop="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <com.cronosgroup.tinkerlink.view.customviews.TLImageView
+            android:id="@+id/recUserImage"
+            android:layout_width="@dimen/recomendation_size_thumb"
+            android:layout_height="@dimen/recomendation_size_thumb"
+            android:contentDescription="Image user"
+            android:scaleType="centerCrop" />
+
+        <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+            android:id="@+id/recTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:singleLine="true"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:fontName="Regular" />
+
+    </LinearLayout>
+
+    <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+        android:id="@+id/recSubTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:textColor="@color/black_opaque"
+        android:textSize="14sp"
+        app:fontName="Light" />
+
+    <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+        android:id="@+id/recomendations"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black_opaque"
+        android:textSize="14sp"
+        android:visibility="gone"
+        app:fontName="Light" />
+
+</LinearLayout>
