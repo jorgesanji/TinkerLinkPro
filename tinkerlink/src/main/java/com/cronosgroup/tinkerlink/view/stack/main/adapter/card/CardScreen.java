@@ -18,6 +18,7 @@ import com.cronosgroup.tinkerlink.view.customviews.TLCircularImageView;
 import com.cronosgroup.tinkerlink.view.customviews.TLCommonContactsView;
 import com.cronosgroup.tinkerlink.view.customviews.TLHabilityView;
 import com.cronosgroup.tinkerlink.view.customviews.TLImageView;
+import com.cronosgroup.tinkerlink.view.customviews.TLScrollView;
 import com.cronosgroup.tinkerlink.view.customviews.TLTextView;
 
 import java.util.List;
@@ -94,6 +95,9 @@ public class CardScreen extends RelativeLayout {
 
     @BindView(R.id.touchView)
     View mTouchView;
+
+    @BindView(R.id.scrollView)
+    TLScrollView mScrollView;
 
     /**
      * @param context
@@ -298,6 +302,9 @@ public class CardScreen extends RelativeLayout {
 
     public void showDetail(boolean showDetail) {
         mTouchView.setVisibility(showDetail ? VISIBLE : GONE);
+        mScrollView.setScrollingEnabled(!showDetail);
+        mScrollView.setVerticalScrollBarEnabled(!showDetail);
+        mScrollView.setHorizontalScrollBarEnabled(!showDetail);
     }
 
     public void setStatus(RestContacto contacto) {
