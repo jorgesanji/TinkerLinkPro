@@ -46,7 +46,6 @@ public class StackPresenter extends TinkerLinkPresenter<StackPresenter.View> {
      */
     public interface Actions {
         void onLaunchStack(Activity activity, Bundle bundle);
-
         void onLaunchDetailStack(Activity activity, Bundle bundle);
     }
 

@@ -26,6 +26,7 @@ import java.util.List;
  * Stack Fragment
  */
 public class StackFragment extends MVPTinkerLinkFragment<StackPresenter, StackPresenter.View>
+
         implements StackPresenter.View, StackScreen.Listener {
 
     private StackScreen stackScreen;
@@ -41,6 +42,7 @@ public class StackFragment extends MVPTinkerLinkFragment<StackPresenter, StackPr
         if (getActivity() != null) {
             ((TinkerLinkActivity) getActivity()).getSupportActionBar().setTitle(getString(stackType.getStackTitle()));
         }
+
     }
 
     @Override
@@ -79,7 +81,6 @@ public class StackFragment extends MVPTinkerLinkFragment<StackPresenter, StackPr
             EventBus.getDefault().register(this);
         }
     }
-
 
     //endregion
 
