@@ -5,18 +5,15 @@ import android.content.Context;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.view.View;
-
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.manager.AppConfigManager;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContacto;
-import com.cronosgroup.tinkerlink.view.customviews.TLCircularImageView;
 import com.cronosgroup.tinkerlink.view.customviews.TLCommonContactsView;
 import com.cronosgroup.tinkerlink.view.customviews.TLHabilityView;
+import com.cronosgroup.tinkerlink.view.customviews.TLImageRoundBorder;
 import com.cronosgroup.tinkerlink.view.customviews.TLImageView;
 import com.cronosgroup.tinkerlink.view.customviews.TLScrollView;
 import com.cronosgroup.tinkerlink.view.customviews.TLTextView;
@@ -37,6 +34,8 @@ public class CardScreen extends RelativeLayout {
      */
     public interface Listener {
         void showDetailPressed();
+
+        void showRecommendationPressed();
     }
 
     // Vars
@@ -54,6 +53,7 @@ public class CardScreen extends RelativeLayout {
     private String userCardDescription;
     private int iconContactStatus;
     private int overlayColor;
+    private String userNumberRecommendations;
 
     // Views
 
@@ -64,7 +64,7 @@ public class CardScreen extends RelativeLayout {
     TLImageView mCardOverlay;
 
     @BindView(R.id.userCardImage)
-    TLCircularImageView mUserCardImage;
+    TLImageRoundBorder mUserCardImage;
 
     @BindView(R.id.userName)
     TLTextView mUserName;
@@ -98,6 +98,9 @@ public class CardScreen extends RelativeLayout {
 
     @BindView(R.id.scrollView)
     TLScrollView mScrollView;
+
+    @BindView(R.id.recommendationNumber)
+    TLTextView mRecommendationNumber;
 
     /**
      * @param context
@@ -161,27 +164,15 @@ public class CardScreen extends RelativeLayout {
 
     // **************  UI Actions **************
 
+
+    @OnClick(R.id.containerRecommendation)
+    protected void showRecommendationsPressed() {
+
+    }
+
     @OnClick(R.id.touchView)
     protected void showDetailPressed() {
-        Animation animation = AnimationUtils.loadAnimation(getContext(), R.anim.anim_bounce);
-        startAnimation(animation);
-
-        animation.setAnimationListener(new Animation.AnimationListener() {
-            @Override
-            public void onAnimationStart(Animation animation) {
-
-            }
-
-            @Override
-            public void onAnimationEnd(Animation animation) {
-                listener.showDetailPressed();
-            }
-
-            @Override
-            public void onAnimationRepeat(Animation animation) {
-
-            }
-        });
+        listener.showDetailPressed();
     }
 
     private void setStatusIcon(int resource) {
@@ -204,7 +195,7 @@ public class CardScreen extends RelativeLayout {
 
     public void setUrlUser(String urlUser) {
         this.urlUser = urlUser;
-        mUserCardImage.setImageFromUrl(urlUser);
+        mUserCardImage.setImageUrl(urlUser);
     }
 
     public String getUserName() {
@@ -321,5 +312,13 @@ public class CardScreen extends RelativeLayout {
         }
     }
 
+    public String getUserNumberRecommendations() {
+        return userNumberRecommendations;
+    }
 
+    public void setUserNumberRecommendations(String userNumberRecommendations) {
+        this.userNumberRecommendations = userNumberRecommendations;
+        mRecommendationNumber.setText(userNumberRecommendations);
+
+    }
 }

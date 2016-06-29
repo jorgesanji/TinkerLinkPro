@@ -64,8 +64,8 @@ public class ViewHolderTinker extends ViewHolderPostBase<RestPost> {
     @BindView(R.id.tabActions)
     public View mTabActions;
 
-    @BindView(R.id.dividerView)
-    public View mDividerView;
+//    @BindView(R.id.dividerView)
+//    public View mDividerView;
 
     @BindView(R.id.typeCardTitle)
     public TLTextView mTypeCardTitle;
@@ -81,8 +81,8 @@ public class ViewHolderTinker extends ViewHolderPostBase<RestPost> {
         super(view);
         mUserContainer.hideIcon(true);
         mUserContainer.setVisibility(View.GONE);
-        mContainerView.setBackgroundResource(R.drawable.background_tinker_card);
-        mDividerView.setBackgroundColor(itemView.getResources().getColor(R.color.tinkercolor));
+//        mContainerView.setBackgroundResource(R.drawable.background_tinker_card);
+//        mDividerView.setBackgroundColor(itemView.getResources().getColor(R.color.tinkercolor));
         mFriendsButton.setIcon(getContext().getResources().getDrawable(R.mipmap.newsfeed_recomendations));
         mTypeCardTitle.setText(getResources().getString(R.string.card_me));
         mViews.setBackgroundColor(Color.TRANSPARENT);

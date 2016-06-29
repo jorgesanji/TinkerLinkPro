@@ -4,6 +4,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
 
 import com.cronosgroup.core.view.BaseAdapter;
+import com.cronosgroup.tinkerlink.manager.AppConfigManager;
+import com.cronosgroup.tinkerlink.manager.AppUserSessionManager;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
 import com.cronosgroup.tinkerlink.view.home.fragment.newsfeed.adapter.viewholder.base.ViewHolderPostBase;
 import com.cronosgroup.tinkerlink.view.interfaces.IOActionButtons;
@@ -19,6 +21,8 @@ public class HomeAdapter extends BaseAdapter<ViewHolderPostBase, RestPost> {
 
     private static final int ELEMENTS_TO_REQUEST_LOAD = 15;
 
+    private AppConfigManager appConfigManager;
+    private AppUserSessionManager appUserSessionManager;
     private IOActionButtons actionButtons;
     private IOLoadMore loadMorePost;
     private List<String> idListRequested = new ArrayList<>();
@@ -33,7 +37,7 @@ public class HomeAdapter extends BaseAdapter<ViewHolderPostBase, RestPost> {
     public RecyclerView.ViewHolder getHolder(ViewGroup parent, int viewType) {
         ViewHolderPostBase holder = UICardsHelper.getViewHolder(parent, viewType, actionButtons);
         if (holder != null) {
-            holder.setClickListener(getClickListener());
+            ((ViewHolderPostBase) holder.setClickListener(getClickListener())).setAppConfigManager(getAppConfigManager()).setAppUserSessionManager(getAppUserSessionManager());
         }
         return holder;
     }
@@ -85,5 +89,21 @@ public class HomeAdapter extends BaseAdapter<ViewHolderPostBase, RestPost> {
         idListRequested.clear();
         getItems().clear();
         notifyDataSetChanged();
+    }
+
+    public AppConfigManager getAppConfigManager() {
+        return appConfigManager;
+    }
+
+    public void setAppConfigManager(AppConfigManager appConfigManager) {
+        this.appConfigManager = appConfigManager;
+    }
+
+    public AppUserSessionManager getAppUserSessionManager() {
+        return appUserSessionManager;
+    }
+
+    public void setAppUserSessionManager(AppUserSessionManager appUserSessionManager) {
+        this.appUserSessionManager = appUserSessionManager;
     }
 }

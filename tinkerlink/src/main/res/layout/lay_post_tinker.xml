@@ -35,8 +35,18 @@
                 android:id="@+id/containerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_plus_big"
+                android:layout_marginTop="@dimen/margin_plus_biggest"
                 android:background="@drawable/background_default_card">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="130dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginRight="2dp"
+                    android:layout_marginTop="2dp">
+
+                    <include layout="@layout/lay_header_card" />
+                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -55,10 +65,10 @@
                             android:id="@+id/cardContentDescription"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/margin_plus_big"
+                            android:layout_marginTop="@dimen/margin_plus_biggest"
                             android:gravity="center_horizontal"
                             android:orientation="vertical"
-                            android:padding="@dimen/margin_small"
+                            android:padding="2dp"
                             android:visibility="visible">
 
                             <com.cronosgroup.tinkerlink.view.customviews.TLTextView
@@ -66,38 +76,44 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:inputType="textCapSentences"
-                                android:textColor="@color/black"
+                                android:textColor="@color/white"
                                 android:textSize="@dimen/text_size_mediun"
                                 android:visibility="visible"
-                                app:fontName="Bold" />
+                                app:fontName="Regular" />
 
                             <com.cronosgroup.tinkerlink.view.customviews.TLTextView
                                 android:id="@+id/typeCardTitle"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:textColor="@color/gray_30"
+                                android:textColor="@color/white"
                                 android:textSize="@dimen/text_size_small"
                                 android:visibility="visible"
-                                app:fontName="Light" />
+                                app:fontName="Regular" />
 
                             <com.cronosgroup.tinkerlink.view.customviews.TLTextView
                                 android:id="@+id/userOcupation"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
-                                android:textColor="@color/black"
+                                android:textColor="@color/white"
                                 android:textSize="@dimen/text_size_mediun"
                                 android:visibility="visible"
-                                app:fontName="Regular" />
+                                app:fontName="Bold" />
 
                             <com.cronosgroup.tinkerlink.view.customviews.TLTextView
                                 android:id="@+id/userLocation"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:textColor="@color/gray_30"
+                                android:textColor="@color/white"
                                 android:textSize="@dimen/text_size_tiny"
                                 android:visibility="visible"
-                                app:fontName="Light" />
+                                app:fontName="Regular" />
+
+                            <include
+                                layout="@layout/lay_contact_container"
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:layout_marginTop="30dp" />
 
                             <com.cronosgroup.tinkerlink.view.customviews.TLTextView
                                 android:id="@+id/titleDescription"
@@ -106,7 +122,7 @@
                                 android:layout_marginBottom="@dimen/margin_tiny"
                                 android:layout_marginTop="@dimen/margin_mediun"
                                 android:text="@string/profile_description_title"
-                                android:textColor="@color/gray_30"
+                                android:textColor="@color/white"
                                 android:textSize="@dimen/text_size_small"
                                 android:visibility="visible"
                                 app:fontName="Light" />
@@ -123,18 +139,6 @@
 
                         </LinearLayout>
 
-                        <View
-                            android:id="@+id/dividerView"
-                            android:layout_width="match_parent"
-                            android:layout_height="2dp"
-                            android:background="@color/gray_card" />
-
-                        <include
-                            layout="@layout/lay_tab_actions"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="@dimen/margin_tiny" />
-
                     </LinearLayout>
 
                 </LinearLayout>
@@ -146,9 +150,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true" />
-
         </RelativeLayout>
 
+        <include
+            layout="@layout/lay_tab_actions"
+            android:layout_width="match_parent"
+            android:layout_height="40dp" />
     </LinearLayout>
 
 </LinearLayout>

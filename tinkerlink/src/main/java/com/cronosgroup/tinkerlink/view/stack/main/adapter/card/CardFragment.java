@@ -62,6 +62,7 @@ public class CardFragment extends MVPTinkerLinkFragment<CardPresenter, CardPrese
         cardScreen.setUserSkills(restPost.getHabilidades());
         cardScreen.setUserCommonContacts(restPost.getUser().getUsersCommon());
         cardScreen.setStatus(restPost.getUser());
+        cardScreen.setUserNumberRecommendations(String.valueOf(restUser.getProfile().getRecommendations()));
     }
 
     //region
@@ -94,6 +95,11 @@ public class CardFragment extends MVPTinkerLinkFragment<CardPresenter, CardPrese
     @Override
     public void showDetailPressed() {
         getPresenter().onLaunhDetailStack();
+    }
+
+    @Override
+    public void showRecommendationPressed() {
+
     }
 
     //region

@@ -39,4 +39,10 @@ public class DetailStackActivity extends TinkerLinkActivity {
         fragment.setArguments(getIntent().getExtras());
         return fragment;
     }
+
+    @Override
+    public void finish() {
+        super.finish();
+//        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+    }
 }
