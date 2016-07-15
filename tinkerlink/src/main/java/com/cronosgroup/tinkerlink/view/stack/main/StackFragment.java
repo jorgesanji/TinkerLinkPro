@@ -42,7 +42,6 @@ public class StackFragment extends MVPTinkerLinkFragment<StackPresenter, StackPr
         if (getActivity() != null) {
             ((TinkerLinkActivity) getActivity()).getSupportActionBar().setTitle(getString(stackType.getStackTitle()));
         }
-
     }
 
     @Override

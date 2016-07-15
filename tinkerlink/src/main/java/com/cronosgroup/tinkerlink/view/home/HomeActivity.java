@@ -21,12 +21,7 @@ public class HomeActivity extends TinkerLinkActivity {
 
     @Override
     public StyleToolBar getActivityStyle() {
-        return StyleToolBar.WHITESTYLE;
-    }
-
-    @Override
-    public int getActivityIconBack() {
-        return 0;
+        return StyleToolBar.DEFAULTSTYLE;
     }
 
     @Override

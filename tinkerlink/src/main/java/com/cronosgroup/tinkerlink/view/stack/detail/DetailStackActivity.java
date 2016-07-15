@@ -10,7 +10,6 @@ public class DetailStackActivity extends TinkerLinkActivity {
     public static final String STACK_ITEMS = "items";
     public static final String STACK_CURRENT_ITEM = "currenIndexPage";
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,19 +24,12 @@ public class DetailStackActivity extends TinkerLinkActivity {
 
     @Override
     public StyleToolBar getActivityStyle() {
-        return StyleToolBar.WHITESTYLE;
-    }
-
-    @Override
-    public int getActivityIconBack() {
-        return 0;
+        return StyleToolBar.DEFAULTSTYLE;
     }
 
     @Override
     public Fragment getFragment() {
-        DetailStackFragment fragment = new DetailStackFragment();
-        fragment.setArguments(getIntent().getExtras());
-        return fragment;
+        return new DetailStackFragment();
     }
 
     @Override

@@ -11,7 +11,8 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/gray_50" />
+        android:background="@color/gray_card" />
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -35,7 +36,7 @@
             android:layout_height="match_parent"
             android:layout_marginBottom="10dp"
             android:layout_marginTop="10dp"
-            android:background="@color/gray_50" />
+            android:background="@color/gray_card" />
 
         <com.cronosgroup.tinkerlink.view.customviews.TLTabItem
             android:id="@+id/friendsButton"
@@ -53,7 +54,7 @@
             android:layout_height="match_parent"
             android:layout_marginBottom="10dp"
             android:layout_marginTop="10dp"
-            android:background="@color/gray_50" />
+            android:background="@color/gray_card" />
 
         <com.cronosgroup.tinkerlink.view.customviews.TLTabItem
             android:id="@+id/likeButton"
@@ -71,7 +72,7 @@
             android:layout_height="match_parent"
             android:layout_marginBottom="10dp"
             android:layout_marginTop="10dp"
-            android:background="@color/gray_50" />
+            android:background="@color/gray_card" />
 
         <com.cronosgroup.tinkerlink.view.customviews.TLTabItem
             android:id="@+id/views"
@@ -89,5 +90,5 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/gray_50" />
+        android:background="@color/gray_card" />
 </LinearLayout>

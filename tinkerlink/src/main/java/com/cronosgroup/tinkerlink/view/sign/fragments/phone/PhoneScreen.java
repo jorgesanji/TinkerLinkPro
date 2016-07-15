@@ -96,6 +96,7 @@ public class PhoneScreen extends RelativeLayout {
         });
     }
 
+    // Actions
 
     @OnClick(R.id.countrySelected)
     protected void showCountrySelector() {

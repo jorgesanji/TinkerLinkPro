@@ -23,6 +23,7 @@ import com.cronosgroup.core.view.BaseActivity;
  */
 public abstract class MVPTinkerLinkFragment<P extends Presenter<V>, V extends Presenter.View> extends TinkerLinkFragment implements Presenter.View {
 
+    // Variables
     private P presenter;
     private boolean readyInitialized = false;
 

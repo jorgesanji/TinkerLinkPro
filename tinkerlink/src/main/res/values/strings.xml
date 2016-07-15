@@ -496,4 +496,22 @@
     <string name="stack_watch_tinker">Ver soy tinker</string>
     <string name="stack_watch_linker">Ver busco tinker</string>
 
+    <!--  Network  -->
+    <string name="network_title_network">En común con %s</string>
+    <string name="network_user">Tú</string>
+    <string name="network_common_contacts">Contactos en común</string>
+    <string name="network_match_tinkerlink">Coincidencias tinkerlink</string>
+    <string name="network_tinkerlink_offer">Ofrece servicios que tú esta buscando</string>
+    <string name="network_tinkerlink_search">Busca servicios que tú ofreces</string>
+    <string name="network_categories_loader">Cargar más</string>
+
+    <!--  Profile  -->
+    <string name="profile_request_recommendation">Solicitar recomendaciones</string>
+    <string name="profile_new_tinker_card">Nueva tarjeta soy Tinker</string>
+    <string name="profile_new_linker_card">Nueva tarjeta busco Tinker</string>
+    <string name="profile_watch_profile">Ver perfil</string>
+    <string name="profile_notifications">Notificaciones</string>
+
+
+
 </resources>

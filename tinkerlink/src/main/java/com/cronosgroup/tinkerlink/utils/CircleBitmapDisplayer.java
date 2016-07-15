@@ -15,15 +15,24 @@ import com.nostra13.universalimageloader.core.imageaware.ImageViewAware;
 public class CircleBitmapDisplayer extends RoundedBitmapDisplayer {
 
     private final boolean alphaAnimation;
+    private final boolean withBorder;
 
     public CircleBitmapDisplayer() {
         super(0);
         this.alphaAnimation = false;
+        this.withBorder = false;
     }
 
     public CircleBitmapDisplayer(boolean alphaAnimation) {
         super(0);
         this.alphaAnimation = alphaAnimation;
+        this.withBorder = false;
+    }
+
+    public CircleBitmapDisplayer(boolean alphaAnimation, boolean withBorder) {
+        super(0);
+        this.alphaAnimation = alphaAnimation;
+        this.withBorder = withBorder;
     }
 
     @Override
@@ -33,17 +42,26 @@ public class CircleBitmapDisplayer extends RoundedBitmapDisplayer {
         }
 
         RoundedBitmapDrawable rounddrawable =
-                RoundedBitmapDrawableFactory.create(imageAware.getWrappedView().getResources(), bitmap);
+                RoundedBitmapDrawableFactory.create(imageAware.getWrappedView().getResources(), isWithBorder() ? TLBitmapUtils.bitmapWithBorder(bitmap) : bitmap);
         rounddrawable.setCircular(true);
+        rounddrawable.setAntiAlias(true);
 
-        if (alphaAnimation) {
+        if (isAlphaAnimation()) {
             imageAware.getWrappedView().setAlpha(0.0f);
         }
 
         imageAware.setImageDrawable(rounddrawable);
 
-        if (alphaAnimation) {
+        if (isAlphaAnimation()) {
             imageAware.getWrappedView().animate().alpha(1.0f).start();
         }
+    }
+
+    public boolean isAlphaAnimation() {
+        return alphaAnimation;
+    }
+
+    public boolean isWithBorder() {
+        return withBorder;
     }
 }

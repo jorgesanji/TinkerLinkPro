@@ -4,6 +4,8 @@ import android.content.Context;
 import android.graphics.Typeface;
 import android.util.Log;
 
+import com.cronosgroup.tinkerlink.view.customviews.TLTextView;
+
 /**
  * Font utils.
  */
@@ -29,16 +31,17 @@ public class TypeFaceUtils {
     }
 
     public static Typeface getFontWithFlag(Context context, int type) {
-        switch (type) {
-            case 0:
-                return getRegularFont(context);
-            case 1:
-                return getBoldFont(context);
-            case 2:
-                return getLightFont(context);
-            case 3:
-                return getSemiBoldFont(context);
+
+        if (type == TLTextView.Font.REGULAR.getType()) {
+            return getRegularFont(context);
+        } else if (type == TLTextView.Font.BOLD.getType()) {
+            return getBoldFont(context);
+        } else if (type == TLTextView.Font.LIGTH.getType()) {
+            return getLightFont(context);
+        } else if (type == TLTextView.Font.SEMIBOLD.getType()) {
+            return getSemiBoldFont(context);
         }
+
         return null;
     }
 

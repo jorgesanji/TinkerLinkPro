@@ -479,4 +479,101 @@
         <item name="android:layout_marginTop">1dp</item>
     </style>
 
+
+    <style name="NetWorkSectionsStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">25dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textColor">@color/gray_30</item>
+        <item name="android:textSize">@dimen/text_size_mediun</item>
+        <item name="fontName">Bold</item>
+    </style>
+
+    <style name="NetWorkTinkerSectionsStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/text_size_mediun</item>
+        <item name="fontName">Regular</item>
+    </style>
+
+    <style name="NetworkImageThumbStyle">
+        <item name="android:layout_width">@dimen/view_network_thumb</item>
+        <item name="android:layout_height">@dimen/view_network_thumb</item>
+        <item name="android:scaleType">centerCrop</item>
+        <item name="imageRounded">true</item>
+        <item name="imageWithBorder">true</item>
+        <item name="imageType">User</item>
+        <item name="android:src">@mipmap/newsfeed_avatar_hombre</item>
+    </style>
+
+    <style name="NetworkNameStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">25dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/text_size_mediun</item>
+        <item name="fontName">Regular</item>
+    </style>
+
+    <style name="NetworkConnectionStyle">
+        <item name="android:layout_width">100dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="bottomMarginToDraw">50dp</item>
+        <item name="colorLine">@color/gray</item>
+        <item name="strokeWidth">5.0</item>
+    </style>
+
+    <style name="NetworkTinkerLinkCardsStyle">
+        <item name="android:layout_width">20dp</item>
+        <item name="android:layout_height">20dp</item>
+        <item name="android:scaleType">fitCenter</item>
+        <item name="android:padding">5dp</item>
+    </style>
+
+    <style name="NetworkFriendContactStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:maxWidth">100dp</item>
+        <item name="android:textSize">@dimen/text_size_mediun</item>
+        <item name="fontName">Regular</item>
+    </style>
+
+    <style name="NetworkLoaderStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:background">@drawable/button_default_states</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/text_size_mediun</item>
+        <item name="android:text">@string/network_categories_loader</item>
+        <item name="fontName">Bold</item>
+    </style>
+
+    <style name="NotificationTextStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/text_size_tiny</item>
+        <item name="fontName">Regular</item>
+    </style>
+
+
+    <style name="UserProfileTextStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/text_size_tiny</item>
+        <item name="fontName">Regular</item>
+    </style>
+
 </resources>

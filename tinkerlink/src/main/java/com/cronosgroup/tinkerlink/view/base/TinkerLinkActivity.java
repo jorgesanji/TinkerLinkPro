@@ -1,6 +1,5 @@
 package com.cronosgroup.tinkerlink.view.base;
 
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -23,25 +22,63 @@ import butterknife.ButterKnife;
 
 public abstract class TinkerLinkActivity extends BaseActivity {
 
+    // Variables
+
     public enum StyleToolBar {
-        WHITESTYLE(1),
-        LINKERSTYLE(2),
-        TINKERSTYLE(3),
-        CLEARSTYLE(4),
-        LINKERCARDSTYLE(5),
-        TINKERCARDSTYLE(6),
-        HOMESTYLE(7);
+        DEFAULTSTYLE(1, 0, R.color.white, R.string.app_name, R.color.black, R.drawable.background_loader, R.mipmap.ic_tinker),
+        LINKERSTYLE(2, 0, R.color.linkercolor, 0, R.color.white, R.drawable.background_linker_loader, R.mipmap.ic_tinker),
+        TINKERSTYLE(3, 0, R.color.tinkercolor, 0, R.color.white, R.drawable.background_loader, R.mipmap.ic_tinker);
 
-        private int style;
+        private final int style;
+        private final int arrowIcon;
+        private final int backgroundColor;
+        private final int text;
+        private final int textColor;
+        private final int backgroundLoader;
+        private final int icon;
 
-        private StyleToolBar(int style) {
+        StyleToolBar(int style, int arrowIcon, int backgroundColor, int text, int textColor, int backgroundLoader, int icon) {
             this.style = style;
+            this.arrowIcon = arrowIcon;
+            this.backgroundColor = backgroundColor;
+            this.text = text;
+            this.textColor = textColor;
+            this.backgroundLoader = backgroundLoader;
+            this.icon = icon;
+        }
+
+        public int getIcon() {
+            return icon;
+        }
+
+        public int getBackgroundColor() {
+            return backgroundColor;
+        }
+
+        public int getText() {
+            return text;
+        }
+
+        public int getTextColor() {
+            return textColor;
+        }
+
+        public int getBackgroundLoader() {
+            return backgroundLoader;
         }
 
         public int getStyle() {
             return style;
         }
+
+        public int getArrowIcon() {
+            return arrowIcon;
+        }
     }
+
+    private Fragment currentFragment;
+
+    // Views
 
     @Inject
     Logger mLooger;
@@ -54,23 +91,13 @@ public abstract class TinkerLinkActivity extends BaseActivity {
 
     private View view;
 
-    private Fragment currentFragment;
+    // Abstract methods
 
     public abstract boolean hasToolbar();
 
     public abstract StyleToolBar getActivityStyle();
 
-    public abstract int getActivityIconBack();
-
     public abstract Fragment getFragment();
-
-    @Override
-    public View getView() {
-        if (view == null) {
-            view = getLayoutInflater().inflate(R.layout.activity_layout_base, null);
-        }
-        return view;
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,6 +110,14 @@ public abstract class TinkerLinkActivity extends BaseActivity {
     }
 
     @Override
+    public View getView() {
+        if (view == null) {
+            view = getLayoutInflater().inflate(R.layout.activity_layout_base, null);
+        }
+        return view;
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem menuItem) {
         switch (menuItem.getItemId()) {
             case android.R.id.home:
@@ -92,89 +127,49 @@ public abstract class TinkerLinkActivity extends BaseActivity {
         return (super.onOptionsItemSelected(menuItem));
     }
 
-    private void initToolbar() {
-
+    protected void initToolbar() {
         if (!hasToolbar()) {
             mToolbar.setVisibility(View.GONE);
         } else {
-            if (mToolbar != null) {
-                if (getActivityStyle() == StyleToolBar.LINKERSTYLE) {
-                    configLinkerDefaultMode();
-                } else if (getActivityStyle() == StyleToolBar.WHITESTYLE) {
-                    configToolBarWhiteMode();
-                } else if (getActivityStyle() == StyleToolBar.CLEARSTYLE) {
-                    configClearMode();
-                } else if (getActivityStyle() == StyleToolBar.LINKERCARDSTYLE) {
-                    configLinkerCardMode();
-                } else if (getActivityStyle() == StyleToolBar.TINKERCARDSTYLE) {
-                    configTinkerCardMode();
-                } else if (getActivityStyle() == StyleToolBar.HOMESTYLE) {
-                    configHomeStyle();
-                } else {
-                    configTinkerDefaultMode();
-                }
+            StyleToolBar style = getActivityStyle();
+            configToolBar(style);
+            setSupportActionBar(mToolbar);
 
-                setSupportActionBar(mToolbar);
-                if (getActivityIconBack() != 0) {
-                    getSupportActionBar().setHomeAsUpIndicator(getActivityIconBack());
-                }
-                getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-                getSupportActionBar().setIcon(getResources().getDrawable(R.mipmap.ic_tinker));
-                getSupportActionBar().setTitle(getString(R.string.app_name));
+            if (style.getArrowIcon() != 0) {
+                getSupportActionBar().setHomeAsUpIndicator(style.getArrowIcon());
             }
+
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
     }
 
-    private void initFragment() {
+    protected void initFragment() {
         this.currentFragment = getFragment();
         if (currentFragment != null) {
+            currentFragment.setArguments(getIntent().getExtras());
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
             transaction.add(R.id.contentFrame, currentFragment);
             transaction.commit();
         }
     }
 
-    private void configToolbar(int backgroundColor, String title, int textColor, Drawable logo) {
-        mToolbar.setBackgroundColor(backgroundColor);
-        mToolbar.setTitle(title);
-        mToolbar.setTitleTextColor(textColor);
-        mToolbar.setLogo(logo);
+    protected void configToolbar(int backgroundColor, int title, int textColor, int logo) {
+        mToolbar.setBackgroundColor(getResources().getColor(backgroundColor));
+        if (title != 0) {
+            mToolbar.setTitle(getResources().getString(title));
+        }
+        mToolbar.setTitleTextColor(getResources().getColor(textColor));
+        if (logo != 0) {
+            mToolbar.setLogo(getResources().getDrawable(logo));
+        }
     }
 
-    protected void configToolBarWhiteMode() {
-        configToolbar(getResources().getColor(R.color.white), "", getResources().getColor(R.color.black), null);
-        mLoader.findViewById(R.id.backgroundColor).setBackgroundResource(R.drawable.background_loader);
+    protected void configToolBar(StyleToolBar style) {
+        configToolbar(style.getBackgroundColor(), style.getText(), style.getTextColor(), style.getIcon());
+        mLoader.findViewById(R.id.backgroundColor).setBackgroundResource(style.getBackgroundLoader());
     }
 
-    protected void configLinkerDefaultMode() {
-        configToolbar(getResources().getColor(R.color.linkercolor), "", getResources().getColor(R.color.white), getResources().getDrawable(R.mipmap.ic_ti_02));
-        mLoader.findViewById(R.id.backgroundColor).setBackgroundResource(R.drawable.background_linker_loader);
-    }
-
-    protected void configTinkerDefaultMode() {
-        configToolbar(getResources().getColor(R.color.tinkercolor), "", getResources().getColor(R.color.white), getResources().getDrawable(R.mipmap.ic_ti_02));
-        mLoader.findViewById(R.id.backgroundColor).setBackgroundResource(R.drawable.background_loader);
-    }
-
-    protected void configClearMode() {
-        configToolbar(getResources().getColor(android.R.color.transparent), "", getResources().getColor(R.color.black), null);
-        mLoader.findViewById(R.id.backgroundColor).setBackgroundResource(R.drawable.background_loader);
-    }
-
-    protected void configLinkerCardMode() {
-        configToolbar(getResources().getColor(R.color.linkercolor), "", getResources().getColor(R.color.white), getResources().getDrawable(R.mipmap.ic_ti_02));
-        mLoader.findViewById(R.id.backgroundColor).setBackgroundResource(R.drawable.background_loader);
-    }
-
-    protected void configTinkerCardMode() {
-        configToolbar(getResources().getColor(R.color.tinkercolor), "", getResources().getColor(R.color.white), getResources().getDrawable(R.mipmap.ic_ti_02));
-        mLoader.findViewById(R.id.backgroundColor).setBackgroundResource(R.drawable.background_loader);
-    }
-
-    protected void configHomeStyle() {
-        configToolbar(getResources().getColor(R.color.tinkercolor), "", getResources().getColor(R.color.white), getResources().getDrawable(R.mipmap.ic_ti_02));
-        mLoader.findViewById(R.id.backgroundColor).setBackgroundResource(R.drawable.background_loader);
-    }
+    // Public methods
 
     public Toolbar getToolbar() {
         return mToolbar;

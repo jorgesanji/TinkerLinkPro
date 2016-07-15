@@ -2,7 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.cronosgroup.tinkerlink">
 
-
     <!-- ****** PERMISSIONS ******** -->
 
     <!-- Internet-->
@@ -87,6 +86,31 @@
 
         <activity
             android:name=".view.sign.SignActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".view.network.NetworkActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTransparentTheme" />
+
+        <activity
+            android:name=".view.config.ConfigActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".view.profile.ProfileActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".view.editprofile.EditProfileActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".view.createcard.CreateCardActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".view.createrecommendation.CreateRecommendationActivity"
             android:screenOrientation="portrait" />
 
     </application>

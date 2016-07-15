@@ -9,6 +9,7 @@ import android.widget.RelativeLayout;
 import com.cronosgroup.tinkerlink.R;
 
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Main contacts view.
@@ -21,7 +22,7 @@ public class ContactsScreen extends RelativeLayout {
      */
     public interface Listener {
 
-
+        void onLaunch();
     }
 
     // Vars
@@ -81,6 +82,10 @@ public class ContactsScreen extends RelativeLayout {
 
     // **************  UI Actions **************
 
+    @OnClick(R.id.launch)
+    protected void onLaunch() {
+        listener.onLaunch();
+    }
 
     // Public methods
 

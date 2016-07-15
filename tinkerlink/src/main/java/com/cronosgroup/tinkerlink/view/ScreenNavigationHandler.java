@@ -6,11 +6,16 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 
 import com.cronosgroup.tinkerlink.R;
+import com.cronosgroup.tinkerlink.presenter.EditProfilePresenter;
+import com.cronosgroup.tinkerlink.presenter.account.AccountPresenter;
+import com.cronosgroup.tinkerlink.presenter.config.ConfigPresenter;
 import com.cronosgroup.tinkerlink.presenter.contacts.ContactsPresenter;
+import com.cronosgroup.tinkerlink.presenter.createcard.CreateCardPresenter;
+import com.cronosgroup.tinkerlink.presenter.createrecommendation.CreateRecommendationPresenter;
 import com.cronosgroup.tinkerlink.presenter.home.HomePresenter;
 import com.cronosgroup.tinkerlink.presenter.messages.MessagesPresenter;
+import com.cronosgroup.tinkerlink.presenter.network.NetworkPresenter;
 import com.cronosgroup.tinkerlink.presenter.newsfeed.NewsFeedPresenter;
-import com.cronosgroup.tinkerlink.presenter.profile.ProfilePresenter;
 import com.cronosgroup.tinkerlink.presenter.sign.FacebookPresenter;
 import com.cronosgroup.tinkerlink.presenter.sign.PhonePresenter;
 import com.cronosgroup.tinkerlink.presenter.sign.SignPresenter;
@@ -19,7 +24,13 @@ import com.cronosgroup.tinkerlink.presenter.stack.CardPresenter;
 import com.cronosgroup.tinkerlink.presenter.stack.DetailStackPresenter;
 import com.cronosgroup.tinkerlink.presenter.stack.StackPresenter;
 import com.cronosgroup.tinkerlink.presenter.tutorial.TutorialPresenter;
+import com.cronosgroup.tinkerlink.view.config.ConfigActivity;
+import com.cronosgroup.tinkerlink.view.createcard.CreateCardActivity;
+import com.cronosgroup.tinkerlink.view.createrecommendation.CreateRecommendationActivity;
+import com.cronosgroup.tinkerlink.view.editprofile.EditProfileActivity;
 import com.cronosgroup.tinkerlink.view.home.HomeActivity;
+import com.cronosgroup.tinkerlink.view.network.NetworkActivity;
+import com.cronosgroup.tinkerlink.view.profile.ProfileActivity;
 import com.cronosgroup.tinkerlink.view.sign.SignActivity;
 import com.cronosgroup.tinkerlink.view.stack.detail.DetailStackActivity;
 import com.cronosgroup.tinkerlink.view.stack.main.StackActivity;
@@ -28,12 +39,13 @@ import com.cronosgroup.tinkerlink.view.stack.main.StackActivity;
  * Created by jorgesanmartin on 2/26/16.
  */
 public final class ScreenNavigationHandler implements HomePresenter.Actions, TutorialPresenter.Actions,
-        ContactsPresenter.Actions, ProfilePresenter.Actions, MessagesPresenter.Actions,
+        ContactsPresenter.Actions, AccountPresenter.Actions, MessagesPresenter.Actions,
         StackPresenter.Actions, NewsFeedPresenter.Actions, CardPresenter.Actions,
         DetailStackPresenter.Actions
         , SignPresenter.Actions, FacebookPresenter.Actions,
-        ValidationPresenter.Actions, PhonePresenter.Actions
-{
+        ValidationPresenter.Actions, PhonePresenter.Actions,
+        NetworkPresenter.Actions, ConfigPresenter.Actions, EditProfilePresenter.Actions,
+        CreateCardPresenter.Actions, CreateRecommendationPresenter.Actions {
 
     //Instance
     private static ScreenNavigationHandler instance = null;
@@ -105,6 +117,30 @@ public final class ScreenNavigationHandler implements HomePresenter.Actions, Tut
         return newTask(context, SignActivity.class, bundle);
     }
 
+    private static Intent network(@NonNull Activity context, Bundle bundle) {
+        return newTask(context, NetworkActivity.class, bundle);
+    }
+
+    private static Intent profile(@NonNull Activity context, Bundle bundle) {
+        return newTask(context, ProfileActivity.class, bundle);
+    }
+
+    private static Intent editProfile(@NonNull Activity context, Bundle bundle) {
+        return newTask(context, EditProfileActivity.class, bundle);
+    }
+
+    private static Intent configProfile(@NonNull Activity context, Bundle bundle) {
+        return newTask(context, ConfigActivity.class, bundle);
+    }
+
+    private static Intent createRecommendation(@NonNull Activity context, Bundle bundle) {
+        return newTask(context, CreateRecommendationActivity.class, bundle);
+    }
+
+    private static Intent createCard(@NonNull Activity context, Bundle bundle) {
+        return newTask(context, CreateCardActivity.class, bundle);
+    }
+
     // ******************************
     //      ACTIONS DEFINITION
     // *************************++***
@@ -158,5 +194,39 @@ public final class ScreenNavigationHandler implements HomePresenter.Actions, Tut
     @Override
     public void onLaunchDetailStack(Activity activity, Bundle bundle) {
         startActivity(activity, R.anim.anim_activity_up, R.anim.anim_activity_stay, detailStack(activity, bundle));
+    }
+
+    // ------------------------ PROFILE -----------------------------------
+
+    @Override
+    public void onNetWorkPressed(Activity activity, Bundle bundle) {
+        startActivity(activity, network(activity, bundle));
+    }
+
+    // ------------------------ ACCOUNT -----------------------------------
+
+    @Override
+    public void onLaunchEditProfile(Activity activity, Bundle bundle) {
+        startActivity(activity, editProfile(activity, bundle));
+    }
+
+    @Override
+    public void onLaunchProfile(Activity activity, Bundle bundle) {
+        startActivity(activity, profile(activity, bundle));
+    }
+
+    @Override
+    public void onLaunchConfigProfile(Activity activity, Bundle bundle) {
+        startActivity(activity, configProfile(activity, bundle));
+    }
+
+    @Override
+    public void onLaunchCreateRecommendation(Activity activity, Bundle bundle) {
+        startActivity(activity, createRecommendation(activity, bundle));
+    }
+
+    @Override
+    public void onLaunchCreateCard(Activity activity, Bundle bundle) {
+        startActivity(activity, createCard(activity, bundle));
     }
 }

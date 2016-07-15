@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="220dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <com.cronosgroup.tinkerlink.view.customviews.TLImageButton
+                        android:id="@+id/editProfile"
+                        android:layout_width="@dimen/view_min_width"
+                        android:layout_height="@dimen/view_min_width" />
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="120dp">
+
+                        <com.cronosgroup.tinkerlink.view.customviews.TLImageView
+                            android:id="@+id/userImage"
+                            android:layout_width="@dimen/view_max_height"
+                            android:layout_height="@dimen/view_max_height"
+                            android:layout_centerInParent="true"
+                            android:src="@mipmap/newsfeed_avatar_hombre"
+                            app:imageRounded="true"
+                            app:imageType="User"
+                            app:imageWithBorder="true" />
+
+                        <include
+                            android:id="@+id/containerRecommendation"
+                            layout="@layout/lay_number_recommendations"
+                            android:layout_width="70dp"
+                            android:layout_height="30dp"
+                            android:layout_marginLeft="60dp"
+                            android:layout_marginTop="70dp" />
+
+                    </RelativeLayout>
+
+                    <com.cronosgroup.tinkerlink.view.customviews.TLImageButton
+                        android:id="@+id/configAccount"
+                        android:layout_width="@dimen/view_min_width"
+                        android:layout_height="@dimen/view_min_width" />
+
+                </LinearLayout>
+
+                <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                    style="@style/UserProfileTextStyle"
+                    android:layout_marginTop="@dimen/margin_mediun"
+                    android:text="Peluquera" />
+
+                <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                    style="@style/UserProfileTextStyle"
+                    android:text="Laura Vargas"
+                    android:textSize="@dimen/text_size_mediun" />
+
+                <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                    android:id="@+id/watchProfile"
+                    style="@style/UserProfileTextStyle"
+                    android:layout_marginTop="@dimen/margin_mediun"
+                    android:gravity="center"
+                    android:text="@string/profile_watch_profile" />
+
+            </LinearLayout>
+
+            <include layout="@layout/lay_newsfeed_action_buttons" />
+
+            <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_mediun"
+                android:text="@string/profile_notifications"
+                android:textAllCaps="true"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_mediun"
+                app:fontName="Regular" />
+
+            <include layout="@layout/lay_item_notification" />
+
+            <include layout="@layout/lay_item_notification" />
+
+            <include layout="@layout/lay_item_notification" />
+
+            <include layout="@layout/lay_item_notification" />
+
+            <include layout="@layout/lay_item_notification" />
+
+            <include layout="@layout/lay_item_notification" />
+
+            <include layout="@layout/lay_item_notification" />
+
+
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+    <com.cronosgroup.tinkerlink.view.customviews.TLMenuButton
+        android:id="@+id/menuView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="16dp"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        app:menuButtonBackgroundTintColor="@color/tinkercolor"
+        app:menuButtonImageResource="@mipmap/newsfeed_crearcard_net"
+        app:menuButtonStateExpandedImageResource="@mipmap/newsfeed_crearcard_cancelar">
+
+        <com.cronosgroup.tinkerlink.view.customviews.TLMenuItem
+            android:id="@+id/recommendationButton"
+            style="@style/MenuItemStyle"
+            app:menuItemBackgroundTintColor="@color/yellow"
+            app:menuItemImageResource="@mipmap/newsfeed_tinkercard_net"
+            app:menuItemTitle="@string/profile_request_recommendation" />
+
+        <com.cronosgroup.tinkerlink.view.customviews.TLMenuItem
+            android:id="@+id/tinkerButton"
+            style="@style/MenuItemStyle"
+            app:menuItemBackgroundTintColor="@color/tinkercolor"
+            app:menuItemImageResource="@mipmap/newsfeed_tinkercard_net"
+            app:menuItemTitle="@string/profile_new_tinker_card" />
+
+        <com.cronosgroup.tinkerlink.view.customviews.TLMenuItem
+            android:id="@+id/linkerButton"
+            style="@style/MenuItemStyle"
+            app:menuItemBackgroundTintColor="@color/linkercolor"
+            app:menuItemImageResource="@mipmap/newsfeed_linkercard_net"
+            app:menuItemTitle="@string/profile_new_linker_card" />
+
+    </com.cronosgroup.tinkerlink.view.customviews.TLMenuButton>
+
+</RelativeLayout>

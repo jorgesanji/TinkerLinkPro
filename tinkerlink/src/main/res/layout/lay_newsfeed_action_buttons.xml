@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/stackButtons"
+    android:layout_width="match_parent"
+    android:layout_height="90dp"
+    android:background="@color/white"
+    android:orientation="horizontal">
+
+    <com.cronosgroup.tinkerlink.view.customviews.TLStackButton
+        android:id="@+id/imTinkerbt"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1.0"
+        android:background="@drawable/button_default_states_bgwhite"
+        app:stackIcon="@mipmap/newsfeed_newcard_tinker"
+        app:stackLineColor="@color/tinkercolor"
+        app:stackSubTitle="@string/watch_tinkers"
+        app:stackSubTitleColor="@color/tinkercolor"
+        app:stackTitle="0K" />
+
+    <com.cronosgroup.tinkerlink.view.customviews.TLStackButton
+        android:id="@+id/searchTinkerbt"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1.0"
+        android:background="@drawable/button_default_states_bgwhite"
+        app:stackIcon="@mipmap/newsfeed_newcard_linker"
+        app:stackLineColor="@color/linkercolor"
+        app:stackSubTitle="@string/watch_linkers"
+        app:stackSubTitleColor="@color/linkercolor"
+        app:stackTitle="0K" />
+
+</LinearLayout>
