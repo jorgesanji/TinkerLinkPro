@@ -6,39 +6,88 @@
     android:layout_height="wrap_content"
     android:background="@color/white"
     android:gravity="center_vertical"
-    android:orientation="horizontal">
+    android:orientation="vertical">
 
-    <com.cronosgroup.tinkerlink.view.customviews.TLTabItem
-        android:id="@+id/views"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1.0"
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray_card" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:gravity="center_vertical"
-        app:iconItem="@mipmap/ic_views"
-        app:textItem="0"
-        app:textItemFont="Regular"
-        app:textItemSize="@dimen/text_size_mediun" />
+        android:orientation="horizontal">
 
-    <com.cronosgroup.tinkerlink.view.customviews.TLTabItem
-        android:id="@+id/shareButton"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1.0"
-        android:gravity="center_vertical"
-        app:iconItem="@mipmap/ic_action_social_share"
-        app:textItem="0"
-        app:textItemFont="Regular"
-        app:textItemSize="@dimen/text_size_mediun" />
+        <com.cronosgroup.tinkerlink.view.customviews.TLTabItem
+            android:id="@+id/shareButton"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.0"
+            android:gravity="center_vertical"
+            app:iconItem="@mipmap/ic_action_social_share"
+            app:textItem="0"
+            app:textItemFont="Regular"
+            app:textItemSize="@dimen/text_size_mediun" />
 
-    <com.cronosgroup.tinkerlink.view.customviews.TLTabItem
-        android:id="@+id/friendsButton"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1.0"
-        android:gravity="center_vertical"
-        app:iconItem="@mipmap/ic_contacts"
-        app:textItem="0"
-        app:textItemFont="Regular"
-        app:textItemSize="@dimen/text_size_mediun" />
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/gray_card" />
 
+        <com.cronosgroup.tinkerlink.view.customviews.TLTabItem
+            android:id="@+id/friendsButton"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.0"
+            android:gravity="center_vertical"
+            app:iconItem="@mipmap/ic_contacts"
+            app:textItem="0"
+            app:textItemFont="Regular"
+            app:textItemSize="@dimen/text_size_mediun" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/gray_card" />
+
+        <com.cronosgroup.tinkerlink.view.customviews.TLTabItem
+            android:id="@+id/likeButton"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.0"
+            android:gravity="center_vertical"
+            app:iconItem="@mipmap/ic_contacts"
+            app:textItem="0"
+            app:textItemFont="Regular"
+            app:textItemSize="@dimen/text_size_mediun" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/gray_card" />
+
+        <com.cronosgroup.tinkerlink.view.customviews.TLTabItem
+            android:id="@+id/views"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.0"
+            android:gravity="center_vertical"
+            app:iconItem="@mipmap/ic_views"
+            app:textItem="0"
+            app:textItemFont="Regular"
+            app:textItemSize="@dimen/text_size_mediun" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray_card" />
 </LinearLayout>

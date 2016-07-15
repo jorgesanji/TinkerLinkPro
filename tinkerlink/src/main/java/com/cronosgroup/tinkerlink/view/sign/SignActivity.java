@@ -34,11 +34,6 @@ public class SignActivity extends TinkerLinkActivity implements IOFormListener {
     }
 
     @Override
-    public int getActivityIconBack() {
-        return 0;
-    }
-
-    @Override
     public void onBackPressed() {
         if (getCurrentFragment() != null && ((SignFragment) getCurrentFragment()).onBackPressed()) {
             return;

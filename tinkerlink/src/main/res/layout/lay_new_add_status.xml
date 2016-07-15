@@ -3,27 +3,35 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="@dimen/view_height_big"
-    android:background="@color/white"
-    android:elevation="@dimen/view_elevation"
-    android:orientation="vertical">
+    android:background="@color/white">
 
-    <com.cronosgroup.tinkerlink.view.customviews.TLTextView
-        android:id="@+id/statusMessage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_marginLeft="@dimen/margin_small"
-        android:text="@string/news_feed_status_placeholder"
-        android:textColor="@color/black"
-        app:fontName="Regular" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <com.cronosgroup.tinkerlink.view.customviews.TLImageView
+            android:id="@+id/statusImage"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="@dimen/margin_small"
+            app:imageRounded="true" />
+
+        <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+            android:id="@+id/statusMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_small"
+            android:text="@string/news_feed_status_placeholder"
+            android:textColor="@color/black"
+            app:fontName="Regular" />
+
+    </LinearLayout>
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="2dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="@dimen/margin_small"
-        android:layout_marginLeft="@dimen/margin_small"
-        android:layout_marginRight="@dimen/margin_small"
-        android:layout_marginTop="@dimen/margin_tiny"
         android:background="@color/gray_color" />
 </RelativeLayout>

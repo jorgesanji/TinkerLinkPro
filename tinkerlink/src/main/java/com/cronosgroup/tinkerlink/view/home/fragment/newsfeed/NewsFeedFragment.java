@@ -37,6 +37,7 @@ public class NewsFeedFragment extends MVPTinkerLinkFragment<NewsFeedPresenter, N
     protected View getRootView() {
         newsFeedScreen = new NewsFeedScreen(getActivity());
         newsFeedScreen.setListener(this);
+        newsFeedScreen.initAdapter(appConfigManager, appUserSessionManager);
         return newsFeedScreen;
     }
 
@@ -146,7 +147,7 @@ public class NewsFeedFragment extends MVPTinkerLinkFragment<NewsFeedPresenter, N
 
     @Override
     public void addPosts(List<RestPost> list) {
-
+        newsFeedScreen.addPosts(list);
     }
 
     @Override

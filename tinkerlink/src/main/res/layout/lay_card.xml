@@ -5,32 +5,19 @@
     android:layout_height="match_parent"
     android:background="@android:color/transparent">
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="@dimen/padding_content_big"
-        android:background="@drawable/background_card"
-        android:elevation="@dimen/view_elevation"
-        android:orientation="vertical">
+        android:layout_margin="@dimen/margin_mediun"
+        android:background="@drawable/background_card_border"
+        android:orientation="vertical"
+        android:padding="2dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="200dp">
 
-            <com.cronosgroup.tinkerlink.view.customviews.TLImageView
-                android:id="@+id/cardBackground"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="centerCrop"
-                android:src="@drawable/zapatero" />
-
-            <com.cronosgroup.tinkerlink.view.customviews.TLImageView
-                android:id="@+id/cardOverlay"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:scaleType="fitXY"
-                android:src="@mipmap/linkercard_back" />
+            <include layout="@layout/lay_header_card" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -41,13 +28,12 @@
                 android:gravity="center"
                 android:orientation="vertical">
 
-                <com.cronosgroup.tinkerlink.view.customviews.TLCircularImageView
+                <com.cronosgroup.tinkerlink.view.customviews.TLImageRoundBorder
                     android:id="@+id/userCardImage"
                     android:layout_width="70dp"
                     android:layout_height="70dp"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/chica"
-                    app:imageType="User" />
+                    android:src="@drawable/chica" />
 
                 <com.cronosgroup.tinkerlink.view.customviews.TLTextView
                     android:id="@+id/userName"
@@ -87,33 +73,16 @@
 
             </LinearLayout>
 
-
         </RelativeLayout>
 
-        <RelativeLayout
-            android:id="@+id/userContainerContacts"
+        <include
+            layout="@layout/lay_contact_container"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:layout_marginBottom="@dimen/margin_small"
-            android:layout_marginTop="@dimen/margin_small"
-            android:background="@android:color/transparent">
+            android:layout_marginTop="10dp" />
 
-            <com.cronosgroup.tinkerlink.view.customviews.TLImageView
-                android:id="@+id/userStatusContact"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="@dimen/margin_small"
-                android:src="@mipmap/newsfeed_contacto_amigo" />
-
-            <com.cronosgroup.tinkerlink.view.customviews.TLCommonContactsView
-                android:id="@+id/contactsView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-        </RelativeLayout>
-
-        <ScrollView
+        <com.cronosgroup.tinkerlink.view.customviews.TLScrollView
+            android:id="@+id/scrollView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/margin_small"
@@ -148,7 +117,7 @@
 
             </LinearLayout>
 
-        </ScrollView>
+        </com.cronosgroup.tinkerlink.view.customviews.TLScrollView>
 
     </LinearLayout>
 
@@ -156,6 +125,16 @@
         android:id="@+id/touchView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_margin="@dimen/margin_mediun"
+        android:background="@drawable/button_default_states"
         android:visibility="visible" />
+
+    <include
+        android:id="@+id/containerRecommendation"
+        layout="@layout/lay_number_recommendations"
+        android:layout_width="160dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

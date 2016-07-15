@@ -492,4 +492,21 @@
     <string name="stack_watch_tinker">Watch i\'m tinker</string>
     <string name="stack_watch_linker">Watch search tinker</string>
 
+    <!--  Network  -->
+    <string name="network_title_network">Common with %s</string>
+    <string name="network_user">You</string>
+    <string name="network_common_contacts">Common contacts</string>
+    <string name="network_match_tinkerlink">Matches tinkerlink</string>
+    <string name="network_tinkerlink_offer">Services than you are searching</string>
+    <string name="network_tinkerlink_search">Search services that you are offer</string>
+    <string name="network_categories_loader">Load more</string>
+
+    <!--  Profile  -->
+    <string name="profile_request_recommendation">Request recommendations</string>
+    <string name="profile_new_tinker_card">New card I\'m Tinker</string>
+    <string name="profile_new_linker_card">New card search Tinker</string>
+    <string name="profile_watch_profile">Watch profile</string>
+    <string name="profile_notifications">Notifications</string>
+
+
 </resources>

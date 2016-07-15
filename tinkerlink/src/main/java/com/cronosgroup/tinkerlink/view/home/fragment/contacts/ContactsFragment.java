@@ -12,7 +12,7 @@ import com.cronosgroup.tinkerlink.view.base.TinkerLinkActivity;
  * Login Fragment
  */
 public class ContactsFragment extends MVPTinkerLinkFragment<ContactsPresenter, ContactsPresenter.View>
-        implements ContactsPresenter.View, ContactsPresenter.Actions, ContactsScreen.Listener {
+        implements ContactsPresenter.View, ContactsScreen.Listener {
 
     private ContactsScreen contactsScreen;
 
@@ -43,6 +43,11 @@ public class ContactsFragment extends MVPTinkerLinkFragment<ContactsPresenter, C
     }
 
     //region **************  ContactsScreen.Listener **************
+
+    @Override
+    public void onLaunch() {
+        getPresenter().onLaunchNetWork();
+    }
 
 
     //endregion

@@ -64,7 +64,8 @@ public class TLImageView extends ImageView {
         }
     }
 
-    private boolean rounded;
+    private boolean rounded = false;
+    private boolean withBorder = false;
     private int placeHolderErrorImage;
     private int placerHolderEmptyUri;
     private ImageType imageType;
@@ -116,6 +117,7 @@ public class TLImageView extends ImageView {
             try {
                 attributes = getContext().obtainStyledAttributes(attributeSet, R.styleable.TLImageView);
                 setRounded(attributes.getBoolean(R.styleable.TLImageView_imageRounded, false));
+                setWithBorder(attributes.getBoolean(R.styleable.TLImageView_imageWithBorder, false));
                 setImageType(ImageType.getImageTypeFromType(attributes.getInt(R.styleable.TLImageView_imageType, ImageType.DEFAULT.getType())));
             } catch (Exception ex) {
                 Log.e(TAG, ex.getMessage(), ex);
@@ -144,7 +146,7 @@ public class TLImageView extends ImageView {
             }
 
             if (isRounded()) {
-                options.displayer(new CircleBitmapDisplayer(false));
+                options.displayer(new CircleBitmapDisplayer(false, isWithBorder()));
             }
 
             ImageLoader.getInstance().displayImage(url, this, (options != null) ? options.build() : null, listener);
@@ -161,6 +163,14 @@ public class TLImageView extends ImageView {
     }
 
     //Publics methods
+
+    public boolean isWithBorder() {
+        return withBorder;
+    }
+
+    public void setWithBorder(boolean withBorder) {
+        this.withBorder = withBorder;
+    }
 
     public ImageLoadingListener getListener() {
         return listener;
@@ -226,4 +236,6 @@ public class TLImageView extends ImageView {
         ImageLoader.getInstance().cancelDisplayTask(this);
         this.setImageBitmap(null);
     }
+
+
 }

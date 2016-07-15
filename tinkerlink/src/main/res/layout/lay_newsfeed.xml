@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    android:background="@color/gray_50"
+    android:clipChildren="false"
+    android:clipToPadding="false">
 
     <!--<android.support.v4.widget.SwipeRefreshLayout-->
     <!--android:id="@+id/swipeContainer"-->
@@ -16,7 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/topView"
-        android:background="@color/white"
+        android:background="@android:color/transparent"
         android:overScrollMode="always"
         android:visibility="visible" />
 
@@ -37,52 +39,33 @@
         android:layout_centerInParent="true"
         android:visibility="gone" />
 
-
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/topView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="90dp"
-            android:orientation="horizontal">
-
-            <com.cronosgroup.tinkerlink.view.customviews.TLStackButton
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1.0"
-                app:stackIcon="@mipmap/newsfeed_newcard_tinker"
-                app:stackLineColor="@color/tinkercolor"
-                app:stackSubTitle="@string/watch_tinkers"
-                app:stackSubTitleColor="@color/tinkercolor"
-                app:stackTitle="0K" />
-
-            <com.cronosgroup.tinkerlink.view.customviews.TLStackButton
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1.0"
-                app:stackIcon="@mipmap/newsfeed_newcard_linker"
-                app:stackLineColor="@color/tinkercolor"
-                app:stackSubTitle="@string/watch_linkers"
-                app:stackSubTitleColor="@color/tinkercolor"
-                app:stackTitle="0K" />
-
-        </LinearLayout>
 
         <include
             android:id="@+id/statusCard"
             layout="@layout/lay_new_add_status"
             android:layout_width="match_parent"
             android:layout_height="@dimen/view_max_height_row_mediun"
+            android:layout_below="@+id/stackButtonsContainer"
             android:layout_marginLeft="@dimen/margin_mini"
             android:layout_marginRight="@dimen/margin_mini"
             android:visibility="visible" />
 
+        <FrameLayout
+            android:id="@+id/stackButtonsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="@dimen/view_elevation">
 
-    </LinearLayout>
+            <include layout="@layout/lay_newsfeed_action_buttons" />
 
+        </FrameLayout>
+
+    </RelativeLayout>
 
     <com.cronosgroup.tinkerlink.view.customviews.TLTextView
         android:id="@+id/newPosts"

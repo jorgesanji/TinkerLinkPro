@@ -15,6 +15,8 @@ import android.widget.RelativeLayout;
 import com.cronosgroup.core.view.BaseAdapter;
 import com.cronosgroup.core.view.animator.SlideInUpAnimator;
 import com.cronosgroup.tinkerlink.R;
+import com.cronosgroup.tinkerlink.manager.AppConfigManager;
+import com.cronosgroup.tinkerlink.manager.AppUserSessionManager;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContacto;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
 import com.cronosgroup.tinkerlink.view.animation.newsfeed.ScrollHandler;
@@ -92,8 +94,8 @@ public class NewsFeedScreen extends RelativeLayout {
     @BindView(R.id.viewMenu)
     View mViewMenu;
 
-    @BindView(R.id.statusCard)
-    View mStatusView;
+    @BindView(R.id.topView)
+    View mTopView;
 
     @BindView(R.id.statusMessage)
     TLTextView mStatusMessage;
@@ -175,7 +177,7 @@ public class NewsFeedScreen extends RelativeLayout {
         mLayoutManager = new LinearLayoutManager(getContext());
         mHomeListView.setLayoutManager(mLayoutManager);
         mHomeListView.setItemAnimator(new SlideInUpAnimator());
-        mScrollHandler = new ScrollHandler(mMenuButton, mStatusView, newPosts);
+        mScrollHandler = new ScrollHandler(mMenuButton, mTopView, newPosts);
         mHomeListView.setOnScrollListener(mScrollHandler);
     }
 
@@ -307,12 +309,20 @@ public class NewsFeedScreen extends RelativeLayout {
 
     @OnClick(R.id.newPosts)
     protected void btnNewsPostsPressed() {
-        if (listener != null) {
-            newPosts.setVisibility(GONE);
-            goToListTop();
-            mRefreshing = true;
-            loadPosts("0");
-        }
+        newPosts.setVisibility(GONE);
+        goToListTop();
+        mRefreshing = true;
+        loadPosts("0");
+    }
+
+    @OnClick(R.id.imTinkerbt)
+    protected void btnImTinkerPressed() {
+        listener.onImTinkerStackPressed();
+    }
+
+    @OnClick(R.id.searchTinkerbt)
+    protected void btnSearchTinkerPressed() {
+        listener.onSearchTinkerStackPressed();
     }
 
     protected HomeAdapter getAdapter() {
@@ -324,7 +334,7 @@ public class NewsFeedScreen extends RelativeLayout {
     }
 
     protected void hideStatus() {
-        mStatusView.setVisibility(GONE);
+        mTopView.setVisibility(GONE);
     }
 
     protected void showMessageIfItemsIsEmpty() {
@@ -344,6 +354,12 @@ public class NewsFeedScreen extends RelativeLayout {
 
     public void setListener(Listener listener) {
         this.listener = listener;
+    }
+
+    public void initAdapter(AppConfigManager appConfigManager,
+                            AppUserSessionManager appUserSessionManager) {
+        getAdapter().setAppUserSessionManager(appUserSessionManager);
+        getAdapter().setAppConfigManager(appConfigManager);
     }
 
     public void setStatusMessage(String statusMessage) {

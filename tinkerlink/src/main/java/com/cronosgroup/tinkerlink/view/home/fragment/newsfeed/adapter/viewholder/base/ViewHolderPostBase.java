@@ -11,6 +11,8 @@ import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestUser;
 import com.cronosgroup.tinkerlink.view.interfaces.IOActionButtons;
 
+import butterknife.ButterKnife;
+
 /**
  * Created by jorgesanmartin on 11/11/15.
  */
@@ -19,18 +21,15 @@ public abstract class ViewHolderPostBase<T extends RestPost> extends BaseViewHol
     private IOActionButtons actionButtons;
     private T post;
 
-//    @Inject
-    AppConfigManager appConfigManager;
-
-//    @Inject
-    AppUserSessionManager appUserSessionManager;
+    private AppConfigManager appConfigManager;
+    private AppUserSessionManager appUserSessionManager;
 
     /**
      * @param view
      */
     public ViewHolderPostBase(View view) {
         super(view);
-//        TinkerLinkApplication.getApp().getComponent().inject(this);
+        ButterKnife.bind(this, view);
     }
 
     @Override
@@ -79,5 +78,15 @@ public abstract class ViewHolderPostBase<T extends RestPost> extends BaseViewHol
 
     public AppUserSessionManager getAppUserSessionManager() {
         return appUserSessionManager;
+    }
+
+    public ViewHolderPostBase<T> setAppConfigManager(AppConfigManager appConfigManager) {
+        this.appConfigManager = appConfigManager;
+        return this;
+    }
+
+    public ViewHolderPostBase<T> setAppUserSessionManager(AppUserSessionManager appUserSessionManager) {
+        this.appUserSessionManager = appUserSessionManager;
+        return this;
     }
 }

@@ -1,4 +1,4 @@
-package com.cronosgroup.tinkerlink.view.home.fragment.profile;
+package com.cronosgroup.tinkerlink.view.profile;
 
 import android.annotation.TargetApi;
 import android.content.Context;
@@ -10,18 +10,17 @@ import com.cronosgroup.tinkerlink.R;
 
 import butterknife.ButterKnife;
 
+
 /**
- * Main Profile view.
+ * Main Network view.
  */
 public class ProfileScreen extends RelativeLayout {
 
-
-    /**
-     * listeners of the home's screen.
-     */
     public interface Listener {
 
+
     }
+
 
     // Vars
     private Listener listener;
@@ -31,16 +30,9 @@ public class ProfileScreen extends RelativeLayout {
     /**
      * @param context
      */
-    public ProfileScreen(Context context, Listener listener) {
-        this(context);
-        this.listener = listener;
-    }
-
-    /**
-     * @param context
-     */
     public ProfileScreen(Context context) {
-        this(context, null, 0);
+        super(context);
+        init();
     }
 
     /**
@@ -78,9 +70,6 @@ public class ProfileScreen extends RelativeLayout {
         ButterKnife.bind(this);
     }
 
-    // **************  UI Actions **************
-
-
     // Public methods
 
     public Listener getListener() {
@@ -90,6 +79,4 @@ public class ProfileScreen extends RelativeLayout {
     public void setListener(Listener listener) {
         this.listener = listener;
     }
-
-
 }

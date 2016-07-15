@@ -57,18 +57,11 @@ public class StackActivity extends TinkerLinkActivity {
 
     @Override
     public StyleToolBar getActivityStyle() {
-        return StyleToolBar.WHITESTYLE;
-    }
-
-    @Override
-    public int getActivityIconBack() {
-        return 0;
+        return StyleToolBar.DEFAULTSTYLE;
     }
 
     @Override
     public Fragment getFragment() {
-        StackFragment fragment = new StackFragment();
-        fragment.setArguments(getIntent().getExtras());
-        return fragment;
+        return new StackFragment();
     }
 }

@@ -60,7 +60,8 @@
     <dimen name="news_feed_item_size">160dp</dimen>
     <dimen name="news_feed_shared_name_size">14sp</dimen>
     <dimen name="news_feed_shared_time_size">12sp</dimen>
-    <dimen name="news_feed_image_size">60dp</dimen>
+    <dimen name="news_feed_image_size">80dp</dimen>
+    <dimen name="news_feed_card_type_image_size">40dp</dimen>
 
     <!-- Recommendations-->
     <dimen name="recommendations_row_size">50dp</dimen>
@@ -139,6 +140,7 @@
     <dimen name="view_super_tiny_height">1dp</dimen>
     <dimen name="view_height_super_tiny">0.1dp</dimen>
     <dimen name="view_tab_item_width">150dp</dimen>
+    <dimen name="view_network_thumb">30dp</dimen>
 
 
     <!-- View Elevation -->

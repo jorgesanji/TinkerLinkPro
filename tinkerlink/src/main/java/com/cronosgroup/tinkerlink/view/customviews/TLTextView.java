@@ -18,12 +18,28 @@ import com.cronosgroup.tinkerlink.utils.TypeFaceUtils;
  */
 public class TLTextView extends TextView {
 
+    public enum Font {
+        REGULAR(0),
+        BOLD(1),
+        LIGTH(2),
+        SEMIBOLD(3);
+
+        private final int type;
+
+        Font(int type) {
+            this.type = type;
+        }
+
+        public int getType() {
+            return type;
+        }
+    }
+
     private static final String TAG = TLTextView.class.toString();
-    public static final int DEFAULT_FONT = 0;
+    public static final int DEFAULT_FONT = Font.REGULAR.getType();
     public static final int DEFAULT_SIZE = 12;
     public static final int DEFAULT_COLOR = Color.BLACK;
     private static final int DEFAULT_UNDERLINE_COLOR = Color.TRANSPARENT;
-
 
     // Vars
     private int fontName;
