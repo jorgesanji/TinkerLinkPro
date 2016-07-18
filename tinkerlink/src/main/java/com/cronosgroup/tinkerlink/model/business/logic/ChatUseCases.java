@@ -3,7 +3,7 @@ package com.cronosgroup.tinkerlink.model.business.logic;
 import com.cronosgroup.core.rest.Callback;
 import com.cronosgroup.core.rest.RestError;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestChat;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestMensaje;
+import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestMessage;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.services.ChatServices;
 
 import java.util.HashMap;
@@ -21,7 +21,7 @@ public class ChatUseCases {
         HashMap<String, String> params = new HashMap<>();
         params.put(KEY_MESSAGE, message);
 
-        ChatServices.sendMessage(idUser, params, RestMensaje.class, callback, tag);
+        ChatServices.sendMessage(idUser, params, RestMessage.class, callback, tag);
     }
 
     public static void getMessageUnRead(final Callback<List<RestChat>, RestError> callback, Object tag) {

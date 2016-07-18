@@ -25,9 +25,10 @@ public abstract class TinkerLinkActivity extends BaseActivity {
     // Variables
 
     public enum StyleToolBar {
-        DEFAULTSTYLE(1, 0, R.color.white, R.string.app_name, R.color.black, R.drawable.background_loader, R.mipmap.ic_tinker),
-        LINKERSTYLE(2, 0, R.color.linkercolor, 0, R.color.white, R.drawable.background_linker_loader, R.mipmap.ic_tinker),
-        TINKERSTYLE(3, 0, R.color.tinkercolor, 0, R.color.white, R.drawable.background_loader, R.mipmap.ic_tinker);
+        DEFAULTSTYLE(1, 0, R.color.white, R.string.app_name, R.color.black, R.drawable.background_loader, R.mipmap.ic_tinker, R.color.tinkercolor),
+        LINKERSTYLE(2, 0, R.color.linkercolor, R.string.profile_new_linker_card, R.color.white, R.drawable.background_linker_loader, 0, R.color.linkercolor),
+        TINKERSTYLE(3, 0, R.color.tinkercolor, R.string.profile_new_tinker_card, R.color.white, R.drawable.background_loader, 0, R.color.tinkercolor),
+        RECOMMENDATIONS(4, 0, R.color.yellow, R.string.profile_request_recommendation, R.color.black, R.drawable.background_loader, 0, R.color.yellow);
 
         private final int style;
         private final int arrowIcon;
@@ -36,8 +37,9 @@ public abstract class TinkerLinkActivity extends BaseActivity {
         private final int textColor;
         private final int backgroundLoader;
         private final int icon;
+        private final int statusColor;
 
-        StyleToolBar(int style, int arrowIcon, int backgroundColor, int text, int textColor, int backgroundLoader, int icon) {
+        StyleToolBar(int style, int arrowIcon, int backgroundColor, int text, int textColor, int backgroundLoader, int icon, int statusColor) {
             this.style = style;
             this.arrowIcon = arrowIcon;
             this.backgroundColor = backgroundColor;
@@ -45,6 +47,7 @@ public abstract class TinkerLinkActivity extends BaseActivity {
             this.textColor = textColor;
             this.backgroundLoader = backgroundLoader;
             this.icon = icon;
+            this.statusColor = statusColor;
         }
 
         public int getIcon() {
@@ -74,6 +77,10 @@ public abstract class TinkerLinkActivity extends BaseActivity {
         public int getArrowIcon() {
             return arrowIcon;
         }
+
+        public int getStatusColor() {
+            return statusColor;
+        }
     }
 
     private Fragment currentFragment;
@@ -89,7 +96,7 @@ public abstract class TinkerLinkActivity extends BaseActivity {
     @BindView(R.id.progressBar)
     View mLoader;
 
-    private View view;
+    protected View view;
 
     // Abstract methods
 
@@ -112,7 +119,7 @@ public abstract class TinkerLinkActivity extends BaseActivity {
     @Override
     public View getView() {
         if (view == null) {
-            view = getLayoutInflater().inflate(R.layout.activity_layout_base, null);
+            view = getLayoutInflater().inflate(R.layout.layout_base_toolbar_black, null);
         }
         return view;
     }
@@ -189,7 +196,7 @@ public abstract class TinkerLinkActivity extends BaseActivity {
 
     @Override
     public int getStatusColor() {
-        return getResources().getColor(R.color.tinkercolor);
+        return getResources().getColor(getActivityStyle().getStatusColor());
     }
 
     @Override

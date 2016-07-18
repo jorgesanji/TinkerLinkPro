@@ -8,7 +8,7 @@ import com.cronosgroup.tinkerlink.event.UpdateMessagesEvent;
 import com.cronosgroup.tinkerlink.model.business.logic.ChatUseCases;
 import com.cronosgroup.tinkerlink.model.dataacess.database.manager.ChatManager;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestChat;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestMensaje;
+import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestMessage;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -34,7 +34,7 @@ public class AppMessagesManager {
             @Override
             public void onResponse(List<RestChat> response) {
                 for (RestChat restChat : response) {
-                    for (RestMensaje restMensaje : restChat.getMensajes()) {
+                    for (RestMessage restMensaje : restChat.getMensajes()) {
                         mManager.saveReceiverMessage(restMensaje);
                     }
                 }

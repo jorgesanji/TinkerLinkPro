@@ -12,7 +12,7 @@ import com.cronosgroup.tinkerlink.event.UpdateNotificationsEvent;
 import com.cronosgroup.tinkerlink.model.dataacess.database.entities.TLNotification;
 import com.cronosgroup.tinkerlink.model.dataacess.database.manager.NotificationsManager;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.manager.AppRestManager;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestMensaje;
+import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestMessage;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestNotificacion;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestResponse;
 import com.cronosgroup.tinkerlink.utils.AppNotificationBuilder;
@@ -95,7 +95,7 @@ public class AppGcmNotificationsManager {
     }
 
     private void messageReceived(String message) {
-        RestMensaje restMensaje = (RestMensaje) AppRestManager.mapping.mappingJson(message, KEY_MESSAGE, RestMensaje.class);
+        RestMessage restMensaje = (RestMessage) AppRestManager.mapping.mappingJson(message, KEY_MESSAGE, RestMessage.class);
         if (restMensaje != null) {
             if (TinkerLinkApplication.getApp() != null) {
                 appMessagesManager.getMessagesUnRead();

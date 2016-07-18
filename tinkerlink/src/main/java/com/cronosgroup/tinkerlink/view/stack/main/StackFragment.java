@@ -21,7 +21,6 @@ import org.greenrobot.eventbus.Subscribe;
 
 import java.util.List;
 
-
 /**
  * Stack Fragment
  */

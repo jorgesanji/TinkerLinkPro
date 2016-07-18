@@ -107,11 +107,13 @@
 
         <activity
             android:name=".view.createcard.CreateCardActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/ThemeToolbarCreateCardStyle" />
 
         <activity
             android:name=".view.createrecommendation.CreateRecommendationActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/ThemeToolbarCreateRecommendationStyle" />
 
     </application>
 

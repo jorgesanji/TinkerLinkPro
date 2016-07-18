@@ -13,7 +13,7 @@ import com.cronosgroup.tinkerlink.presenter.contacts.ContactsPresenter;
 import com.cronosgroup.tinkerlink.presenter.createcard.CreateCardPresenter;
 import com.cronosgroup.tinkerlink.presenter.createrecommendation.CreateRecommendationPresenter;
 import com.cronosgroup.tinkerlink.presenter.home.HomePresenter;
-import com.cronosgroup.tinkerlink.presenter.messages.MessagesPresenter;
+import com.cronosgroup.tinkerlink.presenter.messages.ChatPresenter;
 import com.cronosgroup.tinkerlink.presenter.network.NetworkPresenter;
 import com.cronosgroup.tinkerlink.presenter.newsfeed.NewsFeedPresenter;
 import com.cronosgroup.tinkerlink.presenter.sign.FacebookPresenter;
@@ -39,7 +39,7 @@ import com.cronosgroup.tinkerlink.view.stack.main.StackActivity;
  * Created by jorgesanmartin on 2/26/16.
  */
 public final class ScreenNavigationHandler implements HomePresenter.Actions, TutorialPresenter.Actions,
-        ContactsPresenter.Actions, AccountPresenter.Actions, MessagesPresenter.Actions,
+        ContactsPresenter.Actions, AccountPresenter.Actions, ChatPresenter.Actions,
         StackPresenter.Actions, NewsFeedPresenter.Actions, CardPresenter.Actions,
         DetailStackPresenter.Actions
         , SignPresenter.Actions, FacebookPresenter.Actions,

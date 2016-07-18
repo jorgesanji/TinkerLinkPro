@@ -1,5 +1,7 @@
 <resources>
 
+    <!-- ACTIVITIES STYLE-->
+
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
@@ -19,21 +21,14 @@
         <!--<item name="colorPrimary">@color/tinkercolor</item>-->
         <item name="colorPrimaryDark">@color/tinkercolor</item>
         <!-- Subtitle color -->
-        <item name="android:textColorSecondary">@color/black_app</item>
+        <item name="android:textColorSecondary">@color/black</item>
         <!-- Title color-->
         <item name="android:textColorPrimary">@color/white</item>
 
         <item name="android:displayOptions">showHome|homeAsUp|showTitle</item>
 
-        <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
-
     </style>
 
-    <!-- Style for the navigation drawer icon -->
-    <style name="DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
-        <item name="spinBars">true</item>
-        <item name="color">@color/black</item>
-    </style>
 
     <style name="ActivityTransparentTheme" parent="AppTheme">
         <item name="android:windowIsTranslucent">true</item>
@@ -63,6 +58,29 @@
         <item name="android:displayOptions">showHome|homeAsUp|showTitle</item>
     </style>
 
+    <style name="ThemeToolbarCreateCardStyle" parent="AppTheme">
+        <!-- navigation icon color -->
+        <item name="colorControlNormal">@color/white</item>
+        <item name="colorControlActivated">@color/white</item>
+        <item name="colorControlHighlight">@color/white</item>
+        <!-- Subtitle color -->
+        <item name="android:textColorSecondary">@color/white</item>
+        <!-- Title color-->
+        <item name="android:textColorPrimary">@color/white</item>
+    </style>
+
+    <style name="ThemeToolbarCreateRecommendationStyle" parent="AppTheme">
+        <!-- navigation icon color -->
+        <item name="colorControlNormal">@color/black</item>
+        <item name="colorControlActivated">@color/black</item>
+        <item name="colorControlHighlight">@color/black</item>
+        <!-- Subtitle color -->
+        <item name="android:textColorSecondary">@color/black</item>
+        <!-- Title color-->
+        <item name="android:textColorPrimary">@color/black</item>
+    </style>
+
+    <!-- WIDGET STYLE-->
 
     <style name="EditStyle">
         <item name="android:textColor">@color/white</item>
@@ -437,7 +455,7 @@
 
     <style name="EditMultilineStyle" parent="EditTextAppStyle">
         <item name="android:inputType">textMultiLine</item>
-        <item name="android:gravity">top</item>
+        <item name="android:gravity">left|top</item>
         <item name="android:background">@android:color/transparent</item>
     </style>
 
@@ -566,7 +584,6 @@
         <item name="fontName">Regular</item>
     </style>
 
-
     <style name="UserProfileTextStyle">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -574,6 +591,15 @@
         <item name="android:textColor">@color/black</item>
         <item name="android:textSize">@dimen/text_size_tiny</item>
         <item name="fontName">Regular</item>
+    </style>
+
+    <style name="MessagesTextStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">left</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/text_size_mediun</item>
+        <item name="fontName">Bold</item>
     </style>
 
 </resources>

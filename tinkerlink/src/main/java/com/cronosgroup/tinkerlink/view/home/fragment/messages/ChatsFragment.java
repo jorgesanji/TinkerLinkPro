@@ -2,52 +2,61 @@ package com.cronosgroup.tinkerlink.view.home.fragment.messages;
 
 import android.view.View;
 
-import com.cronosgroup.tinkerlink.presenter.messages.MessagesPresenter;
+import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestChat;
+import com.cronosgroup.tinkerlink.presenter.messages.ChatPresenter;
 import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
 import com.cronosgroup.tinkerlink.view.base.TinkerLinkActivity;
+
+import java.util.List;
 
 
 /**
  * Messages Fragment
  */
-public class MessagesFragment extends MVPTinkerLinkFragment<MessagesPresenter, MessagesPresenter.View>
-        implements MessagesPresenter.View, MessagesPresenter.Actions, MessagesScreen.Listener {
+public class ChatsFragment extends MVPTinkerLinkFragment<ChatPresenter, ChatPresenter.View>
+        implements ChatPresenter.View, ChatScreen.Listener {
 
-    private MessagesScreen messagesScreen;
+    private ChatScreen chatScreen;
 
     //region **************  Fragment **************
 
     @Override
     protected View getRootView() {
-        messagesScreen = new MessagesScreen(getActivity());
-        messagesScreen.setListener(this);
-        return messagesScreen;
+        chatScreen = new ChatScreen(getActivity(), this);
+        return chatScreen;
     }
     //endregion
 
     //region **************  MVPFragment **************
 
     @Override
-    protected MessagesPresenter createPresenter() {
-        return new MessagesPresenter(ScreenNavigationHandler.getInstance());
+    protected ChatPresenter createPresenter() {
+        return new ChatPresenter(ScreenNavigationHandler.getInstance());
     }
 
     @Override
-    protected MessagesPresenter.View getPresenterView() {
+    protected ChatPresenter.View getPresenterView() {
         return this;
     }
 
     @Override
     protected void onDidAppear() {
+        getPresenter().getChats();
     }
 
-    //region **************  ContactsScreen.Listener **************
+    //region **************  Chatcreen.Listener **************
 
 
     //endregion
 
-    //region **************  ContactsPresenter.View **************
+    //region **************  ChatPresenter.View **************
+
+
+    @Override
+    public void setChats(List<RestChat> list) {
+        chatScreen.setChats(list);
+    }
 
     @Override
     public void showLoading() {

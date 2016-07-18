@@ -512,6 +512,15 @@
     <string name="profile_watch_profile">Ver perfil</string>
     <string name="profile_notifications">Notificaciones</string>
 
+    <!--  Recommendation  -->
+    <string name="recommendation_title">Escribe el mensaje</string>
+    <string name="recommendation_hint">Te escribo para pedirte una recomendación breve de mi trabajo que pueda incluir en mi perfil de Tinkerlink. Si tienes alguna pregunta, no dudes en comunicármelo\n\n Gracias antemano por tu ayuda.\n\n %s</string>
+    <string name="recommendation_send_to">Enviar a</string>
+    <string name="recommendation_send_to_all_contacts">Todos mis contactos</string>
+    <string name="recommendation_search_list_contacts">Busca en tu losta de amigos...</string>
+    <string name="recommendation_all_contacts">Todos mis contactos</string>
+    <string name="recommendation_only_friends">Solo amigos</string>
+    <string name="recommendation_send_recommendation">ENVIAR</string>
 
 
 </resources>

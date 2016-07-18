@@ -3,7 +3,7 @@ package com.cronosgroup.tinkerlink.view.home;
 import android.support.v4.app.Fragment;
 
 import com.cronosgroup.tinkerlink.view.home.fragment.contacts.ContactsFragment;
-import com.cronosgroup.tinkerlink.view.home.fragment.messages.MessagesFragment;
+import com.cronosgroup.tinkerlink.view.home.fragment.messages.ChatsFragment;
 import com.cronosgroup.tinkerlink.view.home.fragment.newsfeed.NewsFeedFragment;
 import com.cronosgroup.tinkerlink.view.home.fragment.account.AccountFragment;
 
@@ -14,7 +14,7 @@ import com.cronosgroup.tinkerlink.view.home.fragment.account.AccountFragment;
 public enum MainFragments {
     NEWSFEED(NewsFeedFragment.class),
     CONTACTS(ContactsFragment.class),
-    CHAT(MessagesFragment.class),
+    CHAT(ChatsFragment.class),
     PROFILE(AccountFragment.class);
 
     private Class<? extends Fragment> fragment;

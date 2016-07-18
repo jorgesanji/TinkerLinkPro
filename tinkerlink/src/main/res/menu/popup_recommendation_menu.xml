@@ -1,0 +1,13 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".view.">
+
+    <item
+        android:id="@+id/action_allContacts"
+        android:title="@string/recommendation_all_contacts" />
+
+    <item
+        android:id="@+id/action_onlyFriends"
+        android:title="@string/recommendation_only_friends" />
+
+</menu>

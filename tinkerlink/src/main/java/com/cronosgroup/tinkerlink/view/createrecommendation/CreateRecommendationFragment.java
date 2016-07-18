@@ -1,12 +1,19 @@
 package com.cronosgroup.tinkerlink.view.createrecommendation;
 
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
-import com.cronosgroup.core.view.ToolBarActivity;
-import com.cronosgroup.tinkerlink.presenter.createcard.CreateCardPresenter;
+import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.presenter.createrecommendation.CreateRecommendationPresenter;
 import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
+import com.cronosgroup.tinkerlink.view.base.TinkerLinkActivity;
+import com.cronosgroup.tinkerlink.view.customviews.TLUserView;
 
 
 /**
@@ -19,6 +26,27 @@ public class CreateRecommendationFragment extends MVPTinkerLinkFragment<CreateRe
 
     // Views
     private CreateRecommendationScreen createRecommendationScreen;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.recommendations_menu, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.action_send_recommendation) {
+            getPresenter().sendRecommendation();
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
 
     //region **************  MVPFragment **************
 
@@ -41,30 +69,74 @@ public class CreateRecommendationFragment extends MVPTinkerLinkFragment<CreateRe
 
     @Override
     protected void onDidAppear() {
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+
+        TLUserView userView = new TLUserView(getContext());
+        userView.setLayoutParams(params);
+        userView.setUserImageFromUrl("http://www.w3schools.com/css/img_fjords.jpg");
+        userView.setUserTitle("Jorge Luis");
+        userView.setUserSubTitle("Programador");
+        createRecommendationScreen.addUser(userView);
+
+        TLUserView userView1 = new TLUserView(getContext());
+        userView1.setLayoutParams(params);
+        userView1.setUserImageFromUrl("http://www.w3schools.com/css/img_fjords.jpg");
+        userView1.setUserTitle("Jorge Luis");
+        userView1.setUserSubTitle("Programador");
+        createRecommendationScreen.addUser(userView1);
+
+        TLUserView userView2 = new TLUserView(getContext());
+        userView2.setLayoutParams(params);
+        userView2.setUserImageFromUrl("http://www.w3schools.com/css/img_fjords.jpg");
+        userView2.setUserTitle("Jorge Luis");
+        userView2.setUserSubTitle("Programador");
+        createRecommendationScreen.addUser(userView2);
+
+        TLUserView userView3 = new TLUserView(getContext());
+        userView3.setLayoutParams(params);
+        userView3.setUserImageFromUrl("http://www.w3schools.com/css/img_fjords.jpg");
+        userView3.setUserTitle("Jorge Luis");
+        userView3.setUserSubTitle("Programador");
+        createRecommendationScreen.addUser(userView3);
+
+        TLUserView userView4 = new TLUserView(getContext());
+        userView4.setLayoutParams(params);
+        userView4.setUserImageFromUrl("http://www.w3schools.com/css/img_fjords.jpg");
+        userView4.setUserTitle("Jorge Luis");
+        userView4.setUserSubTitle("Programador");
+        createRecommendationScreen.addUser(userView4);
+    }
+
+    //endregion
+
+    //region ************** CreateRecommendationPresenter.View **************
+    //endregion
+
+    //region ************** CreateRecommendationScreen.Listener **************
+
+    @Override
+    public void onAllContactsPressed() {
+
+    }
+
+    @Override
+    public void onOnlyFriendsPressed() {
 
     }
 
     //endregion
 
-    //region ************** CreateCardPresenter.View **************
-    //endregion
-
-    //region ************** CreateCardScreen.Listener **************
-    //endregion
-
     @Override
     public void showLoading() {
-        super.showLoading();
         if (getActivity() != null) {
-            ((ToolBarActivity) getActivity()).showLoading();
+            ((TinkerLinkActivity) getActivity()).showLoading();
         }
     }
 
     @Override
     public void hideLoading() {
-        super.hideLoading();
         if (getActivity() != null) {
-            ((ToolBarActivity) getActivity()).hideLoading();
+            ((TinkerLinkActivity) getActivity()).hideLoading();
         }
     }
 

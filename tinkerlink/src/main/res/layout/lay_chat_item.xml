@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <com.cronosgroup.tinkerlink.view.customviews.TLUserView
+        android:id="@+id/userChat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:userSubTitleColor="@color/black"
+        app:userSubTitleFont="Regular"
+        app:userSubTitleSize="@dimen/text_size_mediun"
+        app:userTitleColor="@color/black"
+        app:userTitleFont="Bold"
+        app:userTitleSize="@dimen/text_size_mediun" />
+
+</LinearLayout>

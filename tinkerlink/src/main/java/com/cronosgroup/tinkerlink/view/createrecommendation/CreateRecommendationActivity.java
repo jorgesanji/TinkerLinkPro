@@ -1,10 +1,11 @@
 package com.cronosgroup.tinkerlink.view.createrecommendation;
 
 import android.support.v4.app.Fragment;
+import android.view.View;
 
+import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.manager.AppPermissionsManager;
 import com.cronosgroup.tinkerlink.view.base.TinkerLinkActivity;
-import com.cronosgroup.tinkerlink.view.createcard.CreateCardFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,13 +22,21 @@ public class CreateRecommendationActivity extends TinkerLinkActivity {
     }
 
     @Override
+    public View getView() {
+        if (view == null) {
+            view = getLayoutInflater().inflate(R.layout.layout_base_toolbar_recommendation, null);
+        }
+        return view;
+    }
+
+    @Override
     public boolean hasToolbar() {
         return true;
     }
 
     @Override
     public StyleToolBar getActivityStyle() {
-        return StyleToolBar.DEFAULTSTYLE;
+        return StyleToolBar.RECOMMENDATIONS;
     }
 
     // Manage Permissions
@@ -42,4 +51,5 @@ public class CreateRecommendationActivity extends TinkerLinkActivity {
         List<AppPermissionsManager.Permission> permissionList = new ArrayList<>();
         return permissionList;
     }
+
 }

@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Date;
 
-public class RestMensaje extends RestBase {
+public class RestMessage extends RestBase {
 
     @SerializedName("_id")
     private String id = "";

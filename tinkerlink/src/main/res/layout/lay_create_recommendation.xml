@@ -1,6 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_small"
+                android:orientation="vertical">
+
+                <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:text="@string/recommendation_title"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_mediun"
+                    app:fontName="SemiBold" />
+
+                <com.cronosgroup.tinkerlink.view.customviews.TLEditText
+                    android:id="@+id/descriptionRecommendation"
+                    style="@style/EditMultilineStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_small"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:hint="@string/recommendation_hint"
+                    android:maxLength="500"
+                    android:minHeight="@dimen/view_max_height_big"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/gray_30"
+                    android:textSize="@dimen/text_size_mediun"
+                    app:fontNameEdit="Regular" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@color/gray" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_plus_big"
+                    android:orientation="horizontal">
+
+                    <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/recommendation_send_to"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size_mediun"
+                        app:fontName="SemiBold" />
+
+
+                    <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                        android:id="@+id/selectorContactsToSend"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/recommendation_send_to_all_contacts"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size_mediun"
+                        app:fontName="SemiBold" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/gray_50" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:padding="@dimen/margin_small">
+
+                <com.cronosgroup.tinkerlink.view.customviews.TLImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@android:drawable/ic_search_category_default" />
+
+                <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/recommendation_search_list_contacts"
+                    android:textColor="@color/gray_30"
+                    android:textSize="@dimen/text_size_mediun"
+                    app:fontName="Regular" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/usersToSendContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
 
 </LinearLayout>

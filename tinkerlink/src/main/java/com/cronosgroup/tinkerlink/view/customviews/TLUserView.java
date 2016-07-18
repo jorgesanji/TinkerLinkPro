@@ -28,23 +28,27 @@ import butterknife.OnClick;
 public class TLUserView extends LinearLayout {
 
     //Vars
-    SpannableString userTitle;
-    String userSubTitle;
-    String userUrl;
-    IOIconListener listener;
-    IOAddContactListener addContactListener;
+    private SpannableString userTitle;
+    private String userSubTitle;
+    private String userUrl;
+    private int iconCard;
+    private IOIconListener listener;
+    private IOAddContactListener addContactListener;
 
     //Views
     @BindView(R.id.userImage)
     TLImageView mUserImage;
 
-    @BindView(R.id.userTitle)
+    @BindView(R.id.cardBadge)
+    TLImageView mCardBadge;
+
+    @BindView(R.id.userName)
     TLTextView mUserTitle;
 
     @BindView(R.id.userStatusContact)
     TLTabItem mUserStatusContact;
 
-    @BindView(R.id.userSubtitle)
+    @BindView(R.id.userDescription)
     TLTextView mUserSubTitle;
 
     /**
@@ -85,7 +89,7 @@ public class TLUserView extends LinearLayout {
     }
 
     private void init(AttributeSet attributeSet) {
-        inflate(getContext(), R.layout.lay_user, this);
+        inflate(getContext(), R.layout.lay_user_item, this);
         ButterKnife.bind(this);
         mUserImage.setRounded(true);
         if (attributeSet != null) {
@@ -100,7 +104,7 @@ public class TLUserView extends LinearLayout {
                 setSubTitleColor(attributes.getColor(R.styleable.TLUserView_userSubTitleColor, Color.BLACK));
                 setSubTitleFont(attributes.getInt(R.styleable.TLUserView_userSubTitleFont, TLTextView.DEFAULT_FONT));
                 setSubTitleSize(attributes.getDimensionPixelSize(R.styleable.TLUserView_userSubTitleSize, TLTextView.DEFAULT_SIZE));
-                setUserIcon(attributes.getResourceId(R.styleable.TLUserView_userIcon, R.mipmap.placeholder));
+                setUserIcon(attributes.getResourceId(R.styleable.TLUserView_userIcon, R.mipmap.newsfeed_avatar_hombre));
             } catch (Exception ex) {
                 Log.e("", ex.getMessage(), ex);
             } finally {
@@ -118,7 +122,7 @@ public class TLUserView extends LinearLayout {
         }
     }
 
-    @OnClick(R.id.userTitle)
+    @OnClick(R.id.userName)
     protected void onTitlePressed() {
         if (getListener() != null) {
             getListener().onIconPressed();
@@ -247,5 +251,14 @@ public class TLUserView extends LinearLayout {
 
     public void hideIcon(boolean hide) {
         mUserImage.setVisibility(hide ? GONE : VISIBLE);
+    }
+
+    public int getIconCard() {
+        return iconCard;
+    }
+
+    public void setIconCard(int iconCard) {
+        this.iconCard = iconCard;
+        mCardBadge.setImageResource(iconCard);
     }
 }

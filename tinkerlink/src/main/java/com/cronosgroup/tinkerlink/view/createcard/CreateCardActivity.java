@@ -1,9 +1,12 @@
 package com.cronosgroup.tinkerlink.view.createcard;
 
 import android.support.v4.app.Fragment;
+import android.view.View;
 
+import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.manager.AppPermissionsManager;
 import com.cronosgroup.tinkerlink.view.base.TinkerLinkActivity;
+import com.cronosgroup.tinkerlink.view.stack.main.StackActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,13 +22,21 @@ public class CreateCardActivity extends TinkerLinkActivity {
     }
 
     @Override
+    public View getView() {
+        if (view == null) {
+            view = getLayoutInflater().inflate(R.layout.layout_base_toolbar_white, null);
+        }
+        return view;
+    }
+
+    @Override
     public boolean hasToolbar() {
         return true;
     }
 
     @Override
     public StyleToolBar getActivityStyle() {
-        return StyleToolBar.DEFAULTSTYLE;
+        return getIntent().getExtras().getSerializable(StackActivity.STACK_TYPE) == StackActivity.Stack.LINKER ? StyleToolBar.LINKERSTYLE : StyleToolBar.TINKERSTYLE;
     }
 
     // Manage Permissions
@@ -40,4 +51,5 @@ public class CreateCardActivity extends TinkerLinkActivity {
         List<AppPermissionsManager.Permission> permissionList = new ArrayList<>();
         return permissionList;
     }
+
 }
