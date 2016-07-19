@@ -1,6 +1,5 @@
 package com.cronosgroup.tinkerlink.view.createrecommendation;
 
-import android.support.v4.app.Fragment;
 import android.view.View;
 
 import com.cronosgroup.tinkerlink.R;
@@ -14,11 +13,11 @@ import java.util.List;
 /**
  * Created by jorgesanmartin on 10/22/15.
  */
-public class CreateRecommendationActivity extends TinkerLinkActivity {
+public class CreateRecommendationActivity extends TinkerLinkActivity<CreateRecommendationFragment> {
 
     @Override
-    public Fragment getFragment() {
-        return Fragment.instantiate(this, CreateRecommendationFragment.class.getName());
+    public Class<CreateRecommendationFragment> getFragment() {
+        return CreateRecommendationFragment.class;
     }
 
     @Override

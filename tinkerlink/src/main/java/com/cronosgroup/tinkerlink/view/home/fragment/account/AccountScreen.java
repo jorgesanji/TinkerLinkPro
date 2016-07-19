@@ -4,6 +4,7 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
 import android.util.AttributeSet;
+import android.view.View;
 import android.widget.RelativeLayout;
 
 import com.cronosgroup.tinkerlink.R;
@@ -18,7 +19,6 @@ import butterknife.OnClick;
  * Main Profile view.
  */
 public class AccountScreen extends RelativeLayout {
-
 
     /**
      * listeners of the profile's screen.
@@ -51,6 +51,9 @@ public class AccountScreen extends RelativeLayout {
 
     @BindView(R.id.menuView)
     protected TLMenuButton mMenuView;
+
+    @BindView(R.id.viewMenu)
+    protected View mViewMenu;
 
     /**
      * @param context
@@ -100,8 +103,36 @@ public class AccountScreen extends RelativeLayout {
     private void init() {
         inflate(getContext(), R.layout.lay_account, this);
         ButterKnife.bind(this);
+        initUi();
+        initListeners();
 
         mUserImage.setImageFromUrl("http://qsrock.com/wp-content/uploads/2016/04/130699422.jpg");
+    }
+
+    private void initUi() {
+        mViewMenu.setVisibility(VISIBLE);
+    }
+
+    private void initListeners() {
+        mViewMenu.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mMenuView.collapseMenu();
+                mViewMenu.setVisibility(GONE);
+            }
+        });
+
+        mMenuView.setListener(new TLMenuButton.IOMenuButtonState() {
+            @Override
+            public void collapsed() {
+                mViewMenu.setVisibility(GONE);
+            }
+
+            @Override
+            public void expanded() {
+                mViewMenu.setVisibility(VISIBLE);
+            }
+        });
     }
 
 

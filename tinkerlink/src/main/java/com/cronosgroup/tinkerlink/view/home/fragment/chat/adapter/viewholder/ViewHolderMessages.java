@@ -1,4 +1,4 @@
-package com.cronosgroup.tinkerlink.view.home.fragment.messages.adapter.viewholder;
+package com.cronosgroup.tinkerlink.view.home.fragment.chat.adapter.viewholder;
 
 import android.view.View;
 
@@ -21,6 +21,9 @@ public class ViewHolderMessages extends BaseViewHolder<RestChat> {
      * @param view
      */
 
+    @BindView(R.id.backgrondChatItem)
+    protected View mBackgrondChatItem;
+
     @BindView(R.id.userChat)
     protected TLUserView mUserChat;
 
@@ -35,7 +38,9 @@ public class ViewHolderMessages extends BaseViewHolder<RestChat> {
     public void configureItem(final RestChat chat) {
         final RestUser user = chat.getUser().getUser();
         mUserChat.setUserImageFromUrl(user.getPhoto());
-        mUserChat.setUserTitle(user.getName());
-        mUserChat.setUserSubTitle(user.getProfile().getProfession());
+        mUserChat.setTitle(user.getName());
+        mUserChat.setSubTitle(user.getProfile().getProfession());
+        mUserChat.setTime("12:40");
+        mBackgrondChatItem.setBackgroundColor(getContext().getResources().getColor((getAdapterPosition() % 2 == 0) ? R.color.gray_50 : R.color.white));
     }
 }

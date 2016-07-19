@@ -1,7 +1,6 @@
 package com.cronosgroup.tinkerlink.view.network;
 
 import android.graphics.Color;
-import android.support.v4.app.Fragment;
 
 import com.cronosgroup.tinkerlink.manager.AppPermissionsManager;
 import com.cronosgroup.tinkerlink.view.base.TinkerLinkActivity;
@@ -12,11 +11,11 @@ import java.util.List;
 /**
  * Created by jorgesanmartin on 10/22/15.
  */
-public class NetworkActivity extends TinkerLinkActivity  {
+public class NetworkActivity extends TinkerLinkActivity<NetworkFragment>  {
 
     @Override
-    public Fragment getFragment() {
-        return Fragment.instantiate(this, NetworkFragment.class.getName());
+    public Class<NetworkFragment> getFragment() {
+        return NetworkFragment.class;
     }
 
     @Override

@@ -1,5 +1,6 @@
 package com.cronosgroup.tinkerlink.utils;
 
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
@@ -16,44 +17,56 @@ public class CircleBitmapDisplayer extends RoundedBitmapDisplayer {
 
     private final boolean alphaAnimation;
     private final boolean withBorder;
+    private final Context context;
 
     public CircleBitmapDisplayer() {
         super(0);
         this.alphaAnimation = false;
         this.withBorder = false;
+        this.context = null;
     }
 
     public CircleBitmapDisplayer(boolean alphaAnimation) {
         super(0);
         this.alphaAnimation = alphaAnimation;
         this.withBorder = false;
+        this.context = null;
     }
 
     public CircleBitmapDisplayer(boolean alphaAnimation, boolean withBorder) {
         super(0);
         this.alphaAnimation = alphaAnimation;
         this.withBorder = withBorder;
+        this.context = null;
+    }
+
+    public CircleBitmapDisplayer(Context context, boolean alphaAnimation, boolean withBorder) {
+        super(0);
+        this.alphaAnimation = alphaAnimation;
+        this.withBorder = withBorder;
+        this.context = context;
     }
 
     @Override
     public void display(Bitmap bitmap, ImageAware imageAware, LoadedFrom loadedFrom) {
-        if (!(imageAware instanceof ImageViewAware)) {
+        if (imageAware != null && !(imageAware instanceof ImageViewAware)) {
             throw new IllegalArgumentException("ImageAware should wrap ImageView. ImageViewAware is expected.");
         }
 
-        RoundedBitmapDrawable rounddrawable =
-                RoundedBitmapDrawableFactory.create(imageAware.getWrappedView().getResources(), isWithBorder() ? TLBitmapUtils.bitmapWithBorder(bitmap) : bitmap);
+        RoundedBitmapDrawable rounddrawable = RoundedBitmapDrawableFactory.create(context.getResources(), isWithBorder() ? TLBitmapUtils.bitmapWithBorder(bitmap) : bitmap);
         rounddrawable.setCircular(true);
         rounddrawable.setAntiAlias(true);
 
-        if (isAlphaAnimation()) {
-            imageAware.getWrappedView().setAlpha(0.0f);
-        }
+        if (imageAware != null) {
+            if (isAlphaAnimation()) {
+                imageAware.getWrappedView().setAlpha(0.0f);
+            }
 
-        imageAware.setImageDrawable(rounddrawable);
+            imageAware.setImageDrawable(rounddrawable);
 
-        if (isAlphaAnimation()) {
-            imageAware.getWrappedView().animate().alpha(1.0f).start();
+            if (isAlphaAnimation()) {
+                imageAware.getWrappedView().animate().alpha(1.0f).start();
+            }
         }
     }
 

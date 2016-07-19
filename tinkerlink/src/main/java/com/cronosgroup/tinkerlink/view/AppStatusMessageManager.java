@@ -10,6 +10,10 @@ import com.cronosgroup.tinkerlink.R;
  */
 public class AppStatusMessageManager extends StatusMessageManager {
 
+    public AppStatusMessageManager() {
+        super(null);
+    }
+
     public AppStatusMessageManager(BasePresenter.View presenter) {
         super(presenter);
     }

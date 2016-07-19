@@ -1,5 +1,8 @@
 package com.cronosgroup.tinkerlink.presenter.messages;
 
+import android.app.Activity;
+import android.os.Bundle;
+
 import com.cronosgroup.core.presenter.Presenter;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestChat;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContacto;
@@ -8,6 +11,7 @@ import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestProfile;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestUser;
 import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenter;
 import com.cronosgroup.tinkerlink.utils.AsyncLoader;
+import com.cronosgroup.tinkerlink.view.chatuser.ChatUserActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,13 +29,15 @@ public class ChatPresenter extends TinkerLinkPresenter<ChatPresenter.View> {
      */
     public interface View extends Presenter.View {
         void setChats(List<RestChat> list);
+
+        List<RestChat> getItems();
     }
 
     /**
      * Mesage actions.
      */
     public interface Actions {
-
+        void onLaunchChatUser(Activity activity, Bundle bundle);
     }
 
     /**
@@ -90,7 +96,12 @@ public class ChatPresenter extends TinkerLinkPresenter<ChatPresenter.View> {
         };
 
         asyncLoader.start();
+    }
 
-
+    public void onItemClicked(int position) {
+        RestChat restChat = getView().getItems().get(position);
+        Bundle bundle = new Bundle();
+        bundle.putSerializable(ChatUserActivity.ITEMS_KEY, restChat);
+        listener.onLaunchChatUser(getView().getActivity(), bundle);
     }
 }

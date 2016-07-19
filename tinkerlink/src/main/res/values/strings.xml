@@ -523,4 +523,10 @@
     <string name="recommendation_send_recommendation">ENVIAR</string>
 
 
+    <!--  Chat  -->
+    <string name="chat_remove_chat">Eliminar chat</string>
+    <string name="chat_report_chat">Reportar chat</string>
+    <string name="chat_block_contact">Bloquear contact</string>
+
+
 </resources>

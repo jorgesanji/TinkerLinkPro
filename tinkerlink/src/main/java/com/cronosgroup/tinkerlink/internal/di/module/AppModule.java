@@ -8,9 +8,11 @@ import com.cronosgroup.tinkerlink.logger.Logger;
 import com.cronosgroup.tinkerlink.manager.AppConfigManager;
 import com.cronosgroup.tinkerlink.manager.AppContactsManager;
 import com.cronosgroup.tinkerlink.manager.AppCountryManager;
+import com.cronosgroup.tinkerlink.manager.AppImagePickerManager;
 import com.cronosgroup.tinkerlink.manager.AppMessagesManager;
 import com.cronosgroup.tinkerlink.manager.AppNotificationsManager;
 import com.cronosgroup.tinkerlink.manager.AppUserSessionManager;
+import com.cronosgroup.tinkerlink.view.AppStatusMessageManager;
 
 import javax.inject.Singleton;
 
@@ -85,7 +87,17 @@ public class AppModule {
 
     @Provides
     @Singleton
-    Logger Logger() {
+    Logger providerLooger() {
         return new Logger();
+    }
+
+    @Provides
+    AppImagePickerManager providerPickerImage() {
+        return new AppImagePickerManager();
+    }
+
+    @Provides
+    AppStatusMessageManager providerStatusManager() {
+        return new AppStatusMessageManager();
     }
 }

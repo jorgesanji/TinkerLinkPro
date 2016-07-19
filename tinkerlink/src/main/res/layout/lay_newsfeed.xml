@@ -83,12 +83,8 @@
         android:textSize="@dimen/text_size_super_tiny"
         app:fontName="Bold" />
 
-    <View
-        android:id="@+id/viewMenu"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/background_news_feed_gradient"
-        android:visibility="gone" />
+
+    <include layout="@layout/lay_background_menu" />
 
     <com.cronosgroup.tinkerlink.view.customviews.TLMenuButton
         android:id="@+id/menuView"

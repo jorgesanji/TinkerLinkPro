@@ -8,6 +8,7 @@ import android.support.annotation.NonNull;
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.presenter.EditProfilePresenter;
 import com.cronosgroup.tinkerlink.presenter.account.AccountPresenter;
+import com.cronosgroup.tinkerlink.presenter.chatuser.ChatUserPresenter;
 import com.cronosgroup.tinkerlink.presenter.config.ConfigPresenter;
 import com.cronosgroup.tinkerlink.presenter.contacts.ContactsPresenter;
 import com.cronosgroup.tinkerlink.presenter.createcard.CreateCardPresenter;
@@ -24,6 +25,7 @@ import com.cronosgroup.tinkerlink.presenter.stack.CardPresenter;
 import com.cronosgroup.tinkerlink.presenter.stack.DetailStackPresenter;
 import com.cronosgroup.tinkerlink.presenter.stack.StackPresenter;
 import com.cronosgroup.tinkerlink.presenter.tutorial.TutorialPresenter;
+import com.cronosgroup.tinkerlink.view.chatuser.ChatUserActivity;
 import com.cronosgroup.tinkerlink.view.config.ConfigActivity;
 import com.cronosgroup.tinkerlink.view.createcard.CreateCardActivity;
 import com.cronosgroup.tinkerlink.view.createrecommendation.CreateRecommendationActivity;
@@ -38,14 +40,15 @@ import com.cronosgroup.tinkerlink.view.stack.main.StackActivity;
 /**
  * Created by jorgesanmartin on 2/26/16.
  */
-public final class ScreenNavigationHandler implements HomePresenter.Actions, TutorialPresenter.Actions,
-        ContactsPresenter.Actions, AccountPresenter.Actions, ChatPresenter.Actions,
-        StackPresenter.Actions, NewsFeedPresenter.Actions, CardPresenter.Actions,
-        DetailStackPresenter.Actions
-        , SignPresenter.Actions, FacebookPresenter.Actions,
+public final class ScreenNavigationHandler implements HomePresenter.Actions,
+        TutorialPresenter.Actions, ContactsPresenter.Actions, AccountPresenter.Actions,
+        ChatPresenter.Actions, StackPresenter.Actions, NewsFeedPresenter.Actions,
+        CardPresenter.Actions, DetailStackPresenter.Actions,
+        SignPresenter.Actions, FacebookPresenter.Actions,
         ValidationPresenter.Actions, PhonePresenter.Actions,
-        NetworkPresenter.Actions, ConfigPresenter.Actions, EditProfilePresenter.Actions,
-        CreateCardPresenter.Actions, CreateRecommendationPresenter.Actions {
+        NetworkPresenter.Actions, ConfigPresenter.Actions,
+        EditProfilePresenter.Actions, CreateCardPresenter.Actions,
+        CreateRecommendationPresenter.Actions, ChatUserPresenter.Actions {
 
     //Instance
     private static ScreenNavigationHandler instance = null;
@@ -141,6 +144,10 @@ public final class ScreenNavigationHandler implements HomePresenter.Actions, Tut
         return newTask(context, CreateCardActivity.class, bundle);
     }
 
+    private static Intent chatUser(@NonNull Activity context, Bundle bundle) {
+        return newTask(context, ChatUserActivity.class, bundle);
+    }
+
     // ******************************
     //      ACTIONS DEFINITION
     // *************************++***
@@ -228,5 +235,12 @@ public final class ScreenNavigationHandler implements HomePresenter.Actions, Tut
     @Override
     public void onLaunchCreateCard(Activity activity, Bundle bundle) {
         startActivity(activity, createCard(activity, bundle));
+    }
+
+    // ------------------------ CHAT -----------------------------------
+
+    @Override
+    public void onLaunchChatUser(Activity activity, Bundle bundle) {
+        startActivity(activity, chatUser(activity, bundle));
     }
 }

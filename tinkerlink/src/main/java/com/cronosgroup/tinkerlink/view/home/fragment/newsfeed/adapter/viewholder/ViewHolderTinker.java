@@ -138,9 +138,8 @@ public class ViewHolderTinker extends ViewHolderPostBase<RestPost> {
         final SpannableString spannableString = new SpannableString(textContat);
         ForegroundColorSpan color = new ForegroundColorSpan(getResources().getColor(R.color.news_feed_detail_info));
         spannableString.setSpan(color, contacto.getUser().getName().length(), textContat.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-        mUserContainer.setUserTitle(spannableString);
-        mUserContainer.setUserSubTitle(DateUtils.getInterval(fecha, itemView.getContext()));
-//        mUserContainer.setUserImageFromUrl(TinkerLinkApplication.getApp().getImagePath(AppConfigManager.Path.PATH_IMAGE_PROFILE_THUMBNAIL) + user.getPhoto());
+        mUserContainer.setTitle(spannableString);
+        mUserContainer.setSubTitle(DateUtils.getInterval(fecha, itemView.getContext()));
         mUserContainer.setListener(new IOIconListener() {
             @Override
             public void onIconPressed() {

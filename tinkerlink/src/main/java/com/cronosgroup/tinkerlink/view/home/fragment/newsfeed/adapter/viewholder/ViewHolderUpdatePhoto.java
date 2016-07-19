@@ -118,8 +118,8 @@ public class ViewHolderUpdatePhoto extends ViewHolderPostBase<RestPost> {
         final SpannableString spannableString = new SpannableString(userStatus);
         ForegroundColorSpan color = new ForegroundColorSpan(getResources().getColor(R.color.news_feed_detail_info));
         spannableString.setSpan(color, contacto.getUser().getName().length(), userStatus.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-        mUserContainer.setUserTitle(spannableString);
-        mUserContainer.setUserSubTitle(DateUtils.getInterval(date, itemView.getContext()));
+        mUserContainer.setTitle(spannableString);
+        mUserContainer.setSubTitle(DateUtils.getInterval(date, itemView.getContext()));
         mUserContainer.setUserImageFromUrl(getAppConfigManager().getPath(AppConfigManager.Path.PATH_IMAGE_PROFILE_THUMBNAIL) + contacto.getUser().getPhoto());
         mUserContainer.setListener(new IOIconListener() {
             @Override

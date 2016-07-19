@@ -1,6 +1,5 @@
 package com.cronosgroup.tinkerlink.view.createcard;
 
-import android.support.v4.app.Fragment;
 import android.view.View;
 
 import com.cronosgroup.tinkerlink.R;
@@ -14,11 +13,11 @@ import java.util.List;
 /**
  * Created by jorgesanmartin on 10/22/15.
  */
-public class CreateCardActivity extends TinkerLinkActivity {
+public class CreateCardActivity extends TinkerLinkActivity<CreateCardFragment> {
 
     @Override
-    public Fragment getFragment() {
-        return Fragment.instantiate(this, CreateCardFragment.class.getName());
+    public Class<CreateCardFragment> getFragment() {
+        return CreateCardFragment.class;
     }
 
     @Override

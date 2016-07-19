@@ -47,7 +47,7 @@ public class ViewHolderSuggestions extends ViewHolderPostBase {
         mSuggestionsContainer.removeAllViews();
 
         TLUserView userView = new TLUserView(getContext());
-        userView.setUserTitle(user.getName());
+        userView.setTitle(user.getName());
         userView.setSubTitle(user.getProfile().getLocation());
         userView.setUserImageFromUrl(getAppConfigManager().getPath(AppConfigManager.Path.PATH_IMAGE_PROFILE_THUMBNAIL) + user.getPhoto());
 

@@ -27,11 +27,14 @@ import butterknife.OnClick;
  */
 public class TLUserView extends LinearLayout {
 
-    //Vars
-    private SpannableString userTitle;
-    private String userSubTitle;
+    //Properties
+    private String title;
+    private String subTitle;
     private String userUrl;
+    private String userTime;
     private int iconCard;
+
+    //Vars
     private IOIconListener listener;
     private IOAddContactListener addContactListener;
 
@@ -50,6 +53,9 @@ public class TLUserView extends LinearLayout {
 
     @BindView(R.id.userDescription)
     TLTextView mUserSubTitle;
+
+    @BindView(R.id.userTime)
+    TLTextView mUserTime;
 
     /**
      * @param context
@@ -131,12 +137,17 @@ public class TLUserView extends LinearLayout {
 
     //Public methods
 
-    public void setUserIcon(int icon) {
-        mUserImage.setImageResource(icon);
+    public String getTitle() {
+        return title;
     }
 
     public void setTitle(String title) {
+        this.title = title;
         mUserTitle.setText(title);
+    }
+
+    public void setTitle(SpannableString userTitle) {
+        mUserTitle.setText(userTitle);
     }
 
     public void setTitleFont(int font) {
@@ -152,23 +163,13 @@ public class TLUserView extends LinearLayout {
     }
 
     public String getSubTitle() {
-        return mUserSubTitle.getText().toString();
+        return subTitle;
     }
 
     public void setSubTitle(String subTitle) {
-        if (subTitle != null) {
-            mUserSubTitle.setText(subTitle);
-        } else {
-            mUserSubTitle.setVisibility(GONE);
-        }
-    }
-
-    public String getSubTitlehint() {
-        return mUserSubTitle.getText().toString();
-    }
-
-    public void setSubTitlehint(String subTitlehint) {
-        mUserSubTitle.setHint(subTitlehint);
+        this.subTitle = subTitle;
+        mUserSubTitle.setText(subTitle);
+        mUserSubTitle.setVisibility((subTitle != null) ? VISIBLE : GONE);
     }
 
     public void setSubTitleFont(int font) {
@@ -183,26 +184,16 @@ public class TLUserView extends LinearLayout {
         mUserSubTitle.setTextColor(color);
     }
 
-    public SpannableString getUserTitle() {
-        return userTitle;
+    public void setStatus(RestContacto contacto) {
+        if (!contacto.getUser().isMe()) {
+            mUserStatusContact.setItemFromStatus(contacto);
+        } else {
+            mUserStatusContact.setVisibility(GONE);
+        }
     }
 
-    public void setUserTitle(SpannableString userTitle) {
-        this.userTitle = userTitle;
-        mUserTitle.setText(userTitle);
-    }
-
-    public void setUserTitle(String userTitle) {
-        mUserTitle.setText(userTitle);
-    }
-
-    public String getUserSubTitle() {
-        return userSubTitle;
-    }
-
-    public void setUserSubTitle(String userSubTitle) {
-        this.userSubTitle = userSubTitle;
-        mUserSubTitle.setText(userSubTitle);
+    public void setUserIcon(int icon) {
+        mUserImage.setImageResource(icon);
     }
 
     public String getUserUrl() {
@@ -213,6 +204,30 @@ public class TLUserView extends LinearLayout {
         this.userUrl = userUrl;
         mUserImage.setImageFromUrl(userUrl, TLImageView.ImageType.USER);
     }
+
+    public void hideIcon(boolean hide) {
+        mUserImage.setVisibility(hide ? GONE : VISIBLE);
+    }
+
+    public int getIconCard() {
+        return iconCard;
+    }
+
+    public void setIconCard(int iconCard) {
+        this.iconCard = iconCard;
+        mCardBadge.setImageResource(iconCard);
+    }
+
+    public String getUserTime() {
+        return userTime;
+    }
+
+    public void setTime(String userTime) {
+        this.userTime = userTime;
+        mUserTime.setText(userTime);
+    }
+
+    // Set listeners
 
     public IOIconListener getListener() {
         return listener;
@@ -239,26 +254,5 @@ public class TLUserView extends LinearLayout {
                 }
             });
         }
-    }
-
-    public void setStatus(RestContacto contacto) {
-        if (!contacto.getUser().isMe()) {
-            mUserStatusContact.setItemFromStatus(contacto);
-        } else {
-            mUserStatusContact.setVisibility(GONE);
-        }
-    }
-
-    public void hideIcon(boolean hide) {
-        mUserImage.setVisibility(hide ? GONE : VISIBLE);
-    }
-
-    public int getIconCard() {
-        return iconCard;
-    }
-
-    public void setIconCard(int iconCard) {
-        this.iconCard = iconCard;
-        mCardBadge.setImageResource(iconCard);
     }
 }

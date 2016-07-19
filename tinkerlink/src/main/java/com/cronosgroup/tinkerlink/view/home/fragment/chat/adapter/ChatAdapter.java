@@ -1,4 +1,4 @@
-package com.cronosgroup.tinkerlink.view.home.fragment.messages.adapter;
+package com.cronosgroup.tinkerlink.view.home.fragment.chat.adapter;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import com.cronosgroup.core.view.BaseAdapter;
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestChat;
-import com.cronosgroup.tinkerlink.view.home.fragment.messages.adapter.viewholder.ViewHolderMessages;
+import com.cronosgroup.tinkerlink.view.home.fragment.chat.adapter.viewholder.ViewHolderMessages;
 
 import java.util.List;
 

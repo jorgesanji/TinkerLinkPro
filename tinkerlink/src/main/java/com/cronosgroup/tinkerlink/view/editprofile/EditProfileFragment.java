@@ -4,7 +4,6 @@ import android.view.View;
 
 import com.cronosgroup.core.view.ToolBarActivity;
 import com.cronosgroup.tinkerlink.presenter.EditProfilePresenter;
-import com.cronosgroup.tinkerlink.presenter.config.ConfigPresenter;
 import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
 
@@ -50,7 +49,7 @@ public class EditProfileFragment extends MVPTinkerLinkFragment<EditProfilePresen
 
     //endregion
 
-    //region ************** EditProfileScreen.Listener **************
+    //region ************** ChatUserScreen.Listener **************
 
 
     //endregion

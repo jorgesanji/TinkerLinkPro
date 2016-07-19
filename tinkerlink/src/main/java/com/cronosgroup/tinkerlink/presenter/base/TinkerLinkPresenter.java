@@ -9,7 +9,9 @@ import android.support.v4.content.LocalBroadcastManager;
 import com.cronosgroup.core.managers.PermissionsManager;
 import com.cronosgroup.core.presenter.Presenter;
 import com.cronosgroup.core.view.BaseActivity;
+import com.cronosgroup.tinkerlink.application.TinkerLinkApplication;
 import com.cronosgroup.tinkerlink.event.SmsEvent;
+import com.cronosgroup.tinkerlink.manager.AppImagePickerManager;
 import com.cronosgroup.tinkerlink.manager.AppUserSessionManager;
 import com.cronosgroup.tinkerlink.presenter.interfaces.IOUserLogin;
 import com.cronosgroup.tinkerlink.sms.SMSBroadcastReceiver;
@@ -17,6 +19,8 @@ import com.cronosgroup.tinkerlink.utils.LocaleUtils;
 import com.cronosgroup.tinkerlink.view.AppStatusMessageManager;
 
 import org.greenrobot.eventbus.EventBus;
+
+import javax.inject.Inject;
 
 
 /**
@@ -28,17 +32,24 @@ public class TinkerLinkPresenter<V extends Presenter.View> implements Presenter<
     public static final String ACTIVATION_MESSAGE = "mensajeActivacion";
 
     protected V view;
+
+    @Inject
     protected AppStatusMessageManager mStatusManager;
+
+    @Inject
     protected AppUserSessionManager appUserSessionManager;
 
+    @Inject
+    protected AppImagePickerManager imagePickerManager;
+
     public TinkerLinkPresenter() {
+        TinkerLinkApplication.getApp().getComponent().inject((TinkerLinkPresenter<View>) this);
     }
 
     @Override
     public void attachView(V view) {
         this.view = view;
-        this.appUserSessionManager = new AppUserSessionManager(getView().getContext());
-        this.mStatusManager = new AppStatusMessageManager(view);
+        mStatusManager.setView(view);
     }
 
     @Override

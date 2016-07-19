@@ -1,4 +1,4 @@
-package com.cronosgroup.tinkerlink.view.home.fragment.messages;
+package com.cronosgroup.tinkerlink.view.home.fragment.chat;
 
 import android.annotation.TargetApi;
 import android.content.Context;
@@ -13,7 +13,7 @@ import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestChat;
 import com.cronosgroup.tinkerlink.utils.TLDividerItemDecoration;
 import com.cronosgroup.tinkerlink.view.customviews.TLRecyclerView;
-import com.cronosgroup.tinkerlink.view.home.fragment.messages.adapter.ChatAdapter;
+import com.cronosgroup.tinkerlink.view.home.fragment.chat.adapter.ChatAdapter;
 
 import java.util.List;
 
@@ -29,7 +29,7 @@ public class ChatScreen extends RelativeLayout {
      * listeners of the chat's screen.
      */
     public interface Listener {
-
+        void onItemClicked(int position);
     }
 
     // Vars
@@ -114,7 +114,7 @@ public class ChatScreen extends RelativeLayout {
         mAdapter.setClickListener(new BaseAdapter.CLickListener() {
             @Override
             public void onItemSelected(int position) {
-
+                listener.onItemClicked(position);
             }
         });
     }
@@ -134,6 +134,10 @@ public class ChatScreen extends RelativeLayout {
 
     public void setChats(List<RestChat> list) {
         mAdapter.addItems(list);
+    }
+
+    public List<RestChat> getItems() {
+        return mAdapter.getItems();
     }
 
 

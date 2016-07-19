@@ -1,7 +1,5 @@
 package com.cronosgroup.tinkerlink.view.config;
 
-import android.support.v4.app.Fragment;
-
 import com.cronosgroup.tinkerlink.manager.AppPermissionsManager;
 import com.cronosgroup.tinkerlink.view.base.TinkerLinkActivity;
 
@@ -11,11 +9,11 @@ import java.util.List;
 /**
  * Created by jorgesanmartin on 10/22/15.
  */
-public class ConfigActivity extends TinkerLinkActivity {
+public class ConfigActivity extends TinkerLinkActivity<ConfigFragment> {
 
     @Override
-    public Fragment getFragment() {
-        return Fragment.instantiate(this, ConfigFragment.class.getName());
+    public Class<ConfigFragment> getFragment() {
+        return ConfigFragment.class;
     }
 
     @Override

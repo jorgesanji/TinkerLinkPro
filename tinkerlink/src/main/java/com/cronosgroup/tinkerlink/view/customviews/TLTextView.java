@@ -37,7 +37,7 @@ public class TLTextView extends TextView {
 
     private static final String TAG = TLTextView.class.toString();
     public static final int DEFAULT_FONT = Font.REGULAR.getType();
-    public static final int DEFAULT_SIZE = 12;
+    public static final int DEFAULT_SIZE = R.dimen.text_size_tiny;
     public static final int DEFAULT_COLOR = Color.BLACK;
     private static final int DEFAULT_UNDERLINE_COLOR = Color.TRANSPARENT;
 

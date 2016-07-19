@@ -1,8 +1,11 @@
 package com.cronosgroup.tinkerlink.view.base;
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
+import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
@@ -12,6 +15,7 @@ import com.cronosgroup.core.view.BaseActivity;
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.application.TinkerLinkApplication;
 import com.cronosgroup.tinkerlink.logger.Logger;
+import com.cronosgroup.tinkerlink.utils.ImageLoaderHelper;
 
 import java.util.List;
 
@@ -20,7 +24,7 @@ import javax.inject.Inject;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public abstract class TinkerLinkActivity extends BaseActivity {
+public abstract class TinkerLinkActivity<F extends TinkerLinkFragment> extends BaseActivity {
 
     // Variables
 
@@ -104,14 +108,14 @@ public abstract class TinkerLinkActivity extends BaseActivity {
 
     public abstract StyleToolBar getActivityStyle();
 
-    public abstract Fragment getFragment();
+    public abstract Class<F> getFragment();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getView());
         ButterKnife.bind(this);
-        TinkerLinkApplication.getApp().getComponent().inject(this);
+        TinkerLinkApplication.getApp().getComponent().inject((TinkerLinkActivity<TinkerLinkFragment>) this);
         initToolbar();
         initFragment();
     }
@@ -151,7 +155,7 @@ public abstract class TinkerLinkActivity extends BaseActivity {
     }
 
     protected void initFragment() {
-        this.currentFragment = getFragment();
+        this.currentFragment = Fragment.instantiate(this, getFragment().getName());
         if (currentFragment != null) {
             currentFragment.setArguments(getIntent().getExtras());
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
@@ -174,6 +178,29 @@ public abstract class TinkerLinkActivity extends BaseActivity {
     protected void configToolBar(StyleToolBar style) {
         configToolbar(style.getBackgroundColor(), style.getText(), style.getTextColor(), style.getIcon());
         mLoader.findViewById(R.id.backgroundColor).setBackgroundResource(style.getBackgroundLoader());
+    }
+
+    protected void setIconFromUrl(String url, final int placeHolder) {
+        getSupportActionBar().setIcon(placeHolder);
+        if (url.isEmpty()) {
+            return;
+        }
+
+        ImageLoaderHelper.getImageFromUrl(60, url, new ImageLoaderHelper.IOLoadImageListener() {
+            @Override
+            public void onFinishLoadImage(Bitmap bitmap) {
+                RoundedBitmapDrawable rounddrawable = RoundedBitmapDrawableFactory.create(getResources(), bitmap);
+                rounddrawable.setCircular(true);
+                rounddrawable.setAntiAlias(true);
+                getSupportActionBar().setIcon(rounddrawable);
+            }
+
+            @Override
+            public void onErrorLoadImage() {
+                getSupportActionBar().setIcon(placeHolder);
+            }
+        });
+
     }
 
     // Public methods

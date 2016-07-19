@@ -1,7 +1,5 @@
 package com.cronosgroup.tinkerlink.view.profile;
 
-import android.support.v4.app.Fragment;
-
 import com.cronosgroup.tinkerlink.manager.AppPermissionsManager;
 import com.cronosgroup.tinkerlink.view.base.TinkerLinkActivity;
 
@@ -11,11 +9,11 @@ import java.util.List;
 /**
  * Created by jorgesanmartin on 10/22/15.
  */
-public class ProfileActivity extends TinkerLinkActivity {
+public class ProfileActivity extends TinkerLinkActivity<ProfileFragment> {
 
     @Override
-    public Fragment getFragment() {
-        return Fragment.instantiate(this, ProfileFragment.class.getName());
+    public Class<ProfileFragment> getFragment() {
+        return ProfileFragment.class;
     }
 
     @Override

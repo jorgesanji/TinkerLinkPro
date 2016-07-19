@@ -141,6 +141,7 @@
     <dimen name="view_height_super_tiny">0.1dp</dimen>
     <dimen name="view_tab_item_width">150dp</dimen>
     <dimen name="view_network_thumb">30dp</dimen>
+    <dimen name="view_min_size_chat">40dp</dimen>
 
 
     <!-- View Elevation -->

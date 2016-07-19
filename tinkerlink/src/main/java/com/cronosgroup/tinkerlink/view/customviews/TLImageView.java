@@ -146,7 +146,8 @@ public class TLImageView extends ImageView {
             }
 
             if (isRounded()) {
-                options.displayer(new CircleBitmapDisplayer(false, isWithBorder()));
+                options.displayer(new CircleBitmapDisplayer(getContext(),
+                        false, isWithBorder()));
             }
 
             ImageLoader.getInstance().displayImage(url, this, (options != null) ? options.build() : null, listener);

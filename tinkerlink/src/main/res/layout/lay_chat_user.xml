@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipeContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/containerTextField">
+
+        <com.cronosgroup.tinkerlink.view.customviews.TLRecyclerView
+            android:id="@+id/chatUserList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:overScrollMode="always"
+            android:visibility="visible" />
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+    <LinearLayout
+        android:id="@+id/containerTextField"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@android:color/transparent"
+        android:orientation="vertical">
+
+        <View
+            android:id="@+id/viewMenu"
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:background="@drawable/background_chat_gradient" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <com.cronosgroup.tinkerlink.view.customviews.TLEditText
+                    android:id="@+id/messageToSend"
+                    style="@style/EdiTextChatStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="@color/black"
+                    app:fontNameEdit="Regular" />
+
+                <com.cronosgroup.tinkerlink.view.customviews.TLButton
+                    android:id="@+id/sendButton"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="0.22"
+                    android:background="@android:color/transparent"
+                    android:text="@string/send_button_title"
+                    app:fontNameButton="Bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/view_min_size_chat"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <com.cronosgroup.tinkerlink.view.customviews.TLImageView
+                    android:id="@+id/cameraButton"
+                    android:layout_width="@dimen/view_min_size_chat"
+                    android:layout_height="match_parent"
+                    android:scaleType="center"
+                    android:background="@drawable/button_default_states"
+                    android:src="@mipmap/estado_imagen" />
+
+                <com.cronosgroup.tinkerlink.view.customviews.TLImageView
+                    android:id="@+id/galleryButton"
+                    android:layout_width="@dimen/view_min_size_chat"
+                    android:layout_height="match_parent"
+                    android:scaleType="center"
+                    android:background="@drawable/button_default_states"
+                    android:src="@mipmap/estado_galeria" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

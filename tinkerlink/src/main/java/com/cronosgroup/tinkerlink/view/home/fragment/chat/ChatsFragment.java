@@ -1,4 +1,4 @@
-package com.cronosgroup.tinkerlink.view.home.fragment.messages;
+package com.cronosgroup.tinkerlink.view.home.fragment.chat;
 
 import android.view.View;
 
@@ -47,15 +47,23 @@ public class ChatsFragment extends MVPTinkerLinkFragment<ChatPresenter, ChatPres
 
     //region **************  Chatcreen.Listener **************
 
+    @Override
+    public void onItemClicked(int position) {
+        getPresenter().onItemClicked(position);
+    }
 
     //endregion
 
     //region **************  ChatPresenter.View **************
 
-
     @Override
     public void setChats(List<RestChat> list) {
         chatScreen.setChats(list);
+    }
+
+    @Override
+    public List<RestChat> getItems() {
+        return chatScreen.getItems();
     }
 
     @Override

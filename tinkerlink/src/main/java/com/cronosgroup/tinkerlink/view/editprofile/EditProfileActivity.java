@@ -1,7 +1,5 @@
 package com.cronosgroup.tinkerlink.view.editprofile;
 
-import android.support.v4.app.Fragment;
-
 import com.cronosgroup.tinkerlink.manager.AppPermissionsManager;
 import com.cronosgroup.tinkerlink.view.base.TinkerLinkActivity;
 
@@ -11,11 +9,11 @@ import java.util.List;
 /**
  * Created by jorgesanmartin on 10/22/15.
  */
-public class EditProfileActivity extends TinkerLinkActivity {
+public class EditProfileActivity extends TinkerLinkActivity<EditProfileFragment> {
 
     @Override
-    public Fragment getFragment() {
-        return Fragment.instantiate(this, EditProfileFragment.class.getName());
+    public Class<EditProfileFragment> getFragment() {
+        return EditProfileFragment.class;
     }
 
     @Override

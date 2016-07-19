@@ -50,8 +50,7 @@ public class ViewHolderShareProfile extends ViewHolderPost {
         final SpannableString spannableString = new SpannableString(textContat);
         ForegroundColorSpan color = new ForegroundColorSpan(getResources().getColor(R.color.news_feed_detail_info));
         spannableString.setSpan(color, usuario.getName().length(), textContat.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-        mUserContainer.setUserTitle(spannableString);
-//        mUserContainer.setUserImageFromUrl(TinkerLinkApplication.getApp().getImagePath(AppConfigManager.Path.PATH_IMAGE_PROFILE_THUMBNAIL) + usuario.getPhoto());
+        mUserContainer.setTitle(spannableString);
         mUserContainer.setListener(new IOIconListener() {
             @Override
             public void onIconPressed() {

@@ -49,7 +49,7 @@ public class ProfileFragment extends MVPTinkerLinkFragment<EditProfilePresenter,
 
     //endregion
 
-    //region ************** EditProfileScreen.Listener **************
+    //region ************** ChatUserScreen.Listener **************
 
 
     //endregion

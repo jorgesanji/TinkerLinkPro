@@ -1,11 +1,10 @@
 package com.cronosgroup.tinkerlink.view.stack.detail;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 
 import com.cronosgroup.tinkerlink.view.base.TinkerLinkActivity;
 
-public class DetailStackActivity extends TinkerLinkActivity {
+public class DetailStackActivity extends TinkerLinkActivity<DetailStackFragment> {
 
     public static final String STACK_ITEMS = "items";
     public static final String STACK_CURRENT_ITEM = "currenIndexPage";
@@ -28,8 +27,8 @@ public class DetailStackActivity extends TinkerLinkActivity {
     }
 
     @Override
-    public Fragment getFragment() {
-        return new DetailStackFragment();
+    public Class<DetailStackFragment> getFragment() {
+        return DetailStackFragment.class;
     }
 
     @Override

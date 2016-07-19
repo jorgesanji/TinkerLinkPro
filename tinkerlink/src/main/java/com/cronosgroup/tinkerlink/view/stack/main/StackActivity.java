@@ -1,12 +1,11 @@
 package com.cronosgroup.tinkerlink.view.stack.main;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.view.base.TinkerLinkActivity;
 
-public class StackActivity extends TinkerLinkActivity {
+public class StackActivity extends TinkerLinkActivity<StackFragment> {
 
     public static final String STACK_TYPE = "STACK";
 
@@ -61,7 +60,8 @@ public class StackActivity extends TinkerLinkActivity {
     }
 
     @Override
-    public Fragment getFragment() {
-        return new StackFragment();
+    public Class<StackFragment> getFragment() {
+        return StackFragment.class;
     }
+
 }

@@ -2,7 +2,6 @@ package com.cronosgroup.tinkerlink.view.tutorial;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 
 import com.cronosgroup.tinkerlink.gcm.GcmRegistrationDevice;
 import com.cronosgroup.tinkerlink.manager.AppPermissionsManager;
@@ -16,7 +15,7 @@ import java.util.List;
  * Created by jorgesanmartin on 16/10/15.
  */
 
-public class TutorialActivity extends TinkerLinkActivity {
+public class TutorialActivity extends TinkerLinkActivity<TutorialFragment> {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,8 +29,8 @@ public class TutorialActivity extends TinkerLinkActivity {
     }
 
     @Override
-    public Fragment getFragment() {
-        return Fragment.instantiate(this, TutorialFragment.class.getName());
+    public Class<TutorialFragment> getFragment() {
+        return TutorialFragment.class;
     }
 
     @Override

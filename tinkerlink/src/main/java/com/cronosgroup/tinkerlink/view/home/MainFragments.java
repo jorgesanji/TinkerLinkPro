@@ -3,7 +3,7 @@ package com.cronosgroup.tinkerlink.view.home;
 import android.support.v4.app.Fragment;
 
 import com.cronosgroup.tinkerlink.view.home.fragment.contacts.ContactsFragment;
-import com.cronosgroup.tinkerlink.view.home.fragment.messages.ChatsFragment;
+import com.cronosgroup.tinkerlink.view.home.fragment.chat.ChatsFragment;
 import com.cronosgroup.tinkerlink.view.home.fragment.newsfeed.NewsFeedFragment;
 import com.cronosgroup.tinkerlink.view.home.fragment.account.AccountFragment;
 

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/action_remove_chat"
+        android:title="@string/chat_remove_chat" />
+
+    <item
+        android:id="@+id/action_report_chat"
+        android:title="@string/chat_report_chat" />
+
+    <item
+        android:id="@+id/action_block_contact"
+        android:title="@string/chat_block_contact" />
+
+</menu>

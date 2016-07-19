@@ -13,15 +13,16 @@ import android.util.Log;
 import android.view.View;
 
 import com.cronosgroup.tinkerlink.R;
+import com.cronosgroup.tinkerlink.utils.DimenUtils;
 
 /**
  * Created by jorgesanmartin on 7/12/16.
  */
 public class TLNetworkConnectionView extends View {
 
-    // Variables
+    // Vars
     private static final int DEFAULT_START_POSX = 5;
-    private static final int DEFAULT_DISTANCE = 120;
+    private static final int DEFAULT_DISTANCE = 30;
     private static final int DEFAULT_ANGLE = 90;
     private static final int DEFAULT_SWEEPANGLE = 90;
     private static final float DEFAULT_STROKE_WIDTH = 10f;
@@ -35,6 +36,8 @@ public class TLNetworkConnectionView extends View {
     private float strokeWidth = DEFAULT_STROKE_WIDTH;
     private float bottomMarginToDraw = DEFAULT_BOTTOM_MARGIN;
     private boolean connectionEnable = true;
+    private float mPosxStart;
+    private float mDistance;
 
     public TLNetworkConnectionView(Context context) {
         this(context, null);
@@ -56,13 +59,12 @@ public class TLNetworkConnectionView extends View {
 
     private void init(AttributeSet attributeSet) {
         if (attributeSet != null) {
-
             TypedArray attributes = null;
             try {
                 attributes = getContext().obtainStyledAttributes(attributeSet, R.styleable.TLNetworkConnectionView);
                 setStrokeWidth(attributes.getFloat(R.styleable.TLNetworkConnectionView_strokeWidth, DEFAULT_STROKE_WIDTH));
                 setLineColor(attributes.getColor(R.styleable.TLNetworkConnectionView_colorLine, Color.BLACK));
-                setBottomMarginToDraw(attributes.getDimension(R.styleable.TLNetworkConnectionView_bottomMarginToDraw, 0f));
+                setBottomMarginToDraw(attributes.getDimension(R.styleable.TLNetworkConnectionView_bottomMarginToDraw, DEFAULT_BOTTOM_MARGIN));
                 setConnectionEnable(attributes.getBoolean(R.styleable.TLNetworkConnectionView_connectionEnable, true));
             } catch (Exception ex) {
                 Log.e("", ex.getMessage(), ex);
@@ -73,6 +75,9 @@ public class TLNetworkConnectionView extends View {
             }
         }
 
+        mPosxStart = DimenUtils.getPixelsFromDp(getContext(), DEFAULT_START_POSX);
+        mDistance = DimenUtils.getPixelsFromDp(getContext(), (DEFAULT_DISTANCE));
+
         mPaint.setStyle(Paint.Style.STROKE);
         mPaint.setAntiAlias(true);
     }
@@ -81,13 +86,13 @@ public class TLNetworkConnectionView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         // Draw vertical line
-        canvas.drawLine(DEFAULT_START_POSX, 0, DEFAULT_START_POSX, getHeight(), mPaint);
+        canvas.drawLine(mPosxStart, 0, mPosxStart, getHeight(), mPaint);
         if (isConnectionEnable()) {
             // Draw Arc line
-            RectF rectF = new RectF(DEFAULT_START_POSX, getHeight() - DEFAULT_DISTANCE - getBottomMarginToDraw(), getWidth() - DEFAULT_DISTANCE - DEFAULT_START_POSX, getHeight() - getBottomMarginToDraw());
+            RectF rectF = new RectF(mPosxStart, getHeight() - mDistance - getBottomMarginToDraw(), getWidth() - mDistance - mPosxStart, getHeight() - getBottomMarginToDraw());
             canvas.drawArc(rectF, DEFAULT_ANGLE, DEFAULT_SWEEPANGLE, false, mPaint);
             // Draw horizontal line
-            canvas.drawLine(DEFAULT_DISTANCE - DEFAULT_START_POSX, getHeight() - getBottomMarginToDraw() - (int) Math.floor((getStrokeWidth() / 2)) + 2, getWidth(), getHeight() - getBottomMarginToDraw(), mPaint);
+            canvas.drawLine(mDistance + mPosxStart, getHeight() - getBottomMarginToDraw() - (int) Math.floor((getStrokeWidth() / 2)) + 2, getWidth(), getHeight() - getBottomMarginToDraw(), mPaint);
         }
     }
 

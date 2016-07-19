@@ -1,7 +1,5 @@
 package com.cronosgroup.tinkerlink.view.sign;
 
-import android.support.v4.app.Fragment;
-
 import com.cronosgroup.tinkerlink.manager.AppPermissionsManager;
 import com.cronosgroup.tinkerlink.model.business.model.AppUser;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.manager.AppRestManager;
@@ -14,13 +12,13 @@ import java.util.List;
 /**
  * Created by jorgesanmartin on 10/22/15.
  */
-public class SignActivity extends TinkerLinkActivity implements IOFormListener {
+public class SignActivity extends TinkerLinkActivity<SignFragment> implements IOFormListener {
 
     private AppUser user = new AppUser();
 
     @Override
-    public Fragment getFragment() {
-        return Fragment.instantiate(this, SignFragment.class.getName());
+    public Class<SignFragment> getFragment() {
+        return SignFragment.class;
     }
 
     @Override

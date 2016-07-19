@@ -111,6 +111,8 @@
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
 
+    <include layout="@layout/lay_background_menu" />
+
     <com.cronosgroup.tinkerlink.view.customviews.TLMenuButton
         android:id="@+id/menuView"
         android:layout_width="wrap_content"

@@ -74,36 +74,36 @@ public class CreateRecommendationFragment extends MVPTinkerLinkFragment<CreateRe
         TLUserView userView = new TLUserView(getContext());
         userView.setLayoutParams(params);
         userView.setUserImageFromUrl("http://www.w3schools.com/css/img_fjords.jpg");
-        userView.setUserTitle("Jorge Luis");
-        userView.setUserSubTitle("Programador");
+        userView.setTitle("Jorge Luis");
+        userView.setSubTitle("Programador");
         createRecommendationScreen.addUser(userView);
 
         TLUserView userView1 = new TLUserView(getContext());
         userView1.setLayoutParams(params);
         userView1.setUserImageFromUrl("http://www.w3schools.com/css/img_fjords.jpg");
-        userView1.setUserTitle("Jorge Luis");
-        userView1.setUserSubTitle("Programador");
+        userView1.setTitle("Jorge Luis");
+        userView1.setSubTitle("Programador");
         createRecommendationScreen.addUser(userView1);
 
         TLUserView userView2 = new TLUserView(getContext());
         userView2.setLayoutParams(params);
         userView2.setUserImageFromUrl("http://www.w3schools.com/css/img_fjords.jpg");
-        userView2.setUserTitle("Jorge Luis");
-        userView2.setUserSubTitle("Programador");
+        userView2.setTitle("Jorge Luis");
+        userView2.setSubTitle("Programador");
         createRecommendationScreen.addUser(userView2);
 
         TLUserView userView3 = new TLUserView(getContext());
         userView3.setLayoutParams(params);
         userView3.setUserImageFromUrl("http://www.w3schools.com/css/img_fjords.jpg");
-        userView3.setUserTitle("Jorge Luis");
-        userView3.setUserSubTitle("Programador");
+        userView3.setTitle("Jorge Luis");
+        userView3.setSubTitle("Programador");
         createRecommendationScreen.addUser(userView3);
 
         TLUserView userView4 = new TLUserView(getContext());
         userView4.setLayoutParams(params);
         userView4.setUserImageFromUrl("http://www.w3schools.com/css/img_fjords.jpg");
-        userView4.setUserTitle("Jorge Luis");
-        userView4.setUserSubTitle("Programador");
+        userView4.setTitle("Jorge Luis");
+        userView4.setSubTitle("Programador");
         createRecommendationScreen.addUser(userView4);
     }
 

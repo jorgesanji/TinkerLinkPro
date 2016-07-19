@@ -115,6 +115,10 @@
             android:screenOrientation="portrait"
             android:theme="@style/ThemeToolbarCreateRecommendationStyle" />
 
+        <activity
+            android:name=".view.chatuser.ChatUserActivity"
+            android:screenOrientation="portrait" />
+
     </application>
 
 </manifest>
