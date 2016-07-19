@@ -418,6 +418,10 @@
         ******************************************************************
     -->
 
+
+    <!-- Tutorial-->
+    <string name="tutorial_start_now">COMIENZA AHORA</string>
+
     <!--  Time Strings-->
 
     <string name="time_just_now">ahora</string>

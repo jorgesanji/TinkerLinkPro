@@ -68,13 +68,8 @@ public class TutorialFragment extends MVPTinkerLinkFragment<TutorialPresenter, T
     //region **************  TutorialScreen.Listener **************
 
     @Override
-    public void onSignPressed() {
-        getPresenter().onSignPressed();
-    }
-
-    @Override
-    public void onLoginPressed() {
-        getPresenter().onLoginPressed();
+    public void onStartRegistration() {
+        getPresenter().onStartPressed();
     }
 
     @Override

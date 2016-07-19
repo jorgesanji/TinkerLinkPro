@@ -116,4 +116,10 @@ public class TLActionButton extends RelativeLayout {
         this.actionTitleFont = actionTitleFont;
         title_action.setTypeface(TypeFaceUtils.getFontWithFlag(getContext(), actionTitleFont));
     }
+
+    @Override
+    public void setSelected(boolean selected) {
+        super.setSelected(selected);
+        title_action.setFontName(selected ? TLTextView.Font.BOLD.getType() : TLTextView.Font.REGULAR.getType());
+    }
 }

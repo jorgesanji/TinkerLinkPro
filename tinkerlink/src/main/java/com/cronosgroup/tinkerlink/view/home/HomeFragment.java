@@ -4,11 +4,11 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 
-import com.cronosgroup.core.view.ToolBarActivity;
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.presenter.home.HomePresenter;
 import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
+import com.cronosgroup.tinkerlink.view.base.TinkerLinkActivity;
 
 
 /**
@@ -18,13 +18,13 @@ public class HomeFragment extends MVPTinkerLinkFragment<HomePresenter, HomePrese
         implements HomePresenter.View, HomePresenter.Actions, HomeScreen.Listener {
 
     private HomeScreen homeScreen;
+    private MainFragments[] fragments = {MainFragments.NEWSFEED, MainFragments.CONTACTS, MainFragments.CHAT, MainFragments.PROFILE};
 
     //region **************  Fragment **************
 
     @Override
     protected View getRootView() {
-        homeScreen = new HomeScreen(getActivity());
-        homeScreen.setListener(this);
+        homeScreen = new HomeScreen(getActivity(), this);
         return homeScreen;
     }
     //endregion
@@ -69,21 +69,8 @@ public class HomeFragment extends MVPTinkerLinkFragment<HomePresenter, HomePrese
     }
 
     private void onMenuItemSelected(int position) {
-
-        switch (position) {
-            case 0:
-                replaceFragment(MainFragments.NEWSFEED);
-                break;
-            case 1:
-                replaceFragment(MainFragments.CONTACTS);
-                break;
-            case 2:
-                replaceFragment(MainFragments.CHAT);
-                break;
-            case 3:
-                replaceFragment(MainFragments.PROFILE);
-                break;
-        }
+        replaceFragment(fragments[position]);
+        homeScreen.setItem(position);
     }
 
     private void replaceFragment(MainFragments mainFragments) {
@@ -98,13 +85,11 @@ public class HomeFragment extends MVPTinkerLinkFragment<HomePresenter, HomePrese
 
     //endregion
 
-    //region **************  HomePresenter.View **************
-
     @Override
     public void showLoading() {
         super.showLoading();
         if (getActivity() != null) {
-            ((ToolBarActivity) getActivity()).showLoading();
+            ((TinkerLinkActivity) getActivity()).showLoading();
         }
     }
 
@@ -112,7 +97,7 @@ public class HomeFragment extends MVPTinkerLinkFragment<HomePresenter, HomePrese
     public void hideLoading() {
         super.hideLoading();
         if (getActivity() != null) {
-            ((ToolBarActivity) getActivity()).hideLoading();
+            ((TinkerLinkActivity) getActivity()).hideLoading();
         }
     }
 
