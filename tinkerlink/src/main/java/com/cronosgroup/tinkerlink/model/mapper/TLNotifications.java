@@ -1,4 +1,4 @@
-package com.cronosgroup.tinkerlink.model.adapter;
+package com.cronosgroup.tinkerlink.model.mapper;
 
 import com.cronosgroup.tinkerlink.model.dataacess.database.entities.TLNotification;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.manager.AppRestManager;
