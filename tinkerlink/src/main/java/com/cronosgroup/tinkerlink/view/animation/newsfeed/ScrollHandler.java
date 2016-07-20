@@ -48,12 +48,6 @@ public class ScrollHandler extends RecyclerView.OnScrollListener {
             }
 
             if (middleView != null) {
-
-//                RelativeLayout.LayoutParams params  = (RelativeLayout.LayoutParams) middleView.getLayoutParams();
-//                params.height = middleView.getHeight() + DISTANCE_TO_HIDE;
-//                params.topMargin = params.topMargin + DISTANCE_TO_HIDE;
-//                middleView.setLayoutParams(params);
-
                 middleView.animate().translationY(0).setListener(animListener).start();
             }
         }
@@ -95,12 +89,6 @@ public class ScrollHandler extends RecyclerView.OnScrollListener {
                     }
 
                     if (middleView != null) {
-
-//                        params = (RelativeLayout.LayoutParams) middleView.getLayoutParams();
-//                        params.height = middleView.getHeight() + DISTANCE_TO_HIDE;
-//                        params.topMargin = params.topMargin - DISTANCE_TO_HIDE;
-//                        middleView.setLayoutParams(params);
-
                         middleView.animate().translationY(params.height - DISTANCE_TO_HIDE).setListener(animListener).start();
                     }
                 }

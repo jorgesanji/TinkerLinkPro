@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <com.cronosgroup.tinkerlink.view.customviews.TLImageView
+        android:layout_width="@dimen/view_max_height_big"
+        android:layout_height="@dimen/view_max_height_big"
+        android:layout_marginTop="@dimen/margin_plus_plus_plus_biggest"
+        android:src="@mipmap/tinkercard_noicon" />
+
+    <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bienvenido a TinkerLink"
+        android:layout_marginTop="@dimen/margin_plus_big"
+        android:textSize="@dimen/text_size_super_big" />
+
+    <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="La aplicación donde puedes encontrar y ofrecer servicios a travez de tu red de contactos de confianza"
+        android:layout_marginTop="@dimen/margin_mediun"
+        android:layout_marginLeft="@dimen/margin_plus_big"
+        android:layout_marginRight="@dimen/margin_plus_big"
+        android:textSize="@dimen/text_size_big" />
+
+</LinearLayout>

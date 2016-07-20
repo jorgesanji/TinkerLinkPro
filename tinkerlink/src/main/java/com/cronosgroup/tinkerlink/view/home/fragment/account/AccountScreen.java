@@ -6,6 +6,7 @@ import android.os.Build;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.view.customviews.TLImageView;
@@ -55,6 +56,9 @@ public class AccountScreen extends RelativeLayout {
     @BindView(R.id.viewMenu)
     protected View mViewMenu;
 
+    @BindView(R.id.scrollView)
+    protected ScrollView mScrollView;
+
     /**
      * @param context
      */
@@ -103,13 +107,13 @@ public class AccountScreen extends RelativeLayout {
     private void init() {
         inflate(getContext(), R.layout.lay_account, this);
         ButterKnife.bind(this);
-        initUi();
+        initUI();
         initListeners();
 
         mUserImage.setImageFromUrl("http://qsrock.com/wp-content/uploads/2016/04/130699422.jpg");
     }
 
-    private void initUi() {
+    private void initUI() {
         mViewMenu.setVisibility(VISIBLE);
     }
 

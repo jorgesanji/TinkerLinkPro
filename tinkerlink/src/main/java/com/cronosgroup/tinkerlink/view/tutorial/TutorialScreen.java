@@ -16,7 +16,6 @@ import android.widget.RelativeLayout;
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.utils.LocaleUtils;
 import com.cronosgroup.tinkerlink.view.animation.tutorial.ZoomOutPageTransformer;
-import com.cronosgroup.tinkerlink.view.customviews.TLImageView;
 import com.cronosgroup.tinkerlink.view.customviews.TLViewPager;
 import com.cronosgroup.tinkerlink.view.customviews.TLViewPagerIndicator;
 import com.cronosgroup.tinkerlink.view.tutorial.adapter.TutorialAdapter;
@@ -41,9 +40,7 @@ class TutorialScreen extends RelativeLayout {
      * listeners of the Tutorial's screen.
      */
     public interface Listener {
-        void onSignPressed();
-
-        void onLoginPressed();
+        void onStartRegistration();
 
         boolean isUserLoged();
     }
@@ -66,14 +63,8 @@ class TutorialScreen extends RelativeLayout {
     @BindView(R.id.pager)
     TLViewPager mPager;
 
-    @BindView(R.id.containerButtons)
-    LinearLayout mContainerButtons;
-
-    @BindView(R.id.background1)
-    TLImageView mBackground1;
-
-    @BindView(R.id.background2)
-    TLImageView mBackground2;
+    @BindView(R.id.buttonContainer)
+    LinearLayout mButtonContainer;
 
     @BindView(R.id.pageIndicator)
     TLViewPagerIndicator mPageIndicator;
@@ -127,11 +118,8 @@ class TutorialScreen extends RelativeLayout {
 
     private void initUI() {
         mDisableTouchPager = true;
-        mPageIndicator.setAlpha(0.0f);
-        mContainerButtons.setAlpha(0.0f);
+        mButtonContainer.setAlpha(0.0f);
         mPager.setPageTransformer(true, new ZoomOutPageTransformer());
-        mBackground2.setBackgroundColor(getResources().getColor(R.color.tinkercolor));
-        mBackground1.setBackgroundColor(getResources().getColor(R.color.linkercolor));
     }
 
     private void initAdapter() {
@@ -145,41 +133,6 @@ class TutorialScreen extends RelativeLayout {
         mPager.setAdapter(mAdapter);
     }
 
-    private synchronized void fadeAnimation(final View viewIn, final View viewOut) {
-
-        Animator.AnimatorListener listener = new Animator.AnimatorListener() {
-            @Override
-            public void onAnimationStart(Animator animation) {
-
-            }
-
-            @Override
-            public void onAnimationEnd(Animator animation) {
-                viewOut.setVisibility(GONE);
-            }
-
-            @Override
-            public void onAnimationCancel(Animator animation) {
-
-            }
-
-            @Override
-            public void onAnimationRepeat(Animator animation) {
-
-            }
-        };
-
-        viewIn.clearAnimation();
-        viewOut.clearAnimation();
-
-        viewIn.setVisibility(VISIBLE);
-        viewIn.setAlpha(0);
-
-        viewIn.animate().alpha(1.0f).setListener(listener).start();
-        viewOut.animate().alpha(0.0f).setListener(listener).start();
-
-    }
-
     private void initListeners() {
         mPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -188,27 +141,7 @@ class TutorialScreen extends RelativeLayout {
 
             @Override
             public void onPageSelected(int position) {
-                switch (position) {
-                    case 0:
-                        mBackground2.setBackgroundColor(getResources().getColor(R.color.tinkercolor));
-                        fadeAnimation(mBackground2, mBackground1);
-                        break;
-                    case 1:
-                        mBackground1.setBackgroundColor(getResources().getColor(R.color.linkercolor));
-                        fadeAnimation(mBackground1, mBackground2);
-                        break;
-                    case 2:
-                        mBackground2.setBackgroundColor(getResources().getColor(R.color.tinkercolor));
-                        fadeAnimation(mBackground2, mBackground1);
-                        break;
-                    case 3:
-                        mBackground1.setBackgroundColor(getResources().getColor(R.color.recommendationcolor));
-                        fadeAnimation(mBackground1, mBackground2);
-                        break;
-                }
-
                 mPageIndicator.setCurrentSelected(position);
-
             }
 
             @Override
@@ -237,17 +170,11 @@ class TutorialScreen extends RelativeLayout {
 
     // **************  UI Actions **************
 
-    @OnClick(R.id.loginButton)
-    protected void btnLoginClicked() {
-        if (listener != null) {
-            listener.onLoginPressed();
-        }
-    }
 
     @OnClick(R.id.signButton)
     protected void btnSignClicked() {
         if (listener != null) {
-            listener.onSignPressed();
+            listener.onStartRegistration();
         }
     }
 
@@ -262,7 +189,7 @@ class TutorialScreen extends RelativeLayout {
     }
 
     public void startTutorial() {
-        if (mContainerButtons.getAlpha() == 0) {
+        if (mButtonContainer.getAlpha() == 0) {
             mTimer.postDelayed(new Runnable() {
                 @Override
                 public void run() {
@@ -291,8 +218,7 @@ class TutorialScreen extends RelativeLayout {
                             }
                         };
 
-                        mContainerButtons.animate().alpha(1.0f).setListener(listener).start();
-                        mPageIndicator.animate().alpha(1.0f).start();
+                        mButtonContainer.animate().alpha(1.0f).setListener(listener).start();
                     }
                 }
             }, INTERVAL_BUTTONS_TIME);

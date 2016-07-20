@@ -136,5 +136,26 @@ public class HomeScreen extends RelativeLayout {
         this.listener = listener;
     }
 
+    public void setItem(int position) {
 
+        newsfeedbt.setSelected(false);
+        contactsbt.setSelected(false);
+        mensajesbt.setSelected(false);
+        profilebt.setSelected(false);
+
+        switch (position) {
+            case 0:
+                newsfeedbt.setSelected(true);
+                break;
+            case 1:
+                contactsbt.setSelected(true);
+                break;
+            case 2:
+                mensajesbt.setSelected(true);
+                break;
+            case 3:
+                profilebt.setSelected(true);
+                break;
+        }
+    }
 }
