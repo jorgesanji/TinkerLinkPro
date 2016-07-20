@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,8 +8,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:clipChildren="false"
-        android:clipToPadding="false"
+        android:layout_centerInParent="true"
+        android:layout_margin="@dimen/margin_plus_biggest"
         android:orientation="vertical">
 
         <LinearLayout
@@ -126,69 +126,39 @@
 
                     <com.cronosgroup.tinkerlink.view.customviews.TLNetworkConnectionView style="@style/NetworkConnectionStyle" />
 
-                    <com.cronosgroup.tinkerlink.view.customviews.TLTextView
-                        style="@style/NetWorkSectionsStyle"
-                        android:text="@string/network_match_tinkerlink" />
-
-                </LinearLayout>
-
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/linkerContainer"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:visibility="gone">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:layout_marginLeft="10dp"
-                    android:orientation="horizontal">
-
-                    <com.cronosgroup.tinkerlink.view.customviews.TLNetworkConnectionView style="@style/NetworkConnectionStyle" />
-
-                    <com.cronosgroup.tinkerlink.view.customviews.TLTextView
-                        style="@style/NetWorkTinkerSectionsStyle"
-                        android:text="@string/network_tinkerlink_search" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:orientation="horizontal">
-
-                    <com.cronosgroup.tinkerlink.view.customviews.TLNetworkConnectionView
-                        style="@style/NetworkConnectionStyle"
-                        android:minHeight="50dp"
-                        app:connectionEnable="false" />
-
-                    <LinearLayout
+                    <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:visibility="visible">
 
                         <LinearLayout
-                            android:id="@+id/linkerCategoryContainer"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical" />
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginBottom="0dp"
+                            android:orientation="vertical"
+                            android:visibility="visible">
 
-                        <com.cronosgroup.tinkerlink.view.customviews.TLTextView
-                            android:id="@+id/loadLinkerCategories"
-                            style="@style/NetworkLoaderStyle"
-                            android:textColor="@color/linkercolor" />
+                            <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                                style="@style/NetWorkSectionsStyle"
+                                android:text="@string/network_match_tinkerlink" />
 
-                    </LinearLayout>
+                            <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:layout_below="@+id/friendsCommon"
+                                android:text="Marta esta buscando a\npersonas como tú!" />
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
 
                 </LinearLayout>
 
             </LinearLayout>
+
 
         </LinearLayout>
 
@@ -211,4 +181,4 @@
 
     </LinearLayout>
 
-</LinearLayout>
+</RelativeLayout>
