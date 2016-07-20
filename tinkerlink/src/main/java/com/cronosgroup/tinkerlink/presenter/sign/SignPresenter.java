@@ -4,8 +4,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.cronosgroup.core.presenter.Presenter;
 import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenter;
+import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenterView;
 
 
 /**
@@ -19,7 +19,7 @@ public class SignPresenter extends TinkerLinkPresenter<SignPresenter.View> {
     /**
      * Sign listeners.
      */
-    public interface View extends Presenter.View {
+    public interface View extends TinkerLinkPresenterView {
 
     }
 

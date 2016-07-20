@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.cronosgroup.tinkerlink.view.customviews.TLImageView
+                android:id="@+id/contactImage"
+                style="@style/NetworkImageThumbStyle"
+                app:imageWithBorder="false" />
+
+            <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                android:id="@+id/contactName"
+                style="@style/NetworkNameStyle" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/contactsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginLeft="10dp"
+            android:orientation="horizontal">
+
+            <com.cronosgroup.tinkerlink.view.customviews.TLNetworkConnectionView
+                android:id="@+id/contactsConnection"
+                style="@style/NetworkConnectionStyle"
+                app:bottomMarginToDraw="50dp"
+                app:connectionEnable="true" />
+
+            <RelativeLayout
+                android:id="@+id/contactsInfoContainer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="0dp"
+                    android:orientation="vertical"
+                    android:visibility="visible">
+
+                    <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                        android:id="@+id/friendsCommon"
+                        style="@style/NetWorkSectionsStyle"
+                        android:text="@string/network_common_contacts" />
+
+                    <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_below="@+id/friendsCommon"
+                        android:text="Marta forma parte de tu\nred de confianza" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/tinkerNetworkContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="110dp"
+                    android:layout_height="30dp">
+
+                    <com.cronosgroup.tinkerlink.view.customviews.TLImageView
+                        android:id="@+id/tinkerNetwork"
+                        style="@style/NetworkTinkerLinkCardsStyle"
+                        android:background="@drawable/background_tinker"
+                        android:elevation="@dimen/view_elevation_min"
+                        android:src="@mipmap/newsfeed_tinkercard_net" />
+
+                    <com.cronosgroup.tinkerlink.view.customviews.TLImageView
+                        android:id="@+id/linkerNetwork"
+                        style="@style/NetworkTinkerLinkCardsStyle"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/background_linker"
+                        android:elevation="@dimen/view_elevation_min"
+                        android:src="@mipmap/newsfeed_linkercard_net" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/tinkerContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_marginLeft="10dp"
+                    android:orientation="horizontal">
+
+                    <com.cronosgroup.tinkerlink.view.customviews.TLNetworkConnectionView style="@style/NetworkConnectionStyle" />
+
+                    <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                        style="@style/NetWorkSectionsStyle"
+                        android:text="@string/network_match_tinkerlink" />
+
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linkerContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_marginLeft="10dp"
+                    android:orientation="horizontal">
+
+                    <com.cronosgroup.tinkerlink.view.customviews.TLNetworkConnectionView style="@style/NetworkConnectionStyle" />
+
+                    <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                        style="@style/NetWorkTinkerSectionsStyle"
+                        android:text="@string/network_tinkerlink_search" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:orientation="horizontal">
+
+                    <com.cronosgroup.tinkerlink.view.customviews.TLNetworkConnectionView
+                        style="@style/NetworkConnectionStyle"
+                        android:minHeight="50dp"
+                        app:connectionEnable="false" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:id="@+id/linkerCategoryContainer"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical" />
+
+                        <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                            android:id="@+id/loadLinkerCategories"
+                            style="@style/NetworkLoaderStyle"
+                            android:textColor="@color/linkercolor" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.cronosgroup.tinkerlink.view.customviews.TLImageView
+                android:id="@+id/currentUserImage"
+                style="@style/NetworkImageThumbStyle"
+                app:imageWithBorder="false" />
+
+            <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                android:id="@+id/currentUserName"
+                style="@style/NetworkNameStyle"
+                android:text="@string/network_user" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

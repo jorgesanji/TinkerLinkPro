@@ -1,8 +1,8 @@
 package com.cronosgroup.tinkerlink.presenter.stack;
 
-import com.cronosgroup.core.presenter.Presenter;
 import com.cronosgroup.tinkerlink.event.ShowDetailCardsEvent;
 import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenter;
+import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenterView;
 import com.cronosgroup.tinkerlink.view.stack.main.StackActivity;
 
 import org.greenrobot.eventbus.EventBus;
@@ -17,7 +17,7 @@ public class CardPresenter extends TinkerLinkPresenter<CardPresenter.View> {
     /**
      * Card listeners.
      */
-    public interface View extends Presenter.View {
+    public interface View extends TinkerLinkPresenterView {
         StackActivity.Stack getType();
     }
 

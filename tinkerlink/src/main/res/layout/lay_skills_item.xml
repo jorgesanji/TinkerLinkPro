@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/view_height_big"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <CheckBox
+        android:id="@+id/skillSelector"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent" />
+
+    <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+        android:id="@+id/titleSkill"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_small"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_size_mediun"
+        app:fontName="Regular" />
+
+</LinearLayout>

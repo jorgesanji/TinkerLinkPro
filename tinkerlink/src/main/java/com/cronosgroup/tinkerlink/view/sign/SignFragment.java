@@ -10,7 +10,6 @@ import android.support.v4.content.LocalBroadcastManager;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
-import com.cronosgroup.core.view.ToolBarActivity;
 import com.cronosgroup.tinkerlink.event.FormRegistrationEvent;
 import com.cronosgroup.tinkerlink.event.FormValidationEvent;
 import com.cronosgroup.tinkerlink.event.NextPageEvent;
@@ -106,26 +105,6 @@ public class SignFragment extends MVPTinkerLinkFragment<SignPresenter, SignPrese
                 EventBus.getDefault().post(new FormRegistrationEvent(FormState.VALIDATION));
         }
     }
-    //endregion
-
-    //region **************  SignScreen.View **************
-
-    @Override
-    public void showLoading() {
-        super.showLoading();
-        if (getActivity() != null) {
-            ((ToolBarActivity) getActivity()).showLoading();
-        }
-    }
-
-    @Override
-    public void hideLoading() {
-        super.hideLoading();
-        if (getActivity() != null) {
-            ((ToolBarActivity) getActivity()).hideLoading();
-        }
-    }
-
     //endregion
 
     public boolean onBackPressed() {

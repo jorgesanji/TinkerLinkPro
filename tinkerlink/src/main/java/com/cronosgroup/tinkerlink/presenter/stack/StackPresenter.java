@@ -3,13 +3,13 @@ package com.cronosgroup.tinkerlink.presenter.stack;
 import android.app.Activity;
 import android.os.Bundle;
 
-import com.cronosgroup.core.presenter.Presenter;
 import com.cronosgroup.core.rest.Callback;
 import com.cronosgroup.core.rest.RestError;
 import com.cronosgroup.tinkerlink.model.business.logic.CardUseCases;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestUser;
 import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenter;
+import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenterView;
 import com.cronosgroup.tinkerlink.view.stack.detail.DetailStackActivity;
 import com.cronosgroup.tinkerlink.view.stack.main.StackActivity;
 
@@ -26,7 +26,7 @@ public class StackPresenter extends TinkerLinkPresenter<StackPresenter.View> {
     /**
      * Stack listeners.
      */
-    public interface View extends Presenter.View {
+    public interface View extends TinkerLinkPresenterView{
 
         int getCurrentIndexPage();
 
@@ -80,7 +80,7 @@ public class StackPresenter extends TinkerLinkPresenter<StackPresenter.View> {
 
                 @Override
                 public void onErrorResponse(RestError error) {
-                    getStatusView().showNetworkError();
+                    getView().getMessagesHandler().showNetworkError();
                     getView().hideLoading();
                 }
 
@@ -96,7 +96,7 @@ public class StackPresenter extends TinkerLinkPresenter<StackPresenter.View> {
 
                 @Override
                 public void onErrorResponse(RestError error) {
-                    getStatusView().showNetworkError();
+                    getView().getMessagesHandler().showNetworkError();
                     getView().hideLoading();
                 }
 

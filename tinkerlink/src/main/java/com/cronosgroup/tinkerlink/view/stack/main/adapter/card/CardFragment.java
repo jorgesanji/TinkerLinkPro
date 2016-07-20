@@ -42,7 +42,7 @@ public class CardFragment extends MVPTinkerLinkFragment<CardPresenter, CardPrese
 
     @Override
     protected View getRootView() {
-        cardScreen = new CardScreen(getContext(), this, appConfigManager);
+        cardScreen = new CardScreen(getContext(), this, getPresenter().getAppConfigManager());
         return cardScreen;
     }
 
@@ -50,7 +50,7 @@ public class CardFragment extends MVPTinkerLinkFragment<CardPresenter, CardPrese
     protected void onDidAppear() {
         boolean isLinker = (stackType.getStackType() == StackActivity.Stack.LINKER.getStackType());
         RestUser restUser = restPost.getUser().getUser();
-        String urlImageProfile = appConfigManager.getPath(AppConfigManager.Path.PATH_IMAGE_PROFILE_THUMBNAIL) + restUser.getPhoto();
+        String urlImageProfile = getPresenter().getAppConfigManager().getPath(AppConfigManager.Path.PATH_IMAGE_PROFILE_THUMBNAIL) + restUser.getPhoto();
         cardScreen.setUrlUser(urlImageProfile);
         cardScreen.setUserName(restUser.getName());
         cardScreen.setUserCardType(getResources().getString(isLinker ? R.string.card_seek : R.string.card_me));

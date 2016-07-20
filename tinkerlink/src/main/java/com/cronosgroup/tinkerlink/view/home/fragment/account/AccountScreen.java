@@ -3,10 +3,10 @@ package com.cronosgroup.tinkerlink.view.home.fragment.account;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
+import android.support.v4.widget.NestedScrollView;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.RelativeLayout;
-import android.widget.ScrollView;
 
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.view.customviews.TLImageView;
@@ -57,7 +57,7 @@ public class AccountScreen extends RelativeLayout {
     protected View mViewMenu;
 
     @BindView(R.id.scrollView)
-    protected ScrollView mScrollView;
+    protected NestedScrollView mScrollView;
 
     /**
      * @param context

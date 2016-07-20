@@ -3,13 +3,13 @@ package com.cronosgroup.tinkerlink.presenter.messages;
 import android.app.Activity;
 import android.os.Bundle;
 
-import com.cronosgroup.core.presenter.Presenter;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestChat;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContacto;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestMessage;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestProfile;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestUser;
 import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenter;
+import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenterView;
 import com.cronosgroup.tinkerlink.utils.AsyncLoader;
 import com.cronosgroup.tinkerlink.view.chatuser.ChatUserActivity;
 
@@ -27,7 +27,7 @@ public class ChatPresenter extends TinkerLinkPresenter<ChatPresenter.View> {
     /**
      * Message listeners.
      */
-    public interface View extends Presenter.View {
+    public interface View extends TinkerLinkPresenterView{
         void setChats(List<RestChat> list);
 
         List<RestChat> getItems();

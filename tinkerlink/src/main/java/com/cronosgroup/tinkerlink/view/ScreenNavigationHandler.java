@@ -6,13 +6,16 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 
 import com.cronosgroup.tinkerlink.R;
-import com.cronosgroup.tinkerlink.presenter.EditProfilePresenter;
 import com.cronosgroup.tinkerlink.presenter.account.AccountPresenter;
 import com.cronosgroup.tinkerlink.presenter.chatuser.ChatUserPresenter;
 import com.cronosgroup.tinkerlink.presenter.config.ConfigPresenter;
 import com.cronosgroup.tinkerlink.presenter.contacts.ContactsPresenter;
+import com.cronosgroup.tinkerlink.presenter.createcard.CategorySelectionPresenter;
 import com.cronosgroup.tinkerlink.presenter.createcard.CreateCardPresenter;
+import com.cronosgroup.tinkerlink.presenter.createcard.ExperienceSelectionPresenter;
+import com.cronosgroup.tinkerlink.presenter.createcard.SkillSelectionPresenter;
 import com.cronosgroup.tinkerlink.presenter.createrecommendation.CreateRecommendationPresenter;
+import com.cronosgroup.tinkerlink.presenter.editprofile.EditProfilePresenter;
 import com.cronosgroup.tinkerlink.presenter.home.HomePresenter;
 import com.cronosgroup.tinkerlink.presenter.messages.ChatPresenter;
 import com.cronosgroup.tinkerlink.presenter.network.NetworkPresenter;
@@ -48,7 +51,9 @@ public final class ScreenNavigationHandler implements HomePresenter.Actions,
         ValidationPresenter.Actions, PhonePresenter.Actions,
         NetworkPresenter.Actions, ConfigPresenter.Actions,
         EditProfilePresenter.Actions, CreateCardPresenter.Actions,
-        CreateRecommendationPresenter.Actions, ChatUserPresenter.Actions {
+        CreateRecommendationPresenter.Actions, ChatUserPresenter.Actions,
+        CategorySelectionPresenter.Actions, ExperienceSelectionPresenter.Actions,
+        SkillSelectionPresenter.Actions {
 
     //Instance
     private static ScreenNavigationHandler instance = null;
@@ -151,7 +156,6 @@ public final class ScreenNavigationHandler implements HomePresenter.Actions,
     // ******************************
     //      ACTIONS DEFINITION
     // *************************++***
-
 
     // ------------------------ TUTORIAL -----------------------------------
 

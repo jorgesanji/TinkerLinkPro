@@ -3,8 +3,8 @@ package com.cronosgroup.tinkerlink.presenter.account;
 import android.app.Activity;
 import android.os.Bundle;
 
-import com.cronosgroup.core.presenter.Presenter;
 import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenter;
+import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenterView;
 import com.cronosgroup.tinkerlink.view.stack.main.StackActivity;
 
 /**
@@ -17,7 +17,7 @@ public class AccountPresenter extends TinkerLinkPresenter<AccountPresenter.View>
     /**
      * Message listeners.
      */
-    public interface View extends Presenter.View {
+    public interface View extends TinkerLinkPresenterView {
 
     }
 

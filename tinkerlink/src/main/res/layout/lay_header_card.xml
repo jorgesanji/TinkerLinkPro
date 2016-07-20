@@ -12,11 +12,19 @@
         android:src="@drawable/zapatero" />
 
     <com.cronosgroup.tinkerlink.view.customviews.TLImageView
+        android:id="@+id/cardGradient"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/background_gradient_profile" />
+
+    <com.cronosgroup.tinkerlink.view.customviews.TLImageView
         android:id="@+id/cardOverlay"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_centerInParent="true"
         android:scaleType="fitXY"
-        android:src="@mipmap/linkercard_back" />
+        android:src="@mipmap/card_mask" />
 
 </RelativeLayout>

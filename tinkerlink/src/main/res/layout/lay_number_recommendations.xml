@@ -20,11 +20,10 @@
         android:layout_marginLeft="@dimen/margin_tiny"
         android:layout_marginRight="@dimen/margin_small"
         android:ellipsize="end"
-        android:maxLength="5"
         android:maxLines="1"
-        android:text="test"
-        android:textSize="@dimen/text_size_small"
+        android:text="65 Recomendaciones"
         android:textColor="@color/black"
+        android:textSize="@dimen/text_size_small"
         app:fontName="Regular" />
 
 </LinearLayout>

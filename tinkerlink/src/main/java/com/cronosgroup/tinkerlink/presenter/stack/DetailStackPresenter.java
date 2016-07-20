@@ -1,8 +1,8 @@
 package com.cronosgroup.tinkerlink.presenter.stack;
 
-import com.cronosgroup.core.presenter.Presenter;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestUser;
 import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenter;
+import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenterView;
 import com.cronosgroup.tinkerlink.view.stack.main.StackActivity;
 
 /**
@@ -15,7 +15,7 @@ public class DetailStackPresenter extends TinkerLinkPresenter<DetailStackPresent
     /**
      * Message listeners.
      */
-    public interface View extends Presenter.View {
+    public interface View extends TinkerLinkPresenterView {
         boolean isUser();
 
         RestUser getUser();

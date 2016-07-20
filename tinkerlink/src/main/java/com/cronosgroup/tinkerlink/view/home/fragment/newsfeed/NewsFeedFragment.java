@@ -37,7 +37,7 @@ public class NewsFeedFragment extends MVPTinkerLinkFragment<NewsFeedPresenter, N
     protected View getRootView() {
         newsFeedScreen = new NewsFeedScreen(getActivity());
         newsFeedScreen.setListener(this);
-        newsFeedScreen.initAdapter(appConfigManager, appUserSessionManager);
+        newsFeedScreen.initAdapter(getPresenter().getAppConfigManager(), getPresenter().getAppUserSessionManager());
         return newsFeedScreen;
     }
 

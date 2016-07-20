@@ -4,13 +4,13 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.cronosgroup.core.presenter.Presenter;
 import com.cronosgroup.core.rest.Callback;
 import com.cronosgroup.core.rest.RestError;
 import com.cronosgroup.tinkerlink.manager.AppFacebookShareManager;
 import com.cronosgroup.tinkerlink.model.business.logic.NewsFeedUseCases;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
 import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenter;
+import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenterView;
 import com.cronosgroup.tinkerlink.view.stack.main.StackActivity;
 
 import java.util.List;
@@ -31,7 +31,7 @@ public class NewsFeedPresenter extends TinkerLinkPresenter<NewsFeedPresenter.Vie
     /**
      * NewsFeed listeners.
      */
-    public interface View extends Presenter.View {
+    public interface View extends TinkerLinkPresenterView {
         void addPosts(List<RestPost> list);
     }
 
@@ -107,7 +107,7 @@ public class NewsFeedPresenter extends TinkerLinkPresenter<NewsFeedPresenter.Vie
             @Override
             public void onErrorResponse(RestError error) {
                 getView().hideLoading();
-                getStatusView().showNetworkError();
+                getView().getMessagesHandler().showNetworkError();
             }
 
         }, getView().getActivity());

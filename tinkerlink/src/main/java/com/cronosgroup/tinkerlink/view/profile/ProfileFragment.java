@@ -3,7 +3,7 @@ package com.cronosgroup.tinkerlink.view.profile;
 import android.view.View;
 
 import com.cronosgroup.core.view.ToolBarActivity;
-import com.cronosgroup.tinkerlink.presenter.EditProfilePresenter;
+import com.cronosgroup.tinkerlink.presenter.editprofile.EditProfilePresenter;
 import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
 

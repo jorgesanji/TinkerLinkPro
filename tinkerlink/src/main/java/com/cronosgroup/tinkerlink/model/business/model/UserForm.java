@@ -6,7 +6,7 @@ import android.text.TextUtils;
 
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.application.TinkerLinkApplication;
-import com.cronosgroup.tinkerlink.model.adapter.TLUsers;
+import com.cronosgroup.tinkerlink.model.mapper.TLUsers;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContacto;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestHabilidad;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
@@ -191,7 +191,6 @@ public class UserForm {
 
     public void clearForm() {
         habilities.clear();
-//        estudies.clear();
         images.clear();
         category = null;
         profession = null;
@@ -200,7 +199,6 @@ public class UserForm {
         currency = null;
         time = null;
         description = null;
-//        address = null;
     }
 
 

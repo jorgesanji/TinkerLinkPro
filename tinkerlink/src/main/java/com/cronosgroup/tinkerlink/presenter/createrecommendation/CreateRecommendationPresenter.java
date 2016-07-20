@@ -2,8 +2,8 @@ package com.cronosgroup.tinkerlink.presenter.createrecommendation;
 
 import android.os.Handler;
 
-import com.cronosgroup.core.presenter.Presenter;
 import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenter;
+import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenterView;
 
 /**
  * Created by jorgesanmartin on 3/6/16.
@@ -15,7 +15,7 @@ public class CreateRecommendationPresenter extends TinkerLinkPresenter<CreateRec
     /**
      * Contacts listeners.
      */
-    public interface View extends Presenter.View {
+    public interface View extends TinkerLinkPresenterView {
 
     }
 
@@ -40,8 +40,10 @@ public class CreateRecommendationPresenter extends TinkerLinkPresenter<CreateRec
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                getView().hideLoading();
-                getView().getActivity().finish();
+                if (getView() != null && getView().getActivity() != null) {
+                    getView().hideLoading();
+                    getView().getActivity().finish();
+                }
             }
         }, 5000);
 

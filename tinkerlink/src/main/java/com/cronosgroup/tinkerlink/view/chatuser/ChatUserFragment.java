@@ -90,12 +90,12 @@ public class ChatUserFragment extends MVPTinkerLinkFragment<ChatUserPresenter, C
 
     @Override
     public void cameraPressed() {
-
+        getPresenter().launchCamera();
     }
 
     @Override
     public void galleryPressed() {
-
+        getPresenter().launchGallery();
     }
 
     //endregion

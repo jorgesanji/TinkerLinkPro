@@ -49,7 +49,7 @@ public class TLViewPagerIndicator extends LinearLayout {
 
     private void init(AttributeSet attributeSet) {
         setOrientation(HORIZONTAL);
-        setGravity(Gravity.CENTER_VERTICAL);
+        setGravity(Gravity.CENTER);
 
         if (attributeSet != null) {
             TypedArray attributes = null;

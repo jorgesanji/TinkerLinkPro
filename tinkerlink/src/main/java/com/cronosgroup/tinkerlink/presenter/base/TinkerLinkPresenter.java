@@ -9,47 +9,44 @@ import android.support.v4.content.LocalBroadcastManager;
 import com.cronosgroup.core.managers.PermissionsManager;
 import com.cronosgroup.core.presenter.Presenter;
 import com.cronosgroup.core.view.BaseActivity;
-import com.cronosgroup.tinkerlink.application.TinkerLinkApplication;
 import com.cronosgroup.tinkerlink.event.SmsEvent;
-import com.cronosgroup.tinkerlink.manager.AppImagePickerManager;
+import com.cronosgroup.tinkerlink.manager.AppConfigManager;
+import com.cronosgroup.tinkerlink.manager.AppCountryManager;
 import com.cronosgroup.tinkerlink.manager.AppUserSessionManager;
 import com.cronosgroup.tinkerlink.presenter.interfaces.IOUserLogin;
 import com.cronosgroup.tinkerlink.sms.SMSBroadcastReceiver;
 import com.cronosgroup.tinkerlink.utils.LocaleUtils;
-import com.cronosgroup.tinkerlink.view.AppStatusMessageManager;
 
 import org.greenrobot.eventbus.EventBus;
-
-import javax.inject.Inject;
 
 
 /**
  * Created by jorgesanmartin on 2/23/16.
  */
-public class TinkerLinkPresenter<V extends Presenter.View> implements Presenter<V> {
+public class TinkerLinkPresenter<V extends TinkerLinkPresenterView> extends PresenterDependencies implements Presenter<V> {
+
+//    public interface PresenterView extends Presenter.View {
+//        /**
+//         * remove current activity with delay
+//         */
+//        void removeActivityDelay();
+//
+//        /**
+//         * Get messages handler
+//         */
+//        AppSnackManager getMessagesHandler();
+//    }
 
     public static final String ACTIVATION_SMS = "SMSActivacion";
     public static final String ACTIVATION_MESSAGE = "mensajeActivacion";
 
+    // Views
+
     protected V view;
-
-    @Inject
-    protected AppStatusMessageManager mStatusManager;
-
-    @Inject
-    protected AppUserSessionManager appUserSessionManager;
-
-    @Inject
-    protected AppImagePickerManager imagePickerManager;
-
-    public TinkerLinkPresenter() {
-        TinkerLinkApplication.getApp().getComponent().inject((TinkerLinkPresenter<View>) this);
-    }
 
     @Override
     public void attachView(V view) {
         this.view = view;
-        mStatusManager.setView(view);
     }
 
     @Override
@@ -73,9 +70,6 @@ public class TinkerLinkPresenter<V extends Presenter.View> implements Presenter<
         return view;
     }
 
-    public AppStatusMessageManager getStatusView() {
-        return mStatusManager;
-    }
 
     public PermissionsManager getPermissionManager() {
         return ((BaseActivity) getView().getActivity()).getPermissionsManager();
@@ -157,4 +151,11 @@ public class TinkerLinkPresenter<V extends Presenter.View> implements Presenter<
         return appUserSessionManager;
     }
 
+    public AppCountryManager getAppCountryManager() {
+        return appCountryManager;
+    }
+
+    public AppConfigManager getAppConfigManager() {
+        return appConfigManager;
+    }
 }

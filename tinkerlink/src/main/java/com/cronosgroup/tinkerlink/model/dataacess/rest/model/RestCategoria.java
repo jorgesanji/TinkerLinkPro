@@ -1,5 +1,6 @@
 package com.cronosgroup.tinkerlink.model.dataacess.rest.model;
 
+import com.bignerdranch.expandablerecyclerview.Model.ParentListItem;
 import com.cronosgroup.core.rest.RestBase;
 import com.google.gson.annotations.SerializedName;
 
@@ -9,7 +10,7 @@ import java.util.List;
 /**
  * Created by jorgesanmartin on 11/17/15.
  */
-public class RestCategoria extends RestBase {
+public class RestCategoria extends RestBase implements ParentListItem {
 
     @SerializedName("profesion")
     private String profesion;
@@ -21,7 +22,7 @@ public class RestCategoria extends RestBase {
     private List<String> habilidades = new ArrayList<>();
 
     public String getProfesion() {
-        return removeQuoationMarks(profesion);
+        return profesion;
     }
 
     public void setProfesion(String profesion) {
@@ -29,7 +30,7 @@ public class RestCategoria extends RestBase {
     }
 
     public String getCategoria() {
-        return removeQuoationMarks(categoria);
+        return categoria;
     }
 
     public void setCategoria(String categoria) {
@@ -42,5 +43,15 @@ public class RestCategoria extends RestBase {
 
     public void setHabilidades(List<String> habilidades) {
         this.habilidades = habilidades;
+    }
+
+    @Override
+    public List<String> getChildItemList() {
+        return habilidades;
+    }
+
+    @Override
+    public boolean isInitiallyExpanded() {
+        return false;
     }
 }

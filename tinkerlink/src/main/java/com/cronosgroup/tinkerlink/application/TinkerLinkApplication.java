@@ -20,7 +20,7 @@ import com.cronosgroup.tinkerlink.manager.AppImageLoaderManager;
 import com.cronosgroup.tinkerlink.manager.AppMessagesManager;
 import com.cronosgroup.tinkerlink.manager.AppNotificationsManager;
 import com.cronosgroup.tinkerlink.manager.AppUserSessionManager;
-import com.cronosgroup.tinkerlink.model.adapter.TLUsers;
+import com.cronosgroup.tinkerlink.model.mapper.TLUsers;
 import com.cronosgroup.tinkerlink.model.dataacess.database.entities.TLUser;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.manager.AppRestManager;
 

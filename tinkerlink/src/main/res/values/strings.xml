@@ -418,10 +418,6 @@
         ******************************************************************
     -->
 
-
-    <!-- Tutorial-->
-    <string name="tutorial_start_now">COMIENZA AHORA</string>
-
     <!--  Time Strings-->
 
     <string name="time_just_now">ahora</string>
@@ -489,6 +485,18 @@
     <string name="card_requirements">REQUISITOS</string>
 
     <!-- ******************* New version Strings********************** -->
+
+    <!-- Tutorial-->
+    <string name="tutorial_start_now">COMIENZA AHORA</string>
+    <string name="tutorial_recomendation_title">Crea tu identidad y consigue\nrecomendaciones para\nvalidar tu perfil</string>
+    <string name="tutorial_recomendation_name">Mariano Martinez</string>
+    <string name="tutorial_recomendation_job">FONTANERO</string>
+    <string name="tutorial_recomendation_city">Barcelona, España</string>
+    <string name="tutorial_recomendation_tinker_title">Convierte en un Tinker\ny ofrece todos tus servicios</string>
+    <string name="tutorial_recomendation_linker_title">Convierte en un Linker\ny encuentra trabajadores\n de confianza</string>
+    <string name="tutorial_recomendation_tinker_job">Reparador de averías</string>
+    <string name="tutorial_recomendation_linker_job">Zapatero</string>
+
 
     <!--  Home  -->
     <string name="home_newsfeed">NewsFeed</string>

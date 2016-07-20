@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.cronosgroup.core.presenter.Presenter;
 import com.cronosgroup.core.rest.Callback;
 import com.cronosgroup.core.rest.RestError;
 import com.cronosgroup.core.view.MVPFragment;
@@ -13,6 +12,7 @@ import com.cronosgroup.tinkerlink.model.business.model.AppUser;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestCountry;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestSign;
 import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenter;
+import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenterView;
 import com.cronosgroup.tinkerlink.view.dialog.country.DialogFragment;
 
 /**
@@ -26,7 +26,7 @@ public class PhonePresenter extends TinkerLinkPresenter<PhonePresenter.View> {
     /**
      * Phone view.
      */
-    public interface View extends Presenter.View {
+    public interface View extends TinkerLinkPresenterView {
         void setCountrySelected(RestCountry restCountry);
 
         AppUser getFormUser();
@@ -74,7 +74,7 @@ public class PhonePresenter extends TinkerLinkPresenter<PhonePresenter.View> {
     public void setUser() {
 
         if (getView().getCodePhone().isEmpty()) {
-            getStatusView().showPhoneError();
+            getView().getMessagesHandler().showPhoneError();
             return;
         }
 
@@ -102,7 +102,7 @@ public class PhonePresenter extends TinkerLinkPresenter<PhonePresenter.View> {
             @Override
             public void onErrorResponse(RestError error) {
                 getView().hideLoading();
-                getStatusView().showNetworkError();
+                getView().getMessagesHandler().showNetworkError();
             }
 
         }, getView().getActivity());
@@ -110,7 +110,7 @@ public class PhonePresenter extends TinkerLinkPresenter<PhonePresenter.View> {
 
     public boolean validateForm() {
         if (!(getView().getPhone().length() > 1 && getView().getCodePhone().length() > 1)) {
-            getStatusView().showPhoneError();
+            getView().getMessagesHandler().showPhoneError();
             return false;
         }
         return true;

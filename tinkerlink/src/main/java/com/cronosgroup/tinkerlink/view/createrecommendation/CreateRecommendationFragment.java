@@ -12,7 +12,6 @@ import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.presenter.createrecommendation.CreateRecommendationPresenter;
 import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
-import com.cronosgroup.tinkerlink.view.base.TinkerLinkActivity;
 import com.cronosgroup.tinkerlink.view.customviews.TLUserView;
 
 
@@ -123,23 +122,5 @@ public class CreateRecommendationFragment extends MVPTinkerLinkFragment<CreateRe
     public void onOnlyFriendsPressed() {
 
     }
-
     //endregion
-
-    @Override
-    public void showLoading() {
-        if (getActivity() != null) {
-            ((TinkerLinkActivity) getActivity()).showLoading();
-        }
-    }
-
-    @Override
-    public void hideLoading() {
-        if (getActivity() != null) {
-            ((TinkerLinkActivity) getActivity()).hideLoading();
-        }
-    }
-
-    //endregion
-
 }

@@ -5,9 +5,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import com.cronosgroup.tinkerlink.view.sign.fragments.phone.PhoneFragment;
-import com.cronosgroup.tinkerlink.view.sign.fragments.facebook.FacebookFragment;
-import com.cronosgroup.tinkerlink.view.sign.fragments.validation.ValidationFragment;
+import com.cronosgroup.tinkerlink.view.sign.adapter.fragments.phone.PhoneFragment;
+import com.cronosgroup.tinkerlink.view.sign.adapter.fragments.facebook.FacebookFragment;
+import com.cronosgroup.tinkerlink.view.sign.adapter.fragments.validation.ValidationFragment;
 
 /**
  * Created by jorgesanmartin on 11/16/15.

@@ -15,17 +15,22 @@ import android.view.ViewGroup;
 
 import com.cronosgroup.core.presenter.Presenter;
 import com.cronosgroup.core.view.BaseActivity;
+import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenter;
+import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenterView;
+import com.cronosgroup.tinkerlink.view.AppSnackManager;
 
 
 /**
  * Common functionalities for fragments.
  * Handles life cycle of presenters.
  */
-public abstract class MVPTinkerLinkFragment<P extends Presenter<V>, V extends Presenter.View> extends TinkerLinkFragment implements Presenter.View {
+public abstract class MVPTinkerLinkFragment<P extends Presenter<V>, V extends TinkerLinkPresenter.View> extends Fragment implements TinkerLinkPresenterView {
 
     // Variables
     private P presenter;
     private boolean readyInitialized = false;
+
+    private AppSnackManager appStatusMessageManager;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -36,6 +41,7 @@ public abstract class MVPTinkerLinkFragment<P extends Presenter<V>, V extends Pr
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.presenter = createPresenter();
+        appStatusMessageManager = new AppSnackManager(getPresenterView());
     }
 
     @Override
@@ -103,8 +109,6 @@ public abstract class MVPTinkerLinkFragment<P extends Presenter<V>, V extends Pr
         return this;
     }
 
-    protected abstract View getRootView();
-
     protected P getPresenter() {
         return this.presenter;
     }
@@ -114,6 +118,8 @@ public abstract class MVPTinkerLinkFragment<P extends Presenter<V>, V extends Pr
     protected abstract V getPresenterView();
 
     protected abstract void onDidAppear();
+
+    protected abstract View getRootView();
 
     /**
      * Calls activity showInfo if container activity extends {@Presenter.View} or shows a info
@@ -187,10 +193,16 @@ public abstract class MVPTinkerLinkFragment<P extends Presenter<V>, V extends Pr
 
     @Override
     public void showLoading() {
+        if (getActivity() != null) {
+            ((TinkerLinkActivity) getActivity()).showLoading();
+        }
     }
 
     @Override
     public void hideLoading() {
+        if (getActivity() != null) {
+            ((TinkerLinkActivity) getActivity()).hideLoading();
+        }
     }
 
     @Override
@@ -203,4 +215,8 @@ public abstract class MVPTinkerLinkFragment<P extends Presenter<V>, V extends Pr
         getActivity().setTitle(stringResId);
     }
 
+    @Override
+    public AppSnackManager getMessagesHandler() {
+        return appStatusMessageManager;
+    }
 }

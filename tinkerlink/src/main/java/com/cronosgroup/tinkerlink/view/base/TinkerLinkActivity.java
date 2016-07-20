@@ -24,7 +24,7 @@ import javax.inject.Inject;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public abstract class TinkerLinkActivity<F extends TinkerLinkFragment> extends BaseActivity {
+public abstract class TinkerLinkActivity<F extends MVPTinkerLinkFragment> extends BaseActivity {
 
     // Variables
 
@@ -115,7 +115,7 @@ public abstract class TinkerLinkActivity<F extends TinkerLinkFragment> extends B
         super.onCreate(savedInstanceState);
         setContentView(getView());
         ButterKnife.bind(this);
-        TinkerLinkApplication.getApp().getComponent().inject((TinkerLinkActivity<TinkerLinkFragment>) this);
+        TinkerLinkApplication.getApp().getComponent().inject((TinkerLinkActivity<MVPTinkerLinkFragment>) this);
         initToolbar();
         initFragment();
     }
@@ -180,8 +180,8 @@ public abstract class TinkerLinkActivity<F extends TinkerLinkFragment> extends B
         mLoader.findViewById(R.id.backgroundColor).setBackgroundResource(style.getBackgroundLoader());
     }
 
-    protected void setIconFromUrl(String url, final int placeHolder) {
-        getSupportActionBar().setIcon(placeHolder);
+    protected void setToolBarIconFromUrl(String url, final int placeHolder) {
+        mToolbar.setLogo(placeHolder);
         if (url.isEmpty()) {
             return;
         }
@@ -189,15 +189,19 @@ public abstract class TinkerLinkActivity<F extends TinkerLinkFragment> extends B
         ImageLoaderHelper.getImageFromUrl(60, url, new ImageLoaderHelper.IOLoadImageListener() {
             @Override
             public void onFinishLoadImage(Bitmap bitmap) {
-                RoundedBitmapDrawable rounddrawable = RoundedBitmapDrawableFactory.create(getResources(), bitmap);
-                rounddrawable.setCircular(true);
-                rounddrawable.setAntiAlias(true);
-                getSupportActionBar().setIcon(rounddrawable);
+                if (mToolbar != null) {
+                    RoundedBitmapDrawable rounddrawable = RoundedBitmapDrawableFactory.create(getResources(), bitmap);
+                    rounddrawable.setCircular(true);
+                    rounddrawable.setAntiAlias(true);
+                    mToolbar.setLogo(rounddrawable);
+                }
             }
 
             @Override
             public void onErrorLoadImage() {
-                getSupportActionBar().setIcon(placeHolder);
+                if (mToolbar != null) {
+                    mToolbar.setLogo(placeHolder);
+                }
             }
         });
 

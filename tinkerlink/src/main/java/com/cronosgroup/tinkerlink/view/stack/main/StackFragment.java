@@ -24,9 +24,7 @@ import java.util.List;
 /**
  * Stack Fragment
  */
-public class StackFragment extends MVPTinkerLinkFragment<StackPresenter, StackPresenter.View>
-
-        implements StackPresenter.View, StackScreen.Listener {
+public class StackFragment extends MVPTinkerLinkFragment<StackPresenter, StackPresenter.View> implements StackPresenter.View, StackScreen.Listener {
 
     private StackScreen stackScreen;
     private StackActivity.Stack stackType;
@@ -163,6 +161,8 @@ public class StackFragment extends MVPTinkerLinkFragment<StackPresenter, StackPr
     public StackActivity.Stack getType() {
         return stackType;
     }
+
+
 
     //endregion
 

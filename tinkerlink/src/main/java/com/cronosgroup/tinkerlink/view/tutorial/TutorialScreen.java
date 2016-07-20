@@ -14,15 +14,10 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import com.cronosgroup.tinkerlink.R;
-import com.cronosgroup.tinkerlink.utils.LocaleUtils;
 import com.cronosgroup.tinkerlink.view.animation.tutorial.ZoomOutPageTransformer;
 import com.cronosgroup.tinkerlink.view.customviews.TLViewPager;
 import com.cronosgroup.tinkerlink.view.customviews.TLViewPagerIndicator;
 import com.cronosgroup.tinkerlink.view.tutorial.adapter.TutorialAdapter;
-import com.cronosgroup.tinkerlink.view.tutorial.tutorialpage.TutorialItem;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -123,13 +118,7 @@ class TutorialScreen extends RelativeLayout {
     }
 
     private void initAdapter() {
-        List<TutorialItem> items = new ArrayList<TutorialItem>();
-        items.add(new TutorialItem(LocaleUtils.isEN() ? R.mipmap.tutorial_copy1_en : R.mipmap.tutorial_copy1, R.mipmap.tutorial_monigote1, -1, R.color.tinkercolor));
-        items.add(new TutorialItem(LocaleUtils.isEN() ? R.mipmap.tutorial_copy2_en : R.mipmap.tutorial_copy2, R.mipmap.tutorial_monigote2, R.mipmap.tutorial_cta2, R.color.linkercolor));
-        items.add(new TutorialItem(LocaleUtils.isEN() ? R.mipmap.tutorial_copy3_en : R.mipmap.tutorial_copy3, R.mipmap.tutorial_monigote3, R.mipmap.tutorial_cta3, R.color.tinkercolor));
-        items.add(new TutorialItem(LocaleUtils.isEN() ? R.mipmap.tutorial_copy4_en : R.mipmap.tutorial_copy4, R.mipmap.tutorial_monigote4, R.mipmap.tutorial_cta4, R.color.recommendationcolor));
         mAdapter = new TutorialAdapter(getContext());
-        mAdapter.setItems(items);
         mPager.setAdapter(mAdapter);
     }
 

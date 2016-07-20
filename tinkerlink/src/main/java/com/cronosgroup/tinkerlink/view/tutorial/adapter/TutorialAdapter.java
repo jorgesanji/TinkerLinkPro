@@ -5,10 +5,12 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 
-import com.cronosgroup.tinkerlink.view.tutorial.tutorialpage.TutorialItem;
-import com.cronosgroup.tinkerlink.view.tutorial.tutorialpage.TutorialPage;
+import com.cronosgroup.tinkerlink.view.tutorial.adapter.pages.LinkerPage;
+import com.cronosgroup.tinkerlink.view.tutorial.adapter.pages.NetworkPage;
+import com.cronosgroup.tinkerlink.view.tutorial.adapter.pages.RecomendationPage;
+import com.cronosgroup.tinkerlink.view.tutorial.adapter.pages.TinkerPage;
+import com.cronosgroup.tinkerlink.view.tutorial.adapter.pages.WelcomePage;
 
-import java.util.List;
 
 /**
  * Created by jorgesanmartin on 20/10/15.
@@ -16,7 +18,6 @@ import java.util.List;
 public class TutorialAdapter extends PagerAdapter {
 
     private Context mContext;
-    private List<TutorialItem> items;
 
     public TutorialAdapter(Context context) {
         this.mContext = context;
@@ -24,14 +25,29 @@ public class TutorialAdapter extends PagerAdapter {
 
     @Override
     public int getCount() {
-        return items.size();
+        return 5;
     }
 
     @Override
     public Object instantiateItem(View collection, int position) {
-        TutorialItem item = items.get(position);
-        TutorialPage page = new TutorialPage(mContext);
-        page.setImageBackground(item.getImageTop());
+        View page;
+        switch (position) {
+            case 0:
+                page = new WelcomePage(mContext);
+                break;
+            case 1:
+                page = new RecomendationPage(mContext);
+                break;
+            case 2:
+                page = new TinkerPage(mContext);
+                break;
+            case 3:
+                page = new LinkerPage(mContext);
+                break;
+            default:
+                page = new NetworkPage(mContext);
+        }
+
         ((ViewPager) collection).addView(page);
         return page;
     }
@@ -46,11 +62,4 @@ public class TutorialAdapter extends PagerAdapter {
         return view == object;
     }
 
-    public List<TutorialItem> getItems() {
-        return items;
-    }
-
-    public void setItems(List<TutorialItem> items) {
-        this.items = items;
-    }
 }

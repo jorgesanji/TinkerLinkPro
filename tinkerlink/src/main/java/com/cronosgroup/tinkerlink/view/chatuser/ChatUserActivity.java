@@ -29,7 +29,7 @@ public class ChatUserActivity extends TinkerLinkActivity<ChatUserFragment> {
         final RestUser restUser = restChat.getUser().getUser();
         getSupportActionBar().setTitle(restUser.getName());
         getSupportActionBar().setSubtitle(restUser.getProfile().getProfession());
-        setIconFromUrl(restUser.getPhoto(), R.mipmap.newsfeed_avatar_hombre);
+        setToolBarIconFromUrl(restUser.getPhoto(), R.mipmap.newsfeed_avatar_hombre);
     }
 
     @Override

@@ -1,10 +1,10 @@
 package com.cronosgroup.tinkerlink.presenter.network;
 
-import com.cronosgroup.core.presenter.Presenter;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestNetwork;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestProfile;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestUser;
 import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenter;
+import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenterView;
 import com.cronosgroup.tinkerlink.utils.AsyncLoader;
 
 import java.util.ArrayList;
@@ -24,7 +24,7 @@ public class NetworkPresenter extends TinkerLinkPresenter<NetworkPresenter.View>
     /**
      * Network listeners.
      */
-    public interface View extends Presenter.View {
+    public interface View extends TinkerLinkPresenterView {
         void setNetworkInfo(RestNetwork network);
     }
 

@@ -5,12 +5,12 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 
-import com.cronosgroup.core.presenter.Presenter;
 import com.cronosgroup.core.utils.BitmapUtils;
 import com.cronosgroup.tinkerlink.manager.AppFacebookManager;
 import com.cronosgroup.tinkerlink.manager.AppImagePickerManager;
 import com.cronosgroup.tinkerlink.model.business.model.AppUser;
 import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenter;
+import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenterView;
 import com.cronosgroup.tinkerlink.utils.AsyncLoader;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
@@ -28,7 +28,7 @@ public class FacebookPresenter extends TinkerLinkPresenter<FacebookPresenter.Vie
     /**
      * Facebook view.
      */
-    public interface View extends Presenter.View {
+    public interface View extends TinkerLinkPresenterView {
         void onAddImage(Bitmap bitmap, Bitmap bitmapcrop);
 
         void onFacebookUser(AppUser user);
@@ -98,7 +98,7 @@ public class FacebookPresenter extends TinkerLinkPresenter<FacebookPresenter.Vie
 
             @Override
             public void onError(Object response) {
-                getStatusView().showNetworkError();
+                getView().getMessagesHandler().showNetworkError();
                 getView().hideLoading();
             }
         }, AppUser.class);
@@ -119,21 +119,21 @@ public class FacebookPresenter extends TinkerLinkPresenter<FacebookPresenter.Vie
     public boolean onValidateForm() {
         AppUser appUser = getView().getFormUser();
         if (!(appUser.getName() != null && !appUser.getName().isEmpty())) {
-            getStatusView().showNameError();
+            getView().getMessagesHandler().showNameError();
             return false;
         }
 
         if (!(appUser.getGender() != null && !appUser.getGender().isEmpty())) {
-            getStatusView().showSexError();
+            getView().getMessagesHandler().showSexError();
             return false;
         }
 
         if (!(appUser.getBirthday() != null && !appUser.getBirthday().isEmpty()) && appUser.getBirthday().equalsIgnoreCase("DD/MM/YYYY")) {
-            getStatusView().showBirthDateError();
+            getView().getMessagesHandler().showBirthDateError();
             return false;
         }
         if (!(appUser.getEmail() != null && !appUser.getEmail().isEmpty())) {
-            getStatusView().showEmailError();
+            getView().getMessagesHandler().showEmailError();
             return false;
         }
 

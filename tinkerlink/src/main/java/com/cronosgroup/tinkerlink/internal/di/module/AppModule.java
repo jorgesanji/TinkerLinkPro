@@ -12,7 +12,6 @@ import com.cronosgroup.tinkerlink.manager.AppImagePickerManager;
 import com.cronosgroup.tinkerlink.manager.AppMessagesManager;
 import com.cronosgroup.tinkerlink.manager.AppNotificationsManager;
 import com.cronosgroup.tinkerlink.manager.AppUserSessionManager;
-import com.cronosgroup.tinkerlink.view.AppStatusMessageManager;
 
 import javax.inject.Singleton;
 
@@ -51,30 +50,6 @@ public class AppModule {
 
     @Provides
     @Singleton
-    AppConfigManager provideConfigManager() {
-        return new AppConfigManager(provideApplicationContext());
-    }
-
-    @Provides
-    @Singleton
-    AppNotificationsManager provideNotificationsManager() {
-        return new AppNotificationsManager(provideApplicationContext());
-    }
-
-    @Provides
-    @Singleton
-    AppMessagesManager provideMessagesManager() {
-        return new AppMessagesManager(provideApplicationContext());
-    }
-
-    @Provides
-    @Singleton
-    AppContactsManager provideContactsManager() {
-        return new AppContactsManager(provideApplicationContext());
-    }
-
-    @Provides
-    @Singleton
     LocationManager provideLocationManager() {
         return new LocationManager(provideApplicationContext());
     }
@@ -86,7 +61,6 @@ public class AppModule {
     }
 
     @Provides
-    @Singleton
     Logger providerLooger() {
         return new Logger();
     }
@@ -97,7 +71,22 @@ public class AppModule {
     }
 
     @Provides
-    AppStatusMessageManager providerStatusManager() {
-        return new AppStatusMessageManager();
+    AppConfigManager provideConfigManager() {
+        return new AppConfigManager(provideApplicationContext());
+    }
+
+    @Provides
+    AppNotificationsManager provideNotificationsManager() {
+        return new AppNotificationsManager(provideApplicationContext());
+    }
+
+    @Provides
+    AppMessagesManager provideMessagesManager() {
+        return new AppMessagesManager(provideApplicationContext());
+    }
+
+    @Provides
+    AppContactsManager provideContactsManager() {
+        return new AppContactsManager(provideApplicationContext());
     }
 }

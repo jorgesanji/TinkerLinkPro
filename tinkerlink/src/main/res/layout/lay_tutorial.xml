@@ -9,8 +9,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/containerButtons"
+        android:background="@color/white"
         app:scrollDuration="4" />
-
 
     <LinearLayout
         android:id="@+id/buttonContainer"

@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.cronosgroup.core.presenter.Presenter;
 import com.cronosgroup.core.rest.Callback;
 import com.cronosgroup.core.rest.RestError;
 import com.cronosgroup.tinkerlink.model.business.logic.UserUseCases;
@@ -12,6 +11,7 @@ import com.cronosgroup.tinkerlink.model.business.model.AppUser;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestCode;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestUser;
 import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenter;
+import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenterView;
 
 /**
  * Validation sign presenter.
@@ -23,7 +23,7 @@ public class ValidationPresenter extends TinkerLinkPresenter<ValidationPresenter
     /**
      * Validation view.
      */
-    public interface View extends Presenter.View {
+    public interface View extends TinkerLinkPresenterView {
         AppUser getFormUser();
 
         String getValidationCode();
@@ -71,12 +71,12 @@ public class ValidationPresenter extends TinkerLinkPresenter<ValidationPresenter
                 @Override
                 public void onErrorResponse(RestError error) {
                     getView().hideLoading();
-                    getStatusView().showNetworkError();
+                    getView().getMessagesHandler().showNetworkError();
                 }
 
             }, getView().getActivity());
         } else {
-            getStatusView().showCodeError();
+            getView().getMessagesHandler().showCodeError();
         }
     }
 
@@ -94,7 +94,7 @@ public class ValidationPresenter extends TinkerLinkPresenter<ValidationPresenter
             @Override
             public void onErrorResponse(RestError error) {
                 getView().hideLoading();
-                getStatusView().showNetworkError();
+                getView().getMessagesHandler().showNetworkError();
             }
 
         }, getView().getActivity());

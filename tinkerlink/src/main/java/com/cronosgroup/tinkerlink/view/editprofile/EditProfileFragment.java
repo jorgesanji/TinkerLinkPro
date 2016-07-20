@@ -2,8 +2,7 @@ package com.cronosgroup.tinkerlink.view.editprofile;
 
 import android.view.View;
 
-import com.cronosgroup.core.view.ToolBarActivity;
-import com.cronosgroup.tinkerlink.presenter.EditProfilePresenter;
+import com.cronosgroup.tinkerlink.presenter.editprofile.EditProfilePresenter;
 import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
 
@@ -51,24 +50,6 @@ public class EditProfileFragment extends MVPTinkerLinkFragment<EditProfilePresen
 
     //region ************** ChatUserScreen.Listener **************
 
-
-    //endregion
-
-    @Override
-    public void showLoading() {
-        super.showLoading();
-        if (getActivity() != null) {
-            ((ToolBarActivity) getActivity()).showLoading();
-        }
-    }
-
-    @Override
-    public void hideLoading() {
-        super.hideLoading();
-        if (getActivity() != null) {
-            ((ToolBarActivity) getActivity()).hideLoading();
-        }
-    }
 
     //endregion
 
