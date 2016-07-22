@@ -28,14 +28,12 @@
 
         <com.cronosgroup.tinkerlink.view.customviews.TLTextView
             android:id="@+id/userTitle"
-            style="@style/SharedStatus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:fontName="Regular" />
 
         <com.cronosgroup.tinkerlink.view.customviews.TLTextView
             android:id="@+id/userSubtitle"
-            style="@style/SharedStatusTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:fontName="Regular" />

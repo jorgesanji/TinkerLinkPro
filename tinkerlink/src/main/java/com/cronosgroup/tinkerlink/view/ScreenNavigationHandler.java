@@ -17,11 +17,13 @@ import com.cronosgroup.tinkerlink.presenter.createcard.SkillSelectionPresenter;
 import com.cronosgroup.tinkerlink.presenter.createrecommendation.CreateRecommendationPresenter;
 import com.cronosgroup.tinkerlink.presenter.editprofile.EditProfilePresenter;
 import com.cronosgroup.tinkerlink.presenter.home.HomePresenter;
+import com.cronosgroup.tinkerlink.presenter.login.LoginPresenter;
 import com.cronosgroup.tinkerlink.presenter.messages.ChatPresenter;
 import com.cronosgroup.tinkerlink.presenter.network.NetworkPresenter;
 import com.cronosgroup.tinkerlink.presenter.newsfeed.NewsFeedPresenter;
-import com.cronosgroup.tinkerlink.presenter.sign.FacebookPresenter;
-import com.cronosgroup.tinkerlink.presenter.sign.PhonePresenter;
+import com.cronosgroup.tinkerlink.presenter.presignuser.PreSignUserPresenter;
+import com.cronosgroup.tinkerlink.presenter.sign.FormUserPresenter;
+import com.cronosgroup.tinkerlink.presenter.sign.TLinkerSelectorPresenter;
 import com.cronosgroup.tinkerlink.presenter.sign.SignPresenter;
 import com.cronosgroup.tinkerlink.presenter.sign.ValidationPresenter;
 import com.cronosgroup.tinkerlink.presenter.stack.CardPresenter;
@@ -34,7 +36,9 @@ import com.cronosgroup.tinkerlink.view.createcard.CreateCardActivity;
 import com.cronosgroup.tinkerlink.view.createrecommendation.CreateRecommendationActivity;
 import com.cronosgroup.tinkerlink.view.editprofile.EditProfileActivity;
 import com.cronosgroup.tinkerlink.view.home.HomeActivity;
+import com.cronosgroup.tinkerlink.view.login.LoginActivity;
 import com.cronosgroup.tinkerlink.view.network.NetworkActivity;
+import com.cronosgroup.tinkerlink.view.presignuser.PreSignUserActivity;
 import com.cronosgroup.tinkerlink.view.profile.ProfileActivity;
 import com.cronosgroup.tinkerlink.view.sign.SignActivity;
 import com.cronosgroup.tinkerlink.view.stack.detail.DetailStackActivity;
@@ -47,13 +51,14 @@ public final class ScreenNavigationHandler implements HomePresenter.Actions,
         TutorialPresenter.Actions, ContactsPresenter.Actions, AccountPresenter.Actions,
         ChatPresenter.Actions, StackPresenter.Actions, NewsFeedPresenter.Actions,
         CardPresenter.Actions, DetailStackPresenter.Actions,
-        SignPresenter.Actions, FacebookPresenter.Actions,
-        ValidationPresenter.Actions, PhonePresenter.Actions,
+        SignPresenter.Actions, FormUserPresenter.Actions,
+        ValidationPresenter.Actions, TLinkerSelectorPresenter.Actions,
         NetworkPresenter.Actions, ConfigPresenter.Actions,
         EditProfilePresenter.Actions, CreateCardPresenter.Actions,
         CreateRecommendationPresenter.Actions, ChatUserPresenter.Actions,
         CategorySelectionPresenter.Actions, ExperienceSelectionPresenter.Actions,
-        SkillSelectionPresenter.Actions {
+        SkillSelectionPresenter.Actions, PreSignUserPresenter.Actions,
+        LoginPresenter.Actions {
 
     //Instance
     private static ScreenNavigationHandler instance = null;
@@ -109,6 +114,18 @@ public final class ScreenNavigationHandler implements HomePresenter.Actions,
 
     // ------------------------ CREATION INTENTS -----------------------------------
 
+    private static Intent preSign(@NonNull Activity context, Bundle bundle) {
+        return newTask(context, PreSignUserActivity.class, bundle);
+    }
+
+    private static Intent sign(@NonNull Activity context, Bundle bundle) {
+        return newTask(context, SignActivity.class, bundle);
+    }
+
+    private static Intent login(@NonNull Activity context, Bundle bundle) {
+        return newTask(context, LoginActivity.class, bundle);
+    }
+
     private static Intent home(@NonNull Activity context, Bundle bundle) {
         return newTask(context, HomeActivity.class, bundle, true);
     }
@@ -118,11 +135,7 @@ public final class ScreenNavigationHandler implements HomePresenter.Actions,
     }
 
     private static Intent detailStack(@NonNull Activity context, Bundle bundle) {
-        return newTask(context, DetailStackActivity.class, bundle, false);
-    }
-
-    private static Intent sign(@NonNull Activity context, Bundle bundle) {
-        return newTask(context, SignActivity.class, bundle);
+        return newTask(context, DetailStackActivity.class, bundle);
     }
 
     private static Intent network(@NonNull Activity context, Bundle bundle) {
@@ -160,37 +173,34 @@ public final class ScreenNavigationHandler implements HomePresenter.Actions,
     // ------------------------ TUTORIAL -----------------------------------
 
     @Override
-    public void onLoginPressed(Activity activity, Bundle bundle) {
+    public void onLaunchStart(Activity activity, Bundle bundle) {
+        startActivity(activity, preSign(activity, bundle));
+    }
 
+
+    @Override
+    public void onLaunchHome(Activity activity, Bundle bundle) {
+        startActivity(activity, home(activity, bundle));
+    }
+
+    // ------------------------ PRESIGN -----------------------------------
+
+    @Override
+    public void onLaunchLogin(Activity activity, Bundle bundle) {
+        startActivity(activity, login(activity, bundle));
     }
 
     @Override
-    public void onSignPressed(Activity activity, Bundle bundle) {
+    public void onLaunchSign(Activity activity, Bundle bundle) {
         startActivity(activity, sign(activity, bundle));
     }
 
     // ------------------------ REGISTRATION -----------------------------------
 
-    @Override
-    public void onSuccessValidation(Activity activity, Bundle bundle) {
-        startActivity(activity, home(activity, null));
-    }
 
     @Override
-    public void onGoToLogin(Activity activity, Bundle bundle) {
+    public void onLaunchSuccessValidation(Activity activity, Bundle bundle) {
 
-    }
-
-    @Override
-    public void onUsePolicyPressed(Activity activity, Bundle bundle) {
-
-    }
-
-    // ------------------------ TUTORIAL -----------------------------------
-
-    @Override
-    public void onLaunchHomeFromTutorial(Activity activity, Bundle bundle) {
-        startActivity(activity, home(activity, null));
     }
 
     // ------------------------ NEWSFEED -----------------------------------
@@ -210,7 +220,7 @@ public final class ScreenNavigationHandler implements HomePresenter.Actions,
     // ------------------------ PROFILE -----------------------------------
 
     @Override
-    public void onNetWorkPressed(Activity activity, Bundle bundle) {
+    public void onLaunchNetWork(Activity activity, Bundle bundle) {
         startActivity(activity, network(activity, bundle));
     }
 
@@ -247,4 +257,5 @@ public final class ScreenNavigationHandler implements HomePresenter.Actions,
     public void onLaunchChatUser(Activity activity, Bundle bundle) {
         startActivity(activity, chatUser(activity, bundle));
     }
+
 }

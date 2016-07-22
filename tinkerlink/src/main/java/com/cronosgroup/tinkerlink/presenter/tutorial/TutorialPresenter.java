@@ -25,11 +25,9 @@ public class TutorialPresenter extends TinkerLinkPresenter<TutorialPresenter.Vie
      */
     public interface Actions {
 
-        void onLoginPressed(Activity activity, Bundle bundle);
+        void onLaunchStart(Activity activity, Bundle bundle);
 
-        void onSignPressed(Activity activity, Bundle bundle);
-
-        void onLaunchHomeFromTutorial(Activity activity, Bundle bundle);
+        void onLaunchHome(Activity activity, Bundle bundle);
     }
 
     /**
@@ -42,14 +40,14 @@ public class TutorialPresenter extends TinkerLinkPresenter<TutorialPresenter.Vie
     //region **************  View Actions **************
 
     public void onStartPressed() {
-        listener.onLoginPressed(getView().getActivity(), null);
+        listener.onLaunchStart(getView().getActivity(), null);
     }
 
     public boolean isUserLoged() {
         TLUser user = getAppUserSessionManager().getCurrentUser();
 //        if (user != null && user.getLoged()) {
-        if (false){
-            listener.onLaunchHomeFromTutorial(getView().getActivity(), null);
+        if (false) {
+            listener.onLaunchHome(getView().getActivity(), null);
             getView().getActivity().overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
 
             return true;

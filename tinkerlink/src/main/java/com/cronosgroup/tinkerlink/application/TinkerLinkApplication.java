@@ -15,11 +15,13 @@ import com.cronosgroup.tinkerlink.manager.AppConfigManager;
 import com.cronosgroup.tinkerlink.manager.AppContactsManager;
 import com.cronosgroup.tinkerlink.manager.AppCountryManager;
 import com.cronosgroup.tinkerlink.manager.AppDataBaseManager;
-import com.cronosgroup.tinkerlink.manager.AppFacebookManager;
+import com.cronosgroup.tinkerlink.manager.socialnetworks.AppFacebookManager;
 import com.cronosgroup.tinkerlink.manager.AppImageLoaderManager;
 import com.cronosgroup.tinkerlink.manager.AppMessagesManager;
 import com.cronosgroup.tinkerlink.manager.AppNotificationsManager;
 import com.cronosgroup.tinkerlink.manager.AppUserSessionManager;
+import com.cronosgroup.tinkerlink.manager.socialnetworks.IOSocialNetwork;
+import com.cronosgroup.tinkerlink.model.business.model.AppUser;
 import com.cronosgroup.tinkerlink.model.mapper.TLUsers;
 import com.cronosgroup.tinkerlink.model.dataacess.database.entities.TLUser;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.manager.AppRestManager;
@@ -100,10 +102,9 @@ public class TinkerLinkApplication extends BaseApplication implements Permission
     }
 
     private void initFacebook() {
-        AppFacebookManager appFacebookManager = new AppFacebookManager(getApplicationContext());
-        appFacebookManager.init();
+        IOSocialNetwork<AppUser> appFacebookManager = new AppFacebookManager(getApplicationContext());
         if (getCurrentUserLoged() == null) {
-            appFacebookManager.logout();
+            appFacebookManager.LogOut(null);
         }
     }
 

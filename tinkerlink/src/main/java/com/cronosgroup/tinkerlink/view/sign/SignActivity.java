@@ -14,6 +14,7 @@ import java.util.List;
  */
 public class SignActivity extends TinkerLinkActivity<SignFragment> implements IOFormListener {
 
+    // Vars
     private AppUser user = new AppUser();
 
     @Override
@@ -45,6 +46,8 @@ public class SignActivity extends TinkerLinkActivity<SignFragment> implements IO
         super.onDestroy();
         AppRestManager.sharedManager().cancelAllRequestWithTag(this);
     }
+
+    // Form listener
 
     @Override
     public AppUser getFormUser() {

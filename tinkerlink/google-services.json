@@ -1,0 +1,51 @@
+{
+  "project_info": {
+    "project_number": "797030559534",
+    "project_id": "tinkerlink-1212"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:797030559534:android:8cc6682d5786caab",
+        "android_client_info": {
+          "package_name": "com.cronosgroup.tinkerlink"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "797030559534-l5mn27k2gejmef46cfahgg6rub1e5319.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.cronosgroup.tinkerlink",
+            "certificate_hash": "A43CBF2DC4A637D488D273FA36DC942946C760F8"
+          }
+        },
+        {
+          "client_id": "797030559534-g9j3f56g2v44ejbov9cmj49rrmk4vuk1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAGDUCa7b60zCFadGLSnyGPFZIcXjXTuTI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 2,
+          "analytics_property": {
+            "tracking_id": "UA-73368716-1"
+          }
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

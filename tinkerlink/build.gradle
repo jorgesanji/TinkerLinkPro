@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.neenbedankt.android-apt'
+apply plugin: 'com.google.gms.google-services'
 
 android {
     compileSdkVersion 23
@@ -24,22 +25,47 @@ dependencies {
     compile project(path: ':core')
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
+
+    // Android
+    compile 'com.google.android.gms:play-services-auth:8.3.0'
+    compile 'com.android.support:appcompat-v7:23.3.0'
+    compile 'com.google.android.gms:play-services-analytics:8.3.0'
+
+    // Adjust
+    compile 'com.adjust.sdk:adjust-android:4.7.0'
+
+    // Image loader
     compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.4'
+
+    // DBFlow
     apt 'com.raizlabs.android:DBFlow-Compiler:2.0.0'
     compile 'com.raizlabs.android:DBFlow-Core:2.0.0'
     compile 'com.raizlabs.android:DBFlow:2.0.0'
-    compile 'com.android.support:appcompat-v7:23.3.0'
+
+    // Dagger
     apt 'com.google.dagger:dagger-compiler:2.2'
     compile 'com.google.dagger:dagger:2.2'
     provided 'javax.annotation:jsr250-api:1.0'
+
+    // Timber
     compile 'com.jakewharton.timber:timber:4.1.2'
+
+    // ButterKnife
     compile 'com.jakewharton:butterknife:8.0.1'
     apt 'com.jakewharton:butterknife-compiler:8.0.1'
+
+    // Eventbus
     compile 'org.greenrobot:eventbus:3.0.0'
+
+    // Facebook
     compile 'com.facebook.android:facebook-android-sdk:4.7.0'
+
+    // Gson
     compile 'com.google.code.gson:gson:1.7.2'
-    compile 'com.adjust.sdk:adjust-android:4.7.0'
-    compile 'com.google.android.gms:play-services-analytics:8.4.0'
+
+    // StackView
     compile 'com.bartoszlipinski.flippablestackview:library:1.2.1'
+
+    // ExpandableView
     compile 'com.bignerdranch.android:expandablerecyclerview:2.1.1'
 }

@@ -25,18 +25,6 @@ import org.greenrobot.eventbus.EventBus;
  */
 public class TinkerLinkPresenter<V extends TinkerLinkPresenterView> extends PresenterDependencies implements Presenter<V> {
 
-//    public interface PresenterView extends Presenter.View {
-//        /**
-//         * remove current activity with delay
-//         */
-//        void removeActivityDelay();
-//
-//        /**
-//         * Get messages handler
-//         */
-//        AppSnackManager getMessagesHandler();
-//    }
-
     public static final String ACTIVATION_SMS = "SMSActivacion";
     public static final String ACTIVATION_MESSAGE = "mensajeActivacion";
 

@@ -2,15 +2,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
     android:gravity="center_horizontal"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/white">
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/iconTinker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_plus_biggest"
+        android:layout_marginTop="@dimen/margin_plus_big"
         android:src="@mipmap/newsfeed_tinkercard_net" />
 
     <com.cronosgroup.tinkerlink.view.customviews.TLTextView
@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_mediun"
         android:gravity="center"
-        android:text="@string/tutorial_recomendation_tinker_title"
+        android:text="@string/tutorial_tinker_title"
         android:textColor="@color/black"
         android:textSize="@dimen/text_size_big"
         app:fontName="Regular" />
@@ -27,10 +27,9 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="220dp"
+        android:layout_below="@+id/titleTinker"
         android:layout_margin="@dimen/margin_plus_biggest"
-        android:layout_marginTop="@dimen/margin_plus_biggest"
-        android:gravity="center"
-        android:orientation="vertical">
+        android:layout_marginTop="@dimen/margin_plus_biggest">
 
         <com.cronosgroup.tinkerlink.view.customviews.TLImageView
             android:layout_width="match_parent"
@@ -77,7 +76,7 @@
                 android:id="@+id/jobCard"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/tutorial_recomendation_tinker_job"
+                android:text="@string/tutorial_tinker_job"
                 android:textColor="@color/white"
                 android:textSize="@dimen/text_size_big"
                 app:fontName="Regular" />

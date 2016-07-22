@@ -5,9 +5,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import com.cronosgroup.tinkerlink.view.sign.adapter.fragments.phone.PhoneFragment;
-import com.cronosgroup.tinkerlink.view.sign.adapter.fragments.facebook.FacebookFragment;
-import com.cronosgroup.tinkerlink.view.sign.adapter.fragments.validation.ValidationFragment;
+import com.cronosgroup.tinkerlink.view.sign.adapter.fragments.formuser.FormUserFragment;
+import com.cronosgroup.tinkerlink.view.sign.adapter.fragments.tlinker.TLinkerSelectorFragment;
 
 /**
  * Created by jorgesanmartin on 11/16/15.
@@ -16,6 +15,8 @@ public class SignAdapter extends FragmentStatePagerAdapter {
     public static final int FACEBOOK_PAGE = 0;
     public static final int PHONE_PAGE = 1;
     public static final int VALIDATION_PAGE = 2;
+
+    Class[] fragments = {TLinkerSelectorFragment.class, TLinkerSelectorFragment.class, FormUserFragment.class};
 
     // Vars
     private final Context mContext;
@@ -27,14 +28,7 @@ public class SignAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        switch (position) {
-            case FACEBOOK_PAGE:
-                return Fragment.instantiate(mContext, FacebookFragment.class.getName());
-            case PHONE_PAGE:
-                return Fragment.instantiate(mContext, PhoneFragment.class.getName());
-            default:
-                return Fragment.instantiate(mContext, ValidationFragment.class.getName());
-        }
+        return Fragment.instantiate(mContext, fragments[position].getName());
     }
 
     @Override
@@ -44,7 +38,7 @@ public class SignAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public int getCount() {
-        return 3;
+        return fragments.length;
     }
 
 }

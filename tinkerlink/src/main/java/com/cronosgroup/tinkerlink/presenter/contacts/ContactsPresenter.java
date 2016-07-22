@@ -23,7 +23,7 @@ public class ContactsPresenter extends TinkerLinkPresenter<ContactsPresenter.Vie
      * Contacts actions.
      */
     public interface Actions {
-        void onNetWorkPressed(Activity activity, Bundle bundle);
+        void onLaunchNetWork(Activity activity, Bundle bundle);
     }
 
     /**
@@ -36,6 +36,6 @@ public class ContactsPresenter extends TinkerLinkPresenter<ContactsPresenter.Vie
     // public methods
 
     public void onLaunchNetWork() {
-        listener.onNetWorkPressed(getView().getActivity(), null);
+        listener.onLaunchNetWork(getView().getActivity(), null);
     }
 }

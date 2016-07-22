@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/margin_big">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_plus_biggest"
+                android:text="@string/sign_title"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_big"
+                app:fontName="Regular" />
+
+            <com.cronosgroup.tinkerlink.view.customviews.TLImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_plus_big"
+                android:src="@android:drawable/ic_menu_gallery" />
+
+            <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_plus_biggest"
+                android:gravity="center"
+                android:text="@string/sign_message"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_mediun"
+                app:fontName="Regular" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_big"
+                android:layout_marginRight="@dimen/margin_big"
+                android:layout_marginTop="@dimen/margin_plus_biggest"
+                android:orientation="vertical">
+
+                <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                    style="@style/TextViewLoginSecctionsStyle"
+                    android:text="@string/sign_select_country" />
+
+                <LinearLayout
+                    android:id="@+id/selectorCountry"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                            android:id="@+id/idCountry"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.8"
+                            android:hint="@string/sign_select_country_hint"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/gray_30"
+                            android:textSize="@dimen/text_size_mediun"
+                            app:fontName="Regular" />
+
+                        <com.cronosgroup.tinkerlink.view.customviews.TLImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@mipmap/ic_action_navigation_arrow_drop_down" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="@dimen/margin_mini"
+                        android:background="@color/black" />
+
+                </LinearLayout>
+
+                <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                    style="@style/TextViewLoginSecctionsStyle"
+                    android:layout_marginTop="@dimen/margin_mediun"
+                    android:text="@string/sign_select_phone" />
+
+                <com.cronosgroup.tinkerlink.view.customviews.TLEditText
+                    android:id="@+id/idUser"
+                    style="@style/EditFormStyle"
+                    android:inputType="number"
+                    android:hint="@string/sign_select_phone_hint" />
+
+                <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                    style="@style/TextViewLoginSecctionsStyle"
+                    android:layout_marginTop="@dimen/margin_mediun"
+                    android:text="@string/sign_select_password" />
+
+                <com.cronosgroup.tinkerlink.view.customviews.TLEditText
+                    android:id="@+id/passwordUser"
+                    style="@style/EditFormStyle"
+                    android:inputType="textPassword"
+                    android:hint="@string/sign_select_password_hint" />
+
+                <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                    style="@style/TextViewLoginSecctionsStyle"
+                    android:layout_marginTop="@dimen/margin_mediun"
+                    android:text="@string/sign_select_name" />
+
+                <com.cronosgroup.tinkerlink.view.customviews.TLEditText
+                    android:id="@+id/nameUser"
+                    style="@style/EditFormStyle"
+                    android:inputType="text"
+                    android:hint="@string/sign_select_name_hint" />
+
+                <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                    style="@style/TextViewLoginSecctionsStyle"
+                    android:layout_marginTop="@dimen/margin_mediun"
+                    android:text="@string/sign_select_cogname" />
+
+                <com.cronosgroup.tinkerlink.view.customviews.TLEditText
+                    android:id="@+id/cognameUser"
+                    style="@style/EditFormStyle"
+                    android:inputType="text"
+                    android:hint="@string/sign_select_cogname_hint" />
+
+                <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                    style="@style/TextViewLoginSecctionsStyle"
+                    android:layout_marginTop="@dimen/margin_mediun"
+                    android:text="@string/sign_select_dateBird" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <Spinner
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:entries="@array/days_array"
+                            android:prompt="@string/sign_select_dateBird_day" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="2dp"
+                            android:background="@color/gray" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/margin_mediun"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <Spinner
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:entries="@array/months_array"
+                            android:prompt="@string/sign_select_dateBird_month" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="2dp"
+                            android:background="@color/gray" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/margin_mediun"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <Spinner
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:entries="@array/years_array"
+                            android:prompt="@string/sign_select_dateBird_year" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="2dp"
+                            android:background="@color/gray" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                    style="@style/TextViewLoginSecctionsStyle"
+                    android:layout_marginTop="@dimen/margin_mediun"
+                    android:text="@string/sign_select_gender" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_mediun"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/margin_small"
+                            android:gravity="left"
+                            android:text="@string/sign_select_gender_men"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size_mediun"
+                            app:fontName="Regular" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/margin_small"
+                            android:gravity="left"
+                            android:text="@string/sign_select_gender_women"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size_mediun"
+                            app:fontName="Regular" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

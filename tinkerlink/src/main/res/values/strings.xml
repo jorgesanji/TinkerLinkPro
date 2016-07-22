@@ -488,14 +488,56 @@
 
     <!-- Tutorial-->
     <string name="tutorial_start_now">COMIENZA AHORA</string>
+    <string name="tutorial_welcome_title">Biendvenido a Tinkerlink</string>
+    <string name="tutorial_welcome_title_fragment_tinker">Tinker</string>
+    <string name="tutorial_welcome_title_fragment_linker">link</string>
+    <string name="tutorial_welcome_description">La primera aplicación donde puedes\nencontrar y ofrecer servicios a travez\nde tu red de contactos de confianza</string>
     <string name="tutorial_recomendation_title">Crea tu identidad y consigue\nrecomendaciones para\nvalidar tu perfil</string>
     <string name="tutorial_recomendation_name">Mariano Martinez</string>
     <string name="tutorial_recomendation_job">FONTANERO</string>
     <string name="tutorial_recomendation_city">Barcelona, España</string>
-    <string name="tutorial_recomendation_tinker_title">Convierte en un Tinker\ny ofrece todos tus servicios</string>
-    <string name="tutorial_recomendation_linker_title">Convierte en un Linker\ny encuentra trabajadores\n de confianza</string>
-    <string name="tutorial_recomendation_tinker_job">Reparador de averías</string>
-    <string name="tutorial_recomendation_linker_job">Zapatero</string>
+    <string name="tutorial_tinker_title">Convierte en un Tinker\ny ofrece todos tus servicios</string>
+    <string name="tutorial_tinker_name">Tinker</string>
+    <string name="tutorial_linker_title">Convierte en un Linker\ny encuentra trabajadores\n de confianza</string>
+    <string name="tutorial_linker_name">Linker</string>
+    <string name="tutorial_tinker_job">Reparador de averías</string>
+    <string name="tutorial_linker_job">Zapatero</string>
+    <string name="tutorial_network_title">Descubre personas cercanas a tu\ncirculo de confianza y mantén\ncontacto con tu red</string>
+    <string name="tutorial_network_user_message">Marta forma parte de tu red de confianza</string>
+    <string name="tutorial_network_user_search">Marta está buscando a personas como tú!</string>
+    <string name="tutorial_network_user_name">Marta Díaz</string>
+    <string name="tutorial_network_user_contacts">Contactos en común (15)</string>
+
+    <!--  Login  -->
+    <string name="login_title">Inicia sessión</string>
+    <string name="login_phone_number">NÚMERO DE MOVIL</string>
+    <string name="login_password">CONTRASEÑA</string>
+    <string name="login_password_hint">Introduce tu contraseña</string>
+    <string name="login_phone_hint">Introduce tu número de telefono</string>
+    <string name="login_start_session">INICIAR SESIÓN</string>
+    <string name="login_start_google_session">Iniciar sesion con gmail</string>
+    <string name="login_start_facebook_session">Iniciar sesion con facebook</string>
+
+    <!--  Sign  -->
+    <string name="sign_title">Crea tu cuenta</string>
+    <string name="sign_message">Te enviaremos un SMS gratuito con\n tu código¡ de confirmación</string>
+    <string name="sign_select_country">Selecciona la cobertura</string>
+    <string name="sign_select_country_hint">Ej. España(+34)</string>
+    <string name="sign_select_phone">Escribe tu número de móvil</string>
+    <string name="sign_select_phone_hint">Ej. 734 56 47 32</string>
+    <string name="sign_select_password">CONTRASEÑA</string>
+    <string name="sign_select_password_hint">Define una contraseña para tu cuenta</string>
+    <string name="sign_select_name">NOMBRE</string>
+    <string name="sign_select_name_hint">Escribe tu nombre</string>
+    <string name="sign_select_cogname">APELLIDO</string>
+    <string name="sign_select_cogname_hint">Escribe tu apellido</string>
+    <string name="sign_select_dateBird">FECHA DE NACIMIENTO</string>
+    <string name="sign_select_dateBird_day">Día</string>
+    <string name="sign_select_dateBird_month">Mes</string>
+    <string name="sign_select_dateBird_year">Año</string>
+    <string name="sign_select_gender">SEXO</string>
+    <string name="sign_select_gender_women">Mujer</string>
+    <string name="sign_select_gender_men">Hombre</string>
 
 
     <!--  Home  -->
@@ -533,7 +575,6 @@
     <string name="recommendation_all_contacts">Todos mis contactos</string>
     <string name="recommendation_only_friends">Solo amigos</string>
     <string name="recommendation_send_recommendation">ENVIAR</string>
-
 
     <!--  Chat  -->
     <string name="chat_remove_chat">Eliminar chat</string>

@@ -66,10 +66,11 @@ public class TinkerPage extends LinearLayout {
     }
 
     private void initUI() {
+        titleTinker.paintTextWithColor(getResources().getString(R.string.tutorial_tinker_name), R.color.tinkercolor);
         iconTinker.setImageResource(R.mipmap.newsfeed_tinkercard_net);
         iconTinker.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.tinkercolor)));
         typeCard.setText(getResources().getString(R.string.card_me));
-        jobCard.setText(getResources().getString(R.string.tutorial_recomendation_tinker_job));
+        jobCard.setText(getResources().getString(R.string.tutorial_tinker_job));
         backgroundCard.setBackgroundResource(R.color.tinkercolor_50);
     }
 }

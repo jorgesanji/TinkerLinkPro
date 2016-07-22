@@ -22,7 +22,6 @@ import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
 import com.cronosgroup.tinkerlink.view.sign.adapter.SignAdapter;
 
 import org.greenrobot.eventbus.EventBus;
-import org.greenrobot.eventbus.Subscribe;
 
 import java.util.Locale;
 
@@ -41,22 +40,6 @@ public class SignFragment extends MVPTinkerLinkFragment<SignPresenter, SignPrese
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         initSmsBroadCastReceiver();
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        if (EventBus.getDefault().isRegistered(this)) {
-            EventBus.getDefault().unregister(this);
-        }
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        if (!EventBus.getDefault().isRegistered(this)) {
-            EventBus.getDefault().register(this);
-        }
     }
 
     //endregion
@@ -107,6 +90,10 @@ public class SignFragment extends MVPTinkerLinkFragment<SignPresenter, SignPrese
     }
     //endregion
 
+    //region **************  SignScreen.View **************
+
+    //endregion
+
     public boolean onBackPressed() {
         InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Activity.INPUT_METHOD_SERVICE);
         imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0);
@@ -137,7 +124,6 @@ public class SignFragment extends MVPTinkerLinkFragment<SignPresenter, SignPrese
 
     //region **************  EventBus **************
 
-    @Subscribe
     public void onEventMainThread(FormValidationEvent event) {
         if (event.isValidation()) {
             int index = signScreen.showNextPage();

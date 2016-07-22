@@ -34,19 +34,15 @@
             app:imageSelectedDot="@drawable/tutorial_dot_selected"
             app:imageUnSelectedDot="@drawable/tutorial_dot_unselected"
             app:numDots="5"
-            app:sizeDot="12dp" />
+            app:sizeDot="8dp" />
 
-        <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+        <com.cronosgroup.tinkerlink.view.customviews.TLButton
             android:id="@+id/signButton"
             style="@style/SignButtonStyle"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/view_min_size_sing"
-            android:background="@drawable/background_tinker_button"
+            android:background="@drawable/button_sign_states"
             android:text="@string/tutorial_start_now"
             android:textColor="@color/white" />
 
-
     </LinearLayout>
-
 
 </RelativeLayout>

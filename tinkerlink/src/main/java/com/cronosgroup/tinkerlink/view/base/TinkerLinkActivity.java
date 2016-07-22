@@ -1,5 +1,6 @@
 package com.cronosgroup.tinkerlink.view.base;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -118,6 +119,14 @@ public abstract class TinkerLinkActivity<F extends MVPTinkerLinkFragment> extend
         TinkerLinkApplication.getApp().getComponent().inject((TinkerLinkActivity<MVPTinkerLinkFragment>) this);
         initToolbar();
         initFragment();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (currentFragment != null) {
+            currentFragment.onActivityResult(requestCode, resultCode, data);
+        }
     }
 
     @Override

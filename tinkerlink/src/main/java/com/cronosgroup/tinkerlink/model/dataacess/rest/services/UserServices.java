@@ -14,7 +14,7 @@ public class UserServices extends AppService {
 
     public static final String KEY_USER = "usuario";
 
-    private static final String URL_LOGOUT = "users/logout";
+    private static final String URL_LOGOUT = "users/singOut";
     private static final String URL_LOGIN = "api/login/";
     public static final String URL_GET_CODIGO = "api/getCodigoYPass/";
     public static final String URL_SET_USER = "api/setUser/";

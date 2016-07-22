@@ -19,7 +19,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-
 /**
  * Main Sing view.
  */
@@ -42,10 +41,10 @@ public class SignScreen extends RelativeLayout {
     @BindView(R.id.signPager)
     TLViewPager mPager;
 
-    @BindView(R.id.loginTitle)
-    TLTextView mLoginTitle;
+    @BindView(R.id.currentPage)
+    TLTextView mCurrentPage;
 
-    @BindView(R.id.nextButton)
+    @BindView(R.id.nextPage)
     TLButton mNextButton;
 
     @BindView(R.id.pageIndicator)
@@ -105,14 +104,14 @@ public class SignScreen extends RelativeLayout {
 
 
     private void setCurrentPage(int position, int titleLogin, int titleButtom) {
-        mLoginTitle.setText(getResources().getString(titleLogin));
+        mCurrentPage.setText(getResources().getString(titleLogin));
         mNextButton.setText(getResources().getString(titleButtom));
         mPageIndicator.setCurrentSelected(position);
     }
 
     // **************  UI Actions **************
 
-    @OnClick(R.id.nextButton)
+    @OnClick(R.id.nextPage)
     protected void onNextStepPressed() {
         listener.verifiedPage(mPager.getCurrentItem());
     }

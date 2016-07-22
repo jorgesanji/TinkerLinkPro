@@ -23,7 +23,7 @@ public class EditProfilePresenter extends TinkerLinkPresenter<EditProfilePresent
      * Contacts actions.
      */
     public interface Actions {
-        void onNetWorkPressed(Activity activity, Bundle bundle);
+        void onLaunchNetWork(Activity activity, Bundle bundle);
     }
 
     /**

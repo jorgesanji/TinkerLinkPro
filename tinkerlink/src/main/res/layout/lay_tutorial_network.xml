@@ -1,15 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    >
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/iconTinker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_plus_big"
+        android:src="@mipmap/newsfeed_tinkercard_net" />
+
+    <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+        android:id="@+id/titleTinker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/margin_mediun"
+        android:gravity="center"
+        android:text="@string/tutorial_network_title"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_size_big"
+        app:fontName="Regular" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_margin="@dimen/margin_plus_biggest"
+        android:layout_margin="@dimen/margin_plus_big"
         android:orientation="vertical">
 
         <LinearLayout
@@ -24,14 +44,15 @@
 
             <com.cronosgroup.tinkerlink.view.customviews.TLTextView
                 android:id="@+id/contactName"
-                style="@style/NetworkNameStyle" />
+                style="@style/NetworkNameStyle"
+                android:text="@string/network_user" />
 
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/contactsContainer"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="80dp"
             android:layout_marginLeft="10dp"
             android:orientation="horizontal">
 
@@ -52,26 +73,24 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
-                    android:layout_marginBottom="0dp"
                     android:orientation="vertical"
                     android:visibility="visible">
 
                     <com.cronosgroup.tinkerlink.view.customviews.TLTextView
                         android:id="@+id/friendsCommon"
                         style="@style/NetWorkSectionsStyle"
-                        android:text="@string/network_common_contacts" />
+                        android:text="@string/tutorial_network_user_contacts" />
 
                     <com.cronosgroup.tinkerlink.view.customviews.TLTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentBottom="true"
                         android:layout_below="@+id/friendsCommon"
-                        android:text="Marta forma parte de tu\nred de confianza" />
+                        android:text="@string/tutorial_network_user_message" />
 
                 </LinearLayout>
 
             </RelativeLayout>
-
 
         </LinearLayout>
 
@@ -82,83 +101,66 @@
             android:orientation="vertical"
             android:visibility="visible">
 
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp">
+
+                <com.cronosgroup.tinkerlink.view.customviews.TLImageView
+                    android:id="@+id/tinkerNetwork"
+                    style="@style/NetworkTinkerLinkCardsStyle"
+                    android:background="@drawable/background_tinker"
+                    android:elevation="@dimen/view_elevation_min"
+                    android:src="@mipmap/newsfeed_tinkercard_net" />
+
+                <com.cronosgroup.tinkerlink.view.customviews.TLImageView
+                    android:id="@+id/linkerNetwork"
+                    style="@style/NetworkTinkerLinkCardsStyle"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/background_linker"
+                    android:elevation="@dimen/view_elevation_min"
+                    android:src="@mipmap/newsfeed_linkercard_net" />
+
+            </RelativeLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="80dp"
+                android:layout_marginLeft="10dp"
                 android:orientation="horizontal">
 
+                <com.cronosgroup.tinkerlink.view.customviews.TLNetworkConnectionView style="@style/NetworkConnectionStyle" />
+
                 <RelativeLayout
-                    android:layout_width="110dp"
-                    android:layout_height="30dp">
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:visibility="visible">
 
-                    <com.cronosgroup.tinkerlink.view.customviews.TLImageView
-                        android:id="@+id/tinkerNetwork"
-                        style="@style/NetworkTinkerLinkCardsStyle"
-                        android:background="@drawable/background_tinker"
-                        android:elevation="@dimen/view_elevation_min"
-                        android:src="@mipmap/newsfeed_tinkercard_net" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginBottom="0dp"
+                        android:orientation="vertical"
+                        android:visibility="visible">
 
-                    <com.cronosgroup.tinkerlink.view.customviews.TLImageView
-                        android:id="@+id/linkerNetwork"
-                        style="@style/NetworkTinkerLinkCardsStyle"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="10dp"
-                        android:background="@drawable/background_linker"
-                        android:elevation="@dimen/view_elevation_min"
-                        android:src="@mipmap/newsfeed_linkercard_net" />
+                        <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                            style="@style/NetWorkSectionsStyle"
+                            android:text="@string/network_match_tinkerlink" />
+
+                        <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:layout_below="@+id/friendsCommon"
+                            android:text="@string/tutorial_network_user_search" />
+
+                    </LinearLayout>
 
                 </RelativeLayout>
 
             </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/tinkerContainer"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:visibility="visible">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:layout_marginLeft="10dp"
-                    android:orientation="horizontal">
-
-                    <com.cronosgroup.tinkerlink.view.customviews.TLNetworkConnectionView style="@style/NetworkConnectionStyle" />
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:visibility="visible">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentBottom="true"
-                            android:layout_marginBottom="0dp"
-                            android:orientation="vertical"
-                            android:visibility="visible">
-
-                            <com.cronosgroup.tinkerlink.view.customviews.TLTextView
-                                style="@style/NetWorkSectionsStyle"
-                                android:text="@string/network_match_tinkerlink" />
-
-                            <com.cronosgroup.tinkerlink.view.customviews.TLTextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_alignParentBottom="true"
-                                android:layout_below="@+id/friendsCommon"
-                                android:text="Marta esta buscando a\npersonas como tú!" />
-
-                        </LinearLayout>
-
-                    </RelativeLayout>
-
-                </LinearLayout>
-
-            </LinearLayout>
-
 
         </LinearLayout>
 
@@ -175,10 +177,10 @@
             <com.cronosgroup.tinkerlink.view.customviews.TLTextView
                 android:id="@+id/currentUserName"
                 style="@style/NetworkNameStyle"
-                android:text="@string/network_user" />
+                android:text="@string/tutorial_network_user_name" />
 
         </LinearLayout>
 
     </LinearLayout>
 
-</RelativeLayout>
+</LinearLayout>

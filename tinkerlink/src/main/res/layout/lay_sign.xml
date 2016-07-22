@@ -3,62 +3,24 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/sign_background">
+    android:background="@color/white"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
 
-    <LinearLayout
+    <com.cronosgroup.tinkerlink.view.customviews.TLViewPager
+        android:id="@+id/signPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/pageIndicator"
-        android:layout_marginBottom="@dimen/margin_small"
-        android:layout_marginTop="@dimen/margin_small"
-        android:gravity="center_horizontal"
-        android:orientation="vertical">
+        android:layout_below="@+id/navbar"
+        app:scrollDuration="3" />
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_marginBottom="2dp"
-            android:layout_weight="0.25"
-            android:contentDescription="titleIcon"
-            android:src="@mipmap/logo_sign" />
-
-        <com.cronosgroup.tinkerlink.view.customviews.TLTextView
-            android:id="@+id/loginTitle"
-            style="@style/loginTitleStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_marginBottom="30dp"
-            android:layout_weight="0.07"
-            android:gravity="center"
-            android:text="@string/sign_title_start"
-            app:fontName="Regular" />
-
-        <com.cronosgroup.tinkerlink.view.customviews.TLViewPager
-            android:id="@+id/signPager"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1.0"
-            app:scrollDuration="3" />
-
-    </LinearLayout>
-
-    <com.cronosgroup.tinkerlink.view.customviews.TLViewPagerIndicator
-        android:id="@+id/pageIndicator"
-        style="@style/loginButtonStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:layout_above="@+id/nextButton"
-        android:layout_centerHorizontal="true"
-        android:background="@android:color/transparent"
-        app:currentSelected="0"
-        app:imageSelectedDot="@drawable/dot_selected"
-        app:imageUnSelectedDot="@drawable/dot_unselected"
-        app:numDots="3"
-        app:sizeDot="11dp" />
-
-    <com.cronosgroup.tinkerlink.view.customviews.TLButton
-        android:id="@+id/nextButton"
-        style="@style/loginButtonStyle"
-        android:text="@string/sign_next_button" />
+    <include
+        android:id="@+id/navbar"
+        layout="@layout/lay_tag_pages"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true" />
 
 </RelativeLayout>

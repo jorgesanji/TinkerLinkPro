@@ -24,7 +24,6 @@ public abstract class TinkerLinkImagePickerPresenter<V extends Presenter.View>  
 
     public abstract void cancelPickerImage();
 
-
     @Override
     public void resume() {
 

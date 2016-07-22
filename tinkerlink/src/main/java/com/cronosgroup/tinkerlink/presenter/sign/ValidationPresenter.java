@@ -35,7 +35,7 @@ public class ValidationPresenter extends TinkerLinkPresenter<ValidationPresenter
      * Validation actions.
      */
     public interface Actions {
-        void onSuccessValidation(Activity activity, Bundle bundle);
+        void onLaunchSuccessValidation(Activity activity, Bundle bundle);
     }
 
     /**
@@ -101,7 +101,7 @@ public class ValidationPresenter extends TinkerLinkPresenter<ValidationPresenter
     }
 
     public void onSuccessValidation() {
-        listener.onSuccessValidation(getView().getActivity(), null);
+        listener.onLaunchSuccessValidation(getView().getActivity(), null);
     }
 
 

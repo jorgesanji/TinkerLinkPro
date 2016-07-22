@@ -7,6 +7,8 @@ import com.cronosgroup.core.rest.Callback;
 import com.cronosgroup.core.rest.RestError;
 import com.cronosgroup.core.rest.SessionStatus;
 import com.cronosgroup.tinkerlink.application.TinkerLinkApplication;
+import com.cronosgroup.tinkerlink.manager.socialnetworks.AppFacebookManager;
+import com.cronosgroup.tinkerlink.manager.socialnetworks.IOSocialNetwork;
 import com.cronosgroup.tinkerlink.model.dataacess.database.entities.TLUser;
 import com.cronosgroup.tinkerlink.model.dataacess.database.manager.ChatManager;
 import com.cronosgroup.tinkerlink.model.dataacess.database.manager.NotificationsManager;
@@ -30,7 +32,7 @@ public class AppUserSessionManager implements SessionStatus {
     private TLUser currentUser;
     private UserManager mManager;
     private AppUserUpdateManager appUserManager;
-    private AppFacebookManager appFacebookManager;
+    private IOSocialNetwork appFacebookManager;
 
     public AppUserSessionManager(Context context) {
         super();
@@ -76,7 +78,7 @@ public class AppUserSessionManager implements SessionStatus {
         mManager.deleteAll();
 
         //Logout from facebook
-        appFacebookManager.logout();
+        appFacebookManager.LogOut(null);
 
         //Return to Tutorial activity
         Intent openIntent = new Intent(mContext, TutorialActivity.class);

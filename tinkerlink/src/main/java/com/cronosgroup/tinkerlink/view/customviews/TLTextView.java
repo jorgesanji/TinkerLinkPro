@@ -6,6 +6,9 @@ import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.os.Build;
 import android.text.Html;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.widget.TextView;
@@ -137,6 +140,20 @@ public class TLTextView extends TextView {
         this.styleMessage = styleMessage;
         if (styleMessage) {
             setShadowLayer(4, 0, 0, getResources().getColor(R.color.black));
+        }
+    }
+
+    public void paintTextWithColor(String word, int colorResource) {
+        String text = getText().toString();
+        int startIndex = text.indexOf(word);
+        int endIndex = word.length();
+        try {
+            final SpannableString spannableString = new SpannableString(getText());
+            ForegroundColorSpan color = new ForegroundColorSpan(getResources().getColor(colorResource));
+            spannableString.setSpan(color, startIndex, startIndex + endIndex, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            // set text with spannable string
+            setText(spannableString);
+        } catch (Exception ex) {
         }
     }
 }

@@ -23,7 +23,7 @@ public class TLViewPagerIndicator extends LinearLayout {
     private static final int DEFAULT_SELECTED = 1;
     private static final int DEFAULT_NUMDOTS = 2;
     private static final int DEFAULT_SIZE = 20;
-    private static final int MARGIN_INTO_DOTS = 5;
+    private static final int MARGIN_INTO_DOTS = 10;
 
     private int numDots;
     private Drawable imageUnSelectedDot;

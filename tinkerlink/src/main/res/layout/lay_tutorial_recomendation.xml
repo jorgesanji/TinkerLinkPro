@@ -51,8 +51,8 @@
         android:gravity="center"
         android:text="@string/tutorial_recomendation_name"
         android:textColor="@color/black"
-        android:textSize="@dimen/text_size_mediun"
-        app:fontName="Bold" />
+        android:textSize="@dimen/text_size_big"
+        app:fontName="Regular" />
 
     <com.cronosgroup.tinkerlink.view.customviews.TLTextView
         android:layout_width="match_parent"

@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestCountry;
-import com.cronosgroup.tinkerlink.presenter.sign.PhonePresenter;
 import com.cronosgroup.tinkerlink.view.base.TinkerDialogFragment;
 import com.cronosgroup.tinkerlink.view.interfaces.IOCountrySelected;
 
@@ -18,6 +17,7 @@ import com.cronosgroup.tinkerlink.view.interfaces.IOCountrySelected;
  */
 public class DialogFragment extends TinkerDialogFragment implements IOCountrySelected {
 
+    public static final int CODE = 800;
     public static final String COUNTRY_SELECTED = "SELECTED";
 
     private DialogScreen DialogScreen;
@@ -54,6 +54,6 @@ public class DialogFragment extends TinkerDialogFragment implements IOCountrySel
         Intent intent = new Intent();
         intent.putExtras(bundle);
         getTargetFragment().onActivityResult(
-                getTargetRequestCode(), PhonePresenter.COUNTRY_SELECTOR, intent);
+                getTargetRequestCode(), CODE, intent);
     }
 }

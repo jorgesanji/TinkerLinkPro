@@ -29,7 +29,6 @@ public class AppUser {
     private String phone;
     private String code;
 
-
     public AppUser() {
         super();
     }

@@ -19,7 +19,6 @@ public class ViewHolderLinker extends ViewHolderTinker {
     public ViewHolderLinker(View view) {
         super(view);
         mContainerView.setBackgroundResource(R.drawable.background_linker_card);
-//        mDividerView.setBackgroundColor(itemView.getResources().getColor(R.color.linkercolor));
         mTypeCardTitle.setText(getResources().getString(R.string.card_seek));
     }
 
