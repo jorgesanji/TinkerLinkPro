@@ -32,6 +32,7 @@ public class CategoriesAdapter extends ExpandableRecyclerAdapter<CategoryViewHol
     private LayoutInflater mInflator;
     private IOSkillListener skillListener;
     private IOCategoryListener categoryListener;
+    private int typeTinker;
 
     public CategoriesAdapter(@NonNull List<? extends ParentListItem> parentItemList, Context context) {
         super(parentItemList);
@@ -41,7 +42,7 @@ public class CategoriesAdapter extends ExpandableRecyclerAdapter<CategoryViewHol
     @Override
     public CategoryViewHolder onCreateParentViewHolder(ViewGroup parentViewGroup) {
         View view = mInflator.inflate(R.layout.lay_category_item, parentViewGroup, false);
-        CategoryViewHolder holder = new CategoryViewHolder(view);
+        CategoryViewHolder holder = new CategoryViewHolder(view, getTypeTinker());
         holder.setListener(getCategoryListener());
         return holder;
     }
@@ -49,7 +50,7 @@ public class CategoriesAdapter extends ExpandableRecyclerAdapter<CategoryViewHol
     @Override
     public SkillsViewHolder onCreateChildViewHolder(ViewGroup childViewGroup) {
         View view = mInflator.inflate(R.layout.lay_skills_item, childViewGroup, false);
-        SkillsViewHolder holder = new SkillsViewHolder(view);
+        SkillsViewHolder holder = new SkillsViewHolder(view, getTypeTinker());
         holder.setListener(getSkillListener());
         return holder;
     }
@@ -78,5 +79,13 @@ public class CategoriesAdapter extends ExpandableRecyclerAdapter<CategoryViewHol
 
     public void setCategoryListener(IOCategoryListener categoryListener) {
         this.categoryListener = categoryListener;
+    }
+
+    public int getTypeTinker() {
+        return typeTinker;
+    }
+
+    public void setTypeTinker(int typeTinker) {
+        this.typeTinker = typeTinker;
     }
 }

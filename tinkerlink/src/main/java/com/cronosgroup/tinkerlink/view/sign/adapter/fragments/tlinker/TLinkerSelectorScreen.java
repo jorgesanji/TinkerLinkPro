@@ -15,6 +15,8 @@ import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestCategoria;
 import com.cronosgroup.tinkerlink.view.createcard.adapter.fragments.category.adapter.CategoriesAdapter;
 import com.cronosgroup.tinkerlink.view.createcard.adapter.fragments.category.adapter.viewholder.CategoryViewHolder;
 import com.cronosgroup.tinkerlink.view.customviews.TLRecyclerView;
+import com.cronosgroup.tinkerlink.view.customviews.TLTextView;
+import com.cronosgroup.tinkerlink.view.sign.adapter.SignAdapter;
 
 import java.util.List;
 
@@ -36,18 +38,33 @@ public class TLinkerSelectorScreen extends RelativeLayout {
     private Listener listener;
     private CategoriesAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
+    private int typeTinker;
 
     // Views
     @BindView(R.id.categoriesList)
     protected TLRecyclerView mCategoriesList;
 
+    @BindView(R.id.titleTLinker)
+    protected TLTextView mTitleTLinker;
+
+    @BindView(R.id.descriptionTLinker)
+    protected TLTextView mDescriptionTLinker;
+
     private CategoryViewHolder viewHolderSelected;
+
+    /**
+     * @param context
+     */
+    public TLinkerSelectorScreen(Context context, int typeTinker) {
+        this(context, null);
+        setTypeTinker(typeTinker);
+    }
+
     /**
      * @param context
      */
     public TLinkerSelectorScreen(Context context) {
-        super(context);
-        init();
+        this(context, null);
     }
 
     /**
@@ -55,8 +72,7 @@ public class TLinkerSelectorScreen extends RelativeLayout {
      * @param attrs
      */
     public TLinkerSelectorScreen(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        init();
+        this(context, attrs, 0);
     }
 
     /**
@@ -65,8 +81,7 @@ public class TLinkerSelectorScreen extends RelativeLayout {
      * @param defStyleAttr
      */
     public TLinkerSelectorScreen(Context context, AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-        init();
+        this(context, attrs, defStyleAttr, 0);
     }
 
     /**
@@ -84,6 +99,7 @@ public class TLinkerSelectorScreen extends RelativeLayout {
     private void init() {
         inflate(getContext(), R.layout.lay_tlinker_selector, this);
         ButterKnife.bind(this);
+        initRecyclerView();
     }
 
     private void initRecyclerView() {
@@ -123,6 +139,25 @@ public class TLinkerSelectorScreen extends RelativeLayout {
         });
     }
 
+    private void initUI() {
+        String preferences = getContext().getResources().getString(R.string.sign_register_title_preferences);
+        String tlinker;
+        String description;
+        int color;
+        if (typeTinker == SignAdapter.LINKER) {
+            tlinker = getContext().getResources().getString(R.string.profile_services);
+            description = getContext().getResources().getString(R.string.sign_register_title_linker);
+            color = R.color.linkercolor;
+        } else {
+            tlinker = getContext().getResources().getString(R.string.profile_offers);
+            description = getContext().getResources().getString(R.string.sign_register_title_tinker);
+            color = R.color.tinkercolor;
+        }
+
+        setTextTitle(preferences + " " + tlinker, tlinker, color);
+        setTextDescription(description);
+    }
+
     // Actions
 
     // Public method
@@ -135,14 +170,33 @@ public class TLinkerSelectorScreen extends RelativeLayout {
         this.listener = listener;
     }
 
+    public int getTypeTinker() {
+        return typeTinker;
+    }
+
+    public void setTypeTinker(int typeTinker) {
+        this.typeTinker = typeTinker;
+        initUI();
+    }
+
     public void setItems(List<RestCategoria> restCategorias) {
         mAdapter = new CategoriesAdapter(restCategorias, getContext());
+        mAdapter.setTypeTinker(getTypeTinker());
         mCategoriesList.setAdapter(mAdapter);
         initListeners();
     }
 
     public List<RestCategoria> getItems() {
         return (List<RestCategoria>) mAdapter.getParentItemList();
+    }
+
+    public void setTextTitle(String title, String textToPaint, int colorToPain) {
+        mTitleTLinker.setText(title);
+        mTitleTLinker.paintTextWithColor(textToPaint, colorToPain);
+    }
+
+    public void setTextDescription(String textDescription) {
+        mDescriptionTLinker.setText(textDescription);
     }
 }
 

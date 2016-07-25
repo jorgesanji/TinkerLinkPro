@@ -23,6 +23,8 @@ import com.cronosgroup.tinkerlink.presenter.network.NetworkPresenter;
 import com.cronosgroup.tinkerlink.presenter.newsfeed.NewsFeedPresenter;
 import com.cronosgroup.tinkerlink.presenter.presignuser.PreSignUserPresenter;
 import com.cronosgroup.tinkerlink.presenter.sign.FormUserPresenter;
+import com.cronosgroup.tinkerlink.presenter.sign.RegisterSelectorPresenter;
+import com.cronosgroup.tinkerlink.presenter.sign.SignProfilePresenter;
 import com.cronosgroup.tinkerlink.presenter.sign.TLinkerSelectorPresenter;
 import com.cronosgroup.tinkerlink.presenter.sign.SignPresenter;
 import com.cronosgroup.tinkerlink.presenter.sign.ValidationPresenter;
@@ -58,7 +60,7 @@ public final class ScreenNavigationHandler implements HomePresenter.Actions,
         CreateRecommendationPresenter.Actions, ChatUserPresenter.Actions,
         CategorySelectionPresenter.Actions, ExperienceSelectionPresenter.Actions,
         SkillSelectionPresenter.Actions, PreSignUserPresenter.Actions,
-        LoginPresenter.Actions {
+        LoginPresenter.Actions, RegisterSelectorPresenter.Actions, SignProfilePresenter.Actions {
 
     //Instance
     private static ScreenNavigationHandler instance = null;

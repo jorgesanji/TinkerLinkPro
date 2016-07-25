@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/action_camera"
+        android:title="@string/sign_register_user_camera" />
+
+    <item
+        android:id="@+id/action_gallery"
+        android:title="@string/sign_register_user_gallery" />
+
+</menu>

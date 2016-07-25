@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
@@ -22,5 +23,38 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true" />
+
+    <FrameLayout
+        android:id="@+id/registrationContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:elevation="@dimen/view_mediun_elevation"
+        android:visibility="gone">
+
+        <fragment
+            android:id="@+id/registrationSelectorFragment"
+            android:name="com.cronosgroup.tinkerlink.view.sign.adapter.fragments.registerselector.RegisterSelectorFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:layout="@layout/lay_register_selector" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/validationContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent"
+        android:elevation="@dimen/view_mediun_elevation"
+        android:visibility="gone">
+
+        <fragment
+            android:name="com.cronosgroup.tinkerlink.view.sign.adapter.fragments.validation.ValidationFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:layout="@layout/lay_sign_validation" />
+
+    </FrameLayout>
 
 </RelativeLayout>

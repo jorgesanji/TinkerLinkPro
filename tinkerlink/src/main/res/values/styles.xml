@@ -197,13 +197,18 @@
         <item name="android:textColorHint">@color/black</item>
     </style>
 
-
     <style name="EditFormStyle" parent="EditTextAppStyle">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">@dimen/text_size_mediun</item>
         <item name="android:textColorHint">@color/gray_30</item>
         <item name="fontNameEdit">Regular</item>
+    </style>
+
+    <style name="EditFormMultilineStyle" parent="EditFormStyle">
+        <item name="android:inputType">textMultiLine</item>
+        <item name="android:gravity">left|top</item>
+        <item name="android:scrollHorizontally">false</item>
     </style>
 
     <style name="EdiTextChatStyle" parent="EditTextAppStyle">

@@ -1,20 +1,17 @@
 package com.cronosgroup.tinkerlink.view.sign;
 
-import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.content.LocalBroadcastManager;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
 
-import com.cronosgroup.tinkerlink.event.FormRegistrationEvent;
-import com.cronosgroup.tinkerlink.event.FormValidationEvent;
+import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.event.NextPageEvent;
 import com.cronosgroup.tinkerlink.event.SmsEvent;
-import com.cronosgroup.tinkerlink.event.enums.FormState;
 import com.cronosgroup.tinkerlink.presenter.sign.SignPresenter;
 import com.cronosgroup.tinkerlink.sms.SMSBroadcastReceiver;
 import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
@@ -22,6 +19,7 @@ import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
 import com.cronosgroup.tinkerlink.view.sign.adapter.SignAdapter;
 
 import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
 
 import java.util.Locale;
 
@@ -33,6 +31,8 @@ public class SignFragment extends MVPTinkerLinkFragment<SignPresenter, SignPrese
         implements SignPresenter.View, SignScreen.Listener {
 
     private SignScreen signScreen;
+    private Fragment mRegistrationSelectorFragment;
+
 
     //region **************  Fragment **************
 
@@ -42,14 +42,31 @@ public class SignFragment extends MVPTinkerLinkFragment<SignPresenter, SignPrese
         initSmsBroadCastReceiver();
     }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (EventBus.getDefault().isRegistered(this)) {
+            EventBus.getDefault().unregister(this);
+        }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (!EventBus.getDefault().isRegistered(this)) {
+            EventBus.getDefault().register(this);
+        }
+    }
+
     //endregion
 
     //region **************  MVPFragment **************
 
     @Override
     protected View getRootView() {
-        signScreen = new SignScreen(getActivity(), getFragmentManager());
+        this.signScreen = new SignScreen(getActivity(), getFragmentManager());
         signScreen.setListener(this);
+        this.mRegistrationSelectorFragment = getActivity().getSupportFragmentManager().findFragmentById(R.id.registrationSelectorFragment);
         return signScreen;
     }
 
@@ -68,6 +85,12 @@ public class SignFragment extends MVPTinkerLinkFragment<SignPresenter, SignPrese
         signScreen.initAdapter();
     }
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        mRegistrationSelectorFragment.onActivityResult(requestCode, resultCode, data);
+    }
+
     //endregion
 
     //region **************  SignPresenter.View **************
@@ -77,28 +100,20 @@ public class SignFragment extends MVPTinkerLinkFragment<SignPresenter, SignPrese
 
     @Override
     public void verifiedPage(int page) {
-        switch (page) {
-            case SignAdapter.FACEBOOK_PAGE:
-                EventBus.getDefault().post(new FormRegistrationEvent(FormState.FACEBOOK));
-                break;
-            case SignAdapter.PHONE_PAGE:
-                EventBus.getDefault().post(new FormRegistrationEvent(FormState.PHONE));
-                break;
-            default:
-                EventBus.getDefault().post(new FormRegistrationEvent(FormState.VALIDATION));
+        if (page == SignAdapter.TINKER) {
+            signScreen.showNextPage();
+        } else if (page == SignAdapter.LINKER) {
+            signScreen.showRegistrationSeletor();
+        }else if (page == SignAdapter.USERFORM) {
+            signScreen.showValidator();
         }
     }
-    //endregion
-
-    //region **************  SignScreen.View **************
-
-    //endregion
 
     public boolean onBackPressed() {
-        InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Activity.INPUT_METHOD_SERVICE);
-        imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0);
-        return signScreen.showPreviousPage();
+        return signScreen.hidePage();
     }
+
+    //endregion
 
     private void initSmsBroadCastReceiver() {
         LocalBroadcastManager.getInstance(getActivity()).registerReceiver(this.recepcionMensajeActivacion,
@@ -124,11 +139,9 @@ public class SignFragment extends MVPTinkerLinkFragment<SignPresenter, SignPrese
 
     //region **************  EventBus **************
 
-    public void onEventMainThread(FormValidationEvent event) {
-        if (event.isValidation()) {
-            int index = signScreen.showNextPage();
-            EventBus.getDefault().post(new NextPageEvent(FormState.stateFromIndex(index)));
-        }
+    @Subscribe
+    public void onEventMainThread(NextPageEvent event) {
+        signScreen.showNextPage();
     }
 
     //endregion

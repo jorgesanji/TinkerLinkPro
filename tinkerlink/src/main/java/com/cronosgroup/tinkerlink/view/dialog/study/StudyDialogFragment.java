@@ -16,6 +16,7 @@ import com.cronosgroup.tinkerlink.view.base.TinkerDialogFragment;
  */
 public class StudyDialogFragment extends TinkerDialogFragment implements StudyDialogScreen.Listener {
 
+    public static final int CODE = 679;
     public static final String STUDY_ADDED = "study_added";
     private StudyDialogScreen studyDialogScreen;
 

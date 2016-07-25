@@ -39,7 +39,7 @@
     <string name="profile_no_selecte_users_error">Select at least one user to ask for recommendations</string>
     <string name="profile_request_recommendation_error">We couldn\'t process the recommendation. Try again</string>
     <string name="profile_give_recommendation_error">We couldn\'t process the recommendation. Try again</string>
-    <string name="profile_give_recommendation_no_description_error">Please type a text to give a recommendation</string>
+    <string name="profile_give_recommendation_no_description_error">Please typeTinker a text to give a recommendation</string>
     <string name="setttings_logout_error">Log out failure. Try again</string>
 
     <string name="create_category_form_error">There was an error when selecting this profession, please choose another</string>

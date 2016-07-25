@@ -120,7 +120,6 @@ public class TLNetworkView extends RelativeLayout {
     @BindView(R.id.loadLinkerCategories)
     protected View mLinkerLoader;
 
-
     public TLNetworkView(Context context) {
         this(context, null);
     }

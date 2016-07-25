@@ -152,7 +152,7 @@
     <!-- View Elevation -->
     <dimen name="view_elevation_min">3dp</dimen>
     <dimen name="view_elevation">6dp</dimen>
-    <dimen name="toolbar_elevation">8dp</dimen>
+    <dimen name="view_mediun_elevation">8dp</dimen>
 
     <!-- Radius -->
     <dimen name="radius_big">20dp</dimen>

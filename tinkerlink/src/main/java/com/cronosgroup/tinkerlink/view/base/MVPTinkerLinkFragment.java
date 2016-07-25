@@ -184,6 +184,23 @@ public abstract class MVPTinkerLinkFragment<P extends Presenter<V>, V extends Ti
         return fragment;
     }
 
+    public <F extends Fragment> void addFragment(Class<F> clazz, int container) {
+        Fragment currentFragment = Fragment.instantiate(getActivity(), clazz.getName());
+        if (currentFragment != null) {
+            FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+            transaction.add(container, currentFragment, clazz.getName());
+            transaction.commit();
+        }
+    }
+
+    public void removeFragment(String tag) {
+        Fragment fragment = getActivity().getSupportFragmentManager().findFragmentByTag(tag);
+        if (fragment != null) {
+            getActivity().getSupportFragmentManager().beginTransaction().
+                    remove(fragment).commit();
+        }
+    }
+
     @Override
     public void removeActivityDelay() {
         if (getActivity() != null) {

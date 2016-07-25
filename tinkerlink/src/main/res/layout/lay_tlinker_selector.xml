@@ -1,14 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/sign_background">
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+        android:id="@+id/titleTLinker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_mediun"
+        android:gravity="center"
+        android:text="@string/sign_register_title_preferences"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_size_big"
+        app:fontName="Regular" />
+
+    <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+        android:id="@+id/descriptionTLinker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_mediun"
+        android:layout_marginLeft="@dimen/margin_mediun"
+        android:layout_marginRight="@dimen/margin_mediun"
+        android:gravity="center"
+        android:text="@string/sign_register_title_tinker"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_size_mediun"
+        app:fontName="Regular" />
 
     <com.cronosgroup.tinkerlink.view.customviews.TLRecyclerView
         android:id="@+id/categoriesList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginLeft="@dimen/margin_big"
-        android:layout_marginRight="@dimen/margin_big" />
+        android:layout_marginRight="@dimen/margin_big"
+        android:layout_marginTop="@dimen/margin_mediun" />
 
 </LinearLayout>

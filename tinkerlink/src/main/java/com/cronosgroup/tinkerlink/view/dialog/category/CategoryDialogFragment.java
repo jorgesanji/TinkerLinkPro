@@ -16,6 +16,7 @@ import com.cronosgroup.tinkerlink.view.base.TinkerDialogFragment;
  */
 public class CategoryDialogFragment extends TinkerDialogFragment implements CategoryDialogScreen.Listener {
 
+    public static final int CODE = 890;
     public static final String CATEGORY_SELECTED = "CATEGORY_SELECTED";
 
     private CategoryDialogScreen categoryDialogScreen;
@@ -29,14 +30,14 @@ public class CategoryDialogFragment extends TinkerDialogFragment implements Cate
     @Override
     public void onResume() {
         super.onResume();
-//        categoryDialogScreen.setItemsAdapter(TinkerLinkApplication.getApp().getCategories());
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-//        categoryDialogScreen = new CategoryDialogScreen(getActivity(), (getArguments().getInt(StackCardActivity.TYPE_CARD) == StackCardActivity.TYPE_LINKER), this);
+//        categoryDialogScreen = new CategoryDialogScreen(getActivity(), (getArguments().getInt(Stack.TYPE_CARD) == StackCardActivity.TYPE_LINKER), this);
+        categoryDialogScreen = new CategoryDialogScreen(getActivity(), true, this);
         return categoryDialogScreen;
     }
 

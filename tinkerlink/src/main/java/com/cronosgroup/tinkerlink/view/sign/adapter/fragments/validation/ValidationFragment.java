@@ -14,7 +14,6 @@ import com.cronosgroup.tinkerlink.presenter.sign.ValidationPresenter;
 import com.cronosgroup.tinkerlink.utils.AppAlertBuilder;
 import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
-import com.cronosgroup.tinkerlink.view.base.TinkerLinkActivity;
 import com.cronosgroup.tinkerlink.view.interfaces.IOFormListener;
 import com.cronosgroup.tinkerlink.view.interfaces.IOValidationForm;
 
@@ -43,14 +42,13 @@ public class ValidationFragment extends MVPTinkerLinkFragment<ValidationPresente
             mCallback = (IOFormListener) activity;
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString()
-                    + " must implement TextClicked");
+                    + " must implement IOFormListener");
         }
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        validationPage.stopCounter();
         if (EventBus.getDefault().isRegistered(this)) {
             EventBus.getDefault().unregister(this);
         }
@@ -62,12 +60,6 @@ public class ValidationFragment extends MVPTinkerLinkFragment<ValidationPresente
         if (!EventBus.getDefault().isRegistered(this)) {
             EventBus.getDefault().register(this);
         }
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        validationPage.stopCounter();
     }
 
     //endregion
@@ -93,22 +85,7 @@ public class ValidationFragment extends MVPTinkerLinkFragment<ValidationPresente
 
     @Override
     protected void onDidAppear() {
-    }
-
-    @Override
-    public void showLoading() {
-        super.showLoading();
-        if (getActivity() != null) {
-            ((TinkerLinkActivity) getActivity()).showLoading();
-        }
-    }
-
-    @Override
-    public void hideLoading() {
-        super.hideLoading();
-        if (getActivity() != null) {
-            ((TinkerLinkActivity) getActivity()).hideLoading();
-        }
+        getPresenter().getPermissionManager().requestSmsPermission();
     }
 
     //endregion
@@ -154,6 +131,11 @@ public class ValidationFragment extends MVPTinkerLinkFragment<ValidationPresente
         getPresenter().getCode();
     }
 
+    @Override
+    public void onVeryfiedPressed() {
+        EventBus.getDefault().post(new NextPageEvent());
+    }
+
     //endregion
 
     @Override
@@ -161,10 +143,10 @@ public class ValidationFragment extends MVPTinkerLinkFragment<ValidationPresente
         return false;
     }
 
+
     //region **************  EventBus **************
     @Subscribe
     public void onEventMainThread(SmsEvent event) {
-        validationPage.stopCounter();
         validationPage.setCode(event.getCode());
         getPresenter().checkCode(event.getCode());
     }
@@ -174,16 +156,13 @@ public class ValidationFragment extends MVPTinkerLinkFragment<ValidationPresente
         if (event.getState() == FormState.VALIDATION) {
             appUser = mCallback.getFormUser();
             validationPage.setTitle(appUser.getPhone());
-            validationPage.stopCounter();
-            validationPage.startCounter();
         }
     }
 
     @Subscribe
     public void onEventMainThread(FormRegistrationEvent event) {
         if (event.getState() == FormState.VALIDATION) {
-            validationPage.stopCounter();
-            getPresenter().checkCode(validationPage.getCode());
+            getPresenter().checkCode(validationPage.getValidationCode());
         }
     }
 

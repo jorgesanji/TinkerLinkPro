@@ -451,13 +451,10 @@
     <string name="profile_request_received">Pendiente</string>
     <string name="profile_friends">Amigos</string>
     <string name="profile_contacts_common">En común</string>
-
     <string name="profile_write_message">Escribir mensaje</string>
     <string name="profile_services">Soy Tinker</string>
     <string name="profile_offers">Busco Tinker</string>
-
     <string name="newsFeed_reject_user_contact">Solicitud de contacto rechazada</string>
-
     <string name="profile_description_title">DESCRIPCIÓN</string>
 
     <!-- Edit Profile-->
@@ -538,7 +535,29 @@
     <string name="sign_select_gender">SEXO</string>
     <string name="sign_select_gender_women">Mujer</string>
     <string name="sign_select_gender_men">Hombre</string>
-
+    <string name="sign_register_title">!Registrate gratis!</string>
+    <string name="sign_register_sms">Registrarse con SMS</string>
+    <string name="sign_register_gmail">Registrarse con Gmail</string>
+    <string name="sign_register_facebook">Registrarse con facebook</string>
+    <string name="sign_register_or">o</string>
+    <string name="sign_register_title_preferences">Preferecias</string>
+    <string name="sign_register_title_tinker">Selecciona las categorías relacionadas a tu\nocupación así potenciales clientes pódran\necontrarte y coincidir contigo</string>
+    <string name="sign_register_title_linker">¿Que tipo de ayuda podrás necesitar? Queremos\nsugerirte los mejores trabajadores de acuerdo\na tus necesidades</string>
+    <string name="sign_register_validation_title">Registrarse con SMS</string>
+    <string name="sign_register_validation_send">Enviado un SMS al %s</string>
+    <string name="sign_register_validation_introduce_code">Introduce e código de seguridad</string>
+    <string name="sign_register_validation_introduce_code_hint">Código de verificación</string>
+    <string name="sign_register_validation_retry">Reintentar(8)</string>
+    <string name="sign_register_verify">VERIFICAR</string>
+    <string name="sign_register_user_welcome">Bienvenida %s!</string>
+    <string name="sign_register_user_create_profile">Comienza a crear tu perfil</string>
+    <string name="sign_register_user_select_job">Seleccione una ocupación</string>
+    <string name="sign_register_user_description">DESCRIPCIÓN</string>
+    <string name="sign_register_user_description_hint">Realizo el trabajo con total resposabilidad y entusiasmo. Entrego el material en tiempo y forma. No dudes en enviarme un mensaje por cualquier consulta!</string>
+    <string name="sign_register_user_studies">ESTUDIOS Ó CURSOS</string>
+    <string name="sign_register_user_studies_add">Agregar estudio o curso</string>
+    <string name="sign_register_user_camera">Camara</string>
+    <string name="sign_register_user_gallery">Galeria</string>
 
     <!--  Home  -->
     <string name="home_newsfeed">NewsFeed</string>

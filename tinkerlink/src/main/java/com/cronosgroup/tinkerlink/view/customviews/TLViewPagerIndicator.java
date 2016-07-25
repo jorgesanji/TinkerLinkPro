@@ -77,6 +77,7 @@ public class TLViewPagerIndicator extends LinearLayout {
                 LayoutParams params = new LayoutParams((int) getSizeDot(), (int) getSizeDot());
                 params.setMargins(MARGIN_INTO_DOTS, 0, 0, 0);
                 dotImage.setLayoutParams(params);
+                dotImage.setImageDrawable(getImageUnSelectedDot());
                 addView(dotImage);
             }
         }

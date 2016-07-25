@@ -6,6 +6,10 @@ import android.os.Build;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
+import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 
 import com.cronosgroup.tinkerlink.R;
@@ -39,32 +43,36 @@ public class SignScreen extends RelativeLayout {
 
     // Views
     @BindView(R.id.signPager)
-    TLViewPager mPager;
+    protected TLViewPager mPager;
 
     @BindView(R.id.currentPage)
-    TLTextView mCurrentPage;
+    protected TLTextView mCurrentPage;
 
     @BindView(R.id.nextPage)
-    TLButton mNextButton;
+    protected TLButton mNextButton;
 
     @BindView(R.id.pageIndicator)
-    TLViewPagerIndicator mPageIndicator;
+    protected TLViewPagerIndicator mPageIndicator;
+
+    @BindView(R.id.registrationContainer)
+    protected FrameLayout mRegistrationContainer;
+
+    @BindView(R.id.validationContainer)
+    protected FrameLayout mValidationContainer;
 
     /**
      * @param context
      */
     public SignScreen(Context context, FragmentManager fragmentManager) {
-        super(context);
+        this(context);
         this.fragmentManager = fragmentManager;
-        init();
     }
 
     /**
      * @param context
      */
     public SignScreen(Context context) {
-        super(context);
-        init();
+        this(context, (AttributeSet) null);
     }
 
     /**
@@ -81,8 +89,7 @@ public class SignScreen extends RelativeLayout {
      * @param defStyleAttr
      */
     public SignScreen(Context context, AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-        init();
+        this(context, attrs, defStyleAttr, 0);
     }
 
     /**
@@ -100,13 +107,51 @@ public class SignScreen extends RelativeLayout {
     private void init() {
         inflate(getContext(), R.layout.lay_sign, this);
         ButterKnife.bind(this);
+        initUI();
     }
 
+    private void initUI() {
+        mPageIndicator.setNumDots(4);
+        mPageIndicator.setCurrentSelected(0);
+    }
 
-    private void setCurrentPage(int position, int titleLogin, int titleButtom) {
-        mCurrentPage.setText(getResources().getString(titleLogin));
-        mNextButton.setText(getResources().getString(titleButtom));
-        mPageIndicator.setCurrentSelected(position);
+    private void hideContainer(final View container) {
+        Animation animation = AnimationUtils.loadAnimation(getContext(), R.anim.anim_activity_down);
+        animation.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                container.setVisibility(GONE);
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
+        container.startAnimation(animation);
+    }
+
+    private void showContainer(View container) {
+        container.setVisibility(VISIBLE);
+        Animation animation = AnimationUtils.loadAnimation(getContext(), R.anim.anim_activity_up);
+        container.startAnimation(animation);
+    }
+
+    private boolean removeContainers() {
+        if (mRegistrationContainer.getVisibility() == VISIBLE) {
+            hideContainer(mRegistrationContainer);
+            return true;
+        } else if (mValidationContainer.getVisibility() == VISIBLE) {
+            hideContainer(mValidationContainer);
+            return true;
+        }
+
+        return false;
     }
 
     // **************  UI Actions **************
@@ -114,6 +159,11 @@ public class SignScreen extends RelativeLayout {
     @OnClick(R.id.nextPage)
     protected void onNextStepPressed() {
         listener.verifiedPage(mPager.getCurrentItem());
+    }
+
+    @OnClick(R.id.validationContainer)
+    protected void onCloseValidator() {
+        hideContainer(mValidationContainer);
     }
 
     // Public Methods
@@ -127,36 +177,25 @@ public class SignScreen extends RelativeLayout {
         mPager.setAdapter(mAdapter);
         mPager.setDisableSwipe(true);
         mPager.setOffscreenPageLimit(1);
-
         mPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
             }
 
             @Override
             public void onPageSelected(int position) {
-                switch (position) {
-                    case SignAdapter.FACEBOOK_PAGE:
-                        setCurrentPage(position, R.string.sign_title_start, R.string.sign_next_button);
-                        break;
-                    case SignAdapter.PHONE_PAGE:
-                        setCurrentPage(position, R.string.sign_title_validate, R.string.sign_title_send_message);
-                        break;
-                    case SignAdapter.VALIDATION_PAGE:
-                        setCurrentPage(position, R.string.sign_title_enter_code, R.string.sign_title_send_code);
-                        break;
-                }
+                mCurrentPage.setText((position + 1) + "/" + mAdapter.getCount());
+                mPageIndicator.setCurrentSelected(position);
             }
 
             @Override
             public void onPageScrollStateChanged(int state) {
-
             }
         });
     }
 
     public int showNextPage() {
+        removeContainers();
         mPager.setCurrentItem(mPager.getCurrentItem() + 1, true);
         return mPager.getCurrentItem();
     }
@@ -167,5 +206,21 @@ public class SignScreen extends RelativeLayout {
             return true;
         }
         return false;
+    }
+
+    public void showRegistrationSeletor() {
+        showContainer(mRegistrationContainer);
+    }
+
+    public void showValidator() {
+        showContainer(mValidationContainer);
+    }
+
+    public boolean hidePage() {
+        if (removeContainers()) {
+            return true;
+        } else {
+            return showPreviousPage();
+        }
     }
 }

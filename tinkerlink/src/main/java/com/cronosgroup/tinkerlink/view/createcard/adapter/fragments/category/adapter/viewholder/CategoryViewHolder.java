@@ -24,7 +24,7 @@ public class CategoryViewHolder extends ParentViewHolder {
     @BindView(R.id.titleCategory)
     protected TLTextView mTitle;
 
-    public CategoryViewHolder(View itemView) {
+    public CategoryViewHolder(View itemView, int type) {
         super(itemView);
         ButterKnife.bind(this, itemView);
     }

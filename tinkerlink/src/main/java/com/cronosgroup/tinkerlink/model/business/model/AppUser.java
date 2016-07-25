@@ -1,5 +1,8 @@
 package com.cronosgroup.tinkerlink.model.business.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by jorgesanmartin on 10/23/15.
  */
@@ -28,6 +31,7 @@ public class AppUser {
     private String cropBitmageBase64;
     private String phone;
     private String code;
+    private List<String> skills = new ArrayList<>();
 
     public AppUser() {
         super();
@@ -132,5 +136,13 @@ public class AppUser {
 
     public void setIdUser(String idUser) {
         this.idUser = idUser;
+    }
+
+    public List<String> getSkills() {
+        return skills;
+    }
+
+    public void setSkills(List<String> skills) {
+        this.skills = skills;
     }
 }

@@ -27,7 +27,7 @@ public class SkillsViewHolder extends ChildViewHolder {
     @BindView(R.id.skillSelector)
     protected CheckBox mSkillSelector;
 
-    public SkillsViewHolder(View itemView) {
+    public SkillsViewHolder(View itemView, int type) {
         super(itemView);
         ButterKnife.bind(this, itemView);
     }

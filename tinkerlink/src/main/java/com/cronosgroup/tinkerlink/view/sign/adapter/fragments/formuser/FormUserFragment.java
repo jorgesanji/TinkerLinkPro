@@ -1,26 +1,22 @@
 package com.cronosgroup.tinkerlink.view.sign.adapter.fragments.formuser;
 
 import android.app.Activity;
-import android.os.Bundle;
 import android.view.View;
 
-import com.cronosgroup.tinkerlink.model.business.model.AppUser;
 import com.cronosgroup.tinkerlink.presenter.sign.FormUserPresenter;
 import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
 import com.cronosgroup.tinkerlink.view.dialog.country.DialogFragment;
 import com.cronosgroup.tinkerlink.view.interfaces.IOFormListener;
-import com.cronosgroup.tinkerlink.view.interfaces.IOValidationForm;
 
 /**
  * Created by jorgesanmartin on 1/29/16.
  */
 public class FormUserFragment extends MVPTinkerLinkFragment<FormUserPresenter, FormUserPresenter.View>
-        implements FormUserPresenter.View, FormUserScreen.Listener, IOValidationForm {
+        implements FormUserPresenter.View, FormUserScreen.Listener {
 
     //Vars
     private IOFormListener mCallback;
-    private AppUser appUser;
 
     //Views
     private FormUserScreen formUserScreen;
@@ -34,14 +30,8 @@ public class FormUserFragment extends MVPTinkerLinkFragment<FormUserPresenter, F
             mCallback = (IOFormListener) activity;
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString()
-                    + " must implement TextClicked");
+                    + " must implement IOFormListener");
         }
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        appUser = mCallback.getFormUser();
     }
 
     //endregion
@@ -71,20 +61,14 @@ public class FormUserFragment extends MVPTinkerLinkFragment<FormUserPresenter, F
 
     //endregion
 
-    //region **************  TLinkerSelectorPresenter.View **************
+    //region **************  FormUserPresenter.View **************
     //endregion
 
-    //region **************  LinkerSelectorScreen.Listener **************
+    //region **************  FormUserScreen.Listener **************
     @Override
     public void onSelectCountry() {
         addDialogFragment(DialogFragment.class, DialogFragment.CODE);
     }
     //endregion
-
-    @Override
-    public boolean validationForm() {
-        return true;
-    }
-
 
 }

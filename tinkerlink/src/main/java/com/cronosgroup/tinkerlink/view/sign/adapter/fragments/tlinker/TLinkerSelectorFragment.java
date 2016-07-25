@@ -1,31 +1,28 @@
 package com.cronosgroup.tinkerlink.view.sign.adapter.fragments.tlinker;
 
 import android.app.Activity;
-import android.os.Bundle;
 import android.view.View;
 
-import com.cronosgroup.tinkerlink.model.business.model.AppUser;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestCategoria;
 import com.cronosgroup.tinkerlink.presenter.sign.TLinkerSelectorPresenter;
 import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
 import com.cronosgroup.tinkerlink.view.interfaces.IOFormListener;
-import com.cronosgroup.tinkerlink.view.interfaces.IOValidationForm;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by jorgesanmartin on 1/29/16.
  */
 public class TLinkerSelectorFragment extends MVPTinkerLinkFragment<TLinkerSelectorPresenter, TLinkerSelectorPresenter.View>
-        implements TLinkerSelectorPresenter.View, TLinkerSelectorScreen.Listener, IOValidationForm {
+        implements TLinkerSelectorPresenter.View, TLinkerSelectorScreen.Listener {
+
+    public static final String KEY_TYPE = "type";
 
     //Vars
     private IOFormListener mCallback;
-    private AppUser appUser;
     private RestCategoria categoria;
-    private List<String> skillList = new ArrayList<>();
+    private int typeTinker;
 
     //Views
     private TLinkerSelectorScreen tLinkerSelectorScreen;
@@ -43,19 +40,14 @@ public class TLinkerSelectorFragment extends MVPTinkerLinkFragment<TLinkerSelect
         }
     }
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        appUser = mCallback.getFormUser();
-    }
-
     //endregion
 
     //region **************  MVPFragment **************
 
     @Override
     protected View getRootView() {
-        tLinkerSelectorScreen = new TLinkerSelectorScreen(getActivity());
+        typeTinker = getArguments().getInt(KEY_TYPE);
+        tLinkerSelectorScreen = new TLinkerSelectorScreen(getActivity(), typeTinker);
         tLinkerSelectorScreen.setListener(this);
         return tLinkerSelectorScreen;
     }
@@ -98,16 +90,12 @@ public class TLinkerSelectorFragment extends MVPTinkerLinkFragment<TLinkerSelect
         int positionOffset = (position - tLinkerSelectorScreen.getItems().indexOf(categoria)) - 1;
         String skill = categoria.getChildItemList().get(positionOffset);
         if (!skill.contains(skill)) {
-            skillList.add(skill);
+            mCallback.getFormUser().getSkills().add(skill);
+        } else {
+            mCallback.getFormUser().getSkills().remove(skill);
         }
     }
 
     //endregion
-
-    @Override
-    public boolean validationForm() {
-        return true;
-    }
-
 
 }

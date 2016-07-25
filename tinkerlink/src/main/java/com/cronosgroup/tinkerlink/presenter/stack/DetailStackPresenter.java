@@ -43,7 +43,7 @@ public class DetailStackPresenter extends TinkerLinkPresenter<DetailStackPresent
 //        getView().showLoading();
 
 //        if (getView().isUser()) {
-//            CardUseCases.getUserCards(getView().getUser().getId(), getView().getType(), offset, new Callback<List<RestPost>, RestError>() {
+//            CardUseCases.getUserCards(getView().getUser().getId(), getView().getTypeTinker(), offset, new Callback<List<RestPost>, RestError>() {
 //
 //                @Override
 //                public void onResponse(List<RestPost> response) {
@@ -59,7 +59,7 @@ public class DetailStackPresenter extends TinkerLinkPresenter<DetailStackPresent
 //
 //            }, getView().getActivity());
 //        } else {
-//            CardUseCases.getAllCards(getView().getType(), offset, new Callback<List<RestPost>, RestError>() {
+//            CardUseCases.getAllCards(getView().getTypeTinker(), offset, new Callback<List<RestPost>, RestError>() {
 //
 //                @Override
 //                public void onResponse(List<RestPost> response) {

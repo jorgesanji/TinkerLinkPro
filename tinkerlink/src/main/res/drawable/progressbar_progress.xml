@@ -9,9 +9,9 @@
         android:height="48dip" />
 
     <gradient
-        android:centerColor="#f96047"
+        android:centerColor="@color/tinkercolor_50"
         android:centerY="0.50"
-        android:endColor="#fb9c8d"
+        android:endColor="@color/linkercolor"
         android:startColor="@color/tinkercolor"
         android:type="sweep"
         android:useLevel="false" />

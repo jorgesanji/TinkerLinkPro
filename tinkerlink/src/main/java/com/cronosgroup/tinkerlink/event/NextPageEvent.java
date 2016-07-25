@@ -9,6 +9,10 @@ public class NextPageEvent {
 
     private final FormState state;
 
+    public NextPageEvent() {
+        this.state = null;
+    }
+
     public NextPageEvent(FormState state) {
         this.state = state;
     }

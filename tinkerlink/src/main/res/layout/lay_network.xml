@@ -21,7 +21,7 @@
             <com.cronosgroup.tinkerlink.view.customviews.TLImageView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="10dp"
                 android:layout_weight="0.1"
                 android:src="@mipmap/newsfeed_crearcard_net" />
 
@@ -29,7 +29,7 @@
                 android:id="@+id/titleNetwork"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="20dp"
                 android:layout_weight="1"
                 android:gravity="center_vertical"
                 android:text="@string/network_title_network"
@@ -37,11 +37,20 @@
                 android:textSize="@dimen/text_size_mediun"
                 app:fontName="Bold" />
 
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="?android:attr/progressBarStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/progressbar_progress"
+                android:indeterminateTint="@color/tinkercolor" />
+
             <com.cronosgroup.tinkerlink.view.customviews.TLImageView
                 android:id="@+id/closeNetwork"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="10dp"
                 android:layout_weight="0.15"
                 android:scaleType="center"
                 android:src="@mipmap/newsfeed_crearcard_cancelar" />
@@ -340,13 +349,5 @@
         </ScrollView>
 
     </LinearLayout>
-
-    <ProgressBar
-        android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyleLarge"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:indeterminateTint="@color/tinkercolor" />
 
 </RelativeLayout>

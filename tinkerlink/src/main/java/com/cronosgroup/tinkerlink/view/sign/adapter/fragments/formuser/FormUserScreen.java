@@ -9,6 +9,7 @@ import android.widget.RelativeLayout;
 import com.cronosgroup.tinkerlink.R;
 
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Created by jorgesanmartin on 10/26/15.
@@ -70,6 +71,11 @@ public class FormUserScreen extends RelativeLayout {
 
 
     // Actions
+
+    @OnClick(R.id.selectorCountry)
+    protected void selectorPressed() {
+        listener.onSelectCountry();
+    }
 
     // Public method
 
