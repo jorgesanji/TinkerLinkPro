@@ -7,7 +7,6 @@ import com.cronosgroup.tinkerlink.presenter.createcard.CategorySelectionPresente
 import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -17,9 +16,6 @@ public class CategorySelectionFragment extends MVPTinkerLinkFragment<CategorySel
         implements CategorySelectionPresenter.View, CategorySelectionScreen.Listener {
 
     // Vars
-
-    private RestCategoria categoria;
-    private List<String> skillList = new ArrayList<>();
 
     // Views
     private CategorySelectionScreen categorySelectionScreen;
@@ -54,26 +50,12 @@ public class CategorySelectionFragment extends MVPTinkerLinkFragment<CategorySel
 
     @Override
     public void setCategories(List<RestCategoria> categories) {
-        categorySelectionScreen.setItems(categories);
     }
 
     //endregion
 
     //region ************** CategoryScreen.Listener **************
 
-    @Override
-    public void setCurrentCategorySelected(RestCategoria categoria) {
-        this.categoria = categoria;
-    }
-
-    @Override
-    public void skillSelectAtPosition(int position) {
-        int positionOffset = (position - categorySelectionScreen.getItems().indexOf(categoria)) - 1;
-        String skill = categoria.getChildItemList().get(positionOffset);
-        if (!skill.contains(skill)) {
-            skillList.add(skill);
-        }
-    }
 
     //endregion
 

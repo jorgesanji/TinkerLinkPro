@@ -30,7 +30,8 @@
                     <com.cronosgroup.tinkerlink.view.customviews.TLImageButton
                         android:id="@+id/editProfile"
                         android:layout_width="@dimen/view_min_width"
-                        android:layout_height="@dimen/view_min_width" />
+                        android:layout_height="@dimen/view_min_width"
+                        android:src="@mipmap/ic_edit" />
 
                     <RelativeLayout
                         android:layout_width="wrap_content"
@@ -59,7 +60,8 @@
                     <com.cronosgroup.tinkerlink.view.customviews.TLImageButton
                         android:id="@+id/configAccount"
                         android:layout_width="@dimen/view_min_width"
-                        android:layout_height="@dimen/view_min_width" />
+                        android:layout_height="@dimen/view_min_width"
+                        android:src="@mipmap/ic_action_settings" />
 
                 </LinearLayout>
 

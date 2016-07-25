@@ -19,4 +19,14 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true" />
 
+    <com.cronosgroup.tinkerlink.view.customviews.TLImageButton
+        android:id="@+id/networkUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/margin_small"
+        android:background="@android:color/transparent"
+        android:src="@mipmap/ic_action_social_share" />
+
 </RelativeLayout>

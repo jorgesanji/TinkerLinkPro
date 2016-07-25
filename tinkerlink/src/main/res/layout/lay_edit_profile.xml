@@ -1,6 +1,229 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    android:orientation="vertical">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/margin_big">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <include layout="@layout/lay_header_profile" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_big"
+                android:layout_marginRight="@dimen/margin_big"
+                android:orientation="vertical">
+
+                <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                    style="@style/TextViewLoginSecctionsStyle"
+                    android:layout_marginTop="@dimen/margin_mediun"
+                    android:text="@string/sign_select_name" />
+
+                <com.cronosgroup.tinkerlink.view.customviews.TLEditText
+                    android:id="@+id/nameUser"
+                    style="@style/EditFormStyle"
+                    android:hint="@string/sign_select_name_hint"
+                    android:inputType="text" />
+
+                <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                    style="@style/TextViewLoginSecctionsStyle"
+                    android:layout_marginTop="@dimen/margin_mediun"
+                    android:text="@string/sign_select_cogname" />
+
+                <com.cronosgroup.tinkerlink.view.customviews.TLEditText
+                    android:id="@+id/cognameUser"
+                    style="@style/EditFormStyle"
+                    android:hint="@string/sign_select_cogname_hint"
+                    android:inputType="text" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_plus_plus_biggest"
+                    android:orientation="horizontal">
+
+                    <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                        style="@style/TextViewLoginSecctionsStyle"
+                        android:layout_width="0dp"
+                        android:layout_weight="0.5"
+                        android:ellipsize="end"
+                        android:gravity="left"
+                        android:maxLines="1"
+                        android:text="@string/edit_profile_ubication_title" />
+
+                    <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                        style="@style/TextViewLoginSecctionsStyle"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_default_states"
+                        android:ellipsize="end"
+                        android:gravity="right"
+                        android:maxLines="1"
+                        android:text="@string/edit_profile_ubication"
+                        android:textSize="@dimen/text_size_small"
+                        app:fontName="Bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/selectorCountry"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_big"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                            android:id="@+id/idUbication"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.8"
+                            android:hint="@string/edit_profile_ubication_hint"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/gray_30"
+                            android:textSize="@dimen/text_size_mediun"
+                            app:fontName="Regular" />
+
+                        <com.cronosgroup.tinkerlink.view.customviews.TLImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@mipmap/ic_action_navigation_arrow_drop_down" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="@dimen/margin_mini"
+                        android:background="@color/black" />
+
+                </LinearLayout>
+
+                <com.cronosgroup.tinkerlink.view.customviews.TLEditText
+                    android:id="@+id/postalCode"
+                    style="@style/EditFormStyle"
+                    android:layout_marginTop="@dimen/margin_big"
+                    android:hint="@string/edit_profile_postal_code_hint"
+                    android:inputType="text" />
+
+                <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                    style="@style/TextViewLoginSecctionsStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_marginTop="@dimen/margin_plus_plus_biggest"
+                    android:text="@string/edit_profile_job" />
+
+                <LinearLayout
+                    android:id="@+id/selectorCategory"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_big"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                            android:id="@+id/idCategory"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.8"
+                            android:hint="@string/edit_profile_category_hint"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/gray_30"
+                            android:textSize="@dimen/text_size_mediun"
+                            app:fontName="Regular" />
+
+                        <com.cronosgroup.tinkerlink.view.customviews.TLImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@mipmap/ic_action_navigation_arrow_drop_down" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="@dimen/margin_mini"
+                        android:background="@color/black" />
+
+                </LinearLayout>
+
+                <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                    style="@style/TextViewLoginSecctionsStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_marginTop="@dimen/margin_plus_plus_biggest"
+                    android:text="@string/edit_profile_description" />
+
+                <com.cronosgroup.tinkerlink.view.customviews.TLEditText
+                    android:id="@+id/jobDescription"
+                    style="@style/EditFormMultilineStyle"
+                    android:layout_marginTop="@dimen/margin_big"
+                    android:hint="@string/sign_register_user_description_hint" />
+
+                <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                    style="@style/TextViewLoginSecctionsStyle"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="@dimen/margin_big"
+                    android:gravity="right"
+                    android:text="@string/edit_profile_description_number" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_plus_plus_biggest"
+                    android:orientation="horizontal">
+
+                    <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                        style="@style/TextViewLoginSecctionsStyle"
+                        android:layout_width="0dp"
+                        android:layout_weight="0.5"
+                        android:ellipsize="end"
+                        android:gravity="left|center_vertical"
+                        android:text="@string/sign_register_user_studies" />
+
+                    <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                        android:id="@+id/addStudyOrCourse"
+                        style="@style/TextViewLoginSecctionsStyle"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_default_states"
+                        android:ellipsize="end"
+                        android:gravity="right|center_vertical"
+                        android:text="@string/sign_register_user_studies_add"
+                        android:textSize="@dimen/text_size_small"
+                        app:fontName="Bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_big"
+                        android:orientation="vertical"></LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
 </LinearLayout>

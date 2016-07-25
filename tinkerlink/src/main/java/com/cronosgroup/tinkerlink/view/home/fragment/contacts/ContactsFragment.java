@@ -5,11 +5,10 @@ import android.view.View;
 import com.cronosgroup.tinkerlink.presenter.contacts.ContactsPresenter;
 import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
-import com.cronosgroup.tinkerlink.view.base.TinkerLinkActivity;
 
 
 /**
- * Login Fragment
+ * Contacts Fragment
  */
 public class ContactsFragment extends MVPTinkerLinkFragment<ContactsPresenter, ContactsPresenter.View>
         implements ContactsPresenter.View, ContactsScreen.Listener {
@@ -44,32 +43,9 @@ public class ContactsFragment extends MVPTinkerLinkFragment<ContactsPresenter, C
 
     //region **************  ContactsScreen.Listener **************
 
-    @Override
-    public void onLaunch() {
-        getPresenter().onLaunchNetWork();
-    }
-
-
     //endregion
 
     //region **************  ContactsPresenter.View **************
-
-    @Override
-    public void showLoading() {
-        super.showLoading();
-        if (getActivity() != null) {
-            ((TinkerLinkActivity) getActivity()).showLoading();
-        }
-    }
-
-    @Override
-    public void hideLoading() {
-        super.hideLoading();
-        if (getActivity() != null) {
-            ((TinkerLinkActivity) getActivity()).hideLoading();
-        }
-    }
-
 
     //endregion
 }

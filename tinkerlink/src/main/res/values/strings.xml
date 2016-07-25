@@ -600,5 +600,43 @@
     <string name="chat_report_chat">Reportar chat</string>
     <string name="chat_block_contact">Bloquear contact</string>
 
+    <!--  Create card  -->
+    <string name="create_card_ubication">UBICACIÓN</string>
+    <string name="create_card_especify_search">ESPECIFICA TU BUSQUEDA</string>
+    <string name="create_card_country_hint">Selecione su ubicación</string>
+    <string name="create_card_category_hint">Selecione la categoria</string>
+    <string name="create_card_subcategory_hint">Selecione una subcategoria</string>
+    <string name="create_card_subcategory_selected">Hemos seleccionado una imágen de fondo para la categoría de %s, puedes cambiarla si lo deseas.</string>
+    <string name="create_card_add_images">Puedes adjuntar fotografías para orientar a los potenciales candidatos</string>
+    <string name="create_card_add_images_number">0/5</string>
+    <string name="create_card_description_title">DESCRIPTION</string>
+    <string name="create_card_description">Te proponemos una descripción de ejemplo, puedes editarla si lo deseas.</string>
+    <string name="create_card_description_max_characters">0/140</string>
+    <string name="create_card_skill_title">HABILIDADES</string>
+    <string name="create_card_add_skill_hint">Agrega una habilidad</string>
+    <string name="create_card_add_skill_number">0/20</string>
+    <string name="create_card_experience">EXPERIENCIA DESEADA</string>
+    <string name="create_card_experience_default" formatted="false">%s a %s años</string>
+    <string name="create_card_budget_title">PRESUPUESTO</string>
+    <string name="create_card_budget_select_range">Selecciona un rango</string>
+    <string name="create_card_budget_range" formatted="false">%s a %s euros</string>
+    <string name="create_card_experience_agree">A convenir</string>
+    <string name="create_card_experience_previsualize">PREVISUALIZAR</string>
+    <string name="create_card_publish">PUBLICAR</string>
+    <string name="create_card_skills_title">HABILIDADES</string>
+    <string name="create_lorem_ipsun">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non gravida odio. Proin id lobortis nunc. Sed vitae tortor ut sapien scelerisque consectetur. Proin condimentum sit amet tellus eu lacinia. Integer id auctor justo. Pellentesque consequat convallis justo, id semper ante lacinia sed. Ut venenatis vehicula elit, et tempor diam lobortis a. Donec eu dignissim augue, vel volutpat lectus. Ut varius sodales arcu, sit amet gravida metus commodo sit amet. Vestibulum imperdiet, elit sed consectetur fermentum, tortor metus mollis odio, eu molestie lorem metus ac sem. Ut posuere consequat enim, in pharetra libero tempor rutrum. Maecenas id ante et eros maximus maximus bibendum vitae lorem.</string>
+
+
+    <!--  Edit Profile  -->
+    <string name="edit_profile_title">Editar perfil</string>
+    <string name="edit_profile_job">Ocupación</string>
+    <string name="edit_profile_ubication_title">Ubicación</string>
+    <string name="edit_profile_ubication">Utilizar mi ubicación actual</string>
+    <string name="edit_profile_ubication_hint">Selecciona un país</string>
+    <string name="edit_profile_postal_code_hint">Código postal</string>
+    <string name="edit_profile_category_hint">Selecciona un categoria</string>
+    <string name="edit_profile_description">DESCRIPTION</string>
+    <string name="edit_profile_description_number" formatted="false">%s/%s</string>
+
 
 </resources>

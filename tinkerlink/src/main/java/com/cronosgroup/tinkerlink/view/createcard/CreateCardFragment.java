@@ -2,9 +2,14 @@ package com.cronosgroup.tinkerlink.view.createcard;
 
 import android.view.View;
 
+import com.cronosgroup.tinkerlink.event.UpdateInfoCardEvent;
+import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
 import com.cronosgroup.tinkerlink.presenter.createcard.CreateCardPresenter;
 import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
 
 
 /**
@@ -17,6 +22,22 @@ public class CreateCardFragment extends MVPTinkerLinkFragment<CreateCardPresente
 
     // Views
     private CreateCardScreen createCardScreen;
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (EventBus.getDefault().isRegistered(this)) {
+            EventBus.getDefault().unregister(this);
+        }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (!EventBus.getDefault().isRegistered(this)) {
+            EventBus.getDefault().register(this);
+        }
+    }
 
     //region **************  MVPFragment **************
 
@@ -45,6 +66,12 @@ public class CreateCardFragment extends MVPTinkerLinkFragment<CreateCardPresente
     //endregion
 
     //region ************** CreateCardPresenter.View **************
+
+    @Override
+    public RestPost getCardData() {
+        return null;
+    }
+
     //endregion
 
     //region ************** CreateCardScreen.Listener **************
@@ -54,5 +81,24 @@ public class CreateCardFragment extends MVPTinkerLinkFragment<CreateCardPresente
         createCardScreen.goToNextPage();
     }
 
+    @Override
+    public void onPrevisualizePressed() {
+        getPresenter().onPrevisualizedPressed();
+    }
+
     //endregion
+
+    //region **************  EventBus **************
+
+    @Subscribe
+    public void onEventMainThread(UpdateInfoCardEvent event) {
+        createCardScreen.moveToPage(event.getPage());
+    }
+
+    //endregion
+
+    public boolean onBackPressed() {
+        return createCardScreen.showPreviousPage();
+    }
+
 }

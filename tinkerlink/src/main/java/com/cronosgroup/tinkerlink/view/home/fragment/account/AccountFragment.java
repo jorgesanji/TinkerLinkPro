@@ -5,7 +5,6 @@ import android.view.View;
 import com.cronosgroup.tinkerlink.presenter.account.AccountPresenter;
 import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
-import com.cronosgroup.tinkerlink.view.base.TinkerLinkActivity;
 
 
 /**
@@ -87,23 +86,6 @@ public class AccountFragment extends MVPTinkerLinkFragment<AccountPresenter, Acc
     //endregion
 
     //region **************  AccountPresenter.View **************
-
-    @Override
-    public void showLoading() {
-        super.showLoading();
-        if (getActivity() != null) {
-            ((TinkerLinkActivity) getActivity()).showLoading();
-        }
-    }
-
-    @Override
-    public void hideLoading() {
-        super.hideLoading();
-        if (getActivity() != null) {
-            ((TinkerLinkActivity) getActivity()).hideLoading();
-        }
-    }
-
 
     //endregion
 }

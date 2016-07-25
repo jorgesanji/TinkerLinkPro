@@ -10,9 +10,8 @@ import com.cronosgroup.tinkerlink.R;
 
 import butterknife.ButterKnife;
 
-
 /**
- * Main Network view.
+ * Main EditProfile view.
  */
 public class EditProfileScreen extends RelativeLayout {
 
@@ -31,8 +30,7 @@ public class EditProfileScreen extends RelativeLayout {
      * @param context
      */
     public EditProfileScreen(Context context) {
-        super(context);
-        init();
+        this(context, null);
     }
 
     /**
@@ -49,8 +47,7 @@ public class EditProfileScreen extends RelativeLayout {
      * @param defStyleAttr
      */
     public EditProfileScreen(Context context, AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-        init();
+        this(context, attrs, defStyleAttr, 0);
     }
 
     /**

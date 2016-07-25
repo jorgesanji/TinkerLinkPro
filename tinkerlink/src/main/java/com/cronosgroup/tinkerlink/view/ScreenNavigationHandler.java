@@ -15,6 +15,7 @@ import com.cronosgroup.tinkerlink.presenter.createcard.CreateCardPresenter;
 import com.cronosgroup.tinkerlink.presenter.createcard.ExperienceSelectionPresenter;
 import com.cronosgroup.tinkerlink.presenter.createcard.SkillSelectionPresenter;
 import com.cronosgroup.tinkerlink.presenter.createrecommendation.CreateRecommendationPresenter;
+import com.cronosgroup.tinkerlink.presenter.detailcard.DetailCardPresenter;
 import com.cronosgroup.tinkerlink.presenter.editprofile.EditProfilePresenter;
 import com.cronosgroup.tinkerlink.presenter.home.HomePresenter;
 import com.cronosgroup.tinkerlink.presenter.login.LoginPresenter;
@@ -36,6 +37,7 @@ import com.cronosgroup.tinkerlink.view.chatuser.ChatUserActivity;
 import com.cronosgroup.tinkerlink.view.config.ConfigActivity;
 import com.cronosgroup.tinkerlink.view.createcard.CreateCardActivity;
 import com.cronosgroup.tinkerlink.view.createrecommendation.CreateRecommendationActivity;
+import com.cronosgroup.tinkerlink.view.detailcard.DetailCardActivity;
 import com.cronosgroup.tinkerlink.view.editprofile.EditProfileActivity;
 import com.cronosgroup.tinkerlink.view.home.HomeActivity;
 import com.cronosgroup.tinkerlink.view.login.LoginActivity;
@@ -60,7 +62,8 @@ public final class ScreenNavigationHandler implements HomePresenter.Actions,
         CreateRecommendationPresenter.Actions, ChatUserPresenter.Actions,
         CategorySelectionPresenter.Actions, ExperienceSelectionPresenter.Actions,
         SkillSelectionPresenter.Actions, PreSignUserPresenter.Actions,
-        LoginPresenter.Actions, RegisterSelectorPresenter.Actions, SignProfilePresenter.Actions {
+        LoginPresenter.Actions, RegisterSelectorPresenter.Actions, SignProfilePresenter.Actions,
+        DetailCardPresenter.Actions {
 
     //Instance
     private static ScreenNavigationHandler instance = null;
@@ -140,6 +143,10 @@ public final class ScreenNavigationHandler implements HomePresenter.Actions,
         return newTask(context, DetailStackActivity.class, bundle);
     }
 
+    private static Intent detailCard(@NonNull Activity context, Bundle bundle) {
+        return newTask(context, DetailCardActivity.class, bundle);
+    }
+
     private static Intent network(@NonNull Activity context, Bundle bundle) {
         return newTask(context, NetworkActivity.class, bundle);
     }
@@ -212,11 +219,18 @@ public final class ScreenNavigationHandler implements HomePresenter.Actions,
         startActivity(activity, stack(activity, bundle));
     }
 
-    // ------------------------ STACK -----------------------------------
+    // ------------------------ DETAIL CARD -----------------------------------
 
     @Override
     public void onLaunchDetailStack(Activity activity, Bundle bundle) {
         startActivity(activity, R.anim.anim_activity_up, R.anim.anim_activity_stay, detailStack(activity, bundle));
+    }
+
+    // ------------------------ STACK -----------------------------------
+
+    @Override
+    public void onLaunchPresvisualized(Activity activity, Bundle bundle) {
+        startActivity(activity, detailCard(activity, bundle));
     }
 
     // ------------------------ PROFILE -----------------------------------

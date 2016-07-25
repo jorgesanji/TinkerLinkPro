@@ -73,6 +73,8 @@
         <item name="android:textColorSecondary">@color/white</item>
         <!-- Title color-->
         <item name="android:textColorPrimary">@color/white</item>
+        <!-- buttons text color-->
+        <item name="actionMenuTextColor">@color/white</item>
     </style>
 
     <style name="ThemeToolbarCreateRecommendationStyle" parent="AppTheme">
@@ -108,29 +110,6 @@
         <!--<item name="android:windowContentOverlay">@null</item>-->
         <!-- remove the shadow from under the title bar -->
     </style>
-
-
-    <!--android:layout_width="@dimen/view_super_big_width"-->
-    <!--android:layout_height="@dimen/view_min_size_sing"-->
-    <!--android:layout_marginTop="@dimen/margin_big"-->
-    <!--android:background="@drawable/button_sign_google_states"-->
-    <!--android:drawableLeft="@mipmap/login_facebooklogo"-->
-    <!--android:paddingLeft="20dp"-->
-    <!--android:text="@string/login_start_google_session"-->
-    <!--android:textColor="@color/white"-->
-    <!--android:textSize="@dimen/text_size_tiny"-->
-    <!--app:fontName="Regular"-->
-
-    <!--<style name="SignButtonStyle">-->
-    <!--<item name="android:layout_width">@dimen/view_super_big_width</item>-->
-    <!--<item name="android:layout_height">@dimen/view_min_size_sing</item>-->
-    <!--<item name="android:layout_weight">1</item>-->
-    <!--<item name="android:gravity">center</item>-->
-    <!--<item name="android:background">@drawable/button_sign_states</item>-->
-    <!--<item name="android:textColor">@color/white</item>-->
-    <!--<item name="android:textSize">@dimen/text_size_tiny</item>-->
-    <!--<item name="fontName">Regular</item>-->
-    <!--</style>-->
 
     <style name="SignButtonStyle">
         <item name="android:layout_width">@dimen/view_super_big_width</item>

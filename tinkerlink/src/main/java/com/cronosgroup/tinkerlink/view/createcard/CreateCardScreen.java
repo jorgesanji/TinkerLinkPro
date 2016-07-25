@@ -27,6 +27,8 @@ public class CreateCardScreen extends RelativeLayout {
 
     public interface Listener {
         void nextPage(int position);
+
+        void onPrevisualizePressed();
     }
 
     // Vars
@@ -106,6 +108,7 @@ public class CreateCardScreen extends RelativeLayout {
             public void onPageSelected(int position) {
                 mPageIndicator.setCurrentSelected(position);
                 mCurrentPage.setText((position + 1) + "/" + mAdapter.getCount());
+                nextPage.setText(getResources().getString(isLastPage() ? R.string.create_card_experience_previsualize : R.string.sign_next_button));
             }
 
             @Override
@@ -115,11 +118,19 @@ public class CreateCardScreen extends RelativeLayout {
         });
     }
 
+    private boolean isLastPage() {
+        return (mPager.getCurrentItem() == (mAdapter.getCount() - 1));
+    }
+
     // Actions
 
     @OnClick(R.id.nextPage)
     protected void nextPagePressed() {
-        listener.nextPage(mPager.getCurrentItem());
+        if (isLastPage()) {
+            listener.onPrevisualizePressed();
+        } else {
+            listener.nextPage(mPager.getCurrentItem());
+        }
     }
 
     // Public methods
@@ -138,8 +149,18 @@ public class CreateCardScreen extends RelativeLayout {
     }
 
     public void goToNextPage() {
-        if ((mAdapter.getCount() - 1) == mPager.getCurrentItem()) {
-            mPager.setCurrentItem(mPager.getCurrentItem() + 1);
+        moveToPage(mPager.getCurrentItem() + 1);
+    }
+
+    public void moveToPage(int position) {
+        mPager.setCurrentItem(position);
+    }
+
+    public boolean showPreviousPage() {
+        if (mPager.getCurrentItem() - 1 >= 0) {
+            mPager.setCurrentItem(mPager.getCurrentItem() - 1, true);
+            return true;
         }
+        return false;
     }
 }

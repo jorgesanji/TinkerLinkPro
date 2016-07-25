@@ -12,7 +12,7 @@ import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.manager.AppConfigManager;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContacto;
 import com.cronosgroup.tinkerlink.view.customviews.TLCommonContactsView;
-import com.cronosgroup.tinkerlink.view.customviews.TLHabilityView;
+import com.cronosgroup.tinkerlink.view.customviews.TLSkillView;
 import com.cronosgroup.tinkerlink.view.customviews.TLImageRoundBorder;
 import com.cronosgroup.tinkerlink.view.customviews.TLImageView;
 import com.cronosgroup.tinkerlink.view.customviews.TLScrollView;
@@ -233,7 +233,7 @@ public class CardScreen extends RelativeLayout {
         this.userSkills = userSkills;
         if (userSkills != null && userSkills.size() > 0) {
             for (String habilidad : userSkills) {
-                TLHabilityView view = new TLHabilityView(getContext());
+                TLSkillView view = new TLSkillView(getContext());
                 view.setTitleText(habilidad);
                 view.setEnabled(false);
                 view.setChecked(true);

@@ -38,6 +38,14 @@ public class CreateCardActivity extends TinkerLinkActivity<CreateCardFragment> {
         return getIntent().getExtras().getSerializable(StackActivity.STACK_TYPE) == StackActivity.Stack.LINKER ? StyleToolBar.LINKERSTYLE : StyleToolBar.TINKERSTYLE;
     }
 
+    @Override
+    public void onBackPressed() {
+        if (getCurrentFragment() != null && ((CreateCardFragment) getCurrentFragment()).onBackPressed()) {
+            return;
+        }
+        super.onBackPressed();
+    }
+
     // Manage Permissions
 
     @Override

@@ -7,74 +7,7 @@
     android:gravity="center_horizontal"
     android:orientation="vertical">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="200dp">
-
-        <include
-            layout="@layout/lay_header_card"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="@dimen/margin_plus_biggest" />
-
-        <com.cronosgroup.tinkerlink.view.customviews.TLTextView
-            android:id="@+id/titleWelcome"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_big"
-            android:gravity="center"
-            android:text="@string/sign_register_user_welcome"
-            android:textColor="@color/white"
-            android:textSize="@dimen/text_size_mediun" />
-
-        <com.cronosgroup.tinkerlink.view.customviews.TLImageButton
-            android:id="@+id/profileUserWallImage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_below="@+id/titleWelcome"
-            android:layout_marginRight="@dimen/margin_plus_big"
-            android:background="@drawable/button_default_states"
-            android:src="@mipmap/ic_image_photo_camera" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <com.cronosgroup.tinkerlink.view.customviews.TLTextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_big"
-                android:gravity="center"
-                android:text="@string/sign_register_user_create_profile"
-                android:textColor="@color/white"
-                android:textSize="@dimen/text_size_mediun" />
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-                <com.cronosgroup.tinkerlink.view.customviews.TLImageRoundBorder
-                    android:layout_width="@dimen/view_max_height_big"
-                    android:layout_height="@dimen/view_max_height_big"
-                    android:layout_marginTop="@dimen/margin_mediun" />
-
-                <com.cronosgroup.tinkerlink.view.customviews.TLImageButton
-                    android:id="@+id/profileUserImage"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:background="@drawable/button_default_states"
-                    android:src="@mipmap/ic_image_photo_camera" />
-            </RelativeLayout>
-
-        </LinearLayout>
-
-    </RelativeLayout>
+    <include layout="@layout/lay_header_profile" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -141,7 +74,7 @@
                     android:text="@string/sign_register_user_description" />
 
                 <com.cronosgroup.tinkerlink.view.customviews.TLEditText
-                    android:id="@+id/passwordUser"
+                    android:id="@+id/jobDescription"
                     style="@style/EditFormMultilineStyle"
                     android:hint="@string/sign_register_user_description_hint" />
 

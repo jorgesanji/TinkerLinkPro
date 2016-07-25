@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/margin_big">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="220dp">
+
+                <include layout="@layout/lay_header_user_card" />
+
+                <include
+                    android:id="@+id/containerRecommendation"
+                    layout="@layout/lay_number_recommendations"
+                    android:layout_width="160dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true" />
+
+                <com.cronosgroup.tinkerlink.view.customviews.TLImageButton
+                    android:id="@+id/updateImages"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="@dimen/margin_big"
+                    android:background="@android:color/transparent"
+                    android:src="@mipmap/ic_edit" />
+
+            </RelativeLayout>
+
+            <include
+                layout="@layout/lay_contact_container"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="@dimen/margin_small"
+                android:layout_marginTop="@dimen/margin_big" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_big"
+                android:layout_marginRight="@dimen/margin_big"
+                android:layout_marginTop="@dimen/margin_big"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                        android:id="@+id/descriptionTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="@string/create_card_skills_title"
+                        android:textSize="@dimen/text_size_tiny"
+                        app:fontName="Bold" />
+
+                    <com.cronosgroup.tinkerlink.view.customviews.TLImageButton
+                        android:id="@+id/updateSkills"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@mipmap/ic_edit" />
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/skillsContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <com.cronosgroup.tinkerlink.view.customviews.TLSkillView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <com.cronosgroup.tinkerlink.view.customviews.TLSkillView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <com.cronosgroup.tinkerlink.view.customviews.TLSkillView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:orientation="horizontal">
+
+                <com.cronosgroup.tinkerlink.view.customviews.TLImageView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/zapatero" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.7"
+                    android:orientation="vertical">
+
+                    <com.cronosgroup.tinkerlink.view.customviews.TLImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/zapatero" />
+
+                    <com.cronosgroup.tinkerlink.view.customviews.TLImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/zapatero" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_big"
+                android:layout_marginRight="@dimen/margin_big"
+                android:layout_marginTop="@dimen/margin_big"
+                android:orientation="vertical">
+
+                <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/profile_description_title"
+                    android:textSize="@dimen/text_size_tiny"
+                    app:fontName="Bold" />
+
+                <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:text="@string/create_lorem_ipsun"
+                    android:textSize="@dimen/text_size_tiny"
+                    android:visibility="gone"
+                    app:fontName="Regular" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_big"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="left"
+                        android:text="@string/create_card_experience"
+                        android:textSize="@dimen/text_size_tiny"
+                        app:fontName="Bold" />
+
+                    <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:text="@string/create_card_experience_default"
+                        android:textSize="@dimen/text_size_tiny"
+                        app:fontName="Bold" />
+
+                </LinearLayout>
+
+
+                <ProgressBar
+                    style="@android:style/Widget.ProgressBar.Horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="6dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="@dimen/margin_mediun"
+                    android:progress="40"
+                    android:progressDrawable="@drawable/background_experience_progress_bar" />
+
+                <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_big"
+                    android:text="@string/create_card_budget_title"
+                    android:textSize="@dimen/text_size_tiny"
+                    app:fontName="Bold" />
+
+                <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_big"
+                    android:text="@string/create_card_budget_range"
+                    android:textSize="@dimen/text_size_tiny"
+                    app:fontName="Regular" />
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/margin_big">
+
+                <com.cronosgroup.tinkerlink.view.customviews.TLImageButton
+                    android:id="@+id/updateBudget"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@mipmap/ic_edit" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

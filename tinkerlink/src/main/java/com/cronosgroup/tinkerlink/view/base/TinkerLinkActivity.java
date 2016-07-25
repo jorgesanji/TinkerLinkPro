@@ -90,10 +90,10 @@ public abstract class TinkerLinkActivity<F extends MVPTinkerLinkFragment> extend
 
     private Fragment currentFragment;
 
-    // Views
-
     @Inject
     Logger mLooger;
+
+    // Views
 
     @BindView(R.id.toolbar)
     Toolbar mToolbar;

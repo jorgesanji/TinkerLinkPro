@@ -2,12 +2,100 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     android:orientation="vertical">
 
-    <com.cronosgroup.tinkerlink.view.customviews.TLTextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="SKILLS"
-        />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_big"
+            android:layout_marginRight="@dimen/margin_big"
+            android:orientation="vertical">
+
+            <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                style="@style/TextViewLoginSecctionsStyle"
+                android:layout_marginTop="@dimen/margin_mediun"
+                android:text="@string/create_card_description_title" />
+
+            <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                style="@style/TextViewLoginSecctionsStyle"
+                android:layout_marginTop="@dimen/margin_mediun"
+                android:gravity="left"
+                android:text="@string/create_card_description" />
+
+            <com.cronosgroup.tinkerlink.view.customviews.TLEditText
+                android:id="@+id/passwordUser"
+                style="@style/EditFormMultilineStyle"
+                android:hint="@string/sign_register_user_description_hint" />
+
+            <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                style="@style/TextViewLoginSecctionsStyle"
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/margin_small"
+                android:gravity="right"
+                android:text="@string/create_card_description_max_characters"
+                android:textSize="@dimen/text_size_small" />
+
+            <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                style="@style/TextViewLoginSecctionsStyle"
+                android:layout_marginTop="@dimen/margin_mediun"
+                android:text="@string/create_card_skill_title" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_big"
+                android:orientation="vertical">
+
+                <com.cronosgroup.tinkerlink.view.customviews.TLSkillView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <com.cronosgroup.tinkerlink.view.customviews.TLSkillView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.cronosgroup.tinkerlink.view.customviews.TLImageView
+                    android:id="@+id/plus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:scaleType="centerCrop"
+                    android:src="@android:drawable/btn_plus" />
+
+                <com.cronosgroup.tinkerlink.view.customviews.TLEditText
+                    android:id="@+id/idSkill"
+                    style="@style/EditFormStyle"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/plus"
+                    android:hint="@string/create_card_add_skill_hint"
+                    android:inputType="text"
+                    android:paddingRight="45dp" />
+
+                <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                    style="@style/TextViewLoginSecctionsStyle"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="@dimen/margin_mediun"
+                    android:text="@string/create_card_add_skill_number"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_small" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>

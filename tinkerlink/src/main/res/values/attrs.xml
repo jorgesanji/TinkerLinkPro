@@ -235,4 +235,10 @@
         <attr name="connectionEnable" format="boolean" />
     </declare-styleable>
 
+    <declare-styleable name="TLRangeView">
+        <attr name="absoluteMinValue" format="integer|float" />
+        <attr name="absoluteMaxValue" format="integer|float" />
+        <attr name="singleThumb" format="boolean" />
+    </declare-styleable>
+
 </resources>
