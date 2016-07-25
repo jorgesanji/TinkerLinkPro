@@ -335,7 +335,7 @@
     <string name="profile_edit_title">EDITAR PERFIL</string>
     <string name="profile_edit_nombre_curso_placeholder">Nombre del curso</string>
     <string name="profile_edit_institucion_study_placeholder">Institución</string>
-    <string name="profile_edit_add_study">Introduce tus estudios:</string>
+    <string name="profile_edit_add_study">Agregar estudio ó curso:</string>
     <string name="profile_recommendation_hint">Ayúdame a mejorar mi perfil recomendando las habilidades que sepas hago mejor</string>
     <string name="profile_recommendation_select_contacts">+ Seleccionar todos mi contactos</string>
     <string name="profile_recommendation_send_to">Enviar a:</string>

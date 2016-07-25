@@ -157,5 +157,8 @@
     <!-- Radius -->
     <dimen name="radius_big">20dp</dimen>
 
+    <!-- Dialog -->
+    <dimen name="view_dialog_height">300dp</dimen>
+
 
 </resources>

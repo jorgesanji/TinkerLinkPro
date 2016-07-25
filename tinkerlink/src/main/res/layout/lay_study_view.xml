@@ -5,30 +5,129 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+
+        <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:text="@string/profile_edit_add_study"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:fontName="Regular" />
+
+        <com.cronosgroup.tinkerlink.view.customviews.TLImageButton
+            android:id="@+id/close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/margin_mediun"
+            android:background="@android:color/transparent"
+            android:src="@mipmap/ic_close" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/gray_30" />
+
+    </RelativeLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:text="@string/profile_edit_add_study"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        app:fontName="Regular" />
+        android:layout_marginLeft="@dimen/margin_mediun"
+        android:layout_marginRight="@dimen/margin_mediun"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_margin="5dp"
-        android:background="@color/gray_30" />
+        <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+            style="@style/TextViewLoginSecctionsStyle"
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/margin_mediun"
+            android:gravity="left"
+            android:text="@string/studies_title" />
 
-    <include
-        layout="@layout/lay_study_field"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp" />
+        <com.cronosgroup.tinkerlink.view.customviews.TLEditText
+            android:id="@+id/titleName"
+            style="@style/EditFormStyle"
+            android:hint="@string/studies_title_hint"
+            android:inputType="text" />
+
+        <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+            style="@style/TextViewLoginSecctionsStyle"
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/margin_mediun"
+            android:gravity="left"
+            android:text="@string/studies_institute_title" />
+
+        <com.cronosgroup.tinkerlink.view.customviews.TLEditText
+            android:id="@+id/instituteName"
+            style="@style/EditFormStyle"
+            android:hint="@string/studies_institute_hint"
+            android:inputType="text" />
+
+        <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+            style="@style/TextViewLoginSecctionsStyle"
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/margin_mediun"
+            android:gravity="left"
+            android:text="@string/studies_institute_date" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_mediun"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/margin_mediun"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <Spinner
+                    android:id="@+id/selectMonth"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@color/gray" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <Spinner
+                    android:id="@+id/selectYear"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@color/gray" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
 
     <include
         layout="@layout/lay_dialog_buttons"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_plus_plus_biggest" />
 
 </LinearLayout>

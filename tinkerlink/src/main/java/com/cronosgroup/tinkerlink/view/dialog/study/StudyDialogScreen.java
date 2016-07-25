@@ -5,7 +5,9 @@ import android.content.Context;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.view.customviews.TLEditText;
@@ -33,31 +35,34 @@ public class StudyDialogScreen extends LinearLayout {
     private Listener listener;
 
     // Views
-    @BindView(R.id.institutionName)
-    TLEditText mInstitutionName;
+    @BindView(R.id.instituteName)
+    protected TLEditText mInstitutionName;
 
-    @BindView(R.id.courseName)
-    TLEditText mCourseName;
+    @BindView(R.id.titleName)
+    protected TLEditText mCourseName;
 
     @BindView(R.id.sendButton)
-    TLTextView mAddButton;
+    protected TLTextView mAddButton;
 
+    @BindView(R.id.selectMonth)
+    protected Spinner mSelectMonth;
+
+    @BindView(R.id.selectYear)
+    protected Spinner mSelectYear;
 
     /**
      * @param context
      */
     public StudyDialogScreen(Context context, Listener listener) {
-        super(context);
+        this(context);
         this.listener = listener;
-        init();
     }
 
     /**
      * @param context
      */
     public StudyDialogScreen(Context context) {
-        super(context);
-        init();
+        this(context, (AttributeSet) null);
     }
 
     /**
@@ -74,8 +79,7 @@ public class StudyDialogScreen extends LinearLayout {
      * @param defStyleAttr
      */
     public StudyDialogScreen(Context context, AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-        init();
+        this(context, attrs, defStyleAttr, 0);
     }
 
     /**
@@ -93,6 +97,18 @@ public class StudyDialogScreen extends LinearLayout {
     private void init() {
         inflate(getContext(), R.layout.lay_study_view, this);
         ButterKnife.bind(this);
+        mSelectMonth.setPrompt(getResources().getString(R.string.sign_select_dateBird_month));
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(
+                getContext(), android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.months_array));
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        mSelectMonth.setAdapter(adapter);
+
+        mSelectYear.setPrompt(getResources().getString(R.string.sign_select_dateBird_year));
+        adapter = new ArrayAdapter<String>(
+                getContext(), android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.years_array));
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        mSelectYear.setAdapter(adapter);
+
         mAddButton.setText(getResources().getString(R.string.add_button_title));
         mInstitutionName.requestFocus();
         InputMethodManager imm = (InputMethodManager) getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
@@ -107,6 +123,11 @@ public class StudyDialogScreen extends LinearLayout {
     @OnClick(R.id.sendButton)
     protected void addPressed() {
         listener.onAddPressed();
+    }
+
+    @OnClick(R.id.close)
+    protected void closePressed() {
+        listener.onCancelPressed();
     }
 
     // Public methods

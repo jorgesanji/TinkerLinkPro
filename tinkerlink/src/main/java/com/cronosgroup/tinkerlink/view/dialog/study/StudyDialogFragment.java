@@ -8,8 +8,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestStudy;
 import com.cronosgroup.tinkerlink.view.base.TinkerDialogFragment;
+import com.cronosgroup.tinkerlink.view.dialog.selectionusers.SelectorUsersFragment;
 
 /**
  * Created by jorgesanmartin on 10/26/15.
@@ -19,6 +21,12 @@ public class StudyDialogFragment extends TinkerDialogFragment implements StudyDi
     public static final int CODE = 679;
     public static final String STUDY_ADDED = "study_added";
     private StudyDialogScreen studyDialogScreen;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setStyle(StudyDialogFragment.STYLE_NO_TITLE, R.style.DialogTheme);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -64,8 +72,8 @@ public class StudyDialogFragment extends TinkerDialogFragment implements StudyDi
             bundle.putSerializable(STUDY_ADDED, estudio);
             Intent intent = new Intent();
             intent.putExtras(bundle);
-//            getTargetFragment().onActivityResult(
-//                    getTargetRequestCode(), EditProfilePresenter.CODE_CREATE_STUDY, intent);
+            getTargetFragment().onActivityResult(
+                    getTargetRequestCode(), StudyDialogFragment.CODE, intent);
         }
     }
 }

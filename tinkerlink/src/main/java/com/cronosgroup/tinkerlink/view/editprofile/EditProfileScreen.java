@@ -9,6 +9,7 @@ import android.widget.RelativeLayout;
 import com.cronosgroup.tinkerlink.R;
 
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Main EditProfile view.
@@ -16,10 +17,8 @@ import butterknife.ButterKnife;
 public class EditProfileScreen extends RelativeLayout {
 
     public interface Listener {
-
-
+        void onAddCoursePressed();
     }
-
 
     // Vars
     private Listener listener;
@@ -65,6 +64,13 @@ public class EditProfileScreen extends RelativeLayout {
     private void init() {
         inflate(getContext(), R.layout.lay_edit_profile, this);
         ButterKnife.bind(this);
+    }
+
+    // Actions
+
+    @OnClick(R.id.addStudyOrCourse)
+    protected void addCoursePressed() {
+        listener.onAddCoursePressed();
     }
 
     // Public methods

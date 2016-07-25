@@ -5,6 +5,7 @@ import android.view.View;
 import com.cronosgroup.tinkerlink.presenter.editprofile.EditProfilePresenter;
 import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
+import com.cronosgroup.tinkerlink.view.dialog.study.StudyDialogFragment;
 
 
 /**
@@ -48,8 +49,12 @@ public class EditProfileFragment extends MVPTinkerLinkFragment<EditProfilePresen
 
     //endregion
 
-    //region ************** ChatUserScreen.Listener **************
+    //region ************** EditProfileScreen.Listener **************
 
+    @Override
+    public void onAddCoursePressed() {
+        addDialogFragment(StudyDialogFragment.class, StudyDialogFragment.CODE);
+    }
 
     //endregion
 

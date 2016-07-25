@@ -85,7 +85,7 @@ public class SignProfileScreen extends RelativeLayout {
         inflate(getContext(), R.layout.lay_sign_profile, this);
         ButterKnife.bind(this);
     }
-    
+
     private void launchPopup(final int type, View anchor) {
         PopupMenu popup = new PopupMenu(getContext(), anchor);
         popup.getMenuInflater().inflate(R.menu.camera_menu, popup.getMenu());
