@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_big"
+        android:layout_marginRight="@dimen/margin_big"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+            style="@style/TextViewLoginSecctionsStyle"
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/margin_mediun"
+            android:gravity="left"
+            android:text="@string/configuration_phones_added" />
+
+        <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+            style="@style/TextViewLoginSecctionsStyle"
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/margin_mediun"
+            android:gravity="left"
+            android:text="@string/configuration_phones_added_message"
+            app:fontName="Light" />
+
+        <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+            style="@style/TextViewLoginSecctionsStyle"
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/margin_plus_big"
+            android:gravity="left"
+            android:text="ES +34 876 43 65 34" />
+
+        <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+            style="@style/TextViewLoginSecctionsStyle"
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/margin_tiny"
+            android:gravity="left"
+            android:text="@string/configuration_phone_visible_only_for_owner"
+            android:textSize="@dimen/text_size_small"
+            app:fontName="Light" />
+
+        <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+            android:id="@+id/recoveryButton"
+            style="@style/TextViewLoginSecctionsStyle"
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/margin_plus_biggest"
+            android:background="@drawable/button_default_states"
+            android:gravity="center"
+            android:text="@string/configuration_phone_has_been_changed"
+            app:fontName="Light" />
+
+
+        <com.cronosgroup.tinkerlink.view.customviews.TLButton
+            android:id="@+id/verifyButton"
+            style="@style/SignButtonStyle"
+            android:layout_marginTop="@dimen/margin_small"
+            android:background="@drawable/button_sign_states"
+            android:text="@string/configuration_phone_verify"
+            android:textColor="@color/white" />
+
+
+    </LinearLayout>
+
+</LinearLayout>

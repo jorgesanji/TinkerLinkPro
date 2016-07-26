@@ -639,13 +639,81 @@
     <string name="edit_profile_description_number" formatted="false">%s/%s</string>
 
 
-
     <!--  Dialog studies  -->
     <string name="studies_title">TITULO</string>
     <string name="studies_title_hint">Escribe el titulo que has logrado</string>
     <string name="studies_institute_title">ESTABLECIMIENTO</string>
     <string name="studies_institute_hint">Especifica donde lo has logrado</string>
     <string name="studies_institute_date">FECHA DE FINILIZACIÓN</string>
+
+
+    <!--  Configuration  -->
+    <string name="configuration_title">Configuración</string>
+    <string name="configuration_account_title">CUENTA</string>
+    <string name="configuration_notificaciones_title">NOTIFICATIONS</string>
+    <string name="configuration_change_password">Cambiar contraseña</string>
+    <string name="configuration_change_password_message">Escoge una nueva contraseña única para tu cuenta</string>
+    <string name="configuration_phone_number">Número de móvil</string>
+    <string name="configuration_phone_number_message">Cambia tu número de móvil</string>
+    <string name="configuration_phone_contacts">Importar contactos</string>
+    <string name="configuration_phone_contacts_message">Averigua a quien ya conoces en Tinkerlink</string>
+    <string name="configuration_privacy">Privacidad</string>
+    <string name="configuration_privacy_message">Escoge quienes pueden ver el contenido de tu perfil y edaita tus contactos bloqueados.</string>
+    <string name="configuration_help_tinkerlink">Centro de ayuda de Tinkerlink</string>
+    <string name="configuration_privacy_policy">Política de privacidad</string>
+    <string name="configuration_frequently_questions">Preguntas frecuentes</string>
+    <string name="configuration_close_session">CERRAR SESIÓN</string>
+    <string name="configuration_create_title">Crear una nueva contraseña</string>
+    <string name="configuration_create_message">Las contraseñas son sensibles a las mayúsculas y deben contener como mínimo 6 caracteres.</string>
+    <string name="configuration_password_title">Escribe tu contraseña actual</string>
+    <string name="configuration_password_hint">Contraseña</string>
+    <string name="configuration_new_password_title">Escribe una contraseña nueva</string>
+    <string name="configuration_new_password_hint">Contraseña nueva</string>
+    <string name="configuration_new_password_repeat_title">Vuelve a escribir tu contraseña nueva</string>
+    <string name="configuration_new_password_repeat_hint">Contraseña nueva</string>
+    <string name="configuration_save_password">GUARDAR</string>
+    <string name="configuration_forgotten_password">¿Has olvidado tu contraseña?</string>
+    <string name="configuration_recovery_title">Recupera tu contraseña</string>
+    <string name="configuration_recovery_insert_email_or_phone">Ingresá tu correo electrónico ó número de móvil</string>
+    <string name="configuration_recovery_email_or_phone">Correo electrónico ó número de móvil</string>
+    <string name="configuration_phones_added">Números de móvil que has añadido</string>
+    <string name="configuration_phones_added_message">Quedate tranquilo, tu númer no se mostrará en tu perfil ni será compartido con nadie</string>
+    <string name="configuration_phone_visible_only_for_owner">Solo tú verás tu número</string>
+    <string name="configuration_phone_has_been_changed">¿Has cambiado tu número de móvil?\nPuedes verificar tu nuevo número aquí</string>
+    <string name="configuration_phone_verify">Verificar nuevo número</string>
+    <string name="configuration_add_new_number">Añadir un nuevo número de móvil</string>
+    <string name="configuration_add_new_number_message">Énviaremos un código de verificación a este númer. Lo necesitarás para el próximo paso.\n\nTu númer de móvil nos ayuda a mantener la seguridad de tu cuenta.\n\nTambién les ayuda a las personas que ya tienen tu número de móvil a encontrarte y conectar contigo</string>
+    <string name="configuration_select_country">Selecciona la cobertura</string>
+    <string name="configuration_write_phone_number">Escribe tu número de móvil</string>
+    <string name="configuration_send_code">Enviar Código</string>
+
+    <string name="configuration_profile_privacy">Privacidad de tu perfil</string>
+    <string name="configuration_profile_privacy_message">Escoje quienes pueden ver el contenido de tu perfil</string>
+    <string name="configuration_profile_privacy_public">Publico</string>
+    <string name="configuration_profile_privacy_public_message">Todo el mundo pueda ver mis contactos, contactos en común y actividad</string>
+    <string name="configuration_profile_privacy_only_friends">Solo Amigos</string>
+    <string name="configuration_profile_privacy_only_friends_message">Solo mis amigos pueden ver mis contactos, contactos en común y actividad</string>
+   <string name="configuration_profile_privacy_private">Privado</string>
+    <string name="configuration_profile_privacy_private_message">Solo yo puedo ver mis contactos, contactos en común y actividad</string>
+   <string name="configuration_profile_privacy_contacts_locked">Contactos bloqueados</string>
+    <string name="configuration_profile_privacy_remove_contact">Eliminar contacto</string>
+    <string name="configuration_profile_privacy_unlock_contact">Desbloquear contacto</string>
+
+    <string name="configuration_profile_notifications_email">Notificaciones por correo electrónico</string>
+    <string name="configuration_profile_notifications_movil_permissions_title">Notificaciones en el móvil</string>
+    <string name="configuration_profile_notifications_movil_permissions_message">Te avisamos cuando alguién</string>
+    <string name="configuration_profile_notifications_movil_permissions_recommendation">Te hace una recommendation</string>
+    <string name="configuration_profile_notifications_movil_permissions_share">Comparte contenido tuyo</string>
+    <string name="configuration_profile_notifications_movil_permissions_send_message">Te envía un mensaje</string>
+    <string name="configuration_profile_notifications_movil_permissions_request_contact">Nueva solicitud de contacto</string>
+    <string name="configuration_profile_notifications_movil_permissions_accept_contact">Acepta tu solicitud de contacto</string>
+    <string name="configuration_profile_notifications_movil_permissions_match_cards">Encontramos coincidencias en tarjetas</string>
+
+
+
+
+
+
 
 
 

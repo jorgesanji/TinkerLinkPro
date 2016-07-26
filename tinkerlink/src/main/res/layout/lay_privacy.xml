@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_big"
+            android:layout_marginRight="@dimen/margin_big"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                style="@style/TextViewLoginSecctionsStyle"
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/margin_mediun"
+                android:gravity="left"
+                android:text="@string/configuration_profile_privacy" />
+
+            <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                style="@style/TextViewLoginSecctionsStyle"
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/margin_mediun"
+                android:gravity="left"
+                android:text="@string/configuration_profile_privacy_message"
+                app:fontName="Light" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_mediun"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_small"
+                    android:orientation="vertical">
+
+                    <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                        style="@style/TextViewLoginSecctionsStyle"
+                        android:layout_width="match_parent"
+                        android:gravity="left|center_vertical"
+                        android:text="@string/configuration_profile_privacy_public"
+                        android:textSize="@dimen/text_size_small" />
+
+                    <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                        style="@style/TextViewLoginSecctionsStyle"
+                        android:layout_width="match_parent"
+                        android:gravity="left|center_vertical"
+                        android:text="@string/configuration_profile_privacy_public_message"
+                        android:textSize="@dimen/text_size_small" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_mediun"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_small"
+                    android:orientation="vertical">
+
+                    <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                        style="@style/TextViewLoginSecctionsStyle"
+                        android:layout_width="match_parent"
+                        android:gravity="left|center_vertical"
+                        android:text="@string/configuration_profile_privacy_only_friends"
+                        android:textSize="@dimen/text_size_small" />
+
+                    <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                        style="@style/TextViewLoginSecctionsStyle"
+                        android:layout_width="match_parent"
+                        android:gravity="left|center_vertical"
+                        android:text="@string/configuration_profile_privacy_only_friends_message"
+                        android:textSize="@dimen/text_size_small" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_mediun"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_small"
+                    android:orientation="vertical">
+
+                    <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                        style="@style/TextViewLoginSecctionsStyle"
+                        android:layout_width="match_parent"
+                        android:gravity="left|center_vertical"
+                        android:text="@string/configuration_profile_privacy_private"
+                        android:textSize="@dimen/text_size_small" />
+
+                    <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                        style="@style/TextViewLoginSecctionsStyle"
+                        android:layout_width="match_parent"
+                        android:gravity="left|center_vertical"
+                        android:text="@string/configuration_profile_privacy_private_message"
+                        android:textSize="@dimen/text_size_small" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                style="@style/TextViewLoginSecctionsStyle"
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/margin_plus_big"
+                android:gravity="left"
+                android:text="@string/configuration_profile_privacy_contacts_locked" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.cronosgroup.tinkerlink.view.customviews.TLUserView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:userBadge="false"
+                    app:userOptions="true" />
+
+                <com.cronosgroup.tinkerlink.view.customviews.TLUserView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:userBadge="false"
+                    app:userOptions="true" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</LinearLayout>

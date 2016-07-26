@@ -186,7 +186,10 @@ public abstract class TinkerLinkActivity<F extends MVPTinkerLinkFragment> extend
 
     protected void configToolBar(StyleToolBar style) {
         configToolbar(style.getBackgroundColor(), style.getText(), style.getTextColor(), style.getIcon());
-        mLoader.findViewById(R.id.backgroundColor).setBackgroundResource(style.getBackgroundLoader());
+        try{
+            mLoader.findViewById(R.id.backgroundColor).setBackgroundResource(style.getBackgroundLoader());
+        }catch (Exception ex){
+        }
     }
 
     protected void setToolBarIconFromUrl(String url, final int placeHolder) {

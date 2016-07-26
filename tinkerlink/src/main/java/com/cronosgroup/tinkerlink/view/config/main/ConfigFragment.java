@@ -1,15 +1,14 @@
-package com.cronosgroup.tinkerlink.view.config;
+package com.cronosgroup.tinkerlink.view.config.main;
 
 import android.view.View;
 
-import com.cronosgroup.core.view.ToolBarActivity;
 import com.cronosgroup.tinkerlink.presenter.config.ConfigPresenter;
 import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
 
 
 /**
- * Sign Fragment
+ * Config Fragment
  */
 public class ConfigFragment extends MVPTinkerLinkFragment<ConfigPresenter, ConfigPresenter.View>
         implements ConfigPresenter.View, ConfigScreen.Listener {
@@ -40,7 +39,7 @@ public class ConfigFragment extends MVPTinkerLinkFragment<ConfigPresenter, Confi
 
     @Override
     protected void onDidAppear() {
-
+        configScreen.initPager(getActivity().getSupportFragmentManager());
     }
 
     //endregion
@@ -50,25 +49,6 @@ public class ConfigFragment extends MVPTinkerLinkFragment<ConfigPresenter, Confi
     //endregion
 
     //region ************** ConfigScreen.Listener **************
-
-
-    //endregion
-
-    @Override
-    public void showLoading() {
-        super.showLoading();
-        if (getActivity() != null) {
-            ((ToolBarActivity) getActivity()).showLoading();
-        }
-    }
-
-    @Override
-    public void hideLoading() {
-        super.hideLoading();
-        if (getActivity() != null) {
-            ((ToolBarActivity) getActivity()).hideLoading();
-        }
-    }
 
     //endregion
 

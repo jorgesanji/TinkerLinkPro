@@ -1,10 +1,14 @@
 package com.cronosgroup.tinkerlink.view.editprofile;
 
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
+import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestStudy;
 import com.cronosgroup.tinkerlink.presenter.editprofile.EditProfilePresenter;
 import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
+import com.cronosgroup.tinkerlink.view.customviews.TLStudyView;
 import com.cronosgroup.tinkerlink.view.dialog.study.StudyDialogFragment;
 
 
@@ -46,6 +50,19 @@ public class EditProfileFragment extends MVPTinkerLinkFragment<EditProfilePresen
     //endregion
 
     //region ************** EditProfilePresenter.View **************
+
+    @Override
+    public void addStudy(RestStudy restStudy) {
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        TLStudyView studyView = new TLStudyView(getContext());
+        studyView.setLayoutParams(params);
+
+        studyView.setCourseName(restStudy.getCourse());
+        studyView.setInstituteName(restStudy.getSchool());
+        studyView.setCourseDate("Marzo 2016");
+
+        editProfileScreen.addStudy(studyView);
+    }
 
     //endregion
 

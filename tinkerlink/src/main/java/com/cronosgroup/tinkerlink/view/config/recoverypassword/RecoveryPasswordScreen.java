@@ -1,4 +1,4 @@
-package com.cronosgroup.tinkerlink.view.config;
+package com.cronosgroup.tinkerlink.view.config.recoverypassword;
 
 import android.annotation.TargetApi;
 import android.content.Context;
@@ -14,13 +14,11 @@ import butterknife.ButterKnife;
 /**
  * Main Network view.
  */
-public class ConfigScreen extends RelativeLayout {
+public class RecoveryPasswordScreen extends RelativeLayout {
 
     public interface Listener {
 
-
     }
-
 
     // Vars
     private Listener listener;
@@ -30,7 +28,7 @@ public class ConfigScreen extends RelativeLayout {
     /**
      * @param context
      */
-    public ConfigScreen(Context context) {
+    public RecoveryPasswordScreen(Context context) {
         super(context);
         init();
     }
@@ -39,7 +37,7 @@ public class ConfigScreen extends RelativeLayout {
      * @param context
      * @param attrs
      */
-    public ConfigScreen(Context context, AttributeSet attrs) {
+    public RecoveryPasswordScreen(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
@@ -48,7 +46,7 @@ public class ConfigScreen extends RelativeLayout {
      * @param attrs
      * @param defStyleAttr
      */
-    public ConfigScreen(Context context, AttributeSet attrs, int defStyleAttr) {
+    public RecoveryPasswordScreen(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init();
     }
@@ -60,15 +58,18 @@ public class ConfigScreen extends RelativeLayout {
      * @param defStyleRes
      */
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    public ConfigScreen(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+    public RecoveryPasswordScreen(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         init();
     }
 
     private void init() {
-        inflate(getContext(), R.layout.lay_config_account, this);
+        inflate(getContext(), R.layout.lay_recovery_password, this);
         ButterKnife.bind(this);
     }
+
+    // Actions
+
 
     // Public methods
 

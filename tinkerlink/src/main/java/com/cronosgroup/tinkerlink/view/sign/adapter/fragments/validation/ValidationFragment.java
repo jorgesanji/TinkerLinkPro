@@ -39,7 +39,9 @@ public class ValidationFragment extends MVPTinkerLinkFragment<ValidationPresente
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         try {
-            mCallback = (IOFormListener) activity;
+            if (activity instanceof IOFormListener) {
+                mCallback = (IOFormListener) activity;
+            }
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString()
                     + " must implement IOFormListener");

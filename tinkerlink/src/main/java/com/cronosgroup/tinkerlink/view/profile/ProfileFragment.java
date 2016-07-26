@@ -2,8 +2,8 @@ package com.cronosgroup.tinkerlink.view.profile;
 
 import android.view.View;
 
-import com.cronosgroup.core.view.ToolBarActivity;
 import com.cronosgroup.tinkerlink.presenter.editprofile.EditProfilePresenter;
+import com.cronosgroup.tinkerlink.presenter.profile.ProfilePresenter;
 import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
 
@@ -11,8 +11,8 @@ import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
 /**
  * Sign Fragment
  */
-public class ProfileFragment extends MVPTinkerLinkFragment<EditProfilePresenter, EditProfilePresenter.View>
-        implements EditProfilePresenter.View, ProfileScreen.Listener {
+public class ProfileFragment extends MVPTinkerLinkFragment<ProfilePresenter, ProfilePresenter.View>
+        implements ProfilePresenter.View, ProfileScreen.Listener {
 
     // Vars
 
@@ -29,12 +29,12 @@ public class ProfileFragment extends MVPTinkerLinkFragment<EditProfilePresenter,
     }
 
     @Override
-    protected EditProfilePresenter createPresenter() {
-        return new EditProfilePresenter(ScreenNavigationHandler.getInstance());
+    protected ProfilePresenter createPresenter() {
+        return new ProfilePresenter(ScreenNavigationHandler.getInstance());
     }
 
     @Override
-    protected EditProfilePresenter.View getPresenterView() {
+    protected ProfilePresenter.View getPresenterView() {
         return this;
     }
 
@@ -53,22 +53,6 @@ public class ProfileFragment extends MVPTinkerLinkFragment<EditProfilePresenter,
 
 
     //endregion
-
-    @Override
-    public void showLoading() {
-        super.showLoading();
-        if (getActivity() != null) {
-            ((ToolBarActivity) getActivity()).showLoading();
-        }
-    }
-
-    @Override
-    public void hideLoading() {
-        super.hideLoading();
-        if (getActivity() != null) {
-            ((ToolBarActivity) getActivity()).hideLoading();
-        }
-    }
 
     //endregion
 

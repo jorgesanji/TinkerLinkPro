@@ -191,7 +191,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/view_big_height"
-                    android:layout_marginTop="@dimen/margin_plus_plus_biggest"
+                    android:layout_marginTop="@dimen/margin_plus_big"
                     android:gravity="center"
                     android:orientation="horizontal">
 
@@ -221,10 +221,21 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/studiesContainer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_big"
-                    android:orientation="vertical"></LinearLayout>
+                    android:orientation="vertical">
+
+                    <com.cronosgroup.tinkerlink.view.customviews.TLStudyView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <com.cronosgroup.tinkerlink.view.customviews.TLStudyView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
 
             </LinearLayout>
 

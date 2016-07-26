@@ -5,10 +5,12 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.os.Build;
+import android.support.v7.widget.PopupMenu;
 import android.text.SpannableString;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.util.TypedValue;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 
@@ -27,35 +29,49 @@ import butterknife.OnClick;
  */
 public class TLUserView extends LinearLayout {
 
+    public interface Listener {
+        void onRemoveUserPressed();
+
+        void onUnLockPressed();
+    }
+
+
     //Properties
     private String title;
     private String subTitle;
     private String userUrl;
     private String userTime;
     private int iconCard;
+    private boolean options;
+    private boolean badge;
 
     //Vars
+
+    private Listener optionslistener;
     private IOIconListener listener;
     private IOAddContactListener addContactListener;
 
     //Views
     @BindView(R.id.userImage)
-    TLImageView mUserImage;
+    protected TLImageView mUserImage;
 
     @BindView(R.id.cardBadge)
-    TLImageView mCardBadge;
+    protected TLImageView mCardBadge;
 
     @BindView(R.id.userName)
-    TLTextView mUserTitle;
+    protected TLTextView mUserTitle;
 
     @BindView(R.id.userStatusContact)
-    TLTabItem mUserStatusContact;
+    protected TLTabItem mUserStatusContact;
 
     @BindView(R.id.userDescription)
-    TLTextView mUserSubTitle;
+    protected TLTextView mUserSubTitle;
 
     @BindView(R.id.userTime)
-    TLTextView mUserTime;
+    protected TLTextView mUserTime;
+
+    @BindView(R.id.optionsButton)
+    protected TLImageView mOptionsButton;
 
     /**
      * @param context
@@ -111,6 +127,8 @@ public class TLUserView extends LinearLayout {
                 setSubTitleFont(attributes.getInt(R.styleable.TLUserView_userSubTitleFont, TLTextView.DEFAULT_FONT));
                 setSubTitleSize(attributes.getDimensionPixelSize(R.styleable.TLUserView_userSubTitleSize, TLTextView.DEFAULT_SIZE));
                 setUserIcon(attributes.getResourceId(R.styleable.TLUserView_userIcon, R.mipmap.newsfeed_avatar_hombre));
+                setOptions(attributes.getBoolean(R.styleable.TLUserView_userOptions, false));
+                setBadge(attributes.getBoolean(R.styleable.TLUserView_userBadge, true));
             } catch (Exception ex) {
                 Log.e("", ex.getMessage(), ex);
             } finally {
@@ -135,7 +153,41 @@ public class TLUserView extends LinearLayout {
         }
     }
 
+    @OnClick(R.id.optionsButton)
+    protected void onOptionsPressed() {
+        PopupMenu popup = new PopupMenu(getContext(), mOptionsButton);
+        popup.getMenuInflater().inflate(R.menu.popup_privacy_menu, popup.getMenu());
+        popup.setOnMenuItemClickListener(new android.support.v7.widget.PopupMenu.OnMenuItemClickListener() {
+            public boolean onMenuItemClick(MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.action_remove_contact:
+                        if (optionslistener != null) {
+                            optionslistener.onRemoveUserPressed();
+                        }
+                        break;
+                    case R.id.action_unblock_user:
+                        if (optionslistener != null) {
+                            optionslistener.onUnLockPressed();
+                        }
+                        break;
+                }
+                return true;
+            }
+        });
+
+        popup.show();
+    }
+
     //Public methods
+
+
+    public Listener getOptionslistener() {
+        return optionslistener;
+    }
+
+    public void setOptionslistener(Listener optionslistener) {
+        this.optionslistener = optionslistener;
+    }
 
     public String getTitle() {
         return title;
@@ -254,5 +306,24 @@ public class TLUserView extends LinearLayout {
                 }
             });
         }
+    }
+
+    public boolean isOptions() {
+        return options;
+    }
+
+    public void setOptions(boolean options) {
+        this.options = options;
+        mOptionsButton.setVisibility(options ? VISIBLE : GONE);
+        mUserTime.setVisibility(options ? GONE : VISIBLE);
+    }
+
+    public boolean isBadge() {
+        return badge;
+    }
+
+    public void setBadge(boolean badge) {
+        this.badge = badge;
+        mCardBadge.setVisibility(badge ? VISIBLE : GONE);
     }
 }

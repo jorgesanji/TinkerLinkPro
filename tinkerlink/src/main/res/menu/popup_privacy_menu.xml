@@ -1,0 +1,13 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".view.">
+
+    <item
+        android:id="@+id/action_remove_contact"
+        android:title="@string/configuration_profile_privacy_remove_contact" />
+
+    <item
+        android:id="@+id/action_unblock_user"
+        android:title="@string/configuration_profile_privacy_unlock_contact" />
+
+</menu>
