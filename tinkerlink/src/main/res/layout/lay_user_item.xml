@@ -66,12 +66,23 @@
         android:id="@+id/userTime"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_marginRight="@dimen/margin_mediun"
-        android:layout_weight="0.2"
         android:layout_marginLeft="@dimen/margin_small"
+        android:layout_marginRight="@dimen/margin_mediun"
+        android:layout_weight="0.45"
         android:gravity="center"
         android:textColor="@color/gray"
         android:textSize="@dimen/text_size_tiny"
         app:fontName="Regular" />
+
+    <com.cronosgroup.tinkerlink.view.customviews.TLImageView
+        android:id="@+id/optionsButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_small"
+        android:layout_marginRight="@dimen/margin_mediun"
+        android:layout_weight="0.2"
+        android:gravity="center"
+        android:src="@mipmap/ic_action_navigation_more_vert"
+        android:visibility="gone" />
 
 </LinearLayout>

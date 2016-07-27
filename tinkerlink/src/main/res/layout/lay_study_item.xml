@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+            android:id="@+id/courseName"
+            style="@style/TextViewStudyStyle"
+            android:text="name" />
+
+        <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+            android:id="@+id/instituteName"
+            style="@style/TextViewStudyStyle"
+            android:layout_marginTop="@dimen/margin_tiny"
+            android:text="institute"
+            android:textSize="@dimen/text_size_tiny" />
+
+        <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+            android:id="@+id/courseDate"
+            style="@style/TextViewStudyStyle"
+            android:layout_marginTop="@dimen/margin_tiny"
+            android:text="date"
+            android:textSize="@dimen/text_size_tiny" />
+
+    </LinearLayout>
+
+    <com.cronosgroup.tinkerlink.view.customviews.TLImageButton
+        android:id="@+id/removeStudy"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="@dimen/margin_small"
+        android:layout_weight="0.2"
+        android:src="@mipmap/ic_close" />
+
+    <com.cronosgroup.tinkerlink.view.customviews.TLImageButton
+        android:id="@+id/editStudy"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="@dimen/margin_small"
+        android:layout_weight="0.2"
+        android:src="@mipmap/ic_edit" />
+
+</LinearLayout>

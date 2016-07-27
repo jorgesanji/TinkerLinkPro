@@ -358,6 +358,23 @@
         <item name="fontName">Bold</item>
     </style>
 
+    <!-- TAB LAYOUT  -->
+
+
+    <style name="TabProfileStyle" parent="Widget.Design.TabLayout">
+        <item name="tabIndicatorColor">@color/black</item>
+        <item name="tabIndicatorHeight">4dp</item>
+        <item name="android:background">@color/white</item>
+        <item name="tabSelectedTextColor">@color/black</item>
+        <item name="tabTextColor">@color/black_opaque_30</item>
+        <item name="tabTextAppearance">@style/TabText</item>
+    </style>
+
+    <style name="TabText" parent="TextAppearance.AppCompat.Button">
+        <!--<item name="android:textSize">14sp</item>-->
+        <item name="android:textColor">@color/black</item>
+    </style>
+
     <!-- TEXT VIEWS -->
 
     <style name="TextViewLoginSecctionsStyle">
@@ -368,5 +385,34 @@
         <item name="android:textSize">@dimen/text_size_mediun</item>
         <item name="fontName">Regular</item>
     </style>
+
+    <style name="TextViewStudyStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/text_size_mediun</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+        <item name="fontName">Regular</item>
+    </style>
+
+    <style name="TextViewConfigurationtyle">
+        <item name="android:background">@drawable/button_default_states</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/view_max_height_big</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/text_size_mediun</item>
+        <item name="fontName">Regular</item>
+    </style>
+
+    <style name="ItemSettingsNotificationStyle">
+        <item name="android:track">@drawable/switch_settings_track_states</item>
+        <item name="android:thumb">@drawable/switch_settings_thumb_states</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/text_size_mediun</item>
+        <item name="android:switchMinWidth">50dp</item>
+    </style>
+
 
 </resources>

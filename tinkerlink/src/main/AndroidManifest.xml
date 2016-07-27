@@ -146,7 +146,7 @@
             android:theme="@style/ActivityTransparentTheme" />
 
         <activity
-            android:name=".view.config.ConfigActivity"
+            android:name=".view.config.main.ConfigActivity"
             android:screenOrientation="portrait" />
 
         <activity
@@ -169,6 +169,54 @@
 
         <activity
             android:name=".view.chatuser.ChatUserActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".view.config.changepassword.ChangePasswordActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".view.config.changephonenumber.ChangePhoneNumberActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".view.config.importcontacts.ImportContactsActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".view.config.policyprivacy.PolicyPrivacyActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".view.config.helptinkerlink.HelpTinkerLinkActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".view.config.frequentlyquestions.FrequentlyQuestionsActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".view.config.privacy.PrivacyActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".view.config.recoverypassword.RecoveryPasswordActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".view.config.verify.VerificationActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".view.recommendations.RecommendationsActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".view.giverecommendation.GiveRecommendationsActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".view.usercontacts.UserContactsActivity"
             android:screenOrientation="portrait" />
 
     </application>

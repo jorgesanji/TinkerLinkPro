@@ -18,7 +18,7 @@ public class ProfileActivity extends TinkerLinkActivity<ProfileFragment> {
 
     @Override
     public boolean hasToolbar() {
-        return true;
+        return false;
     }
 
     @Override

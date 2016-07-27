@@ -49,7 +49,7 @@ public class ViewHolderAddContact extends ViewHolderPost {
         ForegroundColorSpan color = new ForegroundColorSpan(getResources().getColor(R.color.news_feed_detail_info));
         spannableString.setSpan(color, user.getName().length(), newContact.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         mUserContainer.setTitle(spannableString);
-        mUserContainer.setSubTitle(DateUtils.getInterval(post.getFecha(), itemView.getContext()));
+        mUserContainer.setSubTitle(DateUtils.getInterval(post.getFecha(), itemView.getContext(), null));
         mUserContainer.setUserImageFromUrl(getAppConfigManager().getPath(AppConfigManager.Path.PATH_IMAGE_PROFILE_THUMBNAIL) + user.getPhoto());
         mUserContainer.setListener(new IOIconListener() {
             @Override

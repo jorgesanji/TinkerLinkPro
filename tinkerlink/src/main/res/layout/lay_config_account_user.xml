@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.cronosgroup.tinkerlink.view.customviews.TLRowView
+                android:id="@+id/changePassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:rowSubTitle="@string/configuration_change_password_message"
+                app:rowTitle="@string/configuration_change_password" />
+
+            <include layout="@layout/lay_separator" />
+
+            <com.cronosgroup.tinkerlink.view.customviews.TLRowView
+                android:id="@+id/changePhoneNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:rowSubTitle="@string/configuration_phone_number_message"
+                app:rowTitle="@string/configuration_phone_number" />
+
+            <include layout="@layout/lay_separator" />
+
+            <com.cronosgroup.tinkerlink.view.customviews.TLRowView
+                android:id="@+id/importContacts"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:rowSubTitle="@string/configuration_phone_contacts_message"
+                app:rowTitle="@string/configuration_phone_contacts" />
+
+            <include layout="@layout/lay_separator" />
+
+            <com.cronosgroup.tinkerlink.view.customviews.TLRowView
+                android:id="@+id/selectPrivacy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:rowSubTitle="@string/configuration_privacy_message"
+                app:rowTitle="@string/configuration_privacy" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/configuration_account_color"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_big"
+                    android:layout_marginRight="@dimen/margin_big"
+                    android:orientation="vertical">
+
+                    <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                        android:id="@+id/helpTinkerLink"
+                        style="@style/TextViewConfigurationtyle"
+                        android:text="@string/configuration_help_tinkerlink" />
+
+                    <include layout="@layout/lay_separator" />
+
+                    <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                        android:id="@+id/privacyPolicy"
+                        style="@style/TextViewConfigurationtyle"
+                        android:text="@string/configuration_privacy_policy" />
+
+                    <include layout="@layout/lay_separator" />
+
+                    <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                        android:id="@+id/frequentlyQuestions"
+                        style="@style/TextViewConfigurationtyle"
+                        android:text="@string/configuration_frequently_questions" />
+
+                    <include layout="@layout/lay_separator" />
+
+                    <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                        android:id="@+id/closeSession"
+                        style="@style/TextViewConfigurationtyle"
+                        android:gravity="center"
+                        android:text="@string/configuration_close_session"
+                        app:fontName="Bold" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

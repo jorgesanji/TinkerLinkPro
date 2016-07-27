@@ -4,10 +4,13 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
 import android.util.AttributeSet;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import com.cronosgroup.tinkerlink.R;
+import com.cronosgroup.tinkerlink.view.customviews.TLStudyView;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -24,6 +27,8 @@ public class EditProfileScreen extends RelativeLayout {
     private Listener listener;
 
     // Views
+    @BindView(R.id.studiesContainer)
+    protected LinearLayout mStudiesContainer;
 
     /**
      * @param context
@@ -81,5 +86,9 @@ public class EditProfileScreen extends RelativeLayout {
 
     public void setListener(Listener listener) {
         this.listener = listener;
+    }
+
+    public void addStudy(TLStudyView studyView) {
+        mStudiesContainer.addView(studyView);
     }
 }

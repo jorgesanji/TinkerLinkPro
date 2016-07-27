@@ -7,6 +7,8 @@ import android.support.annotation.NonNull;
 
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.presenter.account.AccountPresenter;
+import com.cronosgroup.tinkerlink.presenter.changepassword.ChangePasswordPresenter;
+import com.cronosgroup.tinkerlink.presenter.changephonenumber.ChangePhoneNumberPresenter;
 import com.cronosgroup.tinkerlink.presenter.chatuser.ChatUserPresenter;
 import com.cronosgroup.tinkerlink.presenter.config.ConfigPresenter;
 import com.cronosgroup.tinkerlink.presenter.contacts.ContactsPresenter;
@@ -16,37 +18,66 @@ import com.cronosgroup.tinkerlink.presenter.createcard.ExperienceSelectionPresen
 import com.cronosgroup.tinkerlink.presenter.createcard.SkillSelectionPresenter;
 import com.cronosgroup.tinkerlink.presenter.createrecommendation.CreateRecommendationPresenter;
 import com.cronosgroup.tinkerlink.presenter.detailcard.DetailCardPresenter;
+import com.cronosgroup.tinkerlink.presenter.editprofile.ConfigAccountUserPresenter;
 import com.cronosgroup.tinkerlink.presenter.editprofile.EditProfilePresenter;
+import com.cronosgroup.tinkerlink.presenter.editprofile.UserNotificationsPresenter;
+import com.cronosgroup.tinkerlink.presenter.frequentlyquestions.FrequentlyQuestionsPresenter;
+import com.cronosgroup.tinkerlink.presenter.giverecommendation.GiveRecommendationPresenter;
+import com.cronosgroup.tinkerlink.presenter.helptinkerlink.HelpTinkerLinkPresenter;
 import com.cronosgroup.tinkerlink.presenter.home.HomePresenter;
+import com.cronosgroup.tinkerlink.presenter.importcontacts.ImportContactsPresenter;
 import com.cronosgroup.tinkerlink.presenter.login.LoginPresenter;
 import com.cronosgroup.tinkerlink.presenter.messages.ChatPresenter;
 import com.cronosgroup.tinkerlink.presenter.network.NetworkPresenter;
 import com.cronosgroup.tinkerlink.presenter.newsfeed.NewsFeedPresenter;
+import com.cronosgroup.tinkerlink.presenter.policyprivacy.PolicyPrivacyPresenter;
 import com.cronosgroup.tinkerlink.presenter.presignuser.PreSignUserPresenter;
+import com.cronosgroup.tinkerlink.presenter.privacy.PrivacyPresenter;
+import com.cronosgroup.tinkerlink.presenter.profile.ProfilePresenter;
+import com.cronosgroup.tinkerlink.presenter.profile.UserActivityPresenter;
+import com.cronosgroup.tinkerlink.presenter.profile.UserInformationPresenter;
+import com.cronosgroup.tinkerlink.presenter.profile.UserRecommendationsPresenter;
+import com.cronosgroup.tinkerlink.presenter.recommendations.RecommendationsPresenter;
+import com.cronosgroup.tinkerlink.presenter.recoverypassword.RecoveryPasswordPresenter;
 import com.cronosgroup.tinkerlink.presenter.sign.FormUserPresenter;
 import com.cronosgroup.tinkerlink.presenter.sign.RegisterSelectorPresenter;
+import com.cronosgroup.tinkerlink.presenter.sign.SignPresenter;
 import com.cronosgroup.tinkerlink.presenter.sign.SignProfilePresenter;
 import com.cronosgroup.tinkerlink.presenter.sign.TLinkerSelectorPresenter;
-import com.cronosgroup.tinkerlink.presenter.sign.SignPresenter;
 import com.cronosgroup.tinkerlink.presenter.sign.ValidationPresenter;
 import com.cronosgroup.tinkerlink.presenter.stack.CardPresenter;
 import com.cronosgroup.tinkerlink.presenter.stack.DetailStackPresenter;
 import com.cronosgroup.tinkerlink.presenter.stack.StackPresenter;
 import com.cronosgroup.tinkerlink.presenter.tutorial.TutorialPresenter;
+import com.cronosgroup.tinkerlink.presenter.usercontacts.AllUserContactsPresenter;
+import com.cronosgroup.tinkerlink.presenter.usercontacts.UserContactsPresenter;
+import com.cronosgroup.tinkerlink.presenter.verify.VerifyPresenter;
 import com.cronosgroup.tinkerlink.view.chatuser.ChatUserActivity;
-import com.cronosgroup.tinkerlink.view.config.ConfigActivity;
+import com.cronosgroup.tinkerlink.view.config.changepassword.ChangePasswordActivity;
+import com.cronosgroup.tinkerlink.view.config.changephonenumber.ChangePhoneNumberActivity;
+import com.cronosgroup.tinkerlink.view.config.frequentlyquestions.FrequentlyQuestionsActivity;
+import com.cronosgroup.tinkerlink.view.config.helptinkerlink.HelpTinkerLinkActivity;
+import com.cronosgroup.tinkerlink.view.config.importcontacts.ImportContactsActivity;
+import com.cronosgroup.tinkerlink.view.config.main.ConfigActivity;
+import com.cronosgroup.tinkerlink.view.config.policyprivacy.PolicyPrivacyActivity;
+import com.cronosgroup.tinkerlink.view.config.privacy.PrivacyActivity;
+import com.cronosgroup.tinkerlink.view.config.recoverypassword.RecoveryPasswordActivity;
+import com.cronosgroup.tinkerlink.view.config.verify.VerificationActivity;
 import com.cronosgroup.tinkerlink.view.createcard.CreateCardActivity;
 import com.cronosgroup.tinkerlink.view.createrecommendation.CreateRecommendationActivity;
 import com.cronosgroup.tinkerlink.view.detailcard.DetailCardActivity;
 import com.cronosgroup.tinkerlink.view.editprofile.EditProfileActivity;
+import com.cronosgroup.tinkerlink.view.giverecommendation.GiveRecommendationsActivity;
 import com.cronosgroup.tinkerlink.view.home.HomeActivity;
 import com.cronosgroup.tinkerlink.view.login.LoginActivity;
 import com.cronosgroup.tinkerlink.view.network.NetworkActivity;
 import com.cronosgroup.tinkerlink.view.presignuser.PreSignUserActivity;
 import com.cronosgroup.tinkerlink.view.profile.ProfileActivity;
+import com.cronosgroup.tinkerlink.view.recommendations.RecommendationsActivity;
 import com.cronosgroup.tinkerlink.view.sign.SignActivity;
 import com.cronosgroup.tinkerlink.view.stack.detail.DetailStackActivity;
 import com.cronosgroup.tinkerlink.view.stack.main.StackActivity;
+import com.cronosgroup.tinkerlink.view.usercontacts.UserContactsActivity;
 
 /**
  * Created by jorgesanmartin on 2/26/16.
@@ -63,7 +94,15 @@ public final class ScreenNavigationHandler implements HomePresenter.Actions,
         CategorySelectionPresenter.Actions, ExperienceSelectionPresenter.Actions,
         SkillSelectionPresenter.Actions, PreSignUserPresenter.Actions,
         LoginPresenter.Actions, RegisterSelectorPresenter.Actions, SignProfilePresenter.Actions,
-        DetailCardPresenter.Actions {
+        DetailCardPresenter.Actions, ProfilePresenter.Actions, ConfigAccountUserPresenter.Actions,
+        UserNotificationsPresenter.Actions, ChangePasswordPresenter.Actions,
+        ChangePhoneNumberPresenter.Actions, ImportContactsPresenter.Actions,
+        PolicyPrivacyPresenter.Actions, HelpTinkerLinkPresenter.Actions,
+        FrequentlyQuestionsPresenter.Actions, PrivacyPresenter.Actions,
+        RecoveryPasswordPresenter.Actions, VerifyPresenter.Actions, UserActivityPresenter.Actions,
+        UserInformationPresenter.Actions, UserRecommendationsPresenter.Actions,
+        RecommendationsPresenter.Actions, GiveRecommendationPresenter.Actions,
+        UserContactsPresenter.Actions, AllUserContactsPresenter.Actions {
 
     //Instance
     private static ScreenNavigationHandler instance = null;
@@ -175,6 +214,54 @@ public final class ScreenNavigationHandler implements HomePresenter.Actions,
         return newTask(context, ChatUserActivity.class, bundle);
     }
 
+    private static Intent changePassword(@NonNull Activity context, Bundle bundle) {
+        return newTask(context, ChangePasswordActivity.class, bundle);
+    }
+
+    private static Intent changePhoneNumber(@NonNull Activity context, Bundle bundle) {
+        return newTask(context, ChangePhoneNumberActivity.class, bundle);
+    }
+
+    private static Intent importContacts(@NonNull Activity context, Bundle bundle) {
+        return newTask(context, ImportContactsActivity.class, bundle);
+    }
+
+    private static Intent privacyPolicy(@NonNull Activity context, Bundle bundle) {
+        return newTask(context, PolicyPrivacyActivity.class, bundle);
+    }
+
+    private static Intent privacy(@NonNull Activity context, Bundle bundle) {
+        return newTask(context, PrivacyActivity.class, bundle);
+    }
+
+    private static Intent helperTinkerLink(@NonNull Activity context, Bundle bundle) {
+        return newTask(context, HelpTinkerLinkActivity.class, bundle);
+    }
+
+    private static Intent frequentlyQuestions(@NonNull Activity context, Bundle bundle) {
+        return newTask(context, FrequentlyQuestionsActivity.class, bundle);
+    }
+
+    private static Intent recoveryPassword(@NonNull Activity context, Bundle bundle) {
+        return newTask(context, RecoveryPasswordActivity.class, bundle);
+    }
+
+    private static Intent verify(@NonNull Activity context, Bundle bundle) {
+        return newTask(context, VerificationActivity.class, bundle);
+    }
+
+    private static Intent recommendations(@NonNull Activity context, Bundle bundle) {
+        return newTask(context, RecommendationsActivity.class, bundle);
+    }
+
+    private static Intent giveRecommendations(@NonNull Activity context, Bundle bundle) {
+        return newTask(context, GiveRecommendationsActivity.class, bundle);
+    }
+
+    private static Intent userContacts(@NonNull Activity context, Bundle bundle) {
+        return newTask(context, UserContactsActivity.class, bundle);
+    }
+
     // ******************************
     //      ACTIONS DEFINITION
     // *************************++***
@@ -185,7 +272,6 @@ public final class ScreenNavigationHandler implements HomePresenter.Actions,
     public void onLaunchStart(Activity activity, Bundle bundle) {
         startActivity(activity, preSign(activity, bundle));
     }
-
 
     @Override
     public void onLaunchHome(Activity activity, Bundle bundle) {
@@ -265,6 +351,72 @@ public final class ScreenNavigationHandler implements HomePresenter.Actions,
     @Override
     public void onLaunchCreateCard(Activity activity, Bundle bundle) {
         startActivity(activity, createCard(activity, bundle));
+    }
+
+    // ------------------------ CONFIG -----------------------------------
+
+    @Override
+    public void onLaunchChangePassword(Activity activity, Bundle bundle) {
+        startActivity(activity, changePassword(activity, bundle));
+    }
+
+    @Override
+    public void onLaunchChangePhoneNumber(Activity activity, Bundle bundle) {
+        startActivity(activity, changePhoneNumber(activity, bundle));
+    }
+
+    @Override
+    public void onLaunchImportContacts(Activity activity, Bundle bundle) {
+        startActivity(activity, importContacts(activity, bundle));
+    }
+
+    @Override
+    public void onLaunchPrivacy(Activity activity, Bundle bundle) {
+        startActivity(activity, privacy(activity, bundle));
+    }
+
+    @Override
+    public void onLaunchHelpTinkerLink(Activity activity, Bundle bundle) {
+        startActivity(activity, helperTinkerLink(activity, bundle));
+    }
+
+    @Override
+    public void onLaunchPolicyPrivacy(Activity activity, Bundle bundle) {
+        startActivity(activity, privacyPolicy(activity, bundle));
+    }
+
+    @Override
+    public void onLaunchFrequentlyQuestions(Activity activity, Bundle bundle) {
+        startActivity(activity, frequentlyQuestions(activity, bundle));
+    }
+
+    @Override
+    public void onLaunchRecoveryPassword(Activity activity, Bundle bundle) {
+        startActivity(activity, recoveryPassword(activity, bundle));
+    }
+
+    @Override
+    public void onLaunchVerify(Activity activity, Bundle bundle) {
+        startActivity(activity, verify(activity, bundle));
+    }
+
+    // ------------------------ PROFILE  -----------------------------------
+
+    @Override
+    public void onLaunchUserContacts(Activity activity, Bundle bundle) {
+        startActivity(activity, userContacts(activity, bundle));
+    }
+
+    // ------------------------ RECOMENDATIONS -----------------------------------
+
+    @Override
+    public void onLaunchRecommendations(Activity activity, Bundle bundle) {
+        startActivity(activity, recommendations(activity, bundle));
+    }
+
+    @Override
+    public void onLaunchGiveRecommendation(Activity activity, Bundle bundle) {
+        startActivity(activity, giveRecommendations(activity, bundle));
     }
 
     // ------------------------ CHAT -----------------------------------

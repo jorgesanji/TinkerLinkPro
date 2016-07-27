@@ -89,7 +89,8 @@
     <color name="recomendation_separator">#d5d5d5</color>
     <color name="chat_background">#DAD9DA</color>
 
-
+    <!-- Configuration -->
+    <color name="configuration_account_color">#F5F6F7</color>
 
 
 </resources>

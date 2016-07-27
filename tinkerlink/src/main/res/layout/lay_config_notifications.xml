@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.cronosgroup.tinkerlink.view.customviews.TLSwitch
+            android:id="@+id/requestNotifications"
+            style="@style/ItemSettingsNotificationStyle"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/settings_height_item"
+            android:layout_marginLeft="@dimen/margin_big"
+            android:layout_marginRight="@dimen/margin_big"
+            android:text="@string/configuration_profile_notifications_email"
+            app:fontSwitchName="Light" />
+
+        <include layout="@layout/lay_separator" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_big"
+            android:layout_marginRight="@dimen/margin_big"
+            android:orientation="vertical">
+
+            <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_mediun"
+                android:text="@string/configuration_profile_notifications_movil_permissions_title"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_mediun"
+                app:fontName="Regular" />
+
+            <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/configuration_profile_notifications_movil_permissions_message"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_small"
+                app:fontName="Light" />
+
+            <com.cronosgroup.tinkerlink.view.customviews.TLSwitch
+                android:id="@+id/notificationsMessages"
+                style="@style/ItemSettingsNotificationStyle"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/settings_height_item"
+                android:layout_marginTop="@dimen/margin_mediun"
+                android:text="@string/configuration_profile_notifications_movil_permissions_recommendation"
+                app:fontSwitchName="Light" />
+
+            <com.cronosgroup.tinkerlink.view.customviews.TLSwitch
+                android:id="@+id/notificationsLikes"
+                style="@style/ItemSettingsNotificationStyle"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/settings_height_item"
+                android:text="@string/configuration_profile_notifications_movil_permissions_share"
+                app:fontSwitchName="Light" />
+
+            <com.cronosgroup.tinkerlink.view.customviews.TLSwitch
+                android:id="@+id/notificationsShares"
+                style="@style/ItemSettingsNotificationStyle"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/settings_height_item"
+                android:text="@string/configuration_profile_notifications_movil_permissions_send_message"
+                app:fontSwitchName="Light" />
+
+            <com.cronosgroup.tinkerlink.view.customviews.TLSwitch
+                android:id="@+id/notificationsRequestContact"
+                style="@style/ItemSettingsNotificationStyle"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/settings_height_item"
+                android:text="@string/configuration_profile_notifications_movil_permissions_request_contact"
+                app:fontSwitchName="Light" />
+
+            <com.cronosgroup.tinkerlink.view.customviews.TLSwitch
+                android:id="@+id/notificationsAcceptContact"
+                style="@style/ItemSettingsNotificationStyle"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/settings_height_item"
+                android:text="@string/configuration_profile_notifications_movil_permissions_accept_contact"
+                app:fontSwitchName="Light" />
+
+            <com.cronosgroup.tinkerlink.view.customviews.TLSwitch
+                android:id="@+id/notificationsMatch"
+                style="@style/ItemSettingsNotificationStyle"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/settings_height_item"
+                android:text="@string/configuration_profile_notifications_movil_permissions_match_cards"
+                app:fontSwitchName="Light" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -35,9 +35,9 @@ public class ViewHolderRecommendation extends BaseViewHolder {
     // Public methods
 
     public void configureItem(RestRecomendacion recomendacion) {
-//        String urlUserImage = TinkerLinkApplication.getApp().getImagePath(AppConfigManager.Path.PATH_IMAGE_PROFILE_THUMBNAIL) + recomendacion.getUsuario().getUser().getPhoto();
+//        String urlUserImage = TinkerLinkApplication.getApp().getImagePath(AppConfigManager.Path.PATH_IMAGE_PROFILE_THUMBNAIL) + recomendacion.getUser().getUser().getPhoto();
 //        mUserImage.setImageFromUrl(urlUserImage);
-        mTitle.setText(recomendacion.getUsuario().getUser().getName());
+        mTitle.setText(recomendacion.getUser().getUser().getName());
         mSubTitle.setText(recomendacion.getRecomendacion());
     }
 }

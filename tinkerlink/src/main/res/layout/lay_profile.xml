@@ -1,6 +1,140 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    android:orientation="vertical">
 
-</LinearLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/headerProfile">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                android:id="@+id/userJob"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="FONTANERO"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_small" />
+
+            <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                android:id="@+id/userName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_small"
+                android:gravity="center_horizontal"
+                android:text="Mariano Martinez"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_big"
+                app:fontName="Regular" />
+
+            <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                android:id="@+id/userCountry"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_small"
+                android:gravity="center_horizontal"
+                android:text="Barcelona, España"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_tiny"
+                app:fontName="Regular" />
+
+            <include
+                layout="@layout/lay_contact_container"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="@dimen/margin_small"
+                android:layout_marginTop="@dimen/margin_big" />
+
+            <include layout="@layout/lay_newsfeed_action_buttons" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="@dimen/margin_small"
+                android:orientation="horizontal">
+
+                <com.cronosgroup.tinkerlink.view.customviews.TLTabItem
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    app:iconItem="@mipmap/ic_views"
+                    app:textItem="239"
+                    app:textItemColor="@color/black"
+                    app:textItemSize="@dimen/text_size_mediun" />
+
+                <com.cronosgroup.tinkerlink.view.customviews.TLTabItem
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    app:iconItem="@mipmap/newsfeed_share"
+                    app:textItem="239"
+                    app:textItemColor="@color/black"
+                    app:textItemSize="@dimen/text_size_mediun" />
+
+            </LinearLayout>
+
+            <android.support.design.widget.TabLayout
+                android:id="@+id/tablayout"
+                style="@style/TabProfileStyle"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:layout_gravity="bottom"
+                android:background="@color/gray_50"
+                app:tabGravity="fill"
+                app:tabMode="scrollable" />
+
+            <com.cronosgroup.tinkerlink.view.customviews.TLViewPager
+                android:id="@+id/userPager"
+                android:layout_width="match_parent"
+                android:layout_height="400dp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <RelativeLayout
+        android:id="@+id/headerProfile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true">
+
+        <include layout="@layout/lay_header_profile" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="@dimen/margin_mediun"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <com.cronosgroup.tinkerlink.view.customviews.TLImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:src="@mipmap/ic_close" />
+
+            <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_mediun"
+                android:text="@string/profile_title"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_mediun"
+                app:fontName="Regular" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

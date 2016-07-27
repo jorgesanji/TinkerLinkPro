@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    android:orientation="vertical">
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_big"
+                android:layout_marginRight="@dimen/margin_big"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                    style="@style/TextViewLoginSecctionsStyle"
+                    android:layout_marginTop="@dimen/margin_mediun"
+                    android:text="@string/profile_information_user_interest" />
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_mediun">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:background="@drawable/background_tinker_category"
+                            android:gravity="center_vertical"
+                            android:padding="10dp"
+                            android:text="Reparaciones" />
+
+                        <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:layout_marginLeft="@dimen/margin_mediun"
+                            android:background="@drawable/background_tinker_category"
+                            android:gravity="center_vertical"
+                            android:padding="10dp"
+                            android:text="Reparaciones" />
+
+                        <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:layout_marginLeft="@dimen/margin_mediun"
+                            android:background="@drawable/background_tinker_category"
+                            android:gravity="center_vertical"
+                            android:padding="10dp"
+                            android:text="Reparaciones" />
+
+                        <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:layout_marginLeft="@dimen/margin_mediun"
+                            android:background="@drawable/background_tinker_category"
+                            android:gravity="center_vertical"
+                            android:padding="10dp"
+                            android:text="Reparaciones" />
+
+                        <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:layout_marginLeft="@dimen/margin_mediun"
+                            android:background="@drawable/background_tinker_category"
+                            android:gravity="center_vertical"
+                            android:padding="10dp"
+                            android:text="Reparaciones" />
+
+                    </LinearLayout>
+
+                </HorizontalScrollView>
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_mediun">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:background="@drawable/background_linker_category"
+                            android:gravity="center_vertical"
+                            android:padding="10dp"
+                            android:text="Reparaciones" />
+
+                        <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:layout_marginLeft="@dimen/margin_mediun"
+                            android:background="@drawable/background_linker_category"
+                            android:gravity="center_vertical"
+                            android:padding="10dp"
+                            android:text="Reparaciones" />
+
+                        <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:layout_marginLeft="@dimen/margin_mediun"
+                            android:background="@drawable/background_linker_category"
+                            android:gravity="center_vertical"
+                            android:padding="10dp"
+                            android:text="Reparaciones" />
+
+                        <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:layout_marginLeft="@dimen/margin_mediun"
+                            android:background="@drawable/background_linker_category"
+                            android:gravity="center_vertical"
+                            android:padding="10dp"
+                            android:text="Reparaciones" />
+
+                        <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:layout_marginLeft="@dimen/margin_mediun"
+                            android:background="@drawable/background_linker_category"
+                            android:gravity="center_vertical"
+                            android:padding="10dp"
+                            android:text="Reparaciones" />
+
+                    </LinearLayout>
+
+                </HorizontalScrollView>
+
+                <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                    style="@style/TextViewLoginSecctionsStyle"
+                    android:layout_marginTop="@dimen/margin_big"
+                    android:text="@string/profile_information_user_description" />
+
+                <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                    style="@style/TextViewLoginSecctionsStyle"
+                    android:layout_marginTop="@dimen/margin_mediun"
+                    android:gravity="left"
+                    android:text="@string/profile_information_user_descriptiom_mock"
+                    android:textSize="@dimen/text_size_small" />
+
+                <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                    style="@style/TextViewLoginSecctionsStyle"
+                    android:layout_marginTop="@dimen/margin_big"
+                    android:text="@string/profile_information_studies_or_courses" />
+
+                <LinearLayout
+                    android:id="@+id/studiesContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_mediun"
+                    android:orientation="vertical">
+
+                    <com.cronosgroup.tinkerlink.view.customviews.TLStudyView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:options="false" />
+
+                    <com.cronosgroup.tinkerlink.view.customviews.TLStudyView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:options="false" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_marginTop="@dimen/margin_mediun"
+                android:background="@color/gray_50"
+                android:orientation="vertical">
+
+                <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                    style="@style/TextViewLoginSecctionsStyle"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="@dimen/margin_mediun"
+                    android:text="@string/profile_information_contacts_user" />
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:layout_marginLeft="@dimen/margin_big"
+                    android:layout_marginRight="@dimen/margin_big"
+                    android:layout_marginTop="@dimen/margin_mediun">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <com.cronosgroup.tinkerlink.view.customviews.TLContactView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <com.cronosgroup.tinkerlink.view.customviews.TLContactView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/margin_small" />
+
+                        <com.cronosgroup.tinkerlink.view.customviews.TLContactView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/margin_small" />
+
+                        <com.cronosgroup.tinkerlink.view.customviews.TLContactView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/margin_small" />
+
+                        <com.cronosgroup.tinkerlink.view.customviews.TLContactView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/margin_small" />
+                    </LinearLayout>
+
+                </HorizontalScrollView>
+
+                <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                    android:id="@+id/showAllContacts"
+                    style="@style/TextViewLoginSecctionsStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@drawable/button_default_states"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:gravity="center"
+                    android:text="@string/profile_information_watch_all_contacts" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+</LinearLayout>

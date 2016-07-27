@@ -18,19 +18,17 @@ public class TLRecyclerView extends RecyclerView {
     //Vars
     private float factorVelocity = DEFAULT_FACTOR;
 
-    public TLRecyclerView(Context context, AttributeSet attrs, int defStyle) {
-        super(context, attrs, defStyle);
-        init(attrs);
+    public TLRecyclerView(Context context) {
+        this(context, null);
     }
 
     public TLRecyclerView(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        init(attrs);
+        this(context, attrs, 0);
     }
 
-    public TLRecyclerView(Context context) {
-        super(context);
-        init(null);
+    public TLRecyclerView(Context context, AttributeSet attrs, int defStyle) {
+        super(context, attrs, defStyle);
+        init(attrs);
     }
 
     private void init(AttributeSet attributeSet) {
