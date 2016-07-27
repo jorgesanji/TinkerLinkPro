@@ -8,6 +8,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.TimeZone;
 
 /**
  * Created by jorgesanmartin on 15/10/15.
@@ -16,6 +17,7 @@ public class DateUtils {
 
     public static final String DATE_TIME_FORMAT = "yyyy-MM-dd'T'HH:mm:ss.SSSZ";
     public static final String DATE_TO_PRINT_IN_POST = "MMM dd yy, hh:mm";
+    public static final String DATE_TO_PRINT_IN_RECOMMENDATIONS = "MMMM yyyy";
     private static final int SECOND_MILLIS = 1000;
     private static final int MINUTE_MILLIS = 60 * SECOND_MILLIS;
     private static final int HOUR_MILLIS = 60 * MINUTE_MILLIS;
@@ -26,7 +28,7 @@ public class DateUtils {
         return df.format(Calendar.getInstance().getTime());
     }
 
-    public static String getInterval(Date date, Context context) {
+    public static String getInterval(Date date, Context context, String defaultFormat) {
 
         if (date == null) {
             date = new Date();
@@ -55,7 +57,19 @@ public class DateUtils {
         } else if (diff < 48 * HOUR_MILLIS) {
             return context.getString(R.string.time_yesterday);
         } else {
-            return  android.text.format.DateFormat.format(DATE_TO_PRINT_IN_POST, date).toString();
+            return android.text.format.DateFormat.format(defaultFormat != null ? defaultFormat : DATE_TO_PRINT_IN_POST, date).toString();
         }
+    }
+
+    public static Date getDate(long time) {
+        Calendar calendar = Calendar.getInstance();
+        TimeZone tz = TimeZone.getDefault();
+        calendar.add(Calendar.MILLISECOND, tz.getOffset(calendar.getTimeInMillis()));
+        Date currenTimeZone = new Date(time * 1000);
+        return currenTimeZone;
+    }
+
+    public static String getDateIntervalFromTimeStamp(long time, Context context) {
+        return getInterval(getDate(time), context, DATE_TO_PRINT_IN_RECOMMENDATIONS);
     }
 }

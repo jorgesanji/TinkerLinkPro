@@ -39,6 +39,4 @@ public class ConfigAdapter extends FragmentStatePagerAdapter {
     public CharSequence getPageTitle(int position) {
         return mContetxt.getResources().getString(titles[position]);
     }
-
-
 }

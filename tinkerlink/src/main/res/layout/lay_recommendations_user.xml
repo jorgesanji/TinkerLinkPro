@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="4dp"
+                android:background="@color/yellow" />
+
+            <include layout="@layout/lay_give_recommendation_view" />
+
+            <LinearLayout
+                android:id="@+id/recommendationsContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+
+            <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                android:id="@+id/watchRecommendations"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/button_default_states"
+                android:gravity="center"
+                android:text="@string/profile_recommendations_watch_recommendations"
+                android:textColor="@color/black"
+                android:textSize="@dimen/margin_mediun"
+                app:fontName="Regular" />
+
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+</LinearLayout>

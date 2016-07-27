@@ -21,7 +21,7 @@
     <string name="sign_code_validation_message_error">Inténtalo nuevamente</string>
     <string name="login_enter_code_error">Ingresa la contraseña que recibiste por SMS</string>
     <string name="login_enter_email_error">Ingresa tu cuenta de correo</string>
-    <string name="login_user_duplicate_error">El teléfono asociado a tu cuenta fue validado con un usuario diferente. Valida un nuevo número para que puedas ingresar</string>
+    <string name="login_user_duplicate_error">El teléfono asociado a tu cuenta fue validado con un user diferente. Valida un nuevo número para que puedas ingresar</string>
     <string name="login_code_expire_error">La contraseña que ingresaste ha expirado.Te hemos enviado una de nuevo, revisa tus mensajes.</string>
     <string name="login_code_error">La contraseña es incorrecta. Inténtalo nuevamente</string>
     <string name="login_recover_error">Tu teléfono o tu contraseña es incorrectos</string>
@@ -69,7 +69,7 @@
     <string name="newsFeed_delete_user_contact">El contacto ha sido eliminado</string>
     <string name="newsFeed_sms_user_contact">Invitación enviada</string>
     <string name="newsFeed_block_contact">El contacto ha sido bloqueado</string>
-    <string name="newsFeed_accept_contact">Nuevo usuario añadido</string>
+    <string name="newsFeed_accept_contact">Nuevo user añadido</string>
 
     <string name="profile_update_photo_success">Tu foto se ha actualizado</string>
     <string name="profile_delete_photo_success">Tu foto se ha eliminado</string>
@@ -172,16 +172,16 @@
     <string name="sign_resend_code_sended">Código enviado </string>
     <string name="sign_sucess_validation">Bienvenido a tinkerlink. Has completado tu registro.</string>
 
-    <string name="sign_user_active_title">Este usuario ya está registrado</string>
+    <string name="sign_user_active_title">Este user ya está registrado</string>
     <string name="sign_user_active_message">Ingresa a tu cuenta</string>
-    <string name="sign_user_receovery_title">Este usuario ya está registrado. Ingresa a tu cuenta</string>
+    <string name="sign_user_receovery_title">Este user ya está registrado. Ingresa a tu cuenta</string>
     <string name="sign_user_recovery_message">Te hemos enviado un SMS con tu contraseña. Revisa tu bandeja de entrada</string>
 
 
     <!-- Login -->
 
     <string name="login_forgot_password">¿Olvidaste tu contraseña?</string>
-    <string name="login_enter_your_information">Ingresa tu usuario y contraseña</string>
+    <string name="login_enter_your_information">Ingresa tu user y contraseña</string>
     <string name="login_enter_button">ENTRAR</string>
     <string name="login_recovery_button">RECUPERAR CONTRASEÑA</string>
     <string name="login_recovery_title">Recupera tu contraseña</string>
@@ -693,12 +693,11 @@
     <string name="configuration_profile_privacy_public_message">Todo el mundo pueda ver mis contactos, contactos en común y actividad</string>
     <string name="configuration_profile_privacy_only_friends">Solo Amigos</string>
     <string name="configuration_profile_privacy_only_friends_message">Solo mis amigos pueden ver mis contactos, contactos en común y actividad</string>
-   <string name="configuration_profile_privacy_private">Privado</string>
+    <string name="configuration_profile_privacy_private">Privado</string>
     <string name="configuration_profile_privacy_private_message">Solo yo puedo ver mis contactos, contactos en común y actividad</string>
-   <string name="configuration_profile_privacy_contacts_locked">Contactos bloqueados</string>
+    <string name="configuration_profile_privacy_contacts_locked">Contactos bloqueados</string>
     <string name="configuration_profile_privacy_remove_contact">Eliminar contacto</string>
     <string name="configuration_profile_privacy_unlock_contact">Desbloquear contacto</string>
-
     <string name="configuration_profile_notifications_email">Notificaciones por correo electrónico</string>
     <string name="configuration_profile_notifications_movil_permissions_title">Notificaciones en el móvil</string>
     <string name="configuration_profile_notifications_movil_permissions_message">Te avisamos cuando alguién</string>
@@ -709,11 +708,34 @@
     <string name="configuration_profile_notifications_movil_permissions_accept_contact">Acepta tu solicitud de contacto</string>
     <string name="configuration_profile_notifications_movil_permissions_match_cards">Encontramos coincidencias en tarjetas</string>
 
+    <!-- PROFILE -->
+    <string name="profile_title">Perfil</string>
+    <string name="profile_page_user_information">INFORMACIÓN</string>
+    <string name="profile_page_user_recommendation">RECOMENDACIONES</string>
+    <string name="profile_page_user_activity">ACTIVIDAD</string>
+    <string name="profile_information_user_interest">INTERES</string>
+    <string name="profile_information_user_description">DESCRIPCIÓN</string>
+    <string name="profile_information_user_descriptiom_mock">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non gravida odio. Proin id lobortis nunc. Sed vitae tortor ut sapien scelerisque consectetur. </string>
+    <string name="profile_information_studies_or_courses">ESTUDIOS Ó CURSOS</string>
+    <string name="profile_information_contacts_user">Contactos de %s que podrías conocer</string>
+    <string name="profile_information_watch_all_contacts">VER TODOS LOS CONTACTOS DE %s</string>
 
+    <!-- WIDGET CONTACT-->
+    <string name="widget_contact_add">Añadir</string>
+    <string name="widget_contact_watch_network">Ver red</string>
 
+    <!-- RECOMMENDATIONS-->
+    <string name="profile_recommendations_message" formatted="false">%s, te gustaría recomendar a %s</string>
+    <string name="profile_recommendations_create">Redacta una recomendación...</string>
+    <string name="profile_recommendations_watch_recommendations">VER %s RECOMENDACIONES</string>
+    <string name="profile_recommendations_publish_recommendations">PUBLICAR</string>
+    <string name="profile_recommendations_write_recommendation_by">Redacta una recomendación para %s</string>
+    <string name="profile_recommendations_write_recommendation_by_hint">Redacta una recomendación</string>
 
-
-
+    <!-- CONTACTS-->
+    <string name="contacts_in_common">EN COMÚN(%s)</string>
+    <string name="contacts_all">TODOS(%s)</string>
+    <string name="contacts_from">Contactos de %s</string>
 
 
 

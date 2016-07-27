@@ -2,7 +2,6 @@ package com.cronosgroup.tinkerlink.view.profile;
 
 import android.view.View;
 
-import com.cronosgroup.tinkerlink.presenter.editprofile.EditProfilePresenter;
 import com.cronosgroup.tinkerlink.presenter.profile.ProfilePresenter;
 import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
@@ -17,15 +16,15 @@ public class ProfileFragment extends MVPTinkerLinkFragment<ProfilePresenter, Pro
     // Vars
 
     // Views
-    private ProfileScreen editProfileScreen;
+    private ProfileScreen profileScreen;
 
     //region **************  MVPFragment **************
 
     @Override
     protected View getRootView() {
-        editProfileScreen = new ProfileScreen(getActivity());
-        editProfileScreen.setListener(this);
-        return editProfileScreen;
+        profileScreen = new ProfileScreen(getActivity());
+        profileScreen.setListener(this);
+        return profileScreen;
     }
 
     @Override
@@ -40,16 +39,16 @@ public class ProfileFragment extends MVPTinkerLinkFragment<ProfilePresenter, Pro
 
     @Override
     protected void onDidAppear() {
-
+        profileScreen.initPager(getActivity().getSupportFragmentManager());
     }
 
     //endregion
 
-    //region ************** EditProfilePresenter.View **************
+    //region ************** ProfilePresenter.View **************
 
     //endregion
 
-    //region ************** ChatUserScreen.Listener **************
+    //region ************** ProfileScreen.Listener **************
 
 
     //endregion

@@ -64,7 +64,7 @@ public class PolicyPrivacyScreen extends RelativeLayout {
     }
 
     private void init() {
-        inflate(getContext(), R.layout.lay_change_password, this);
+        inflate(getContext(), R.layout.lay_privacy_policy, this);
         ButterKnife.bind(this);
     }
 

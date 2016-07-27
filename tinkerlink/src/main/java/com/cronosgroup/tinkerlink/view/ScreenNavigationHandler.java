@@ -22,6 +22,7 @@ import com.cronosgroup.tinkerlink.presenter.editprofile.ConfigAccountUserPresent
 import com.cronosgroup.tinkerlink.presenter.editprofile.EditProfilePresenter;
 import com.cronosgroup.tinkerlink.presenter.editprofile.UserNotificationsPresenter;
 import com.cronosgroup.tinkerlink.presenter.frequentlyquestions.FrequentlyQuestionsPresenter;
+import com.cronosgroup.tinkerlink.presenter.giverecommendation.GiveRecommendationPresenter;
 import com.cronosgroup.tinkerlink.presenter.helptinkerlink.HelpTinkerLinkPresenter;
 import com.cronosgroup.tinkerlink.presenter.home.HomePresenter;
 import com.cronosgroup.tinkerlink.presenter.importcontacts.ImportContactsPresenter;
@@ -33,6 +34,10 @@ import com.cronosgroup.tinkerlink.presenter.policyprivacy.PolicyPrivacyPresenter
 import com.cronosgroup.tinkerlink.presenter.presignuser.PreSignUserPresenter;
 import com.cronosgroup.tinkerlink.presenter.privacy.PrivacyPresenter;
 import com.cronosgroup.tinkerlink.presenter.profile.ProfilePresenter;
+import com.cronosgroup.tinkerlink.presenter.profile.UserActivityPresenter;
+import com.cronosgroup.tinkerlink.presenter.profile.UserInformationPresenter;
+import com.cronosgroup.tinkerlink.presenter.profile.UserRecommendationsPresenter;
+import com.cronosgroup.tinkerlink.presenter.recommendations.RecommendationsPresenter;
 import com.cronosgroup.tinkerlink.presenter.recoverypassword.RecoveryPasswordPresenter;
 import com.cronosgroup.tinkerlink.presenter.sign.FormUserPresenter;
 import com.cronosgroup.tinkerlink.presenter.sign.RegisterSelectorPresenter;
@@ -44,6 +49,8 @@ import com.cronosgroup.tinkerlink.presenter.stack.CardPresenter;
 import com.cronosgroup.tinkerlink.presenter.stack.DetailStackPresenter;
 import com.cronosgroup.tinkerlink.presenter.stack.StackPresenter;
 import com.cronosgroup.tinkerlink.presenter.tutorial.TutorialPresenter;
+import com.cronosgroup.tinkerlink.presenter.usercontacts.AllUserContactsPresenter;
+import com.cronosgroup.tinkerlink.presenter.usercontacts.UserContactsPresenter;
 import com.cronosgroup.tinkerlink.presenter.verify.VerifyPresenter;
 import com.cronosgroup.tinkerlink.view.chatuser.ChatUserActivity;
 import com.cronosgroup.tinkerlink.view.config.changepassword.ChangePasswordActivity;
@@ -60,14 +67,17 @@ import com.cronosgroup.tinkerlink.view.createcard.CreateCardActivity;
 import com.cronosgroup.tinkerlink.view.createrecommendation.CreateRecommendationActivity;
 import com.cronosgroup.tinkerlink.view.detailcard.DetailCardActivity;
 import com.cronosgroup.tinkerlink.view.editprofile.EditProfileActivity;
+import com.cronosgroup.tinkerlink.view.giverecommendation.GiveRecommendationsActivity;
 import com.cronosgroup.tinkerlink.view.home.HomeActivity;
 import com.cronosgroup.tinkerlink.view.login.LoginActivity;
 import com.cronosgroup.tinkerlink.view.network.NetworkActivity;
 import com.cronosgroup.tinkerlink.view.presignuser.PreSignUserActivity;
 import com.cronosgroup.tinkerlink.view.profile.ProfileActivity;
+import com.cronosgroup.tinkerlink.view.recommendations.RecommendationsActivity;
 import com.cronosgroup.tinkerlink.view.sign.SignActivity;
 import com.cronosgroup.tinkerlink.view.stack.detail.DetailStackActivity;
 import com.cronosgroup.tinkerlink.view.stack.main.StackActivity;
+import com.cronosgroup.tinkerlink.view.usercontacts.UserContactsActivity;
 
 /**
  * Created by jorgesanmartin on 2/26/16.
@@ -89,7 +99,10 @@ public final class ScreenNavigationHandler implements HomePresenter.Actions,
         ChangePhoneNumberPresenter.Actions, ImportContactsPresenter.Actions,
         PolicyPrivacyPresenter.Actions, HelpTinkerLinkPresenter.Actions,
         FrequentlyQuestionsPresenter.Actions, PrivacyPresenter.Actions,
-        RecoveryPasswordPresenter.Actions, VerifyPresenter.Actions {
+        RecoveryPasswordPresenter.Actions, VerifyPresenter.Actions, UserActivityPresenter.Actions,
+        UserInformationPresenter.Actions, UserRecommendationsPresenter.Actions,
+        RecommendationsPresenter.Actions, GiveRecommendationPresenter.Actions,
+        UserContactsPresenter.Actions, AllUserContactsPresenter.Actions {
 
     //Instance
     private static ScreenNavigationHandler instance = null;
@@ -237,6 +250,18 @@ public final class ScreenNavigationHandler implements HomePresenter.Actions,
         return newTask(context, VerificationActivity.class, bundle);
     }
 
+    private static Intent recommendations(@NonNull Activity context, Bundle bundle) {
+        return newTask(context, RecommendationsActivity.class, bundle);
+    }
+
+    private static Intent giveRecommendations(@NonNull Activity context, Bundle bundle) {
+        return newTask(context, GiveRecommendationsActivity.class, bundle);
+    }
+
+    private static Intent userContacts(@NonNull Activity context, Bundle bundle) {
+        return newTask(context, UserContactsActivity.class, bundle);
+    }
+
     // ******************************
     //      ACTIONS DEFINITION
     // *************************++***
@@ -373,6 +398,25 @@ public final class ScreenNavigationHandler implements HomePresenter.Actions,
     @Override
     public void onLaunchVerify(Activity activity, Bundle bundle) {
         startActivity(activity, verify(activity, bundle));
+    }
+
+    // ------------------------ PROFILE  -----------------------------------
+
+    @Override
+    public void onLaunchUserContacts(Activity activity, Bundle bundle) {
+        startActivity(activity, userContacts(activity, bundle));
+    }
+
+    // ------------------------ RECOMENDATIONS -----------------------------------
+
+    @Override
+    public void onLaunchRecommendations(Activity activity, Bundle bundle) {
+        startActivity(activity, recommendations(activity, bundle));
+    }
+
+    @Override
+    public void onLaunchGiveRecommendation(Activity activity, Bundle bundle) {
+        startActivity(activity, giveRecommendations(activity, bundle));
     }
 
     // ------------------------ CHAT -----------------------------------

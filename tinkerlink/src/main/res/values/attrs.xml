@@ -247,4 +247,8 @@
         <attr name="rowSubTitle" format="string" />
     </declare-styleable>
 
+    <declare-styleable name="TLStudyView">
+        <attr name="options" format="boolean" />
+    </declare-styleable>
+
 </resources>

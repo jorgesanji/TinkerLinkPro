@@ -131,7 +131,9 @@
     <dimen name="view_big_width">160dp</dimen>
     <dimen name="view_big_height">60dp</dimen>
     <dimen name="view_super_big_width">250dp</dimen>
+    <dimen name="view_super_big_height">250dp</dimen>
     <dimen name="view_max_width_mediun">100dp</dimen>
+    <dimen name="view_max_height_mediun">150dp</dimen>
     <dimen name="view_max_width">100dp</dimen>
     <dimen name="view_max_height">100dp</dimen>
     <dimen name="view_max_height_big">80dp</dimen>

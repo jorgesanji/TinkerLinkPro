@@ -34,8 +34,7 @@ public class TLUserView extends LinearLayout {
 
         void onUnLockPressed();
     }
-
-
+    
     //Properties
     private String title;
     private String subTitle;

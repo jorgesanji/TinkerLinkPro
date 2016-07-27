@@ -64,7 +64,7 @@ public class FrequentlyQuestionsScreen extends RelativeLayout {
     }
 
     private void init() {
-        inflate(getContext(), R.layout.lay_change_password, this);
+        inflate(getContext(), R.layout.lay_frequently_questions, this);
         ButterKnife.bind(this);
     }
 

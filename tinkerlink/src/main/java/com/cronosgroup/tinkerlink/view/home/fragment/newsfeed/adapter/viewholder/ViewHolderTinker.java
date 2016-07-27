@@ -139,7 +139,7 @@ public class ViewHolderTinker extends ViewHolderPostBase<RestPost> {
         ForegroundColorSpan color = new ForegroundColorSpan(getResources().getColor(R.color.news_feed_detail_info));
         spannableString.setSpan(color, contacto.getUser().getName().length(), textContat.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         mUserContainer.setTitle(spannableString);
-        mUserContainer.setSubTitle(DateUtils.getInterval(fecha, itemView.getContext()));
+        mUserContainer.setSubTitle(DateUtils.getInterval(fecha, itemView.getContext(), null));
         mUserContainer.setListener(new IOIconListener() {
             @Override
             public void onIconPressed() {

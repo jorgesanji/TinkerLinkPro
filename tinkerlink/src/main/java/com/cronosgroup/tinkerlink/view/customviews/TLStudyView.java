@@ -2,6 +2,7 @@ package com.cronosgroup.tinkerlink.view.customviews;
 
 import android.annotation.TargetApi;
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
@@ -25,6 +26,7 @@ public class TLStudyView extends LinearLayout {
 
     //Vars
     private Listener listener;
+    private boolean options;
 
     //Views
     @BindView(R.id.courseName)
@@ -36,6 +38,11 @@ public class TLStudyView extends LinearLayout {
     @BindView(R.id.courseDate)
     protected TLTextView mCourseDate;
 
+    @BindView(R.id.editStudy)
+    protected TLImageButton mEditStudy;
+
+    @BindView(R.id.removeStudy)
+    protected TLImageButton mRemoveStudy;
 
     public TLStudyView(Context context) {
         this(context, null);
@@ -52,13 +59,26 @@ public class TLStudyView extends LinearLayout {
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public TLStudyView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        init();
+        init(attrs);
     }
 
-    private void init() {
+    private void init(AttributeSet attributeSet) {
         inflate(getContext(), R.layout.lay_study_item, this);
         ButterKnife.bind(this);
+        if (attributeSet != null) {
+            TypedArray attributes = null;
+            try {
+                attributes = getContext().obtainStyledAttributes(attributeSet, R.styleable.TLStudyView);
+                setOptions(attributes.getBoolean(R.styleable.TLStudyView_options, true));
+            } catch (Exception ex) {
+            } finally {
+                if (attributes != null) {
+                    attributes.recycle();
+                }
+            }
+        }
     }
+
     // Actions
 
     @OnClick(R.id.editStudy)
@@ -91,5 +111,15 @@ public class TLStudyView extends LinearLayout {
 
     public void setCourseDate(String courseDate) {
         mCourseDate.setText(courseDate);
+    }
+
+    public boolean isOptions() {
+        return options;
+    }
+
+    public void setOptions(boolean options) {
+        this.options = options;
+        mEditStudy.setVisibility(options ? VISIBLE : GONE);
+        mRemoveStudy.setVisibility(options ? VISIBLE : GONE);
     }
 }

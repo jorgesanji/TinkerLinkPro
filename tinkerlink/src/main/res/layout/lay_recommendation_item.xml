@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    android:orientation="vertical">
+
+    <com.cronosgroup.tinkerlink.view.customviews.TLUserView
+        android:id="@+id/user"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:userBadge="false"
+        app:userSubTitleColor="@color/black"
+        app:userSubTitleFont="Regular"
+        app:userSubTitleSize="@dimen/text_size_small"
+        app:userTitleColor="@color/black"
+        app:userTitleFont="Regular"
+        app:userTitleSize="@dimen/text_size_mediun" />
+
+    <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+        android:id="@+id/recommendationText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_mediun"
+        android:layout_marginLeft="@dimen/margin_big"
+        android:layout_marginRight="@dimen/margin_big"
+        android:ellipsize="end"
+        android:maxLines="4"
+        android:text="@string/profile_information_user_descriptiom_mock"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_size_mediun"
+        app:fontName="Regular" />
+
+</LinearLayout>

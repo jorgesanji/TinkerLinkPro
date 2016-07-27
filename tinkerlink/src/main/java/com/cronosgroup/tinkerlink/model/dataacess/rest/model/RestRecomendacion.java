@@ -14,11 +14,11 @@ public class RestRecomendacion extends RestBase {
     @SerializedName("_id")
     private String id = "";
 
-    @SerializedName("usuario")
-    private RestContacto usuario = new RestContacto();
+    @SerializedName("user")
+    private RestContacto user = new RestContacto();
 
-    @SerializedName("habilities")
-    private String intervalo = "";
+    @SerializedName("create_date")
+    private String createDate = "";
 
     @SerializedName("texto")
     private String recomendacion = "";
@@ -35,20 +35,20 @@ public class RestRecomendacion extends RestBase {
         this.id = id;
     }
 
-    public RestContacto getUsuario() {
-        return usuario;
+    public RestContacto getUser() {
+        return user;
     }
 
-    public void setUsuario(RestContacto usuario) {
-        this.usuario = usuario;
+    public void setUser(RestContacto user) {
+        this.user = user;
     }
 
-    public String getIntervalo() {
-        return intervalo;
+    public String getCreateDate() {
+        return createDate;
     }
 
-    public void setIntervalo(String intervalo) {
-        this.intervalo = intervalo;
+    public void setCreateDate(String createDate) {
+        this.createDate = createDate;
     }
 
     public String getRecomendacion() {

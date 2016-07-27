@@ -64,7 +64,7 @@ public class HelpTinkerLinkScreen extends RelativeLayout {
     }
 
     private void init() {
-        inflate(getContext(), R.layout.lay_change_password, this);
+        inflate(getContext(), R.layout.lay_help_tinker, this);
         ButterKnife.bind(this);
     }
 

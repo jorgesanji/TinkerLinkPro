@@ -207,6 +207,18 @@
             android:name=".view.config.verify.VerificationActivity"
             android:screenOrientation="portrait" />
 
+        <activity
+            android:name=".view.recommendations.RecommendationsActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".view.giverecommendation.GiveRecommendationsActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".view.usercontacts.UserContactsActivity"
+            android:screenOrientation="portrait" />
+
     </application>
 
 </manifest>

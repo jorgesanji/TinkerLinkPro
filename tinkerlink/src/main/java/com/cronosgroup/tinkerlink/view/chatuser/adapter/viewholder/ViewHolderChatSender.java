@@ -36,7 +36,7 @@ public class ViewHolderChatSender extends BaseViewHolder<TLMessage> {
     @Override
     public void configureItem(TLMessage item) {
         super.configureItem(item);
-        mTime.setText(DateUtils.getInterval(item.getDate(), itemView.getContext()));
+        mTime.setText(DateUtils.getInterval(item.getDate(), itemView.getContext(), null));
         mMessage.setText(item.getMessage());
 
         mSendedMessage.setVisibility(item.isSended() ? View.VISIBLE : View.GONE);

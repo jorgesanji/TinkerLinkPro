@@ -21,7 +21,7 @@
     <string name="sign_code_validation_message_error">Inténtalo nuevamente</string>
     <string name="login_enter_code_error">Ingresa la contraseña que recibiste por SMS</string>
     <string name="login_enter_email_error">Ingresa tu cuenta de correo</string>
-    <string name="login_user_duplicate_error">El teléfono asociado a tu cuenta fue validado con un usuario diferente. Valida un nuevo número para que puedas ingresar</string>
+    <string name="login_user_duplicate_error">El teléfono asociado a tu cuenta fue validado con un user diferente. Valida un nuevo número para que puedas ingresar</string>
     <string name="login_code_expire_error">La contraseña que ingresaste ha expirado.Te hemos enviado una de nuevo, revisa tus mensajes.</string>
     <string name="login_code_error">La contraseña es incorrecta. Inténtalo nuevamente</string>
     <string name="login_recover_error">Tu teléfono o tu contraseña es incorrectos</string>
@@ -69,7 +69,7 @@
     <string name="newsFeed_delete_user_contact">El contacto ha sido eliminado</string>
     <string name="newsFeed_sms_user_contact">Invitación enviada</string>
     <string name="newsFeed_block_contact">El contacto ha sido bloqueado</string>
-    <string name="newsFeed_accept_contact">Nuevo usuario añadido</string>
+    <string name="newsFeed_accept_contact">Nuevo user añadido</string>
 
     <string name="profile_update_photo_success">Tu foto se ha actualizado</string>
     <string name="profile_delete_photo_success">Tu foto se ha eliminado</string>
@@ -172,16 +172,16 @@
     <string name="sign_resend_code_sended">Código enviado </string>
     <string name="sign_sucess_validation">Bienvenido a tinkerlink. Has completado tu registro.</string>
 
-    <string name="sign_user_active_title">Este usuario ya está registrado</string>
+    <string name="sign_user_active_title">Este user ya está registrado</string>
     <string name="sign_user_active_message">Ingresa a tu cuenta</string>
-    <string name="sign_user_receovery_title">Este usuario ya está registrado. Ingresa a tu cuenta</string>
+    <string name="sign_user_receovery_title">Este user ya está registrado. Ingresa a tu cuenta</string>
     <string name="sign_user_recovery_message">Te hemos enviado un SMS con tu contraseña. Revisa tu bandeja de entrada</string>
 
 
     <!-- Login -->
 
     <string name="login_forgot_password">¿Olvidaste tu contraseña?</string>
-    <string name="login_enter_your_information">Ingresa tu usuario y contraseña</string>
+    <string name="login_enter_your_information">Ingresa tu user y contraseña</string>
     <string name="login_enter_button">ENTRAR</string>
     <string name="login_recovery_button">RECUPERAR CONTRASEÑA</string>
     <string name="login_recovery_title">Recupera tu contraseña</string>

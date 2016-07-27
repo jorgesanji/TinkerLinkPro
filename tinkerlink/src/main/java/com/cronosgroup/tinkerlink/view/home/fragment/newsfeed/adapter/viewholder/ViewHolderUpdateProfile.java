@@ -85,7 +85,7 @@ public class ViewHolderUpdateProfile extends ViewHolderPostBase<RestPost> {
         ForegroundColorSpan color = new ForegroundColorSpan(getResources().getColor(R.color.news_feed_detail_info));
         spannableString.setSpan(color, post.getUser().getUser().getName().length(), userStatus.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         mUserContainer.setTitle(spannableString);
-        mUserContainer.setSubTitle(DateUtils.getInterval(post.getFecha(), getContext()));
+        mUserContainer.setSubTitle(DateUtils.getInterval(post.getFecha(), getContext(), null));
         mUserContainer.setUserImageFromUrl(getAppConfigManager().getPath(AppConfigManager.Path.PATH_IMAGE_PROFILE_THUMBNAIL) + post.getUser().getUser().getPhoto());
         mUserContainer.setListener(new IOIconListener() {
             @Override
