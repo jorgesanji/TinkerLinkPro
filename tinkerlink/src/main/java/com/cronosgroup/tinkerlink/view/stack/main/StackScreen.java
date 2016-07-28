@@ -54,22 +54,25 @@ public class StackScreen extends RelativeLayout {
 
     // Views
     @BindView(R.id.pager)
-    FlippableStackView mPager;
+    protected FlippableStackView mPager;
 
     @BindView(R.id.backgroundFadeIn)
     View mBackgroundIn;
 
     @BindView(R.id.backgroundFadeOut)
-    View mBackgroundOut;
+    protected View mBackgroundOut;
 
     @BindView(R.id.selectCardsType)
-    TLTextView mSelectCardsType;
+    protected TLTextView mSelectCardsType;
 
     @BindView(R.id.stackIndicator)
-    SeekBar mStackIndicator;
+    protected SeekBar mStackIndicator;
 
     @BindView(R.id.pageNumberIndicator)
-    TLTextView mPageNumberIndicator;
+    protected TLTextView mPageNumberIndicator;
+
+    @BindView(R.id.overLaySelector)
+    protected View mOverLaySelector;
 
     /**
      * @param context
@@ -214,15 +217,14 @@ public class StackScreen extends RelativeLayout {
     }
 
     public void addItems(List<RestPost> restPosts) {
-        if (adapter.getCount() == 0) {
+        if (adapter.getCount() == 0 && !restPosts.isEmpty()) {
+            mPager.setVisibility(VISIBLE);
+            mPageNumberIndicator.setVisibility(VISIBLE);
+            mStackIndicator.setVisibility(VISIBLE);
+            mPager.setAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.anim_scale_bounce));
             adapter.addItems(restPosts);
             mPager.setAdapter(adapter);
-            if (!restPosts.isEmpty()) {
-                mPager.setVisibility(VISIBLE);
-                mPageNumberIndicator.setVisibility(VISIBLE);
-                mStackIndicator.setVisibility(VISIBLE);
-                mPager.setAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.anim_scale_bounce));
-            }
+            adapter.notifyDataSetChanged();
         } else {
             adapter.addItems(restPosts);
             adapter.notifyDataSetChanged();
@@ -262,5 +264,11 @@ public class StackScreen extends RelativeLayout {
 
     public int getCurrentIndexPage() {
         return mPager.getCurrentItem();
+    }
+
+    public void showOverlaySelector() {
+//        mOverLaySelector.setAlpha(0);
+        mOverLaySelector.setVisibility(VISIBLE);
+//        mOverLaySelector.animate().alpha(1).start();
     }
 }

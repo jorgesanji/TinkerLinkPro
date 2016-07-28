@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="@dimen/dialog_row_height"
-    android:background="@drawable/list_tinker_states"
+    android:background="@drawable/button_default_states"
     android:orientation="vertical">
 
     <com.cronosgroup.tinkerlink.view.customviews.TLTextView
@@ -18,12 +18,5 @@
         android:singleLine="true"
         android:textColor="@color/black"
         app:fontName="Regular" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_alignParentBottom="true"
-        android:background="@color/material_grey_50"
-        android:orientation="horizontal" />
 
 </RelativeLayout>

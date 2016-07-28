@@ -686,7 +686,6 @@
     <string name="configuration_select_country">Selecciona la cobertura</string>
     <string name="configuration_write_phone_number">Escribe tu número de móvil</string>
     <string name="configuration_send_code">Enviar Código</string>
-
     <string name="configuration_profile_privacy">Privacidad de tu perfil</string>
     <string name="configuration_profile_privacy_message">Escoje quienes pueden ver el contenido de tu perfil</string>
     <string name="configuration_profile_privacy_public">Publico</string>
@@ -736,6 +735,26 @@
     <string name="contacts_in_common">EN COMÚN(%s)</string>
     <string name="contacts_all">TODOS(%s)</string>
     <string name="contacts_from">Contactos de %s</string>
+
+     <!-- DRAG AND DROP-->
+    <string name="drag_drop_watch_network">Ver red</string>
+    <string name="drag_drop_watch_profile">Ver perfil</string>
+    <string name="drag_drop_share">Compartir</string>
+    <string name="drag_drop_write_message">Escribir mensake</string>
+
+
+     <!-- DIALOG OCCUPATION-->
+    <string name="dialog_occupation_search">Busca tu ocupación</string>
+    <string name="dialog_occupation_add_new_one_message">Si no encuentras tu ocupacióne en la lista puedes agregar una</string>
+    <string name="dialog_occupation_add_new_one_message_hint">Especifica tu ocupación</string>
+    <string name="dialog_occupation_add_new_one_message_limit">%s/20</string>
+
+
+     <!-- DIALOG MESSAGE-->
+    <string name="dialog_message_ok_button">OK</string>
+
+
+
 
 
 

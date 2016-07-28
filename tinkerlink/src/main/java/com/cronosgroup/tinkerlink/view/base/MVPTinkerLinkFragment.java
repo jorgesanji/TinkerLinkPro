@@ -7,8 +7,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatDialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,7 +22,7 @@ import com.cronosgroup.tinkerlink.view.AppSnackManager;
  * Common functionalities for fragments.
  * Handles life cycle of presenters.
  */
-public abstract class MVPTinkerLinkFragment<P extends Presenter<V>, V extends TinkerLinkPresenter.View> extends Fragment implements TinkerLinkPresenterView {
+public abstract class MVPTinkerLinkFragment<P extends Presenter<V>, V extends TinkerLinkPresenter.View> extends TinkerLinkFragment implements TinkerLinkPresenterView {
 
     // Variables
     private P presenter;
@@ -168,37 +166,6 @@ public abstract class MVPTinkerLinkFragment<P extends Presenter<V>, V extends Ti
         View group = snackbar.getView();
         group.setBackgroundColor(getResources().getColor(color));
         snackbar.show();
-    }
-
-    public AppCompatDialogFragment addDialogFragment(Class clazz, int code) {
-        return addDialogFragment(clazz, code, null);
-    }
-
-    public AppCompatDialogFragment addDialogFragment(Class clazz, int code, Bundle bundle) {
-        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-        AppCompatDialogFragment fragment = (AppCompatDialogFragment) AppCompatDialogFragment.instantiate(getContext(), clazz.getName());
-        fragment.setTargetFragment(this, code);
-        fragment.setArguments(bundle);
-        fragment.show(fragmentTransaction, clazz.toString());
-
-        return fragment;
-    }
-
-    public <F extends Fragment> void addFragment(Class<F> clazz, int container) {
-        Fragment currentFragment = Fragment.instantiate(getActivity(), clazz.getName());
-        if (currentFragment != null) {
-            FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-            transaction.add(container, currentFragment, clazz.getName());
-            transaction.commit();
-        }
-    }
-
-    public void removeFragment(String tag) {
-        Fragment fragment = getActivity().getSupportFragmentManager().findFragmentByTag(tag);
-        if (fragment != null) {
-            getActivity().getSupportFragmentManager().beginTransaction().
-                    remove(fragment).commit();
-        }
     }
 
     @Override

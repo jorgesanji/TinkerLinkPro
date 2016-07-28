@@ -31,5 +31,22 @@ public class DrargDropPresenter extends TinkerLinkPresenter<DrargDropPresenter.V
 
     // public methods
 
+    public void onLaunchWatchNetwork() {
+        getView().getActivity().finish();
+    }
+
+    public void onLaunchWatchProfile() {
+        getView().getActivity().finish();
+    }
+
+    public void onLaunchShare() {
+        getView().getActivity().finish();
+    }
+
+    public void onLaunchSendMessage() {
+        getView().getActivity().finish();
+    }
+
+
 }
 

@@ -4,9 +4,8 @@ import android.os.Bundle;
 
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.view.base.TinkerLinkActivity;
-import com.cronosgroup.tinkerlink.view.dragdrop.DragDropFragment;
 
-public class StackActivity extends TinkerLinkActivity<DragDropFragment> {
+public class StackActivity extends TinkerLinkActivity<StackFragment> {
 
     public static final String STACK_TYPE = "STACK";
 
@@ -44,8 +43,8 @@ public class StackActivity extends TinkerLinkActivity<DragDropFragment> {
     }
 
     @Override
-    public Class<DragDropFragment> getFragment() {
-        return DragDropFragment.class;
+    public Class<StackFragment> getFragment() {
+        return StackFragment.class;
     }
 
     @Override

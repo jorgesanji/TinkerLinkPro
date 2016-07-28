@@ -1,16 +1,17 @@
 package com.cronosgroup.tinkerlink.view.dragdrop;
 
+import android.animation.Animator;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
 import android.util.AttributeSet;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.animation.BounceInterpolator;
 import android.widget.RelativeLayout;
 
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.view.dragdrop.engine.DDDragListener;
-import com.cronosgroup.tinkerlink.view.dragdrop.engine.DDLongListener;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -21,29 +22,30 @@ import butterknife.ButterKnife;
 public class DragDropScreen extends RelativeLayout {
 
     public interface Listener {
+        void onWatchNetwork();
+
+        void onWatchProfile();
+
+        void onShare();
+
+        void onSendMessage();
     }
-
-    private static final String IMAGEVIEW_TAG = "The Android Logo";
-
 
     // Vars
     private Listener listener;
 
     // Views
     @BindView(R.id.topleft)
-    protected LinearLayout mTopLeft;
+    protected RelativeLayout mWatchNetworkContainer;
 
     @BindView(R.id.topright)
-    protected LinearLayout mTopRigth;
+    protected RelativeLayout mWatchProfileContainer;
 
     @BindView(R.id.bottomleft)
-    protected LinearLayout mBottomLeft;
+    protected RelativeLayout mShareContainer;
 
     @BindView(R.id.bottomright)
-    protected LinearLayout mBottomRight;
-
-    @BindView(R.id.target)
-    protected ImageView mTarget;
+    protected RelativeLayout mSendMessageContainer;
 
     /**
      * @param context
@@ -88,13 +90,58 @@ public class DragDropScreen extends RelativeLayout {
     }
 
     private void initListeners() {
-        mTarget.setTag(IMAGEVIEW_TAG);
-        mTarget.setOnLongClickListener(new DDLongListener());
-        DDDragListener ddDragListener = new DDDragListener(getContext(), this);
-        mTopLeft.setOnDragListener(ddDragListener);
-        mTopRigth.setOnDragListener(ddDragListener);
-        mBottomLeft.setOnDragListener(ddDragListener);
-        mBottomRight.setOnDragListener(ddDragListener);
+        DDDragListener ddDragListener = new DDDragListener(new DDDragListener.Listener() {
+            @Override
+            public void onViewDropped(final View container, View target) {
+
+                ViewGroup viewgroup = (ViewGroup) target.getParent();
+                viewgroup.removeView(target);
+
+                RelativeLayout containView = (RelativeLayout) container;
+                RelativeLayout.LayoutParams params = new LayoutParams(target.getWidth(), target.getHeight());
+                params.addRule(RelativeLayout.CENTER_IN_PARENT);
+                target.setLayoutParams(params);
+                containView.addView(target);
+                target.setVisibility(View.VISIBLE);
+                target.setX(container.getWidth() / 2 - target.getWidth() / 2);
+                target.setY(container.getHeight() / 2 - target.getHeight() / 2);
+
+                target.animate().scaleX(0).scaleY(0).setInterpolator(new BounceInterpolator()).setListener(new Animator.AnimatorListener() {
+                    @Override
+                    public void onAnimationStart(Animator animation) {
+
+                    }
+
+                    @Override
+                    public void onAnimationEnd(Animator animation) {
+                        if (container == mWatchNetworkContainer) {
+                            listener.onWatchNetwork();
+                        } else if (container == mWatchProfileContainer) {
+                            listener.onWatchProfile();
+                        } else if (container == mShareContainer) {
+                            listener.onShare();
+                        } else if (container == mSendMessageContainer) {
+                            listener.onSendMessage();
+                        }
+                    }
+
+                    @Override
+                    public void onAnimationCancel(Animator animation) {
+
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animator animation) {
+
+                    }
+                }).start();
+            }
+        });
+
+        mWatchNetworkContainer.setOnDragListener(ddDragListener);
+        mWatchProfileContainer.setOnDragListener(ddDragListener);
+        mShareContainer.setOnDragListener(ddDragListener);
+        mSendMessageContainer.setOnDragListener(ddDragListener);
     }
 
     // Actions

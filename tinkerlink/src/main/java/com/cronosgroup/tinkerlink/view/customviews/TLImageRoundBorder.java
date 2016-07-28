@@ -62,4 +62,8 @@ public class TLImageRoundBorder extends FrameLayout {
         this.imageUrl = imageUrl;
         mImage.setImageFromUrl(imageUrl);
     }
+
+    public void setImageResource(int imageResource) {
+        mImage.setImageResource(imageResource);
+    }
 }

@@ -8,6 +8,16 @@ import android.view.View;
  * Created by jorgesanmartin on 28/7/16.
  */
 public class DDLongListener implements View.OnLongClickListener {
+
+    public interface Listener {
+        void onLongClickDone();
+    }
+
+    private Listener listener;
+
+    public DDLongListener() {
+    }
+
     @Override
     public boolean onLongClick(View view) {
 
@@ -25,6 +35,20 @@ public class DDLongListener implements View.OnLongClickListener {
         );
 
         view.setVisibility(View.INVISIBLE);
+
+        if (listener != null) {
+            listener.onLongClickDone();
+        }
+
         return false;
+    }
+
+    public Listener getListener() {
+        return listener;
+    }
+
+    public DDLongListener setListener(Listener listener) {
+        this.listener = listener;
+        return this;
     }
 }

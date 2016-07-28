@@ -3,9 +3,6 @@ package com.cronosgroup.tinkerlink.presenter.stack;
 import android.app.Activity;
 import android.os.Bundle;
 
-import com.cronosgroup.core.rest.Callback;
-import com.cronosgroup.core.rest.RestError;
-import com.cronosgroup.tinkerlink.model.business.logic.CardUseCases;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestUser;
 import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenter;
@@ -14,6 +11,7 @@ import com.cronosgroup.tinkerlink.view.stack.detail.DetailStackActivity;
 import com.cronosgroup.tinkerlink.view.stack.main.StackActivity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -26,7 +24,7 @@ public class StackPresenter extends TinkerLinkPresenter<StackPresenter.View> {
     /**
      * Stack listeners.
      */
-    public interface View extends TinkerLinkPresenterView{
+    public interface View extends TinkerLinkPresenterView {
 
         int getCurrentIndexPage();
 
@@ -46,6 +44,7 @@ public class StackPresenter extends TinkerLinkPresenter<StackPresenter.View> {
      */
     public interface Actions {
         void onLaunchStack(Activity activity, Bundle bundle);
+
         void onLaunchDetailStack(Activity activity, Bundle bundle);
     }
 
@@ -67,41 +66,49 @@ public class StackPresenter extends TinkerLinkPresenter<StackPresenter.View> {
 
     public void getAllCards(String offset) {
 
-        getView().showLoading();
-
-        if (getView().isUser()) {
-            CardUseCases.getUserCards(getView().getUser().getId(), getView().getType().getStackType(), offset, new Callback<List<RestPost>, RestError>() {
-
-                @Override
-                public void onResponse(List<RestPost> response) {
-                    getView().setCards(response);
-                    getView().hideLoading();
-                }
-
-                @Override
-                public void onErrorResponse(RestError error) {
-                    getView().getMessagesHandler().showNetworkError();
-                    getView().hideLoading();
-                }
-
-            }, getView().getActivity());
-        } else {
-            CardUseCases.getAllCards(getView().getType().getStackType(), offset, new Callback<List<RestPost>, RestError>() {
-
-                @Override
-                public void onResponse(List<RestPost> response) {
-                    getView().setCards(response);
-                    getView().hideLoading();
-                }
-
-                @Override
-                public void onErrorResponse(RestError error) {
-                    getView().getMessagesHandler().showNetworkError();
-                    getView().hideLoading();
-                }
-
-            }, getView().getActivity());
+        List<RestPost> list = new ArrayList<>();
+        for (int posts = 0; posts < 10; posts++) {
+            RestPost restPost = new RestPost();
+            list.add(restPost);
         }
+        getView().setCards(list);
+
+
+//        getView().showLoading();
+
+//        if (getView().isUser()) {
+//            CardUseCases.getUserCards(getView().getUser().getId(), getView().getType().getStackType(), offset, new Callback<List<RestPost>, RestError>() {
+//
+//                @Override
+//                public void onResponse(List<RestPost> response) {
+//                    getView().setCards(response);
+//                    getView().hideLoading();
+//                }
+//
+//                @Override
+//                public void onErrorResponse(RestError error) {
+//                    getView().getMessagesHandler().showNetworkError();
+//                    getView().hideLoading();
+//                }
+//
+//            }, getView().getActivity());
+//        } else {
+//            CardUseCases.getAllCards(getView().getType().getStackType(), offset, new Callback<List<RestPost>, RestError>() {
+//
+//                @Override
+//                public void onResponse(List<RestPost> response) {
+//                    getView().setCards(response);
+//                    getView().hideLoading();
+//                }
+//
+//                @Override
+//                public void onErrorResponse(RestError error) {
+//                    getView().getMessagesHandler().showNetworkError();
+//                    getView().hideLoading();
+//                }
+//
+//            }, getView().getActivity());
+//        }
     }
 
     public void showDetailCards() {

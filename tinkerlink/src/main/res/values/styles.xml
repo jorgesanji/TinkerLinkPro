@@ -101,7 +101,8 @@
         <!-- title encapsulating main part (backgroud) of custom alertdialog -->
         <!--<item name="android:windowFrame">@null</item>-->
         <!-- turn off any drawable used to draw a frame on the window -->
-        <item name="android:windowBackground">@color/white</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:background">@android:color/transparent</item>
         <!-- turn off any drawable used to draw a frame on the window -->
         <item name="android:windowIsFloating">true</item>
         <!-- float the window so it does not fill the screen -->

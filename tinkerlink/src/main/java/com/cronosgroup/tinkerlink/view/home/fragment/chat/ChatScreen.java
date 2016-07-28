@@ -106,6 +106,7 @@ public class ChatScreen extends RelativeLayout {
 
     private void initRecyclerView() {
         mLayoutManager = new LinearLayoutManager(getContext());
+        mLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mChatList.setLayoutManager(mLayoutManager);
         mChatList.setItemAnimator(new SlideInUpAnimator());
     }

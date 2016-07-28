@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:drawable="@mipmap/newsfeed_message" android:state_pressed="true" />
-    <item android:drawable="@mipmap/newsfeed_message" />
+    <item android:drawable="@mipmap/nav_mensajes" android:state_selected="false"/>
+    <item android:drawable="@mipmap/nav_mensajes_act" android:state_selected="true" />
+    <item android:drawable="@mipmap/nav_mensajes_act" android:state_pressed="true" />
+    <item android:drawable="@mipmap/nav_mensajes" />
 </selector>

@@ -17,6 +17,7 @@ import com.cronosgroup.tinkerlink.view.customviews.TLImageRoundBorder;
 import com.cronosgroup.tinkerlink.view.customviews.TLImageView;
 import com.cronosgroup.tinkerlink.view.customviews.TLScrollView;
 import com.cronosgroup.tinkerlink.view.customviews.TLTextView;
+import com.cronosgroup.tinkerlink.view.dragdrop.engine.DDLongListener;
 
 import java.util.List;
 
@@ -29,6 +30,8 @@ import butterknife.OnClick;
  */
 public class CardScreen extends RelativeLayout {
 
+    public static final String TAG_SCREEN = "screen";
+
     /**
      * listeners of the Card's screen.
      */
@@ -36,6 +39,9 @@ public class CardScreen extends RelativeLayout {
         void showDetailPressed();
 
         void showRecommendationPressed();
+
+        void onLongClikDone();
+
     }
 
     // Vars
@@ -160,6 +166,17 @@ public class CardScreen extends RelativeLayout {
     private void init() {
         inflate(getContext(), R.layout.lay_card, this);
         ButterKnife.bind(this);
+        setTag(TAG_SCREEN);
+        initListeners();
+    }
+
+    private void initListeners() {
+        setOnLongClickListener(new DDLongListener().setListener(new DDLongListener.Listener() {
+            @Override
+            public void onLongClickDone() {
+                listener.onLongClikDone();
+            }
+        }));
     }
 
     // **************  UI Actions **************
@@ -170,10 +187,10 @@ public class CardScreen extends RelativeLayout {
 
     }
 
-    @OnClick(R.id.touchView)
-    protected void showDetailPressed() {
-        listener.showDetailPressed();
-    }
+//    @OnClick(R.id.touchView)
+//    protected void showDetailPressed() {
+//        listener.showDetailPressed();
+//    }
 
     private void setStatusIcon(int resource) {
         mUserStatusContact.setImageResource(resource);

@@ -46,7 +46,7 @@ public class TutorialPresenter extends TinkerLinkPresenter<TutorialPresenter.Vie
     public boolean isUserLoged() {
         TLUser user = getAppUserSessionManager().getCurrentUser();
 //        if (user != null && user.getLoged()) {
-        if (true) {
+        if (false) {
             listener.onLaunchHome(getView().getActivity(), null);
             getView().getActivity().overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
 

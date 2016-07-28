@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
 
+import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
 import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenter;
 import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenterView;
@@ -45,8 +46,9 @@ public class DetailCardPresenter extends TinkerLinkPresenter<DetailCardPresenter
             @Override
             public void run() {
                 if (getView().getActivity() != null) {
+                    getView().showDialogMessage("Esto es una prueba", "Esto es una description", R.mipmap.newsfeed_post_selected);
                     getView().hideLoading();
-                    getView().getActivity().finish();
+                    getView().removeActivityDelay();
                 }
             }
         }, 1000);

@@ -213,6 +213,7 @@
         <attr name="stackTitleColor" format="color" />
         <attr name="stackSubTitleColor" format="color" />
         <attr name="stackIcon" format="reference" />
+        <attr name="stackIconPressed" format="reference" />
         <attr name="stackTitleFont" format="integer">
             <flag name="Regular" value="0" />
             <flag name="Bold" value="1" />

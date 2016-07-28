@@ -50,6 +50,26 @@ public class DragDropFragment extends MVPTinkerLinkFragment<DrargDropPresenter, 
 
     //region ************** DrargDropScreen.Listener **************
 
+    @Override
+    public void onWatchNetwork() {
+        getPresenter().onLaunchWatchNetwork();
+    }
+
+    @Override
+    public void onWatchProfile() {
+        getPresenter().onLaunchWatchProfile();
+    }
+
+    @Override
+    public void onShare() {
+        getPresenter().onLaunchShare();
+    }
+
+    @Override
+    public void onSendMessage() {
+        getPresenter().onLaunchSendMessage();
+    }
+
     //endregion
 
 }

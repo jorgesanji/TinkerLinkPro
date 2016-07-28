@@ -18,6 +18,7 @@ import com.cronosgroup.tinkerlink.presenter.createcard.ExperienceSelectionPresen
 import com.cronosgroup.tinkerlink.presenter.createcard.SkillSelectionPresenter;
 import com.cronosgroup.tinkerlink.presenter.createrecommendation.CreateRecommendationPresenter;
 import com.cronosgroup.tinkerlink.presenter.detailcard.DetailCardPresenter;
+import com.cronosgroup.tinkerlink.presenter.dialog.DialogOccupationPresenter;
 import com.cronosgroup.tinkerlink.presenter.dragdrop.DrargDropPresenter;
 import com.cronosgroup.tinkerlink.presenter.editprofile.ConfigAccountUserPresenter;
 import com.cronosgroup.tinkerlink.presenter.editprofile.EditProfilePresenter;
@@ -103,7 +104,8 @@ public final class ScreenNavigationHandler implements HomePresenter.Actions,
         RecoveryPasswordPresenter.Actions, VerifyPresenter.Actions, UserActivityPresenter.Actions,
         UserInformationPresenter.Actions, UserRecommendationsPresenter.Actions,
         RecommendationsPresenter.Actions, GiveRecommendationPresenter.Actions,
-        UserContactsPresenter.Actions, AllUserContactsPresenter.Actions, DrargDropPresenter.Actions {
+        UserContactsPresenter.Actions, AllUserContactsPresenter.Actions, DrargDropPresenter.Actions,
+        DialogOccupationPresenter.Actions{
 
     //Instance
     private static ScreenNavigationHandler instance = null;

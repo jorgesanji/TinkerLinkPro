@@ -26,7 +26,7 @@ public class SignProfileScreen extends RelativeLayout {
 
 
     public interface Listener {
-        void onCategoryPressed();
+        void onOccupationPressed();
 
         void onAddPressed();
 
@@ -107,9 +107,9 @@ public class SignProfileScreen extends RelativeLayout {
 
     // Actions
 
-    @OnClick(R.id.selectCategory)
-    protected void categoryPressed() {
-        listener.onCategoryPressed();
+    @OnClick(R.id.selectOccupation)
+    protected void occupationPressed() {
+        listener.onOccupationPressed();
     }
 
     @OnClick(R.id.addStudyOrCourse)

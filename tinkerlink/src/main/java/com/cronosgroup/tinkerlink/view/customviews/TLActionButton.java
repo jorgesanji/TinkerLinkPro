@@ -31,7 +31,7 @@ public class TLActionButton extends RelativeLayout {
 
     // View
     @BindView(R.id.ic_action)
-    TLImageView ic_action;
+    TLImageView iconAction;
 
     @BindView(R.id.badge_action)
     View badge_action;
@@ -96,7 +96,7 @@ public class TLActionButton extends RelativeLayout {
 
     public void setActionIcon(Drawable actionIcon) {
         this.actionIcon = actionIcon;
-        ic_action.setImageDrawable(actionIcon);
+        iconAction.setImageDrawable(actionIcon);
     }
 
     public String getActionTitle() {
@@ -121,5 +121,6 @@ public class TLActionButton extends RelativeLayout {
     public void setSelected(boolean selected) {
         super.setSelected(selected);
         title_action.setFontName(selected ? TLTextView.Font.BOLD.getType() : TLTextView.Font.REGULAR.getType());
+        iconAction.setSelected(selected);
     }
 }

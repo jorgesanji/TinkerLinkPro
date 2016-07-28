@@ -8,6 +8,7 @@ import android.view.View;
 
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.event.ShowDetailCardsEvent;
+import com.cronosgroup.tinkerlink.event.ShowOverLaySelectorEvent;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestUser;
 import com.cronosgroup.tinkerlink.presenter.stack.StackPresenter;
@@ -105,22 +106,6 @@ public class StackFragment extends MVPTinkerLinkFragment<StackPresenter, StackPr
         getPresenter().getAllCards("0");
     }
 
-    @Override
-    public void showLoading() {
-        super.showLoading();
-        if (getActivity() != null) {
-            ((TinkerLinkActivity) getActivity()).showLoading();
-        }
-    }
-
-    @Override
-    public void hideLoading() {
-        super.hideLoading();
-        if (getActivity() != null) {
-            ((TinkerLinkActivity) getActivity()).hideLoading();
-        }
-    }
-
     //region **************  StackScreen.Listener **************
 
     @Override
@@ -162,8 +147,6 @@ public class StackFragment extends MVPTinkerLinkFragment<StackPresenter, StackPr
         return stackType;
     }
 
-
-
     //endregion
 
     //region **************  EevntBus  **************
@@ -171,5 +154,10 @@ public class StackFragment extends MVPTinkerLinkFragment<StackPresenter, StackPr
     @Subscribe
     public void onEventMainThread(ShowDetailCardsEvent event) {
         getPresenter().showDetailCards();
+    }
+
+    @Subscribe
+    public void onEventMainThread(ShowOverLaySelectorEvent event) {
+        stackScreen.showOverlaySelector();
     }
 }

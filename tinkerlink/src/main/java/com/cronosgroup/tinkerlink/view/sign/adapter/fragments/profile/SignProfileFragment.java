@@ -7,7 +7,7 @@ import com.cronosgroup.tinkerlink.model.business.model.AppUser;
 import com.cronosgroup.tinkerlink.presenter.sign.SignProfilePresenter;
 import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
-import com.cronosgroup.tinkerlink.view.dialog.category.CategoryDialogFragment;
+import com.cronosgroup.tinkerlink.view.dialog.ocupation.OccupationDialogFragment;
 import com.cronosgroup.tinkerlink.view.dialog.study.StudyDialogFragment;
 import com.cronosgroup.tinkerlink.view.interfaces.IOFormListener;
 import com.cronosgroup.tinkerlink.view.interfaces.IOValidationForm;
@@ -72,8 +72,8 @@ public class SignProfileFragment extends MVPTinkerLinkFragment<SignProfilePresen
     //region **************  SignProfileScreen.Listener **************
 
     @Override
-    public void onCategoryPressed() {
-        addDialogFragment(CategoryDialogFragment.class, CategoryDialogFragment.CODE);
+    public void onOccupationPressed() {
+        addDialogFragment(OccupationDialogFragment.class, OccupationDialogFragment.CODE);
     }
 
     @Override

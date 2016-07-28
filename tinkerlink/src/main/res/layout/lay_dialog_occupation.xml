@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/margin_mediun"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <android.widget.SearchView
+            android:id="@+id/searchView"
+            style="@style/SearchStyle"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.1"
+            android:gravity="center"
+            android:queryHint="@string/dialog_occupation_search"
+            android:textAlignment="center" />
+
+        <include layout="@layout/lay_separator" />
+
+        <com.cronosgroup.tinkerlink.view.customviews.TLRecyclerView
+            android:id="@+id/list"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.0"
+            android:background="@color/white"
+            android:overScrollMode="never" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.4"
+            android:background="@color/white"
+            android:elevation="@dimen/view_mediun_elevation"
+            android:orientation="vertical">
+
+            <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_mediun"
+                android:text="@string/dialog_occupation_add_new_one_message"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_mediun"
+                app:fontName="Regular" />
+
+            <com.cronosgroup.tinkerlink.view.customviews.TLEditText
+                android:id="@+id/newOccupation"
+                style="@style/EditFormStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_mediun"
+                android:layout_marginRight="@dimen/margin_mediun"
+                android:hint="@string/dialog_occupation_add_new_one_message_hint"
+                android:imeOptions="actionDone"
+                android:inputType="text"
+                android:maxLength="20"
+                android:maxLines="1" />
+
+            <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                android:id="@+id/limitOccupation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_mediun"
+                android:layout_marginRight="@dimen/margin_mediun"
+                android:gravity="right"
+                android:text="@string/dialog_occupation_add_new_one_message_limit"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_small"
+                app:fontName="Regular" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

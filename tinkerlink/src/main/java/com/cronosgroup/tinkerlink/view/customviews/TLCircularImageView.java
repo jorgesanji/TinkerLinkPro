@@ -102,7 +102,7 @@ public class TLCircularImageView extends TLImageView {
 
             // circleCenter is the x or y of the view's center
             // radius is the radius in pixels of the cirle to be drawn
-            // paint contains the shader that will texture the shape
+            // paint contains the shader that will texture the dragdrop_default_shape
             canvas.drawCircle(circleCenter + borderWidth, circleCenter + borderWidth, circleCenter + borderWidth - 4.0f, paintBorder);
             canvas.drawCircle(circleCenter + borderWidth, circleCenter + borderWidth, circleCenter - 4.0f, paint);
         }

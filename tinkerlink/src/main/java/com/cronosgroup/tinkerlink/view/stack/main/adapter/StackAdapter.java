@@ -31,7 +31,7 @@ public class StackAdapter extends FragmentStatePagerAdapter {
         Fragment fragment = new CardFragment();
         Bundle bundle = new Bundle();
         bundle.putSerializable(StackActivity.STACK_TYPE, stackType);
-        bundle.putSerializable(CardFragment.CARD, getItems().get(position));
+//        bundle.putSerializable(CardFragment.CARD, getItems().get(position));
         bundle.putBoolean(CardFragment.SHOW_CARD_DETAIL, isDetail());
         fragment.setArguments(bundle);
         return fragment;

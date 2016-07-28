@@ -1,10 +1,15 @@
 package com.cronosgroup.tinkerlink.view.base;
 
+import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatDialogFragment;
+import android.view.ViewGroup;
 
+import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.application.TinkerLinkApplication;
 import com.cronosgroup.tinkerlink.manager.AppCountryManager;
+import com.cronosgroup.tinkerlink.view.dialog.category.CategoryDialogFragment;
 
 import javax.inject.Inject;
 
@@ -19,7 +24,24 @@ public class TinkerDialogFragment extends AppCompatDialogFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setStyle(CategoryDialogFragment.STYLE_NO_TITLE, R.style.DialogTheme);
         TinkerLinkApplication.getApp().getComponent().inject(this);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        Dialog dialog = getDialog();
+        if (dialog != null) {
+            dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        }
+    }
+
+    protected void sendResult(Bundle bundle, int code) {
+        Intent intent = new Intent();
+        intent.putExtras(bundle);
+        getTargetFragment().onActivityResult(
+                getTargetRequestCode(), code, intent);
     }
 
 }

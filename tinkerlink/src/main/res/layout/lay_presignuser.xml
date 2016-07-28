@@ -3,16 +3,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <include layout="@layout/lay_welcome_page"></include>
+    <include layout="@layout/lay_welcome_page"/>
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="@dimen/margin_big"
-        android:layout_marginLeft="@dimen/margin_plus_plus_biggest"
-        android:layout_marginRight="@dimen/margin_plus_plus_biggest"
         android:orientation="vertical">
 
         <com.cronosgroup.tinkerlink.view.customviews.TLButton
