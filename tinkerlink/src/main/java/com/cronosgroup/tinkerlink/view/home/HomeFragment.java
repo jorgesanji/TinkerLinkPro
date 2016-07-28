@@ -43,7 +43,7 @@ public class HomeFragment extends MVPTinkerLinkFragment<HomePresenter, HomePrese
 
     @Override
     protected void onDidAppear() {
-        onContactsPresed();
+        onNewsFeedPresed();
     }
 
     //region **************  HomeScreen.Listener **************
