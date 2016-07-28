@@ -4,8 +4,9 @@ import android.os.Bundle;
 
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.view.base.TinkerLinkActivity;
+import com.cronosgroup.tinkerlink.view.dragdrop.DragDropFragment;
 
-public class StackActivity extends TinkerLinkActivity<StackFragment> {
+public class StackActivity extends TinkerLinkActivity<DragDropFragment> {
 
     public static final String STACK_TYPE = "STACK";
 
@@ -43,6 +44,11 @@ public class StackActivity extends TinkerLinkActivity<StackFragment> {
     }
 
     @Override
+    public Class<DragDropFragment> getFragment() {
+        return DragDropFragment.class;
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().setDisplayShowHomeEnabled(false);
@@ -57,11 +63,6 @@ public class StackActivity extends TinkerLinkActivity<StackFragment> {
     @Override
     public StyleToolBar getActivityStyle() {
         return StyleToolBar.DEFAULTSTYLE;
-    }
-
-    @Override
-    public Class<StackFragment> getFragment() {
-        return StackFragment.class;
     }
 
 }
