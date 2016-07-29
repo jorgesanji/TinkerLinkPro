@@ -12,6 +12,7 @@ import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
 import com.cronosgroup.tinkerlink.presenter.detailcard.DetailCardPresenter;
 import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
+import com.cronosgroup.tinkerlink.view.dialog.network.NetworkDialogFragment;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -108,7 +109,7 @@ public class DetailCardFragment extends MVPTinkerLinkFragment<DetailCardPresente
 
     @Override
     public void onNetworkPressed() {
-        getPresenter().showNetwork();
+        addDialogFragment(NetworkDialogFragment.class, NetworkDialogFragment.CODE, null);
     }
 
     //endregion

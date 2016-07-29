@@ -1,5 +1,8 @@
 package com.cronosgroup.tinkerlink.presenter.sign;
 
+import android.app.Activity;
+import android.os.Bundle;
+
 import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenter;
 import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenterView;
 
@@ -23,6 +26,7 @@ public class SignPresenter extends TinkerLinkPresenter<SignPresenter.View> {
      * Sign actions.
      */
     public interface Actions {
+        public void onLaunchHome(Activity activity, Bundle bundle);
     }
 
     /**
@@ -36,5 +40,9 @@ public class SignPresenter extends TinkerLinkPresenter<SignPresenter.View> {
     //endregion
 
     //region **************  View Actions **************
+
+    public void goToHome() {
+        listener.onLaunchHome(getView().getActivity(), null);
+    }
     //endregion
 }

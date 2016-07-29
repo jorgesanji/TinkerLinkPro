@@ -17,8 +17,8 @@ public class UserContactsActivity extends TinkerLinkActivity<UserContactsFragmen
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getToolbar().setLogo(null);
-        getToolbar().setTitle(String.format(getString(R.string.contacts_from), "Jorge"));
+        setLogo(null);
+        setTitle(String.format(getString(R.string.contacts_from), "Jorge"));
     }
 
     @Override

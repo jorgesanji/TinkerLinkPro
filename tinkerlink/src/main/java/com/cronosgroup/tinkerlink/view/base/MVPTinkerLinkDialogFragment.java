@@ -19,7 +19,7 @@ import com.cronosgroup.tinkerlink.view.AppSnackManager;
 /**
  * Created by jorgesanmartin on 7/28/16.
  */
-public abstract class MVPDialogFragment<P extends Presenter<V>, V extends TinkerLinkPresenter.View> extends TinkerDialogFragment implements TinkerLinkDialogPresenterView {
+public abstract class MVPTinkerLinkDialogFragment<P extends Presenter<V>, V extends TinkerLinkPresenter.View> extends TinkerDialogFragment implements TinkerLinkDialogPresenterView {
 
     // Variables
     private P presenter;

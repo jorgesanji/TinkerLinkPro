@@ -1,31 +1,23 @@
 package com.cronosgroup.tinkerlink.presenter.sign;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.os.Bundle;
+import android.os.Handler;
 
-import com.cronosgroup.core.rest.Callback;
-import com.cronosgroup.core.rest.RestError;
-import com.cronosgroup.tinkerlink.model.business.logic.UserUseCases;
-import com.cronosgroup.tinkerlink.model.business.model.AppUser;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestCode;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestUser;
-import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenter;
-import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenterView;
+import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkDialogPresenter;
+import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkDialogPresenterView;
 
 /**
  * Validation sign presenter.
  */
-public class ValidationPresenter extends TinkerLinkPresenter<ValidationPresenter.View> {
+public class ValidationPresenter extends TinkerLinkDialogPresenter<ValidationPresenter.View> {
 
     private final Actions listener;
 
     /**
      * Validation view.
      */
-    public interface View extends TinkerLinkPresenterView {
-        AppUser getFormUser();
-
+    public interface View extends TinkerLinkDialogPresenterView {
         String getValidationCode();
 
         void validateUser(RestUser restUser);
@@ -35,7 +27,6 @@ public class ValidationPresenter extends TinkerLinkPresenter<ValidationPresenter
      * Validation actions.
      */
     public interface Actions {
-        void onLaunchSuccessValidation(Activity activity, Bundle bundle);
     }
 
     /**
@@ -55,53 +46,37 @@ public class ValidationPresenter extends TinkerLinkPresenter<ValidationPresenter
 
     //region **************  View Actions **************
 
-    public void checkCode(final String code) {
-
-        if (code.length() == 6) {
-            getView().showLoading();
-
-            UserUseCases.checkCode(code, new Callback<RestCode, RestError>() {
-
-                @Override
-                public void onResponse(RestCode restCode) {
-                    getView().hideLoading();
-                    getView().validateUser(restCode.getUser());
-                }
-
-                @Override
-                public void onErrorResponse(RestError error) {
-                    getView().hideLoading();
-                    getView().getMessagesHandler().showNetworkError();
-                }
-
-            }, getView().getActivity());
-        } else {
-            getView().getMessagesHandler().showCodeError();
-        }
-    }
-
-    public void getCode() {
-
-        String url = getView().getFormUser().getIdUser();
-
-        UserUseCases.getCodeAndPassword(url, new Callback<RestCode, RestError>() {
-
+    public void checkCode() {
+        String code = getView().getValidationCode();
+        getView().showLoading();
+        new Handler().postDelayed(new Runnable() {
             @Override
-            public void onResponse(RestCode restCode) {
-                getView().hideLoading();
+            public void run() {
+                if (getView().getActivity() != null) {
+                    getView().validateUser(null);
+                    getView().hideLoading();
+                }
             }
+        }, 3000);
 
-            @Override
-            public void onErrorResponse(RestError error) {
-                getView().hideLoading();
-                getView().getMessagesHandler().showNetworkError();
-            }
 
-        }, getView().getActivity());
-    }
-
-    public void onSuccessValidation() {
-        listener.onLaunchSuccessValidation(getView().getActivity(), null);
+//        if (code.length() == 6) {
+//            getView().showLoading();
+//            UserUseCases.checkCode(code, new Callback<RestCode, RestError>() {
+//
+//                @Override
+//                public void onResponse(RestCode restCode) {
+//                    getView().hideLoading();
+//                    getView().validateUser(restCode.getUser());
+//                }
+//
+//                @Override
+//                public void onErrorResponse(RestError error) {
+//                    getView().hideLoading();
+//                }
+//
+//            }, getView().getActivity());
+//        }
     }
 
 

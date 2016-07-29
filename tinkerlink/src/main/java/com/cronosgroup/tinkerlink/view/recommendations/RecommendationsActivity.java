@@ -1,5 +1,6 @@
 package com.cronosgroup.tinkerlink.view.recommendations;
 
+import android.os.Bundle;
 import android.view.View;
 
 import com.cronosgroup.tinkerlink.R;
@@ -13,6 +14,12 @@ import java.util.List;
  * Created by jorgesanmartin on 10/22/15.
  */
 public class RecommendationsActivity extends TinkerLinkActivity<RecommendationsFragment> {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setTitle(R.string.profile_recommendations_title);
+    }
 
     @Override
     public View getView() {

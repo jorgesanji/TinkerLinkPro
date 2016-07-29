@@ -17,8 +17,8 @@ public class FrequentlyQuestionsActivity extends TinkerLinkActivity<FrequentlyQu
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getToolbar().setLogo(null);
-        getToolbar().setTitle(R.string.configuration_frequently_questions);
+        setLogo(null);
+        setTitle(R.string.configuration_frequently_questions);
     }
 
     @Override

@@ -1,7 +1,5 @@
 package com.cronosgroup.tinkerlink.presenter.detailcard;
 
-import android.app.Activity;
-import android.os.Bundle;
 import android.os.Handler;
 
 import com.cronosgroup.tinkerlink.R;
@@ -27,7 +25,6 @@ public class DetailCardPresenter extends TinkerLinkPresenter<DetailCardPresenter
      * DetailCard actions.
      */
     public interface Actions {
-        void onLaunchNetWork(Activity activity, Bundle bundle);
     }
 
     /**
@@ -46,7 +43,7 @@ public class DetailCardPresenter extends TinkerLinkPresenter<DetailCardPresenter
             @Override
             public void run() {
                 if (getView().getActivity() != null) {
-                    getView().showDialogMessage("Esto es una prueba", "Esto es una description", R.mipmap.newsfeed_post_selected);
+                    getView().showDialogMessage(R.string.create_card_title, R.string.create_card_message, R.mipmap.newsfeed_post_selected);
                     getView().hideLoading();
                     getView().removeActivityDelay();
                 }
@@ -55,7 +52,6 @@ public class DetailCardPresenter extends TinkerLinkPresenter<DetailCardPresenter
     }
 
     public void showNetwork() {
-        listener.onLaunchNetWork(getView().getActivity(), null);
     }
 
 }

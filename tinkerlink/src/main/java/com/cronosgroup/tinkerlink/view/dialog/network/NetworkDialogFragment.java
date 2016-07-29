@@ -1,4 +1,4 @@
-package com.cronosgroup.tinkerlink.view.network;
+package com.cronosgroup.tinkerlink.view.dialog.network;
 
 import android.view.View;
 
@@ -7,8 +7,7 @@ import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestNetwork;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestUser;
 import com.cronosgroup.tinkerlink.presenter.network.NetworkPresenter;
 import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
-import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
-import com.cronosgroup.tinkerlink.view.customviews.TLNetworkView;
+import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkDialogFragment;
 
 import java.util.List;
 
@@ -16,22 +15,24 @@ import java.util.List;
 /**
  * Sign Fragment
  */
-public class NetworkFragment extends MVPTinkerLinkFragment<NetworkPresenter, NetworkPresenter.View>
-        implements NetworkPresenter.View, TLNetworkView.Listener {
+public class NetworkDialogFragment extends MVPTinkerLinkDialogFragment<NetworkPresenter, NetworkPresenter.View>
+        implements NetworkPresenter.View, NetworkDialogScreen.Listener {
 
     // Vars
+    public static final int CODE = 134;
+
     private int mLinkerPage = 0;
     private int mTinkerPage = 0;
 
     // Views
-    private NetworkScreen networkScreen;
+    private NetworkDialogScreen networkScreen;
 
     //region **************  MVPFragment **************
 
     @Override
     protected View getRootView() {
-        networkScreen = new NetworkScreen(getActivity());
-        networkScreen.getNetworkView().setListener(this);
+        networkScreen = new NetworkDialogScreen(getActivity());
+        networkScreen.setListener(this);
         return networkScreen;
     }
 
@@ -50,11 +51,10 @@ public class NetworkFragment extends MVPTinkerLinkFragment<NetworkPresenter, Net
 
         getPresenter().getNetwork();
 
-        networkScreen.getNetworkView().setContactImage("http://img.webme.com/pic/m/metallica-cf/jameshetfield.jpg");
-        networkScreen.getNetworkView().setContactName("Andres Sanmartin");
-        networkScreen.getNetworkView().setUserImage("http://img.webme.com/pic/m/metallica-cf/jameshetfield.jpg");
-
-        networkScreen.introAnimation();
+        networkScreen.setContactImage("http://img.webme.com/pic/m/metallica-cf/jameshetfield.jpg");
+        networkScreen.setContactName("Andres Sanmartin");
+        networkScreen.setUserImage("http://img.webme.com/pic/m/metallica-cf/jameshetfield.jpg");
+        networkScreen.show();
     }
 
     //endregion
@@ -64,22 +64,22 @@ public class NetworkFragment extends MVPTinkerLinkFragment<NetworkPresenter, Net
     private void addItemsToLinkerbByPage() {
         List<String> subListByPage = getPresenter().getLinkerCategoriesByPage(mLinkerPage);
         for (String name : subListByPage) {
-            networkScreen.getNetworkView().addLinkerCategory(name);
+            networkScreen.addLinkerCategory(name);
         }
 
         if (subListByPage.isEmpty()) {
-            networkScreen.getNetworkView().removeLinkerLoader();
+            networkScreen.removeLinkerLoader();
         }
     }
 
     private void addItemsToTinkerbByPage() {
         List<String> subListByPage = getPresenter().getTinkerCategoriesByPage(mTinkerPage);
         for (String name : subListByPage) {
-            networkScreen.getNetworkView().addTinkerCategory(name);
+            networkScreen.addTinkerCategory(name);
         }
 
         if (subListByPage.isEmpty()) {
-            networkScreen.getNetworkView().removeTinkerLoader();
+            networkScreen.removeTinkerLoader();
         }
     }
 
@@ -91,16 +91,16 @@ public class NetworkFragment extends MVPTinkerLinkFragment<NetworkPresenter, Net
 
         List<RestUser> userList = network.getContactsFriend();
         if (!userList.isEmpty()) {
-            networkScreen.getNetworkView().setNumberCommonContacts(String.valueOf(userList.size()));
+            networkScreen.setNumberCommonContacts(String.valueOf(userList.size()));
             if (userList.size() > 4) {
                 userList = userList.subList(0, 4);
             }
             for (RestUser user : userList) {
-                networkScreen.getNetworkView().addContactFriend(user.getPhoto(), user.getName(), user.getProfile().getProfession());
+                networkScreen.addContactFriend(user.getPhoto(), user.getName(), user.getProfile().getProfession());
             }
         }
 
-        networkScreen.getNetworkView().removeLoader();
+        networkScreen.removeLoader();
     }
 
     //endregion

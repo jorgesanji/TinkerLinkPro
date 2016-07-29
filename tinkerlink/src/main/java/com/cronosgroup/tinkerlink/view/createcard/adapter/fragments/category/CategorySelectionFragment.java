@@ -6,6 +6,7 @@ import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestCategoria;
 import com.cronosgroup.tinkerlink.presenter.createcard.CategorySelectionPresenter;
 import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
+import com.cronosgroup.tinkerlink.view.dialog.places.PlacesDialogFragment;
 
 import java.util.List;
 
@@ -56,6 +57,10 @@ public class CategorySelectionFragment extends MVPTinkerLinkFragment<CategorySel
 
     //region ************** CategoryScreen.Listener **************
 
+    @Override
+    public void onSelectGeoPositionPressed() {
+        addDialogFragment(PlacesDialogFragment.class, PlacesDialogFragment.CODE);
+    }
 
     //endregion
 

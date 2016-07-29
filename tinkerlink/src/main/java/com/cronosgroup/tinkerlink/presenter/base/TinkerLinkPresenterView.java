@@ -23,4 +23,9 @@ public interface TinkerLinkPresenterView extends Presenter.View {
      */
     void showDialogMessage(String title, String description, int icon);
 
+    /**
+     * Show custom dialog
+     */
+    void showDialogMessage(int title, int description, int icon);
+
 }

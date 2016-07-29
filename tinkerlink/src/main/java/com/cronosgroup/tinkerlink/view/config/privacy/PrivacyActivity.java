@@ -17,8 +17,8 @@ public class PrivacyActivity extends TinkerLinkActivity<PrivacyFragment> {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getToolbar().setLogo(null);
-        getToolbar().setTitle(R.string.configuration_privacy);
+        setLogo(null);
+        setTitle(R.string.configuration_privacy);
     }
 
     @Override

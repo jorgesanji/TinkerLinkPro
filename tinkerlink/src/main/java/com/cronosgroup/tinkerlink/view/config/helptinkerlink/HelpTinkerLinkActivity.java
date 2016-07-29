@@ -17,8 +17,8 @@ public class HelpTinkerLinkActivity extends TinkerLinkActivity<HelpTinkerLinkFra
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getToolbar().setLogo(null);
-        getToolbar().setTitle(R.string.configuration_help_tinkerlink);
+        setLogo(null);
+        setTitle(R.string.configuration_help_tinkerlink);
     }
 
     @Override

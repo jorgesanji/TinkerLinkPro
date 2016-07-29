@@ -3,12 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/transparent"
     android:clipChildren="false"
     android:clipToPadding="false">
 
     <LinearLayout
+        android:id="@+id/containerNetwork"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="@dimen/margin_plus_plus_plus_biggest"
+        android:background="@color/white"
         android:orientation="vertical">
 
         <LinearLayout
@@ -29,7 +34,8 @@
                 android:id="@+id/titleNetwork"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="@dimen/margin_tiny"
+                android:layout_marginRight="@dimen/margin_tiny"
                 android:layout_weight="1"
                 android:gravity="center_vertical"
                 android:text="@string/network_title_network"
@@ -37,23 +43,16 @@
                 android:textSize="@dimen/text_size_mediun"
                 app:fontName="Bold" />
 
-            <ProgressBar
-                android:id="@+id/progressBar"
-                style="?android:attr/progressBarStyleSmall"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:background="@drawable/progressbar_progress"
-                android:indeterminateTint="@color/tinkercolor" />
+            <include layout="@layout/lay_small_loader" />
 
             <com.cronosgroup.tinkerlink.view.customviews.TLImageView
                 android:id="@+id/closeNetwork"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="@dimen/margin_tiny"
                 android:layout_weight="0.15"
                 android:scaleType="center"
-                android:src="@mipmap/newsfeed_crearcard_cancelar" />
+                android:src="@mipmap/ic_close" />
 
         </LinearLayout>
 

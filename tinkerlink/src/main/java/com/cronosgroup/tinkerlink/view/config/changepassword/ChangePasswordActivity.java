@@ -17,8 +17,8 @@ public class ChangePasswordActivity extends TinkerLinkActivity<ChangePasswordFra
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getToolbar().setLogo(null);
-        getToolbar().setTitle(R.string.configuration_change_password);
+        setLogo(null);
+        setTitle(R.string.configuration_change_password);
     }
 
     @Override

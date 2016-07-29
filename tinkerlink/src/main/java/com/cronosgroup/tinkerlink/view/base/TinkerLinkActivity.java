@@ -2,6 +2,7 @@ package com.cronosgroup.tinkerlink.view.base;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -186,9 +187,9 @@ public abstract class TinkerLinkActivity<F extends MVPTinkerLinkFragment> extend
 
     protected void configToolBar(StyleToolBar style) {
         configToolbar(style.getBackgroundColor(), style.getText(), style.getTextColor(), style.getIcon());
-        try{
+        try {
             mLoader.findViewById(R.id.backgroundColor).setBackgroundResource(style.getBackgroundLoader());
-        }catch (Exception ex){
+        } catch (Exception ex) {
         }
     }
 
@@ -216,18 +217,13 @@ public abstract class TinkerLinkActivity<F extends MVPTinkerLinkFragment> extend
                 }
             }
         });
+    }
 
+    protected Fragment getCurrentFragment() {
+        return currentFragment;
     }
 
     // Public methods
-
-    public Toolbar getToolbar() {
-        return mToolbar;
-    }
-
-    public Fragment getCurrentFragment() {
-        return currentFragment;
-    }
 
     public void showLoading() {
         mLoader.setVisibility(View.VISIBLE);
@@ -257,4 +253,23 @@ public abstract class TinkerLinkActivity<F extends MVPTinkerLinkFragment> extend
         super.finish();
         overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
     }
+
+    @Override
+    public void setTitle(int titleId) {
+        mToolbar.setTitle(titleId);
+    }
+
+    @Override
+    public void setTitle(CharSequence title) {
+        mToolbar.setTitle(title);
+    }
+
+    public void setLogo(Drawable resource) {
+        mToolbar.setLogo(resource);
+    }
+
+    public void setLogo(int resource) {
+        mToolbar.setLogo(resource);
+    }
+
 }

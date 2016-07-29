@@ -70,8 +70,8 @@ public class AppCountryManager {
         return currentCountry;
     }
 
-    public String getCurrentNameFromLocale(RestCountry country) {
-        String locale = mContext.getResources().getConfiguration().locale.getDisplayLanguage();
+    public static String getCurrentNameFromLocale(Context context, RestCountry country) {
+        String locale = context.getResources().getConfiguration().locale.getDisplayLanguage();
         return locale.equalsIgnoreCase("en") ? country.getEn() : country.getEs();
     }
 

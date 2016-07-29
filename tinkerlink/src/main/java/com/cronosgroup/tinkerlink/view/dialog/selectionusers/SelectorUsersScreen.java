@@ -91,7 +91,7 @@ public class SelectorUsersScreen extends LinearLayout {
     }
 
     private void init(List<Item> contacts) {
-        inflate(getContext(), R.layout.lay_dialog, this);
+        inflate(getContext(), R.layout.lay_dialog_country, this);
         ButterKnife.bind(this);
         initUI();
         initAdapter(contacts);
@@ -161,10 +161,10 @@ public class SelectorUsersScreen extends LinearLayout {
         listener.onCancelPressed();
     }
 
-    @OnClick(R.id.acceptButton)
-    protected void acceptPressed() {
-        listener.onAcceptPressed();
-    }
+//    @OnClick(R.id.acceptButton)
+//    protected void acceptPressed() {
+//        listener.onAcceptPressed();
+//    }
 
     // Public methods
 

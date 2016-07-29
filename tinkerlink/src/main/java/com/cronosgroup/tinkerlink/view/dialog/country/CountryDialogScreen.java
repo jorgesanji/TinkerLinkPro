@@ -13,25 +13,31 @@ import android.widget.SearchView;
 
 import com.cronosgroup.core.view.BaseAdapter;
 import com.cronosgroup.tinkerlink.R;
-import com.cronosgroup.tinkerlink.manager.AppCountryManager;
+import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestCountry;
+import com.cronosgroup.tinkerlink.view.customviews.TLLinearLayout;
 import com.cronosgroup.tinkerlink.view.dialog.country.adapter.CountryAdapter;
-import com.cronosgroup.tinkerlink.view.interfaces.IOCountrySelected;
+
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Created by jorgesanmartin on 10/26/15.
  */
-public class DialogScreen extends LinearLayout {
+public class CountryDialogScreen extends TLLinearLayout {
 
+    public interface Listener {
+        void onCountrySelected(RestCountry country);
+
+        void onClosePressed();
+    }
 
     // Variables
     private CountryAdapter mAdapter;
-    private IOCountrySelected listener;
+    private Listener listener;
     private RecyclerView.LayoutManager mLayoutManager;
-    private AppCountryManager appCountryManager;
-
 
     // Views
     @BindView(R.id.list)
@@ -40,38 +46,29 @@ public class DialogScreen extends LinearLayout {
     @BindView(R.id.searchView)
     SearchView mSearchView;
 
+    @BindView(R.id.containerView)
+    LinearLayout mCountryContainer;
+
     /**
      * @param context
      */
-    public DialogScreen(Context context, IOCountrySelected listener, AppCountryManager appCountryManager) {
-        super(context);
+    public CountryDialogScreen(Context context, Listener listener) {
+        this(context);
         this.listener = listener;
-        this.appCountryManager = appCountryManager;
-        init();
     }
 
     /**
      * @param context
      */
-    public DialogScreen(Context context, IOCountrySelected listener) {
-        super(context);
-        this.listener = listener;
-        init();
-    }
-
-    /**
-     * @param context
-     */
-    public DialogScreen(Context context) {
-        super(context);
-        init();
+    public CountryDialogScreen(Context context) {
+        this(context, (AttributeSet) null);
     }
 
     /**
      * @param context
      * @param attrs
      */
-    public DialogScreen(Context context, AttributeSet attrs) {
+    public CountryDialogScreen(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
@@ -80,9 +77,8 @@ public class DialogScreen extends LinearLayout {
      * @param attrs
      * @param defStyleAttr
      */
-    public DialogScreen(Context context, AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-        init();
+    public CountryDialogScreen(Context context, AttributeSet attrs, int defStyleAttr) {
+        this(context, attrs, defStyleAttr, 0);
     }
 
     /**
@@ -92,49 +88,30 @@ public class DialogScreen extends LinearLayout {
      * @param defStyleRes
      */
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    public DialogScreen(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+    public CountryDialogScreen(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         init();
     }
 
     private void init() {
-        inflate(getContext(), R.layout.lay_dialog, this);
+        inflate(getContext(), R.layout.lay_dialog_country, this);
         ButterKnife.bind(this);
-        initAdapter();
-        initSearchViewListener();
+        mCountryContainer.setVisibility(INVISIBLE);
+        initSearch();
+        initRecyclerView();
     }
 
-    private void initAdapter() {
-        mAdapter = new CountryAdapter(appCountryManager.getCountries(), new BaseAdapter.CLickListener() {
-            @Override
-            public void onItemSelected(int position) {
-                if (listener != null) {
-                    listener.onCountrySelected((mAdapter.getItems() != null && mAdapter.getItems().size() > 0) ? mAdapter.getItems().get(position) : mAdapter.getAllItems().get(position));
-                }
-            }
-        });
-
-        mAdapter.setAppCountryManager(appCountryManager);
-
-        mLayoutManager = new LinearLayoutManager(getContext());
-        mRecyclerListView.setLayoutManager(mLayoutManager);
-        mRecyclerListView.setItemAnimator(new DefaultItemAnimator());
-        mRecyclerListView.setAdapter(mAdapter);
-
-        mSearchView.setFocusable(true);
-        mSearchView.setIconified(false);
-        mSearchView.requestFocus();
-        mSearchView.requestFocusFromTouch();
-
+    private void initSearch() {
+//        mSearchView.setFocusable(true);
+//        mSearchView.setIconified(false);
+//        mSearchView.requestFocus();
+//        mSearchView.requestFocusFromTouch();
         int id = mSearchView.getContext().getResources().getIdentifier("android:id/search_src_text", null, null);
         EditText edit = (EditText) mSearchView.findViewById(id);
         if (edit != null) {
             edit.setHintTextColor(getResources().getColor(R.color.gray_30));
             edit.setTextColor(getContext().getResources().getColor(R.color.black));
         }
-    }
-
-    private void initSearchViewListener() {
 
         mSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -148,5 +125,38 @@ public class DialogScreen extends LinearLayout {
                 return false;
             }
         });
+
+    }
+
+    private void initRecyclerView() {
+        mLayoutManager = new LinearLayoutManager(getContext());
+        mRecyclerListView.setLayoutManager(mLayoutManager);
+        mRecyclerListView.setItemAnimator(new DefaultItemAnimator());
+    }
+
+    //Actions
+
+    @OnClick(R.id.closeButton)
+    protected void onClosePressed() {
+        listener.onClosePressed();
+    }
+
+    // Public
+
+    public void setItems(List<RestCountry> list) {
+        mAdapter = new CountryAdapter(list, getContext());
+        mRecyclerListView.setAdapter(mAdapter);
+        mAdapter.setClickListener(new BaseAdapter.CLickListener() {
+            @Override
+            public void onItemSelected(int position) {
+                if (listener != null) {
+                    listener.onCountrySelected((mAdapter.getItems() != null && mAdapter.getItems().size() > 0) ? mAdapter.getItems().get(position) : mAdapter.getAllItems().get(position));
+                }
+            }
+        });
+    }
+
+    public void show() {
+        appear(mCountryContainer);
     }
 }

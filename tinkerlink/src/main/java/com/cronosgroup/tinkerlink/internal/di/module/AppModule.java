@@ -1,6 +1,7 @@
 package com.cronosgroup.tinkerlink.internal.di.module;
 
 import android.content.Context;
+import android.location.Geocoder;
 
 import com.cronosgroup.core.managers.LocationManager;
 import com.cronosgroup.tinkerlink.application.TinkerLinkApplication;
@@ -88,5 +89,10 @@ public class AppModule {
     @Provides
     AppContactsManager provideContactsManager() {
         return new AppContactsManager(provideApplicationContext());
+    }
+
+    @Provides
+    Geocoder provideGeocoder() {
+        return new Geocoder(provideApplicationContext());
     }
 }

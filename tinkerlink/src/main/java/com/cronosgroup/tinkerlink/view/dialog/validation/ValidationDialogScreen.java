@@ -1,13 +1,14 @@
-package com.cronosgroup.tinkerlink.view.sign.adapter.fragments.validation;
+package com.cronosgroup.tinkerlink.view.dialog.validation;
 
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
 import android.util.AttributeSet;
-import android.widget.RelativeLayout;
+import android.view.View;
 
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.view.customviews.TLEditText;
+import com.cronosgroup.tinkerlink.view.customviews.TLLinearLayout;
 import com.cronosgroup.tinkerlink.view.customviews.TLTextView;
 
 import butterknife.BindView;
@@ -17,12 +18,13 @@ import butterknife.OnClick;
 /**
  * Created by jorgesanmartin on 10/28/15.
  */
-public class ValidationScreen extends RelativeLayout {
+public class ValidationDialogScreen extends TLLinearLayout {
 
     public interface Listener {
-        void getCode();
 
         void onVeryfiedPressed();
+
+        void onClosePressed();
     }
 
     //Variables
@@ -30,18 +32,24 @@ public class ValidationScreen extends RelativeLayout {
 
     //Views
     @BindView(R.id.titleValidation)
-    TLTextView mTitleValidation;
+    protected TLTextView mTitleValidation;
 
     @BindView(R.id.validationNumber)
-    TLTextView mValidationNumber;
+    protected TLTextView mValidationNumber;
 
     @BindView(R.id.code)
-    TLEditText mUserCode;
+    protected TLEditText mUserCode;
+
+    @BindView(R.id.validationContainer)
+    protected View mValidationContainer;
+
+    @BindView(R.id.progressBar)
+    protected View mProgressBar;
 
     /**
      * @param context
      */
-    public ValidationScreen(Context context) {
+    public ValidationDialogScreen(Context context) {
         this(context, null);
     }
 
@@ -49,7 +57,7 @@ public class ValidationScreen extends RelativeLayout {
      * @param context
      * @param attrs
      */
-    public ValidationScreen(Context context, AttributeSet attrs) {
+    public ValidationDialogScreen(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
@@ -58,7 +66,7 @@ public class ValidationScreen extends RelativeLayout {
      * @param attrs
      * @param defStyleAttr
      */
-    public ValidationScreen(Context context, AttributeSet attrs, int defStyleAttr) {
+    public ValidationDialogScreen(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init();
     }
@@ -70,7 +78,7 @@ public class ValidationScreen extends RelativeLayout {
      * @param defStyleRes
      */
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    public ValidationScreen(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+    public ValidationDialogScreen(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         init();
     }
@@ -78,12 +86,19 @@ public class ValidationScreen extends RelativeLayout {
     private void init() {
         inflate(getContext(), R.layout.lay_sign_validation, this);
         ButterKnife.bind(this);
+        mValidationContainer.setVisibility(INVISIBLE);
+        mProgressBar.setVisibility(GONE);
     }
 
     // Actions
     @OnClick(R.id.verifybt)
     protected void verifyPressed() {
         listener.onVeryfiedPressed();
+    }
+
+    @OnClick(R.id.closeButton)
+    protected void closePressed() {
+        listener.onClosePressed();
     }
 
     // Public methods
@@ -107,6 +122,22 @@ public class ValidationScreen extends RelativeLayout {
 
     public void setCode(String code) {
         mUserCode.setText(code);
+    }
+
+    public void show() {
+        appear(mValidationContainer);
+    }
+
+    public void dismiss() {
+        dissmiss(mValidationContainer);
+    }
+
+    public void showLoader() {
+        mProgressBar.setVisibility(VISIBLE);
+    }
+
+    public void hideLoader() {
+        mProgressBar.setVisibility(GONE);
     }
 
 }

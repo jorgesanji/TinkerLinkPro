@@ -162,10 +162,12 @@ public abstract class MVPTinkerLinkFragment<P extends Presenter<V>, V extends Ti
     }
 
     private void makeBar(String text, int color) {
-        Snackbar snackbar = Snackbar.make(getView(), text, Snackbar.LENGTH_LONG);
-        View group = snackbar.getView();
-        group.setBackgroundColor(getResources().getColor(color));
-        snackbar.show();
+        if (getView() != null) {
+            Snackbar snackbar = Snackbar.make(getView(), text, Snackbar.LENGTH_LONG);
+            View group = snackbar.getView();
+            group.setBackgroundColor(getResources().getColor(color));
+            snackbar.show();
+        }
     }
 
     @Override

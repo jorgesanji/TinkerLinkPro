@@ -34,7 +34,7 @@ public class TLUserView extends LinearLayout {
 
         void onUnLockPressed();
     }
-    
+
     //Properties
     private String title;
     private String subTitle;
@@ -135,6 +135,16 @@ public class TLUserView extends LinearLayout {
                     attributes.recycle();
                 }
             }
+        } else {
+            setTitleColor(Color.BLACK);
+            setTitleFont(TLTextView.DEFAULT_FONT);
+            setTitleSize(TLTextView.DEFAULT_SIZE);
+            setSubTitleColor(Color.BLACK);
+            setSubTitleFont(TLTextView.DEFAULT_FONT);
+            setSubTitleSize(TLTextView.DEFAULT_SIZE);
+            setUserIcon(R.mipmap.newsfeed_avatar_hombre);
+            setOptions(false);
+            setBadge(true);
         }
     }
 

@@ -56,7 +56,7 @@
 
         </LinearLayout>
 
-        <com.cronosgroup.tinkerlink.view.customviews.TLImageRoundBorder
+        <com.cronosgroup.tinkerlink.view.customviews.TLImageView
             android:id="@+id/iconMessage"
             android:layout_width="80dp"
             android:layout_height="80dp"

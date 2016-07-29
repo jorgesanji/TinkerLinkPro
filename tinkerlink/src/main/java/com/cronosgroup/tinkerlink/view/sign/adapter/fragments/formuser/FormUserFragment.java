@@ -6,7 +6,7 @@ import android.view.View;
 import com.cronosgroup.tinkerlink.presenter.sign.FormUserPresenter;
 import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
-import com.cronosgroup.tinkerlink.view.dialog.country.DialogFragment;
+import com.cronosgroup.tinkerlink.view.dialog.country.CountryDialogFragment;
 import com.cronosgroup.tinkerlink.view.interfaces.IOFormListener;
 
 /**
@@ -67,7 +67,7 @@ public class FormUserFragment extends MVPTinkerLinkFragment<FormUserPresenter, F
     //region **************  FormUserScreen.Listener **************
     @Override
     public void onSelectCountry() {
-        addDialogFragment(DialogFragment.class, DialogFragment.CODE);
+        addDialogFragment(CountryDialogFragment.class, CountryDialogFragment.CODE);
     }
     //endregion
 

@@ -7,13 +7,14 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.util.AttributeSet;
 import android.view.KeyEvent;
+import android.view.View;
 import android.view.inputmethod.EditorInfo;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.cronosgroup.core.view.BaseAdapter;
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.view.customviews.TLEditText;
+import com.cronosgroup.tinkerlink.view.customviews.TLLinearLayout;
 import com.cronosgroup.tinkerlink.view.customviews.TLRecyclerView;
 import com.cronosgroup.tinkerlink.view.customviews.TLTextView;
 import com.cronosgroup.tinkerlink.view.dialog.ocupation.adapter.OccupationAdapter;
@@ -22,17 +23,20 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Created by jorgesanmartin on 10/26/15.
  */
-public class OccupationDialogScreen extends LinearLayout {
+public class OccupationDialogScreen extends TLLinearLayout {
 
     /**
      * Occupations dialog screen.
      */
     public interface Listener {
         void onAddPressed(String result);
+
+        void onClosePressed();
     }
 
     // Vars
@@ -49,6 +53,9 @@ public class OccupationDialogScreen extends LinearLayout {
 
     @BindView(R.id.limitOccupation)
     protected TLTextView mLimitOccupation;
+
+    @BindView(R.id.containerOccupationView)
+    protected View mContainerOccupation;
 
     /**
      * @param context
@@ -98,6 +105,7 @@ public class OccupationDialogScreen extends LinearLayout {
         inflate(getContext(), R.layout.lay_dialog_occupation, this);
         ButterKnife.bind(this);
         initRecyclerView();
+        mContainerOccupation.setVisibility(INVISIBLE);
     }
 
     private void initRecyclerView() {
@@ -133,6 +141,13 @@ public class OccupationDialogScreen extends LinearLayout {
         });
     }
 
+    // Actions
+
+    @OnClick(R.id.closeButton)
+    protected void onClosePressed() {
+        listener.onClosePressed();
+    }
+
     // Public methods
 
     public Listener getListener() {
@@ -146,5 +161,9 @@ public class OccupationDialogScreen extends LinearLayout {
     public void setItems(List<String> list) {
         initAdapter(list);
         initListeners();
+    }
+
+    public void show() {
+        appear(mContainerOccupation);
     }
 }

@@ -141,7 +141,7 @@
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".view.network.NetworkActivity"
+            android:name=".view.dialog.network.NetworkActivity"
             android:screenOrientation="portrait"
             android:theme="@style/ActivityTransparentTheme" />
 

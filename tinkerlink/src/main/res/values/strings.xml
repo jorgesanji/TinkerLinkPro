@@ -604,8 +604,7 @@
     <string name="create_card_ubication">UBICACIÓN</string>
     <string name="create_card_especify_search">ESPECIFICA TU BUSQUEDA</string>
     <string name="create_card_country_hint">Selecione su ubicación</string>
-    <string name="create_card_category_hint">Selecione la categoria</string>
-    <string name="create_card_subcategory_hint">Selecione una subcategoria</string>
+    <string name="create_card_occupation_hint">Selecione ocupación</string>
     <string name="create_card_subcategory_selected">Hemos seleccionado una imágen de fondo para la categoría de %s, puedes cambiarla si lo deseas.</string>
     <string name="create_card_add_images">Puedes adjuntar fotografías para orientar a los potenciales candidatos</string>
     <string name="create_card_add_images_number">0/5</string>
@@ -724,6 +723,7 @@
     <string name="widget_contact_watch_network">Ver red</string>
 
     <!-- RECOMMENDATIONS-->
+    <string name="profile_recommendations_title">Recomendaciones</string>
     <string name="profile_recommendations_message" formatted="false">%s, te gustaría recomendar a %s</string>
     <string name="profile_recommendations_create">Redacta una recomendación...</string>
     <string name="profile_recommendations_watch_recommendations">VER %s RECOMENDACIONES</string>
@@ -753,6 +753,9 @@
      <!-- DIALOG MESSAGE-->
     <string name="dialog_message_ok_button">OK</string>
 
+     <!-- CREATE CARD MESSAGES -->
+    <string name="create_card_title">Felicidades ha creado una tarjeta</string>
+    <string name="create_card_message">Si quieres editarla puedes ir a tu perfil ahí la encotraras y la podrás editar</string>
 
 
 

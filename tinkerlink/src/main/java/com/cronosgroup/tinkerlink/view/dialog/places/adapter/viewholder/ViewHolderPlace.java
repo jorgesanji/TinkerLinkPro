@@ -9,6 +9,7 @@ import com.cronosgroup.tinkerlink.view.customviews.TLTextView;
 import com.cronosgroup.tinkerlink.view.dialog.places.adapter.PlaceAutoCompleteAdapter;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
 /**
  * Created by jorgesanmartin on 10/26/15.
@@ -23,6 +24,7 @@ public class ViewHolderPlace extends BaseViewHolder {
      */
     public ViewHolderPlace(View view) {
         super(view);
+        ButterKnife.bind(this, view);
     }
 
     // Public methods

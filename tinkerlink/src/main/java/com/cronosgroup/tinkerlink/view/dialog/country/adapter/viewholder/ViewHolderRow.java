@@ -16,8 +16,6 @@ import butterknife.ButterKnife;
  */
 public class ViewHolderRow extends BaseViewHolder {
 
-    private AppCountryManager appCountryManager;
-
     @BindView(R.id.title_item_dialog)
     protected TLTextView mTitle;
 
@@ -32,14 +30,7 @@ public class ViewHolderRow extends BaseViewHolder {
     // Public methods
 
     public void configureItem(RestCountry country) {
-        mTitle.setText(appCountryManager.getCurrentNameFromLocale(country));
+        mTitle.setText(AppCountryManager.getCurrentNameFromLocale(getContext(), country));
     }
 
-    public AppCountryManager getAppCountryManager() {
-        return appCountryManager;
-    }
-
-    public void setAppCountryManager(AppCountryManager appCountryManager) {
-        this.appCountryManager = appCountryManager;
-    }
 }

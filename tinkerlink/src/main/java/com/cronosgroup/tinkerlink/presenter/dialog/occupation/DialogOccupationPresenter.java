@@ -1,4 +1,4 @@
-package com.cronosgroup.tinkerlink.presenter.dialog;
+package com.cronosgroup.tinkerlink.presenter.dialog.occupation;
 
 import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkDialogPresenter;
 import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkDialogPresenterView;
@@ -59,6 +59,7 @@ public class DialogOccupationPresenter extends TinkerLinkDialogPresenter<DialogO
         };
         asyncLoader.start();
     }
+
 
 }
 

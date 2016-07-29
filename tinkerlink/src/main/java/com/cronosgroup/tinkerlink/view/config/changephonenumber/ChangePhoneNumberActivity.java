@@ -17,8 +17,8 @@ public class ChangePhoneNumberActivity extends TinkerLinkActivity<ChangePhoneNum
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getToolbar().setLogo(null);
-        getToolbar().setTitle(R.string.configuration_phone_number);
+        setLogo(null);
+        setTitle(R.string.configuration_phone_number);
     }
 
     @Override

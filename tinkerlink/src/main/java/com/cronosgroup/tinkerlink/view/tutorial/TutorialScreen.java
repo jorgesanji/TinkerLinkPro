@@ -14,7 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import com.cronosgroup.tinkerlink.R;
-import com.cronosgroup.tinkerlink.view.animation.tutorial.ZoomOutPageTransformer;
+import com.cronosgroup.tinkerlink.view.animation.tutorial.DepthPageTransformer;
 import com.cronosgroup.tinkerlink.view.customviews.TLViewPager;
 import com.cronosgroup.tinkerlink.view.customviews.TLViewPagerIndicator;
 import com.cronosgroup.tinkerlink.view.tutorial.adapter.TutorialAdapter;
@@ -114,7 +114,7 @@ class TutorialScreen extends RelativeLayout {
     private void initUI() {
         mDisableTouchPager = true;
         mButtonContainer.setAlpha(0.0f);
-        mPager.setPageTransformer(true, new ZoomOutPageTransformer());
+        mPager.setPageTransformer(true, new DepthPageTransformer());
     }
 
     private void initAdapter() {

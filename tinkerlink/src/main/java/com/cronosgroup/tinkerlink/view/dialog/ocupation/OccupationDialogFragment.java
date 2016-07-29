@@ -1,19 +1,18 @@
 package com.cronosgroup.tinkerlink.view.dialog.ocupation;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.cronosgroup.tinkerlink.presenter.dialog.DialogOccupationPresenter;
+import com.cronosgroup.tinkerlink.presenter.dialog.occupation.DialogOccupationPresenter;
 import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
-import com.cronosgroup.tinkerlink.view.base.MVPDialogFragment;
+import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkDialogFragment;
 
 import java.util.List;
 
 /**
  * Created by jorgesanmartin on 10/26/15.
  */
-public class OccupationDialogFragment extends MVPDialogFragment<DialogOccupationPresenter, DialogOccupationPresenter.View>
+public class OccupationDialogFragment extends MVPTinkerLinkDialogFragment<DialogOccupationPresenter, DialogOccupationPresenter.View>
         implements DialogOccupationPresenter.View, OccupationDialogScreen.Listener {
 
     // Vars
@@ -57,15 +56,13 @@ public class OccupationDialogFragment extends MVPDialogFragment<DialogOccupation
 
     @Override
     public void onAddPressed(String result) {
-        if (result != null && result.length() > 0) {
-            Bundle bundle = new Bundle();
-            bundle.putSerializable(OCCUPATION_ADDED, result);
-            Intent intent = new Intent();
-            intent.putExtras(bundle);
-            getTargetFragment().onActivityResult(
-                    getTargetRequestCode(), OccupationDialogFragment.CODE, intent);
-        }
+        Bundle bundle = new Bundle();
+        bundle.putSerializable(OCCUPATION_ADDED, result);
+        sendResult(bundle, CODE);
+    }
 
+    @Override
+    public void onClosePressed() {
         dismiss();
     }
 
@@ -76,6 +73,7 @@ public class OccupationDialogFragment extends MVPDialogFragment<DialogOccupation
     @Override
     public void setOccupations(List<String> occupations) {
         ocupationDialogScreen.setItems(occupations);
+        ocupationDialogScreen.show();
     }
 
     //endregion

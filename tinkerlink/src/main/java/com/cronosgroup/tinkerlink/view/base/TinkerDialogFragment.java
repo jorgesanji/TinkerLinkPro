@@ -7,25 +7,17 @@ import android.support.v7.app.AppCompatDialogFragment;
 import android.view.ViewGroup;
 
 import com.cronosgroup.tinkerlink.R;
-import com.cronosgroup.tinkerlink.application.TinkerLinkApplication;
-import com.cronosgroup.tinkerlink.manager.AppCountryManager;
 import com.cronosgroup.tinkerlink.view.dialog.category.CategoryDialogFragment;
-
-import javax.inject.Inject;
 
 /**
  * Created by jorgesanmartin on 10/26/15.
  */
 public class TinkerDialogFragment extends AppCompatDialogFragment {
 
-    @Inject
-    public AppCountryManager appCountryManager;
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setStyle(CategoryDialogFragment.STYLE_NO_TITLE, R.style.DialogTheme);
-        TinkerLinkApplication.getApp().getComponent().inject(this);
     }
 
     @Override
@@ -42,6 +34,7 @@ public class TinkerDialogFragment extends AppCompatDialogFragment {
         intent.putExtras(bundle);
         getTargetFragment().onActivityResult(
                 getTargetRequestCode(), code, intent);
+        dismiss();
     }
 
 }

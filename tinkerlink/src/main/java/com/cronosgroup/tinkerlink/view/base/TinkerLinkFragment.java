@@ -43,6 +43,10 @@ public class TinkerLinkFragment extends Fragment {
         addDialogFragment(MessageDialogFragment.class, 0, bundle);
     }
 
+    public void showDialogMessage(int title, int description, int icon) {
+        showDialogMessage(getString(title), getString(description), icon);
+    }
+
     public void removeFragment(String tag) {
         Fragment fragment = getActivity().getSupportFragmentManager().findFragmentByTag(tag);
         if (fragment != null) {

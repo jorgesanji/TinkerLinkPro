@@ -7,7 +7,7 @@ import android.util.AttributeSet;
 import android.widget.LinearLayout;
 
 import com.cronosgroup.tinkerlink.R;
-import com.cronosgroup.tinkerlink.view.customviews.TLImageRoundBorder;
+import com.cronosgroup.tinkerlink.view.customviews.TLImageView;
 import com.cronosgroup.tinkerlink.view.customviews.TLTextView;
 
 import butterknife.BindView;
@@ -37,7 +37,7 @@ public class MessageDialogScreen extends LinearLayout {
     protected TLTextView mDescriptionMessage;
 
     @BindView(R.id.iconMessage)
-    protected TLImageRoundBorder mIconMessage;
+    protected TLImageView mIconMessage;
 
     /**
      * @param context
@@ -114,6 +114,5 @@ public class MessageDialogScreen extends LinearLayout {
 
     public void setIcon(int icon) {
         mIconMessage.setImageResource(icon);
-
     }
 }

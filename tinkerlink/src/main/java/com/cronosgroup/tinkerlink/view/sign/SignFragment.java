@@ -16,6 +16,7 @@ import com.cronosgroup.tinkerlink.presenter.sign.SignPresenter;
 import com.cronosgroup.tinkerlink.sms.SMSBroadcastReceiver;
 import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
+import com.cronosgroup.tinkerlink.view.dialog.validation.ValidationDialogFragment;
 import com.cronosgroup.tinkerlink.view.sign.adapter.SignAdapter;
 
 import org.greenrobot.eventbus.EventBus;
@@ -93,28 +94,6 @@ public class SignFragment extends MVPTinkerLinkFragment<SignPresenter, SignPrese
 
     //endregion
 
-    //region **************  SignPresenter.View **************
-    //endregion
-
-    //region **************  SignScreen.Listener **************
-
-    @Override
-    public void verifiedPage(int page) {
-        if (page == SignAdapter.TINKER) {
-            signScreen.showNextPage();
-        } else if (page == SignAdapter.LINKER) {
-            signScreen.showRegistrationSeletor();
-        }else if (page == SignAdapter.USERFORM) {
-            signScreen.showValidator();
-        }
-    }
-
-    public boolean onBackPressed() {
-        return signScreen.hidePage();
-    }
-
-    //endregion
-
     private void initSmsBroadCastReceiver() {
         LocalBroadcastManager.getInstance(getActivity()).registerReceiver(this.recepcionMensajeActivacion,
                 new IntentFilter("SMSActivacion"));
@@ -136,6 +115,30 @@ public class SignFragment extends MVPTinkerLinkFragment<SignPresenter, SignPrese
             EventBus.getDefault().post(new SmsEvent(codigoActivacion));
         }
     };
+
+    //region **************  SignPresenter.View **************
+    //endregion
+
+    //region **************  SignScreen.Listener **************
+
+    @Override
+    public void verifiedPage(int page) {
+        if (page == SignAdapter.TINKER) {
+            signScreen.showNextPage();
+        } else if (page == SignAdapter.LINKER) {
+            signScreen.showRegistrationSeletor();
+        } else if (page == SignAdapter.USERFORM) {
+            addDialogFragment(ValidationDialogFragment.class, ValidationDialogFragment.CODE);
+        } else {
+            getPresenter().goToHome();
+        }
+    }
+
+    public boolean onBackPressed() {
+        return signScreen.hidePage();
+    }
+
+    //endregion
 
     //region **************  EventBus **************
 

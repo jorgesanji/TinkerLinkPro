@@ -1,5 +1,6 @@
 package com.cronosgroup.tinkerlink.view.dialog.country.adapter;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,11 +20,11 @@ import java.util.List;
  */
 public class CountryAdapter extends BaseAdapter<ViewHolderRow, RestCountry> {
 
-    private AppCountryManager appCountryManager;
+    private final Context mContext;
 
-    public CountryAdapter(List<RestCountry> items, CLickListener listener) {
+    public CountryAdapter(List<RestCountry> items, Context context) {
         super(items, true);
-        setClickListener(listener);
+        this.mContext = context;
     }
 
     @Override
@@ -31,7 +32,6 @@ public class CountryAdapter extends BaseAdapter<ViewHolderRow, RestCountry> {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         View viewRow = inflater.inflate(R.layout.lay_item_dialog, parent, false);
         ViewHolderRow viewHolder = new ViewHolderRow(viewRow);
-        viewHolder.setAppCountryManager(getAppCountryManager());
         viewHolder.setClickListener(getClickListener());
 
         return viewHolder;
@@ -50,7 +50,7 @@ public class CountryAdapter extends BaseAdapter<ViewHolderRow, RestCountry> {
             countryList = getAllItems();
         } else {
             for (RestCountry country : getAllItems()) {
-                if (appCountryManager.getCurrentNameFromLocale(country).toLowerCase().contains(query)) {
+                if (AppCountryManager.getCurrentNameFromLocale(mContext, country).toLowerCase().contains(query)) {
                     countryList.add(country);
                 }
             }
@@ -59,11 +59,4 @@ public class CountryAdapter extends BaseAdapter<ViewHolderRow, RestCountry> {
         return countryList;
     }
 
-    public AppCountryManager getAppCountryManager() {
-        return appCountryManager;
-    }
-
-    public void setAppCountryManager(AppCountryManager appCountryManager) {
-        this.appCountryManager = appCountryManager;
-    }
 }

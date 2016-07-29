@@ -17,8 +17,8 @@ public class EditProfileActivity extends TinkerLinkActivity<EditProfileFragment>
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getToolbar().setLogo(null);
-        getToolbar().setTitle(R.string.edit_profile_title);
+        setLogo(null);
+        setTitle(R.string.edit_profile_title);
     }
 
     @Override

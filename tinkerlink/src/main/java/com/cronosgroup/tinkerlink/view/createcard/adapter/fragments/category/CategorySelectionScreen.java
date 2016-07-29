@@ -9,6 +9,7 @@ import android.widget.LinearLayout;
 import com.cronosgroup.tinkerlink.R;
 
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Created by jorgesanmartin on 7/20/16.
@@ -16,14 +17,13 @@ import butterknife.ButterKnife;
 public class CategorySelectionScreen extends LinearLayout {
 
     public interface Listener {
-
+        void onSelectGeoPositionPressed();
     }
 
     // Vars
     private Listener listener;
 
     // Views
-
 
     public CategorySelectionScreen(Context context) {
         this(context, null);
@@ -48,9 +48,11 @@ public class CategorySelectionScreen extends LinearLayout {
         ButterKnife.bind(this);
     }
 
-
-
-
+    // Actions
+    @OnClick(R.id.selectGeoPosition)
+    protected void selectGeoPositionPressed() {
+        listener.onSelectGeoPositionPressed();
+    }
 
     // Public methods
 

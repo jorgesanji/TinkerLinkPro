@@ -92,7 +92,7 @@ public class CategoryDialogScreen extends LinearLayout {
     }
 
     private void init() {
-        inflate(getContext(), R.layout.lay_dialog, this);
+        inflate(getContext(), R.layout.lay_dialog_country, this);
         ButterKnife.bind(this);
         initUI();
         initListeners();

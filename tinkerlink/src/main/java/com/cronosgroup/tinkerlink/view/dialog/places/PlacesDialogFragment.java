@@ -1,53 +1,99 @@
 package com.cronosgroup.tinkerlink.view.dialog.places;
 
-import android.content.Intent;
 import android.location.Address;
 import android.os.Bundle;
-import android.support.v4.app.FragmentTransaction;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
-import com.cronosgroup.tinkerlink.R;
-import com.cronosgroup.tinkerlink.view.base.TinkerDialogFragment;
+import com.cronosgroup.tinkerlink.presenter.dialog.places.DialogPlacesPresenter;
+import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
+import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkDialogFragment;
+
+import java.util.List;
 
 /**
  * Created by jorgesanmartin on 10/26/15.
  */
-public class   PlacesDialogFragment extends TinkerDialogFragment implements PlacesDialogScreen.Listener {
+public class PlacesDialogFragment extends MVPTinkerLinkDialogFragment<DialogPlacesPresenter, DialogPlacesPresenter.View>
+        implements DialogPlacesPresenter.View, PlacesDialogScreen.Listener {
 
     public static final String PLACE_SELECTED = "PLACE_SELECTED";
+    public static final int CODE = 234;
+
+    //Views
+    private PlacesDialogScreen placesDialogScreen;
+
+    //region **************  MVPFragment **************
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setStyle(PlacesDialogFragment.STYLE_NO_TITLE, R.style.DialogTheme);
+    protected DialogPlacesPresenter createPresenter() {
+        return new DialogPlacesPresenter(ScreenNavigationHandler.getInstance());
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        return new PlacesDialogScreen(getActivity(), this);
+    protected DialogPlacesPresenter.View getPresenterView() {
+        return this;
     }
+
+    //endregion
+
+    //region **************  Fragment.View  **************
+
+    @Override
+    protected void onDidAppear() {
+        placesDialogScreen.show();
+    }
+
+    @Override
+    protected View getRootView() {
+        placesDialogScreen = new PlacesDialogScreen(getContext(), this);
+        return placesDialogScreen;
+    }
+
+    @Override
+    public void showLoading() {
+        placesDialogScreen.showLoader();
+    }
+
+    @Override
+    public void hideLoading() {
+        placesDialogScreen.hideLoader();
+    }
+
+    //endregion
+
+    //region **************  DialogPlacesPresenter.View  **************
+
+    @Override
+    public String getTextSearchable() {
+        return placesDialogScreen.getSearchableText();
+    }
+
+    @Override
+    public void setPlaces(List<Address> addresses) {
+        placesDialogScreen.setItems(addresses);
+    }
+
+    //endregion
+
+    //region **************  DialogPlacesScreen.View  **************
 
     @Override
     public void onItemSelected(Address prediction) {
-        sendResult(prediction);
-        FragmentTransaction ft = getFragmentManager().beginTransaction();
-        PlacesDialogFragment prev = (PlacesDialogFragment) getFragmentManager().findFragmentByTag(PlacesDialogFragment.class.toString());
-        if (prev != null) {
-            ft.remove(prev);
-            prev.dismiss();
-        }
-        ft.addToBackStack(null);
+        Bundle bundle = new Bundle();
+        bundle.putParcelable(PLACE_SELECTED, prediction);
+        sendResult(bundle, CODE);
     }
 
-    private void sendResult(Address address) {
-        Bundle bundle = new Bundle();
-        bundle.putParcelable(PLACE_SELECTED, address);
-        Intent intent = new Intent();
-        intent.putExtras(bundle);
-//        getTargetFragment().onActivityResult(
-//                getTargetRequestCode(), CreateStackPresenter.CODE_SELECTED_PLACE, intent);
+    @Override
+    public void onClosePressed() {
+        dismiss();
     }
+
+    @Override
+    public void onSearchPressed() {
+        getPresenter().getPlaces();
+    }
+
+    //endregion
+
 }

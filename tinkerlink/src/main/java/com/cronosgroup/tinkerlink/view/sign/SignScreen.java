@@ -57,9 +57,6 @@ public class SignScreen extends RelativeLayout {
     @BindView(R.id.registrationContainer)
     protected FrameLayout mRegistrationContainer;
 
-    @BindView(R.id.validationContainer)
-    protected FrameLayout mValidationContainer;
-
     /**
      * @param context
      */
@@ -146,9 +143,6 @@ public class SignScreen extends RelativeLayout {
         if (mRegistrationContainer.getVisibility() == VISIBLE) {
             hideContainer(mRegistrationContainer);
             return true;
-        } else if (mValidationContainer.getVisibility() == VISIBLE) {
-            hideContainer(mValidationContainer);
-            return true;
         }
 
         return false;
@@ -159,11 +153,6 @@ public class SignScreen extends RelativeLayout {
     @OnClick(R.id.nextPage)
     protected void onNextStepPressed() {
         listener.verifiedPage(mPager.getCurrentItem());
-    }
-
-    @OnClick(R.id.validationContainer)
-    protected void onCloseValidator() {
-        hideContainer(mValidationContainer);
     }
 
     // Public Methods
@@ -210,10 +199,6 @@ public class SignScreen extends RelativeLayout {
 
     public void showRegistrationSeletor() {
         showContainer(mRegistrationContainer);
-    }
-
-    public void showValidator() {
-        showContainer(mValidationContainer);
     }
 
     public boolean hidePage() {

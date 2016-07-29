@@ -1,4 +1,4 @@
-package com.cronosgroup.tinkerlink.view.customviews;
+package com.cronosgroup.tinkerlink.view.dialog.network;
 
 import android.annotation.TargetApi;
 import android.content.Context;
@@ -9,19 +9,23 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
 
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.utils.DimenUtils;
+import com.cronosgroup.tinkerlink.view.customviews.TLImageView;
+import com.cronosgroup.tinkerlink.view.customviews.TLLinearLayout;
+import com.cronosgroup.tinkerlink.view.customviews.TLNetworkConnectionView;
+import com.cronosgroup.tinkerlink.view.customviews.TLTextView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+
 /**
- * Created by jorgesanmartin on 7/13/16.
+ * Main Network view.
  */
-public class TLNetworkView extends RelativeLayout {
+public class NetworkDialogScreen extends TLLinearLayout {
 
     public interface Listener {
         void onClosePressed();
@@ -44,6 +48,9 @@ public class TLNetworkView extends RelativeLayout {
     private Listener listener;
 
     //Views
+
+    @BindView(R.id.containerNetwork)
+    protected View mContainerNetwork;
 
     @BindView(R.id.titleNetwork)
     protected TLTextView mTitleNetwork;
@@ -120,20 +127,20 @@ public class TLNetworkView extends RelativeLayout {
     @BindView(R.id.loadLinkerCategories)
     protected View mLinkerLoader;
 
-    public TLNetworkView(Context context) {
+    public NetworkDialogScreen(Context context) {
         this(context, null);
     }
 
-    public TLNetworkView(Context context, AttributeSet attrs) {
+    public NetworkDialogScreen(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public TLNetworkView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public NetworkDialogScreen(Context context, AttributeSet attrs, int defStyleAttr) {
         this(context, attrs, defStyleAttr, 0);
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    public TLNetworkView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+    public NetworkDialogScreen(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         init(attrs);
     }
@@ -141,6 +148,7 @@ public class TLNetworkView extends RelativeLayout {
     private void init(AttributeSet attributeSet) {
         inflate(getContext(), R.layout.lay_network, this);
         ButterKnife.bind(this);
+        mContainerNetwork.setVisibility(INVISIBLE);
         if (attributeSet != null) {
         }
     }
@@ -209,6 +217,10 @@ public class TLNetworkView extends RelativeLayout {
 
     public void setListener(Listener listener) {
         this.listener = listener;
+    }
+
+    public void show() {
+        appear(mContainerNetwork);
     }
 
     public String getUserImage() {

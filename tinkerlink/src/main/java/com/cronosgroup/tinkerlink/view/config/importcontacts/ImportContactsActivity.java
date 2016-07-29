@@ -17,8 +17,8 @@ public class ImportContactsActivity extends TinkerLinkActivity<ImportContactsFra
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getToolbar().setLogo(null);
-        getToolbar().setTitle(R.string.configuration_phone_contacts);
+        setLogo(null);
+        setTitle(R.string.configuration_phone_contacts);
     }
 
     @Override
