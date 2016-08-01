@@ -55,6 +55,8 @@
     <color name="homeToolbarcolor_50">#80D4D4D4</color>
 
     <!-- APP colors -->
+
+
     <color name="recommendationcolor">#ffc000</color>
     <color name="linkercolor">#88bf00</color>
     <color name="linkercolor_30">#4D88bf00</color>
@@ -66,7 +68,7 @@
     <color name="tinkercolor_50">#809c27b0</color>
     <color name="tinkercolor_80">#CC9c27b0</color>
 
-    <color name="warningcolor">#ECD420</color>
+    <color name="warningcolor">#39393E</color>
     <color name="errorcolor">#DE0707</color>
 
     <color name="gray_color">#E2E2E2</color>

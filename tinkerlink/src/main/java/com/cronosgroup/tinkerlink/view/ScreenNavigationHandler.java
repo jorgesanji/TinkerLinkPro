@@ -25,6 +25,7 @@ import com.cronosgroup.tinkerlink.presenter.dragdrop.DrargDropPresenter;
 import com.cronosgroup.tinkerlink.presenter.editprofile.ConfigAccountUserPresenter;
 import com.cronosgroup.tinkerlink.presenter.editprofile.EditProfilePresenter;
 import com.cronosgroup.tinkerlink.presenter.editprofile.UserNotificationsPresenter;
+import com.cronosgroup.tinkerlink.presenter.filtercards.FilterCardsPresenter;
 import com.cronosgroup.tinkerlink.presenter.frequentlyquestions.FrequentlyQuestionsPresenter;
 import com.cronosgroup.tinkerlink.presenter.giverecommendation.GiveRecommendationPresenter;
 import com.cronosgroup.tinkerlink.presenter.helptinkerlink.HelpTinkerLinkPresenter;
@@ -43,6 +44,7 @@ import com.cronosgroup.tinkerlink.presenter.profile.UserInformationPresenter;
 import com.cronosgroup.tinkerlink.presenter.profile.UserRecommendationsPresenter;
 import com.cronosgroup.tinkerlink.presenter.recommendations.RecommendationsPresenter;
 import com.cronosgroup.tinkerlink.presenter.recoverypassword.RecoveryPasswordPresenter;
+import com.cronosgroup.tinkerlink.presenter.searchcard.SearchCardPresenter;
 import com.cronosgroup.tinkerlink.presenter.sign.FormUserPresenter;
 import com.cronosgroup.tinkerlink.presenter.sign.RegisterSelectorPresenter;
 import com.cronosgroup.tinkerlink.presenter.sign.SignPresenter;
@@ -56,6 +58,7 @@ import com.cronosgroup.tinkerlink.presenter.tutorial.TutorialPresenter;
 import com.cronosgroup.tinkerlink.presenter.usercontacts.AllUserContactsPresenter;
 import com.cronosgroup.tinkerlink.presenter.usercontacts.UserContactsPresenter;
 import com.cronosgroup.tinkerlink.presenter.verify.VerifyPresenter;
+import com.cronosgroup.tinkerlink.view.cardfilter.FilterCardsActivity;
 import com.cronosgroup.tinkerlink.view.chatuser.ChatUserActivity;
 import com.cronosgroup.tinkerlink.view.config.changepassword.ChangePasswordActivity;
 import com.cronosgroup.tinkerlink.view.config.changephonenumber.ChangePhoneNumberActivity;
@@ -77,6 +80,7 @@ import com.cronosgroup.tinkerlink.view.login.LoginActivity;
 import com.cronosgroup.tinkerlink.view.presignuser.PreSignUserActivity;
 import com.cronosgroup.tinkerlink.view.profile.ProfileActivity;
 import com.cronosgroup.tinkerlink.view.recommendations.RecommendationsActivity;
+import com.cronosgroup.tinkerlink.view.searchcard.SearchCardActivity;
 import com.cronosgroup.tinkerlink.view.sign.SignActivity;
 import com.cronosgroup.tinkerlink.view.stack.detail.DetailStackActivity;
 import com.cronosgroup.tinkerlink.view.stack.main.StackActivity;
@@ -107,7 +111,7 @@ public final class ScreenNavigationHandler implements HomePresenter.Actions,
         RecommendationsPresenter.Actions, GiveRecommendationPresenter.Actions,
         UserContactsPresenter.Actions, AllUserContactsPresenter.Actions, DrargDropPresenter.Actions,
         DialogOccupationPresenter.Actions, DialogCountryPresenter.Actions,
-        DialogPlacesPresenter.Actions {
+        DialogPlacesPresenter.Actions, SearchCardPresenter.Actions, FilterCardsPresenter.Actions {
 
     //Instance
     private static ScreenNavigationHandler instance = null;
@@ -191,6 +195,13 @@ public final class ScreenNavigationHandler implements HomePresenter.Actions,
         return newTask(context, DetailCardActivity.class, bundle);
     }
 
+    private static Intent searchCards(@NonNull Activity context, Bundle bundle) {
+        return newTask(context, SearchCardActivity.class, bundle);
+    }
+
+    private static Intent filterCards(@NonNull Activity context, Bundle bundle) {
+        return newTask(context, FilterCardsActivity.class, bundle);
+    }
 
     private static Intent profile(@NonNull Activity context, Bundle bundle) {
         return newTask(context, ProfileActivity.class, bundle);
@@ -311,6 +322,16 @@ public final class ScreenNavigationHandler implements HomePresenter.Actions,
     @Override
     public void onLaunchPresvisualized(Activity activity, Bundle bundle) {
         startActivity(activity, detailCard(activity, bundle));
+    }
+
+    @Override
+    public void onLaunchSearchCards(Activity activity, Bundle bundle) {
+        startActivity(activity, searchCards(activity, bundle));
+    }
+
+    @Override
+    public void onLaunchFilterCars(Activity activity, Bundle bundle) {
+        startActivity(activity, filterCards(activity, bundle));
     }
 
     // ------------------------ PROFILE -----------------------------------

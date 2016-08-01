@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    android:orientation="vertical">
+
+    <com.cronosgroup.tinkerlink.view.customviews.TLImageView
+        android:id="@+id/imageCategory"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/zapatero" />
+
+    <RelativeLayout
+        android:id="@+id/colorItemSelected"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_black_gradient">
+
+        <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+            android:id="@+id/numberCardsByCategory"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/background_filter_categories_number"
+            android:gravity="center"
+            android:text="8"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_mediun"
+            android:visibility="gone"
+            app:fontName="SemiBold" />
+
+    </RelativeLayout>
+
+    <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+        android:id="@+id/categoryName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/margin_tiny"
+        android:gravity="center"
+        android:text="Reparaciones"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_big"
+        app:fontName="SemiBold" />
+
+</RelativeLayout>

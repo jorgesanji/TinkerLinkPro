@@ -84,21 +84,5 @@ public class DetailStackFragment extends MVPTinkerLinkFragment<DetailStackPresen
         return stackType;
     }
 
-    @Override
-    public void showLoading() {
-        super.showLoading();
-        if (getActivity() != null) {
-            ((TinkerLinkActivity) getActivity()).showLoading();
-        }
-    }
-
-    @Override
-    public void hideLoading() {
-        super.hideLoading();
-        if (getActivity() != null) {
-            ((TinkerLinkActivity) getActivity()).hideLoading();
-        }
-    }
-
     //endregion
 }

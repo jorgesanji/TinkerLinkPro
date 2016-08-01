@@ -5,28 +5,10 @@
     android:layout_height="match_parent"
     android:background="@android:color/transparent">
 
-    <com.cronosgroup.tinkerlink.view.customviews.TLImageView
-        android:id="@+id/userStatusContact"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_marginLeft="@dimen/margin_small"
-        android:src="@mipmap/newsfeed_contacto_amigo" />
-
     <com.cronosgroup.tinkerlink.view.customviews.TLCommonContactsView
         android:id="@+id/contactsView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true" />
-
-    <com.cronosgroup.tinkerlink.view.customviews.TLImageButton
-        android:id="@+id/networkUser"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
-        android:layout_marginRight="@dimen/margin_small"
-        android:background="@android:color/transparent"
-        android:src="@mipmap/ic_action_social_share" />
 
 </RelativeLayout>

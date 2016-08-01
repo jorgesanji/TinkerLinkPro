@@ -449,7 +449,7 @@
     <string name="profile_request_sent">Pendiente</string>
     <string name="profile_request_received">Pendiente</string>
     <string name="profile_friends">Amigos</string>
-    <string name="profile_contacts_common">En común</string>
+    <string name="profile_contacts_common">en común</string>
 
 
     <string name="profile_write_message">Escribir mensaje</string>

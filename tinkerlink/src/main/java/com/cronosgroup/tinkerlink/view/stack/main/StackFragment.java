@@ -15,7 +15,6 @@ import com.cronosgroup.tinkerlink.presenter.stack.StackPresenter;
 import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.animation.Animations;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
-import com.cronosgroup.tinkerlink.view.base.TinkerLinkActivity;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -37,9 +36,6 @@ public class StackFragment extends MVPTinkerLinkFragment<StackPresenter, StackPr
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
         stackType = (StackActivity.Stack) getArguments().getSerializable(StackActivity.STACK_TYPE);
-        if (getActivity() != null) {
-            ((TinkerLinkActivity) getActivity()).getSupportActionBar().setTitle(getString(stackType.getStackTitle()));
-        }
     }
 
     @Override
@@ -50,13 +46,20 @@ public class StackFragment extends MVPTinkerLinkFragment<StackPresenter, StackPr
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.stack_search_menu, menu);
+        inflater.inflate(R.menu.stack_menu, menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.action_search_stack) {
+        if (id == R.id.action_stack_search) {
+            getPresenter().onSearchCardsPressed();
+            return true;
+        } else if (id == R.id.action_stack_add_card) {
+            getPresenter().onCreateCardsPressed();
+            return true;
+        } else if (id == R.id.action_stack_filter) {
+            getPresenter().onFilterCardsPressed();
             return true;
         }
 

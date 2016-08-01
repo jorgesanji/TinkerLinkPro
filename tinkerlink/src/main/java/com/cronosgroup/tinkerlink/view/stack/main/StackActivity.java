@@ -52,6 +52,10 @@ public class StackActivity extends TinkerLinkActivity<StackFragment> {
         super.onCreate(savedInstanceState);
         getSupportActionBar().setDisplayShowHomeEnabled(false);
         getSupportActionBar().setHomeButtonEnabled(true);
+        StackActivity.Stack stackType = (StackActivity.Stack) getIntent().getExtras().getSerializable(StackActivity.STACK_TYPE);
+        if (stackType != null) {
+            setTitle(getString(stackType.getStackTitle()));
+        }
     }
 
     @Override

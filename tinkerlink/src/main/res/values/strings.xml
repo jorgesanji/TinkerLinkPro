@@ -450,7 +450,7 @@
     <string name="profile_request_sent">Pendiente</string>
     <string name="profile_request_received">Pendiente</string>
     <string name="profile_friends">Amigos</string>
-    <string name="profile_contacts_common">En común</string>
+    <string name="profile_contacts_common">en común</string>
     <string name="profile_write_message">Escribir mensaje</string>
     <string name="profile_services">Soy Tinker</string>
     <string name="profile_offers">Busco Tinker</string>
@@ -736,29 +736,32 @@
     <string name="contacts_all">TODOS(%s)</string>
     <string name="contacts_from">Contactos de %s</string>
 
-     <!-- DRAG AND DROP-->
+    <!-- DRAG AND DROP-->
     <string name="drag_drop_watch_network">Ver red</string>
     <string name="drag_drop_watch_profile">Ver perfil</string>
     <string name="drag_drop_share">Compartir</string>
     <string name="drag_drop_write_message">Escribir mensake</string>
 
 
-     <!-- DIALOG OCCUPATION-->
+    <!-- DIALOG OCCUPATION-->
     <string name="dialog_occupation_search">Busca tu ocupación</string>
     <string name="dialog_occupation_add_new_one_message">Si no encuentras tu ocupacióne en la lista puedes agregar una</string>
     <string name="dialog_occupation_add_new_one_message_hint">Especifica tu ocupación</string>
     <string name="dialog_occupation_add_new_one_message_limit">%s/20</string>
 
 
-     <!-- DIALOG MESSAGE-->
+    <!-- DIALOG MESSAGE-->
     <string name="dialog_message_ok_button">OK</string>
 
-     <!-- CREATE CARD MESSAGES -->
+    <!-- CREATE CARD MESSAGES -->
     <string name="create_card_title">Felicidades ha creado una tarjeta</string>
     <string name="create_card_message">Si quieres editarla puedes ir a tu perfil ahí la encotraras y la podrás editar</string>
 
 
-
+    <!-- FILTER CARDS -->
+    <string name="filter_cards_title">Filtros</string>
+    <string name="filter_cards_skills">CATEGORÍAS</string>
+    <string name="filter_cards_message" formatted="false">Hemos encontrado %s y %s tarjetas</string>
 
 
 </resources>

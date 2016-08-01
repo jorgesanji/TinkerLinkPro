@@ -12,6 +12,8 @@ import java.util.List;
  */
 public class RestCategoria extends RestBase implements ParentListItem {
 
+    private boolean selected;
+
     @SerializedName("profesion")
     private String profesion;
 
@@ -53,5 +55,13 @@ public class RestCategoria extends RestBase implements ParentListItem {
     @Override
     public boolean isInitiallyExpanded() {
         return false;
+    }
+
+    public boolean isSelected() {
+        return selected;
+    }
+
+    public void setSelected(boolean selected) {
+        this.selected = selected;
     }
 }

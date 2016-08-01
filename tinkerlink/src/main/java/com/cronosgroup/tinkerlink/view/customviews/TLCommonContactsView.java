@@ -4,11 +4,12 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
 import android.util.AttributeSet;
+import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
 import com.cronosgroup.tinkerlink.R;
-import com.cronosgroup.tinkerlink.manager.AppConfigManager;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContacto;
+import com.cronosgroup.tinkerlink.utils.DimenUtils;
 
 import java.util.List;
 
@@ -24,19 +25,25 @@ public class TLCommonContactsView extends RelativeLayout {
 
     //Views
     @BindView(R.id.contact1)
-    TLImageView mContact1;
+    protected TLImageRoundBorder mContact1;
 
     @BindView(R.id.contact2)
-    TLImageView mContact2;
+    protected TLImageRoundBorder mContact2;
 
     @BindView(R.id.contact3)
-    TLImageView mContact3;
+    protected TLImageRoundBorder mContact3;
 
     @BindView(R.id.contact4)
-    TLImageView mContact4;
+    protected TLImageRoundBorder mContact4;
 
     @BindView(R.id.numberContacts)
-    TLTextView mNumberContacts;
+    protected TLTextView mNumberContacts;
+
+    @BindView(R.id.containerCommon)
+    protected RelativeLayout mcontainerCommon;
+
+    @BindView(R.id.contactsContainer)
+    protected RelativeLayout mContactsContainer;
 
     /**
      * @param context
@@ -79,28 +86,28 @@ public class TLCommonContactsView extends RelativeLayout {
     private void init() {
         inflate(getContext(), R.layout.lay_common_contacts, this);
         ButterKnife.bind(this);
-        mContact1.setVisibility(GONE);
-        mContact2.setVisibility(GONE);
-        mContact3.setVisibility(GONE);
-        mContact4.setVisibility(GONE);
-        mContact1.setRounded(true);
-        mContact2.setRounded(true);
-        mContact3.setRounded(true);
-        mContact4.setRounded(true);
     }
 
     //Public methods
 
-    public void setContacts(List<RestContacto> contacts,
-                            AppConfigManager appConfigManager) {
-        mNumberContacts.setText(String.valueOf(contacts.size()));
-        RelativeLayout layout = (RelativeLayout) mContact1.getParent();
-        int size = contacts.size() > 4 ? 4 : contacts.size();
-        for (int index = 0; index < size; index++) {
-            RestContacto contacto = contacts.get(index);
-            TLImageView imageView = (TLImageView) layout.getChildAt(index);
-            imageView.setVisibility(VISIBLE);
-            imageView.setImageFromUrl(appConfigManager.getPath(AppConfigManager.Path.PATH_IMAGE_PROFILE_THUMBNAIL) + contacto.getUser().getPhoto());
+    public void setContacts(List<RestContacto> contacts) {
+        if (!contacts.isEmpty()) {
+            RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            params.leftMargin = Math.round(DimenUtils.getPixelsFromDp(getContext(), 50));
+            mcontainerCommon.setLayoutParams(params);
+
+            mContactsContainer.setVisibility(VISIBLE);
+            mNumberContacts.setVisibility(VISIBLE);
+            String numberContacts = contacts.size() > 4 ? "+" + String.valueOf(contacts.size() - 4) + " " : "";
+            mNumberContacts.setText(numberContacts + getResources().getString(R.string.profile_contacts_common));
+
+            int size = contacts.size() > 4 ? 4 : contacts.size();
+            for (int index = 0; index < size; index++) {
+                RestContacto contacto = contacts.get(index);
+                TLImageRoundBorder imageView = (TLImageRoundBorder) mContactsContainer.getChildAt(index);
+                imageView.setImageFromUrl(contacto.getUser().getPhoto());
+            }
         }
     }
+
 }

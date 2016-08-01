@@ -4,137 +4,181 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    android:clipChildren="false"
-    android:clipToPadding="false"
     android:orientation="vertical">
 
-    <ScrollView
+    <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/headerProfile">
+        android:background="@color/white"
+        android:orientation="vertical">
 
-        <LinearLayout
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/appbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="510dp"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
-            <com.cronosgroup.tinkerlink.view.customviews.TLTextView
-                android:id="@+id/userJob"
+            <android.support.design.widget.CollapsingToolbarLayout
+                android:id="@+id/collapsingToolbar"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:text="FONTANERO"
-                android:textColor="@color/black"
-                android:textSize="@dimen/text_size_small" />
+                android:layout_height="match_parent"
+                app:contentScrim="@color/white"
+                app:expandedTitleTextAppearance="@style/TextAppearance.AppCompat.Body2"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
-            <com.cronosgroup.tinkerlink.view.customviews.TLTextView
-                android:id="@+id/userName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_small"
-                android:gravity="center_horizontal"
-                android:text="Mariano Martinez"
-                android:textColor="@color/black"
-                android:textSize="@dimen/text_size_big"
-                app:fontName="Regular" />
+                <LinearLayout
+                    android:id="@+id/headerProfile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-            <com.cronosgroup.tinkerlink.view.customviews.TLTextView
-                android:id="@+id/userCountry"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_small"
-                android:gravity="center_horizontal"
-                android:text="Barcelona, España"
-                android:textColor="@color/black"
-                android:textSize="@dimen/text_size_tiny"
-                app:fontName="Regular" />
+                    <include layout="@layout/lay_header_profile" />
 
-            <include
-                layout="@layout/lay_contact_container"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginLeft="@dimen/margin_small"
-                android:layout_marginTop="@dimen/margin_big" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:orientation="vertical">
 
-            <include layout="@layout/lay_newsfeed_action_buttons" />
+                        <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                            android:id="@+id/userJob"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size_small" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginLeft="@dimen/margin_small"
-                android:orientation="horizontal">
+                        <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                            android:id="@+id/userName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_small"
+                            android:gravity="center_horizontal"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size_big"
+                            app:fontName="Regular" />
 
-                <com.cronosgroup.tinkerlink.view.customviews.TLTabItem
-                    android:layout_width="100dp"
-                    android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    app:iconItem="@mipmap/ic_views"
-                    app:textItem="239"
-                    app:textItemColor="@color/black"
-                    app:textItemSize="@dimen/text_size_mediun" />
+                        <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                            android:id="@+id/userCountry"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_small"
+                            android:gravity="center_horizontal"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size_tiny"
+                            app:fontName="Regular" />
 
-                <com.cronosgroup.tinkerlink.view.customviews.TLTabItem
-                    android:layout_width="100dp"
-                    android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    app:iconItem="@mipmap/newsfeed_share"
-                    app:textItem="239"
-                    app:textItemColor="@color/black"
-                    app:textItemSize="@dimen/text_size_mediun" />
+                        <com.cronosgroup.tinkerlink.view.customviews.TLCommonContactsView
+                            android:id="@+id/contactsView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/margin_small"
+                            android:layout_marginTop="@dimen/margin_mediun" />
 
-            </LinearLayout>
+                        <include layout="@layout/lay_newsfeed_action_buttons" />
 
-            <android.support.design.widget.TabLayout
-                android:id="@+id/tablayout"
-                style="@style/TabProfileStyle"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:layout_gravity="bottom"
-                android:background="@color/gray_50"
-                app:tabGravity="fill"
-                app:tabMode="scrollable" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/margin_small"
+                            android:orientation="horizontal">
 
-            <com.cronosgroup.tinkerlink.view.customviews.TLViewPager
-                android:id="@+id/userPager"
-                android:layout_width="match_parent"
-                android:layout_height="400dp" />
+                            <com.cronosgroup.tinkerlink.view.customviews.TLTabItem
+                                android:layout_width="100dp"
+                                android:layout_height="match_parent"
+                                android:gravity="center_vertical"
+                                app:iconItem="@mipmap/ic_views"
+                                app:textItem="239"
+                                app:textItemColor="@color/black"
+                                app:textItemSize="@dimen/text_size_mediun" />
 
-        </LinearLayout>
-    </ScrollView>
+                            <com.cronosgroup.tinkerlink.view.customviews.TLTabItem
+                                android:layout_width="100dp"
+                                android:layout_height="match_parent"
+                                android:gravity="center_vertical"
+                                app:iconItem="@mipmap/newsfeed_share"
+                                app:textItem="239"
+                                app:textItemColor="@color/black"
+                                app:textItemSize="@dimen/text_size_mediun" />
 
-    <RelativeLayout
-        android:id="@+id/headerProfile"
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/profileToolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:visibility="visible"
+                    app:layout_collapseMode="pin"
+                    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                    app:theme="@style/ProfileThemeToolbar" />
+
+            </android.support.design.widget.CollapsingToolbarLayout>
+
+        </android.support.design.widget.AppBarLayout>
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tablayout"
+            style="@style/TabProfileStyle"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_gravity="bottom"
+            android:background="@android:color/white"
+            app:layout_anchor="@+id/appbar"
+            app:layout_anchorGravity="bottom"
+            app:layout_collapseMode="none"
+            app:tabGravity="fill"
+            app:tabMode="scrollable" />
+
+        <com.cronosgroup.tinkerlink.view.customviews.TLViewPager
+            android:id="@+id/userPager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="?attr/actionBarSize"
+            android:background="@color/gray_color"
+            android:paddingTop="5dp"
+            app:disableSwipe="false"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+    </android.support.design.widget.CoordinatorLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true">
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentTop="true"
+        android:background="@color/white"
+        android:elevation="@dimen/toolbar_elevation"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
 
-        <include layout="@layout/lay_header_profile" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
+        <com.cronosgroup.tinkerlink.view.customviews.TLImageButton
+            android:id="@+id/closeButton"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="@dimen/margin_mediun"
+            android:layout_marginLeft="@dimen/margin_mediun"
+            android:background="@android:color/transparent"
+            android:src="@mipmap/ic_close" />
+
+        <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+            android:id="@+id/userNameToolbar"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/margin_small"
             android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:maxLines="1"
+            android:shadowColor="@color/black"
+            android:shadowDx="0.0"
+            android:shadowDy="0.1"
+            android:shadowRadius="1.0"
+            android:text="@string/profile_title"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_big"
+            app:fontName="SemiBold" />
 
-            <com.cronosgroup.tinkerlink.view.customviews.TLImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@android:color/transparent"
-                android:src="@mipmap/ic_close" />
-
-            <com.cronosgroup.tinkerlink.view.customviews.TLTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/margin_mediun"
-                android:text="@string/profile_title"
-                android:textColor="@color/white"
-                android:textSize="@dimen/text_size_mediun"
-                app:fontName="Regular" />
-
-        </LinearLayout>
-
-    </RelativeLayout>
+    </LinearLayout>
 
 </RelativeLayout>

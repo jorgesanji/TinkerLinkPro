@@ -1,0 +1,24 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".view.stack.base.StackCardActivity">
+
+    <item
+        android:id="@+id/action_stack_add_card"
+        android:icon="@android:drawable/ic_input_add"
+        android:title="@string/action_search_card"
+        app:showAsAction="withText|ifRoom" />
+
+    <item
+        android:id="@+id/action_stack_filter"
+        android:icon="@android:drawable/ic_menu_day"
+        android:title="@string/action_search_card"
+        app:showAsAction="withText|ifRoom" />
+
+    <item
+        android:id="@+id/action_stack_search"
+        android:icon="@mipmap/newsfeed_search"
+        android:title="@string/action_search_card"
+        app:showAsAction="withText|ifRoom" />
+
+</menu>

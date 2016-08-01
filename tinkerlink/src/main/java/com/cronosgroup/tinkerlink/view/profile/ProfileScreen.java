@@ -3,17 +3,28 @@ package com.cronosgroup.tinkerlink.view.profile;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
+import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentManager;
+import android.support.v7.widget.Toolbar;
 import android.util.AttributeSet;
 import android.widget.RelativeLayout;
 
 import com.cronosgroup.tinkerlink.R;
+import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContacto;
+import com.cronosgroup.tinkerlink.view.customviews.TLCommonContactsView;
+import com.cronosgroup.tinkerlink.view.customviews.TLImageButton;
+import com.cronosgroup.tinkerlink.view.customviews.TLImageRoundBorder;
+import com.cronosgroup.tinkerlink.view.customviews.TLStackButton;
+import com.cronosgroup.tinkerlink.view.customviews.TLTextView;
 import com.cronosgroup.tinkerlink.view.customviews.TLViewPager;
 import com.cronosgroup.tinkerlink.view.profile.adapter.ProfileAdapter;
 
+import java.util.List;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 
 /**
@@ -22,8 +33,11 @@ import butterknife.ButterKnife;
 public class ProfileScreen extends RelativeLayout {
 
     public interface Listener {
+        void onClosePressed();
 
+        void onImTinkerStackPressed();
 
+        void onSearchTinkerStackPressed();
     }
 
 
@@ -37,6 +51,48 @@ public class ProfileScreen extends RelativeLayout {
 
     @BindView(R.id.tablayout)
     protected TabLayout mTab;
+
+    @BindView(R.id.appbar)
+    protected AppBarLayout mAppbar;
+
+    @BindView(R.id.profileToolbar)
+    protected Toolbar mToolbar;
+
+    @BindView(R.id.userNameToolbar)
+    protected TLTextView mNameToolBar;
+
+    @BindView(R.id.titleWelcome)
+    protected TLTextView mTitleWelcome;
+
+    @BindView(R.id.titleCreateProfile)
+    protected TLTextView mtTitleCreateProfile;
+
+    @BindView(R.id.userName)
+    protected TLTextView muUserName;
+
+    @BindView(R.id.userJob)
+    protected TLTextView mUserJob;
+
+    @BindView(R.id.userCountry)
+    protected TLTextView mUserCountry;
+
+    @BindView(R.id.profileUserWallImage)
+    protected TLImageButton mProfileUserWallImage;
+
+    @BindView(R.id.profileUserImage)
+    protected TLImageButton mProfileUserImage;
+
+    @BindView(R.id.imTinkerbt)
+    protected TLStackButton mImTinker;
+
+    @BindView(R.id.searchTinkerbt)
+    protected TLStackButton mSearchTinkerbt;
+
+    @BindView(R.id.userImage)
+    protected TLImageRoundBorder mUserImage;
+
+    @BindView(R.id.contactsView)
+    protected TLCommonContactsView mContactsView;
 
     /**
      * @param context
@@ -82,6 +138,12 @@ public class ProfileScreen extends RelativeLayout {
     }
 
     private void initUI() {
+
+        mTitleWelcome.setVisibility(GONE);
+        mtTitleCreateProfile.setVisibility(GONE);
+        mProfileUserWallImage.setVisibility(GONE);
+        mProfileUserImage.setVisibility(GONE);
+
         mTab.setTabTextColors(getResources().getColor(R.color.black_opaque), getResources().getColor(R.color.black_opaque));
         mTab.setupWithViewPager(mPager);
         mPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(mTab));
@@ -101,6 +163,23 @@ public class ProfileScreen extends RelativeLayout {
         });
     }
 
+    // Actions
+
+    @OnClick(R.id.closeButton)
+    protected void closePressed() {
+        listener.onClosePressed();
+    }
+
+    @OnClick(R.id.imTinkerbt)
+    protected void imTinkerPressed() {
+        listener.onImTinkerStackPressed();
+    }
+
+    @OnClick(R.id.searchTinkerbt)
+    protected void searchTinkerPressed() {
+        listener.onSearchTinkerStackPressed();
+    }
+
     // Public methods
 
     public Listener getListener() {
@@ -115,5 +194,26 @@ public class ProfileScreen extends RelativeLayout {
         this.mAdapter = new ProfileAdapter(fragmentManager, getContext());
         mPager.setAdapter(mAdapter);
         initUI();
+    }
+
+    public void setUserName(String userName) {
+        mNameToolBar.setText(userName);
+        muUserName.setText(userName);
+    }
+
+    public void setUserImage(String userImage) {
+        mUserImage.setImageFromUrl(userImage);
+    }
+
+    public void setUserJob(String userJob) {
+        mUserJob.setText(userJob);
+    }
+
+    public void setUserCountry(String userCountry) {
+        mUserCountry.setText(userCountry);
+    }
+
+    public void setContacts(List<RestContacto> contacts){
+        mContactsView.setContacts(contacts);
     }
 }

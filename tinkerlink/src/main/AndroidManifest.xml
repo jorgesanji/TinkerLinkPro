@@ -219,6 +219,15 @@
             android:name=".view.usercontacts.UserContactsActivity"
             android:screenOrientation="portrait" />
 
+        <activity
+            android:name=".view.searchcard.SearchCardActivity"
+            android:screenOrientation="portrait" />
+
+
+        <activity
+            android:name=".view.cardfilter.FilterCardsActivity"
+            android:screenOrientation="portrait" />
+
     </application>
 
 </manifest>

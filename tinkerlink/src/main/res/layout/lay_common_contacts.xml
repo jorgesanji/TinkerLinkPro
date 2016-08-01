@@ -5,8 +5,17 @@
     android:layout_height="@dimen/view_min_height_contacts"
     android:orientation="vertical">
 
-    <RelativeLayout
+    <com.cronosgroup.tinkerlink.view.customviews.TLImageView
+        android:id="@+id/userStatusContact"
         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/margin_small"
+        android:src="@mipmap/newsfeed_contacto_amigo" />
+
+    <RelativeLayout
+        android:id="@+id/containerCommon"
+        android:layout_width="50dp"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
@@ -32,23 +41,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="@dimen/margin_tiny">
+            android:layout_marginLeft="@dimen/margin_tiny"
+            android:visibility="gone">
 
-            <com.cronosgroup.tinkerlink.view.customviews.TLImageView
+            <com.cronosgroup.tinkerlink.view.customviews.TLImageRoundBorder
                 android:id="@+id/contact1"
                 style="@style/ContactThumbStyle" />
 
-            <com.cronosgroup.tinkerlink.view.customviews.TLImageView
+            <com.cronosgroup.tinkerlink.view.customviews.TLImageRoundBorder
                 android:id="@+id/contact2"
                 style="@style/ContactThumbStyle"
                 android:layout_marginLeft="@dimen/margin_big" />
 
-            <com.cronosgroup.tinkerlink.view.customviews.TLImageView
+            <com.cronosgroup.tinkerlink.view.customviews.TLImageRoundBorder
                 android:id="@+id/contact3"
                 style="@style/ContactThumbStyle"
                 android:layout_marginLeft="@dimen/margin_plus_biggest" />
 
-            <com.cronosgroup.tinkerlink.view.customviews.TLImageView
+            <com.cronosgroup.tinkerlink.view.customviews.TLImageRoundBorder
                 android:id="@+id/contact4"
                 style="@style/ContactThumbStyle"
                 android:layout_marginLeft="@dimen/margin_plus_plus_biggest" />
@@ -64,23 +74,23 @@
             android:layout_marginLeft="@dimen/margin_mini"
             android:layout_toRightOf="@+id/contactsContainer"
             android:ellipsize="end"
-            android:maxWidth="@dimen/view_min_width"
+            android:minWidth="@dimen/view_min_width"
             android:singleLine="true"
             android:text="0"
             android:textColor="@color/gray_30"
             android:textSize="@dimen/text_size_small"
+            android:visibility="gone"
             app:fontName="Light" />
 
-        <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+        <com.cronosgroup.tinkerlink.view.customviews.TLImageButton
+            android:id="@+id/networkUser"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="@dimen/margin_mini"
-            android:layout_toRightOf="@+id/numberContacts"
-            android:text="@string/profile_contacts_common"
-            android:textColor="@color/gray_30"
-            android:textSize="@dimen/text_size_small"
-            app:fontName="Light" />
+            android:layout_marginRight="@dimen/margin_small"
+            android:background="@android:color/transparent"
+            android:src="@mipmap/ic_action_social_share" />
 
     </RelativeLayout>
 

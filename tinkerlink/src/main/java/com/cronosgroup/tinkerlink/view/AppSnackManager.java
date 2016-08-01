@@ -272,4 +272,13 @@ public class AppSnackManager extends StatusMessageManager {
     public void showPublishFormError() {
         showError(R.string.create_time_publish_form_error);
     }
+
+
+    ////// SHOW INFORMATIVE MESSAGES
+
+    public void showCardsFilterWarning(int tinkers, int cards) {
+        showWarning(String.format(getContext().getString(R.string.filter_cards_message), String.valueOf(tinkers), String.valueOf(cards)));
+    }
+
+
 }

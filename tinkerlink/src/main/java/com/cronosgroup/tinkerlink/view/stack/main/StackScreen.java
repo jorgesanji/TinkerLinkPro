@@ -57,7 +57,7 @@ public class StackScreen extends RelativeLayout {
     protected FlippableStackView mPager;
 
     @BindView(R.id.backgroundFadeIn)
-    View mBackgroundIn;
+    protected View mBackgroundIn;
 
     @BindView(R.id.backgroundFadeOut)
     protected View mBackgroundOut;
@@ -267,8 +267,6 @@ public class StackScreen extends RelativeLayout {
     }
 
     public void showOverlaySelector() {
-//        mOverLaySelector.setAlpha(0);
         mOverLaySelector.setVisibility(VISIBLE);
-//        mOverLaySelector.animate().alpha(1).start();
     }
 }

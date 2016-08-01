@@ -39,6 +39,7 @@
         android:orientation="vertical">
 
         <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+            android:id="@+id/titleCreateProfile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_big"
@@ -49,12 +50,13 @@
 
         <RelativeLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_mediun">
 
             <com.cronosgroup.tinkerlink.view.customviews.TLImageRoundBorder
+                android:id="@+id/userImage"
                 android:layout_width="@dimen/view_max_height_big"
-                android:layout_height="@dimen/view_max_height_big"
-                android:layout_marginTop="@dimen/margin_mediun" />
+                android:layout_height="@dimen/view_max_height_big" />
 
             <com.cronosgroup.tinkerlink.view.customviews.TLImageButton
                 android:id="@+id/profileUserImage"

@@ -7,6 +7,7 @@ import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestUser;
 import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenter;
 import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenterView;
+import com.cronosgroup.tinkerlink.utils.AsyncLoader;
 import com.cronosgroup.tinkerlink.view.stack.detail.DetailStackActivity;
 import com.cronosgroup.tinkerlink.view.stack.main.StackActivity;
 
@@ -46,6 +47,12 @@ public class StackPresenter extends TinkerLinkPresenter<StackPresenter.View> {
         void onLaunchStack(Activity activity, Bundle bundle);
 
         void onLaunchDetailStack(Activity activity, Bundle bundle);
+
+        void onLaunchSearchCards(Activity activity, Bundle bundle);
+
+        void onLaunchCreateCard(Activity activity, Bundle bundle);
+
+        void onLaunchFilterCars(Activity activity, Bundle bundle);
     }
 
     /**
@@ -66,14 +73,27 @@ public class StackPresenter extends TinkerLinkPresenter<StackPresenter.View> {
 
     public void getAllCards(String offset) {
 
-        List<RestPost> list = new ArrayList<>();
-        for (int posts = 0; posts < 10; posts++) {
-            RestPost restPost = new RestPost();
-            list.add(restPost);
-        }
-        getView().setCards(list);
+        getView().showLoading();
+        AsyncLoader<List<RestPost>> asyncLoader = new AsyncLoader<List<RestPost>>() {
+            @Override
+            public List<RestPost> doInBackground() {
 
+                List<RestPost> list = new ArrayList<>();
+                for (int posts = 0; posts < 10; posts++) {
+                    RestPost restPost = new RestPost();
+                    list.add(restPost);
+                }
+                return list;
+            }
 
+            @Override
+            public void postProcess(List<RestPost> result) {
+                getView().setCards(result);
+                getView().hideLoading();
+            }
+        };
+
+        asyncLoader.start();
 //        getView().showLoading();
 
 //        if (getView().isUser()) {
@@ -117,5 +137,23 @@ public class StackPresenter extends TinkerLinkPresenter<StackPresenter.View> {
         bundle.putSerializable(StackActivity.STACK_TYPE, getView().getType());
         bundle.putInt(DetailStackActivity.STACK_CURRENT_ITEM, getView().getCurrentIndexPage());
         listener.onLaunchDetailStack(getView().getActivity(), bundle);
+    }
+
+    public void onSearchCardsPressed() {
+        Bundle bundle = new Bundle();
+        bundle.putSerializable(StackActivity.STACK_TYPE, getView().getType());
+        listener.onLaunchSearchCards(getView().getActivity(), bundle);
+    }
+
+    public void onCreateCardsPressed() {
+        Bundle bundle = new Bundle();
+        bundle.putSerializable(StackActivity.STACK_TYPE, getView().getType());
+        listener.onLaunchCreateCard(getView().getActivity(), bundle);
+    }
+
+    public void onFilterCardsPressed() {
+        Bundle bundle = new Bundle();
+        bundle.putSerializable(StackActivity.STACK_TYPE, getView().getType());
+        listener.onLaunchFilterCars(getView().getActivity(), bundle);
     }
 }

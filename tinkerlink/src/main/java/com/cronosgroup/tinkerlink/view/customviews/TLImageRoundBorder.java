@@ -22,12 +22,9 @@ public class TLImageRoundBorder extends FrameLayout {
     private String imageUrl;
 
     //Views
-    @BindView(R.id.imageBackground)
-    TLImageView mImageBackground;
 
     @BindView(R.id.image)
     TLImageView mImage;
-
 
     public TLImageRoundBorder(Context context) {
         this(context, null);
@@ -58,7 +55,7 @@ public class TLImageRoundBorder extends FrameLayout {
         return imageUrl;
     }
 
-    public void setImageUrl(String imageUrl) {
+    public void setImageFromUrl(String imageUrl) {
         this.imageUrl = imageUrl;
         mImage.setImageFromUrl(imageUrl);
     }

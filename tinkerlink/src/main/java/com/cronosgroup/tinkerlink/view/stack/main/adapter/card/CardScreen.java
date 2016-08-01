@@ -212,7 +212,7 @@ public class CardScreen extends RelativeLayout {
 
     public void setUrlUser(String urlUser) {
         this.urlUser = urlUser;
-        mUserCardImage.setImageUrl(urlUser);
+        mUserCardImage.setImageFromUrl(urlUser);
     }
 
     public String getUserName() {
@@ -265,7 +265,7 @@ public class CardScreen extends RelativeLayout {
 
     public void setUserCommonContacts(List<RestContacto> userCommonContacts) {
         this.userCommonContacts = userCommonContacts;
-        mContactsView.setContacts(userCommonContacts, appConfigManager);
+        mContactsView.setContacts(userCommonContacts);
     }
 
     public String getUserCardDescription() {
