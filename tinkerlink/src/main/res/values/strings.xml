@@ -568,6 +568,7 @@
     <!--  Stack  -->
     <string name="stack_watch_tinker">Ver soy tinker</string>
     <string name="stack_watch_linker">Ver busco tinker</string>
+    <string name="stack_more_recommended">Más recomendados</string>
 
     <!--  Network  -->
     <string name="network_title_network">En común con %s</string>
@@ -757,11 +758,19 @@
     <string name="create_card_title">Felicidades ha creado una tarjeta</string>
     <string name="create_card_message">Si quieres editarla puedes ir a tu perfil ahí la encotraras y la podrás editar</string>
 
-
     <!-- FILTER CARDS -->
     <string name="filter_cards_title">Filtros</string>
     <string name="filter_cards_skills">CATEGORÍAS</string>
     <string name="filter_cards_message" formatted="false">Hemos encontrado %s y %s tarjetas</string>
+
+    <!-- IMPORT CONTACTS -->
+    <string name="import_contacts_message">Comienza añadiendo  tu correo electrónico o escogiendo un proveedor de servicios</string>
+    <string name="import_contacts_email">Correo electrónico</string>
+    <string name="import_contacts_email_hint">ejemplo@ejemplo.com</string>
+    <string name="import_contacts_continue">CONTINUAR</string>
+    <string name="import_contacts_phonebook">Importar contactos de mi agenda</string>
+    <string name="import_contacts_gmail">Importar contactos de gmail</string>
+    <string name="import_contacts_facebook">Importar contactos de facebook</string>
 
 
 </resources>

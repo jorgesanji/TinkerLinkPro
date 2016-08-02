@@ -12,6 +12,7 @@
         android:layout_height="80dp"
         android:layout_margin="1dp"
         android:background="@color/gray_50"
+        android:elevation="@dimen/view_elevation"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 

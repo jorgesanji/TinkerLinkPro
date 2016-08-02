@@ -64,7 +64,7 @@ public class ImportContactsScreen extends RelativeLayout {
     }
 
     private void init() {
-        inflate(getContext(), R.layout.lay_change_password, this);
+        inflate(getContext(), R.layout.lay_import_contacts, this);
         ButterKnife.bind(this);
     }
 

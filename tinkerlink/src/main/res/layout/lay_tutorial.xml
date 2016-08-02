@@ -8,7 +8,6 @@
         android:id="@+id/pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/containerButtons"
         android:background="@color/white"
         app:scrollDuration="4" />
 
@@ -18,8 +17,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="@dimen/margin_big"
-        android:layout_marginLeft="@dimen/margin_plus_plus_biggest"
-        android:layout_marginRight="@dimen/margin_plus_plus_biggest"
+
         android:gravity="center"
         android:orientation="vertical">
 

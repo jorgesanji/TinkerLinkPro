@@ -5,12 +5,15 @@ import android.view.View;
 
 import com.cronosgroup.tinkerlink.event.ShowOverLaySelectorEvent;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
+import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestRecomendacion;
 import com.cronosgroup.tinkerlink.presenter.stack.CardPresenter;
 import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
 import com.cronosgroup.tinkerlink.view.stack.main.StackActivity;
 
 import org.greenrobot.eventbus.EventBus;
+
+import java.util.List;
 
 /**
  * Created by jorgesanmartin on 6/22/16.
@@ -42,12 +45,14 @@ public class CardFragment extends MVPTinkerLinkFragment<CardPresenter, CardPrese
 
     @Override
     protected View getRootView() {
-        cardScreen = new CardScreen(getContext(), this, getPresenter().getAppConfigManager());
+        cardScreen = new CardScreen(getContext(), this);
         return cardScreen;
     }
 
     @Override
     protected void onDidAppear() {
+
+        getPresenter().getRecommendations();
 //        boolean isLinker = (stackType.getStackType() == StackActivity.Stack.LINKER.getStackType());
 //        RestUser restUser = restPost.getUser().getUser();
 //        String urlImageProfile = getPresenter().getAppConfigManager().getPath(AppConfigManager.Path.PATH_IMAGE_PROFILE_THUMBNAIL) + restUser.getPhoto();
@@ -63,6 +68,7 @@ public class CardFragment extends MVPTinkerLinkFragment<CardPresenter, CardPrese
 //        cardScreen.setUserCommonContacts(restPost.getUser().getUsersCommon());
 //        cardScreen.setStatus(restPost.getUser());
 //        cardScreen.setUserNumberRecommendations(String.valueOf(restUser.getProfile().getRecommendations()));
+
     }
 
     //region
@@ -88,6 +94,11 @@ public class CardFragment extends MVPTinkerLinkFragment<CardPresenter, CardPrese
         return stackType;
     }
 
+    @Override
+    public void setRecommendationsList(List<RestRecomendacion> list) {
+        cardScreen.setRecommendationItems(list);
+    }
+
     //region
 
     //region **************  CardScreen.Listener **************
@@ -95,11 +106,6 @@ public class CardFragment extends MVPTinkerLinkFragment<CardPresenter, CardPrese
     @Override
     public void showDetailPressed() {
         getPresenter().onLaunhDetailStack();
-    }
-
-    @Override
-    public void showRecommendationPressed() {
-
     }
 
     @Override

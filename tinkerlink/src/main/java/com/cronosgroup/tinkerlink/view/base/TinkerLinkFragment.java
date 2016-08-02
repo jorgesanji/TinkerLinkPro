@@ -26,13 +26,17 @@ public class TinkerLinkFragment extends Fragment {
         return fragment;
     }
 
-    public <F extends Fragment> void addFragment(Class<F> clazz, int container) {
+    public <F extends Fragment> void addFragment(Class<F> clazz, int container, String name) {
         Fragment currentFragment = Fragment.instantiate(getActivity(), clazz.getName());
         if (currentFragment != null) {
             FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-            transaction.add(container, currentFragment, clazz.getName());
+            transaction.add(container, currentFragment, name != null ? name : clazz.getName());
             transaction.commit();
         }
+    }
+
+    public <F extends Fragment> void addFragment(Class<F> clazz, int container) {
+        addFragment(clazz, container, null);
     }
 
     public void showDialogMessage(String title, String description, int icon) {

@@ -151,7 +151,7 @@
         android:layout_height="?attr/actionBarSize"
         android:layout_alignParentTop="true"
         android:background="@color/white"
-        android:elevation="@dimen/toolbar_elevation"
+        android:elevation="@dimen/view_elevation"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 

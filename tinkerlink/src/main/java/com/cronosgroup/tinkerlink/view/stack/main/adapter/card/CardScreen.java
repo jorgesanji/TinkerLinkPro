@@ -9,15 +9,16 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import com.cronosgroup.tinkerlink.R;
-import com.cronosgroup.tinkerlink.manager.AppConfigManager;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContacto;
+import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestRecomendacion;
 import com.cronosgroup.tinkerlink.view.customviews.TLCommonContactsView;
-import com.cronosgroup.tinkerlink.view.customviews.TLSkillView;
 import com.cronosgroup.tinkerlink.view.customviews.TLImageRoundBorder;
 import com.cronosgroup.tinkerlink.view.customviews.TLImageView;
 import com.cronosgroup.tinkerlink.view.customviews.TLScrollView;
+import com.cronosgroup.tinkerlink.view.customviews.TLSkillView;
 import com.cronosgroup.tinkerlink.view.customviews.TLTextView;
 import com.cronosgroup.tinkerlink.view.dragdrop.engine.DDLongListener;
+import com.cronosgroup.tinkerlink.view.stack.main.adapter.card.recommendations.CardRecommnedationsScreen;
 
 import java.util.List;
 
@@ -37,16 +38,12 @@ public class CardScreen extends RelativeLayout {
      */
     public interface Listener {
         void showDetailPressed();
-
-        void showRecommendationPressed();
-
         void onLongClikDone();
 
     }
 
     // Vars
     private Listener listener;
-    private AppConfigManager appConfigManager;
 
     // Properties
     private String urlUser;
@@ -64,59 +61,55 @@ public class CardScreen extends RelativeLayout {
     // Views
 
     @BindView(R.id.cardBackground)
-    TLImageView mCardBackground;
+    protected TLImageView mCardBackground;
 
     @BindView(R.id.cardOverlay)
-    TLImageView mCardOverlay;
+    protected TLImageView mCardOverlay;
 
     @BindView(R.id.userCardImage)
-    TLImageRoundBorder mUserCardImage;
+    protected TLImageRoundBorder mUserCardImage;
 
     @BindView(R.id.userName)
-    TLTextView mUserName;
+    protected TLTextView mUserName;
 
     @BindView(R.id.userCardType)
-    TLTextView mUserCardType;
+    protected TLTextView mUserCardType;
 
     @BindView(R.id.userJob)
-    TLTextView mUserJob;
+    protected TLTextView mUserJob;
 
     @BindView(R.id.userCardLocation)
-    TLTextView mUserCardLocation;
+    protected TLTextView mUserCardLocation;
 
     @BindView(R.id.userStatusContact)
-    TLImageView mUserStatusContact;
+    protected TLImageView mUserStatusContact;
 
     @BindView(R.id.contactsView)
-    TLCommonContactsView mContactsView;
+    protected TLCommonContactsView mContactsView;
 
     @BindView(R.id.containerSkills)
-    LinearLayout mContainerSkills;
+    protected LinearLayout mContainerSkills;
 
     @BindView(R.id.descriptionTitle)
-    TLTextView mDescriptionTitle;
+    protected TLTextView mDescriptionTitle;
 
     @BindView(R.id.descriptionText)
-    TLTextView mDescriptionText;
+    protected TLTextView mDescriptionText;
 
     @BindView(R.id.touchView)
-    View mTouchView;
+    protected View mTouchView;
 
     @BindView(R.id.scrollView)
-    TLScrollView mScrollView;
+    protected TLScrollView mScrollView;
 
     @BindView(R.id.recommendationNumber)
-    TLTextView mRecommendationNumber;
+    protected TLTextView mRecommendationNumber;
 
-    /**
-     * @param context
-     */
-    public CardScreen(Context context, Listener listener, AppConfigManager appConfigManager) {
-        this(context);
-        this.listener = listener;
-        this.appConfigManager = appConfigManager;
-    }
+    @BindView(R.id.recommendationContainer)
+    protected View mRecommendationContainer;
 
+    @BindView(R.id.cardRecommendations)
+    protected CardRecommnedationsScreen cardRecommnedationsScreen;
 
     /**
      * @param context
@@ -181,16 +174,15 @@ public class CardScreen extends RelativeLayout {
 
     // **************  UI Actions **************
 
-
     @OnClick(R.id.containerRecommendation)
     protected void showRecommendationsPressed() {
-
+        mRecommendationContainer.setVisibility(VISIBLE);
     }
 
-//    @OnClick(R.id.touchView)
-//    protected void showDetailPressed() {
-//        listener.showDetailPressed();
-//    }
+    @OnClick(R.id.touchView)
+    protected void showDetailPressed() {
+        listener.showDetailPressed();
+    }
 
     private void setStatusIcon(int resource) {
         mUserStatusContact.setImageResource(resource);
@@ -336,6 +328,9 @@ public class CardScreen extends RelativeLayout {
     public void setUserNumberRecommendations(String userNumberRecommendations) {
         this.userNumberRecommendations = userNumberRecommendations;
         mRecommendationNumber.setText(userNumberRecommendations);
+    }
 
+    public void setRecommendationItems(List<RestRecomendacion> list) {
+        cardRecommnedationsScreen.setItems(list);
     }
 }

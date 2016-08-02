@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/transparent">
@@ -22,9 +23,10 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin_small"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
+                android:layout_marginBottom="@dimen/margin_small"
+                android:layout_marginLeft="@dimen/margin_mediun"
+                android:layout_marginRight="@dimen/margin_mediun"
+                android:layout_marginTop="@dimen/margin_small"
                 android:gravity="center"
                 android:orientation="vertical">
 
@@ -136,5 +138,23 @@
         android:layout_height="40dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
+
+    <RelativeLayout
+        android:id="@+id/recommendationContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/margin_small"
+        android:layout_marginLeft="@dimen/margin_mediun"
+        android:layout_marginRight="@dimen/margin_mediun"
+        android:layout_marginTop="@dimen/margin_small"
+        android:background="@color/white"
+        android:visibility="gone">
+
+        <com.cronosgroup.tinkerlink.view.stack.main.adapter.card.recommendations.CardRecommnedationsScreen
+            android:id="@+id/cardRecommendations"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </RelativeLayout>
 
 </RelativeLayout>

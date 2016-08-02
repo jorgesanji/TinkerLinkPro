@@ -74,7 +74,7 @@ public class TLTabItem extends LinearLayout {
     }
 
     private void init(AttributeSet attributeSet) {
-        setBackgroundResource(R.drawable.list_states);
+        setBackgroundResource(R.drawable.button_default_states);
         inflate(getContext(), R.layout.lay_info_field, this);
         ButterKnife.bind(this);
         if (attributeSet != null) {

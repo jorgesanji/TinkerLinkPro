@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="horizontal">
+
+    <include
+        layout="@layout/lay_user_badge_recommendations"
+        android:layout_width="wrap_content"
+        android:layout_height="120dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/margin_mediun"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+            android:id="@+id/userTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="2"
+            android:text="title"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_mediun"
+            app:fontName="Regular" />
+
+        <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+            android:id="@+id/userDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="2"
+            android:text="title"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_small"
+            app:fontName="Regular" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_big"
+            android:background="@color/gray"
+            android:orientation="horizontal">
+
+            <com.cronosgroup.tinkerlink.view.customviews.TLTabItem
+                android:id="@+id/tabTinkers"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:iconItem="@mipmap/newsfeed_tinkercard_net"
+                app:textItem="30"
+                app:textItemColor="@color/black"
+                app:textItemSize="@dimen/text_size_small" />
+
+            <com.cronosgroup.tinkerlink.view.customviews.TLTabItem
+                android:id="@+id/tabLinkers"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_big"
+                app:iconItem="@mipmap/newsfeed_tinkercard_net"
+                app:textItem="30"
+                app:textItemColor="@color/black"
+                app:textItemSize="@dimen/text_size_small" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

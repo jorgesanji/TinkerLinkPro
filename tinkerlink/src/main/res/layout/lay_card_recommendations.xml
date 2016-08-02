@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+        android:id="@+id/recomendationsTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_mediun"
+        android:text="@string/stack_more_recommended"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_size_mediun" />
+
+    <com.cronosgroup.tinkerlink.view.customviews.TLRecyclerView
+        android:id="@+id/recommendationsList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:layout_below="@+id/recomendationsTitle" />
+
+    <include
+        layout="@layout/lay_small_loader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true" />
+
+    <com.cronosgroup.tinkerlink.view.customviews.TLImageButton
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/margin_tiny"
+        android:background="@drawable/button_default_states"
+        android:src="@mipmap/ic_action_navigation_arrow_drop_down" />
+
+</RelativeLayout>

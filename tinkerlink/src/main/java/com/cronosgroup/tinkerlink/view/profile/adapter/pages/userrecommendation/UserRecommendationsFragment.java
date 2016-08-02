@@ -50,7 +50,7 @@ public class UserRecommendationsFragment extends MVPTinkerLinkFragment<UserRecom
 
     //endregion
 
-    //region ************** UserRecommendationsPresenter.View **************
+    //region ************** CardRecommendationsPresenter.View **************
 
     @Override
     public void setRecommendationsList(List<RestRecomendacion> list) {

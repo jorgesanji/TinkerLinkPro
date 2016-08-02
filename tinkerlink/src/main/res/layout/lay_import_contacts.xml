@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/margin_big">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_mediun"
+                android:layout_marginRight="@dimen/margin_mediun"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_big"
+                    android:text="@string/import_contacts_message"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_big"
+                    app:fontName="Regular" />
+
+                <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_plus_big"
+                    android:text="@string/import_contacts_email"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_mediun"
+                    app:fontName="Regular" />
+
+                <com.cronosgroup.tinkerlink.view.customviews.TLEditText
+                    android:id="@+id/idUser"
+                    style="@style/EditFormStyle"
+                    android:hint="@string/import_contacts_email_hint" />
+            </LinearLayout>
+
+            <com.cronosgroup.tinkerlink.view.customviews.TLButton
+                android:id="@+id/loginbt"
+                style="@style/SignButtonStyle"
+                android:layout_marginLeft="@dimen/margin_plus_plus_biggest"
+                android:layout_marginRight="@dimen/margin_plus_plus_biggest"
+                android:layout_marginTop="@dimen/margin_big"
+                android:background="@drawable/button_sign_states"
+                android:text="@string/import_contacts_continue" />
+
+            <com.cronosgroup.tinkerlink.view.customviews.TLButton
+                android:id="@+id/phonebt"
+                style="@style/SignButtonStyle"
+                android:layout_marginTop="@dimen/margin_big"
+                android:background="@drawable/button_sign_google_states"
+                android:drawableLeft="@mipmap/login_facebooklogo"
+                android:paddingLeft="@dimen/padding_content_big"
+                android:text="@string/import_contacts_phonebook" />
+
+            <com.cronosgroup.tinkerlink.view.customviews.TLButton
+                android:id="@+id/googlebt"
+                style="@style/SignButtonStyle"
+                android:layout_marginTop="@dimen/margin_big"
+                android:background="@drawable/button_sign_google_states"
+                android:drawableLeft="@mipmap/login_facebooklogo"
+                android:paddingLeft="@dimen/padding_content_big"
+                android:text="@string/import_contacts_gmail" />
+
+            <com.cronosgroup.tinkerlink.view.customviews.TLButton
+                android:id="@+id/facebookbt"
+                style="@style/SignButtonStyle"
+                android:layout_marginTop="@dimen/margin_big"
+                android:background="@drawable/button_sign_facebook_states"
+                android:drawableLeft="@mipmap/login_facebooklogo"
+                android:paddingLeft="@dimen/padding_content_big"
+                android:text="@string/import_contacts_facebook" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
