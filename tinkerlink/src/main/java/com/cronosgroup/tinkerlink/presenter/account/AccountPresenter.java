@@ -3,6 +3,7 @@ package com.cronosgroup.tinkerlink.presenter.account;
 import android.app.Activity;
 import android.os.Bundle;
 
+import com.cronosgroup.tinkerlink.enums.StackCard;
 import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenter;
 import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenterView;
 import com.cronosgroup.tinkerlink.view.stack.main.StackActivity;
@@ -62,30 +63,14 @@ public class AccountPresenter extends TinkerLinkPresenter<AccountPresenter.View>
 
     public void onLaunchTinkerCards() {
         Bundle bundle = new Bundle();
-        bundle.putSerializable(StackActivity.STACK_TYPE, StackActivity.Stack.TINKER);
+        bundle.putSerializable(StackActivity.STACK_TYPE, StackCard.TINKER);
         listener.onLaunchStack(getView().getActivity(), bundle);
     }
 
     public void onLaunchLinkerCards() {
         Bundle bundle = new Bundle();
-        bundle.putSerializable(StackActivity.STACK_TYPE, StackActivity.Stack.LINKER);
+        bundle.putSerializable(StackActivity.STACK_TYPE, StackCard.LINKER);
         listener.onLaunchStack(getView().getActivity(), bundle);
-    }
-
-    public void onLaunchCreateRecommendation() {
-        listener.onLaunchCreateRecommendation(getView().getActivity(), null);
-    }
-
-    public void onLaunchCreateTinker() {
-        Bundle bundle = new Bundle();
-        bundle.putSerializable(StackActivity.STACK_TYPE, StackActivity.Stack.TINKER);
-        listener.onLaunchCreateCard(getView().getActivity(), bundle);
-    }
-
-    public void onLaunchCreateLinker() {
-        Bundle bundle = new Bundle();
-        bundle.putSerializable(StackActivity.STACK_TYPE, StackActivity.Stack.LINKER);
-        listener.onLaunchCreateCard(getView().getActivity(), bundle);
     }
 
 }

@@ -6,14 +6,13 @@ import android.os.Build;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContacto;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestRecomendacion;
 import com.cronosgroup.tinkerlink.view.customviews.TLCommonContactsView;
-import com.cronosgroup.tinkerlink.view.customviews.TLImageRoundBorder;
 import com.cronosgroup.tinkerlink.view.customviews.TLImageView;
+import com.cronosgroup.tinkerlink.view.customviews.TLLinearLayout;
 import com.cronosgroup.tinkerlink.view.customviews.TLScrollView;
 import com.cronosgroup.tinkerlink.view.customviews.TLSkillView;
 import com.cronosgroup.tinkerlink.view.customviews.TLTextView;
@@ -29,7 +28,7 @@ import butterknife.OnClick;
 /**
  * Main contacts view.
  */
-public class CardScreen extends RelativeLayout {
+public class CardScreen extends TLLinearLayout {
 
     public static final String TAG_SCREEN = "screen";
 
@@ -38,6 +37,7 @@ public class CardScreen extends RelativeLayout {
      */
     public interface Listener {
         void showDetailPressed();
+
         void onLongClikDone();
 
     }
@@ -67,7 +67,7 @@ public class CardScreen extends RelativeLayout {
     protected TLImageView mCardOverlay;
 
     @BindView(R.id.userCardImage)
-    protected TLImageRoundBorder mUserCardImage;
+    protected TLImageView mUserCardImage;
 
     @BindView(R.id.userName)
     protected TLTextView mUserName;
@@ -109,7 +109,7 @@ public class CardScreen extends RelativeLayout {
     protected View mRecommendationContainer;
 
     @BindView(R.id.cardRecommendations)
-    protected CardRecommnedationsScreen cardRecommnedationsScreen;
+    protected CardRecommnedationsScreen mCardRecommnedationsScreen;
 
     /**
      * @param context
@@ -159,12 +159,12 @@ public class CardScreen extends RelativeLayout {
     private void init() {
         inflate(getContext(), R.layout.lay_card, this);
         ButterKnife.bind(this);
-        setTag(TAG_SCREEN);
         initListeners();
     }
 
     private void initListeners() {
-        setOnLongClickListener(new DDLongListener().setListener(new DDLongListener.Listener() {
+        mUserCardImage.setTag(TAG_SCREEN);
+        mTouchView.setOnLongClickListener(new DDLongListener(mUserCardImage).setListener(new DDLongListener.Listener() {
             @Override
             public void onLongClickDone() {
                 listener.onLongClikDone();
@@ -176,7 +176,7 @@ public class CardScreen extends RelativeLayout {
 
     @OnClick(R.id.containerRecommendation)
     protected void showRecommendationsPressed() {
-        mRecommendationContainer.setVisibility(VISIBLE);
+        appear(mRecommendationContainer);
     }
 
     @OnClick(R.id.touchView)
@@ -184,8 +184,9 @@ public class CardScreen extends RelativeLayout {
         listener.showDetailPressed();
     }
 
-    private void setStatusIcon(int resource) {
-        mUserStatusContact.setImageResource(resource);
+    @OnClick(R.id.closeRecommendations)
+    protected void closeRecommendationsPressed() {
+        dissmiss(mRecommendationContainer);
     }
 
     // Public methods
@@ -310,13 +311,13 @@ public class CardScreen extends RelativeLayout {
     public void setStatus(RestContacto contacto) {
         if (!contacto.getUser().isMe()) {
             if (contacto.isAccepted()) {
-                setStatusIcon(R.mipmap.profile_contactoagregado);
+                mUserStatusContact.setImageResource(R.mipmap.profile_contactoagregado);
             } else if (contacto.meRequestedLikeContact()) {
-                setStatusIcon(R.mipmap.profile_solicitudenviada);
+                mUserStatusContact.setImageResource(R.mipmap.profile_solicitudenviada);
             } else if (contacto.wasRequestedToMeLikeContact()) {
-                setStatusIcon(R.mipmap.profile_solicitudenviada);
+                mUserStatusContact.setImageResource(R.mipmap.profile_solicitudenviada);
             } else {
-                setStatusIcon(R.mipmap.profile_agregarcontacto);
+                mUserStatusContact.setImageResource(R.mipmap.profile_agregarcontacto);
             }
         }
     }
@@ -331,6 +332,6 @@ public class CardScreen extends RelativeLayout {
     }
 
     public void setRecommendationItems(List<RestRecomendacion> list) {
-        cardRecommnedationsScreen.setItems(list);
+        mCardRecommnedationsScreen.setItems(list);
     }
 }

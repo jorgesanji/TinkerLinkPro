@@ -11,10 +11,10 @@ import android.widget.RelativeLayout;
 
 import com.bignerdranch.expandablerecyclerview.Adapter.ExpandableRecyclerAdapter;
 import com.cronosgroup.tinkerlink.R;
+import com.cronosgroup.tinkerlink.enums.StackCard;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestCategoria;
 import com.cronosgroup.tinkerlink.view.customviews.TLRecyclerView;
 import com.cronosgroup.tinkerlink.view.customviews.TLTextView;
-import com.cronosgroup.tinkerlink.view.sign.adapter.SignAdapter;
 import com.cronosgroup.tinkerlink.view.sign.adapter.fragments.tlinker.adapter.CategoriesAdapter;
 import com.cronosgroup.tinkerlink.view.sign.adapter.fragments.tlinker.adapter.viewholder.CategoryViewHolder;
 
@@ -38,7 +38,7 @@ public class TLinkerSelectorScreen extends RelativeLayout {
     private Listener listener;
     private CategoriesAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
-    private int typeTinker;
+    private StackCard typeTinker;
 
     // Views
     @BindView(R.id.categoriesList)
@@ -55,8 +55,8 @@ public class TLinkerSelectorScreen extends RelativeLayout {
     /**
      * @param context
      */
-    public TLinkerSelectorScreen(Context context, int typeTinker) {
-        this(context, null);
+    public TLinkerSelectorScreen(Context context, StackCard typeTinker) {
+        this(context, (AttributeSet)null);
         setTypeTinker(typeTinker);
     }
 
@@ -64,7 +64,7 @@ public class TLinkerSelectorScreen extends RelativeLayout {
      * @param context
      */
     public TLinkerSelectorScreen(Context context) {
-        this(context, null);
+        this(context, (AttributeSet)null);
     }
 
     /**
@@ -144,7 +144,7 @@ public class TLinkerSelectorScreen extends RelativeLayout {
         String tlinker;
         String description;
         int color;
-        if (typeTinker == SignAdapter.LINKER) {
+        if (typeTinker == StackCard.LINKER) {
             tlinker = getContext().getResources().getString(R.string.profile_services);
             description = getContext().getResources().getString(R.string.sign_register_title_linker);
             color = R.color.linkercolor;
@@ -170,11 +170,11 @@ public class TLinkerSelectorScreen extends RelativeLayout {
         this.listener = listener;
     }
 
-    public int getTypeTinker() {
+    public StackCard getTypeTinker() {
         return typeTinker;
     }
 
-    public void setTypeTinker(int typeTinker) {
+    public void setTypeTinker(StackCard typeTinker) {
         this.typeTinker = typeTinker;
         initUI();
     }

@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import com.bignerdranch.expandablerecyclerview.Adapter.ExpandableRecyclerAdapter;
 import com.bignerdranch.expandablerecyclerview.Model.ParentListItem;
 import com.cronosgroup.tinkerlink.R;
+import com.cronosgroup.tinkerlink.enums.StackCard;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestCategoria;
 import com.cronosgroup.tinkerlink.view.sign.adapter.fragments.tlinker.adapter.viewholder.CategoryViewHolder;
 import com.cronosgroup.tinkerlink.view.sign.adapter.fragments.tlinker.adapter.viewholder.SkillsViewHolder;
@@ -32,7 +33,7 @@ public class CategoriesAdapter extends ExpandableRecyclerAdapter<CategoryViewHol
     private LayoutInflater mInflator;
     private IOSkillListener skillListener;
     private IOCategoryListener categoryListener;
-    private int typeTinker;
+    private StackCard typeTinker;
 
     public CategoriesAdapter(@NonNull List<? extends ParentListItem> parentItemList, Context context) {
         super(parentItemList);
@@ -81,11 +82,11 @@ public class CategoriesAdapter extends ExpandableRecyclerAdapter<CategoryViewHol
         this.categoryListener = categoryListener;
     }
 
-    public int getTypeTinker() {
+    public StackCard getTypeTinker() {
         return typeTinker;
     }
 
-    public void setTypeTinker(int typeTinker) {
+    public void setTypeTinker(StackCard typeTinker) {
         this.typeTinker = typeTinker;
     }
 }

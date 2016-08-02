@@ -12,6 +12,7 @@ import com.cronosgroup.tinkerlink.presenter.changephonenumber.ChangePhoneNumberP
 import com.cronosgroup.tinkerlink.presenter.chatuser.ChatUserPresenter;
 import com.cronosgroup.tinkerlink.presenter.config.ConfigPresenter;
 import com.cronosgroup.tinkerlink.presenter.contacts.ContactsPresenter;
+import com.cronosgroup.tinkerlink.presenter.contacts.ContactsUserPresenter;
 import com.cronosgroup.tinkerlink.presenter.createcard.CategorySelectionPresenter;
 import com.cronosgroup.tinkerlink.presenter.createcard.CreateCardPresenter;
 import com.cronosgroup.tinkerlink.presenter.createcard.ExperienceSelectionPresenter;
@@ -45,6 +46,7 @@ import com.cronosgroup.tinkerlink.presenter.profile.UserRecommendationsPresenter
 import com.cronosgroup.tinkerlink.presenter.recommendations.RecommendationsPresenter;
 import com.cronosgroup.tinkerlink.presenter.recoverypassword.RecoveryPasswordPresenter;
 import com.cronosgroup.tinkerlink.presenter.searchcard.SearchCardPresenter;
+import com.cronosgroup.tinkerlink.presenter.share.SharePresenter;
 import com.cronosgroup.tinkerlink.presenter.sign.FormUserPresenter;
 import com.cronosgroup.tinkerlink.presenter.sign.RegisterSelectorPresenter;
 import com.cronosgroup.tinkerlink.presenter.sign.SignPresenter;
@@ -113,7 +115,7 @@ public final class ScreenNavigationHandler implements HomePresenter.Actions,
         UserContactsPresenter.Actions, AllUserContactsPresenter.Actions, DrargDropPresenter.Actions,
         DialogOccupationPresenter.Actions, DialogCountryPresenter.Actions,
         DialogPlacesPresenter.Actions, SearchCardPresenter.Actions, FilterCardsPresenter.Actions,
-        CardRecommendationsPresenter.Actions {
+        CardRecommendationsPresenter.Actions, SharePresenter.Actions, ContactsUserPresenter.Actions {
 
     //Instance
     private static ScreenNavigationHandler instance = null;
@@ -169,111 +171,111 @@ public final class ScreenNavigationHandler implements HomePresenter.Actions,
 
     // ------------------------ CREATION INTENTS -----------------------------------
 
-    private static Intent preSign(@NonNull Activity context, Bundle bundle) {
+    private static Intent preSign(Activity context, Bundle bundle) {
         return newTask(context, PreSignUserActivity.class, bundle);
     }
 
-    private static Intent sign(@NonNull Activity context, Bundle bundle) {
+    private static Intent sign(Activity context, Bundle bundle) {
         return newTask(context, SignActivity.class, bundle);
     }
 
-    private static Intent login(@NonNull Activity context, Bundle bundle) {
+    private static Intent login(Activity context, Bundle bundle) {
         return newTask(context, LoginActivity.class, bundle);
     }
 
-    private static Intent home(@NonNull Activity context, Bundle bundle) {
+    private static Intent home(Activity context, Bundle bundle) {
         return newTask(context, HomeActivity.class, bundle, true);
     }
 
-    private static Intent stack(@NonNull Activity context, Bundle bundle) {
+    private static Intent stack(Activity context, Bundle bundle) {
         return newTask(context, StackActivity.class, bundle);
     }
 
-    private static Intent detailStack(@NonNull Activity context, Bundle bundle) {
+    private static Intent detailStack(Activity context, Bundle bundle) {
         return newTask(context, DetailStackActivity.class, bundle);
     }
 
-    private static Intent detailCard(@NonNull Activity context, Bundle bundle) {
+    private static Intent detailCard(Activity context, Bundle bundle) {
         return newTask(context, DetailCardActivity.class, bundle);
     }
 
-    private static Intent searchCards(@NonNull Activity context, Bundle bundle) {
+    private static Intent searchCards(Activity context, Bundle bundle) {
         return newTask(context, SearchCardActivity.class, bundle);
     }
 
-    private static Intent filterCards(@NonNull Activity context, Bundle bundle) {
+    private static Intent filterCards(Activity context, Bundle bundle) {
         return newTask(context, FilterCardsActivity.class, bundle);
     }
 
-    private static Intent profile(@NonNull Activity context, Bundle bundle) {
+    private static Intent profile(Activity context, Bundle bundle) {
         return newTask(context, ProfileActivity.class, bundle);
     }
 
-    private static Intent editProfile(@NonNull Activity context, Bundle bundle) {
+    private static Intent editProfile(Activity context, Bundle bundle) {
         return newTask(context, EditProfileActivity.class, bundle);
     }
 
-    private static Intent configProfile(@NonNull Activity context, Bundle bundle) {
+    private static Intent configProfile(Activity context, Bundle bundle) {
         return newTask(context, ConfigActivity.class, bundle);
     }
 
-    private static Intent createRecommendation(@NonNull Activity context, Bundle bundle) {
+    private static Intent createRecommendation(Activity context, Bundle bundle) {
         return newTask(context, CreateRecommendationActivity.class, bundle);
     }
 
-    private static Intent createCard(@NonNull Activity context, Bundle bundle) {
+    private static Intent createCard(Activity context, Bundle bundle) {
         return newTask(context, CreateCardActivity.class, bundle);
     }
 
-    private static Intent chatUser(@NonNull Activity context, Bundle bundle) {
+    private static Intent chatUser(Activity context, Bundle bundle) {
         return newTask(context, ChatUserActivity.class, bundle);
     }
 
-    private static Intent changePassword(@NonNull Activity context, Bundle bundle) {
+    private static Intent changePassword(Activity context, Bundle bundle) {
         return newTask(context, ChangePasswordActivity.class, bundle);
     }
 
-    private static Intent changePhoneNumber(@NonNull Activity context, Bundle bundle) {
+    private static Intent changePhoneNumber(Activity context, Bundle bundle) {
         return newTask(context, ChangePhoneNumberActivity.class, bundle);
     }
 
-    private static Intent importContacts(@NonNull Activity context, Bundle bundle) {
+    private static Intent importContacts(Activity context, Bundle bundle) {
         return newTask(context, ImportContactsActivity.class, bundle);
     }
 
-    private static Intent privacyPolicy(@NonNull Activity context, Bundle bundle) {
+    private static Intent privacyPolicy(Activity context, Bundle bundle) {
         return newTask(context, PolicyPrivacyActivity.class, bundle);
     }
 
-    private static Intent privacy(@NonNull Activity context, Bundle bundle) {
+    private static Intent privacy(Activity context, Bundle bundle) {
         return newTask(context, PrivacyActivity.class, bundle);
     }
 
-    private static Intent helperTinkerLink(@NonNull Activity context, Bundle bundle) {
+    private static Intent helperTinkerLink(Activity context, Bundle bundle) {
         return newTask(context, HelpTinkerLinkActivity.class, bundle);
     }
 
-    private static Intent frequentlyQuestions(@NonNull Activity context, Bundle bundle) {
+    private static Intent frequentlyQuestions(Activity context, Bundle bundle) {
         return newTask(context, FrequentlyQuestionsActivity.class, bundle);
     }
 
-    private static Intent recoveryPassword(@NonNull Activity context, Bundle bundle) {
+    private static Intent recoveryPassword(Activity context, Bundle bundle) {
         return newTask(context, RecoveryPasswordActivity.class, bundle);
     }
 
-    private static Intent verify(@NonNull Activity context, Bundle bundle) {
+    private static Intent verify(Activity context, Bundle bundle) {
         return newTask(context, VerificationActivity.class, bundle);
     }
 
-    private static Intent recommendations(@NonNull Activity context, Bundle bundle) {
+    private static Intent recommendations(Activity context, Bundle bundle) {
         return newTask(context, RecommendationsActivity.class, bundle);
     }
 
-    private static Intent giveRecommendations(@NonNull Activity context, Bundle bundle) {
+    private static Intent giveRecommendations(Activity context, Bundle bundle) {
         return newTask(context, GiveRecommendationsActivity.class, bundle);
     }
 
-    private static Intent userContacts(@NonNull Activity context, Bundle bundle) {
+    private static Intent userContacts(Activity context, Bundle bundle) {
         return newTask(context, UserContactsActivity.class, bundle);
     }
 
@@ -322,7 +324,7 @@ public final class ScreenNavigationHandler implements HomePresenter.Actions,
     // ------------------------ STACK -----------------------------------
 
     @Override
-    public void onLaunchPresvisualized(Activity activity, Bundle bundle) {
+    public void onLaunchDetailCard(Activity activity, Bundle bundle) {
         startActivity(activity, detailCard(activity, bundle));
     }
 

@@ -168,6 +168,8 @@
         <item name="android:src">@mipmap/newsfeed_avatar_hombre</item>
         <item name="android:background">@drawable/background_contacts</item>
         <item name="imageType">User</item>
+        <item name="imageRounded">true</item>
+        <item name="imageWithBorder">true</item>
     </style>
 
     <!-- Text Edit style -->
@@ -415,6 +417,15 @@
         <item name="android:textColor">@color/black</item>
         <item name="android:textSize">@dimen/text_size_mediun</item>
         <item name="android:switchMinWidth">50dp</item>
+    </style>
+
+    <style name="FloatActionButtonStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_alignParentBottom">true</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:layout_margin">16dp</item>
+
     </style>
 
 </resources>

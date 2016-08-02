@@ -39,6 +39,10 @@ public class AccountFragment extends MVPTinkerLinkFragment<AccountPresenter, Acc
 
     @Override
     protected void onDidAppear() {
+        accountScreen.setUserImage("http://qsrock.com/wp-content/uploads/2016/04/130699422.jpg");
+        accountScreen.setUserName("Jorge Sanmartin");
+        accountScreen.setUserJob("Plomero");
+        accountScreen.setUserRecommendationsNumber("2K");
     }
 
     //region **************  AccountScreen.Listener **************
@@ -66,21 +70,6 @@ public class AccountFragment extends MVPTinkerLinkFragment<AccountPresenter, Acc
     @Override
     public void onSearchTinkerPressed() {
         getPresenter().onLaunchLinkerCards();
-    }
-
-    @Override
-    public void onCreateRecommendationPressed() {
-        getPresenter().onLaunchCreateRecommendation();
-    }
-
-    @Override
-    public void onCreateTinkerPressed() {
-        getPresenter().onLaunchCreateTinker();
-    }
-
-    @Override
-    public void onCreateLinkerPressed() {
-        getPresenter().onLaunchCreateLinker();
     }
 
     //endregion

@@ -24,14 +24,15 @@ public class DetailCardFragment extends MVPTinkerLinkFragment<DetailCardPresente
         implements DetailCardPresenter.View, DetailCardScreen.Listener {
 
     // Vars
-
+    private boolean isPublish;
     // Views
     private DetailCardScreen detailCardScreen;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setHasOptionsMenu(true);
+        isPublish = getArguments().getBoolean(DetailCardActivity.KEY_PUBLISH);
+        setHasOptionsMenu(isPublish);
     }
 
     @Override
@@ -71,7 +72,7 @@ public class DetailCardFragment extends MVPTinkerLinkFragment<DetailCardPresente
 
     @Override
     protected void onDidAppear() {
-
+        detailCardScreen.setAsPublishMode(isPublish);
     }
 
     //endregion

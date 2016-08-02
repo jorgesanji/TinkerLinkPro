@@ -3,6 +3,7 @@ package com.cronosgroup.tinkerlink.view.stack.main.adapter.card;
 import android.os.Bundle;
 import android.view.View;
 
+import com.cronosgroup.tinkerlink.enums.StackCard;
 import com.cronosgroup.tinkerlink.event.ShowOverLaySelectorEvent;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestRecomendacion;
@@ -25,7 +26,7 @@ public class CardFragment extends MVPTinkerLinkFragment<CardPresenter, CardPrese
     public static final String SHOW_CARD_DETAIL = "showDetail";
 
     private CardScreen cardScreen;
-    private StackActivity.Stack stackType;
+    private StackCard stackType;
     private RestPost restPost;
     private boolean showDetail;
 
@@ -34,7 +35,7 @@ public class CardFragment extends MVPTinkerLinkFragment<CardPresenter, CardPrese
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        stackType = (StackActivity.Stack) getArguments().getSerializable(StackActivity.STACK_TYPE);
+        stackType = (StackCard) getArguments().getSerializable(StackActivity.STACK_TYPE);
         restPost = (RestPost) getArguments().getSerializable(CARD);
         showDetail = getArguments().getBoolean(SHOW_CARD_DETAIL);
     }
@@ -53,7 +54,12 @@ public class CardFragment extends MVPTinkerLinkFragment<CardPresenter, CardPrese
     protected void onDidAppear() {
 
         getPresenter().getRecommendations();
-//        boolean isLinker = (stackType.getStackType() == StackActivity.Stack.LINKER.getStackType());
+        cardScreen.setUrlUser("http://qsrock.com/wp-content/uploads/2016/04/130699422.jpg");
+        cardScreen.setUserName("Jorge Sanmartin");
+        cardScreen.setUserCardJob("Fontanero");
+        cardScreen.setUserLocation("Barcelo, España");
+
+//        boolean isLinker = (stackType.getStackType() == StackActivity.StackCard.LINKER.getStackType());
 //        RestUser restUser = restPost.getUser().getUser();
 //        String urlImageProfile = getPresenter().getAppConfigManager().getPath(AppConfigManager.Path.PATH_IMAGE_PROFILE_THUMBNAIL) + restUser.getPhoto();
 //        cardScreen.setUrlUser(urlImageProfile);
@@ -90,7 +96,7 @@ public class CardFragment extends MVPTinkerLinkFragment<CardPresenter, CardPrese
     //region **************  CardPresenter.View **************
 
     @Override
-    public StackActivity.Stack getType() {
+    public StackCard getType() {
         return stackType;
     }
 

@@ -12,14 +12,34 @@
         android:scaleType="centerCrop"
         android:src="@drawable/zapatero" />
 
-    <com.cronosgroup.tinkerlink.view.customviews.TLTextView
-        android:id="@+id/titleCategory"
+    <LinearLayout
+        android:id="@+id/containerText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:textColor="@color/white"
-        android:textSize="@dimen/text_size_mediun"
-        app:fontName="Bold" />
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+            android:id="@+id/titleCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_small"
+            android:layout_marginLeft="@dimen/margin_plus_big"
+            android:layout_marginRight="@dimen/margin_plus_big"
+            android:layout_marginTop="@dimen/margin_small"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_mediun"
+            app:fontName="Bold" />
+
+        <com.cronosgroup.tinkerlink.view.customviews.TLImageView
+            android:id="@+id/dropDownCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/margin_mediun"
+            android:src="@mipmap/ic_action_navigation_arrow_drop_down" />
+
+    </LinearLayout>
 
     <View
         android:id="@+id/handlerExpand"

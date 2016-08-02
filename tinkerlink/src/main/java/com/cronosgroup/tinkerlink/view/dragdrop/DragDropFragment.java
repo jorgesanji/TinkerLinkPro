@@ -70,6 +70,11 @@ public class DragDropFragment extends MVPTinkerLinkFragment<DrargDropPresenter, 
         getPresenter().onLaunchSendMessage();
     }
 
+    @Override
+    public void onCloseDragView() {
+
+    }
+
     //endregion
 
 }

@@ -34,7 +34,7 @@
                         android:layout_height="@dimen/view_min_width"
                         android:src="@mipmap/ic_edit" />
 
-                    <include layout="@layout/lay_user_badge_recommendations"/>
+                    <include layout="@layout/lay_user_badge_recommendations" />
 
                     <com.cronosgroup.tinkerlink.view.customviews.TLImageButton
                         android:id="@+id/configAccount"
@@ -45,13 +45,13 @@
                 </LinearLayout>
 
                 <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                    android:id="@+id/userJob"
                     style="@style/UserProfileTextStyle"
-                    android:layout_marginTop="@dimen/margin_mediun"
-                    android:text="Peluquera" />
+                    android:layout_marginTop="@dimen/margin_mediun" />
 
                 <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                    android:id="@+id/userName"
                     style="@style/UserProfileTextStyle"
-                    android:text="Laura Vargas"
                     android:textSize="@dimen/text_size_mediun" />
 
                 <com.cronosgroup.tinkerlink.view.customviews.TLTextView
@@ -98,41 +98,5 @@
     </android.support.v4.widget.NestedScrollView>
 
     <include layout="@layout/lay_background_menu" />
-
-    <com.cronosgroup.tinkerlink.view.customviews.TLMenuButton
-        android:id="@+id/menuView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_margin="16dp"
-        android:clipChildren="false"
-        android:clipToPadding="false"
-        app:menuButtonBackgroundTintColor="@color/tinkercolor"
-        app:menuButtonImageResource="@mipmap/newsfeed_crearcard_net"
-        app:menuButtonStateExpandedImageResource="@mipmap/newsfeed_crearcard_cancelar">
-
-        <com.cronosgroup.tinkerlink.view.customviews.TLMenuItem
-            android:id="@+id/recommendationButton"
-            style="@style/MenuItemStyle"
-            app:menuItemBackgroundTintColor="@color/yellow"
-            app:menuItemImageResource="@mipmap/newsfeed_tinkercard_net"
-            app:menuItemTitle="@string/profile_request_recommendation" />
-
-        <com.cronosgroup.tinkerlink.view.customviews.TLMenuItem
-            android:id="@+id/tinkerButton"
-            style="@style/MenuItemStyle"
-            app:menuItemBackgroundTintColor="@color/tinkercolor"
-            app:menuItemImageResource="@mipmap/newsfeed_tinkercard_net"
-            app:menuItemTitle="@string/profile_new_tinker_card" />
-
-        <com.cronosgroup.tinkerlink.view.customviews.TLMenuItem
-            android:id="@+id/linkerButton"
-            style="@style/MenuItemStyle"
-            app:menuItemBackgroundTintColor="@color/linkercolor"
-            app:menuItemImageResource="@mipmap/newsfeed_linkercard_net"
-            app:menuItemTitle="@string/profile_new_linker_card" />
-
-    </com.cronosgroup.tinkerlink.view.customviews.TLMenuButton>
 
 </RelativeLayout>

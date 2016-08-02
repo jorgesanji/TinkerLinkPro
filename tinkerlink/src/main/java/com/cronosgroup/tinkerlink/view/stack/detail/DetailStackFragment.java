@@ -3,6 +3,7 @@ package com.cronosgroup.tinkerlink.view.stack.detail;
 import android.os.Bundle;
 import android.view.View;
 
+import com.cronosgroup.tinkerlink.enums.StackCard;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestUser;
 import com.cronosgroup.tinkerlink.presenter.stack.DetailStackPresenter;
@@ -14,13 +15,13 @@ import com.cronosgroup.tinkerlink.view.stack.main.StackActivity;
 import java.util.List;
 
 /**
- * Stack Fragment
+ * StackCard Fragment
  */
 public class DetailStackFragment extends MVPTinkerLinkFragment<DetailStackPresenter, DetailStackPresenter.View>
         implements DetailStackPresenter.View, DetailStackPresenter.Actions, DetailStackScreen.Listener {
 
     private DetailStackScreen detailStackScreen;
-    private StackActivity.Stack stackType;
+    private StackCard stackType;
     private List<RestPost> list;
     private int currentItem;
 
@@ -29,7 +30,7 @@ public class DetailStackFragment extends MVPTinkerLinkFragment<DetailStackPresen
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        stackType = (StackActivity.Stack) getArguments().getSerializable(StackActivity.STACK_TYPE);
+        stackType = (StackCard) getArguments().getSerializable(StackActivity.STACK_TYPE);
         list = (List<RestPost>) getArguments().getSerializable(DetailStackActivity.STACK_ITEMS);
         currentItem = getArguments().getInt(DetailStackActivity.STACK_CURRENT_ITEM);
         if (getActivity() != null) {
@@ -80,7 +81,7 @@ public class DetailStackFragment extends MVPTinkerLinkFragment<DetailStackPresen
     }
 
     @Override
-    public StackActivity.Stack getType() {
+    public StackCard getType() {
         return stackType;
     }
 

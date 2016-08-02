@@ -252,4 +252,8 @@
         <attr name="options" format="boolean" />
     </declare-styleable>
 
+    <declare-styleable name="TLCommonContactsView">
+        <attr name="showStatusContact" format="boolean" />
+    </declare-styleable>
+
 </resources>

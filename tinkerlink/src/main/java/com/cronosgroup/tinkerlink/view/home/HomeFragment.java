@@ -14,7 +14,7 @@ import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
  * Home Fragment
  */
 public class HomeFragment extends MVPTinkerLinkFragment<HomePresenter, HomePresenter.View>
-        implements HomePresenter.View, HomePresenter.Actions, HomeScreen.Listener {
+        implements HomePresenter.View, HomeScreen.Listener {
 
     private HomeScreen homeScreen;
     private MainFragments[] fragments = {MainFragments.NEWSFEED, MainFragments.CONTACTS, MainFragments.CHAT, MainFragments.PROFILE};
@@ -46,6 +46,21 @@ public class HomeFragment extends MVPTinkerLinkFragment<HomePresenter, HomePrese
     }
 
     //region **************  HomeScreen.Listener **************
+
+    @Override
+    public void onCreateRecommendationPressed() {
+        getPresenter().onLaunchCreateRecommendation();
+    }
+
+    @Override
+    public void onCreateTinkerPressed() {
+        getPresenter().onLaunchCreateTinker();
+    }
+
+    @Override
+    public void onCreateLinkerPressed() {
+        getPresenter().onLaunchCreateLinker();
+    }
 
     @Override
     public void onNewsFeedPresed() {

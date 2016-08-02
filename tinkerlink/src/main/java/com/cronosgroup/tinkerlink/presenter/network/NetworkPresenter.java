@@ -1,5 +1,8 @@
 package com.cronosgroup.tinkerlink.presenter.network;
 
+import android.app.Activity;
+import android.os.Bundle;
+
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestNetwork;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestProfile;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestUser;
@@ -32,6 +35,7 @@ public class NetworkPresenter extends TinkerLinkDialogPresenter<NetworkPresenter
      * NetWork actions.
      */
     public interface Actions {
+        public void onLaunchUserContacts(Activity activity, Bundle bundle);
     }
 
     /**
@@ -305,12 +309,16 @@ public class NetworkPresenter extends TinkerLinkDialogPresenter<NetworkPresenter
         return (end < 0 || end >= categories.size()) ? new ArrayList<String>() : categories.subList(start, end);
     }
 
-    public List<String> getTinkerCategoriesByPage(int page){
-        return  getCategoriesByPage(page, network.getTinkerCategories());
+    public List<String> getTinkerCategoriesByPage(int page) {
+        return getCategoriesByPage(page, network.getTinkerCategories());
     }
 
-    public List<String> getLinkerCategoriesByPage(int page){
-        return  getCategoriesByPage(page, network.getLinkerCategories());
+    public List<String> getLinkerCategoriesByPage(int page) {
+        return getCategoriesByPage(page, network.getLinkerCategories());
+    }
+
+    public void onShowContactsPressed() {
+        listener.onLaunchUserContacts(getView().getActivity(), null);
     }
 
 }

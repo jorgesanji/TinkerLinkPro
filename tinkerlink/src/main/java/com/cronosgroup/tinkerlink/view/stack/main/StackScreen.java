@@ -17,8 +17,10 @@ import android.widget.SeekBar;
 import com.bartoszlipinski.flippablestackview.FlippableStackView;
 import com.bartoszlipinski.flippablestackview.StackPageTransformer;
 import com.cronosgroup.tinkerlink.R;
+import com.cronosgroup.tinkerlink.enums.StackCard;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
 import com.cronosgroup.tinkerlink.view.customviews.TLTextView;
+import com.cronosgroup.tinkerlink.view.dragdrop.DragDropScreen;
 import com.cronosgroup.tinkerlink.view.stack.main.adapter.StackAdapter;
 
 import java.util.List;
@@ -29,7 +31,7 @@ import butterknife.OnClick;
 
 
 /**
- * Stack view.
+ * StackCard view.
  */
 public class StackScreen extends RelativeLayout {
 
@@ -47,9 +49,10 @@ public class StackScreen extends RelativeLayout {
 
     // Vars
     private Listener listener;
+
     private StackAdapter adapter;
     private FragmentManager fragmentManager;
-    private StackActivity.Stack stackType;
+    private StackCard stackType;
     private int TotalWidth;
 
     // Views
@@ -71,8 +74,8 @@ public class StackScreen extends RelativeLayout {
     @BindView(R.id.pageNumberIndicator)
     protected TLTextView mPageNumberIndicator;
 
-    @BindView(R.id.overLaySelector)
-    protected View mOverLaySelector;
+    @BindView(R.id.dragDropScreen)
+    protected DragDropScreen dragDropScreen;
 
     /**
      * @param context
@@ -204,14 +207,18 @@ public class StackScreen extends RelativeLayout {
         this.listener = listener;
     }
 
-    public void initView(StackActivity.Stack stackType) {
+    public void setDragdropListener(DragDropScreen.Listener dragdropListener) {
+        dragDropScreen.setListener(dragdropListener);
+    }
+
+    public void initView(StackCard stackType) {
         this.stackType = stackType;
         adapter = new StackAdapter(fragmentManager);
         adapter.setStackType(stackType);
         adapter.setDetail(true);
-        boolean isLinker = (stackType.getStackType() == StackActivity.Stack.LINKER.getStackType());
-        int color = (isLinker) ? StackActivity.Stack.TINKER.getStackColor() : StackActivity.Stack.LINKER.getStackColor();
-        int title = (isLinker) ? StackActivity.Stack.TINKER.getStackTitleAction() : StackActivity.Stack.LINKER.getStackTitleAction();
+        boolean isLinker = (stackType.getStackType() == StackCard.LINKER.getStackType());
+        int color = (isLinker) ? StackCard.TINKER.getStackColor() : StackCard.LINKER.getStackColor();
+        int title = (isLinker) ? StackCard.TINKER.getStackTitleAction() : StackCard.LINKER.getStackTitleAction();
         mSelectCardsType.setTextColor(getContext().getResources().getColor(color));
         mSelectCardsType.setText(getContext().getString(title));
     }
@@ -267,6 +274,11 @@ public class StackScreen extends RelativeLayout {
     }
 
     public void showOverlaySelector() {
-        mOverLaySelector.setVisibility(VISIBLE);
+        dragDropScreen.setVisibility(VISIBLE);
     }
+
+    public void dissmissOverlaySelector() {
+        dragDropScreen.setVisibility(GONE);
+    }
+
 }

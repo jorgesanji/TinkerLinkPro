@@ -1,6 +1,9 @@
 package com.cronosgroup.tinkerlink.presenter.stack;
 
-import com.cronosgroup.tinkerlink.event.ShowDetailCardsEvent;
+import android.app.Activity;
+import android.os.Bundle;
+
+import com.cronosgroup.tinkerlink.enums.StackCard;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContacto;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestProfile;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestRecomendacion;
@@ -10,8 +13,6 @@ import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenterView;
 import com.cronosgroup.tinkerlink.utils.AsyncLoader;
 import com.cronosgroup.tinkerlink.utils.DateUtils;
 import com.cronosgroup.tinkerlink.view.stack.main.StackActivity;
-
-import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +28,7 @@ public class CardPresenter extends TinkerLinkPresenter<CardPresenter.View> {
      * Card listeners.
      */
     public interface View extends TinkerLinkPresenterView {
-        StackActivity.Stack getType();
+        StackCard getType();
 
         void setRecommendationsList(List<RestRecomendacion> list);
     }
@@ -36,6 +37,7 @@ public class CardPresenter extends TinkerLinkPresenter<CardPresenter.View> {
      * Card actions.
      */
     public interface Actions {
+        void onLaunchDetailCard(Activity activity, Bundle bundrle);
     }
 
     /**
@@ -49,7 +51,9 @@ public class CardPresenter extends TinkerLinkPresenter<CardPresenter.View> {
     //Actions
 
     public void onLaunhDetailStack() {
-        EventBus.getDefault().post(new ShowDetailCardsEvent());
+        Bundle bundle = new Bundle();
+        bundle.putSerializable(StackActivity.STACK_TYPE, getView().getType());
+        listener.onLaunchDetailCard(getView().getActivity(), bundle);
     }
 
 

@@ -8,9 +8,9 @@ import android.util.AttributeSet;
 import android.widget.LinearLayout;
 
 import com.cronosgroup.tinkerlink.R;
+import com.cronosgroup.tinkerlink.enums.StackCard;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
 import com.cronosgroup.tinkerlink.view.customviews.TLViewPager;
-import com.cronosgroup.tinkerlink.view.stack.main.StackActivity;
 import com.cronosgroup.tinkerlink.view.stack.main.adapter.StackAdapter;
 
 import java.util.List;
@@ -34,7 +34,7 @@ public class DetailStackScreen extends LinearLayout {
     // Vars
     private Listener listener;
     private StackAdapter adapter;
-    private StackActivity.Stack stackType;
+    private StackCard stackType;
     private FragmentManager fragmentManager;
 
     // Views
@@ -123,7 +123,7 @@ public class DetailStackScreen extends LinearLayout {
         this.listener = listener;
     }
 
-    public void initView(StackActivity.Stack stackType, List<RestPost> list, int indexPage) {
+    public void initView(StackCard stackType, List<RestPost> list, int indexPage) {
         this.stackType = stackType;
         adapter = new StackAdapter(fragmentManager);
         adapter.setDetail(false);

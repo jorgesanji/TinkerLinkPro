@@ -36,7 +36,7 @@ public class CategoryDialogFragment extends TinkerDialogFragment implements Cate
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-//        categoryDialogScreen = new CategoryDialogScreen(getActivity(), (getArguments().getInt(Stack.TYPE_CARD) == StackCardActivity.TYPE_LINKER), this);
+//        categoryDialogScreen = new CategoryDialogScreen(getActivity(), (getArguments().getInt(StackCard.TYPE_CARD) == StackCardActivity.TYPE_LINKER), this);
         categoryDialogScreen = new CategoryDialogScreen(getActivity(), true, this);
         return categoryDialogScreen;
     }

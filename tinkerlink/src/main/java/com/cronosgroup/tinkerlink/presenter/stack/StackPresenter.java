@@ -3,11 +3,17 @@ package com.cronosgroup.tinkerlink.presenter.stack;
 import android.app.Activity;
 import android.os.Bundle;
 
+import com.cronosgroup.tinkerlink.enums.StackCard;
+import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestChat;
+import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContacto;
+import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestMessage;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
+import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestProfile;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestUser;
 import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenter;
 import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenterView;
 import com.cronosgroup.tinkerlink.utils.AsyncLoader;
+import com.cronosgroup.tinkerlink.view.chatuser.ChatUserActivity;
 import com.cronosgroup.tinkerlink.view.stack.detail.DetailStackActivity;
 import com.cronosgroup.tinkerlink.view.stack.main.StackActivity;
 
@@ -23,7 +29,7 @@ public class StackPresenter extends TinkerLinkPresenter<StackPresenter.View> {
     private final Actions listener;
 
     /**
-     * Stack listeners.
+     * StackCard listeners.
      */
     public interface View extends TinkerLinkPresenterView {
 
@@ -37,11 +43,11 @@ public class StackPresenter extends TinkerLinkPresenter<StackPresenter.View> {
 
         RestUser getUser();
 
-        StackActivity.Stack getType();
+        StackCard getType();
     }
 
     /**
-     * Stack actions.
+     * StackCard actions.
      */
     public interface Actions {
         void onLaunchStack(Activity activity, Bundle bundle);
@@ -53,6 +59,10 @@ public class StackPresenter extends TinkerLinkPresenter<StackPresenter.View> {
         void onLaunchCreateCard(Activity activity, Bundle bundle);
 
         void onLaunchFilterCars(Activity activity, Bundle bundle);
+
+        void onLaunchProfile(Activity activity, Bundle bundle);
+
+        void onLaunchChatUser(Activity activity, Bundle bundle);
     }
 
     /**
@@ -66,7 +76,7 @@ public class StackPresenter extends TinkerLinkPresenter<StackPresenter.View> {
 
     public void onSelectCardsType() {
         Bundle bundle = new Bundle();
-        bundle.putSerializable(StackActivity.STACK_TYPE, (getView().getType().getStackType() == StackActivity.Stack.LINKER.getStackType()) ? StackActivity.Stack.TINKER : StackActivity.Stack.LINKER);
+        bundle.putSerializable(StackActivity.STACK_TYPE, (getView().getType().getStackType() == StackCard.LINKER.getStackType()) ? StackCard.TINKER : StackCard.LINKER);
         listener.onLaunchStack(getView().getActivity(), bundle);
         getView().getActivity().finish();
     }
@@ -155,5 +165,38 @@ public class StackPresenter extends TinkerLinkPresenter<StackPresenter.View> {
         Bundle bundle = new Bundle();
         bundle.putSerializable(StackActivity.STACK_TYPE, getView().getType());
         listener.onLaunchFilterCars(getView().getActivity(), bundle);
+    }
+
+    public void onSendMessagePressed() {
+        RestProfile restProfile = new RestProfile();
+        restProfile.setProfession("Fontanero");
+
+        RestUser restUser = new RestUser();
+        restUser.setName("Jorge Sanmartin");
+        restUser.setPhoto("https://pixabay.com/static/uploads/photo/2016/03/28/12/35/cat-1285634_960_720.png");
+        restUser.setProfile(restProfile);
+
+        RestContacto restContacto = new RestContacto();
+        restContacto.setUser(restUser);
+
+        RestChat restChat = new RestChat();
+        restChat.setUser(restContacto);
+
+        List<RestMessage> listMessages = new ArrayList<>();
+
+        RestMessage restMessage = new RestMessage();
+        restMessage.setMensaje("Esto es una mentira");
+        listMessages.add(restMessage);
+
+        restChat.setMensajes(listMessages);
+
+        Bundle bundle = new Bundle();
+        bundle.putSerializable(ChatUserActivity.ITEMS_KEY, restChat);
+
+        listener.onLaunchChatUser(getView().getActivity(), bundle);
+    }
+
+    public void onWatchProfilePressed() {
+        listener.onLaunchProfile(getView().getActivity(), null);
     }
 }

@@ -492,7 +492,7 @@
     <string name="home_messages">Mensajes</string>
     <string name="home_account">Cuenta</string>
 
-    <!--  Stack  -->
+    <!--  StackCard  -->
     <string name="stack_watch_tinker">Ver soy tinker</string>
     <string name="stack_watch_linker">Ver busco tinker</string>
 

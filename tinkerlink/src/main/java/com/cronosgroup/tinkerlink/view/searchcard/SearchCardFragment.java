@@ -3,19 +3,19 @@ package com.cronosgroup.tinkerlink.view.searchcard;
 import android.os.Bundle;
 import android.view.View;
 
+import com.cronosgroup.tinkerlink.enums.StackCard;
 import com.cronosgroup.tinkerlink.presenter.searchcard.SearchCardPresenter;
 import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
-import com.cronosgroup.tinkerlink.view.stack.main.StackActivity;
 
 /**
- * Stack Fragment
+ * StackCard Fragment
  */
 public class SearchCardFragment extends MVPTinkerLinkFragment<SearchCardPresenter, SearchCardPresenter.View>
         implements SearchCardPresenter.View, SearchCardScreen.Listener {
 
     private SearchCardScreen searchCardScreen;
-    private StackActivity.Stack stackType;
+    private StackCard stackType;
 
     //region **************  Fragment **************
 

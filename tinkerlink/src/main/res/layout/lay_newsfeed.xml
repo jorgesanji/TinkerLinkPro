@@ -83,36 +83,4 @@
         android:textSize="@dimen/text_size_super_tiny"
         app:fontName="Bold" />
 
-
-    <include layout="@layout/lay_background_menu" />
-
-    <com.cronosgroup.tinkerlink.view.customviews.TLMenuButton
-        android:id="@+id/menuView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_margin="16dp"
-        android:clipChildren="false"
-        android:clipToPadding="false"
-        app:menuButtonBackgroundTintColor="@color/tinkercolor"
-        app:menuButtonImageResource="@mipmap/newsfeed_crearcard_net"
-        app:menuButtonStateExpandedImageResource="@mipmap/newsfeed_crearcard_cancelar">
-
-        <com.cronosgroup.tinkerlink.view.customviews.TLMenuItem
-            android:id="@+id/tinkerButton"
-            style="@style/MenuItemStyle"
-            app:menuItemBackgroundTintColor="@color/tinkercolor"
-            app:menuItemImageResource="@mipmap/newsfeed_tinkercard_net"
-            app:menuItemTitle="@string/watch_tinkers" />
-
-        <com.cronosgroup.tinkerlink.view.customviews.TLMenuItem
-            android:id="@+id/linkerButton"
-            style="@style/MenuItemStyle"
-            app:menuItemBackgroundTintColor="@color/linkercolor"
-            app:menuItemImageResource="@mipmap/newsfeed_linkercard_net"
-            app:menuItemTitle="@string/watch_linkers" />
-
-    </com.cronosgroup.tinkerlink.view.customviews.TLMenuButton>
-
 </RelativeLayout>

@@ -3,28 +3,28 @@ package com.cronosgroup.tinkerlink.view.stack.main.adapter.card.recommendations;
 import android.os.Bundle;
 import android.view.View;
 
+import com.cronosgroup.tinkerlink.enums.StackCard;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestRecomendacion;
 import com.cronosgroup.tinkerlink.presenter.stack.CardRecommendationsPresenter;
 import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
-import com.cronosgroup.tinkerlink.view.stack.main.StackActivity;
 
 import java.util.List;
 
 /**
- * Stack Fragment
+ * StackCard Fragment
  */
 public class CardRecommendationsFragment extends MVPTinkerLinkFragment<CardRecommendationsPresenter, CardRecommendationsPresenter.View> implements CardRecommendationsPresenter.View, CardRecommnedationsScreen.Listener {
 
     private CardRecommnedationsScreen cardRecommnedationsScreen;
-    private StackActivity.Stack stackType;
+    private StackCard stackType;
 
     //region **************  Fragment **************
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        stackType = (StackActivity.Stack) getArguments().getSerializable(StackActivity.STACK_TYPE);
+//        stackType = (StackActivity.StackCard) getArguments().getSerializable(StackActivity.STACK_TYPE);
     }
 
     @Override

@@ -10,14 +10,17 @@ import com.cronosgroup.tinkerlink.R;
  */
 public class DDDragListener implements View.OnDragListener {
 
-    public  interface Listener{
+    public interface Listener {
         void onViewDropped(View view, View target);
+
+        void onExitView(View view, boolean okDragged);
     }
 
     private static final int NORMAL_SHAPE = R.drawable.dragdrop_default_shape;
     private static final int TARGET_SHAPE = R.drawable.dragdrop_target_shape;
 
     private Listener listener;
+    private boolean wasDelivered;
 
     public DDDragListener(Listener listener) {
         this.listener = listener;
@@ -31,7 +34,6 @@ public class DDDragListener implements View.OnDragListener {
         // Handles each of the expected events
         switch (event.getAction()) {
 
-            //signal for the start of a drag and drop operation.
             case DragEvent.ACTION_DRAG_STARTED:
                 // do nothing
                 break;
@@ -46,16 +48,21 @@ public class DDDragListener implements View.OnDragListener {
             //drag shadow has been released,the drag point is within the bounding box of the View
             case DragEvent.ACTION_DROP:
                 // if the view is the any view allowed, we accept the drag item
-                if (listener != null){
+                if (listener != null) {
                     listener.onViewDropped(container, view);
                 }
+
+                wasDelivered = true;
                 break;
 
             //the drag and drop operation has concluded.
             case DragEvent.ACTION_DRAG_ENDED:
-                container.setBackgroundResource(NORMAL_SHAPE);
-                view.setVisibility(View.VISIBLE);
                 //go back to normal dragdrop_default_shape
+                container.setBackgroundResource(NORMAL_SHAPE);
+                if (listener != null) {
+                    listener.onExitView(view, wasDelivered);
+                }
+                wasDelivered = false;
             default:
                 break;
         }

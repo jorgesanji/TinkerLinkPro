@@ -5,24 +5,23 @@ import android.content.Context;
 import android.os.Build;
 import android.support.v4.widget.NestedScrollView;
 import android.util.AttributeSet;
-import android.view.View;
 import android.widget.RelativeLayout;
 
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.view.customviews.TLImageView;
-import com.cronosgroup.tinkerlink.view.customviews.TLMenuButton;
+import com.cronosgroup.tinkerlink.view.customviews.TLTextView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
- * Main Profile view.
+ * Account user view.
  */
 public class AccountScreen extends RelativeLayout {
 
     /**
-     * listeners of the profile's screen.
+     * listeners of the  Account user's screen.
      */
     public interface Listener {
         void onEditProfilePressed();
@@ -34,12 +33,6 @@ public class AccountScreen extends RelativeLayout {
         void onImTinkerPressed();
 
         void onSearchTinkerPressed();
-
-        void onCreateRecommendationPressed();
-
-        void onCreateTinkerPressed();
-
-        void onCreateLinkerPressed();
     }
 
 
@@ -50,14 +43,18 @@ public class AccountScreen extends RelativeLayout {
     @BindView(R.id.userImage)
     protected TLImageView mUserImage;
 
-    @BindView(R.id.menuView)
-    protected TLMenuButton mMenuView;
-
-    @BindView(R.id.viewMenu)
-    protected View mViewMenu;
-
     @BindView(R.id.scrollView)
     protected NestedScrollView mScrollView;
+
+    @BindView(R.id.userJob)
+    protected TLTextView mUserJob;
+
+    @BindView(R.id.userName)
+    protected TLTextView mUserName;
+
+    @BindView(R.id.recommendationNumber)
+    protected TLTextView mRecommendationNumber;
+
 
     /**
      * @param context
@@ -107,36 +104,6 @@ public class AccountScreen extends RelativeLayout {
     private void init() {
         inflate(getContext(), R.layout.lay_account, this);
         ButterKnife.bind(this);
-        initUI();
-        initListeners();
-
-        mUserImage.setImageFromUrl("http://qsrock.com/wp-content/uploads/2016/04/130699422.jpg");
-    }
-
-    private void initUI() {
-        mViewMenu.setVisibility(VISIBLE);
-    }
-
-    private void initListeners() {
-        mViewMenu.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mMenuView.collapseMenu();
-                mViewMenu.setVisibility(GONE);
-            }
-        });
-
-        mMenuView.setListener(new TLMenuButton.IOMenuButtonState() {
-            @Override
-            public void collapsed() {
-                mViewMenu.setVisibility(GONE);
-            }
-
-            @Override
-            public void expanded() {
-                mViewMenu.setVisibility(VISIBLE);
-            }
-        });
     }
 
 
@@ -167,23 +134,6 @@ public class AccountScreen extends RelativeLayout {
         listener.onSearchTinkerPressed();
     }
 
-    @OnClick(R.id.recommendationButton)
-    protected void createRecommendationPressed() {
-        listener.onCreateRecommendationPressed();
-        mMenuView.collapseMenu();
-    }
-
-    @OnClick(R.id.tinkerButton)
-    protected void createTinkerPressed() {
-        listener.onCreateTinkerPressed();
-        mMenuView.collapseMenu();
-    }
-
-    @OnClick(R.id.linkerButton)
-    protected void createLinkerPressed() {
-        listener.onCreateLinkerPressed();
-        mMenuView.collapseMenu();
-    }
 
     // Public methods
 
@@ -195,5 +145,19 @@ public class AccountScreen extends RelativeLayout {
         this.listener = listener;
     }
 
+    public void setUserName(String userName) {
+        mUserName.setText(userName);
+    }
 
+    public void setUserJob(String userJob) {
+        mUserJob.setText(userJob);
+    }
+
+    public void setUserImage(String userImage) {
+        mUserImage.setImageFromUrl(userImage);
+    }
+
+    public void setUserRecommendationsNumber(String userRecommendationsNumber) {
+        mRecommendationNumber.setText(userRecommendationsNumber);
+    }
 }

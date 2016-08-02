@@ -19,8 +19,7 @@ public class ContactsFragment extends MVPTinkerLinkFragment<ContactsPresenter, C
 
     @Override
     protected View getRootView() {
-        contactsScreen = new ContactsScreen(getActivity());
-        contactsScreen.setListener(this);
+        contactsScreen = new ContactsScreen(getActivity(), this);
         return contactsScreen;
     }
     //endregion
@@ -39,6 +38,7 @@ public class ContactsFragment extends MVPTinkerLinkFragment<ContactsPresenter, C
 
     @Override
     protected void onDidAppear() {
+        contactsScreen.initPager(getActivity().getSupportFragmentManager());
     }
 
     //region **************  ContactsScreen.Listener **************

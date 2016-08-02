@@ -1,8 +1,10 @@
 package com.cronosgroup.tinkerlink.view.detailcard;
 
+import android.os.Bundle;
 import android.view.View;
 
 import com.cronosgroup.tinkerlink.R;
+import com.cronosgroup.tinkerlink.enums.StackCard;
 import com.cronosgroup.tinkerlink.manager.AppPermissionsManager;
 import com.cronosgroup.tinkerlink.view.base.TinkerLinkActivity;
 import com.cronosgroup.tinkerlink.view.stack.main.StackActivity;
@@ -16,6 +18,16 @@ import java.util.List;
 public class DetailCardActivity extends TinkerLinkActivity<DetailCardFragment> {
 
     public static final String KEY_ITEM = "card";
+    public static final String KEY_PUBLISH = "publish";
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        boolean isPuslish = getIntent().getExtras().getBoolean(KEY_PUBLISH);
+        if (!isPuslish) {
+            setTitle(R.string.detail_card_title);
+        }
+    }
 
     @Override
     public Class<DetailCardFragment> getFragment() {
@@ -37,7 +49,7 @@ public class DetailCardActivity extends TinkerLinkActivity<DetailCardFragment> {
 
     @Override
     public StyleToolBar getActivityStyle() {
-        return getIntent().getExtras().getSerializable(StackActivity.STACK_TYPE) == StackActivity.Stack.LINKER ? StyleToolBar.LINKERSTYLE : StyleToolBar.TINKERSTYLE;
+        return getIntent().getExtras().getSerializable(StackActivity.STACK_TYPE) == StackCard.LINKER ? StyleToolBar.LINKERSTYLE : StyleToolBar.TINKERSTYLE;
     }
 
     // Manage Permissions

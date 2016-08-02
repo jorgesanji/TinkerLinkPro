@@ -551,6 +551,7 @@
     <string name="sign_register_verify">VERIFICAR</string>
     <string name="sign_register_user_welcome">Bienvenida %s!</string>
     <string name="sign_register_user_create_profile">Comienza a crear tu perfil</string>
+    <string name="sign_register_user_job">OCUPACIÓN</string>
     <string name="sign_register_user_select_job">Seleccione una ocupación</string>
     <string name="sign_register_user_description">DESCRIPCIÓN</string>
     <string name="sign_register_user_description_hint">Realizo el trabajo con total resposabilidad y entusiasmo. Entrego el material en tiempo y forma. No dudes en enviarme un mensaje por cualquier consulta!</string>
@@ -565,7 +566,7 @@
     <string name="home_messages">Mensajes</string>
     <string name="home_account">Cuenta</string>
 
-    <!--  Stack  -->
+    <!--  StackCard  -->
     <string name="stack_watch_tinker">Ver soy tinker</string>
     <string name="stack_watch_linker">Ver busco tinker</string>
     <string name="stack_more_recommended">Más recomendados</string>
@@ -754,6 +755,13 @@
     <!-- DIALOG MESSAGE-->
     <string name="dialog_message_ok_button">OK</string>
 
+    <!-- DIALOG SHARE-->
+    <string name="dialog_share_linkedin">LINKED IN</string>
+    <string name="dialog_share_facebook">FACEBOOK</string>
+    <string name="dialog_share_twitter">TWITTER</string>
+    <string name="dialog_share_title">Compartir en tu newsfeed y en:</string>
+
+
     <!-- CREATE CARD MESSAGES -->
     <string name="create_card_title">Felicidades ha creado una tarjeta</string>
     <string name="create_card_message">Si quieres editarla puedes ir a tu perfil ahí la encotraras y la podrás editar</string>
@@ -771,6 +779,18 @@
     <string name="import_contacts_phonebook">Importar contactos de mi agenda</string>
     <string name="import_contacts_gmail">Importar contactos de gmail</string>
     <string name="import_contacts_facebook">Importar contactos de facebook</string>
+
+    <!-- DETAIL CARD-->
+    <string name="detail_card_title">Detalle de la card</string>
+
+    <!-- CONTACTS -->
+    <string name="contacts_import_contacts">Importar contactos</string>
+    <string name="contacts_search_contacts">Buscar contactos</string>
+    <string name="contacts_my_contacts">MIS CONTACTOS (%s)</string>
+    <string name="contacts_request_contacts">SOLICITUDES (%s)</string>
+
+
+
 
 
 </resources>

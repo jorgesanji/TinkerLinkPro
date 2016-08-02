@@ -14,27 +14,30 @@ public class DDLongListener implements View.OnLongClickListener {
     }
 
     private Listener listener;
+    private final View viewToShow;
 
-    public DDLongListener() {
+    public DDLongListener(View viewToShow) {
+        this.viewToShow = viewToShow;
     }
 
     @Override
     public boolean onLongClick(View view) {
 
         // create it from the object's tag
-        ClipData.Item item = new ClipData.Item((CharSequence) view.getTag());
+        ClipData.Item item = new ClipData.Item((CharSequence) viewToShow.getTag());
 
         String[] mimeTypes = {ClipDescription.MIMETYPE_TEXT_PLAIN};
-        ClipData data = new ClipData(view.getTag().toString(), mimeTypes, item);
-        View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(view);
+        ClipData data = new ClipData(viewToShow.getTag().toString(), mimeTypes, item);
 
-        view.startDrag(data, //data to be dragged
+        View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(viewToShow);
+
+        viewToShow.startDrag(data, //data to be dragged
                 shadowBuilder, //drag shadow
-                view, //local data about the drag and drop operation
+                viewToShow, //local data about the drag and drop operation
                 0   //no needed flags
         );
 
-        view.setVisibility(View.INVISIBLE);
+        viewToShow.setVisibility(View.INVISIBLE);
 
         if (listener != null) {
             listener.onLongClickDone();

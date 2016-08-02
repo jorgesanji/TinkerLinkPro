@@ -9,6 +9,8 @@ import com.cronosgroup.tinkerlink.presenter.editprofile.EditProfilePresenter;
 import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
 import com.cronosgroup.tinkerlink.view.customviews.TLStudyView;
+import com.cronosgroup.tinkerlink.view.dialog.country.CountryDialogFragment;
+import com.cronosgroup.tinkerlink.view.dialog.occupation.OccupationDialogFragment;
 import com.cronosgroup.tinkerlink.view.dialog.study.StudyDialogFragment;
 
 
@@ -71,6 +73,16 @@ public class EditProfileFragment extends MVPTinkerLinkFragment<EditProfilePresen
     @Override
     public void onAddCoursePressed() {
         addDialogFragment(StudyDialogFragment.class, StudyDialogFragment.CODE);
+    }
+
+    @Override
+    public void onSelectCountryPressed() {
+        addDialogFragment(CountryDialogFragment.class, CountryDialogFragment.CODE);
+    }
+
+    @Override
+    public void onSelectOccupationPressed() {
+        addDialogFragment(OccupationDialogFragment.class, OccupationDialogFragment.CODE);
     }
 
     //endregion

@@ -1,13 +1,10 @@
 package com.cronosgroup.tinkerlink.view.dragdrop;
 
-import android.animation.Animator;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.animation.BounceInterpolator;
 import android.widget.RelativeLayout;
 
 import com.cronosgroup.tinkerlink.R;
@@ -17,7 +14,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- * Main DragDrop view.
+ * DragDrop view.
  */
 public class DragDropScreen extends RelativeLayout {
 
@@ -29,6 +26,8 @@ public class DragDropScreen extends RelativeLayout {
         void onShare();
 
         void onSendMessage();
+
+        void onCloseDragView();
     }
 
     // Vars
@@ -92,49 +91,28 @@ public class DragDropScreen extends RelativeLayout {
     private void initListeners() {
         DDDragListener ddDragListener = new DDDragListener(new DDDragListener.Listener() {
             @Override
-            public void onViewDropped(final View container, View target) {
+            public void onExitView(View view, boolean okDragged) {
+                listener.onCloseDragView();
+                if (!okDragged) {
+                    view.setVisibility(View.VISIBLE);
+                }
+            }
 
-                ViewGroup viewgroup = (ViewGroup) target.getParent();
-                viewgroup.removeView(target);
+            @Override
+            public void onViewDropped(final View container, final View target) {
 
-                RelativeLayout containView = (RelativeLayout) container;
-                RelativeLayout.LayoutParams params = new LayoutParams(target.getWidth(), target.getHeight());
-                params.addRule(RelativeLayout.CENTER_IN_PARENT);
-                target.setLayoutParams(params);
-                containView.addView(target);
+                if (container == mWatchNetworkContainer) {
+                    listener.onWatchNetwork();
+                } else if (container == mWatchProfileContainer) {
+                    listener.onWatchProfile();
+                } else if (container == mShareContainer) {
+                    listener.onShare();
+                } else if (container == mSendMessageContainer) {
+                    listener.onSendMessage();
+                }
+
                 target.setVisibility(View.VISIBLE);
-                target.setX(container.getWidth() / 2 - target.getWidth() / 2);
-                target.setY(container.getHeight() / 2 - target.getHeight() / 2);
 
-                target.animate().scaleX(0).scaleY(0).setInterpolator(new BounceInterpolator()).setListener(new Animator.AnimatorListener() {
-                    @Override
-                    public void onAnimationStart(Animator animation) {
-
-                    }
-
-                    @Override
-                    public void onAnimationEnd(Animator animation) {
-                        if (container == mWatchNetworkContainer) {
-                            listener.onWatchNetwork();
-                        } else if (container == mWatchProfileContainer) {
-                            listener.onWatchProfile();
-                        } else if (container == mShareContainer) {
-                            listener.onShare();
-                        } else if (container == mSendMessageContainer) {
-                            listener.onSendMessage();
-                        }
-                    }
-
-                    @Override
-                    public void onAnimationCancel(Animator animation) {
-
-                    }
-
-                    @Override
-                    public void onAnimationRepeat(Animator animation) {
-
-                    }
-                }).start();
             }
         });
 

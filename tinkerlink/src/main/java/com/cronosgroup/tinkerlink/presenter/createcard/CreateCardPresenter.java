@@ -27,7 +27,7 @@ public class CreateCardPresenter extends TinkerLinkPresenter<CreateCardPresenter
      * ContCreateCard  actions.
      */
     public interface Actions {
-        void onLaunchPresvisualized(Activity activity, Bundle bundle);
+        void onLaunchDetailCard(Activity activity, Bundle bundle);
     }
 
     /**
@@ -43,6 +43,7 @@ public class CreateCardPresenter extends TinkerLinkPresenter<CreateCardPresenter
         Bundle bundle = new Bundle();
         bundle.putSerializable(StackActivity.STACK_TYPE, getView().getActivity().getIntent().getExtras().getSerializable(StackActivity.STACK_TYPE));
         bundle.putSerializable(DetailCardActivity.KEY_ITEM, getView().getCardData());
-        listener.onLaunchPresvisualized(getView().getActivity(), bundle);
+        bundle.putBoolean(DetailCardActivity.KEY_PUBLISH, true);
+        listener.onLaunchDetailCard(getView().getActivity(), bundle);
     }
 }

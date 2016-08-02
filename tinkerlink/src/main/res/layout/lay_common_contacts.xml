@@ -44,21 +44,21 @@
             android:layout_marginLeft="@dimen/margin_tiny"
             android:visibility="gone">
 
-            <com.cronosgroup.tinkerlink.view.customviews.TLImageRoundBorder
+            <com.cronosgroup.tinkerlink.view.customviews.TLImageView
                 android:id="@+id/contact1"
                 style="@style/ContactThumbStyle" />
 
-            <com.cronosgroup.tinkerlink.view.customviews.TLImageRoundBorder
+            <com.cronosgroup.tinkerlink.view.customviews.TLImageView
                 android:id="@+id/contact2"
                 style="@style/ContactThumbStyle"
                 android:layout_marginLeft="@dimen/margin_big" />
 
-            <com.cronosgroup.tinkerlink.view.customviews.TLImageRoundBorder
+            <com.cronosgroup.tinkerlink.view.customviews.TLImageView
                 android:id="@+id/contact3"
                 style="@style/ContactThumbStyle"
                 android:layout_marginLeft="@dimen/margin_plus_biggest" />
 
-            <com.cronosgroup.tinkerlink.view.customviews.TLImageRoundBorder
+            <com.cronosgroup.tinkerlink.view.customviews.TLImageView
                 android:id="@+id/contact4"
                 style="@style/ContactThumbStyle"
                 android:layout_marginLeft="@dimen/margin_plus_plus_biggest" />

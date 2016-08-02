@@ -2,7 +2,6 @@ package com.cronosgroup.tinkerlink.view.dialog.network;
 
 import android.view.View;
 
-import com.cronosgroup.core.view.ToolBarActivity;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestNetwork;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestUser;
 import com.cronosgroup.tinkerlink.presenter.network.NetworkPresenter;
@@ -105,16 +104,16 @@ public class NetworkDialogFragment extends MVPTinkerLinkDialogFragment<NetworkPr
 
     //endregion
 
-    //region ************** TLNetworkView.Listener **************
+    //region ************** NetworkDialogScreen.Listener **************
 
     @Override
     public void onClosePressed() {
-        getActivity().finish();
+        dismiss();
     }
 
     @Override
     public void onShowContactsPressed() {
-
+        getPresenter().onShowContactsPressed();
     }
 
     @Override
@@ -127,24 +126,6 @@ public class NetworkDialogFragment extends MVPTinkerLinkDialogFragment<NetworkPr
     public void onLoadLinkerPressed() {
         mLinkerPage++;
         addItemsToLinkerbByPage();
-    }
-
-    //endregion
-
-    @Override
-    public void showLoading() {
-        super.showLoading();
-        if (getActivity() != null) {
-            ((ToolBarActivity) getActivity()).showLoading();
-        }
-    }
-
-    @Override
-    public void hideLoading() {
-        super.hideLoading();
-        if (getActivity() != null) {
-            ((ToolBarActivity) getActivity()).hideLoading();
-        }
     }
 
     //endregion

@@ -7,6 +7,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.cronosgroup.tinkerlink.R;
+import com.cronosgroup.tinkerlink.enums.StackCard;
 import com.cronosgroup.tinkerlink.event.ShowDetailCardsEvent;
 import com.cronosgroup.tinkerlink.event.ShowOverLaySelectorEvent;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
@@ -15,6 +16,9 @@ import com.cronosgroup.tinkerlink.presenter.stack.StackPresenter;
 import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.animation.Animations;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
+import com.cronosgroup.tinkerlink.view.dialog.network.NetworkDialogFragment;
+import com.cronosgroup.tinkerlink.view.dialog.share.ShareDialogFragment;
+import com.cronosgroup.tinkerlink.view.dragdrop.DragDropScreen;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -22,12 +26,12 @@ import org.greenrobot.eventbus.Subscribe;
 import java.util.List;
 
 /**
- * Stack Fragment
+ * StackCard Fragment
  */
-public class StackFragment extends MVPTinkerLinkFragment<StackPresenter, StackPresenter.View> implements StackPresenter.View, StackScreen.Listener {
+public class StackFragment extends MVPTinkerLinkFragment<StackPresenter, StackPresenter.View> implements StackPresenter.View, StackScreen.Listener, DragDropScreen.Listener {
 
     private StackScreen stackScreen;
-    private StackActivity.Stack stackType;
+    private StackCard stackType;
 
     //region **************  Fragment **************
 
@@ -35,12 +39,13 @@ public class StackFragment extends MVPTinkerLinkFragment<StackPresenter, StackPr
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
-        stackType = (StackActivity.Stack) getArguments().getSerializable(StackActivity.STACK_TYPE);
+        stackType = (StackCard) getArguments().getSerializable(StackActivity.STACK_TYPE);
     }
 
     @Override
     protected View getRootView() {
         stackScreen = new StackScreen(getActivity(), this, getFragmentManager());
+        stackScreen.setDragdropListener(this);
         return stackScreen;
     }
 
@@ -109,6 +114,35 @@ public class StackFragment extends MVPTinkerLinkFragment<StackPresenter, StackPr
         getPresenter().getAllCards("0");
     }
 
+    //region **************  DragDropScreen.Listener **************
+
+    @Override
+    public void onWatchNetwork() {
+        addDialogFragment(NetworkDialogFragment.class, NetworkDialogFragment.CODE);
+    }
+
+    @Override
+    public void onWatchProfile() {
+        getPresenter().onWatchProfilePressed();
+    }
+
+    @Override
+    public void onShare() {
+        addDialogFragment(ShareDialogFragment.class, ShareDialogFragment.CODE);
+    }
+
+    @Override
+    public void onSendMessage() {
+        getPresenter().onSendMessagePressed();
+    }
+
+    @Override
+    public void onCloseDragView() {
+        stackScreen.dissmissOverlaySelector();
+    }
+
+    //endregion
+
     //region **************  StackScreen.Listener **************
 
     @Override
@@ -146,7 +180,7 @@ public class StackFragment extends MVPTinkerLinkFragment<StackPresenter, StackPr
     }
 
     @Override
-    public StackActivity.Stack getType() {
+    public StackCard getType() {
         return stackType;
     }
 

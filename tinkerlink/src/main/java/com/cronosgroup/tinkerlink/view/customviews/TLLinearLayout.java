@@ -36,21 +36,39 @@ public class TLLinearLayout extends LinearLayout {
         super(context, attrs, defStyleAttr, defStyleRes);
     }
 
-    private void animate(View viewToAnimate, long duration, int animationResource) {
+    private void animate(final View viewToAnimate, long duration, int animationResource, final boolean hide) {
         viewToAnimate.setVisibility(VISIBLE);
         Animation animation = AnimationUtils.loadAnimation(getContext(), animationResource);
         animation.setDuration(duration);
         animation.setInterpolator(new LinearInterpolator());
-//        animation.setInterpolator(new BounceInterpolator());
+        animation.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                if (hide) {
+                    viewToAnimate.setVisibility(GONE);
+                }
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
+
         viewToAnimate.startAnimation(animation);
     }
 
     private void animateToUp(View viewToAnimate, long duration) {
-        animate(viewToAnimate, duration, R.anim.anim_activity_up);
+        animate(viewToAnimate, duration, R.anim.anim_activity_up, false);
     }
 
     private void animateToDissmiss(View viewToAnimate, long duration) {
-        animate(viewToAnimate, duration, R.anim.anim_activity_down);
+        animate(viewToAnimate, duration, R.anim.anim_activity_down, true);
     }
 
     protected void appear(View viewToAnimate) {

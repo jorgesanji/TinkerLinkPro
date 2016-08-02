@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
+import com.cronosgroup.tinkerlink.enums.StackCard;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
 import com.cronosgroup.tinkerlink.view.stack.main.StackActivity;
 import com.cronosgroup.tinkerlink.view.stack.main.adapter.card.CardFragment;
@@ -18,7 +19,7 @@ import java.util.List;
 public class StackAdapter extends FragmentStatePagerAdapter {
 
     private List<RestPost> items = new ArrayList<>();
-    private StackActivity.Stack stackType;
+    private StackCard stackType;
     private boolean detail;
 
     public StackAdapter(FragmentManager fm) {
@@ -54,11 +55,11 @@ public class StackAdapter extends FragmentStatePagerAdapter {
         return items;
     }
 
-    public StackActivity.Stack getStackType() {
+    public StackCard getStackType() {
         return stackType;
     }
 
-    public void setStackType(StackActivity.Stack stackType) {
+    public void setStackType(StackCard stackType) {
         this.stackType = stackType;
     }
 

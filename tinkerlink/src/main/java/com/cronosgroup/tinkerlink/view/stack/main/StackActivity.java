@@ -2,45 +2,12 @@ package com.cronosgroup.tinkerlink.view.stack.main;
 
 import android.os.Bundle;
 
-import com.cronosgroup.tinkerlink.R;
+import com.cronosgroup.tinkerlink.enums.StackCard;
 import com.cronosgroup.tinkerlink.view.base.TinkerLinkActivity;
 
 public class StackActivity extends TinkerLinkActivity<StackFragment> {
 
     public static final String STACK_TYPE = "STACK";
-
-    public enum Stack {
-        LINKER(1, R.color.linkercolor, R.string.watch_linkers, R.string.stack_watch_linker),
-        TINKER(2, R.color.tinkercolor, R.string.watch_tinkers, R.string.stack_watch_tinker);
-
-        private final int stackType;
-        private final int stackColor;
-        private final int stackTitle;
-        private final int stackTitleAction;
-
-        private Stack(int stackType, int stackColor, int stackTitle, int stackTitleAction) {
-            this.stackType = stackType;
-            this.stackColor = stackColor;
-            this.stackTitle = stackTitle;
-            this.stackTitleAction = stackTitleAction;
-        }
-
-        public int getStackType() {
-            return stackType;
-        }
-
-        public int getStackColor() {
-            return stackColor;
-        }
-
-        public int getStackTitle() {
-            return stackTitle;
-        }
-
-        public int getStackTitleAction() {
-            return stackTitleAction;
-        }
-    }
 
     @Override
     public Class<StackFragment> getFragment() {
@@ -52,7 +19,7 @@ public class StackActivity extends TinkerLinkActivity<StackFragment> {
         super.onCreate(savedInstanceState);
         getSupportActionBar().setDisplayShowHomeEnabled(false);
         getSupportActionBar().setHomeButtonEnabled(true);
-        StackActivity.Stack stackType = (StackActivity.Stack) getIntent().getExtras().getSerializable(StackActivity.STACK_TYPE);
+        StackCard stackType = (StackCard) getIntent().getExtras().getSerializable(StackActivity.STACK_TYPE);
         if (stackType != null) {
             setTitle(getString(stackType.getStackTitle()));
         }

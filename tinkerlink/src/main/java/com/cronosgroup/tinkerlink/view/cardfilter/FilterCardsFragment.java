@@ -3,6 +3,7 @@ package com.cronosgroup.tinkerlink.view.cardfilter;
 import android.os.Bundle;
 import android.view.View;
 
+import com.cronosgroup.tinkerlink.enums.StackCard;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestCategoria;
 import com.cronosgroup.tinkerlink.presenter.filtercards.FilterCardsPresenter;
 import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
@@ -18,7 +19,7 @@ public class FilterCardsFragment extends MVPTinkerLinkFragment<FilterCardsPresen
         implements FilterCardsPresenter.View, FilterCardsScreen.Listener {
 
     // Vars
-    private StackActivity.Stack stackType;
+    private StackCard stackType;
 
     // Views
     private FilterCardsScreen filterCardsScreen;
@@ -28,7 +29,7 @@ public class FilterCardsFragment extends MVPTinkerLinkFragment<FilterCardsPresen
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        stackType = (StackActivity.Stack) getArguments().getSerializable(StackActivity.STACK_TYPE);
+        stackType = (StackCard) getArguments().getSerializable(StackActivity.STACK_TYPE);
     }
 
     @Override

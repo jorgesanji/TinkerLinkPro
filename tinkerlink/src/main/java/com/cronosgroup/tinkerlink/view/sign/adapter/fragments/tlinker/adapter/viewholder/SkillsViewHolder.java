@@ -5,6 +5,7 @@ import android.widget.CheckBox;
 
 import com.bignerdranch.expandablerecyclerview.ViewHolder.ChildViewHolder;
 import com.cronosgroup.tinkerlink.R;
+import com.cronosgroup.tinkerlink.enums.StackCard;
 import com.cronosgroup.tinkerlink.view.sign.adapter.fragments.tlinker.adapter.CategoriesAdapter;
 import com.cronosgroup.tinkerlink.view.customviews.TLTextView;
 
@@ -18,7 +19,8 @@ import butterknife.OnClick;
 public class SkillsViewHolder extends ChildViewHolder {
 
     // Vars
-    CategoriesAdapter.IOSkillListener listener;
+    private CategoriesAdapter.IOSkillListener listener;
+    private StackCard type;
 
     // Views
     @BindView(R.id.titleSkill)
@@ -27,9 +29,10 @@ public class SkillsViewHolder extends ChildViewHolder {
     @BindView(R.id.skillSelector)
     protected CheckBox mSkillSelector;
 
-    public SkillsViewHolder(View itemView, int type) {
+    public SkillsViewHolder(View itemView, StackCard type) {
         super(itemView);
         ButterKnife.bind(this, itemView);
+        this.type = type;
     }
 
     public void configureItem(String name) {

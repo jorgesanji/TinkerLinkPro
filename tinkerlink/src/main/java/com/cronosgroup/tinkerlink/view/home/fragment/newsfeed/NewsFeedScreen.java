@@ -19,8 +19,6 @@ import com.cronosgroup.tinkerlink.manager.AppConfigManager;
 import com.cronosgroup.tinkerlink.manager.AppUserSessionManager;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContacto;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
-import com.cronosgroup.tinkerlink.view.animation.newsfeed.ScrollHandler;
-import com.cronosgroup.tinkerlink.view.customviews.TLMenuButton;
 import com.cronosgroup.tinkerlink.view.customviews.TLRecyclerView;
 import com.cronosgroup.tinkerlink.view.customviews.TLTextView;
 import com.cronosgroup.tinkerlink.view.home.fragment.newsfeed.adapter.HomeAdapter;
@@ -76,7 +74,6 @@ public class NewsFeedScreen extends RelativeLayout {
     private Listener listener;
     private HomeAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
-    private ScrollHandler mScrollHandler;
 
     // Views
     @BindView(R.id.newsFeedList)
@@ -85,14 +82,8 @@ public class NewsFeedScreen extends RelativeLayout {
     @BindView(R.id.progressBar)
     View mLoader;
 
-    @BindView(R.id.menuView)
-    TLMenuButton mMenuButton;
-
     @BindView(R.id.empty_message)
     TLTextView mEmptyMessage;
-
-    @BindView(R.id.viewMenu)
-    View mViewMenu;
 
     @BindView(R.id.topView)
     View mTopView;
@@ -102,7 +93,6 @@ public class NewsFeedScreen extends RelativeLayout {
 
     @BindView(R.id.newPosts)
     TLTextView newPosts;
-
 
     /**
      * @param context
@@ -160,7 +150,6 @@ public class NewsFeedScreen extends RelativeLayout {
 
     private void initUI() {
         newPosts.setVisibility(GONE);
-        mViewMenu.setVisibility(GONE);
         mEmptyMessage.setBackgroundColor(getResources().getColor(R.color.gray_color));
         mEmptyMessage.setText(getResources().getString(R.string.news_feed_empty_message));
         mEmptyMessage.setBackgroundColor(Color.TRANSPARENT);
@@ -177,8 +166,6 @@ public class NewsFeedScreen extends RelativeLayout {
         mLayoutManager = new LinearLayoutManager(getContext());
         mHomeListView.setLayoutManager(mLayoutManager);
         mHomeListView.setItemAnimator(new SlideInUpAnimator());
-        mScrollHandler = new ScrollHandler(mMenuButton, mTopView, newPosts);
-        mHomeListView.setOnScrollListener(mScrollHandler);
     }
 
     private void initListeners() {
@@ -189,26 +176,6 @@ public class NewsFeedScreen extends RelativeLayout {
 //                reloadPosts();
 //            }
 //        });
-
-        mViewMenu.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mMenuButton.collapseMenu();
-                mViewMenu.setVisibility(GONE);
-            }
-        });
-
-        mMenuButton.setListener(new TLMenuButton.IOMenuButtonState() {
-            @Override
-            public void collapsed() {
-                mViewMenu.setVisibility(GONE);
-            }
-
-            @Override
-            public void expanded() {
-                mViewMenu.setVisibility(VISIBLE);
-            }
-        });
 
         mAdapter.setClickListener(new BaseAdapter.CLickListener() {
             @Override
@@ -290,17 +257,6 @@ public class NewsFeedScreen extends RelativeLayout {
 
     // **************  UI Actions **************
 
-    @OnClick(R.id.linkerButton)
-    protected void btnLinkerPressed() {
-        mMenuButton.collapseMenu();
-        listener.onSearchTinkerStackPressed();
-    }
-
-    @OnClick(R.id.tinkerButton)
-    protected void btnTinkerPressed() {
-        mMenuButton.collapseMenu();
-        listener.onImTinkerStackPressed();
-    }
 
     @OnClick(R.id.statusCard)
     protected void btnStatusPressed() {
@@ -327,10 +283,6 @@ public class NewsFeedScreen extends RelativeLayout {
 
     protected HomeAdapter getAdapter() {
         return mAdapter;
-    }
-
-    protected void hideButtons() {
-        mMenuButton.setVisibility(GONE);
     }
 
     protected void hideStatus() {
@@ -367,7 +319,6 @@ public class NewsFeedScreen extends RelativeLayout {
     }
 
     public void goToListTop() {
-        mScrollHandler.show();
         mHomeListView.scrollToPosition(0);
     }
 
@@ -429,7 +380,6 @@ public class NewsFeedScreen extends RelativeLayout {
             newPosts.setVisibility(VISIBLE);
             Animation animation = AnimationUtils.loadAnimation(getContext(), R.anim.anim_scale_button);
             newPosts.startAnimation(animation);
-            mScrollHandler.show();
         }
     }
 

@@ -21,6 +21,8 @@ public class EditProfileScreen extends RelativeLayout {
 
     public interface Listener {
         void onAddCoursePressed();
+        void onSelectCountryPressed();
+        void onSelectOccupationPressed();
     }
 
     // Vars
@@ -72,6 +74,16 @@ public class EditProfileScreen extends RelativeLayout {
     }
 
     // Actions
+
+    @OnClick(R.id.selectorCountry)
+    protected void selectCountryPressed(){
+        listener.onSelectCountryPressed();
+    }
+
+    @OnClick(R.id.selectorCategory)
+    protected void selectOccupationPressed(){
+        listener.onSelectOccupationPressed();
+    }
 
     @OnClick(R.id.addStudyOrCourse)
     protected void addCoursePressed() {

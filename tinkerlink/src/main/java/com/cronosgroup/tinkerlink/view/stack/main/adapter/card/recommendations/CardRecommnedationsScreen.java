@@ -119,7 +119,9 @@ public class CardRecommnedationsScreen extends RelativeLayout {
         mAdapter.setClickListener(new BaseAdapter.CLickListener() {
             @Override
             public void onItemSelected(int position) {
-                listener.onItemPressed(position);
+                if (listener != null) {
+                    listener.onItemPressed(position);
+                }
             }
         });
     }

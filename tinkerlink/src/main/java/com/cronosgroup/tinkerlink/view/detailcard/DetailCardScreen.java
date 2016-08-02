@@ -7,7 +7,9 @@ import android.util.AttributeSet;
 import android.widget.RelativeLayout;
 
 import com.cronosgroup.tinkerlink.R;
+import com.cronosgroup.tinkerlink.view.customviews.TLImageButton;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -32,6 +34,14 @@ public class DetailCardScreen extends RelativeLayout {
 
     // Views
 
+    @BindView(R.id.updateImages)
+    protected TLImageButton mUpdateImages;
+
+    @BindView(R.id.updateSkills)
+    protected TLImageButton mupdateSkills;
+
+    @BindView(R.id.updateBudget)
+    protected TLImageButton mUpdateBudget;
 
     /**
      * @param context
@@ -104,5 +114,11 @@ public class DetailCardScreen extends RelativeLayout {
 
     public void setListener(Listener listener) {
         this.listener = listener;
+    }
+
+    public void setAsPublishMode(boolean publishMode) {
+        mUpdateImages.setVisibility(publishMode ? VISIBLE : GONE);
+        mupdateSkills.setVisibility(publishMode ? VISIBLE : GONE);
+        mUpdateBudget.setVisibility(publishMode ? VISIBLE : GONE);
     }
 }

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/transparent">
@@ -30,12 +29,14 @@
                 android:gravity="center"
                 android:orientation="vertical">
 
-                <com.cronosgroup.tinkerlink.view.customviews.TLImageRoundBorder
+                <com.cronosgroup.tinkerlink.view.customviews.TLImageView
                     android:id="@+id/userCardImage"
                     android:layout_width="70dp"
                     android:layout_height="70dp"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/chica" />
+                    app:imageRounded="true"
+                    app:imageType="User"
+                    app:imageWithBorder="true" />
 
                 <com.cronosgroup.tinkerlink.view.customviews.TLTextView
                     android:id="@+id/userName"
@@ -77,10 +78,10 @@
 
         </RelativeLayout>
 
-        <include
-            layout="@layout/lay_contact_container"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
+        <com.cronosgroup.tinkerlink.view.customviews.TLCommonContactsView
+            android:id="@+id/contactsView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="10dp" />
 
         <com.cronosgroup.tinkerlink.view.customviews.TLScrollView
@@ -143,11 +144,11 @@
         android:id="@+id/recommendationContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="@dimen/margin_small"
         android:layout_marginLeft="@dimen/margin_mediun"
         android:layout_marginRight="@dimen/margin_mediun"
         android:layout_marginTop="@dimen/margin_small"
-        android:background="@color/white"
+        android:background="@drawable/background_card_border"
+        android:padding="4dp"
         android:visibility="gone">
 
         <com.cronosgroup.tinkerlink.view.stack.main.adapter.card.recommendations.CardRecommnedationsScreen

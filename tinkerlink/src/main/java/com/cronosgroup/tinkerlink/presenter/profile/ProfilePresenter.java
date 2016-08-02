@@ -3,6 +3,7 @@ package com.cronosgroup.tinkerlink.presenter.profile;
 import android.app.Activity;
 import android.os.Bundle;
 
+import com.cronosgroup.tinkerlink.enums.StackCard;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContacto;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestProfile;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestUser;
@@ -61,7 +62,7 @@ public class ProfilePresenter extends TinkerLinkPresenter<ProfilePresenter.View>
                 restProfile.setCountry("España");
 
                 RestUser restUser = new RestUser();
-                restUser.setName("Jorge Luis");
+                restUser.setName("Jorge Sanmartin");
                 restUser.setPhoto("http://qsrock.com/wp-content/uploads/2016/04/130699422.jpg");
                 restUser.setProfile(restProfile);
 
@@ -100,13 +101,13 @@ public class ProfilePresenter extends TinkerLinkPresenter<ProfilePresenter.View>
 
     public void onLaunchImTinker() {
         Bundle bundle = new Bundle();
-        bundle.putSerializable(StackActivity.STACK_TYPE, StackActivity.Stack.TINKER);
+        bundle.putSerializable(StackActivity.STACK_TYPE, StackCard.TINKER);
         listener.onLaunchStack(getView().getActivity(), bundle);
     }
 
     public void onLaunchSearchTinker() {
         Bundle bundle = new Bundle();
-        bundle.putSerializable(StackActivity.STACK_TYPE, StackActivity.Stack.LINKER);
+        bundle.putSerializable(StackActivity.STACK_TYPE, StackCard.LINKER);
         listener.onLaunchStack(getView().getActivity(), bundle);
     }
 

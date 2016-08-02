@@ -14,69 +14,76 @@
         android:orientation="horizontal">
 
         <RelativeLayout
-            android:id="@+id/topleft"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@drawable/dragdrop_default_shape">
+            android:layout_weight="1">
 
-            <LinearLayout
+            <RelativeLayout
+                android:id="@+id/topleft"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:background="@color/black_opaque_30"
-                android:gravity="center"
-                android:orientation="vertical">
+                android:background="@drawable/dragdrop_default_shape">
 
-                <com.cronosgroup.tinkerlink.view.customviews.TLImageView
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/newsfeed_crearcard_net" />
+                    android:gravity="center"
+                    android:orientation="vertical">
 
-                <com.cronosgroup.tinkerlink.view.customviews.TLTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/drag_drop_watch_network"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/text_size_mediun"
-                    app:fontName="Light" />
+                    <com.cronosgroup.tinkerlink.view.customviews.TLImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/newsfeed_crearcard_net" />
 
-            </LinearLayout>
+                    <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/drag_drop_watch_network"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_mediun"
+                        app:fontName="Light" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
 
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/topright"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@drawable/dragdrop_default_shape">
+            android:layout_weight="1">
 
-            <LinearLayout
+            <RelativeLayout
+                android:id="@+id/topright"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:background="@color/black_opaque_30"
-                android:gravity="center"
-                android:orientation="vertical">
+                android:background="@drawable/dragdrop_default_shape">
 
-                <com.cronosgroup.tinkerlink.view.customviews.TLImageView
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/newsfeed_crearcard_net" />
+                    android:gravity="center"
+                    android:orientation="vertical">
 
-                <com.cronosgroup.tinkerlink.view.customviews.TLTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/drag_drop_watch_profile"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/text_size_mediun"
-                    app:fontName="Light" />
-            </LinearLayout>
+                    <com.cronosgroup.tinkerlink.view.customviews.TLImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/newsfeed_crearcard_net" />
 
+                    <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/drag_drop_watch_profile"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_mediun"
+                        app:fontName="Light" />
+                </LinearLayout>
 
+            </RelativeLayout>
         </RelativeLayout>
-
     </LinearLayout>
 
     <LinearLayout
@@ -86,68 +93,75 @@
         android:orientation="horizontal">
 
         <RelativeLayout
-            android:id="@+id/bottomleft"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@drawable/dragdrop_default_shape">
+            android:layout_weight="1">
 
-            <LinearLayout
+            <RelativeLayout
+                android:id="@+id/bottomleft"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:background="@color/black_opaque_30"
-                android:gravity="center"
-                android:orientation="vertical">
+                android:background="@drawable/dragdrop_default_shape">
 
-                <com.cronosgroup.tinkerlink.view.customviews.TLImageView
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/newsfeed_crearcard_net" />
+                    android:gravity="center"
+                    android:orientation="vertical">
 
-                <com.cronosgroup.tinkerlink.view.customviews.TLTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/drag_drop_share"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/text_size_mediun"
-                    app:fontName="Light" />
+                    <com.cronosgroup.tinkerlink.view.customviews.TLImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/newsfeed_crearcard_net" />
 
-            </LinearLayout>
+                    <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/drag_drop_share"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_mediun"
+                        app:fontName="Light" />
+
+                </LinearLayout>
+            </RelativeLayout>
+
 
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/bottomright"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@drawable/dragdrop_default_shape">
+            android:layout_weight="1">
 
-            <LinearLayout
+            <RelativeLayout
+                android:id="@+id/bottomright"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:background="@color/black_opaque_30"
-                android:gravity="center"
-                android:orientation="vertical">
+                android:background="@drawable/dragdrop_default_shape">
 
-                <com.cronosgroup.tinkerlink.view.customviews.TLImageView
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/newsfeed_crearcard_net" />
+                    android:gravity="center"
+                    android:orientation="vertical">
 
-                <com.cronosgroup.tinkerlink.view.customviews.TLTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/drag_drop_write_message"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/text_size_mediun"
-                    app:fontName="Light" />
+                    <com.cronosgroup.tinkerlink.view.customviews.TLImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/newsfeed_crearcard_net" />
 
-            </LinearLayout>
+                    <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/drag_drop_write_message"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_mediun"
+                        app:fontName="Light" />
 
+                </LinearLayout>
+            </RelativeLayout>
         </RelativeLayout>
-
     </LinearLayout>
 </LinearLayout>
