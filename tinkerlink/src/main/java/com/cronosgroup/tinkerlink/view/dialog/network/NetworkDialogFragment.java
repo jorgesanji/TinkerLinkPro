@@ -6,7 +6,7 @@ import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestNetwork;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestUser;
 import com.cronosgroup.tinkerlink.presenter.network.NetworkPresenter;
 import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
-import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkDialogFragment;
+import com.cronosgroup.tinkerlink.view.dialog.base.MVPTinkerLinkDialogFragment;
 
 import java.util.List;
 

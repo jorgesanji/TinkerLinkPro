@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestStudy;
-import com.cronosgroup.tinkerlink.view.base.TinkerDialogFragment;
+import com.cronosgroup.tinkerlink.view.dialog.base.TinkerDialogFragment;
 
 /**
  * Created by jorgesanmartin on 10/26/15.

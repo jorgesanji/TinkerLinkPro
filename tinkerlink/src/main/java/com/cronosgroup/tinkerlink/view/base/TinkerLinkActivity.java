@@ -32,7 +32,7 @@ public abstract class TinkerLinkActivity<F extends MVPTinkerLinkFragment> extend
 
     public enum StyleToolBar {
         DEFAULTSTYLE(1, 0, R.color.white, R.string.app_name, R.color.black, R.drawable.background_loader, R.mipmap.ic_tinker, R.color.tinkercolor),
-        LINKERSTYLE(2, 0, R.color.linkercolor, R.string.profile_new_linker_card, R.color.white, R.drawable.background_linker_loader, 0, R.color.linkercolor),
+        LINKERSTYLE(2, 0, R.color.linkercolor, R.string.profile_new_linker_card, R.color.white, R.drawable.background_loader, 0, R.color.linkercolor),
         TINKERSTYLE(3, 0, R.color.tinkercolor, R.string.profile_new_tinker_card, R.color.white, R.drawable.background_loader, 0, R.color.tinkercolor),
         RECOMMENDATIONS(4, 0, R.color.yellow, R.string.profile_request_recommendation, R.color.black, R.drawable.background_loader, 0, R.color.yellow);
 

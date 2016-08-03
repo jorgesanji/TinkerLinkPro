@@ -7,14 +7,13 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
-import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.SearchView;
 
 import com.cronosgroup.core.view.BaseAdapter;
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestCountry;
 import com.cronosgroup.tinkerlink.view.customviews.TLLinearLayout;
+import com.cronosgroup.tinkerlink.view.customviews.TLSearchView;
 import com.cronosgroup.tinkerlink.view.dialog.country.adapter.CountryAdapter;
 
 import java.util.List;
@@ -41,13 +40,13 @@ public class CountryDialogScreen extends TLLinearLayout {
 
     // Views
     @BindView(R.id.list)
-    RecyclerView mRecyclerListView;
+    protected RecyclerView mRecyclerListView;
 
     @BindView(R.id.searchView)
-    SearchView mSearchView;
+    protected TLSearchView mSearchView;
 
     @BindView(R.id.containerView)
-    LinearLayout mCountryContainer;
+    protected LinearLayout mCountryContainer;
 
     /**
      * @param context
@@ -106,14 +105,14 @@ public class CountryDialogScreen extends TLLinearLayout {
 //        mSearchView.setIconified(false);
 //        mSearchView.requestFocus();
 //        mSearchView.requestFocusFromTouch();
-        int id = mSearchView.getContext().getResources().getIdentifier("android:id/search_src_text", null, null);
-        EditText edit = (EditText) mSearchView.findViewById(id);
-        if (edit != null) {
-            edit.setHintTextColor(getResources().getColor(R.color.gray_30));
-            edit.setTextColor(getContext().getResources().getColor(R.color.black));
-        }
+//        int id = mSearchView.getContext().getResources().getIdentifier("android:id/search_src_text", null, null);
+//        EditText edit = (EditText) mSearchView.findViewById(id);
+//        if (edit != null) {
+//            edit.setHintTextColor(getResources().getColor(R.color.gray_30));
+//            edit.setTextColor(getContext().getResources().getColor(R.color.black));
+//        }
 
-        mSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+        mSearchView.setOnQueryTextListener(new android.support.v7.widget.SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
                 return false;
@@ -125,7 +124,6 @@ public class CountryDialogScreen extends TLLinearLayout {
                 return false;
             }
         });
-
     }
 
     private void initRecyclerView() {

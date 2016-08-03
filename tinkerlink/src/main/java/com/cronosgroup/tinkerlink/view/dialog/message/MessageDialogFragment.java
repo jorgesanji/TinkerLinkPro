@@ -5,17 +5,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.cronosgroup.tinkerlink.view.base.TinkerDialogFragment;
+import com.cronosgroup.tinkerlink.view.dialog.base.TinkerDialogFragment;
 
 /**
  * Created by jorgesanmartin on 10/26/15.
  */
 public class MessageDialogFragment extends TinkerDialogFragment implements MessageDialogScreen.Listener {
 
-    public static final String KEY_TITLE = "title";
-    public static final String KEY_DESCRIPTION = "description";
-    public static final String KEY_ICON = "icon";
-
+    // Views
     private MessageDialogScreen messageDialogScreen;
 
     @Override
@@ -25,9 +22,9 @@ public class MessageDialogFragment extends TinkerDialogFragment implements Messa
         messageDialogScreen.setListener(this);
 
         Bundle bundle = getArguments();
-        messageDialogScreen.setTitle(bundle.getString(KEY_TITLE));
-        messageDialogScreen.setDescription(bundle.getString(KEY_DESCRIPTION));
-        messageDialogScreen.setIcon(bundle.getInt(KEY_ICON));
+        messageDialogScreen.setTitle(bundle.getString(TITLE_KEY));
+        messageDialogScreen.setDescription(bundle.getString(DESCRIPTION_KEY));
+        messageDialogScreen.setIcon(bundle.getInt(ICON_KEY));
 
         return messageDialogScreen;
     }

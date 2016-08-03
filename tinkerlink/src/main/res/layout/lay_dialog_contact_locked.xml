@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:layout_margin="@dimen/margin_mediun"
+    android:orientation="vertical">
+
+    <include layout="@layout/lay_title_header" />
+
+    <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+        android:id="@+id/userConfirmMesssage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_mediun"
+        android:layout_marginTop="@dimen/margin_big"
+        android:text="@string/dialog_blockcontact_confirm"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_size_mediun"
+        app:fontName="Regular" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_mediun"
+        android:layout_marginTop="@dimen/margin_big"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:id="@+id/blockContact"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_small"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@string/dialog_blockcontact_block_contact"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_mediun"
+            app:fontName="Regular" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_mediun"
+        android:layout_marginTop="@dimen/margin_big"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:id="@+id/removeContact"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_small"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@string/dialog_blockcontact_remove_contact"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_mediun"
+            app:fontName="Regular" />
+
+    </LinearLayout>
+
+    <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_mediun"
+        android:layout_marginTop="@dimen/margin_big"
+        android:text="@string/dialog_blockcontact_message"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_size_mediun"
+        app:fontName="Light" />
+
+    <include
+        layout="@layout/lay_dialog_buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_big"
+        android:layout_marginTop="@dimen/margin_plus_plus_biggest" />
+
+
+</LinearLayout>

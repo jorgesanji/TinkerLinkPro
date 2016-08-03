@@ -7,7 +7,7 @@ import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.enums.StackCard;
 import com.cronosgroup.tinkerlink.manager.AppPermissionsManager;
 import com.cronosgroup.tinkerlink.view.base.TinkerLinkActivity;
-import com.cronosgroup.tinkerlink.view.stack.main.StackActivity;
+import com.cronosgroup.tinkerlink.view.stack.StackActivity;
 
 import java.util.ArrayList;
 import java.util.List;

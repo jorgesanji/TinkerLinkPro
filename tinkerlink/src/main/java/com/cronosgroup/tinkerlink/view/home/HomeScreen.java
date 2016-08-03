@@ -114,6 +114,7 @@ public class HomeScreen extends RelativeLayout {
     }
 
     private void initUI() {
+        mensajesbt.setActionStatus(true);
         mOverlayMenu.setVisibility(GONE);
     }
 

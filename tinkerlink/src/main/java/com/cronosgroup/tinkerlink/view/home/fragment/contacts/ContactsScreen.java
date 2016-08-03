@@ -6,6 +6,7 @@ import android.os.Build;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentManager;
 import android.util.AttributeSet;
+import android.view.View;
 import android.widget.RelativeLayout;
 
 import com.cronosgroup.tinkerlink.R;
@@ -14,6 +15,7 @@ import com.cronosgroup.tinkerlink.view.home.fragment.contacts.adapter.ContactsAd
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Main contacts view.
@@ -39,6 +41,9 @@ public class ContactsScreen extends RelativeLayout {
 
     @BindView(R.id.pager)
     protected TLViewPager mPager;
+
+    @BindView(R.id.introScreen)
+    protected View mIntroView;
 
     /**
      * @param context
@@ -91,6 +96,7 @@ public class ContactsScreen extends RelativeLayout {
     }
 
     private void initUI() {
+        mPager.setDisableSwipe(true);
         mTab.setTabTextColors(getResources().getColor(R.color.black_opaque), getResources().getColor(R.color.black_opaque));
         mTab.setupWithViewPager(mPager);
         mPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(mTab));
@@ -112,6 +118,11 @@ public class ContactsScreen extends RelativeLayout {
 
     // **************  UI Actions **************
 
+    @OnClick(R.id.continueButton)
+    protected void continuePressed() {
+        mIntroView.setVisibility(GONE);
+        mPager.setDisableSwipe(false);
+    }
 
     // Public methods
 

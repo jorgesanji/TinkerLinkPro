@@ -170,11 +170,6 @@
             android:layout_marginLeft="@dimen/margin_small"
             android:gravity="center_vertical"
             android:maxLines="1"
-            android:shadowColor="@color/black"
-            android:shadowDx="0.0"
-            android:shadowDy="0.1"
-            android:shadowRadius="1.0"
-            android:text="@string/profile_title"
             android:textColor="@color/black"
             android:textSize="@dimen/text_size_big"
             app:fontName="SemiBold" />

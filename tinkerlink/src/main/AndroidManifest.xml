@@ -125,7 +125,7 @@
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".view.stack.main.StackActivity"
+            android:name=".view.stack.StackActivity"
             android:screenOrientation="portrait" />
 
         <activity
@@ -133,17 +133,8 @@
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".view.stack.detail.DetailStackActivity"
-            android:screenOrientation="portrait" />
-
-        <activity
             android:name=".view.sign.SignActivity"
             android:screenOrientation="portrait" />
-
-        <activity
-            android:name=".view.dialog.network.NetworkActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/ActivityTransparentTheme" />
 
         <activity
             android:name=".view.config.main.ConfigActivity"

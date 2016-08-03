@@ -6,7 +6,7 @@ import android.view.View;
 
 import com.cronosgroup.tinkerlink.presenter.dialog.places.DialogPlacesPresenter;
 import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
-import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkDialogFragment;
+import com.cronosgroup.tinkerlink.view.dialog.base.MVPTinkerLinkDialogFragment;
 
 import java.util.List;
 

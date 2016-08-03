@@ -9,7 +9,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.SearchView;
 
@@ -30,7 +29,7 @@ import butterknife.OnClick;
 public class PlacesDialogScreen extends TLLinearLayout {
 
     /**
-     * listeners of the PlacesDialog's screen.
+     * listeners  PlacesDialog's screen.
      */
     public interface Listener {
         void onItemSelected(Address selected);
@@ -62,17 +61,15 @@ public class PlacesDialogScreen extends TLLinearLayout {
      * @param context
      */
     public PlacesDialogScreen(Context context, Listener listener) {
-        super(context);
+        this(context, (AttributeSet) null);
         this.listener = listener;
-        init();
     }
 
     /**
      * @param context
      */
     public PlacesDialogScreen(Context context) {
-        super(context);
-        init();
+        this(context, (AttributeSet) null);
     }
 
     /**
@@ -89,8 +86,7 @@ public class PlacesDialogScreen extends TLLinearLayout {
      * @param defStyleAttr
      */
     public PlacesDialogScreen(Context context, AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-        init();
+        this(context, attrs, defStyleAttr, 0);
     }
 
     /**
@@ -108,12 +104,16 @@ public class PlacesDialogScreen extends TLLinearLayout {
     private void init() {
         inflate(getContext(), R.layout.lay_dialog_places, this);
         ButterKnife.bind(this);
-        mPlacesContainer.setVisibility(INVISIBLE);
-        mProgressBar.setVisibility(GONE);
+        initUI();
         initRecyclerView();
         initAdapter();
-        initSearchView();
-        initSearchViewListener();
+        initListeners();
+    }
+
+    private void initUI() {
+        mPlacesContainer.setVisibility(INVISIBLE);
+        mProgressBar.setVisibility(GONE);
+        mSearchView.setQueryHint(getResources().getString(R.string.create_search_place_hint));
     }
 
     private void initRecyclerView() {
@@ -122,22 +122,18 @@ public class PlacesDialogScreen extends TLLinearLayout {
         mRecyclerListView.setItemAnimator(new DefaultItemAnimator());
     }
 
-    private void initSearchView() {
-//        mSearchView.setFocusable(true);
-//        mSearchView.setIconified(false);
-//        mSearchView.requestFocus();
-//        mSearchView.requestFocusFromTouch();
-        mSearchView.setQueryHint(getResources().getString(R.string.create_search_place_hint));
-
-        int id = mSearchView.getContext().getResources().getIdentifier("android:id/search_src_text", null, null);
-        EditText edit = (EditText) mSearchView.findViewById(id);
-        if (edit != null) {
-            edit.setHintTextColor(getResources().getColor(R.color.black_opaque));
-            edit.setTextColor(getContext().getResources().getColor(R.color.tinkercolor));
-        }
+    private void initAdapter() {
+        mAdapter = new PlaceAutoCompleteAdapter();
+        mRecyclerListView.setAdapter(mAdapter);
     }
 
-    private void initSearchViewListener() {
+    private void initListeners() {
+        mAdapter.setClickListener(new BaseAdapter.CLickListener() {
+            @Override
+            public void onItemSelected(int position) {
+                listener.onItemSelected(mAdapter.getItems().get(position));
+            }
+        });
 
         mSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -151,17 +147,6 @@ public class PlacesDialogScreen extends TLLinearLayout {
                 return false;
             }
         });
-    }
-
-    private void initAdapter() {
-        mAdapter = new PlaceAutoCompleteAdapter();
-        mAdapter.setClickListener(new BaseAdapter.CLickListener() {
-            @Override
-            public void onItemSelected(int position) {
-                listener.onItemSelected(mAdapter.getItems().get(position));
-            }
-        });
-        mRecyclerListView.setAdapter(mAdapter);
     }
 
     // Actions

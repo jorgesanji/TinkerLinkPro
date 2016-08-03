@@ -25,7 +25,7 @@ public class DragDropScreen extends RelativeLayout {
 
         void onShare();
 
-        void onSendMessage();
+        void onWritteMessage();
 
         void onCloseDragView();
     }
@@ -108,7 +108,7 @@ public class DragDropScreen extends RelativeLayout {
                 } else if (container == mShareContainer) {
                     listener.onShare();
                 } else if (container == mSendMessageContainer) {
-                    listener.onSendMessage();
+                    listener.onWritteMessage();
                 }
 
                 target.setVisibility(View.VISIBLE);

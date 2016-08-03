@@ -8,16 +8,16 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.inputmethod.EditorInfo;
-import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.SearchView;
 
 import com.cronosgroup.core.view.BaseAdapter;
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestCategoria;
+import com.cronosgroup.tinkerlink.view.customviews.TLSearchView;
 import com.cronosgroup.tinkerlink.view.dialog.category.adapter.CategoryAdapter;
 
 import java.util.List;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -38,26 +38,25 @@ public class CategoryDialogScreen extends LinearLayout {
 
     // Views
     @BindView(R.id.list)
-    RecyclerView mRecyclerListView;
+    protected RecyclerView mRecyclerListView;
 
     @BindView(R.id.searchView)
-    SearchView mSearchView;
+    protected TLSearchView mSearchView;
 
     /**
      * @param context
      */
     public CategoryDialogScreen(Context context, boolean isLinkerCard, Listener listener) {
-        super(context);
+        this(context);
         this.listener = listener;
         this.isLinkerCard = isLinkerCard;
-        init();
     }
 
     /**
      * @param context
      */
     public CategoryDialogScreen(Context context) {
-        super(context);
+        this(context, null);
         init();
     }
 
@@ -75,8 +74,7 @@ public class CategoryDialogScreen extends LinearLayout {
      * @param defStyleAttr
      */
     public CategoryDialogScreen(Context context, AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-        init();
+        this(context, attrs, defStyleAttr, 0);
     }
 
     /**
@@ -99,25 +97,13 @@ public class CategoryDialogScreen extends LinearLayout {
     }
 
     private void initUI() {
-        mSearchView.setFocusable(true);
-        mSearchView.setIconified(false);
-        mSearchView.requestFocus();
-        mSearchView.requestFocusFromTouch();
         mSearchView.setQueryHint(getResources().getString(R.string.create_search_hint));
-
-        int id = mSearchView.getContext().getResources().getIdentifier("android:id/search_src_text", null, null);
-        EditText edit = (EditText) mSearchView.findViewById(id);
-        if (edit != null) {
-            edit.setHintTextColor(getResources().getColor(R.color.gray_30));
-            edit.setTextColor(getContext().getResources().getColor(R.color.black));
-        }
         mSearchView.setImeOptions(EditorInfo.IME_ACTION_DONE);
     }
 
-
     private void initListeners() {
 
-        mSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+        mSearchView.setOnQueryTextListener(new android.support.v7.widget.SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
                 RestCategoria restCategoria = new RestCategoria();

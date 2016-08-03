@@ -6,7 +6,7 @@ import android.os.Bundle;
 import com.cronosgroup.tinkerlink.enums.StackCard;
 import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenter;
 import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenterView;
-import com.cronosgroup.tinkerlink.view.stack.main.StackActivity;
+import com.cronosgroup.tinkerlink.view.stack.StackActivity;
 
 /**
  * Created by jorgesanmartin on 3/6/16.

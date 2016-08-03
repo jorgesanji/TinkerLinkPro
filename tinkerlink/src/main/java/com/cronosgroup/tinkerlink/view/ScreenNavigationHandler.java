@@ -5,14 +5,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 
-import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.presenter.account.AccountPresenter;
 import com.cronosgroup.tinkerlink.presenter.changepassword.ChangePasswordPresenter;
 import com.cronosgroup.tinkerlink.presenter.changephonenumber.ChangePhoneNumberPresenter;
 import com.cronosgroup.tinkerlink.presenter.chatuser.ChatUserPresenter;
 import com.cronosgroup.tinkerlink.presenter.config.ConfigPresenter;
 import com.cronosgroup.tinkerlink.presenter.contacts.ContactsPresenter;
-import com.cronosgroup.tinkerlink.presenter.contacts.ContactsUserPresenter;
+import com.cronosgroup.tinkerlink.presenter.contacts.MyContactsPresenter;
+import com.cronosgroup.tinkerlink.presenter.contacts.RequestContactsPresenter;
 import com.cronosgroup.tinkerlink.presenter.createcard.CategorySelectionPresenter;
 import com.cronosgroup.tinkerlink.presenter.createcard.CreateCardPresenter;
 import com.cronosgroup.tinkerlink.presenter.createcard.ExperienceSelectionPresenter;
@@ -85,8 +85,7 @@ import com.cronosgroup.tinkerlink.view.profile.ProfileActivity;
 import com.cronosgroup.tinkerlink.view.recommendations.RecommendationsActivity;
 import com.cronosgroup.tinkerlink.view.searchcard.SearchCardActivity;
 import com.cronosgroup.tinkerlink.view.sign.SignActivity;
-import com.cronosgroup.tinkerlink.view.stack.detail.DetailStackActivity;
-import com.cronosgroup.tinkerlink.view.stack.main.StackActivity;
+import com.cronosgroup.tinkerlink.view.stack.StackActivity;
 import com.cronosgroup.tinkerlink.view.usercontacts.UserContactsActivity;
 
 /**
@@ -115,7 +114,8 @@ public final class ScreenNavigationHandler implements HomePresenter.Actions,
         UserContactsPresenter.Actions, AllUserContactsPresenter.Actions, DrargDropPresenter.Actions,
         DialogOccupationPresenter.Actions, DialogCountryPresenter.Actions,
         DialogPlacesPresenter.Actions, SearchCardPresenter.Actions, FilterCardsPresenter.Actions,
-        CardRecommendationsPresenter.Actions, SharePresenter.Actions, ContactsUserPresenter.Actions {
+        CardRecommendationsPresenter.Actions, SharePresenter.Actions, MyContactsPresenter.Actions,
+        RequestContactsPresenter.Actions {
 
     //Instance
     private static ScreenNavigationHandler instance = null;
@@ -191,9 +191,6 @@ public final class ScreenNavigationHandler implements HomePresenter.Actions,
         return newTask(context, StackActivity.class, bundle);
     }
 
-    private static Intent detailStack(Activity context, Bundle bundle) {
-        return newTask(context, DetailStackActivity.class, bundle);
-    }
 
     private static Intent detailCard(Activity context, Bundle bundle) {
         return newTask(context, DetailCardActivity.class, bundle);
@@ -312,13 +309,6 @@ public final class ScreenNavigationHandler implements HomePresenter.Actions,
     @Override
     public void onLaunchStack(Activity activity, Bundle bundle) {
         startActivity(activity, stack(activity, bundle));
-    }
-
-    // ------------------------ DETAIL CARD -----------------------------------
-
-    @Override
-    public void onLaunchDetailStack(Activity activity, Bundle bundle) {
-        startActivity(activity, R.anim.anim_activity_up, R.anim.anim_activity_stay, detailStack(activity, bundle));
     }
 
     // ------------------------ STACK -----------------------------------

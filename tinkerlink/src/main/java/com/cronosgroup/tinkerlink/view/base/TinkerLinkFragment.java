@@ -5,7 +5,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatDialogFragment;
 
+import com.cronosgroup.tinkerlink.view.dialog.base.TinkerDialogFragment;
 import com.cronosgroup.tinkerlink.view.dialog.message.MessageDialogFragment;
+import com.cronosgroup.tinkerlink.view.dialog.messageoptions.MessageOptionsDialogFragment;
 
 /**
  * Created by jorgesanmartin on 7/28/16.
@@ -41,14 +43,36 @@ public class TinkerLinkFragment extends Fragment {
 
     public void showDialogMessage(String title, String description, int icon) {
         Bundle bundle = new Bundle();
-        bundle.putString(MessageDialogFragment.KEY_TITLE, title);
-        bundle.putString(MessageDialogFragment.KEY_DESCRIPTION, description);
-        bundle.putInt(MessageDialogFragment.KEY_ICON, icon);
+        bundle.putString(TinkerDialogFragment.TITLE_KEY, title);
+        bundle.putString(TinkerDialogFragment.DESCRIPTION_KEY, description);
+        bundle.putInt(TinkerDialogFragment.ICON_KEY, icon);
         addDialogFragment(MessageDialogFragment.class, 0, bundle);
     }
 
     public void showDialogMessage(int title, int description, int icon) {
         showDialogMessage(getString(title), getString(description), icon);
+    }
+
+    public void showDialogMessageOptions(String title, String description, String actionButtonText, Bundle bundle) {
+        if (bundle != null) {
+            bundle = new Bundle();
+        }
+        bundle.putString(TinkerDialogFragment.TITLE_KEY, title);
+        bundle.putString(TinkerDialogFragment.DESCRIPTION_KEY, description);
+        bundle.putString(TinkerDialogFragment.ACTION_BUTTON_KEY, actionButtonText);
+        addDialogFragment(MessageOptionsDialogFragment.class, MessageOptionsDialogFragment.CODE, bundle);
+    }
+
+    public void showDialogMessageOptions(String title, String description, Bundle bundle) {
+        showDialogMessageOptions(title, description, null, bundle);
+    }
+
+    public void showDialogMessageOptions(int title, int description) {
+        showDialogMessageOptions(getString(title), getString(description), null, null);
+    }
+
+    public void showDialogMessageOptions(int title, int description, Bundle bundle) {
+        showDialogMessageOptions(getString(title), getString(description), null, bundle);
     }
 
     public void removeFragment(String tag) {

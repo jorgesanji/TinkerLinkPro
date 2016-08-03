@@ -1,0 +1,16 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".view.">
+    <item
+        android:id="@+id/action_writte_message"
+        android:title="@string/contacts_popup_writte_message" />
+
+    <item
+        android:id="@+id/action_remove_contact"
+        android:title="@string/contacts_popup_remove_contact" />
+
+    <item
+        android:id="@+id/action_block_contact"
+        android:title="@string/contacts_popup_block_contact" />
+
+</menu>

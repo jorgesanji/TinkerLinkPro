@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                android:id="@+id/requestContactsMessage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_mediun"
+                android:layout_marginTop="@dimen/margin_mediun"
+                android:gravity="center_vertical"
+                android:text="@string/request_contacts_new_request_contacts"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_mediun"
+                app:fontName="Regular" />
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_mediun"
+                android:layout_marginRight="@dimen/margin_mediun">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <com.cronosgroup.tinkerlink.view.customviews.TLContactSuggestionView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <com.cronosgroup.tinkerlink.view.customviews.TLContactSuggestionView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/margin_small" />
+
+                    <com.cronosgroup.tinkerlink.view.customviews.TLContactSuggestionView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/margin_small" />
+
+                    <com.cronosgroup.tinkerlink.view.customviews.TLContactSuggestionView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/margin_small" />
+
+                    <com.cronosgroup.tinkerlink.view.customviews.TLContactSuggestionView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/margin_small" />
+                </LinearLayout>
+
+            </HorizontalScrollView>
+
+            <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                android:id="@+id/suggestionsContactsMessage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_mediun"
+                android:gravity="center_vertical"
+                android:text="@string/request_contacts_suggestion_contacts"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_mediun"
+                app:fontName="Regular" />
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_big"
+                android:layout_marginRight="@dimen/margin_big">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <com.cronosgroup.tinkerlink.view.customviews.TLContactView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <com.cronosgroup.tinkerlink.view.customviews.TLContactView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/margin_small" />
+
+                    <com.cronosgroup.tinkerlink.view.customviews.TLContactView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/margin_small" />
+
+                    <com.cronosgroup.tinkerlink.view.customviews.TLContactView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/margin_small" />
+
+                    <com.cronosgroup.tinkerlink.view.customviews.TLContactView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/margin_small" />
+                </LinearLayout>
+
+            </HorizontalScrollView>
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+å
+</LinearLayout>

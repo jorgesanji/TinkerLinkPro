@@ -12,7 +12,7 @@ import com.cronosgroup.tinkerlink.model.business.logic.NewsFeedUseCases;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
 import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenter;
 import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenterView;
-import com.cronosgroup.tinkerlink.view.stack.main.StackActivity;
+import com.cronosgroup.tinkerlink.view.stack.StackActivity;
 
 import java.util.List;
 

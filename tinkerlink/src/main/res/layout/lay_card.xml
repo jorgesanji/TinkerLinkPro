@@ -31,8 +31,8 @@
 
                 <com.cronosgroup.tinkerlink.view.customviews.TLImageView
                     android:id="@+id/userCardImage"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
+                    android:layout_width="@dimen/view_max_height"
+                    android:layout_height="@dimen/view_max_height"
                     android:scaleType="centerCrop"
                     app:imageRounded="true"
                     app:imageType="User"
@@ -151,7 +151,7 @@
         android:padding="4dp"
         android:visibility="gone">
 
-        <com.cronosgroup.tinkerlink.view.stack.main.adapter.card.recommendations.CardRecommnedationsScreen
+        <com.cronosgroup.tinkerlink.view.stack.adapter.card.recommendations.CardRecommnedationsScreen
             android:id="@+id/cardRecommendations"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />

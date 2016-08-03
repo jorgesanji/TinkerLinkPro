@@ -24,6 +24,10 @@ public class TLCommonContactsView extends RelativeLayout {
 
     //Vars
 
+    //Properties
+
+    private boolean showstatusContact;
+
     //Views
     @BindView(R.id.contact1)
     protected TLImageView mContact1;
@@ -92,7 +96,7 @@ public class TLCommonContactsView extends RelativeLayout {
             TypedArray attributes = null;
             try {
                 attributes = getContext().obtainStyledAttributes(attributeSet, R.styleable.TLCommonContactsView);
-                showStatusContact(attributes.getBoolean(R.styleable.TLCommonContactsView_showStatusContact, true));
+                setShowstatusContact(attributes.getBoolean(R.styleable.TLCommonContactsView_showStatusContact, true));
             } catch (Exception ex) {
             } finally {
                 if (attributes != null) {
@@ -102,14 +106,19 @@ public class TLCommonContactsView extends RelativeLayout {
         }
     }
 
+    private void setParamsContainer(boolean wrContent) {
+        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(wrContent ? ViewGroup.LayoutParams.WRAP_CONTENT : Math.round(DimenUtils.getPixelsFromDp(getContext(), 50)), ViewGroup.LayoutParams.WRAP_CONTENT);
+        params.leftMargin = isShowstatusContact() ? Math.round(DimenUtils.getPixelsFromDp(getContext(), 100)) : 0;
+        params.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+        params.addRule(RelativeLayout.CENTER_VERTICAL);
+        mcontainerCommon.setLayoutParams(params);
+    }
+
     //Public methods
 
     public void setContacts(List<RestContacto> contacts) {
         if (!contacts.isEmpty()) {
-            RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-            params.leftMargin = Math.round(DimenUtils.getPixelsFromDp(getContext(), 50));
-            mcontainerCommon.setLayoutParams(params);
-
+            setParamsContainer(true);
             mContactsContainer.setVisibility(VISIBLE);
             mNumberContacts.setVisibility(VISIBLE);
             String numberContacts = contacts.size() > 4 ? "+" + String.valueOf(contacts.size() - 4) + " " : "";
@@ -124,8 +133,13 @@ public class TLCommonContactsView extends RelativeLayout {
         }
     }
 
-    public void showStatusContact(boolean showstatus) {
-        mUserStatusContact.setVisibility(showstatus ? VISIBLE : GONE);
+    public boolean isShowstatusContact() {
+        return showstatusContact;
     }
 
+    public void setShowstatusContact(boolean showstatusContact) {
+        this.showstatusContact = showstatusContact;
+        mUserStatusContact.setVisibility(showstatusContact ? VISIBLE : GONE);
+        setParamsContainer(false);
+    }
 }

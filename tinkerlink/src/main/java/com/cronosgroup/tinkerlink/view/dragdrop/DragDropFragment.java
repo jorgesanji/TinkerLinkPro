@@ -66,7 +66,7 @@ public class DragDropFragment extends MVPTinkerLinkFragment<DrargDropPresenter, 
     }
 
     @Override
-    public void onSendMessage() {
+    public void onWritteMessage() {
         getPresenter().onLaunchSendMessage();
     }
 

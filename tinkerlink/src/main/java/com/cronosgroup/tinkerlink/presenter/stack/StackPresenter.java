@@ -14,10 +14,9 @@ import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenter;
 import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenterView;
 import com.cronosgroup.tinkerlink.utils.AsyncLoader;
 import com.cronosgroup.tinkerlink.view.chatuser.ChatUserActivity;
-import com.cronosgroup.tinkerlink.view.stack.detail.DetailStackActivity;
-import com.cronosgroup.tinkerlink.view.stack.main.StackActivity;
+import com.cronosgroup.tinkerlink.view.detailcard.DetailCardActivity;
+import com.cronosgroup.tinkerlink.view.stack.StackActivity;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,7 +51,7 @@ public class StackPresenter extends TinkerLinkPresenter<StackPresenter.View> {
     public interface Actions {
         void onLaunchStack(Activity activity, Bundle bundle);
 
-        void onLaunchDetailStack(Activity activity, Bundle bundle);
+        void onLaunchDetailCard(Activity activity, Bundle bundle);
 
         void onLaunchSearchCards(Activity activity, Bundle bundle);
 
@@ -141,12 +140,12 @@ public class StackPresenter extends TinkerLinkPresenter<StackPresenter.View> {
 //        }
     }
 
-    public void showDetailCards() {
+    public void showDetailCard() {
         Bundle bundle = new Bundle();
-        bundle.putSerializable(DetailStackActivity.STACK_ITEMS, (Serializable) getView().getItems());
+        bundle.putSerializable(DetailCardActivity.KEY_ITEM, getView().getItems().get(getView().getCurrentIndexPage()));
+        bundle.putBoolean(DetailCardActivity.KEY_PUBLISH, false);
         bundle.putSerializable(StackActivity.STACK_TYPE, getView().getType());
-        bundle.putInt(DetailStackActivity.STACK_CURRENT_ITEM, getView().getCurrentIndexPage());
-        listener.onLaunchDetailStack(getView().getActivity(), bundle);
+        listener.onLaunchDetailCard(getView().getActivity(), bundle);
     }
 
     public void onSearchCardsPressed() {
@@ -167,7 +166,7 @@ public class StackPresenter extends TinkerLinkPresenter<StackPresenter.View> {
         listener.onLaunchFilterCars(getView().getActivity(), bundle);
     }
 
-    public void onSendMessagePressed() {
+    public void onWritteMessageSelected() {
         RestProfile restProfile = new RestProfile();
         restProfile.setProfession("Fontanero");
 

@@ -256,4 +256,14 @@
         <attr name="showStatusContact" format="boolean" />
     </declare-styleable>
 
+    <declare-styleable name="TLUserContactView">
+        <attr name="contactType" format="integer">
+            <flag name="Email" value="0" />
+            <flag name="TinkerLinkUsers" value="1" />
+            <flag name="ContactFriends" value="2" />
+            <flag name="Options" value="3" />
+            <flag name="None" value="4" />
+        </attr>
+    </declare-styleable>
+
 </resources>

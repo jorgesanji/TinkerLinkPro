@@ -64,7 +64,7 @@ public class AllUserContactsScreen extends RelativeLayout {
     }
 
     private void init() {
-        inflate(getContext(), R.layout.lay_all_user_contacts, this);
+        inflate(getContext(), R.layout.lay_my_contacts, this);
         ButterKnife.bind(this);
     }
 

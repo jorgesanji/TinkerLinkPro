@@ -784,12 +784,49 @@
     <string name="detail_card_title">Detalle de la card</string>
 
     <!-- CONTACTS -->
+    <string name="contacts_intro_title">Averigua a quién más conoces ya en Tinkerlink</string>
+    <string name="contacts_intro_message">Accedemos periódicamente tus contactos para encontrar a personas de tu red que conoces en Tinkerlink</string>
+    <string name="contacts_continue">CONTINUAR</string>
     <string name="contacts_import_contacts">Importar contactos</string>
     <string name="contacts_search_contacts">Buscar contactos</string>
     <string name="contacts_my_contacts">MIS CONTACTOS (%s)</string>
     <string name="contacts_request_contacts">SOLICITUDES (%s)</string>
+    <string name="contacts_undo">DESHACER</string>
+    <string name="contacts_search_hint">Busca en tu lista de contactos...</string>
+    <string name="contacts_popup_writte_message">Escribir mensaje</string>
+    <string name="contacts_popup_remove_contact">Eliminar contacto</string>
+    <string name="contacts_popup_block_contact">Bloquear contacto</string>
 
 
+    <!-- DIALOG BLOCK CONTACT-->
+    <string name="dialog_blockcontact_title">¿Bloquear contacto?</string>
+    <string name="dialog_blockcontact_confirm">¿Confirmas que quieres bloquear a %s?</string>
+    <string name="dialog_blockcontact_block_contact">Bloquear contacto</string>
+    <string name="dialog_blockcontact_remove_contact">Eliminar de mis contactos</string>
+    <string name="dialog_blockcontact_message">Siempre que desees desbloquear a un contacto puedes hacerlo en la sección Cuenta> configuración> Privacidad </string>
+    <string name="dialog_blockcontact_confirm_title">Confirmar</string>
+
+
+    <!-- DIALOG MESSAGE OPTIONS-->
+    <string name="dialog_message_remove_user_options_title">¿ELiminar contacto?</string>
+    <string name="dialog_message_remove_user_options_message">¿Seguro que quieres eliminar a %s de tu lista de contactos?</string>
+
+    <!-- REQUEST CONTACTS-->
+    <string name="request_contacts_new_request_contacts">Nuevas solicitudes de contacto (%s)</string>
+    <string name="request_contacts_suggestion_contacts">¿Seguro que quieres eliminar a %s de tu lista de contactos?</string>
+
+
+    <!-- DIALOG REPORT-->
+    <string name="dialog_report_title">Ayudanos a entender que sucede</string>
+    <string name="dialog_report_files_content">%s envió archivos ó hizo comentarios sospechosos</string>
+    <string name="dialog_report_sexual_content">%s publicó contenido sexual sospechoso</string>
+    <string name="dialog_report_insult_content">%s está insultando ó amenazando</string>
+    <string name="dialog_report_action_text">REPORTAR CHAT</string>
+
+    <!-- DIALOG  REMOVE CHAT-->
+    <string name="dialog_remove_chat_title">¿Eliminar este chat por completo?</string>
+    <string name="dialog_remove_chat_message">Una vez que elimines tu copia del chat no podras deshacer la acción.</string>
+    <string name="dialog_remove_chat_action_text">ELIMMINAR CHAT</string>
 
 
 

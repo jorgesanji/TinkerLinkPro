@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/topBar"
+        layout="@layout/lay_search_container" />
+
+    <com.cronosgroup.tinkerlink.view.customviews.TLRecyclerView
+        android:id="@+id/contactList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/topBar" />
+
+    <com.cronosgroup.tinkerlink.view.customviews.TLMenuButton
+        android:id="@+id/menuView"
+        style="@style/FloatActionButtonStyle"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        app:menuButtonBackgroundTintColor="@color/tinkercolor"
+        app:menuButtonImageResource="@mipmap/newsfeed_crearcard_net"
+        app:menuButtonStateExpandedImageResource="@mipmap/newsfeed_crearcard_cancelar">
+
+        <com.cronosgroup.tinkerlink.view.customviews.TLMenuItem
+            android:id="@+id/tinkerButton"
+            style="@style/MenuItemStyle"
+            app:menuItemBackgroundTintColor="@color/tinkercolor"
+            app:menuItemImageResource="@mipmap/newsfeed_tinkercard_net"
+            app:menuItemTitle="@string/contacts_search_contacts" />
+
+        <com.cronosgroup.tinkerlink.view.customviews.TLMenuItem
+            android:id="@+id/linkerButton"
+            style="@style/MenuItemStyle"
+            app:menuItemBackgroundTintColor="@color/linkercolor"
+            app:menuItemImageResource="@mipmap/newsfeed_linkercard_net"
+            app:menuItemTitle="@string/contacts_import_contacts" />
+
+    </com.cronosgroup.tinkerlink.view.customviews.TLMenuButton>
+
+</RelativeLayout>

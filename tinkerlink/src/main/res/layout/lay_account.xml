@@ -97,6 +97,4 @@
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
 
-    <include layout="@layout/lay_background_menu" />
-
 </RelativeLayout>

@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <android.widget.SearchView
+        <com.cronosgroup.tinkerlink.view.customviews.TLSearchView
             android:id="@+id/searchView"
             style="@style/SearchStyle"
             android:layout_width="0dp"

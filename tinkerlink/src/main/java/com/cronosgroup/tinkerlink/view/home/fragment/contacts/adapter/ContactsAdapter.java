@@ -6,7 +6,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
 import com.cronosgroup.tinkerlink.R;
-import com.cronosgroup.tinkerlink.view.home.fragment.contacts.adapter.pages.ContactsUserFragment;
+import com.cronosgroup.tinkerlink.view.home.fragment.contacts.adapter.pages.mycontacts.MyContactsFragment;
+import com.cronosgroup.tinkerlink.view.home.fragment.contacts.adapter.pages.requestcontacts.RequestContactsFragment;
 
 /**
  * Created by jorgesanmartin on 7/27/16.
@@ -14,7 +15,7 @@ import com.cronosgroup.tinkerlink.view.home.fragment.contacts.adapter.pages.Cont
 public class ContactsAdapter extends FragmentStatePagerAdapter {
 
     // Vars
-    public static final Class[] fragments = {ContactsUserFragment.class, ContactsUserFragment.class};
+    public static final Class[] fragments = {MyContactsFragment.class, RequestContactsFragment.class};
     public static final int[] titles = {R.string.contacts_my_contacts, R.string.contacts_request_contacts};
 
     private Context mContetxt;

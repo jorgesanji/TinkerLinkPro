@@ -6,7 +6,7 @@ import android.view.View;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestCountry;
 import com.cronosgroup.tinkerlink.presenter.dialog.country.DialogCountryPresenter;
 import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
-import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkDialogFragment;
+import com.cronosgroup.tinkerlink.view.dialog.base.MVPTinkerLinkDialogFragment;
 
 import java.util.List;
 

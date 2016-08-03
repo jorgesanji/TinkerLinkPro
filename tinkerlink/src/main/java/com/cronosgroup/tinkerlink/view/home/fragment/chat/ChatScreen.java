@@ -26,7 +26,7 @@ import butterknife.ButterKnife;
 public class ChatScreen extends RelativeLayout {
 
     /**
-     * listeners of the chat's screen.
+     * listeners chat's screen.
      */
     public interface Listener {
         void onItemClicked(int position);
