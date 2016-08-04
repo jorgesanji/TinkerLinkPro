@@ -41,6 +41,10 @@ public class NewsFeedPresenter extends TinkerLinkPresenter<NewsFeedPresenter.Vie
      */
     public interface Actions {
         void onLaunchStack(Activity activity, Bundle bundle);
+
+        void onLaunchSearchNewsFeed(Activity activity, Bundle bundle);
+
+        void onLaunchUserStatus(Activity activity, Bundle bundle);
     }
 
     /**
@@ -79,6 +83,13 @@ public class NewsFeedPresenter extends TinkerLinkPresenter<NewsFeedPresenter.Vie
 
     //endregion
 
+    public void onLaunchNewsFeed() {
+        listener.onLaunchSearchNewsFeed(getView().getActivity(), null);
+    }
+
+    public void onLaunchUserStatus() {
+        listener.onLaunchUserStatus(getView().getActivity(), null);
+    }
 
     public void onLaunchImTinker() {
         Bundle bundle = new Bundle();

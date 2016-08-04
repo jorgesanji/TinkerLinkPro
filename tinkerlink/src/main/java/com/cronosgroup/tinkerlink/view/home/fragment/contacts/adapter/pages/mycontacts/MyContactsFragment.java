@@ -100,6 +100,16 @@ public class MyContactsFragment extends MVPTinkerLinkFragment<MyContactsPresente
         addDialogFragment(BlockContactsDialogFragment.class, BlockContactsDialogFragment.CODE, bundle);
     }
 
+    @Override
+    public void onImportContactsPressed(){
+        getPresenter().launchImportContacts();
+    }
+
+    @Override
+    public void onSearchContactsPressed() {
+        getPresenter().launchSearchContacts();
+    }
+
     //endregion
 
 }

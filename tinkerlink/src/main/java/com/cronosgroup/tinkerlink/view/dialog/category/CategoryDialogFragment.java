@@ -1,64 +1,84 @@
 package com.cronosgroup.tinkerlink.view.dialog.category;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.FragmentTransaction;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
-import com.cronosgroup.tinkerlink.R;
+import com.cronosgroup.tinkerlink.enums.StackCard;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestCategoria;
-import com.cronosgroup.tinkerlink.view.dialog.base.TinkerDialogFragment;
+import com.cronosgroup.tinkerlink.presenter.category.CategoryPresenter;
+import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
+import com.cronosgroup.tinkerlink.view.dialog.base.MVPTinkerLinkDialogFragment;
+
+import java.util.List;
 
 /**
  * Created by jorgesanmartin on 10/26/15.
  */
-public class CategoryDialogFragment extends TinkerDialogFragment implements CategoryDialogScreen.Listener {
+public class CategoryDialogFragment extends MVPTinkerLinkDialogFragment<CategoryPresenter, CategoryPresenter.View> implements CategoryPresenter.View, CategoryDialogScreen.Listener {
 
+    // Vars
     public static final int CODE = 890;
     public static final String CATEGORY_SELECTED = "CATEGORY_SELECTED";
+    private RestCategoria categoria;
 
+    // Views
     private CategoryDialogScreen categoryDialogScreen;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setStyle(CategoryDialogFragment.STYLE_NO_TITLE, R.style.DialogTheme);
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-
-//        categoryDialogScreen = new CategoryDialogScreen(getActivity(), (getArguments().getInt(StackCard.TYPE_CARD) == StackCardActivity.TYPE_LINKER), this);
-        categoryDialogScreen = new CategoryDialogScreen(getActivity(), true, this);
+    protected View getRootView() {
+        categoryDialogScreen = new CategoryDialogScreen(getActivity(), StackCard.TINKER, this);
         return categoryDialogScreen;
     }
 
     @Override
-    public void onItemSelected(RestCategoria categoria) {
-        sendResult(categoria);
-        FragmentTransaction ft = getFragmentManager().beginTransaction();
-        CategoryDialogFragment prev = (CategoryDialogFragment) getFragmentManager().findFragmentByTag(CategoryDialogFragment.class.toString());
-        if (prev != null) {
-            ft.remove(prev);
-            prev.dismiss();
-        }
-        ft.addToBackStack(null);
+    protected void onDidAppear() {
+        getPresenter().getCategories();
+        categoryDialogScreen.show();
     }
 
-    private void sendResult(RestCategoria country) {
-        Bundle bundle = new Bundle();
-        bundle.putSerializable(CATEGORY_SELECTED, country);
-        Intent intent = new Intent();
-        intent.putExtras(bundle);
-//        getTargetFragment().onActivityResult(
-//                getTargetRequestCode(), CreateStackPresenter.CODE_SELECTED_CATEGORY, intent);
+    //region **************  MVPFragment **************
+
+    @Override
+    protected CategoryPresenter createPresenter() {
+        return new CategoryPresenter(ScreenNavigationHandler.getInstance());
     }
+
+    @Override
+    protected CategoryPresenter.View getPresenterView() {
+        return this;
+    }
+
+    //endregion
+
+    //region **************  CategoryPresenter.View **************
+
+    @Override
+    public void setCategories(List<RestCategoria> list) {
+        categoryDialogScreen.setItems(list);
+    }
+
+    //endregion
+
+    //region **************  CategoryScreen.Listener **************
+
+    @Override
+    public void setCurrentCategorySelected(RestCategoria categoria) {
+        this.categoria = categoria;
+    }
+
+    @Override
+    public void skillSelectAtPosition(int position) {
+        String name = categoria.getHabilidades().get(position);
+        Bundle bundle = new Bundle();
+        bundle.putString(CATEGORY_SELECTED, name);
+        sendResult(bundle, CODE);
+    }
+
+    @Override
+    public void onClosePressed() {
+        dismiss();
+    }
+
+    //endregion
+
 }

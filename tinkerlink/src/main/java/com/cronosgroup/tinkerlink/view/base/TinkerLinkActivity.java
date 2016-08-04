@@ -31,27 +31,24 @@ public abstract class TinkerLinkActivity<F extends MVPTinkerLinkFragment> extend
     // Variables
 
     public enum StyleToolBar {
-        DEFAULTSTYLE(1, 0, R.color.white, R.string.app_name, R.color.black, R.drawable.background_loader, R.mipmap.ic_tinker, R.color.tinkercolor),
-        LINKERSTYLE(2, 0, R.color.linkercolor, R.string.profile_new_linker_card, R.color.white, R.drawable.background_loader, 0, R.color.linkercolor),
-        TINKERSTYLE(3, 0, R.color.tinkercolor, R.string.profile_new_tinker_card, R.color.white, R.drawable.background_loader, 0, R.color.tinkercolor),
-        RECOMMENDATIONS(4, 0, R.color.yellow, R.string.profile_request_recommendation, R.color.black, R.drawable.background_loader, 0, R.color.yellow);
+        HOME(1, R.layout.layout_base_toolbar_white, R.color.white, R.color.black, R.mipmap.ic_tinker, R.color.tinkercolor),
+        DEFAULTSTYLE(1, R.layout.layout_base_toolbar_black_items, R.color.white, R.color.black, 0, R.color.tinkercolor),
+        LINKERSTYLE(2, R.layout.layout_base_toolbar_white_items, R.color.linkercolor, R.color.white, 0, R.color.linkercolor),
+        TINKERSTYLE(3, R.layout.layout_base_toolbar_white_items, R.color.tinkercolor, R.color.white, 0, R.color.tinkercolor),
+        RECOMMENDATIONS(4, R.layout.layout_base_toolbar_black_items, R.color.yellow, R.color.black, 0, R.color.yellow);
 
         private final int style;
-        private final int arrowIcon;
         private final int backgroundColor;
-        private final int text;
         private final int textColor;
-        private final int backgroundLoader;
         private final int icon;
         private final int statusColor;
+        private final int layout;
 
-        StyleToolBar(int style, int arrowIcon, int backgroundColor, int text, int textColor, int backgroundLoader, int icon, int statusColor) {
+        StyleToolBar(int style, int layout, int backgroundColor, int textColor, int icon, int statusColor) {
             this.style = style;
-            this.arrowIcon = arrowIcon;
+            this.layout = layout;
             this.backgroundColor = backgroundColor;
-            this.text = text;
             this.textColor = textColor;
-            this.backgroundLoader = backgroundLoader;
             this.icon = icon;
             this.statusColor = statusColor;
         }
@@ -64,32 +61,24 @@ public abstract class TinkerLinkActivity<F extends MVPTinkerLinkFragment> extend
             return backgroundColor;
         }
 
-        public int getText() {
-            return text;
-        }
-
         public int getTextColor() {
             return textColor;
-        }
-
-        public int getBackgroundLoader() {
-            return backgroundLoader;
         }
 
         public int getStyle() {
             return style;
         }
 
-        public int getArrowIcon() {
-            return arrowIcon;
-        }
-
         public int getStatusColor() {
             return statusColor;
         }
+
+        public int getLayout() {
+            return layout;
+        }
     }
 
-    private Fragment currentFragment;
+    private TinkerLinkFragment currentFragment;
 
     @Inject
     Logger mLooger;
@@ -133,7 +122,7 @@ public abstract class TinkerLinkActivity<F extends MVPTinkerLinkFragment> extend
     @Override
     public View getView() {
         if (view == null) {
-            view = getLayoutInflater().inflate(R.layout.layout_base_toolbar_black, null);
+            view = getLayoutInflater().inflate(getActivityStyle().getLayout(), null);
         }
         return view;
     }
@@ -156,16 +145,12 @@ public abstract class TinkerLinkActivity<F extends MVPTinkerLinkFragment> extend
             configToolBar(style);
             setSupportActionBar(mToolbar);
 
-            if (style.getArrowIcon() != 0) {
-                getSupportActionBar().setHomeAsUpIndicator(style.getArrowIcon());
-            }
-
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
     }
 
     protected void initFragment() {
-        this.currentFragment = Fragment.instantiate(this, getFragment().getName());
+        this.currentFragment = (TinkerLinkFragment) Fragment.instantiate(this, getFragment().getName());
         if (currentFragment != null) {
             currentFragment.setArguments(getIntent().getExtras());
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
@@ -174,11 +159,8 @@ public abstract class TinkerLinkActivity<F extends MVPTinkerLinkFragment> extend
         }
     }
 
-    protected void configToolbar(int backgroundColor, int title, int textColor, int logo) {
+    protected void configToolbar(int backgroundColor, int textColor, int logo) {
         mToolbar.setBackgroundColor(getResources().getColor(backgroundColor));
-        if (title != 0) {
-            mToolbar.setTitle(getResources().getString(title));
-        }
         mToolbar.setTitleTextColor(getResources().getColor(textColor));
         if (logo != 0) {
             mToolbar.setLogo(getResources().getDrawable(logo));
@@ -186,9 +168,9 @@ public abstract class TinkerLinkActivity<F extends MVPTinkerLinkFragment> extend
     }
 
     protected void configToolBar(StyleToolBar style) {
-        configToolbar(style.getBackgroundColor(), style.getText(), style.getTextColor(), style.getIcon());
+        configToolbar(style.getBackgroundColor(), style.getTextColor(), style.getIcon());
         try {
-            mLoader.findViewById(R.id.backgroundColor).setBackgroundResource(style.getBackgroundLoader());
+            mLoader.findViewById(R.id.backgroundColor).setBackgroundResource(R.drawable.background_loader);
         } catch (Exception ex) {
         }
     }
@@ -219,7 +201,7 @@ public abstract class TinkerLinkActivity<F extends MVPTinkerLinkFragment> extend
         });
     }
 
-    protected Fragment getCurrentFragment() {
+    protected TinkerLinkFragment getCurrentFragment() {
         return currentFragment;
     }
 
@@ -255,21 +237,41 @@ public abstract class TinkerLinkActivity<F extends MVPTinkerLinkFragment> extend
     }
 
     @Override
-    public void setTitle(int titleId) {
-        mToolbar.setTitle(titleId);
+    public void setTitle(int title) {
+        getSupportActionBar().setDisplayShowHomeEnabled(false);
+        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setTitle(title);
     }
 
     @Override
     public void setTitle(CharSequence title) {
-        mToolbar.setTitle(title);
+        getSupportActionBar().setDisplayShowHomeEnabled(false);
+        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setTitle(title);
+    }
+
+    public void setSubtitle(CharSequence subtitle) {
+        getSupportActionBar().setSubtitle(subtitle);
+    }
+
+    public void setSubtitle(int subtitle) {
+        getSupportActionBar().setSubtitle(subtitle);
     }
 
     public void setLogo(Drawable resource) {
-        mToolbar.setLogo(resource);
+        getSupportActionBar().setLogo(resource);
     }
 
     public void setLogo(int resource) {
         mToolbar.setLogo(resource);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (getCurrentFragment() != null && getCurrentFragment().onBackPressed()) {
+            return;
+        }
+        super.onBackPressed();
     }
 
 }

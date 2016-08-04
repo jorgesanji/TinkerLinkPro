@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/view_min_size_chat"
+    android:background="@color/white"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <com.cronosgroup.tinkerlink.view.customviews.TLImageView
+        android:id="@+id/cameraButton"
+        android:layout_width="@dimen/view_min_size_chat"
+        android:layout_height="match_parent"
+        android:background="@drawable/button_default_states"
+        android:scaleType="center"
+        android:src="@mipmap/estado_imagen" />
+
+    <com.cronosgroup.tinkerlink.view.customviews.TLImageView
+        android:id="@+id/galleryButton"
+        android:layout_width="@dimen/view_min_size_chat"
+        android:layout_height="match_parent"
+        android:background="@drawable/button_default_states"
+        android:scaleType="center"
+        android:src="@mipmap/estado_galeria" />
+
+</LinearLayout>

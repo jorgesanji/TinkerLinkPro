@@ -7,49 +7,62 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
-import android.view.inputmethod.EditorInfo;
-import android.widget.LinearLayout;
+import android.view.View;
 
-import com.cronosgroup.core.view.BaseAdapter;
+import com.bignerdranch.expandablerecyclerview.Adapter.ExpandableRecyclerAdapter;
 import com.cronosgroup.tinkerlink.R;
+import com.cronosgroup.tinkerlink.enums.StackCard;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestCategoria;
-import com.cronosgroup.tinkerlink.view.customviews.TLSearchView;
-import com.cronosgroup.tinkerlink.view.dialog.category.adapter.CategoryAdapter;
+import com.cronosgroup.tinkerlink.view.customviews.TLLinearLayout;
+import com.cronosgroup.tinkerlink.view.customviews.TLRecyclerView;
+import com.cronosgroup.tinkerlink.view.customviews.TLTextView;
+import com.cronosgroup.tinkerlink.view.sign.adapter.fragments.tlinker.adapter.CategoriesAdapter;
+import com.cronosgroup.tinkerlink.view.sign.adapter.fragments.tlinker.adapter.viewholder.CategoryViewHolder;
 
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Created by jorgesanmartin on 10/26/15.
  */
-public class CategoryDialogScreen extends LinearLayout {
+public class CategoryDialogScreen extends TLLinearLayout {
 
     public interface Listener {
-        void onItemSelected(RestCategoria categoria);
+        void onClosePressed();
+
+        void setCurrentCategorySelected(RestCategoria categoria);
+
+        void skillSelectAtPosition(int position);
     }
 
-    // Variables
-    private CategoryAdapter mAdapter;
+    // Vars
     private Listener listener;
+    private CategoriesAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
-    private boolean isLinkerCard = false;
+    private StackCard typeTinker;
 
     // Views
-    @BindView(R.id.list)
-    protected RecyclerView mRecyclerListView;
+    @BindView(R.id.categoriesList)
+    protected TLRecyclerView mCategoriesList;
 
-    @BindView(R.id.searchView)
-    protected TLSearchView mSearchView;
+    @BindView(R.id.titleDialog)
+    protected TLTextView mTitleDialog;
+
+    @BindView(R.id.containerCategories)
+    protected View mContainerCategories;
+
+    private CategoryViewHolder viewHolderSelected;
 
     /**
      * @param context
      */
-    public CategoryDialogScreen(Context context, boolean isLinkerCard, Listener listener) {
-        this(context);
-        this.listener = listener;
-        this.isLinkerCard = isLinkerCard;
+    public CategoryDialogScreen(Context context, StackCard typeTinker, Listener listener) {
+        this(context, null);
+        setTypeTinker(typeTinker);
+        setListener(listener);
     }
 
     /**
@@ -57,7 +70,6 @@ public class CategoryDialogScreen extends LinearLayout {
      */
     public CategoryDialogScreen(Context context) {
         this(context, null);
-        init();
     }
 
     /**
@@ -90,48 +102,91 @@ public class CategoryDialogScreen extends LinearLayout {
     }
 
     private void init() {
-        inflate(getContext(), R.layout.lay_dialog_country, this);
+        inflate(getContext(), R.layout.lay_dialog_category, this);
         ButterKnife.bind(this);
         initUI();
-        initListeners();
+        initRecyclerView();
     }
 
     private void initUI() {
-        mSearchView.setQueryHint(getResources().getString(R.string.create_search_hint));
-        mSearchView.setImeOptions(EditorInfo.IME_ACTION_DONE);
+        mTitleDialog.setText(getResources().getString(R.string.dialog_category_title));
+    }
+
+    private void initRecyclerView() {
+        mLayoutManager = new LinearLayoutManager(getContext());
+        mCategoriesList.setLayoutManager(mLayoutManager);
+        mCategoriesList.setItemAnimator(new DefaultItemAnimator());
     }
 
     private void initListeners() {
-
-        mSearchView.setOnQueryTextListener(new android.support.v7.widget.SearchView.OnQueryTextListener() {
+        mAdapter.setSkillListener(new CategoriesAdapter.IOSkillListener() {
             @Override
-            public boolean onQueryTextSubmit(String query) {
-                RestCategoria restCategoria = new RestCategoria();
-                restCategoria.setProfesion(query);
-                listener.onItemSelected(restCategoria);
-                return false;
+            public void onSkillSelected(int position) {
+                listener.skillSelectAtPosition(position);
+            }
+        });
+
+        mAdapter.setCategoryListener(new CategoriesAdapter.IOCategoryListener() {
+            @Override
+            public void onCategorySelected(CategoryViewHolder categoryViewHolder) {
+                viewHolderSelected = categoryViewHolder;
+            }
+        });
+
+        mAdapter.setExpandCollapseListener(new ExpandableRecyclerAdapter.ExpandCollapseListener() {
+            @Override
+            public void onListItemExpanded(int position) {
+                if (viewHolderSelected != null) {
+                    viewHolderSelected.collapse();
+                }
+                listener.setCurrentCategorySelected((RestCategoria) mAdapter.getParentItemList().get(position));
             }
 
             @Override
-            public boolean onQueryTextChange(String newText) {
-                mAdapter.getFilter().filter(newText);
-                return false;
+            public void onListItemCollapsed(int position) {
+                viewHolderSelected = null;
             }
         });
     }
 
-    public void setItemsAdapter(List<RestCategoria> restCategoriaList) {
-        mAdapter = new CategoryAdapter(restCategoriaList, isLinkerCard);
-        mLayoutManager = new LinearLayoutManager(getContext());
-        mRecyclerListView.setLayoutManager(mLayoutManager);
-        mRecyclerListView.setItemAnimator(new DefaultItemAnimator());
-        mRecyclerListView.setAdapter(mAdapter);
+    // Actions
 
-        mAdapter.setClickListener(new BaseAdapter.CLickListener() {
-            @Override
-            public void onItemSelected(int position) {
-                listener.onItemSelected(mAdapter.getItems().get(position));
-            }
-        });
+    @OnClick(R.id.closeDialog)
+    protected void onClosePressed() {
+        listener.onClosePressed();
     }
+
+    // Public method
+
+    public Listener getListener() {
+        return listener;
+    }
+
+    public void setListener(Listener listener) {
+        this.listener = listener;
+    }
+
+    public void show() {
+        appear(mContainerCategories);
+    }
+
+    public StackCard getTypeTinker() {
+        return typeTinker;
+    }
+
+    public void setTypeTinker(StackCard typeTinker) {
+        this.typeTinker = typeTinker;
+    }
+
+    public void setItems(List<RestCategoria> restCategorias) {
+        mAdapter = new CategoriesAdapter(restCategorias, getContext());
+        mAdapter.setTypeTinker(getTypeTinker());
+        mCategoriesList.setAdapter(mAdapter);
+        initListeners();
+    }
+
+    public List<RestCategoria> getItems() {
+        return (List<RestCategoria>) mAdapter.getParentItemList();
+    }
+
 }

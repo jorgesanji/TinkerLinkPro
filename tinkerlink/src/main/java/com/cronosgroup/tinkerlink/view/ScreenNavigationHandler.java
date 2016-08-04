@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 
 import com.cronosgroup.tinkerlink.presenter.account.AccountPresenter;
+import com.cronosgroup.tinkerlink.presenter.category.CategoryPresenter;
 import com.cronosgroup.tinkerlink.presenter.changepassword.ChangePasswordPresenter;
 import com.cronosgroup.tinkerlink.presenter.changephonenumber.ChangePhoneNumberPresenter;
 import com.cronosgroup.tinkerlink.presenter.chatuser.ChatUserPresenter;
@@ -46,6 +47,8 @@ import com.cronosgroup.tinkerlink.presenter.profile.UserRecommendationsPresenter
 import com.cronosgroup.tinkerlink.presenter.recommendations.RecommendationsPresenter;
 import com.cronosgroup.tinkerlink.presenter.recoverypassword.RecoveryPasswordPresenter;
 import com.cronosgroup.tinkerlink.presenter.searchcard.SearchCardPresenter;
+import com.cronosgroup.tinkerlink.presenter.searchcontacts.SearchContactsPresenter;
+import com.cronosgroup.tinkerlink.presenter.searchnewsfeed.SearchNewsFeedPresenter;
 import com.cronosgroup.tinkerlink.presenter.share.SharePresenter;
 import com.cronosgroup.tinkerlink.presenter.sign.FormUserPresenter;
 import com.cronosgroup.tinkerlink.presenter.sign.RegisterSelectorPresenter;
@@ -84,8 +87,11 @@ import com.cronosgroup.tinkerlink.view.presignuser.PreSignUserActivity;
 import com.cronosgroup.tinkerlink.view.profile.ProfileActivity;
 import com.cronosgroup.tinkerlink.view.recommendations.RecommendationsActivity;
 import com.cronosgroup.tinkerlink.view.searchcard.SearchCardActivity;
+import com.cronosgroup.tinkerlink.view.searchcontacts.SearchContactsActivity;
+import com.cronosgroup.tinkerlink.view.searchnewsfeed.SearchNewsFeedActivity;
 import com.cronosgroup.tinkerlink.view.sign.SignActivity;
 import com.cronosgroup.tinkerlink.view.stack.StackActivity;
+import com.cronosgroup.tinkerlink.view.status.StatusUserActivity;
 import com.cronosgroup.tinkerlink.view.usercontacts.UserContactsActivity;
 
 /**
@@ -115,7 +121,8 @@ public final class ScreenNavigationHandler implements HomePresenter.Actions,
         DialogOccupationPresenter.Actions, DialogCountryPresenter.Actions,
         DialogPlacesPresenter.Actions, SearchCardPresenter.Actions, FilterCardsPresenter.Actions,
         CardRecommendationsPresenter.Actions, SharePresenter.Actions, MyContactsPresenter.Actions,
-        RequestContactsPresenter.Actions {
+        RequestContactsPresenter.Actions, CategoryPresenter.Actions, SearchNewsFeedPresenter.Actions,
+        SearchContactsPresenter.Actions {
 
     //Instance
     private static ScreenNavigationHandler instance = null;
@@ -276,6 +283,18 @@ public final class ScreenNavigationHandler implements HomePresenter.Actions,
         return newTask(context, UserContactsActivity.class, bundle);
     }
 
+    private static Intent searchNewsFeed(Activity context, Bundle bundle) {
+        return newTask(context, SearchNewsFeedActivity.class, bundle);
+    }
+
+    private static Intent userStatus(Activity context, Bundle bundle) {
+        return newTask(context, StatusUserActivity.class, bundle);
+    }
+
+    private static Intent searchContacts(Activity context, Bundle bundle) {
+        return newTask(context, SearchContactsActivity.class, bundle);
+    }
+
     // ******************************
     //      ACTIONS DEFINITION
     // *************************++***
@@ -311,6 +330,16 @@ public final class ScreenNavigationHandler implements HomePresenter.Actions,
         startActivity(activity, stack(activity, bundle));
     }
 
+    @Override
+    public void onLaunchSearchNewsFeed(Activity activity, Bundle bundle) {
+        startActivity(activity, searchNewsFeed(activity, bundle));
+    }
+
+    @Override
+    public void onLaunchUserStatus(Activity activity, Bundle bundle) {
+        startActivity(activity, userStatus(activity, bundle));
+    }
+
     // ------------------------ STACK -----------------------------------
 
     @Override
@@ -327,9 +356,6 @@ public final class ScreenNavigationHandler implements HomePresenter.Actions,
     public void onLaunchFilterCars(Activity activity, Bundle bundle) {
         startActivity(activity, filterCards(activity, bundle));
     }
-
-    // ------------------------ PROFILE -----------------------------------
-
 
     // ------------------------ ACCOUNT -----------------------------------
 
@@ -431,4 +457,10 @@ public final class ScreenNavigationHandler implements HomePresenter.Actions,
         startActivity(activity, chatUser(activity, bundle));
     }
 
+    // ------------------------ CONTACTS -----------------------------------
+
+    @Override
+    public void onLaunchSearchContacts(Activity activity, Bundle bundle) {
+        startActivity(activity, searchContacts(activity, bundle));
+    }
 }

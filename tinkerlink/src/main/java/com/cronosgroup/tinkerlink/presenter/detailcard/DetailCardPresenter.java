@@ -43,7 +43,7 @@ public class DetailCardPresenter extends TinkerLinkPresenter<DetailCardPresenter
             @Override
             public void run() {
                 if (getView().getActivity() != null) {
-                    getView().showDialogMessage(R.string.create_card_title, R.string.create_card_message, R.mipmap.newsfeed_post_selected);
+                    getView().showDialogMessage(R.string.message_create_card_title, R.string.message_create_card_message, R.mipmap.newsfeed_post_selected);
                     getView().hideLoading();
                     getView().removeActivityDelay();
                 }

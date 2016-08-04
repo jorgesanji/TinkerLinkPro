@@ -67,7 +67,7 @@ public class TLActionButton extends RelativeLayout {
                 attributes = getContext().obtainStyledAttributes(attributeSet, R.styleable.TLActionButton);
                 setActionIcon(attributes.getDrawable(R.styleable.TLActionButton_actionIcon));
                 setActionTitle(attributes.getString(R.styleable.TLActionButton_actionTitle));
-                setActionTitleFont(attributes.getInt(R.styleable.TLActionButton_actionTitleFont, TLTextView.DEFAULT_FONT));
+                setActionTitleFont(attributes.getInt(R.styleable.TLActionButton_actionTitleFont, TLTextView.DEFAULT_TITLE_FONT));
                 setActionStatus(attributes.getBoolean(R.styleable.TLActionButton_actionUpdateStatus, false));
             } catch (Exception ex) {
                 Log.e(TAG, ex.getMessage(), ex);
@@ -121,6 +121,7 @@ public class TLActionButton extends RelativeLayout {
     public void setSelected(boolean selected) {
         super.setSelected(selected);
         title_action.setFontName(selected ? TLTextView.Font.BOLD.getType() : TLTextView.Font.REGULAR.getType());
+        title_action.setTextColor(selected ? getResources().getColor(R.color.tinkercolor) : getResources().getColor(R.color.black));
         iconAction.setSelected(selected);
     }
 }

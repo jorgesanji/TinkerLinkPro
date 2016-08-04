@@ -10,11 +10,11 @@ import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ProgressBar;
-import android.widget.SearchView;
 
 import com.cronosgroup.core.view.BaseAdapter;
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.view.customviews.TLLinearLayout;
+import com.cronosgroup.tinkerlink.view.customviews.TLSearchView;
 import com.cronosgroup.tinkerlink.view.dialog.places.adapter.PlaceAutoCompleteAdapter;
 
 import java.util.List;
@@ -49,7 +49,7 @@ public class PlacesDialogScreen extends TLLinearLayout {
     protected RecyclerView mRecyclerListView;
 
     @BindView(R.id.searchView)
-    protected SearchView mSearchView;
+    protected TLSearchView mSearchView;
 
     @BindView(R.id.containerView)
     protected View mPlacesContainer;
@@ -135,14 +135,14 @@ public class PlacesDialogScreen extends TLLinearLayout {
             }
         });
 
-        mSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+        mSearchView.setOnQueryTextListener(new android.support.v7.widget.SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
                 return false;
             }
 
             @Override
-            public boolean onQueryTextChange(String query) {
+            public boolean onQueryTextChange(String newText) {
                 listener.onSearchPressed();
                 return false;
             }
@@ -151,7 +151,7 @@ public class PlacesDialogScreen extends TLLinearLayout {
 
     // Actions
 
-    @OnClick(R.id.closeButton)
+    @OnClick(R.id.closeDialog)
     protected void closePressed() {
         listener.onClosePressed();
     }

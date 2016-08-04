@@ -84,8 +84,8 @@ public class TLTabItem extends LinearLayout {
                 setIcon(attributes.getDrawable(R.styleable.TLTabItem_iconItem));
                 setText(attributes.getString(R.styleable.TLTabItem_textItem));
                 setTextColor(attributes.getColor(R.styleable.TLTabItem_textItemColor, Color.BLACK));
-                setTextFont(attributes.getInt(R.styleable.TLTabItem_textItemFont, TLTextView.DEFAULT_FONT));
-                setTextSize(attributes.getDimensionPixelSize(R.styleable.TLTabItem_textItemSize, TLTextView.DEFAULT_SIZE));
+                setTextFont(attributes.getInt(R.styleable.TLTabItem_textItemFont, TLTextView.DEFAULT_TITLE_FONT));
+                setTextSize(attributes.getDimensionPixelSize(R.styleable.TLTabItem_textItemSize, TLTextView.DEFAULT_TITLE_SIZE));
             } catch (Exception ex) {
                 Log.e("", ex.getMessage(), ex);
             } finally {

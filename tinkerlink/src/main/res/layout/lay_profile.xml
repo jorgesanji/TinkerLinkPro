@@ -115,7 +115,7 @@
                     android:visibility="visible"
                     app:layout_collapseMode="pin"
                     app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-                    app:theme="@style/ProfileThemeToolbar" />
+                    app:theme="@style/ThemeToolbar" />
 
             </android.support.design.widget.CollapsingToolbarLayout>
 
@@ -156,7 +156,7 @@
         android:orientation="horizontal">
 
         <com.cronosgroup.tinkerlink.view.customviews.TLImageButton
-            android:id="@+id/closeButton"
+            android:id="@+id/closeDialog"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/margin_mediun"

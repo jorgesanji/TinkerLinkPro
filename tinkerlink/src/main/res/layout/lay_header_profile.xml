@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="250dp"
+    android:layout_height="270dp"
     android:background="@color/white">
 
     <include
         layout="@layout/lay_header_card"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="@dimen/margin_plus_biggest" />
+        android:layout_marginBottom="@dimen/margin_plus_plus_biggest" />
 
     <com.cronosgroup.tinkerlink.view.customviews.TLTextView
         android:id="@+id/titleWelcome"
@@ -55,8 +55,8 @@
 
             <com.cronosgroup.tinkerlink.view.customviews.TLImageRoundBorder
                 android:id="@+id/userImage"
-                android:layout_width="@dimen/view_max_height_big"
-                android:layout_height="@dimen/view_max_height_big" />
+                android:layout_width="@dimen/view_size_user"
+                android:layout_height="@dimen/view_size_user" />
 
             <com.cronosgroup.tinkerlink.view.customviews.TLImageButton
                 android:id="@+id/profileUserImage"

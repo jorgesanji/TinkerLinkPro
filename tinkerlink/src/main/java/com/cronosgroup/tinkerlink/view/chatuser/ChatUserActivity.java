@@ -1,7 +1,6 @@
 package com.cronosgroup.tinkerlink.view.chatuser;
 
 import android.os.Bundle;
-import android.view.View;
 
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.manager.AppPermissionsManager;
@@ -27,19 +26,10 @@ public class ChatUserActivity extends TinkerLinkActivity<ChatUserFragment> {
         super.onCreate(savedInstanceState);
         restChat = (RestChat) getIntent().getExtras().getSerializable(ITEMS_KEY);
         final RestUser restUser = restChat.getUser().getUser();
-        getSupportActionBar().setTitle(restUser.getName());
-        getSupportActionBar().setSubtitle(restUser.getProfile().getProfession());
+        setTitle(restUser.getName());
+        setSubtitle(restUser.getProfile().getProfession());
         setToolBarIconFromUrl(restUser.getPhoto(), R.mipmap.newsfeed_avatar_hombre);
     }
-
-    @Override
-    public View getView() {
-        if (view == null) {
-            view = getLayoutInflater().inflate(R.layout.layout_base_toolbar_white_elevation, null);
-        }
-        return view;
-    }
-
 
     @Override
     public Class<ChatUserFragment> getFragment() {

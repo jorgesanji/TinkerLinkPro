@@ -6,7 +6,6 @@ import android.os.Build;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentManager;
-import android.support.v7.widget.Toolbar;
 import android.util.AttributeSet;
 import android.widget.RelativeLayout;
 
@@ -54,9 +53,6 @@ public class ProfileScreen extends RelativeLayout {
 
     @BindView(R.id.appbar)
     protected AppBarLayout mAppbar;
-
-    @BindView(R.id.profileToolbar)
-    protected Toolbar mToolbar;
 
     @BindView(R.id.userNameToolbar)
     protected TLTextView mNameToolBar;
@@ -165,7 +161,7 @@ public class ProfileScreen extends RelativeLayout {
 
     // Actions
 
-    @OnClick(R.id.closeButton)
+    @OnClick(R.id.closeDialog)
     protected void closePressed() {
         listener.onClosePressed();
     }

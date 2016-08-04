@@ -55,7 +55,6 @@
                 android:text="@string/contacts_continue"
                 android:textColor="@color/white" />
 
-
         </LinearLayout>
 
     </RelativeLayout>

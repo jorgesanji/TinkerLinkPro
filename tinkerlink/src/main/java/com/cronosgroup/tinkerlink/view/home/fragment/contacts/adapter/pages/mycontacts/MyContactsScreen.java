@@ -17,6 +17,7 @@ import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContacto;
 import com.cronosgroup.tinkerlink.utils.TLDividerItemDecoration;
 import com.cronosgroup.tinkerlink.view.customviews.TLImageButton;
+import com.cronosgroup.tinkerlink.view.customviews.TLMenuButton;
 import com.cronosgroup.tinkerlink.view.customviews.TLRecyclerView;
 import com.cronosgroup.tinkerlink.view.customviews.TLSearchView;
 import com.cronosgroup.tinkerlink.view.customviews.TLUserContactView;
@@ -26,6 +27,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 
 /**
@@ -41,6 +43,10 @@ public class MyContactsScreen extends RelativeLayout {
         void onRemoveContactPressed(int position);
 
         void onBlockContactPressed(int position);
+
+        void onImportContactsPressed();
+
+        void onSearchContactsPressed();
     }
 
     // Vars
@@ -52,11 +58,14 @@ public class MyContactsScreen extends RelativeLayout {
     @BindView(R.id.contactList)
     protected TLRecyclerView mList;
 
-    @BindView(R.id.closeButton)
+    @BindView(R.id.closeDialog)
     protected TLImageButton mCloseButton;
 
     @BindView(R.id.searchView)
     protected TLSearchView mSearchView;
+
+    @BindView(R.id.menuView)
+    protected TLMenuButton mMenuButton;
 
     /**
      * @param context
@@ -173,6 +182,19 @@ public class MyContactsScreen extends RelativeLayout {
         });
     }
 
+    // Actions
+
+    @OnClick(R.id.importContacts)
+    protected void imporContactsPressed() {
+        listener.onImportContactsPressed();
+        mMenuButton.collapseMenu();
+    }
+
+    @OnClick(R.id.searchContacts)
+    protected void searchContactsPressed() {
+        listener.onSearchContactsPressed();
+        mMenuButton.collapseMenu();
+    }
 
     // Public methods
 

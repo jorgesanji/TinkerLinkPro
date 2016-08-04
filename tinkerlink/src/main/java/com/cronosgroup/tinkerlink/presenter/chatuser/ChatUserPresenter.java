@@ -12,11 +12,6 @@ public class ChatUserPresenter extends TinkerLinkImagePickerPresenter<ChatUserPr
 
     private final Actions listener;
 
-    @Override
-    public View getView() {
-        return view;
-    }
-
     /**
      * Contacts listeners.
      */

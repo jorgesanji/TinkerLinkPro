@@ -75,8 +75,8 @@ public class TLStackButton extends RelativeLayout {
                 setStackIcon(attributes.getDrawable(R.styleable.TLStackButton_stackIcon));
                 setStackTitle(attributes.getString(R.styleable.TLStackButton_stackTitle));
                 setStackSubTitle(attributes.getString(R.styleable.TLStackButton_stackSubTitle));
-                setStackSubTitleFont(attributes.getInt(R.styleable.TLStackButton_stackSubTitleFont, TLTextView.DEFAULT_FONT));
-                setStackTitleFont(attributes.getInt(R.styleable.TLStackButton_stackTitleFont, TLTextView.DEFAULT_FONT));
+                setStackSubTitleFont(attributes.getInt(R.styleable.TLStackButton_stackSubTitleFont, TLTextView.DEFAULT_TITLE_FONT));
+                setStackTitleFont(attributes.getInt(R.styleable.TLStackButton_stackTitleFont, TLTextView.DEFAULT_TITLE_FONT));
                 setStackTitleColor(attributes.getColor(R.styleable.TLStackButton_stackTitleColor, TLTextView.DEFAULT_COLOR));
                 setStackSubTitleColor(attributes.getColor(R.styleable.TLStackButton_stackSubTitleColor, TLTextView.DEFAULT_COLOR));
                 setStackColorLine((attributes.getColor(R.styleable.TLStackButton_stackLineColor, TLTextView.DEFAULT_COLOR)));

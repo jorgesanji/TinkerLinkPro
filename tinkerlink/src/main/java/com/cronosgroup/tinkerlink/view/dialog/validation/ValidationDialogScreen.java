@@ -96,7 +96,7 @@ public class ValidationDialogScreen extends TLLinearLayout {
         listener.onVeryfiedPressed();
     }
 
-    @OnClick(R.id.closeButton)
+    @OnClick(R.id.closeDialog)
     protected void closePressed() {
         listener.onClosePressed();
     }

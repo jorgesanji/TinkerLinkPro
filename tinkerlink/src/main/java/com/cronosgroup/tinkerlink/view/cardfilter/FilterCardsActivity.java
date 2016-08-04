@@ -10,9 +10,12 @@ public class FilterCardsActivity extends TinkerLinkActivity<FilterCardsFragment>
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getSupportActionBar().setDisplayShowHomeEnabled(false);
-        getSupportActionBar().setHomeButtonEnabled(true);
         setTitle(R.string.filter_cards_title);
+    }
+
+    @Override
+    public Class<FilterCardsFragment> getFragment() {
+        return FilterCardsFragment.class;
     }
 
     @Override
@@ -25,8 +28,5 @@ public class FilterCardsActivity extends TinkerLinkActivity<FilterCardsFragment>
         return StyleToolBar.DEFAULTSTYLE;
     }
 
-    @Override
-    public Class<FilterCardsFragment> getFragment() {
-        return FilterCardsFragment.class;
-    }
+
 }

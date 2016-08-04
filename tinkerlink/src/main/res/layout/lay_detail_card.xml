@@ -20,7 +20,7 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="220dp">
+                android:layout_height="290dp">
 
                 <include layout="@layout/lay_header_user_card" />
 

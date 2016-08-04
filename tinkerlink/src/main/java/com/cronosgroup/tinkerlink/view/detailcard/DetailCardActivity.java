@@ -1,7 +1,6 @@
 package com.cronosgroup.tinkerlink.view.detailcard;
 
 import android.os.Bundle;
-import android.view.View;
 
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.enums.StackCard;
@@ -32,14 +31,6 @@ public class DetailCardActivity extends TinkerLinkActivity<DetailCardFragment> {
     @Override
     public Class<DetailCardFragment> getFragment() {
         return DetailCardFragment.class;
-    }
-
-    @Override
-    public View getView() {
-        if (view == null) {
-            view = getLayoutInflater().inflate(R.layout.layout_base_toolbar_white, null);
-        }
-        return view;
     }
 
     @Override

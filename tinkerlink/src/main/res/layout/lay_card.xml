@@ -31,8 +31,8 @@
 
                 <com.cronosgroup.tinkerlink.view.customviews.TLImageView
                     android:id="@+id/userCardImage"
-                    android:layout_width="@dimen/view_max_height"
-                    android:layout_height="@dimen/view_max_height"
+                    android:layout_width="@dimen/view_size_user"
+                    android:layout_height="@dimen/view_size_user"
                     android:scaleType="centerCrop"
                     app:imageRounded="true"
                     app:imageType="User"

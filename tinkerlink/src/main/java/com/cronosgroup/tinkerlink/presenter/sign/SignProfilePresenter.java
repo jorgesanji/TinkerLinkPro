@@ -56,9 +56,4 @@ public class SignProfilePresenter extends TinkerLinkImagePickerPresenter<SignPro
 
     }
 
-    @Override
-    public View getView() {
-        return view;
-    }
-
 }

@@ -571,6 +571,9 @@
     <string name="stack_watch_linker">Ver busco tinker</string>
     <string name="stack_more_recommended">Más recomendados</string>
 
+    <!--  Search Card  -->
+    <string name="search_card_title">Buscar</string>
+
     <!--  Network  -->
     <string name="network_title_network">En común con %s</string>
     <string name="network_user">Tú</string>
@@ -603,6 +606,7 @@
     <string name="chat_block_contact">Bloquear contact</string>
 
     <!--  Create card  -->
+    <string name="create_card_title">Crear card</string>
     <string name="create_card_ubication">UBICACIÓN</string>
     <string name="create_card_especify_search">ESPECIFICA TU BUSQUEDA</string>
     <string name="create_card_country_hint">Selecione su ubicación</string>
@@ -626,6 +630,13 @@
     <string name="create_card_publish">PUBLICAR</string>
     <string name="create_card_skills_title">HABILIDADES</string>
     <string name="create_lorem_ipsun">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non gravida odio. Proin id lobortis nunc. Sed vitae tortor ut sapien scelerisque consectetur. Proin condimentum sit amet tellus eu lacinia. Integer id auctor justo. Pellentesque consequat convallis justo, id semper ante lacinia sed. Ut venenatis vehicula elit, et tempor diam lobortis a. Donec eu dignissim augue, vel volutpat lectus. Ut varius sodales arcu, sit amet gravida metus commodo sit amet. Vestibulum imperdiet, elit sed consectetur fermentum, tortor metus mollis odio, eu molestie lorem metus ac sem. Ut posuere consequat enim, in pharetra libero tempor rutrum. Maecenas id ante et eros maximus maximus bibendum vitae lorem.</string>
+    <string name="create_card_value_title">Selecciona el valor a percibir</string>
+    <string name="create_card_experience_title">EXPERIENCIA</string>
+    <string name="create_card_value_job_title">VALOR DE TU TRABAJO</string>
+    <string name="create_card_value_by_project">Por projecto</string>
+    <string name="create_card_value_by_day">Por día</string>
+    <string name="create_card_value_by_hour">Por hora</string>
+    <string name="create_card_value_by_agree">A convenir</string>
 
 
     <!--  Edit Profile  -->
@@ -732,6 +743,9 @@
     <string name="profile_recommendations_publish_recommendations">PUBLICAR</string>
     <string name="profile_recommendations_write_recommendation_by">Redacta una recomendación para %s</string>
     <string name="profile_recommendations_write_recommendation_by_hint">Redacta una recomendación</string>
+    <string name="profile_recommendations_message_title">Solicitud de recomendación enviada!</string>
+    <string name="profile_recommendations_message_text">Felicitaciones %s pronto tendrás nuevas recomendaciones de tus contactos!</string>
+
 
     <!-- CONTACTS-->
     <string name="contacts_in_common">EN COMÚN(%s)</string>
@@ -763,8 +777,8 @@
 
 
     <!-- CREATE CARD MESSAGES -->
-    <string name="create_card_title">Felicidades ha creado una tarjeta</string>
-    <string name="create_card_message">Si quieres editarla puedes ir a tu perfil ahí la encotraras y la podrás editar</string>
+    <string name="message_create_card_title">Felicidades has creado una tarjeta</string>
+    <string name="message_create_card_message">Si quieres editarla puedes ir a tu perfil ahí la encotraras y la podrás editar</string>
 
     <!-- FILTER CARDS -->
     <string name="filter_cards_title">Filtros</string>
@@ -797,7 +811,6 @@
     <string name="contacts_popup_remove_contact">Eliminar contacto</string>
     <string name="contacts_popup_block_contact">Bloquear contacto</string>
 
-
     <!-- DIALOG BLOCK CONTACT-->
     <string name="dialog_blockcontact_title">¿Bloquear contacto?</string>
     <string name="dialog_blockcontact_confirm">¿Confirmas que quieres bloquear a %s?</string>
@@ -806,7 +819,6 @@
     <string name="dialog_blockcontact_message">Siempre que desees desbloquear a un contacto puedes hacerlo en la sección Cuenta> configuración> Privacidad </string>
     <string name="dialog_blockcontact_confirm_title">Confirmar</string>
 
-
     <!-- DIALOG MESSAGE OPTIONS-->
     <string name="dialog_message_remove_user_options_title">¿ELiminar contacto?</string>
     <string name="dialog_message_remove_user_options_message">¿Seguro que quieres eliminar a %s de tu lista de contactos?</string>
@@ -814,7 +826,6 @@
     <!-- REQUEST CONTACTS-->
     <string name="request_contacts_new_request_contacts">Nuevas solicitudes de contacto (%s)</string>
     <string name="request_contacts_suggestion_contacts">¿Seguro que quieres eliminar a %s de tu lista de contactos?</string>
-
 
     <!-- DIALOG REPORT-->
     <string name="dialog_report_title">Ayudanos a entender que sucede</string>
@@ -827,6 +838,27 @@
     <string name="dialog_remove_chat_title">¿Eliminar este chat por completo?</string>
     <string name="dialog_remove_chat_message">Una vez que elimines tu copia del chat no podras deshacer la acción.</string>
     <string name="dialog_remove_chat_action_text">ELIMMINAR CHAT</string>
+
+    <!-- DIALOG  SELECT CATEGORY-->
+    <string name="dialog_category_title">Selecciona una categoría que se adecue atu servicio</string>
+
+    <!-- SEARCH NEWSFEED-->
+    <string name="search_newsfeed_title">Buscar</string>
+    <string name="search_newsfeed_title_tab_alltinkerlink">TODO TINKERLINK</string>
+    <string name="search_newsfeed_title_tab_my_contacts">MIS CONTACTOS</string>
+
+    <!-- STATUS-->
+    <string name="status_title">Publicar en Tinkerlink</string>
+    <string name="status_action_publish_title">PUBLICAR</string>
+    <string name="status_message_hint">Comparte algo de tus contactos</string>
+
+    <!-- CREATE RECOMMENDATIOM-->
+    <string name="create_recommendation_title">Crea una recomendación</string>
+
+    <!-- GIVE RECOMMENDATIOM-->
+    <string name="give_recommendation_title">Dar una recomendación</string>
+
+
 
 
 

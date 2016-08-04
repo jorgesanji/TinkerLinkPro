@@ -119,12 +119,12 @@ public class TLUserView extends LinearLayout {
                 attributes = getContext().obtainStyledAttributes(attributeSet, R.styleable.TLUserView);
                 setTitle(attributes.getString(R.styleable.TLUserView_userTitle));
                 setTitleColor(attributes.getColor(R.styleable.TLUserView_userTitleColor, Color.BLACK));
-                setTitleFont(attributes.getInt(R.styleable.TLUserView_userTitleFont, TLTextView.DEFAULT_FONT));
-                setTitleSize(attributes.getDimensionPixelSize(R.styleable.TLUserView_userTitleSize, TLTextView.DEFAULT_SIZE));
+                setTitleFont(attributes.getInt(R.styleable.TLUserView_userTitleFont, TLTextView.DEFAULT_TITLE_FONT));
+                setTitleSize(attributes.getDimensionPixelSize(R.styleable.TLUserView_userTitleSize, TLTextView.DEFAULT_TITLE_SIZE));
                 setSubTitle(attributes.getString(R.styleable.TLUserView_userSubTitle));
                 setSubTitleColor(attributes.getColor(R.styleable.TLUserView_userSubTitleColor, Color.BLACK));
-                setSubTitleFont(attributes.getInt(R.styleable.TLUserView_userSubTitleFont, TLTextView.DEFAULT_FONT));
-                setSubTitleSize(attributes.getDimensionPixelSize(R.styleable.TLUserView_userSubTitleSize, TLTextView.DEFAULT_SIZE));
+                setSubTitleFont(attributes.getInt(R.styleable.TLUserView_userSubTitleFont, TLTextView.DEFAULT_TITLE_FONT));
+                setSubTitleSize(attributes.getDimensionPixelSize(R.styleable.TLUserView_userSubTitleSize, TLTextView.DEFAULT_TITLE_SIZE));
                 setUserIcon(attributes.getResourceId(R.styleable.TLUserView_userIcon, R.mipmap.newsfeed_avatar_hombre));
                 setOptions(attributes.getBoolean(R.styleable.TLUserView_userOptions, false));
                 setBadge(attributes.getBoolean(R.styleable.TLUserView_userBadge, true));
@@ -137,11 +137,11 @@ public class TLUserView extends LinearLayout {
             }
         } else {
             setTitleColor(Color.BLACK);
-            setTitleFont(TLTextView.DEFAULT_FONT);
-            setTitleSize(TLTextView.DEFAULT_SIZE);
+            setTitleFont(TLTextView.Font.BOLD.getType());
+            setTitleSize(getResources().getDimensionPixelSize(TLTextView.DEFAULT_TITLE_SIZE));
             setSubTitleColor(Color.BLACK);
-            setSubTitleFont(TLTextView.DEFAULT_FONT);
-            setSubTitleSize(TLTextView.DEFAULT_SIZE);
+            setSubTitleFont(TLTextView.DEFAULT_SUBTITLE_FONT);
+            setSubTitleSize(getResources().getDimensionPixelSize(TLTextView.DEFAULT_SUBTITLE_SIZE));
             setUserIcon(R.mipmap.newsfeed_avatar_hombre);
             setOptions(false);
             setBadge(true);
@@ -188,7 +188,6 @@ public class TLUserView extends LinearLayout {
     }
 
     //Public methods
-
 
     public Listener getOptionslistener() {
         return optionslistener;

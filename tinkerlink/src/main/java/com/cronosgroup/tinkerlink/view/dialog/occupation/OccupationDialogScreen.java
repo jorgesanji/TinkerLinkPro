@@ -143,7 +143,7 @@ public class OccupationDialogScreen extends TLLinearLayout {
 
     // Actions
 
-    @OnClick(R.id.closeButton)
+    @OnClick(R.id.closeDialog)
     protected void onClosePressed() {
         listener.onClosePressed();
     }

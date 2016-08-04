@@ -2,6 +2,7 @@ package com.cronosgroup.tinkerlink.view.home;
 
 import android.os.Bundle;
 
+import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.view.base.TinkerLinkActivity;
 
 public class HomeActivity extends TinkerLinkActivity<HomeFragment> {
@@ -9,8 +10,7 @@ public class HomeActivity extends TinkerLinkActivity<HomeFragment> {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getSupportActionBar().setHomeButtonEnabled(false);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        setTitle(R.string.app_name);
     }
 
     @Override
@@ -20,7 +20,7 @@ public class HomeActivity extends TinkerLinkActivity<HomeFragment> {
 
     @Override
     public StyleToolBar getActivityStyle() {
-        return StyleToolBar.DEFAULTSTYLE;
+        return StyleToolBar.HOME;
     }
 
     @Override

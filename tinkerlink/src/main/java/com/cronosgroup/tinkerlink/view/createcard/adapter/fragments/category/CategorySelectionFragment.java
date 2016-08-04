@@ -2,10 +2,12 @@ package com.cronosgroup.tinkerlink.view.createcard.adapter.fragments.category;
 
 import android.view.View;
 
+import com.cronosgroup.tinkerlink.enums.SourceImageType;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestCategoria;
 import com.cronosgroup.tinkerlink.presenter.createcard.CategorySelectionPresenter;
 import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
+import com.cronosgroup.tinkerlink.view.dialog.category.CategoryDialogFragment;
 import com.cronosgroup.tinkerlink.view.dialog.places.PlacesDialogFragment;
 
 import java.util.List;
@@ -17,6 +19,7 @@ public class CategorySelectionFragment extends MVPTinkerLinkFragment<CategorySel
         implements CategorySelectionPresenter.View, CategorySelectionScreen.Listener {
 
     // Vars
+    private SourceImageType type;
 
     // Views
     private CategorySelectionScreen categorySelectionScreen;
@@ -60,6 +63,21 @@ public class CategorySelectionFragment extends MVPTinkerLinkFragment<CategorySel
     @Override
     public void onSelectGeoPositionPressed() {
         addDialogFragment(PlacesDialogFragment.class, PlacesDialogFragment.CODE);
+    }
+
+    @Override
+    public void onSelectCategoryPressed() {
+        addDialogFragment(CategoryDialogFragment.class, CategoryDialogFragment.CODE);
+    }
+
+    @Override
+    public void onImageSourceSelected(SourceImageType type) {
+        this.type = type;
+        if (type == SourceImageType.GALLERY) {
+            getPresenter().launchGallery();
+        } else {
+            getPresenter().launchCamera();
+        }
     }
 
     //endregion

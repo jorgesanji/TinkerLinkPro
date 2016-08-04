@@ -109,4 +109,9 @@ public abstract class TinkerLinkImagePickerPresenter<V extends Presenter.View>  
     public PermissionsManager getPermissionManager() {
         return ((BaseActivity) getView().getActivity()).getPermissionsManager();
     }
+
+    @Override
+    public V getView() {
+        return view;
+    }
 }

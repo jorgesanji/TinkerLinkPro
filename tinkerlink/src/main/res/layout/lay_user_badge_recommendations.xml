@@ -2,12 +2,12 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
-    android:layout_height="120dp">
+    android:layout_height="@dimen/view_size_user">
 
     <com.cronosgroup.tinkerlink.view.customviews.TLImageView
         android:id="@+id/userImage"
-        android:layout_width="@dimen/view_max_height"
-        android:layout_height="@dimen/view_max_height"
+        android:layout_width="@dimen/view_size_user"
+        android:layout_height="@dimen/view_size_user"
         android:layout_centerInParent="true"
         android:src="@mipmap/newsfeed_avatar_hombre"
         app:imageRounded="true"

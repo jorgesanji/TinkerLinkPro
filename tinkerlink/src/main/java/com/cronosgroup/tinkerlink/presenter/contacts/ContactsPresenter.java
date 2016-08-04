@@ -1,5 +1,8 @@
 package com.cronosgroup.tinkerlink.presenter.contacts;
 
+import android.app.Activity;
+import android.os.Bundle;
+
 import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenter;
 import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenterView;
 
@@ -14,12 +17,14 @@ public class ContactsPresenter extends TinkerLinkPresenter<ContactsPresenter.Vie
      * Contacts listeners.
      */
     public interface View extends TinkerLinkPresenterView {
+
     }
 
     /**
      * Contacts actions.
      */
     public interface Actions {
+
     }
 
     /**
@@ -30,5 +35,6 @@ public class ContactsPresenter extends TinkerLinkPresenter<ContactsPresenter.Vie
     }
 
     // public methods
+
 
 }

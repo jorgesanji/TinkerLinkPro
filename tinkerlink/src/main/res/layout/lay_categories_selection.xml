@@ -136,6 +136,7 @@
                     android:src="@drawable/zapatero" />
 
                 <com.cronosgroup.tinkerlink.view.customviews.TLImageButton
+                    android:id="@+id/addImageCategory"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
@@ -168,6 +169,7 @@
                     android:background="@drawable/background_button_add_image">
 
                     <com.cronosgroup.tinkerlink.view.customviews.TLImageButton
+                        android:id="@+id/addImageCard"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@android:color/transparent"

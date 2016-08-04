@@ -82,4 +82,8 @@ public class TinkerLinkFragment extends Fragment {
                     remove(fragment).commit();
         }
     }
+
+    public boolean onBackPressed() {
+        return false;
+    }
 }

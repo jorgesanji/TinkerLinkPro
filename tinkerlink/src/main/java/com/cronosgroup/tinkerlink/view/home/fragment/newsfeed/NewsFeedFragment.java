@@ -33,6 +33,22 @@ public class NewsFeedFragment extends MVPTinkerLinkFragment<NewsFeedPresenter, N
     }
 
     @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.newsfeed_search_menu, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.action_search_newsfeed) {
+            getPresenter().onLaunchNewsFeed();
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
     protected View getRootView() {
         newsFeedScreen = new NewsFeedScreen(getActivity());
         newsFeedScreen.setListener(this);
@@ -45,20 +61,7 @@ public class NewsFeedFragment extends MVPTinkerLinkFragment<NewsFeedPresenter, N
         getPresenter().getPosts("0");
     }
 
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.newsfeed_search_menu, menu);
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.action_search_newsfeed) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
     //endregion
 
     //region **************  MVPFragment **************
@@ -136,8 +139,8 @@ public class NewsFeedFragment extends MVPTinkerLinkFragment<NewsFeedPresenter, N
     }
 
     @Override
-    public void onUserActivityPressed() {
-
+    public void onUserStatusPressed() {
+        getPresenter().onLaunchUserStatus();
     }
 
     //endregion

@@ -66,7 +66,7 @@ public class NewsFeedScreen extends RelativeLayout {
 
         void onUserImagePressed(RestPost restPost);
 
-        void onUserActivityPressed();
+        void onUserStatusPressed();
     }
 
     // Vars
@@ -260,7 +260,7 @@ public class NewsFeedScreen extends RelativeLayout {
 
     @OnClick(R.id.statusCard)
     protected void btnStatusPressed() {
-        listener.onUserActivityPressed();
+        listener.onUserStatusPressed();
     }
 
     @OnClick(R.id.newPosts)

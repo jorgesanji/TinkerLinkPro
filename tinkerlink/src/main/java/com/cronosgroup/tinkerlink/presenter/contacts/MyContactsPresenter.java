@@ -37,6 +37,10 @@ public class MyContactsPresenter extends TinkerLinkPresenter<MyContactsPresenter
      */
     public interface Actions {
         void onLaunchChatUser(Activity activity, Bundle bundle);
+
+        void onLaunchImportContacts(Activity activity, Bundle bundle);
+
+        void onLaunchSearchContacts(Activity activity, Bundle bundle);
     }
 
     /**
@@ -103,5 +107,14 @@ public class MyContactsPresenter extends TinkerLinkPresenter<MyContactsPresenter
         Bundle bundle = new Bundle();
         bundle.putSerializable(ChatUserActivity.ITEMS_KEY, restChat);
         listener.onLaunchChatUser(getView().getActivity(), bundle);
+    }
+
+
+    public void launchImportContacts() {
+        listener.onLaunchImportContacts(getView().getActivity(), null);
+    }
+
+    public void launchSearchContacts() {
+        listener.onLaunchSearchContacts(getView().getActivity(), null);
     }
 }

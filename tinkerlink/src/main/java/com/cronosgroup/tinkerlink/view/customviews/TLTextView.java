@@ -39,8 +39,10 @@ public class TLTextView extends TextView {
     }
 
     private static final String TAG = TLTextView.class.toString();
-    public static final int DEFAULT_FONT = Font.REGULAR.getType();
-    public static final int DEFAULT_SIZE = R.dimen.text_size_tiny;
+    public static final int DEFAULT_TITLE_FONT = Font.REGULAR.getType();
+    public static final int DEFAULT_SUBTITLE_FONT = Font.REGULAR.getType();
+    public static final int DEFAULT_TITLE_SIZE = R.dimen.text_size_mediun;
+    public static final int DEFAULT_SUBTITLE_SIZE = R.dimen.text_size_small;
     public static final int DEFAULT_COLOR = Color.BLACK;
     private static final int DEFAULT_UNDERLINE_COLOR = Color.TRANSPARENT;
 
@@ -77,7 +79,7 @@ public class TLTextView extends TextView {
             TypedArray attributes = null;
             try {
                 attributes = getContext().obtainStyledAttributes(attributeSet, R.styleable.TLTextView);
-                setFontName(attributes.getInt(R.styleable.TLTextView_fontName, DEFAULT_FONT));
+                setFontName(attributes.getInt(R.styleable.TLTextView_fontName, DEFAULT_TITLE_FONT));
                 setUnderlineColor(attributes.getColor(R.styleable.TLTextView_underLineColor, DEFAULT_UNDERLINE_COLOR));
                 setTextToUnderline(attributes.getString(R.styleable.TLTextView_underLineText));
                 setStyleMessage(attributes.getBoolean(R.styleable.TLTextView_hasMessageStyle, false));

@@ -7,7 +7,6 @@ import android.support.v7.app.AppCompatDialogFragment;
 import android.view.ViewGroup;
 
 import com.cronosgroup.tinkerlink.R;
-import com.cronosgroup.tinkerlink.view.dialog.category.CategoryDialogFragment;
 
 /**
  * Created by jorgesanmartin on 10/26/15.
@@ -25,7 +24,7 @@ public class TinkerDialogFragment extends AppCompatDialogFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setStyle(CategoryDialogFragment.STYLE_NO_TITLE, R.style.DialogTheme);
+        setStyle(AppCompatDialogFragment.STYLE_NO_TITLE, R.style.DialogTheme);
     }
 
     @Override

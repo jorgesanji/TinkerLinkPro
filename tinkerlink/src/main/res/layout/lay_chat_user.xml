@@ -69,30 +69,8 @@
 
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/view_min_size_chat"
-                android:background="@color/white"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
+            <include layout="@layout/lay_image_source_tab" />
 
-                <com.cronosgroup.tinkerlink.view.customviews.TLImageView
-                    android:id="@+id/cameraButton"
-                    android:layout_width="@dimen/view_min_size_chat"
-                    android:layout_height="match_parent"
-                    android:scaleType="center"
-                    android:background="@drawable/button_default_states"
-                    android:src="@mipmap/estado_imagen" />
-
-                <com.cronosgroup.tinkerlink.view.customviews.TLImageView
-                    android:id="@+id/galleryButton"
-                    android:layout_width="@dimen/view_min_size_chat"
-                    android:layout_height="match_parent"
-                    android:scaleType="center"
-                    android:background="@drawable/button_default_states"
-                    android:src="@mipmap/estado_galeria" />
-
-            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>

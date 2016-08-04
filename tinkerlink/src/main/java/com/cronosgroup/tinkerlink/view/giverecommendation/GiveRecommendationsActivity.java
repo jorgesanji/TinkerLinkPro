@@ -1,6 +1,6 @@
 package com.cronosgroup.tinkerlink.view.giverecommendation;
 
-import android.view.View;
+import android.os.Bundle;
 
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.manager.AppPermissionsManager;
@@ -15,11 +15,9 @@ import java.util.List;
 public class GiveRecommendationsActivity extends TinkerLinkActivity<GiveRecommendationsFragment> {
 
     @Override
-    public View getView() {
-        if (view == null) {
-            view = getLayoutInflater().inflate(R.layout.layout_base_toolbar_recommendation, null);
-        }
-        return view;
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setTitle(R.string.give_recommendation_title);
     }
 
     @Override

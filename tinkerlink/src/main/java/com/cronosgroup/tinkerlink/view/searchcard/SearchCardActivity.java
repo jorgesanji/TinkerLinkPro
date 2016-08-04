@@ -2,6 +2,7 @@ package com.cronosgroup.tinkerlink.view.searchcard;
 
 import android.os.Bundle;
 
+import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.view.base.TinkerLinkActivity;
 
 public class SearchCardActivity extends TinkerLinkActivity<SearchCardFragment> {
@@ -11,6 +12,7 @@ public class SearchCardActivity extends TinkerLinkActivity<SearchCardFragment> {
         super.onCreate(savedInstanceState);
         getSupportActionBar().setDisplayShowHomeEnabled(false);
         getSupportActionBar().setHomeButtonEnabled(true);
+        setTitle(R.string.search_card_title);
     }
 
     @Override

@@ -1,6 +1,5 @@
 package com.cronosgroup.tinkerlink.view.tutorial;
 
-import android.animation.Animator;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
@@ -10,6 +9,9 @@ import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.view.animation.LinearInterpolator;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
@@ -56,20 +58,19 @@ class TutorialScreen extends RelativeLayout {
 
     // Views
     @BindView(R.id.pager)
-    TLViewPager mPager;
+    protected TLViewPager mPager;
 
     @BindView(R.id.buttonContainer)
-    LinearLayout mButtonContainer;
+    protected LinearLayout mButtonContainer;
 
     @BindView(R.id.pageIndicator)
-    TLViewPagerIndicator mPageIndicator;
+    protected TLViewPagerIndicator mPageIndicator;
 
     /**
      * @param context
      */
     public TutorialScreen(Context context) {
-        super(context);
-        init();
+        this(context, null);
     }
 
     /**
@@ -77,8 +78,7 @@ class TutorialScreen extends RelativeLayout {
      * @param attrs
      */
     public TutorialScreen(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        init();
+        this(context, attrs, 0);
     }
 
     /**
@@ -87,8 +87,7 @@ class TutorialScreen extends RelativeLayout {
      * @param defStyleAttr
      */
     public TutorialScreen(Context context, AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-        init();
+        this(context, attrs, defStyleAttr, 0);
     }
 
     /**
@@ -113,7 +112,7 @@ class TutorialScreen extends RelativeLayout {
 
     private void initUI() {
         mDisableTouchPager = true;
-        mButtonContainer.setAlpha(0.0f);
+        mButtonContainer.setVisibility(GONE);
         mPager.setPageTransformer(true, new DepthPageTransformer());
     }
 
@@ -178,36 +177,36 @@ class TutorialScreen extends RelativeLayout {
     }
 
     public void startTutorial() {
-        if (mButtonContainer.getAlpha() == 0) {
+        if (mButtonContainer.getVisibility() == GONE) {
             mTimer.postDelayed(new Runnable() {
                 @Override
                 public void run() {
                     if (!listener.isUserLoged()) {
 
-                        Animator.AnimatorListener listener = new Animator.AnimatorListener() {
+                        Animation.AnimationListener animationListener = new Animation.AnimationListener() {
                             @Override
-                            public void onAnimationStart(Animator animation) {
+                            public void onAnimationStart(Animation animation) {
 
                             }
 
                             @Override
-                            public void onAnimationEnd(Animator animation) {
+                            public void onAnimationEnd(Animation animation) {
                                 mDisableTouchPager = false;
                                 mTimer.postDelayed(mAutomaticScroll, INTERVAL_TIME);
                             }
 
                             @Override
-                            public void onAnimationCancel(Animator animation) {
-
-                            }
-
-                            @Override
-                            public void onAnimationRepeat(Animator animation) {
+                            public void onAnimationRepeat(Animation animation) {
 
                             }
                         };
 
-                        mButtonContainer.animate().alpha(1.0f).setListener(listener).start();
+                        mButtonContainer.setVisibility(VISIBLE);
+                        Animation animation = AnimationUtils.loadAnimation(getContext(), R.anim.anim_activity_up_alpha);
+                        animation.setAnimationListener(animationListener);
+                        animation.setInterpolator(new LinearInterpolator());
+                        mButtonContainer.startAnimation(animation);
+
                     }
                 }
             }, INTERVAL_BUTTONS_TIME);

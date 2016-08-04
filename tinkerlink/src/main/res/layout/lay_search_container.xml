@@ -20,7 +20,7 @@
             android:textAlignment="center" />
 
         <com.cronosgroup.tinkerlink.view.customviews.TLImageButton
-            android:id="@+id/closeButton"
+            android:id="@+id/closeDialog"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="0.2"

@@ -24,14 +24,14 @@
         app:menuButtonStateExpandedImageResource="@mipmap/newsfeed_crearcard_cancelar">
 
         <com.cronosgroup.tinkerlink.view.customviews.TLMenuItem
-            android:id="@+id/tinkerButton"
+            android:id="@+id/searchContacts"
             style="@style/MenuItemStyle"
             app:menuItemBackgroundTintColor="@color/tinkercolor"
             app:menuItemImageResource="@mipmap/newsfeed_tinkercard_net"
             app:menuItemTitle="@string/contacts_search_contacts" />
 
         <com.cronosgroup.tinkerlink.view.customviews.TLMenuItem
-            android:id="@+id/linkerButton"
+            android:id="@+id/importContacts"
             style="@style/MenuItemStyle"
             app:menuItemBackgroundTintColor="@color/linkercolor"
             app:menuItemImageResource="@mipmap/newsfeed_linkercard_net"

@@ -1,12 +1,15 @@
 package com.cronosgroup.tinkerlink.view.createcard;
 
+import android.os.Bundle;
 import android.view.View;
 
+import com.cronosgroup.tinkerlink.enums.StackCard;
 import com.cronosgroup.tinkerlink.event.UpdateInfoCardEvent;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
 import com.cronosgroup.tinkerlink.presenter.createcard.CreateCardPresenter;
 import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
+import com.cronosgroup.tinkerlink.view.stack.StackActivity;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -19,9 +22,16 @@ public class CreateCardFragment extends MVPTinkerLinkFragment<CreateCardPresente
         implements CreateCardPresenter.View, CreateCardScreen.Listener {
 
     // Vars
+    private StackCard type;
 
     // Views
     private CreateCardScreen createCardScreen;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        type = (StackCard) getArguments().getSerializable(StackActivity.STACK_TYPE);
+    }
 
     @Override
     public void onDestroy() {
@@ -60,7 +70,7 @@ public class CreateCardFragment extends MVPTinkerLinkFragment<CreateCardPresente
 
     @Override
     protected void onDidAppear() {
-        createCardScreen.initAdapter(getActivity().getSupportFragmentManager());
+        createCardScreen.initAdapter(getActivity().getSupportFragmentManager(), type);
     }
 
     //endregion

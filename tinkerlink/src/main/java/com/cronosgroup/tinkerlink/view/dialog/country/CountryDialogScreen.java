@@ -101,17 +101,6 @@ public class CountryDialogScreen extends TLLinearLayout {
     }
 
     private void initSearch() {
-//        mSearchView.setFocusable(true);
-//        mSearchView.setIconified(false);
-//        mSearchView.requestFocus();
-//        mSearchView.requestFocusFromTouch();
-//        int id = mSearchView.getContext().getResources().getIdentifier("android:id/search_src_text", null, null);
-//        EditText edit = (EditText) mSearchView.findViewById(id);
-//        if (edit != null) {
-//            edit.setHintTextColor(getResources().getColor(R.color.gray_30));
-//            edit.setTextColor(getContext().getResources().getColor(R.color.black));
-//        }
-
         mSearchView.setOnQueryTextListener(new android.support.v7.widget.SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -134,7 +123,7 @@ public class CountryDialogScreen extends TLLinearLayout {
 
     //Actions
 
-    @OnClick(R.id.closeButton)
+    @OnClick(R.id.closeDialog)
     protected void onClosePressed() {
         listener.onClosePressed();
     }

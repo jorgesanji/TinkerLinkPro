@@ -9,6 +9,7 @@ import android.util.AttributeSet;
 import android.widget.RelativeLayout;
 
 import com.cronosgroup.tinkerlink.R;
+import com.cronosgroup.tinkerlink.enums.StackCard;
 import com.cronosgroup.tinkerlink.view.createcard.adapter.CreateCardAdapter;
 import com.cronosgroup.tinkerlink.view.customviews.TLButton;
 import com.cronosgroup.tinkerlink.view.customviews.TLTextView;
@@ -143,8 +144,8 @@ public class CreateCardScreen extends RelativeLayout {
         this.listener = listener;
     }
 
-    public void initAdapter(FragmentManager fragmentManager) {
-        mAdapter = new CreateCardAdapter(fragmentManager, getContext());
+    public void initAdapter(FragmentManager fragmentManager, StackCard type) {
+        mAdapter = new CreateCardAdapter(fragmentManager, getContext(), type);
         mPager.setAdapter(mAdapter);
     }
 

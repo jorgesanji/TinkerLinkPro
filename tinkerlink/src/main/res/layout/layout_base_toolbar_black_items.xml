@@ -13,9 +13,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:minHeight="?attr/actionBarSize"
+            android:elevation="@dimen/view_elevation"
             app:layout_scrollFlags="scroll|enterAlways"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-            app:theme="@style/ThemeToolbar" />
+            app:theme="@style/ThemeToolbarItemsBlackStyle" />
 
         <FrameLayout
             android:id="@+id/contentFrame"

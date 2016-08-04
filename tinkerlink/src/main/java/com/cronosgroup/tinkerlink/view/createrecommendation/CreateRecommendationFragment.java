@@ -73,35 +73,35 @@ public class CreateRecommendationFragment extends MVPTinkerLinkFragment<CreateRe
         TLUserView userView = new TLUserView(getContext());
         userView.setLayoutParams(params);
         userView.setUserImageFromUrl("http://www.w3schools.com/css/img_fjords.jpg");
-        userView.setTitle("Jorge Luis");
+        userView.setTitle("Jorge Sanmartin");
         userView.setSubTitle("Programador");
         createRecommendationScreen.addUser(userView);
 
         TLUserView userView1 = new TLUserView(getContext());
         userView1.setLayoutParams(params);
         userView1.setUserImageFromUrl("http://www.w3schools.com/css/img_fjords.jpg");
-        userView1.setTitle("Jorge Luis");
+        userView1.setTitle("Jorge Sanmartin");
         userView1.setSubTitle("Programador");
         createRecommendationScreen.addUser(userView1);
 
         TLUserView userView2 = new TLUserView(getContext());
         userView2.setLayoutParams(params);
         userView2.setUserImageFromUrl("http://www.w3schools.com/css/img_fjords.jpg");
-        userView2.setTitle("Jorge Luis");
+        userView2.setTitle("Jorge Sanmartin");
         userView2.setSubTitle("Programador");
         createRecommendationScreen.addUser(userView2);
 
         TLUserView userView3 = new TLUserView(getContext());
         userView3.setLayoutParams(params);
         userView3.setUserImageFromUrl("http://www.w3schools.com/css/img_fjords.jpg");
-        userView3.setTitle("Jorge Luis");
+        userView3.setTitle("Jorge Sanmartin");
         userView3.setSubTitle("Programador");
         createRecommendationScreen.addUser(userView3);
 
         TLUserView userView4 = new TLUserView(getContext());
         userView4.setLayoutParams(params);
         userView4.setUserImageFromUrl("http://www.w3schools.com/css/img_fjords.jpg");
-        userView4.setTitle("Jorge Luis");
+        userView4.setTitle("Jorge Sanmartin");
         userView4.setSubTitle("Programador");
         createRecommendationScreen.addUser(userView4);
     }

@@ -34,7 +34,7 @@ public class SignActivity extends TinkerLinkActivity<SignFragment> implements IO
 
     @Override
     public void onBackPressed() {
-        if (getCurrentFragment() != null && ((SignFragment) getCurrentFragment()).onBackPressed()) {
+        if (getCurrentFragment() != null && (getCurrentFragment()).onBackPressed()) {
             return;
         }
         AppRestManager.sharedManager().cancelAllRequestWithTag(this);
@@ -69,8 +69,6 @@ public class SignActivity extends TinkerLinkActivity<SignFragment> implements IO
     @Override
     public List<AppPermissionsManager.Permission> getRequestPermission() {
         List<AppPermissionsManager.Permission> permissionList = new ArrayList<>();
-        permissionList.add(AppPermissionsManager.Permission.CAMERA);
-        permissionList.add(AppPermissionsManager.Permission.GALLERY);
         return permissionList;
     }
 }

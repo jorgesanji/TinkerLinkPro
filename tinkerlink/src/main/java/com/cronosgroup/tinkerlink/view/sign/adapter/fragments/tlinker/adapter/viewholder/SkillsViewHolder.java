@@ -39,7 +39,7 @@ public class SkillsViewHolder extends ChildViewHolder {
         mTitle.setText(name);
     }
 
-    @OnClick(R.id.skillSelector)
+    @OnClick(R.id.categorySelected)
     protected void selectorSkillPressed() {
         if (listener != null) {
             listener.onSkillSelected(getAdapterPosition());
