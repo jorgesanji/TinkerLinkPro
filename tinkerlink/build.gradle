@@ -69,6 +69,7 @@ dependencies {
 
     // StackView
     compile 'com.bartoszlipinski.flippablestackview:library:1.2.1'
+    compile 'com.lorentzos.swipecards:library:1.0.9'
 
     // ExpandableView
     compile 'com.bignerdranch.android:expandablerecyclerview:2.1.1'

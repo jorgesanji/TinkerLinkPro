@@ -15,11 +15,11 @@ public class Animations {
         void onFinishAnimation();
     }
 
-    public static void revealFromTop(final View view, final int color) {
+    public static void revealFromBottom(final View view, final int color) {
         reveal(view, color, null);
     }
 
-    public static void revealFromTop(final View view, final int color, final Listener listener) {
+    public static void revealFromBottom(final View view, final int color, final Listener listener) {
         reveal(view, color, listener);
     }
 

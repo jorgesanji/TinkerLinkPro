@@ -103,7 +103,7 @@ public class StackFragment extends MVPTinkerLinkFragment<StackPresenter, StackPr
 
     @Override
     protected void onDidAppear() {
-        Animations.revealFromTop(stackScreen.getAnimableView(), stackType.getStackColor(), new Animations.Listener() {
+        Animations.revealFromBottom(stackScreen.getAnimableView(), stackType.getStackColor(), new Animations.Listener() {
             @Override
             public void onFinishAnimation() {
                 stackScreen.animBackground();

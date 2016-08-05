@@ -40,7 +40,7 @@ public class AppAlertBuilder {
 
     public static final void showAlertWithMessage(final Context context, int title, String message, int negativeButtonTitle, int possitveButton, final int items, final IOItemSelected callback) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context, R.style.DialogStyle);
-//        builder.setIcon(R.mipmap.icon_app);
+//        builder.setIcon(R.mipmap.icon_tinkerlink_app);
 
         if (title != -1) {
             builder.setTitle(title);

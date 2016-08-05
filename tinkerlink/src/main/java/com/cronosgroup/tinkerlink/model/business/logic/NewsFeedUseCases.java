@@ -33,7 +33,7 @@ public class NewsFeedUseCases {
 
 
     public static void getPosts(String offset, Callback callback, Object tag) {
-        NewsFeedServices.getPosts(offset, RestPost.class, callback, tag);
+//        NewsFeedServices.getPosts(offset, RestPost.class, callback, tag);
     }
 
     public static void likePost(String idPost, Callback callback, Object tag) {
@@ -45,7 +45,7 @@ public class NewsFeedUseCases {
         HashMap<String, String> params = new HashMap<String, String>();
         params.put(KEY_OFFSET, idLast);
 
-        NewsFeedServices.searchNewsFeedPost(text, params, RestPost.class, callback, tag);
+//        NewsFeedServices.searchNewsFeedPost(text, params, RestPost.class, callback, tag);
     }
 
     public static void sharePost(String idUser, String idPost, Callback callback, Object tag) {
@@ -102,7 +102,7 @@ public class NewsFeedUseCases {
                     params.put(KEY_LINKIMAGE, imageUrl);
                 }
 
-                NewsFeedServices.sendStatus(params, RestPost.class, callback, tag);
+//                NewsFeedServices.sendStatus(params, RestPost.class, callback, tag);
 
             }
         };
