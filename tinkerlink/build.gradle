@@ -74,4 +74,9 @@ dependencies {
     // ExpandableView
     compile 'com.bignerdranch.android:expandablerecyclerview:2.1.1'
     compile 'org.jetbrains:annotations-java5:15.0'
+
+    // Leadk canary
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.4-beta2'
+    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2'
+    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2'
 }

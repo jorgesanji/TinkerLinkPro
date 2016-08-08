@@ -6,6 +6,7 @@ import com.cronosgroup.core.managers.AnalyticsManager;
 import com.cronosgroup.core.managers.LocationManager;
 import com.cronosgroup.core.managers.PermissionsManager;
 import com.cronosgroup.core.view.application.BaseApplication;
+import com.cronosgroup.tinkerlink.BuildConfig;
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.event.UpdateUserProfileEvent;
 import com.cronosgroup.tinkerlink.internal.di.component.AppComponent;
@@ -23,6 +24,7 @@ import com.cronosgroup.tinkerlink.model.manager.AppUserSessionManager;
 import com.cronosgroup.tinkerlink.model.manager.socialnetworks.AppFacebookManager;
 import com.cronosgroup.tinkerlink.model.manager.socialnetworks.IOSocialNetwork;
 import com.cronosgroup.tinkerlink.model.mapper.TLUsers;
+import com.squareup.leakcanary.LeakCanary;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -109,12 +111,19 @@ public class TinkerLinkApplication extends BaseApplication implements Permission
     }
 
     private void init() {
+        initLeakDetection();
         AppDataBaseManager.initDataBase(getApplicationContext());
         buildComponentAndInject();
         AppRestManager.configureRestManager(getConfig(), appUserSessionManager);
         initFacebook();
         initAnalytics();
         initImageLoader();
+    }
+
+    private void initLeakDetection() {
+        if (BuildConfig.DEBUG) {
+            LeakCanary.install(this);
+        }
     }
 
     public void AppUpdateData() {
