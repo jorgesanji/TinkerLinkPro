@@ -106,8 +106,4 @@ public class AppFacebookShareManager {
     public boolean onActivityResult(int requestCode, int resultCode, Intent data) {
         return onActivityResult(requestCode, resultCode, data);
     }
-
-
-
-
 }

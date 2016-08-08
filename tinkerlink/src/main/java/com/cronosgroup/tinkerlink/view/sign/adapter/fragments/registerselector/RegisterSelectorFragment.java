@@ -5,7 +5,7 @@ import android.app.Activity;
 import android.view.View;
 
 import com.cronosgroup.tinkerlink.event.RegistrationStepsEvent;
-import com.cronosgroup.tinkerlink.event.enums.FormState;
+import com.cronosgroup.tinkerlink.enums.FormState;
 import com.cronosgroup.tinkerlink.model.business.model.AppUser;
 import com.cronosgroup.tinkerlink.presenter.sign.RegisterSelectorPresenter;
 import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;

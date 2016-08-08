@@ -1,6 +1,6 @@
 package com.cronosgroup.tinkerlink.event;
 
-import com.cronosgroup.tinkerlink.event.enums.FormState;
+import com.cronosgroup.tinkerlink.enums.FormState;
 
 /**
  * Created by jorgesanmartin on 2/1/16.

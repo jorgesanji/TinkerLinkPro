@@ -12,7 +12,7 @@ import android.view.View;
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.event.RegistrationStepsEvent;
 import com.cronosgroup.tinkerlink.event.SmsEvent;
-import com.cronosgroup.tinkerlink.event.enums.FormState;
+import com.cronosgroup.tinkerlink.enums.FormState;
 import com.cronosgroup.tinkerlink.presenter.sign.SignPresenter;
 import com.cronosgroup.tinkerlink.sms.SMSBroadcastReceiver;
 import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;

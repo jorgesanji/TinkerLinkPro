@@ -1,4 +1,4 @@
-package com.cronosgroup.tinkerlink.event.enums;
+package com.cronosgroup.tinkerlink.enums;
 
 /**
  * Created by jorgesanmartin on 2/1/16.
