@@ -27,6 +27,7 @@ public class AppCountryManager {
 
     public AppCountryManager(Context context) {
         this.mContext = context;
+        loadCountries();
     }
 
     private List<RestCountry> parseJsonCountries() {

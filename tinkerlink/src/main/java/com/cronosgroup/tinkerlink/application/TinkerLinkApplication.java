@@ -11,20 +11,18 @@ import com.cronosgroup.tinkerlink.event.UpdateUserProfileEvent;
 import com.cronosgroup.tinkerlink.internal.di.component.AppComponent;
 import com.cronosgroup.tinkerlink.internal.di.component.DaggerAppComponent;
 import com.cronosgroup.tinkerlink.internal.di.module.AppModule;
-import com.cronosgroup.tinkerlink.model.manager.AppConfigManager;
+import com.cronosgroup.tinkerlink.model.business.model.AppUser;
+import com.cronosgroup.tinkerlink.model.dataacess.database.entities.TLUser;
+import com.cronosgroup.tinkerlink.model.dataacess.rest.manager.AppRestManager;
 import com.cronosgroup.tinkerlink.model.manager.AppContactsManager;
-import com.cronosgroup.tinkerlink.model.manager.AppCountryManager;
 import com.cronosgroup.tinkerlink.model.manager.AppDataBaseManager;
-import com.cronosgroup.tinkerlink.model.manager.socialnetworks.AppFacebookManager;
 import com.cronosgroup.tinkerlink.model.manager.AppImageLoaderManager;
 import com.cronosgroup.tinkerlink.model.manager.AppMessagesManager;
 import com.cronosgroup.tinkerlink.model.manager.AppNotificationsManager;
 import com.cronosgroup.tinkerlink.model.manager.AppUserSessionManager;
+import com.cronosgroup.tinkerlink.model.manager.socialnetworks.AppFacebookManager;
 import com.cronosgroup.tinkerlink.model.manager.socialnetworks.IOSocialNetwork;
-import com.cronosgroup.tinkerlink.model.business.model.AppUser;
 import com.cronosgroup.tinkerlink.model.mapper.TLUsers;
-import com.cronosgroup.tinkerlink.model.dataacess.database.entities.TLUser;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.manager.AppRestManager;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -45,9 +43,6 @@ public class TinkerLinkApplication extends BaseApplication implements Permission
     LocationManager mLocationManager;
 
     @Inject
-    AppConfigManager appConfigManager;
-
-    @Inject
     AppNotificationsManager appNotificationsManager;
 
     @Inject
@@ -55,9 +50,6 @@ public class TinkerLinkApplication extends BaseApplication implements Permission
 
     @Inject
     AppContactsManager appContactsManager;
-
-    @Inject
-    AppCountryManager appCountryManager;
 
     private AppComponent component;
 
@@ -85,7 +77,6 @@ public class TinkerLinkApplication extends BaseApplication implements Permission
     @Override
     public void onForeground() {
         mLocationManager.stopLocationUpdates();
-        appConfigManager.loadConfig();
         if (Adjust.getDefaultInstance() != null) {
             Adjust.onResume();
         }
@@ -117,23 +108,17 @@ public class TinkerLinkApplication extends BaseApplication implements Permission
         Adjust.onCreate(config);
     }
 
-    private void initcountryManager() {
-        appCountryManager.loadCountries();
-    }
-
     private void init() {
         AppDataBaseManager.initDataBase(getApplicationContext());
         buildComponentAndInject();
         AppRestManager.configureRestManager(getConfig(), appUserSessionManager);
         initFacebook();
         initAnalytics();
-        initcountryManager();
         initImageLoader();
     }
 
     public void AppUpdateData() {
         setFirstLoadApplication(true);
-        appConfigManager.sendUserTimeZone();
         appNotificationsManager.getNotifications();
         appMessagesManager.getMessagesUnRead();
         appContactsManager.loadContacts();
