@@ -6,13 +6,14 @@ import android.content.Context;
 import android.os.Build;
 import android.support.v4.app.FragmentManager;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.view.animation.AccelerateInterpolator;
-import android.view.animation.AnimationUtils;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
+import android.widget.Toast;
 
 import com.bartoszlipinski.flippablestackview.FlippableStackView;
 import com.bartoszlipinski.flippablestackview.StackPageTransformer;
@@ -20,8 +21,11 @@ import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.enums.StackCard;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
 import com.cronosgroup.tinkerlink.view.customviews.TLTextView;
+import com.cronosgroup.tinkerlink.view.customviews.card.TLCardContainer;
 import com.cronosgroup.tinkerlink.view.dragdrop.DragDropScreen;
+import com.cronosgroup.tinkerlink.view.stack.adapter.CardsAdapter;
 import com.cronosgroup.tinkerlink.view.stack.adapter.StackAdapter;
+import com.lorentzos.flingswipe.SwipeFlingAdapterView;
 
 import java.util.List;
 
@@ -51,13 +55,14 @@ public class StackScreen extends RelativeLayout {
     private Listener listener;
 
     private StackAdapter adapter;
+    private CardsAdapter mAdapter;
     private FragmentManager fragmentManager;
     private StackCard stackType;
     private int TotalWidth;
 
     // Views
-    @BindView(R.id.pager)
-    protected FlippableStackView mPager;
+//    @BindView(R.id.pager)
+//    protected FlippableStackView mPager;
 
     @BindView(R.id.backgroundFadeIn)
     protected View mBackgroundIn;
@@ -76,6 +81,9 @@ public class StackScreen extends RelativeLayout {
 
     @BindView(R.id.dragDropScreen)
     protected DragDropScreen dragDropScreen;
+
+    @BindView(R.id.cardContainer)
+    protected TLCardContainer mCardContainer;
 
     /**
      * @param context
@@ -157,7 +165,7 @@ public class StackScreen extends RelativeLayout {
                 final float oneElementWidth = TotalWidth / adapter.getCount();
                 final float currentWidthProgress = (progress * TotalWidth) / 100;
                 final int currentIndex = (int) Math.ceil(currentWidthProgress / oneElementWidth) - 1;
-                mPager.setCurrentItem(Math.abs(currentIndex - (adapter.getCount() - 1)), true);
+//                mPager.setCurrentItem(Math.abs(currentIndex - (adapter.getCount() - 1)), true);
                 setNumberPages(adapter.getCount(), (currentIndex == -1) ? 1 : currentIndex + 1);
             }
 
@@ -171,15 +179,20 @@ public class StackScreen extends RelativeLayout {
 
             }
         });
+
+
     }
 
     private void initUI() {
+        mAdapter = new CardsAdapter(getContext());
+        mCardContainer.setAdapter(mAdapter);
+
         mPageNumberIndicator.setVisibility(INVISIBLE);
         mStackIndicator.setVisibility(INVISIBLE);
-        mPager.setVisibility(INVISIBLE);
+//        mPager.setVisibility(INVISIBLE);
         mBackgroundIn.setAlpha(0);
-        mPager.initStack(DEFAULT_PAGES,
-                StackPageTransformer.Orientation.VERTICAL);
+//        mPager.initStack(DEFAULT_PAGES,
+//                StackPageTransformer.Orientation.VERTICAL);
     }
 
     // **************  UI Actions **************
@@ -223,15 +236,14 @@ public class StackScreen extends RelativeLayout {
         mSelectCardsType.setText(getContext().getString(title));
     }
 
+
     public void addItems(List<RestPost> restPosts) {
-        if (adapter.getCount() == 0 && !restPosts.isEmpty()) {
-            mPager.setVisibility(VISIBLE);
+        if (mAdapter.getCount() == 0 && !restPosts.isEmpty()) {
+//            mPager.setVisibility(VISIBLE);
             mPageNumberIndicator.setVisibility(VISIBLE);
             mStackIndicator.setVisibility(VISIBLE);
-            mPager.setAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.anim_scale_bounce));
-            adapter.addItems(restPosts);
-            mPager.setAdapter(adapter);
-            adapter.notifyDataSetChanged();
+            mAdapter.setItems(restPosts);
+            mAdapter.notifyDataSetChanged();
         } else {
             adapter.addItems(restPosts);
             adapter.notifyDataSetChanged();
@@ -240,6 +252,23 @@ public class StackScreen extends RelativeLayout {
             setNumberPages(adapter.getCount(), 1);
         }
     }
+
+//    public void addItems(List<RestPost> restPosts) {
+//        if (adapter.getCount() == 0 && !restPosts.isEmpty()) {
+//            mPager.setVisibility(VISIBLE);
+//            mPageNumberIndicator.setVisibility(VISIBLE);
+//            mStackIndicator.setVisibility(VISIBLE);
+//            adapter.addItems(restPosts);
+//            mPager.setAdapter(adapter);
+//            adapter.notifyDataSetChanged();
+//        } else {
+//            adapter.addItems(restPosts);
+//            adapter.notifyDataSetChanged();
+//        }
+//        if (!restPosts.isEmpty()) {
+//            setNumberPages(adapter.getCount(), 1);
+//        }
+//    }
 
     public void animBackground() {
         mBackgroundIn.animate().alpha(1).setDuration(TIME_TO_ANIMATION).setInterpolator(new DecelerateInterpolator()).setListener(new Animator.AnimatorListener() {
@@ -270,7 +299,8 @@ public class StackScreen extends RelativeLayout {
     }
 
     public int getCurrentIndexPage() {
-        return mPager.getCurrentItem();
+        return 1;
+//        return mPager.getCurrentItem();
     }
 
     public void showOverlaySelector() {

@@ -39,13 +39,13 @@ public class CardUseCases {
     public static void getAllCards(int type, String offset, Callback callback, Object tag) {
         String endpoint = ((type == TYPE_LINKER) ? LINKER_KEY : TINKER_KEY) + offset;
 
-        CardServices.getCards(endpoint, RestPost.class, callback, tag);
+//        CardServices.getCards(endpoint, RestPost.class, callback, tag);
     }
 
     public static void getUserCards(String idUser, int type, String offset, Callback callback, Object tag) {
         String endpoint = idUser + "/" + ((type == TYPE_LINKER) ? LINKER_KEY : TINKER_KEY) + offset;
 
-        CardServices.getUserCards(endpoint, RestPost.class, callback, tag);
+//        CardServices.getUserCards(endpoint, RestPost.class, callback, tag);
     }
 
     public static void createCard(int type, RestPost form, Callback callback, Object tag) {
@@ -66,13 +66,13 @@ public class CardUseCases {
         params.put(LONGITUDE_KEY, String.valueOf(form.getLongitude()));
         params.put(DESCRIPTION_KEY, form.getDescripcion());
 
-        CardServices.createCard(endpoint, params, RestPost.class, callback, tag);
+//        CardServices.createCard(endpoint, params, RestPost.class, callback, tag);
     }
 
     public static void searchCards(int type, String text, Callback callback, Object tag) {
         String endpoint = ((type == TYPE_LINKER) ? LINKER_KEY : TINKER_KEY) + text;
 
-        CardServices.searchCards(endpoint, RestPost.class, callback, tag);
+//        CardServices.searchCards(endpoint, RestPost.class, callback, tag);
     }
 
     public static void deleteCard(String endpoint, final Callback callback, Object tag) {

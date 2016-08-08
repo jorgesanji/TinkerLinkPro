@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/white"
+    android:gravity="center_vertical"
     android:orientation="horizontal">
 
     <include
@@ -12,7 +13,8 @@
         android:layout_height="120dp" />
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
+        android:layout_weight="1"
         android:layout_height="match_parent"
         android:layout_marginLeft="@dimen/margin_mediun"
         android:gravity="center_vertical"
@@ -49,7 +51,7 @@
                 android:id="@+id/tabTinkers"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:iconItem="@mipmap/newsfeed_tinkercard_net"
+                app:iconItem="@mipmap/ic_soytinker"
                 app:textItem="30"
                 app:textItemColor="@color/black"
                 app:textItemSize="@dimen/text_size_small" />
@@ -59,7 +61,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/margin_big"
-                app:iconItem="@mipmap/newsfeed_tinkercard_net"
+                app:iconItem="@mipmap/ic_buscotinker"
                 app:textItem="30"
                 app:textItemColor="@color/black"
                 app:textItemSize="@dimen/text_size_small" />
@@ -67,5 +69,12 @@
         </LinearLayout>
 
     </LinearLayout>
+
+    <com.cronosgroup.tinkerlink.view.customviews.TLImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:layout_marginRight="@dimen/margin_mediun"
+        android:src="@mipmap/ic_network" />
 
 </LinearLayout>

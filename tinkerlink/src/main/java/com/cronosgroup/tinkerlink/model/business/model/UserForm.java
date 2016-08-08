@@ -230,7 +230,7 @@ public class UserForm {
     public String getDescription(Resources resources, boolean isLinker) {
         String resultHabilidades = getProfession();
         if (!getHabilities().isEmpty()) {
-            resultHabilidades += " " + resources.getString(isLinker ? R.string.card_user_linker_knowledge : R.string.card_user_knowledge) + " " + TextUtils.join(",", getHabilitiesAsString()).replace("\"", "");
+            resultHabilidades += " " + resources.getString(isLinker ? R.string.detail_card_user_linker_knowledge : R.string.detail_card_user_knowledge) + " " + TextUtils.join(",", getHabilitiesAsString()).replace("\"", "");
         }
         setDescription(resultHabilidades);
 

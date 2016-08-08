@@ -28,7 +28,7 @@
         android:layout_below="@+id/titleWelcome"
         android:layout_marginRight="@dimen/margin_plus_big"
         android:background="@drawable/button_default_states"
-        android:src="@mipmap/ic_image_photo_camera" />
+        android:src="@mipmap/ic_add_photo" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -64,7 +64,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:background="@drawable/button_default_states"
-                android:src="@mipmap/ic_image_photo_camera" />
+                android:src="@mipmap/ic_add_photo" />
         </RelativeLayout>
 
     </LinearLayout>

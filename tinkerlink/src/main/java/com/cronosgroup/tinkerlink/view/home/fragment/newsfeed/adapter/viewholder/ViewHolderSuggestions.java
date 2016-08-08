@@ -4,14 +4,14 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 import com.cronosgroup.tinkerlink.R;
-import com.cronosgroup.tinkerlink.manager.AppConfigManager;
+import com.cronosgroup.tinkerlink.model.manager.AppConfigManager;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestUser;
 import com.cronosgroup.tinkerlink.view.customviews.TLTextView;
 import com.cronosgroup.tinkerlink.view.customviews.TLUserView;
 import com.cronosgroup.tinkerlink.view.home.fragment.newsfeed.adapter.viewholder.base.ViewHolderPostBase;
-import com.cronosgroup.tinkerlink.view.interfaces.IOAddContactListener;
-import com.cronosgroup.tinkerlink.view.interfaces.IOIconListener;
+import com.cronosgroup.tinkerlink.interfaces.IOAddContactListener;
+import com.cronosgroup.tinkerlink.interfaces.IOIconListener;
 
 import butterknife.BindView;
 

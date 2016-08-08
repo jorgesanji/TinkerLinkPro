@@ -1,7 +1,7 @@
 package com.cronosgroup.tinkerlink.model.business.logic;
 
 import com.cronosgroup.core.rest.Callback;
-import com.cronosgroup.tinkerlink.manager.model.Contact;
+import com.cronosgroup.tinkerlink.model.manager.model.Contact;
 import com.cronosgroup.tinkerlink.model.business.model.AppUser;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.manager.AppRestManager;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestCode;

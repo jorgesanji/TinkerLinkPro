@@ -20,21 +20,21 @@
         android:clipChildren="false"
         android:clipToPadding="false"
         app:menuButtonBackgroundTintColor="@color/tinkercolor"
-        app:menuButtonImageResource="@mipmap/newsfeed_crearcard_net"
-        app:menuButtonStateExpandedImageResource="@mipmap/newsfeed_crearcard_cancelar">
+        app:menuButtonImageResource="@mipmap/ic_network_dark"
+        app:menuButtonStateExpandedImageResource="@mipmap/floating_close">
 
         <com.cronosgroup.tinkerlink.view.customviews.TLMenuItem
             android:id="@+id/searchContacts"
             style="@style/MenuItemStyle"
             app:menuItemBackgroundTintColor="@color/tinkercolor"
-            app:menuItemImageResource="@mipmap/newsfeed_tinkercard_net"
+            app:menuItemImageResource="@mipmap/ic_search_dark"
             app:menuItemTitle="@string/contacts_search_contacts" />
 
         <com.cronosgroup.tinkerlink.view.customviews.TLMenuItem
             android:id="@+id/importContacts"
             style="@style/MenuItemStyle"
             app:menuItemBackgroundTintColor="@color/linkercolor"
-            app:menuItemImageResource="@mipmap/newsfeed_linkercard_net"
+            app:menuItemImageResource="@mipmap/ic_import_contacts_dark"
             app:menuItemTitle="@string/contacts_import_contacts" />
 
     </com.cronosgroup.tinkerlink.view.customviews.TLMenuButton>

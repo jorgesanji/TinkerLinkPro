@@ -46,10 +46,11 @@
         android:name=".application.TinkerLinkApplication"
         android:allowBackup="true"
         android:debuggable="true"
-        android:icon="@mipmap/icon_app"
+        android:icon="@mipmap/icon_tinkerlink_app"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:replace="android:icon,android:theme">
 
         <!-- GooglePlus -->
 
@@ -60,10 +61,6 @@
         <!-- End GooglePlus -->
 
         <!-- Adjust -->
-
-        <meta-data
-            android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />
 
         <receiver
             android:name="com.adjust.sdk.AdjustReferrerReceiver"
@@ -113,10 +110,6 @@
             </intent-filter>
 
         </activity>
-
-        <activity
-            android:name=".view.presignuser.PreSignUserActivity"
-            android:screenOrientation="portrait" />
 
         <activity
             android:name=".view.login.LoginActivity"
@@ -227,7 +220,7 @@
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".view.status.StatusUserActivity"
+            android:name=".view.status.UserStatusActivity"
             android:screenOrientation="portrait"
             android:theme="@style/ThemeToolbarItemsBlackStyle" />
 

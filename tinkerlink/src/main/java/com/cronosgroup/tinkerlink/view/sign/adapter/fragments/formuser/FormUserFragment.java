@@ -7,7 +7,7 @@ import com.cronosgroup.tinkerlink.presenter.sign.FormUserPresenter;
 import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
 import com.cronosgroup.tinkerlink.view.dialog.country.CountryDialogFragment;
-import com.cronosgroup.tinkerlink.view.interfaces.IOFormListener;
+import com.cronosgroup.tinkerlink.interfaces.IOFormListener;
 
 /**
  * Created by jorgesanmartin on 1/29/16.

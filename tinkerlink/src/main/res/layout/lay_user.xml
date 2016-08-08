@@ -44,7 +44,7 @@
             android:layout_height="match_parent"
             android:gravity="center_vertical"
             android:visibility="gone"
-            app:iconItem="@mipmap/profile_contactoagregado"
+            app:iconItem="@mipmap/ic_contact_add"
             app:textItem="@string/action_add_contact"
             app:textItemColor="@color/gray_30"
             app:textItemFont="Regular"

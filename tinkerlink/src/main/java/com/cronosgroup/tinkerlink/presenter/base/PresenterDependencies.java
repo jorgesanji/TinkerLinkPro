@@ -3,10 +3,10 @@ package com.cronosgroup.tinkerlink.presenter.base;
 import android.location.Geocoder;
 
 import com.cronosgroup.tinkerlink.application.TinkerLinkApplication;
-import com.cronosgroup.tinkerlink.manager.AppConfigManager;
-import com.cronosgroup.tinkerlink.manager.AppCountryManager;
-import com.cronosgroup.tinkerlink.manager.AppImagePickerManager;
-import com.cronosgroup.tinkerlink.manager.AppUserSessionManager;
+import com.cronosgroup.tinkerlink.model.manager.AppConfigManager;
+import com.cronosgroup.tinkerlink.model.manager.AppCountryManager;
+import com.cronosgroup.tinkerlink.model.manager.AppImagePickerManager;
+import com.cronosgroup.tinkerlink.model.manager.AppUserSessionManager;
 
 import javax.inject.Inject;
 

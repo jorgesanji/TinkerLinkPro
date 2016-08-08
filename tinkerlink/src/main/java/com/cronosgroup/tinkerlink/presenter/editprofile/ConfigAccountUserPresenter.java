@@ -25,15 +25,15 @@ public class ConfigAccountUserPresenter extends TinkerLinkPresenter<ConfigAccoun
      * Config user account actions.
      */
     public interface Actions {
-        void onLaunchChangePassword(Activity activity, Bundle bundle);
+        void onLaunchChangeUserPassword(Activity activity, Bundle bundle);
 
-        void onLaunchChangePhoneNumber(Activity activity, Bundle bundle);
+        void onLaunchChangeUserPhoneNumber(Activity activity, Bundle bundle);
 
-        void onLaunchImportContacts(Activity activity, Bundle bundle);
+        void onLaunchImportUserContacts(Activity activity, Bundle bundle);
 
-        void onLaunchPrivacy(Activity activity, Bundle bundle);
+        void onLaunchUserPrivacy(Activity activity, Bundle bundle);
 
-        void onLaunchHelpTinkerLink(Activity activity, Bundle bundle);
+        void onLaunchTinkerLinkHelp(Activity activity, Bundle bundle);
 
         void onLaunchPolicyPrivacy(Activity activity, Bundle bundle);
 
@@ -51,23 +51,23 @@ public class ConfigAccountUserPresenter extends TinkerLinkPresenter<ConfigAccoun
     //Actions
 
     public void onLaunchChangePassword() {
-        listener.onLaunchChangePassword(getView().getActivity(), null);
+        listener.onLaunchChangeUserPassword(getView().getActivity(), null);
     }
 
     public void onLaunchChangePhoneNumber() {
-        listener.onLaunchChangePhoneNumber(getView().getActivity(), null);
+        listener.onLaunchChangeUserPhoneNumber(getView().getActivity(), null);
     }
 
     public void onLaunchImportContacts() {
-        listener.onLaunchImportContacts(getView().getActivity(), null);
+        listener.onLaunchImportUserContacts(getView().getActivity(), null);
     }
 
     public void onLaunchPrivacy() {
-        listener.onLaunchPrivacy(getView().getActivity(), null);
+        listener.onLaunchUserPrivacy(getView().getActivity(), null);
     }
 
     public void onLaunchHelpTinkerLink() {
-        listener.onLaunchHelpTinkerLink(getView().getActivity(), null);
+        listener.onLaunchTinkerLinkHelp(getView().getActivity(), null);
     }
 
     public void onLaunchPolicyPrivacy() {

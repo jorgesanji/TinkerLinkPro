@@ -6,10 +6,10 @@ import android.text.style.ForegroundColorSpan;
 import android.view.View;
 
 import com.cronosgroup.tinkerlink.R;
-import com.cronosgroup.tinkerlink.manager.AppConfigManager;
+import com.cronosgroup.tinkerlink.model.manager.AppConfigManager;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestUser;
-import com.cronosgroup.tinkerlink.view.interfaces.IOIconListener;
+import com.cronosgroup.tinkerlink.interfaces.IOIconListener;
 
 /**
  * row of the recycler view.
@@ -31,7 +31,7 @@ public class ViewHolderShareProfile extends ViewHolderPost {
         mTypeCardTitle.setVisibility(View.GONE);
         mIconRecomendations.setVisibility(View.GONE);
         mCardDescription.setVisibility(View.GONE);
-        mTypeCardTitle.setText(getResources().getString(R.string.card_me));
+        mTypeCardTitle.setText(getResources().getString(R.string.detail_card_me));
         mUserContainer.hideIcon(true);
         mLinkTitle.setVisibility(View.GONE);
         mLinkDescription.setVisibility(View.GONE);

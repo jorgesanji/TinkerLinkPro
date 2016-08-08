@@ -25,7 +25,7 @@ public class ChangePhoneNumberPresenter extends TinkerLinkPresenter<ChangePhoneN
      * Config user account actions.
      */
     public interface Actions {
-        void onLaunchVerify(Activity activity, Bundle bundle);
+        void onLaunchUserVerification(Activity activity, Bundle bundle);
     }
 
 
@@ -39,7 +39,7 @@ public class ChangePhoneNumberPresenter extends TinkerLinkPresenter<ChangePhoneN
     //Actions
 
     public void onVerifyPressed() {
-        listener.onLaunchVerify(getView().getActivity(), null);
+        listener.onLaunchUserVerification(getView().getActivity(), null);
     }
 }
 

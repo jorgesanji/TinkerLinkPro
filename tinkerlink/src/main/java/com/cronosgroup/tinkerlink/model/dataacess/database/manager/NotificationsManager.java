@@ -34,7 +34,7 @@ public class NotificationsManager {
     public static final int NOTIFICACION_CONTACT_DELETED_FROM_ME = 8;
     public static final int NOTIFICACION_CONTACT_DELETED_TO_ME = 7;
 
-    //RECOMMENDATIONS
+    //RECOMMENDATIONSSTYLE
 
     public static final int NOTIFICACION_TIPO_RECOMMENDATION_REQUESTED_FROM_ME = 9;
     public static final int NOTIFICACION_TIPO_RECOMMENDATION_REQUESTED_TO_MY_PROFILE = 10;

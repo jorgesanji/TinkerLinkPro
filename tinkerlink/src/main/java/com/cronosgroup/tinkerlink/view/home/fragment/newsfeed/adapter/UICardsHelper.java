@@ -23,7 +23,7 @@ import com.cronosgroup.tinkerlink.view.home.fragment.newsfeed.adapter.viewholder
 import com.cronosgroup.tinkerlink.view.home.fragment.newsfeed.adapter.viewholder.ViewHolderUpdatePhoto;
 import com.cronosgroup.tinkerlink.view.home.fragment.newsfeed.adapter.viewholder.ViewHolderUpdateProfile;
 import com.cronosgroup.tinkerlink.view.home.fragment.newsfeed.adapter.viewholder.base.ViewHolderPostBase;
-import com.cronosgroup.tinkerlink.view.interfaces.IOActionButtons;
+import com.cronosgroup.tinkerlink.interfaces.IOActionButtons;
 
 /**
  * Created by jorgesanmartin on 11/11/15.

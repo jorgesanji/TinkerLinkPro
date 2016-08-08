@@ -15,15 +15,15 @@ import android.widget.RelativeLayout;
 import com.cronosgroup.core.view.BaseAdapter;
 import com.cronosgroup.core.view.animator.SlideInUpAnimator;
 import com.cronosgroup.tinkerlink.R;
-import com.cronosgroup.tinkerlink.manager.AppConfigManager;
-import com.cronosgroup.tinkerlink.manager.AppUserSessionManager;
+import com.cronosgroup.tinkerlink.model.manager.AppConfigManager;
+import com.cronosgroup.tinkerlink.model.manager.AppUserSessionManager;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContacto;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
 import com.cronosgroup.tinkerlink.view.customviews.TLRecyclerView;
 import com.cronosgroup.tinkerlink.view.customviews.TLTextView;
 import com.cronosgroup.tinkerlink.view.home.fragment.newsfeed.adapter.HomeAdapter;
-import com.cronosgroup.tinkerlink.view.interfaces.IOActionButtons;
-import com.cronosgroup.tinkerlink.view.interfaces.IOLoadMore;
+import com.cronosgroup.tinkerlink.interfaces.IOActionButtons;
+import com.cronosgroup.tinkerlink.interfaces.IOLoadMore;
 
 import java.util.List;
 

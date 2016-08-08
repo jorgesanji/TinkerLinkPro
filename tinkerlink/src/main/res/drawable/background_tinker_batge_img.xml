@@ -14,7 +14,7 @@
 
     <item
         android:bottom="6dp"
-        android:drawable="@mipmap/newsfeed_tinkercard_net"
+        android:drawable="@mipmap/floating_new_buscotinker"
         android:left="10dp"
         android:right="10dp"
         android:top="9dp" />

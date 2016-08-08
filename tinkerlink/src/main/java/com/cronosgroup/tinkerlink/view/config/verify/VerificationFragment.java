@@ -2,7 +2,7 @@ package com.cronosgroup.tinkerlink.view.config.verify;
 
 import android.view.View;
 
-import com.cronosgroup.tinkerlink.event.NextPageEvent;
+import com.cronosgroup.tinkerlink.event.RegistrationStepsEvent;
 import com.cronosgroup.tinkerlink.presenter.verify.VerifyPresenter;
 import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
@@ -76,7 +76,7 @@ public class VerificationFragment extends MVPTinkerLinkFragment<VerifyPresenter,
     //region **************  EventBus **************
 
     @Subscribe
-    public void onEventMainThread(NextPageEvent event) {
+    public void onEventMainThread(RegistrationStepsEvent event) {
         recoveryPasswordScreen.closeValidator();
         getActivity().finish();
     }

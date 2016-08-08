@@ -64,7 +64,7 @@
                     android:layout_height="50dp"
                     android:layout_weight="0.22"
                     android:background="@android:color/transparent"
-                    android:text="@string/send_button_title"
+                    android:text="@string/send_title"
                     app:fontNameButton="Bold" />
 
             </LinearLayout>

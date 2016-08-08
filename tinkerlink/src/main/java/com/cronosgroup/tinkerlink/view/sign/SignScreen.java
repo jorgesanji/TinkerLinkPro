@@ -197,15 +197,7 @@ public class SignScreen extends RelativeLayout {
         return false;
     }
 
-    public void showRegistrationSeletor() {
-        showContainer(mRegistrationContainer);
-    }
-
-    public boolean hidePage() {
-        if (removeContainers()) {
-            return true;
-        } else {
-            return showPreviousPage();
-        }
+    public boolean removeSocialNetworksPage() {
+        return removeContainers();
     }
 }

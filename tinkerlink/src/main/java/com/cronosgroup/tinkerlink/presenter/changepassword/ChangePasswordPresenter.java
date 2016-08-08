@@ -25,7 +25,7 @@ public class ChangePasswordPresenter extends TinkerLinkPresenter<ChangePasswordP
      * Config user account actions.
      */
     public interface Actions {
-        void onLaunchRecoveryPassword(Activity activity, Bundle bundle);
+        void onLaunchRecoveryUserPassword(Activity activity, Bundle bundle);
     }
 
 
@@ -39,7 +39,7 @@ public class ChangePasswordPresenter extends TinkerLinkPresenter<ChangePasswordP
     //Actions
 
     public void onRecoveryPressed() {
-        listener.onLaunchRecoveryPassword(getView().getActivity(), null);
+        listener.onLaunchRecoveryUserPassword(getView().getActivity(), null);
     }
 
 }

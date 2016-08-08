@@ -16,7 +16,8 @@ import com.cronosgroup.core.managers.PermissionsManager;
 import com.cronosgroup.core.view.BaseActivity;
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.application.TinkerLinkApplication;
-import com.cronosgroup.tinkerlink.logger.Logger;
+import com.cronosgroup.tinkerlink.enums.StyleToolBar;
+import com.cronosgroup.tinkerlink.utils.logger.Logger;
 import com.cronosgroup.tinkerlink.utils.ImageLoaderHelper;
 
 import java.util.List;
@@ -29,54 +30,6 @@ import butterknife.ButterKnife;
 public abstract class TinkerLinkActivity<F extends MVPTinkerLinkFragment> extends BaseActivity {
 
     // Variables
-
-    public enum StyleToolBar {
-        HOME(1, R.layout.layout_base_toolbar_white, R.color.white, R.color.black, R.mipmap.ic_tinker, R.color.tinkercolor),
-        DEFAULTSTYLE(1, R.layout.layout_base_toolbar_black_items, R.color.white, R.color.black, 0, R.color.tinkercolor),
-        LINKERSTYLE(2, R.layout.layout_base_toolbar_white_items, R.color.linkercolor, R.color.white, 0, R.color.linkercolor),
-        TINKERSTYLE(3, R.layout.layout_base_toolbar_white_items, R.color.tinkercolor, R.color.white, 0, R.color.tinkercolor),
-        RECOMMENDATIONS(4, R.layout.layout_base_toolbar_black_items, R.color.yellow, R.color.black, 0, R.color.yellow);
-
-        private final int style;
-        private final int backgroundColor;
-        private final int textColor;
-        private final int icon;
-        private final int statusColor;
-        private final int layout;
-
-        StyleToolBar(int style, int layout, int backgroundColor, int textColor, int icon, int statusColor) {
-            this.style = style;
-            this.layout = layout;
-            this.backgroundColor = backgroundColor;
-            this.textColor = textColor;
-            this.icon = icon;
-            this.statusColor = statusColor;
-        }
-
-        public int getIcon() {
-            return icon;
-        }
-
-        public int getBackgroundColor() {
-            return backgroundColor;
-        }
-
-        public int getTextColor() {
-            return textColor;
-        }
-
-        public int getStyle() {
-            return style;
-        }
-
-        public int getStatusColor() {
-            return statusColor;
-        }
-
-        public int getLayout() {
-            return layout;
-        }
-    }
 
     private TinkerLinkFragment currentFragment;
 
@@ -144,8 +97,11 @@ public abstract class TinkerLinkActivity<F extends MVPTinkerLinkFragment> extend
             StyleToolBar style = getActivityStyle();
             configToolBar(style);
             setSupportActionBar(mToolbar);
-
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            if (style != StyleToolBar.HOMESTYLE) {
+                getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            } else {
+                getSupportActionBar().setTitle(null);
+            }
         }
     }
 
@@ -238,8 +194,11 @@ public abstract class TinkerLinkActivity<F extends MVPTinkerLinkFragment> extend
 
     @Override
     public void setTitle(int title) {
-        getSupportActionBar().setDisplayShowHomeEnabled(false);
-        getSupportActionBar().setHomeButtonEnabled(true);
+        if (getActivityStyle() != StyleToolBar.HOMESTYLE) {
+            getSupportActionBar().setDisplayShowHomeEnabled(false);
+            getSupportActionBar().setHomeButtonEnabled(true);
+        }
+
         getSupportActionBar().setTitle(title);
     }
 
@@ -263,7 +222,7 @@ public abstract class TinkerLinkActivity<F extends MVPTinkerLinkFragment> extend
     }
 
     public void setLogo(int resource) {
-        mToolbar.setLogo(resource);
+        getSupportActionBar().setLogo(resource);
     }
 
     @Override

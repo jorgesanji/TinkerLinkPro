@@ -44,7 +44,7 @@ public class ProfileUseCases {
     }
 
     public static void getActivityUser(String params, Callback callback, Object tag) {
-        ProfileServices.getActivityUser(params, RestPost.class, callback, tag);
+//        ProfileServices.getActivityUser(params, RestPost.class, callback, tag);
     }
 
     public static void updatePhoto(String foto, String fotoCropped, Callback callback, Object tag) {

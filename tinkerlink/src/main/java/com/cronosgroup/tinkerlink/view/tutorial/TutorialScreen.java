@@ -16,7 +16,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import com.cronosgroup.tinkerlink.R;
-import com.cronosgroup.tinkerlink.view.animation.tutorial.DepthPageTransformer;
+import com.cronosgroup.tinkerlink.animation.tutorial.DepthPageTransformer;
 import com.cronosgroup.tinkerlink.view.customviews.TLViewPager;
 import com.cronosgroup.tinkerlink.view.customviews.TLViewPagerIndicator;
 import com.cronosgroup.tinkerlink.view.tutorial.adapter.TutorialAdapter;
@@ -37,7 +37,9 @@ class TutorialScreen extends RelativeLayout {
      * listeners of the Tutorial's screen.
      */
     public interface Listener {
-        void onStartRegistration();
+        void onLoginPressed();
+
+        void onSignPressed();
 
         boolean isUserLoged();
     }
@@ -158,12 +160,14 @@ class TutorialScreen extends RelativeLayout {
 
     // **************  UI Actions **************
 
+    @OnClick(R.id.logButton)
+    protected void onLoginPressed() {
+        listener.onLoginPressed();
+    }
 
     @OnClick(R.id.signButton)
-    protected void btnSignClicked() {
-        if (listener != null) {
-            listener.onStartRegistration();
-        }
+    protected void onSignPressed() {
+        listener.onSignPressed();
     }
 
     // Public methods

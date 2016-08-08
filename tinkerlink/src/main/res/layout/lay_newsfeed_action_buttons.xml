@@ -13,9 +13,8 @@
         android:layout_height="match_parent"
         android:layout_weight="1.0"
         android:background="@drawable/button_default_states_bgwhite"
-        app:stackIcon="@mipmap/newsfeed_newcard_tinker"
         app:stackLineColor="@color/tinkercolor"
-        app:stackSubTitle="@string/watch_tinkers"
+        app:stackSubTitle="@string/news_feed_watch_tinkers"
         app:stackSubTitleColor="@color/tinkercolor"
         app:stackTitle="0K" />
 
@@ -25,9 +24,8 @@
         android:layout_height="match_parent"
         android:layout_weight="1.0"
         android:background="@drawable/button_default_states_bgwhite"
-        app:stackIcon="@mipmap/newsfeed_newcard_linker"
         app:stackLineColor="@color/linkercolor"
-        app:stackSubTitle="@string/watch_linkers"
+        app:stackSubTitle="@string/news_feed_watch_linkers"
         app:stackSubTitleColor="@color/linkercolor"
         app:stackTitle="0K" />
 

@@ -26,17 +26,13 @@ public class AccountPresenter extends TinkerLinkPresenter<AccountPresenter.View>
      * Mesage actions.
      */
     public interface Actions {
-        void onLaunchEditProfile(Activity activity, Bundle bundle);
+        void onLaunchEditUserProfile(Activity activity, Bundle bundle);
 
         void onLaunchProfile(Activity activity, Bundle bundle);
 
         void onLaunchConfigProfile(Activity activity, Bundle bundle);
 
         void onLaunchStack(Activity activity, Bundle bundle);
-
-        void onLaunchCreateRecommendation(Activity activity, Bundle bundle);
-
-        void onLaunchCreateCard(Activity activity, Bundle bundle);
     }
 
     /**
@@ -50,7 +46,7 @@ public class AccountPresenter extends TinkerLinkPresenter<AccountPresenter.View>
     // Actions
 
     public void onLaunchEditProfile() {
-        listener.onLaunchEditProfile(getView().getActivity(), null);
+        listener.onLaunchEditUserProfile(getView().getActivity(), null);
     }
 
     public void onLaunchProfile() {

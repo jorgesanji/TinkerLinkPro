@@ -144,16 +144,16 @@ public class TLTabItem extends LinearLayout {
         if (!contacto.getUser().isMe()) {
             if (contacto.isAccepted()) {
                 setText(getContext().getString(R.string.profile_friends));
-                setIcon(getContext().getResources().getDrawable(R.mipmap.profile_contactoagregado));
+                setIcon(getContext().getResources().getDrawable(R.mipmap.ic_contact));
             } else if (contacto.meRequestedLikeContact()) {
                 setText(getContext().getString(R.string.profile_request_sent));
-                setIcon(getContext().getResources().getDrawable(R.mipmap.profile_solicitudenviada));
+                setIcon(getContext().getResources().getDrawable(R.mipmap.ic_contact_sent));
             } else if (contacto.wasRequestedToMeLikeContact()) {
                 setText(getContext().getString(R.string.profile_request_received));
-                setIcon(getContext().getResources().getDrawable(R.mipmap.profile_solicitudenviada));
+                setIcon(getContext().getResources().getDrawable(R.mipmap.ic_contact_accept));
             } else {
                 setText(getContext().getString(R.string.profile_send_request));
-                setIcon(getContext().getResources().getDrawable(R.mipmap.profile_agregarcontacto));
+                setIcon(getContext().getResources().getDrawable(R.mipmap.ic_contact_add));
             }
         }
     }

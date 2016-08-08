@@ -4,15 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
-    android:orientation="vertical"
-    >
+    android:orientation="vertical">
 
-    <android.support.design.widget.FloatingActionButton
+    <com.cronosgroup.tinkerlink.view.customviews.TLImageView
         android:id="@+id/iconTinker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_plus_big"
-        android:src="@mipmap/newsfeed_tinkercard_net" />
+        android:src="@mipmap/ic_steps_network" />
 
     <com.cronosgroup.tinkerlink.view.customviews.TLTextView
         android:id="@+id/titleTinker"
@@ -103,23 +102,21 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="30dp">
+                android:layout_height="40dp">
 
                 <com.cronosgroup.tinkerlink.view.customviews.TLImageView
                     android:id="@+id/tinkerNetwork"
                     style="@style/NetworkTinkerLinkCardsStyle"
-                    android:background="@drawable/background_tinker"
                     android:elevation="@dimen/view_elevation_min"
-                    android:src="@mipmap/newsfeed_tinkercard_net" />
+                    android:src="@mipmap/ic_steps_soytinker" />
 
                 <com.cronosgroup.tinkerlink.view.customviews.TLImageView
                     android:id="@+id/linkerNetwork"
                     style="@style/NetworkTinkerLinkCardsStyle"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/background_linker"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="5dp"
                     android:elevation="@dimen/view_elevation_min"
-                    android:src="@mipmap/newsfeed_linkercard_net" />
+                    android:src="@mipmap/ic_steps_buscotinker" />
 
             </RelativeLayout>
 

@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * Created by aaronasencio on 12/05/15.
  */
-public class RestPost extends RestBase {
+public class RestPost extends RestBase{
 
     public enum PostStatus {
         TO_PUBLISH,

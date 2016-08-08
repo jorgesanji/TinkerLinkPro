@@ -64,28 +64,28 @@
         android:clipChildren="false"
         android:clipToPadding="false"
         app:menuButtonBackgroundTintColor="@color/tinkercolor"
-        app:menuButtonImageResource="@mipmap/newsfeed_crearcard_net"
-        app:menuButtonStateExpandedImageResource="@mipmap/newsfeed_crearcard_cancelar">
+        app:menuButtonImageResource="@mipmap/ic_network_dark"
+        app:menuButtonStateExpandedImageResource="@mipmap/floating_close">
 
         <com.cronosgroup.tinkerlink.view.customviews.TLMenuItem
             android:id="@+id/recommendationButton"
             style="@style/MenuItemStyle"
             app:menuItemBackgroundTintColor="@color/yellow"
-            app:menuItemImageResource="@mipmap/newsfeed_tinkercard_net"
+            app:menuItemImageResource="@mipmap/floating_add_recomendation"
             app:menuItemTitle="@string/profile_request_recommendation" />
 
         <com.cronosgroup.tinkerlink.view.customviews.TLMenuItem
             android:id="@+id/tinkerButton"
             style="@style/MenuItemStyle"
             app:menuItemBackgroundTintColor="@color/tinkercolor"
-            app:menuItemImageResource="@mipmap/newsfeed_tinkercard_net"
+            app:menuItemImageResource="@mipmap/floating_new_buscotinker"
             app:menuItemTitle="@string/profile_new_tinker_card" />
 
         <com.cronosgroup.tinkerlink.view.customviews.TLMenuItem
             android:id="@+id/linkerButton"
             style="@style/MenuItemStyle"
             app:menuItemBackgroundTintColor="@color/linkercolor"
-            app:menuItemImageResource="@mipmap/newsfeed_linkercard_net"
+            app:menuItemImageResource="@mipmap/floating_new_buscotinker"
             app:menuItemTitle="@string/profile_new_linker_card" />
 
     </com.cronosgroup.tinkerlink.view.customviews.TLMenuButton>

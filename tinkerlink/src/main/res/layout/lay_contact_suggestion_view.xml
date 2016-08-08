@@ -55,7 +55,7 @@
         <com.cronosgroup.tinkerlink.view.customviews.TLImageView
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:src="@mipmap/newsfeed_share" />
+            android:src="@mipmap/ic_network" />
 
     </LinearLayout>
 
@@ -78,8 +78,8 @@
             android:orientation="vertical">
 
             <com.cronosgroup.tinkerlink.view.customviews.TLImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:src="@mipmap/ic_close" />
 
         </LinearLayout>
@@ -99,9 +99,9 @@
             android:orientation="vertical">
 
             <com.cronosgroup.tinkerlink.view.customviews.TLImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:src="@mipmap/ic_navigation_check" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ic_accept" />
 
         </LinearLayout>
 

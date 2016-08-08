@@ -3,6 +3,7 @@ package com.cronosgroup.tinkerlink.view.stack;
 import android.os.Bundle;
 
 import com.cronosgroup.tinkerlink.enums.StackCard;
+import com.cronosgroup.tinkerlink.enums.StyleToolBar;
 import com.cronosgroup.tinkerlink.view.base.TinkerLinkActivity;
 
 public class StackActivity extends TinkerLinkActivity<StackFragment> {

@@ -65,7 +65,7 @@
                 style="@style/SignButtonStyle"
                 android:layout_marginTop="@dimen/margin_big"
                 android:background="@drawable/button_sign_google_states"
-                android:drawableLeft="@mipmap/login_facebooklogo"
+                android:drawableLeft="@mipmap/ic_import_contacts_dark"
                 android:paddingLeft="@dimen/padding_content_big"
                 android:text="@string/import_contacts_phonebook" />
 
@@ -74,7 +74,7 @@
                 style="@style/SignButtonStyle"
                 android:layout_marginTop="@dimen/margin_big"
                 android:background="@drawable/button_sign_google_states"
-                android:drawableLeft="@mipmap/login_facebooklogo"
+                android:drawableLeft="@mipmap/ic_google_dark"
                 android:paddingLeft="@dimen/padding_content_big"
                 android:text="@string/import_contacts_gmail" />
 
@@ -83,7 +83,7 @@
                 style="@style/SignButtonStyle"
                 android:layout_marginTop="@dimen/margin_big"
                 android:background="@drawable/button_sign_facebook_states"
-                android:drawableLeft="@mipmap/login_facebooklogo"
+                android:drawableLeft="@mipmap/ic_facebook_dark"
                 android:paddingLeft="@dimen/padding_content_big"
                 android:text="@string/import_contacts_facebook" />
 

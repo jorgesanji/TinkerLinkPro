@@ -17,8 +17,8 @@ import android.widget.LinearLayout;
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContacto;
 import com.cronosgroup.tinkerlink.utils.TypeFaceUtils;
-import com.cronosgroup.tinkerlink.view.interfaces.IOAddContactListener;
-import com.cronosgroup.tinkerlink.view.interfaces.IOIconListener;
+import com.cronosgroup.tinkerlink.interfaces.IOAddContactListener;
+import com.cronosgroup.tinkerlink.interfaces.IOIconListener;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

@@ -10,8 +10,9 @@ import android.support.v4.content.LocalBroadcastManager;
 import android.view.View;
 
 import com.cronosgroup.tinkerlink.R;
-import com.cronosgroup.tinkerlink.event.NextPageEvent;
+import com.cronosgroup.tinkerlink.event.RegistrationStepsEvent;
 import com.cronosgroup.tinkerlink.event.SmsEvent;
+import com.cronosgroup.tinkerlink.event.enums.FormState;
 import com.cronosgroup.tinkerlink.presenter.sign.SignPresenter;
 import com.cronosgroup.tinkerlink.sms.SMSBroadcastReceiver;
 import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
@@ -123,10 +124,8 @@ public class SignFragment extends MVPTinkerLinkFragment<SignPresenter, SignPrese
 
     @Override
     public void verifiedPage(int page) {
-        if (page == SignAdapter.TINKER) {
+        if (page == SignAdapter.TINKER || page == SignAdapter.LINKER) {
             signScreen.showNextPage();
-        } else if (page == SignAdapter.LINKER) {
-            signScreen.showRegistrationSeletor();
         } else if (page == SignAdapter.USERFORM) {
             addDialogFragment(ValidationDialogFragment.class, ValidationDialogFragment.CODE);
         } else {
@@ -135,7 +134,7 @@ public class SignFragment extends MVPTinkerLinkFragment<SignPresenter, SignPrese
     }
 
     public boolean onBackPressed() {
-        return signScreen.hidePage();
+        return signScreen.showPreviousPage();
     }
 
     //endregion
@@ -143,8 +142,12 @@ public class SignFragment extends MVPTinkerLinkFragment<SignPresenter, SignPrese
     //region **************  EventBus **************
 
     @Subscribe
-    public void onEventMainThread(NextPageEvent event) {
-        signScreen.showNextPage();
+    public void onEventMainThread(RegistrationStepsEvent event) {
+        if (event.getState() == FormState.SOCIALNETWORK_REGISTRATION) {
+            signScreen.removeSocialNetworksPage();
+        } else {
+            signScreen.showNextPage();
+        }
     }
 
     //endregion

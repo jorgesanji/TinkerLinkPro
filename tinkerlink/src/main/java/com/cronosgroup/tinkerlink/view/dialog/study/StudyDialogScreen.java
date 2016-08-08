@@ -95,7 +95,7 @@ public class StudyDialogScreen extends LinearLayout {
     }
 
     private void init() {
-        inflate(getContext(), R.layout.lay_study_view, this);
+        inflate(getContext(), R.layout.lay_dialog_study, this);
         ButterKnife.bind(this);
         mSelectMonth.setPrompt(getResources().getString(R.string.sign_select_dateBird_month));
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(
@@ -109,7 +109,7 @@ public class StudyDialogScreen extends LinearLayout {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mSelectYear.setAdapter(adapter);
 
-        mAddButton.setText(getResources().getString(R.string.add_button_title));
+        mAddButton.setText(getResources().getString(R.string.add_title));
         mInstitutionName.requestFocus();
         InputMethodManager imm = (InputMethodManager) getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.showSoftInput(mInstitutionName, InputMethodManager.SHOW_IMPLICIT);

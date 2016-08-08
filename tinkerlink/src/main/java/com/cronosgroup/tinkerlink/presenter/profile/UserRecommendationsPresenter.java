@@ -34,8 +34,8 @@ public class UserRecommendationsPresenter extends TinkerLinkPresenter<UserRecomm
      * UserRecommendations actions.
      */
     public interface Actions {
-        void onLaunchRecommendations(Activity activity, Bundle bundle);
-        void onLaunchGiveRecommendation(Activity activity, Bundle bundle);
+        void onLaunchUserRecommendations(Activity activity, Bundle bundle);
+        void onLaunchGiveUserRecommendation(Activity activity, Bundle bundle);
     }
 
     /**
@@ -86,11 +86,11 @@ public class UserRecommendationsPresenter extends TinkerLinkPresenter<UserRecomm
     }
 
     public void onShowAllRecommendationsPressed() {
-        listener.onLaunchRecommendations(getView().getActivity(), null);
+        listener.onLaunchUserRecommendations(getView().getActivity(), null);
     }
 
     public void onGiveRecommendationPressed() {
-        listener.onLaunchGiveRecommendation(getView().getActivity(), null);
+        listener.onLaunchGiveUserRecommendation(getView().getActivity(), null);
     }
 
 }

@@ -3,7 +3,8 @@ package com.cronosgroup.tinkerlink.view.config.policyprivacy;
 import android.os.Bundle;
 
 import com.cronosgroup.tinkerlink.R;
-import com.cronosgroup.tinkerlink.manager.AppPermissionsManager;
+import com.cronosgroup.tinkerlink.enums.StyleToolBar;
+import com.cronosgroup.tinkerlink.model.manager.AppPermissionsManager;
 import com.cronosgroup.tinkerlink.view.base.TinkerLinkActivity;
 
 import java.util.ArrayList;
@@ -17,7 +18,6 @@ public class PolicyPrivacyActivity extends TinkerLinkActivity<PolicyPrivacyFragm
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setLogo(null);
         setTitle(R.string.configuration_privacy_policy);
     }
 

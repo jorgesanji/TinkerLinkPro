@@ -4,7 +4,7 @@ import android.view.View;
 
 import com.cronosgroup.core.view.recyclerview.BaseViewHolder;
 import com.cronosgroup.tinkerlink.R;
-import com.cronosgroup.tinkerlink.manager.AppCountryManager;
+import com.cronosgroup.tinkerlink.model.manager.AppCountryManager;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestCountry;
 import com.cronosgroup.tinkerlink.view.customviews.TLTextView;
 

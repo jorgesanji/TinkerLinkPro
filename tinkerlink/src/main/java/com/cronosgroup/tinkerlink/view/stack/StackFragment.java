@@ -14,7 +14,7 @@ import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestUser;
 import com.cronosgroup.tinkerlink.presenter.stack.StackPresenter;
 import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
-import com.cronosgroup.tinkerlink.view.animation.Animations;
+import com.cronosgroup.tinkerlink.animation.RevealAnimation;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
 import com.cronosgroup.tinkerlink.view.dialog.network.NetworkDialogFragment;
 import com.cronosgroup.tinkerlink.view.dialog.share.ShareDialogFragment;
@@ -103,7 +103,7 @@ public class StackFragment extends MVPTinkerLinkFragment<StackPresenter, StackPr
 
     @Override
     protected void onDidAppear() {
-        Animations.revealFromTop(stackScreen.getAnimableView(), stackType.getStackColor(), new Animations.Listener() {
+        RevealAnimation.revealFromBottom(stackScreen.getAnimableView(), stackType.getStackColor(), new RevealAnimation.Listener() {
             @Override
             public void onFinishAnimation() {
                 stackScreen.animBackground();

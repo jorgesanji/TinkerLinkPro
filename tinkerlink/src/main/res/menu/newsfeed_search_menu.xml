@@ -5,7 +5,7 @@
 
     <item
         android:id="@+id/action_search_newsfeed"
-        android:icon="@mipmap/newsfeed_search"
+        android:icon="@mipmap/ic_search"
         android:title="@string/action_search_card"
         app:showAsAction="withText|ifRoom" />
 
