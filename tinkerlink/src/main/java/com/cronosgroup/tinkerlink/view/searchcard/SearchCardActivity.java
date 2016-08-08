@@ -3,7 +3,7 @@ package com.cronosgroup.tinkerlink.view.searchcard;
 import android.os.Bundle;
 
 import com.cronosgroup.tinkerlink.R;
-import com.cronosgroup.tinkerlink.enums.StyleToolBar;
+import com.cronosgroup.tinkerlink.enums.ToolBarStyle;
 import com.cronosgroup.tinkerlink.view.base.TinkerLinkActivity;
 
 public class SearchCardActivity extends TinkerLinkActivity<SearchCardFragment> {
@@ -20,8 +20,8 @@ public class SearchCardActivity extends TinkerLinkActivity<SearchCardFragment> {
     }
 
     @Override
-    public StyleToolBar getActivityStyle() {
-        return StyleToolBar.DEFAULTSTYLE;
+    public ToolBarStyle getActivityStyle() {
+        return ToolBarStyle.DEFAULTSTYLE;
     }
 
     @Override

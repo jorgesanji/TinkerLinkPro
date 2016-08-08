@@ -5,6 +5,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.cronosgroup.tinkerlink.R;
+import com.cronosgroup.tinkerlink.enums.PostType;
+import com.cronosgroup.tinkerlink.interfaces.IOActionButtons;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
 import com.cronosgroup.tinkerlink.view.home.fragment.newsfeed.adapter.viewholder.ViewHolderAddContact;
 import com.cronosgroup.tinkerlink.view.home.fragment.newsfeed.adapter.viewholder.ViewHolderLinker;
@@ -23,7 +25,6 @@ import com.cronosgroup.tinkerlink.view.home.fragment.newsfeed.adapter.viewholder
 import com.cronosgroup.tinkerlink.view.home.fragment.newsfeed.adapter.viewholder.ViewHolderUpdatePhoto;
 import com.cronosgroup.tinkerlink.view.home.fragment.newsfeed.adapter.viewholder.ViewHolderUpdateProfile;
 import com.cronosgroup.tinkerlink.view.home.fragment.newsfeed.adapter.viewholder.base.ViewHolderPostBase;
-import com.cronosgroup.tinkerlink.interfaces.IOActionButtons;
 
 /**
  * Created by jorgesanmartin on 11/11/15.
@@ -40,7 +41,7 @@ public class UICardsHelper {
         View view;
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
 
-        RestPost.PostType postType = RestPost.PostType.typeFromInt(viewType);
+        PostType postType = PostType.typeFromInt(viewType);
 
         switch (postType) {
             case SUGGESTION:

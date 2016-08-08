@@ -3,7 +3,7 @@ package com.cronosgroup.tinkerlink.view.createcard;
 import android.os.Bundle;
 import android.view.View;
 
-import com.cronosgroup.tinkerlink.enums.StackCard;
+import com.cronosgroup.tinkerlink.enums.StackCardType;
 import com.cronosgroup.tinkerlink.event.UpdateInfoCardEvent;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
 import com.cronosgroup.tinkerlink.presenter.createcard.CreateCardPresenter;
@@ -22,7 +22,7 @@ public class CreateCardFragment extends MVPTinkerLinkFragment<CreateCardPresente
         implements CreateCardPresenter.View, CreateCardScreen.Listener {
 
     // Vars
-    private StackCard type;
+    private StackCardType type;
 
     // Views
     private CreateCardScreen createCardScreen;
@@ -30,7 +30,7 @@ public class CreateCardFragment extends MVPTinkerLinkFragment<CreateCardPresente
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        type = (StackCard) getArguments().getSerializable(StackActivity.STACK_TYPE);
+        type = (StackCardType) getArguments().getSerializable(StackActivity.STACK_TYPE);
     }
 
     @Override

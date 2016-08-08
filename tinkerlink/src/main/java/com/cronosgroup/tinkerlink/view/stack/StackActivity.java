@@ -2,8 +2,8 @@ package com.cronosgroup.tinkerlink.view.stack;
 
 import android.os.Bundle;
 
-import com.cronosgroup.tinkerlink.enums.StackCard;
-import com.cronosgroup.tinkerlink.enums.StyleToolBar;
+import com.cronosgroup.tinkerlink.enums.StackCardType;
+import com.cronosgroup.tinkerlink.enums.ToolBarStyle;
 import com.cronosgroup.tinkerlink.view.base.TinkerLinkActivity;
 
 public class StackActivity extends TinkerLinkActivity<StackFragment> {
@@ -18,7 +18,7 @@ public class StackActivity extends TinkerLinkActivity<StackFragment> {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        StackCard stackType = (StackCard) getIntent().getExtras().getSerializable(StackActivity.STACK_TYPE);
+        StackCardType stackType = (StackCardType) getIntent().getExtras().getSerializable(StackActivity.STACK_TYPE);
         if (stackType != null) {
             setTitle(getString(stackType.getStackTitle()));
         }
@@ -30,8 +30,8 @@ public class StackActivity extends TinkerLinkActivity<StackFragment> {
     }
 
     @Override
-    public StyleToolBar getActivityStyle() {
-        return StyleToolBar.DEFAULTSTYLE;
+    public ToolBarStyle getActivityStyle() {
+        return ToolBarStyle.DEFAULTSTYLE;
     }
 
 }

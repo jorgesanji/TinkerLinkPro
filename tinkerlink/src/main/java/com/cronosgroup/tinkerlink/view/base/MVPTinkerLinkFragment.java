@@ -30,6 +30,16 @@ public abstract class MVPTinkerLinkFragment<P extends Presenter<V>, V extends Ti
 
     private AppSnackManager appStatusMessageManager;
 
+    // Abstract methods
+
+    protected abstract P createPresenter();
+
+    protected abstract V getPresenterView();
+
+    protected abstract void onDidAppear();
+
+    protected abstract View getRootView();
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return getRootView();
@@ -110,14 +120,6 @@ public abstract class MVPTinkerLinkFragment<P extends Presenter<V>, V extends Ti
     protected P getPresenter() {
         return this.presenter;
     }
-
-    protected abstract P createPresenter();
-
-    protected abstract V getPresenterView();
-
-    protected abstract void onDidAppear();
-
-    protected abstract View getRootView();
 
     /**
      * Calls activity showInfo if container activity extends {@Presenter.View} or shows a info

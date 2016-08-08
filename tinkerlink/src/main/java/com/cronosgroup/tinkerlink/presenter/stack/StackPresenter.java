@@ -3,7 +3,7 @@ package com.cronosgroup.tinkerlink.presenter.stack;
 import android.app.Activity;
 import android.os.Bundle;
 
-import com.cronosgroup.tinkerlink.enums.StackCard;
+import com.cronosgroup.tinkerlink.enums.StackCardType;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestChat;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContacto;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestMessage;
@@ -28,7 +28,7 @@ public class StackPresenter extends TinkerLinkPresenter<StackPresenter.View> {
     private final Actions listener;
 
     /**
-     * StackCard listeners.
+     * StackCardType listeners.
      */
     public interface View extends TinkerLinkPresenterView {
 
@@ -42,11 +42,11 @@ public class StackPresenter extends TinkerLinkPresenter<StackPresenter.View> {
 
         RestUser getUser();
 
-        StackCard getType();
+        StackCardType getType();
     }
 
     /**
-     * StackCard actions.
+     * StackCardType actions.
      */
     public interface Actions {
         void onLaunchStack(Activity activity, Bundle bundle);
@@ -75,7 +75,7 @@ public class StackPresenter extends TinkerLinkPresenter<StackPresenter.View> {
 
     public void onSelectCardsType() {
         Bundle bundle = new Bundle();
-        bundle.putSerializable(StackActivity.STACK_TYPE, (getView().getType().getStackType() == StackCard.LINKER.getStackType()) ? StackCard.TINKER : StackCard.LINKER);
+        bundle.putSerializable(StackActivity.STACK_TYPE, (getView().getType().getStackType() == StackCardType.LINKER.getStackType()) ? StackCardType.TINKER : StackCardType.LINKER);
         listener.onLaunchStack(getView().getActivity(), bundle);
         getView().getActivity().finish();
     }

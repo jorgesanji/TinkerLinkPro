@@ -15,15 +15,16 @@ import android.widget.RelativeLayout;
 import com.cronosgroup.core.view.BaseAdapter;
 import com.cronosgroup.core.view.animator.SlideInUpAnimator;
 import com.cronosgroup.tinkerlink.R;
-import com.cronosgroup.tinkerlink.model.manager.AppConfigManager;
-import com.cronosgroup.tinkerlink.model.manager.AppUserSessionManager;
+import com.cronosgroup.tinkerlink.enums.PostType;
+import com.cronosgroup.tinkerlink.interfaces.IOActionButtons;
+import com.cronosgroup.tinkerlink.interfaces.IOLoadMore;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContacto;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
+import com.cronosgroup.tinkerlink.model.manager.AppConfigManager;
+import com.cronosgroup.tinkerlink.model.manager.AppUserSessionManager;
 import com.cronosgroup.tinkerlink.view.customviews.TLRecyclerView;
 import com.cronosgroup.tinkerlink.view.customviews.TLTextView;
 import com.cronosgroup.tinkerlink.view.home.fragment.newsfeed.adapter.HomeAdapter;
-import com.cronosgroup.tinkerlink.interfaces.IOActionButtons;
-import com.cronosgroup.tinkerlink.interfaces.IOLoadMore;
 
 import java.util.List;
 
@@ -354,7 +355,7 @@ public class NewsFeedScreen extends RelativeLayout {
 
             if (list.size() == MAX_ITEMS) {
                 RestPost post = new RestPost();
-                post.setTipo(RestPost.PostType.LOAD.getTypeString());
+                post.setTipo(PostType.LOAD.getTypeString());
                 list.add(post);
             }
             mAdapter.addItems(list);

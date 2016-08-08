@@ -56,7 +56,6 @@ public class AppModule {
     }
 
     @Provides
-    @Singleton
     AppCountryManager provideCountryManager() {
         return new AppCountryManager(provideApplicationContext());
     }

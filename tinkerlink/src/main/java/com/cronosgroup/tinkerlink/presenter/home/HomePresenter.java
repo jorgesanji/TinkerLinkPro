@@ -7,7 +7,7 @@ package com.cronosgroup.tinkerlink.presenter.home;
 import android.app.Activity;
 import android.os.Bundle;
 
-import com.cronosgroup.tinkerlink.enums.StackCard;
+import com.cronosgroup.tinkerlink.enums.StackCardType;
 import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenter;
 import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenterView;
 import com.cronosgroup.tinkerlink.view.stack.StackActivity;
@@ -55,13 +55,13 @@ public class HomePresenter extends TinkerLinkPresenter<HomePresenter.View> {
 
     public void onLaunchCreateTinker() {
         Bundle bundle = new Bundle();
-        bundle.putSerializable(StackActivity.STACK_TYPE, StackCard.TINKER);
+        bundle.putSerializable(StackActivity.STACK_TYPE, StackCardType.TINKER);
         listener.onLaunchCreateCard(getView().getActivity(), bundle);
     }
 
     public void onLaunchCreateLinker() {
         Bundle bundle = new Bundle();
-        bundle.putSerializable(StackActivity.STACK_TYPE, StackCard.LINKER);
+        bundle.putSerializable(StackActivity.STACK_TYPE, StackCardType.LINKER);
         listener.onLaunchCreateCard(getView().getActivity(), bundle);
     }
     //endregion

@@ -3,7 +3,7 @@ package com.cronosgroup.tinkerlink.presenter.account;
 import android.app.Activity;
 import android.os.Bundle;
 
-import com.cronosgroup.tinkerlink.enums.StackCard;
+import com.cronosgroup.tinkerlink.enums.StackCardType;
 import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenter;
 import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenterView;
 import com.cronosgroup.tinkerlink.view.stack.StackActivity;
@@ -59,13 +59,13 @@ public class AccountPresenter extends TinkerLinkPresenter<AccountPresenter.View>
 
     public void onLaunchTinkerCards() {
         Bundle bundle = new Bundle();
-        bundle.putSerializable(StackActivity.STACK_TYPE, StackCard.TINKER);
+        bundle.putSerializable(StackActivity.STACK_TYPE, StackCardType.TINKER);
         listener.onLaunchStack(getView().getActivity(), bundle);
     }
 
     public void onLaunchLinkerCards() {
         Bundle bundle = new Bundle();
-        bundle.putSerializable(StackActivity.STACK_TYPE, StackCard.LINKER);
+        bundle.putSerializable(StackActivity.STACK_TYPE, StackCardType.LINKER);
         listener.onLaunchStack(getView().getActivity(), bundle);
     }
 

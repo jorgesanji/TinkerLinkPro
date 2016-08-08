@@ -3,7 +3,7 @@ package com.cronosgroup.tinkerlink.presenter.stack;
 import android.app.Activity;
 import android.os.Bundle;
 
-import com.cronosgroup.tinkerlink.enums.StackCard;
+import com.cronosgroup.tinkerlink.enums.StackCardType;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContacto;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestProfile;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestRecomendacion;
@@ -28,7 +28,7 @@ public class CardPresenter extends TinkerLinkPresenter<CardPresenter.View> {
      * Card listeners.
      */
     public interface View extends TinkerLinkPresenterView {
-        StackCard getType();
+        StackCardType getType();
 
         void setRecommendationsList(List<RestRecomendacion> list);
     }

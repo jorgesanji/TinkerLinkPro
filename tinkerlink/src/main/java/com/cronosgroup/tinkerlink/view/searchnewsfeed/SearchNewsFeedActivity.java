@@ -3,7 +3,7 @@ package com.cronosgroup.tinkerlink.view.searchnewsfeed;
 import android.os.Bundle;
 
 import com.cronosgroup.tinkerlink.R;
-import com.cronosgroup.tinkerlink.enums.StyleToolBar;
+import com.cronosgroup.tinkerlink.enums.ToolBarStyle;
 import com.cronosgroup.tinkerlink.view.base.TinkerLinkActivity;
 
 public class SearchNewsFeedActivity extends TinkerLinkActivity<SearchNewsFeedFragment> {
@@ -20,8 +20,8 @@ public class SearchNewsFeedActivity extends TinkerLinkActivity<SearchNewsFeedFra
     }
 
     @Override
-    public StyleToolBar getActivityStyle() {
-        return StyleToolBar.DEFAULTSTYLE;
+    public ToolBarStyle getActivityStyle() {
+        return ToolBarStyle.DEFAULTSTYLE;
     }
 
     @Override

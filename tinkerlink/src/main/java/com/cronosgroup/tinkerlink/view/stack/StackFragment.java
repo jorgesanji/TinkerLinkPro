@@ -7,7 +7,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.cronosgroup.tinkerlink.R;
-import com.cronosgroup.tinkerlink.enums.StackCard;
+import com.cronosgroup.tinkerlink.enums.StackCardType;
 import com.cronosgroup.tinkerlink.event.ShowDetailCardsEvent;
 import com.cronosgroup.tinkerlink.event.ShowOverLaySelectorEvent;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
@@ -26,12 +26,12 @@ import org.greenrobot.eventbus.Subscribe;
 import java.util.List;
 
 /**
- * StackCard Fragment
+ * StackCardType Fragment
  */
 public class StackFragment extends MVPTinkerLinkFragment<StackPresenter, StackPresenter.View> implements StackPresenter.View, StackScreen.Listener, DragDropScreen.Listener {
 
     private StackScreen stackScreen;
-    private StackCard stackType;
+    private StackCardType stackType;
 
     //region **************  Fragment **************
 
@@ -39,7 +39,7 @@ public class StackFragment extends MVPTinkerLinkFragment<StackPresenter, StackPr
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
-        stackType = (StackCard) getArguments().getSerializable(StackActivity.STACK_TYPE);
+        stackType = (StackCardType) getArguments().getSerializable(StackActivity.STACK_TYPE);
     }
 
     @Override
@@ -180,7 +180,7 @@ public class StackFragment extends MVPTinkerLinkFragment<StackPresenter, StackPr
     }
 
     @Override
-    public StackCard getType() {
+    public StackCardType getType() {
         return stackType;
     }
 

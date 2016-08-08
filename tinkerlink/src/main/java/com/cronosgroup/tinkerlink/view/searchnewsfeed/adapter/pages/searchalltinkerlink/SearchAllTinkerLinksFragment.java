@@ -3,19 +3,19 @@ package com.cronosgroup.tinkerlink.view.searchnewsfeed.adapter.pages.searchallti
 import android.os.Bundle;
 import android.view.View;
 
-import com.cronosgroup.tinkerlink.enums.StackCard;
+import com.cronosgroup.tinkerlink.enums.StackCardType;
 import com.cronosgroup.tinkerlink.presenter.searchnewsfeed.SearchNewsFeedPresenter;
 import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
 
 /**
- * StackCard Fragment
+ * StackCardType Fragment
  */
 public class SearchAllTinkerLinksFragment extends MVPTinkerLinkFragment<SearchNewsFeedPresenter, SearchNewsFeedPresenter.View>
         implements SearchNewsFeedPresenter.View, SearchAllTinkerLinkScreen.Listener {
 
     private SearchAllTinkerLinkScreen searchCardScreen;
-    private StackCard stackType;
+    private StackCardType stackType;
 
     //region **************  Fragment **************
 

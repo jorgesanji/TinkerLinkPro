@@ -6,26 +6,21 @@ import android.content.Context;
 import android.os.Build;
 import android.support.v4.app.FragmentManager;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
-import android.widget.Toast;
 
-import com.bartoszlipinski.flippablestackview.FlippableStackView;
-import com.bartoszlipinski.flippablestackview.StackPageTransformer;
 import com.cronosgroup.tinkerlink.R;
-import com.cronosgroup.tinkerlink.enums.StackCard;
+import com.cronosgroup.tinkerlink.enums.StackCardType;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
 import com.cronosgroup.tinkerlink.view.customviews.TLTextView;
 import com.cronosgroup.tinkerlink.view.customviews.card.TLCardContainer;
 import com.cronosgroup.tinkerlink.view.dragdrop.DragDropScreen;
 import com.cronosgroup.tinkerlink.view.stack.adapter.CardsAdapter;
 import com.cronosgroup.tinkerlink.view.stack.adapter.StackAdapter;
-import com.lorentzos.flingswipe.SwipeFlingAdapterView;
 
 import java.util.List;
 
@@ -35,7 +30,7 @@ import butterknife.OnClick;
 
 
 /**
- * StackCard view.
+ * StackCardType view.
  */
 public class StackScreen extends RelativeLayout {
 
@@ -57,7 +52,7 @@ public class StackScreen extends RelativeLayout {
     private StackAdapter adapter;
     private CardsAdapter mAdapter;
     private FragmentManager fragmentManager;
-    private StackCard stackType;
+    private StackCardType stackType;
     private int TotalWidth;
 
     // Views
@@ -224,14 +219,14 @@ public class StackScreen extends RelativeLayout {
         dragDropScreen.setListener(dragdropListener);
     }
 
-    public void initView(StackCard stackType) {
+    public void initView(StackCardType stackType) {
         this.stackType = stackType;
         adapter = new StackAdapter(fragmentManager);
         adapter.setStackType(stackType);
         adapter.setDetail(true);
-        boolean isLinker = (stackType.getStackType() == StackCard.LINKER.getStackType());
-        int color = (isLinker) ? StackCard.TINKER.getStackColor() : StackCard.LINKER.getStackColor();
-        int title = (isLinker) ? StackCard.TINKER.getStackTitleAction() : StackCard.LINKER.getStackTitleAction();
+        boolean isLinker = (stackType.getStackType() == StackCardType.LINKER.getStackType());
+        int color = (isLinker) ? StackCardType.TINKER.getStackColor() : StackCardType.LINKER.getStackColor();
+        int title = (isLinker) ? StackCardType.TINKER.getStackTitleAction() : StackCardType.LINKER.getStackTitleAction();
         mSelectCardsType.setTextColor(getContext().getResources().getColor(color));
         mSelectCardsType.setText(getContext().getString(title));
     }

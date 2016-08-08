@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 
 import com.cronosgroup.core.view.BaseAdapter;
 import com.cronosgroup.tinkerlink.R;
-import com.cronosgroup.tinkerlink.enums.StackCard;
+import com.cronosgroup.tinkerlink.enums.StackCardType;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestCategoria;
 import com.cronosgroup.tinkerlink.view.cardfilter.adapter.viewholder.FilterViewHolder;
 
@@ -17,7 +17,7 @@ import java.util.List;
  */
 public class FilterCardsAdapter extends BaseAdapter<FilterViewHolder, RestCategoria> {
 
-    private StackCard type;
+    private StackCardType type;
 
     @Override
     public RecyclerView.ViewHolder getHolder(ViewGroup parent, int viewType) {
@@ -38,11 +38,11 @@ public class FilterCardsAdapter extends BaseAdapter<FilterViewHolder, RestCatego
         return null;
     }
 
-    public StackCard getType() {
+    public StackCardType getType() {
         return type;
     }
 
-    public void setType(StackCard type) {
+    public void setType(StackCardType type) {
         this.type = type;
     }
 }

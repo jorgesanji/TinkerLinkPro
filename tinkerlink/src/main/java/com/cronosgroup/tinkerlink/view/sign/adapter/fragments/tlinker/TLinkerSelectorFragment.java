@@ -3,7 +3,7 @@ package com.cronosgroup.tinkerlink.view.sign.adapter.fragments.tlinker;
 import android.app.Activity;
 import android.view.View;
 
-import com.cronosgroup.tinkerlink.enums.StackCard;
+import com.cronosgroup.tinkerlink.enums.StackCardType;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestCategoria;
 import com.cronosgroup.tinkerlink.presenter.sign.TLinkerSelectorPresenter;
 import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
@@ -23,7 +23,7 @@ public class TLinkerSelectorFragment extends MVPTinkerLinkFragment<TLinkerSelect
     //Vars
     private IOFormListener mCallback;
     private RestCategoria categoria;
-    private StackCard typeTinker;
+    private StackCardType typeTinker;
 
     //Views
     private TLinkerSelectorScreen tLinkerSelectorScreen;
@@ -47,7 +47,7 @@ public class TLinkerSelectorFragment extends MVPTinkerLinkFragment<TLinkerSelect
 
     @Override
     protected View getRootView() {
-        typeTinker = (StackCard) getArguments().getSerializable(KEY_TYPE);
+        typeTinker = (StackCardType) getArguments().getSerializable(KEY_TYPE);
         tLinkerSelectorScreen = new TLinkerSelectorScreen(getActivity(), typeTinker);
         tLinkerSelectorScreen.setListener(this);
         return tLinkerSelectorScreen;

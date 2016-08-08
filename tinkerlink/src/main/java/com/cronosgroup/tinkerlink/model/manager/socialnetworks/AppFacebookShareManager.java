@@ -5,19 +5,14 @@ import android.content.Intent;
 import android.net.Uri;
 
 import com.cronosgroup.tinkerlink.R;
-import com.cronosgroup.tinkerlink.application.TinkerLinkApplication;
-import com.cronosgroup.tinkerlink.model.manager.AppConfigManager;
-import com.cronosgroup.tinkerlink.model.manager.socialnetworks.interfaces.IOSocialNetWorkCallBack;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
-import com.cronosgroup.tinkerlink.utils.LocaleUtils;
+import com.cronosgroup.tinkerlink.model.manager.socialnetworks.interfaces.IOSocialNetWorkCallBack;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.share.Sharer;
 import com.facebook.share.model.ShareLinkContent;
 import com.facebook.share.widget.ShareDialog;
-
-import javax.inject.Inject;
 
 /**
  * Created by jorgesanmartin on 2/10/16.
@@ -27,12 +22,8 @@ public class AppFacebookShareManager {
     private Activity activity;
     private CallbackManager callbackManager = CallbackManager.Factory.create();
 
-    @Inject
-    AppConfigManager appConfigManager;
-
     public AppFacebookShareManager(Activity context) {
         this.activity = context;
-        TinkerLinkApplication.getApp().getComponent().inject(this);
     }
 
     public Activity getActivity() {
@@ -90,7 +81,7 @@ public class AppFacebookShareManager {
         String urltoShare = getActivity().getString(R.string.fb_share_me);
         String description = getActivity().getString(R.string.tinkerlink_url);
 
-        String imagetoShare = appConfigManager.getPath(AppConfigManager.Path.PATH_SHARE) + LocaleUtils.getCurrentLanguage() + "/";
+        String imagetoShare = "";
         String title = "";
 
         switch (post.getTypePost()) {

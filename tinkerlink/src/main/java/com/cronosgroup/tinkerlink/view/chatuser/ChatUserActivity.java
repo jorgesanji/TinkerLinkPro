@@ -3,7 +3,7 @@ package com.cronosgroup.tinkerlink.view.chatuser;
 import android.os.Bundle;
 
 import com.cronosgroup.tinkerlink.R;
-import com.cronosgroup.tinkerlink.enums.StyleToolBar;
+import com.cronosgroup.tinkerlink.enums.ToolBarStyle;
 import com.cronosgroup.tinkerlink.model.manager.AppPermissionsManager;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestChat;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestUser;
@@ -43,8 +43,8 @@ public class ChatUserActivity extends TinkerLinkActivity<ChatUserFragment> {
     }
 
     @Override
-    public StyleToolBar getActivityStyle() {
-        return StyleToolBar.DEFAULTSTYLE;
+    public ToolBarStyle getActivityStyle() {
+        return ToolBarStyle.DEFAULTSTYLE;
     }
 
     // Manage Permissions

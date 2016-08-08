@@ -6,11 +6,12 @@ import android.text.TextUtils;
 
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.application.TinkerLinkApplication;
-import com.cronosgroup.tinkerlink.model.mapper.TLUsers;
+import com.cronosgroup.tinkerlink.enums.PostStatus;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContacto;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestHabilidad;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestStudy;
+import com.cronosgroup.tinkerlink.model.mapper.TLUsers;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
@@ -216,7 +217,7 @@ public class UserForm {
         restPost.setPais(getAddress().getCountryName());
         restPost.setLatitude(getAddress().getLatitude());
         restPost.setLongitude(getAddress().getLongitude());
-        restPost.setStatus(RestPost.PostStatus.TO_PUBLISH);
+        restPost.setStatus(PostStatus.TO_PUBLISH);
         restPost.setDescripcion(getDescription());
 
         RestContacto contacto = new RestContacto();

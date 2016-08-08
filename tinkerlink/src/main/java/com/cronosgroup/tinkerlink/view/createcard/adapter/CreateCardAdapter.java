@@ -5,7 +5,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import com.cronosgroup.tinkerlink.enums.StackCard;
+import com.cronosgroup.tinkerlink.enums.StackCardType;
 import com.cronosgroup.tinkerlink.view.createcard.adapter.fragments.category.CategorySelectionFragment;
 import com.cronosgroup.tinkerlink.view.createcard.adapter.fragments.experience.ExperienceSelectionFragment;
 import com.cronosgroup.tinkerlink.view.createcard.adapter.fragments.skills.SkillsSelectionFragment;
@@ -20,13 +20,13 @@ public class CreateCardAdapter extends FragmentStatePagerAdapter {
     public static final Class[] tfragments = {CategorySelectionFragment.class, SkillsSelectionFragment.class, TinkerExperienceSelectionFragment.class};
     private final Context mContext;
     private Class[] fragments;
-    private StackCard type;
+    private StackCardType type;
 
-    public CreateCardAdapter(FragmentManager fm, Context mContext, StackCard type) {
+    public CreateCardAdapter(FragmentManager fm, Context mContext, StackCardType type) {
         super(fm);
         this.mContext = mContext;
         this.type = type;
-        this.fragments = (type == StackCard.LINKER) ? lfragments : tfragments;
+        this.fragments = (type == StackCardType.LINKER) ? lfragments : tfragments;
     }
 
     @Override
@@ -48,11 +48,11 @@ public class CreateCardAdapter extends FragmentStatePagerAdapter {
         return mContext;
     }
 
-    public StackCard getType() {
+    public StackCardType getType() {
         return type;
     }
 
-    public void setType(StackCard type) {
+    public void setType(StackCardType type) {
         this.type = type;
     }
 }

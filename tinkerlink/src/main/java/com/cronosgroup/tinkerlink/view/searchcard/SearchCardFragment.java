@@ -9,7 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.cronosgroup.tinkerlink.R;
-import com.cronosgroup.tinkerlink.enums.StackCard;
+import com.cronosgroup.tinkerlink.enums.StackCardType;
 import com.cronosgroup.tinkerlink.presenter.searchcard.SearchCardPresenter;
 import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
@@ -21,7 +21,7 @@ public class SearchCardFragment extends MVPTinkerLinkFragment<SearchCardPresente
         implements SearchCardPresenter.View, SearchCardScreen.Listener {
 
     private SearchCardScreen searchCardScreen;
-    private StackCard stackType;
+    private StackCardType stackType;
 
     //region **************  Fragment **************
 

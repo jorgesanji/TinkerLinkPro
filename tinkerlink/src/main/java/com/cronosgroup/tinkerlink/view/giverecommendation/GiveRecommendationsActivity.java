@@ -3,7 +3,7 @@ package com.cronosgroup.tinkerlink.view.giverecommendation;
 import android.os.Bundle;
 
 import com.cronosgroup.tinkerlink.R;
-import com.cronosgroup.tinkerlink.enums.StyleToolBar;
+import com.cronosgroup.tinkerlink.enums.ToolBarStyle;
 import com.cronosgroup.tinkerlink.model.manager.AppPermissionsManager;
 import com.cronosgroup.tinkerlink.view.base.TinkerLinkActivity;
 
@@ -32,8 +32,8 @@ public class GiveRecommendationsActivity extends TinkerLinkActivity<GiveRecommen
     }
 
     @Override
-    public StyleToolBar getActivityStyle() {
-        return StyleToolBar.RECOMMENDATIONSSTYLE;
+    public ToolBarStyle getActivityStyle() {
+        return ToolBarStyle.RECOMMENDATIONSSTYLE;
     }
 
     // Manage Permissions

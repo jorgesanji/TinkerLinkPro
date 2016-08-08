@@ -1,6 +1,6 @@
 package com.cronosgroup.tinkerlink.view.sign;
 
-import com.cronosgroup.tinkerlink.enums.StyleToolBar;
+import com.cronosgroup.tinkerlink.enums.ToolBarStyle;
 import com.cronosgroup.tinkerlink.model.manager.AppPermissionsManager;
 import com.cronosgroup.tinkerlink.model.business.model.AppUser;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.manager.AppRestManager;
@@ -29,8 +29,8 @@ public class SignActivity extends TinkerLinkActivity<SignFragment> implements IO
     }
 
     @Override
-    public StyleToolBar getActivityStyle() {
-        return StyleToolBar.TINKERSTYLE;
+    public ToolBarStyle getActivityStyle() {
+        return ToolBarStyle.TINKERSTYLE;
     }
 
     @Override

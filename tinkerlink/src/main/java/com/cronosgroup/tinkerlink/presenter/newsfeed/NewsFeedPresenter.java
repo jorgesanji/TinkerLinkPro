@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import com.cronosgroup.core.rest.Callback;
 import com.cronosgroup.core.rest.RestError;
-import com.cronosgroup.tinkerlink.enums.StackCard;
+import com.cronosgroup.tinkerlink.enums.StackCardType;
 import com.cronosgroup.tinkerlink.model.manager.socialnetworks.AppFacebookShareManager;
 import com.cronosgroup.tinkerlink.model.business.logic.NewsFeedUseCases;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
@@ -93,13 +93,13 @@ public class NewsFeedPresenter extends TinkerLinkPresenter<NewsFeedPresenter.Vie
 
     public void onLaunchImTinker() {
         Bundle bundle = new Bundle();
-        bundle.putSerializable(StackActivity.STACK_TYPE, StackCard.TINKER);
+        bundle.putSerializable(StackActivity.STACK_TYPE, StackCardType.TINKER);
         listener.onLaunchStack(getView().getActivity(), bundle);
     }
 
     public void onLaunchSearchTinker() {
         Bundle bundle = new Bundle();
-        bundle.putSerializable(StackActivity.STACK_TYPE, StackCard.LINKER);
+        bundle.putSerializable(StackActivity.STACK_TYPE, StackCardType.LINKER);
         listener.onLaunchStack(getView().getActivity(), bundle);
     }
 

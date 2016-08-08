@@ -83,6 +83,10 @@ public class TinkerLinkFragment extends Fragment {
         }
     }
 
+    public Fragment getFragmentById(int id) {
+        return getActivity().getSupportFragmentManager().findFragmentById(id);
+    }
+
     public boolean onBackPressed() {
         return false;
     }

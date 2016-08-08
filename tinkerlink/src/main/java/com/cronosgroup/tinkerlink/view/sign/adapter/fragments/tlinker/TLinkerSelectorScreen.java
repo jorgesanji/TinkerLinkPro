@@ -11,7 +11,7 @@ import android.widget.RelativeLayout;
 
 import com.bignerdranch.expandablerecyclerview.Adapter.ExpandableRecyclerAdapter;
 import com.cronosgroup.tinkerlink.R;
-import com.cronosgroup.tinkerlink.enums.StackCard;
+import com.cronosgroup.tinkerlink.enums.StackCardType;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestCategoria;
 import com.cronosgroup.tinkerlink.view.customviews.TLRecyclerView;
 import com.cronosgroup.tinkerlink.view.customviews.TLTextView;
@@ -38,7 +38,7 @@ public class TLinkerSelectorScreen extends RelativeLayout {
     private Listener listener;
     private CategoriesAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
-    private StackCard typeTinker;
+    private StackCardType typeTinker;
 
     // Views
     @BindView(R.id.categoriesList)
@@ -55,7 +55,7 @@ public class TLinkerSelectorScreen extends RelativeLayout {
     /**
      * @param context
      */
-    public TLinkerSelectorScreen(Context context, StackCard typeTinker) {
+    public TLinkerSelectorScreen(Context context, StackCardType typeTinker) {
         this(context, (AttributeSet)null);
         setTypeTinker(typeTinker);
     }
@@ -144,7 +144,7 @@ public class TLinkerSelectorScreen extends RelativeLayout {
         String tlinker;
         String description;
         int color;
-        if (typeTinker == StackCard.LINKER) {
+        if (typeTinker == StackCardType.LINKER) {
             tlinker = getContext().getResources().getString(R.string.profile_services);
             description = getContext().getResources().getString(R.string.sign_register_title_linker);
             color = R.color.linkercolor;
@@ -170,11 +170,11 @@ public class TLinkerSelectorScreen extends RelativeLayout {
         this.listener = listener;
     }
 
-    public StackCard getTypeTinker() {
+    public StackCardType getTypeTinker() {
         return typeTinker;
     }
 
-    public void setTypeTinker(StackCard typeTinker) {
+    public void setTypeTinker(StackCardType typeTinker) {
         this.typeTinker = typeTinker;
         initUI();
     }

@@ -11,7 +11,7 @@ import android.widget.LinearLayout;
 import com.cronosgroup.core.view.BaseAdapter;
 import com.cronosgroup.core.view.animator.SlideInUpAnimator;
 import com.cronosgroup.tinkerlink.R;
-import com.cronosgroup.tinkerlink.enums.StackCard;
+import com.cronosgroup.tinkerlink.enums.StackCardType;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestCategoria;
 import com.cronosgroup.tinkerlink.utils.TLDIviderGridSpacingDecoration;
 import com.cronosgroup.tinkerlink.view.cardfilter.adapter.FilterCardsAdapter;
@@ -138,7 +138,7 @@ public class FilterCardsScreen extends LinearLayout {
         this.listener = listener;
     }
 
-    public void setItems(List<RestCategoria> list, StackCard type) {
+    public void setItems(List<RestCategoria> list, StackCardType type) {
         mAdapter.setType(type);
         mAdapter.addItems(list);
     }

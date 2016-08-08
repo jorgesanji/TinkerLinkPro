@@ -4,7 +4,7 @@ import android.view.View;
 
 import com.cronosgroup.core.view.recyclerview.BaseViewHolder;
 import com.cronosgroup.tinkerlink.R;
-import com.cronosgroup.tinkerlink.enums.StackCard;
+import com.cronosgroup.tinkerlink.enums.StackCardType;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestCategoria;
 import com.cronosgroup.tinkerlink.view.customviews.TLImageView;
 import com.cronosgroup.tinkerlink.view.customviews.TLTextView;
@@ -19,7 +19,7 @@ public class FilterViewHolder extends BaseViewHolder<RestCategoria> {
 
     // Vars
 
-    private StackCard type;
+    private StackCardType type;
 
     // Views
     @BindView(R.id.imageCategory)
@@ -44,14 +44,14 @@ public class FilterViewHolder extends BaseViewHolder<RestCategoria> {
         super.configureItem(item);
         mCategoryName.setText(item.getCategoria());
         mNumberCardsCategory.setVisibility(item.isSelected() ? View.VISIBLE : View.GONE);
-        mBackground.setBackgroundResource(item.isSelected() ? (type == StackCard.LINKER) ? R.color.linkercolor_50 : R.color.tinkercolor_50 : R.drawable.background_black_gradient);
+        mBackground.setBackgroundResource(item.isSelected() ? (type == StackCardType.LINKER) ? R.color.linkercolor_50 : R.color.tinkercolor_50 : R.drawable.background_black_gradient);
     }
 
-    public StackCard getType() {
+    public StackCardType getType() {
         return type;
     }
 
-    public void setType(StackCard type) {
+    public void setType(StackCardType type) {
         this.type = type;
     }
 }

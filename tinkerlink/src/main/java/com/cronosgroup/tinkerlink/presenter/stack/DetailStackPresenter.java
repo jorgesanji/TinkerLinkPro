@@ -1,6 +1,6 @@
 package com.cronosgroup.tinkerlink.presenter.stack;
 
-import com.cronosgroup.tinkerlink.enums.StackCard;
+import com.cronosgroup.tinkerlink.enums.StackCardType;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestUser;
 import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenter;
 import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenterView;
@@ -20,7 +20,7 @@ public class DetailStackPresenter extends TinkerLinkPresenter<DetailStackPresent
 
         RestUser getUser();
 
-        StackCard getType();
+        StackCardType getType();
     }
 
     /**

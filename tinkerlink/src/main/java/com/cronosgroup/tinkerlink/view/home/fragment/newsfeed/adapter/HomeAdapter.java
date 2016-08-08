@@ -4,12 +4,13 @@ import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
 
 import com.cronosgroup.core.view.BaseAdapter;
-import com.cronosgroup.tinkerlink.model.manager.AppConfigManager;
-import com.cronosgroup.tinkerlink.model.manager.AppUserSessionManager;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
-import com.cronosgroup.tinkerlink.view.home.fragment.newsfeed.adapter.viewholder.base.ViewHolderPostBase;
+import com.cronosgroup.tinkerlink.enums.PostType;
 import com.cronosgroup.tinkerlink.interfaces.IOActionButtons;
 import com.cronosgroup.tinkerlink.interfaces.IOLoadMore;
+import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
+import com.cronosgroup.tinkerlink.model.manager.AppConfigManager;
+import com.cronosgroup.tinkerlink.model.manager.AppUserSessionManager;
+import com.cronosgroup.tinkerlink.view.home.fragment.newsfeed.adapter.viewholder.base.ViewHolderPostBase;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,7 +51,7 @@ public class HomeAdapter extends BaseAdapter<ViewHolderPostBase, RestPost> {
         if (loadMorePost != null) {
             if ((position % ELEMENTS_TO_REQUEST_LOAD) == 0 && position > 0) {
                 RestPost lastPost = getItems().get(getItems().size() - 1);
-                if (lastPost.getTypePost() == RestPost.PostType.LOAD) {
+                if (lastPost.getTypePost() == PostType.LOAD) {
                     lastPost = getItems().get(getItems().size() - 2);
                 }
                 String idPost = lastPost.getId();

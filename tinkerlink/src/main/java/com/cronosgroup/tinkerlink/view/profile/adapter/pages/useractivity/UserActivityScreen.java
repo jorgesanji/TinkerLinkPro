@@ -22,7 +22,6 @@ public class UserActivityScreen extends RelativeLayout {
 
     }
 
-
     // Vars
     private Listener listener;
 
@@ -65,7 +64,7 @@ public class UserActivityScreen extends RelativeLayout {
     }
 
     private void init() {
-        inflate(getContext(), R.layout.lay_activity_user, this);
+        inflate(getContext(), R.layout.lay_user_activity, this);
         ButterKnife.bind(this);
     }
 

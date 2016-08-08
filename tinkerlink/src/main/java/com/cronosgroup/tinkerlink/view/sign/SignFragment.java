@@ -35,7 +35,6 @@ public class SignFragment extends MVPTinkerLinkFragment<SignPresenter, SignPrese
     private SignScreen signScreen;
     private Fragment mRegistrationSelectorFragment;
 
-
     //region **************  Fragment **************
 
     @Override
@@ -68,7 +67,7 @@ public class SignFragment extends MVPTinkerLinkFragment<SignPresenter, SignPrese
     protected View getRootView() {
         this.signScreen = new SignScreen(getActivity(), getFragmentManager());
         signScreen.setListener(this);
-        this.mRegistrationSelectorFragment = getActivity().getSupportFragmentManager().findFragmentById(R.id.registrationSelectorFragment);
+        this.mRegistrationSelectorFragment = getFragmentById(R.id.registrationSelectorFragment);
         return signScreen;
     }
 

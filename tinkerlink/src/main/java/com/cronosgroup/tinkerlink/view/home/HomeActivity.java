@@ -1,6 +1,6 @@
 package com.cronosgroup.tinkerlink.view.home;
 
-import com.cronosgroup.tinkerlink.enums.StyleToolBar;
+import com.cronosgroup.tinkerlink.enums.ToolBarStyle;
 import com.cronosgroup.tinkerlink.view.base.TinkerLinkActivity;
 
 public class HomeActivity extends TinkerLinkActivity<HomeFragment> {
@@ -11,8 +11,8 @@ public class HomeActivity extends TinkerLinkActivity<HomeFragment> {
     }
 
     @Override
-    public StyleToolBar getActivityStyle() {
-        return StyleToolBar.HOMESTYLE;
+    public ToolBarStyle getActivityStyle() {
+        return ToolBarStyle.HOMESTYLE;
     }
 
     @Override

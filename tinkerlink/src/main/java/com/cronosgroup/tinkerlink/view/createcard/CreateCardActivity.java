@@ -3,8 +3,8 @@ package com.cronosgroup.tinkerlink.view.createcard;
 import android.os.Bundle;
 
 import com.cronosgroup.tinkerlink.R;
-import com.cronosgroup.tinkerlink.enums.StackCard;
-import com.cronosgroup.tinkerlink.enums.StyleToolBar;
+import com.cronosgroup.tinkerlink.enums.StackCardType;
+import com.cronosgroup.tinkerlink.enums.ToolBarStyle;
 import com.cronosgroup.tinkerlink.model.manager.AppPermissionsManager;
 import com.cronosgroup.tinkerlink.view.base.TinkerLinkActivity;
 import com.cronosgroup.tinkerlink.view.stack.StackActivity;
@@ -34,8 +34,8 @@ public class CreateCardActivity extends TinkerLinkActivity<CreateCardFragment> {
     }
 
     @Override
-    public StyleToolBar getActivityStyle() {
-        return getIntent().getExtras().getSerializable(StackActivity.STACK_TYPE) == StackCard.LINKER ? StyleToolBar.LINKERSTYLE : StyleToolBar.TINKERSTYLE;
+    public ToolBarStyle getActivityStyle() {
+        return getIntent().getExtras().getSerializable(StackActivity.STACK_TYPE) == StackCardType.LINKER ? ToolBarStyle.LINKERSTYLE : ToolBarStyle.TINKERSTYLE;
     }
 
     // Manage Permissions

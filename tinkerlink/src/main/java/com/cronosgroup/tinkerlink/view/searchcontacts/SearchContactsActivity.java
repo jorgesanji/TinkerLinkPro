@@ -3,7 +3,7 @@ package com.cronosgroup.tinkerlink.view.searchcontacts;
 import android.os.Bundle;
 
 import com.cronosgroup.tinkerlink.R;
-import com.cronosgroup.tinkerlink.enums.StyleToolBar;
+import com.cronosgroup.tinkerlink.enums.ToolBarStyle;
 import com.cronosgroup.tinkerlink.view.base.TinkerLinkActivity;
 
 public class SearchContactsActivity extends TinkerLinkActivity<SearchContactsFragment> {
@@ -20,8 +20,8 @@ public class SearchContactsActivity extends TinkerLinkActivity<SearchContactsFra
     }
 
     @Override
-    public StyleToolBar getActivityStyle() {
-        return StyleToolBar.DEFAULTSTYLE;
+    public ToolBarStyle getActivityStyle() {
+        return ToolBarStyle.DEFAULTSTYLE;
     }
 
     @Override

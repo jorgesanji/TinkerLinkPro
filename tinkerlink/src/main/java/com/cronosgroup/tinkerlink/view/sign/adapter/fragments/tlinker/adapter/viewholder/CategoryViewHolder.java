@@ -5,7 +5,7 @@ import android.widget.LinearLayout;
 
 import com.bignerdranch.expandablerecyclerview.ViewHolder.ParentViewHolder;
 import com.cronosgroup.tinkerlink.R;
-import com.cronosgroup.tinkerlink.enums.StackCard;
+import com.cronosgroup.tinkerlink.enums.StackCardType;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestCategoria;
 import com.cronosgroup.tinkerlink.view.customviews.TLImageView;
 import com.cronosgroup.tinkerlink.view.sign.adapter.fragments.tlinker.adapter.CategoriesAdapter;
@@ -22,7 +22,7 @@ public class CategoryViewHolder extends ParentViewHolder {
 
     // Vars
     private CategoriesAdapter.IOCategoryListener listener;
-    private StackCard type;
+    private StackCardType type;
 
     // Views
     @BindView(R.id.titleCategory)
@@ -34,7 +34,7 @@ public class CategoryViewHolder extends ParentViewHolder {
     @BindView(R.id.dropDownCategory)
     protected TLImageView mDropDownCategory;
 
-    public CategoryViewHolder(View itemView, StackCard type) {
+    public CategoryViewHolder(View itemView, StackCardType type) {
         super(itemView);
         ButterKnife.bind(this, itemView);
         this.type = type;

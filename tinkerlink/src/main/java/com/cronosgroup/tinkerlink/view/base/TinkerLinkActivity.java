@@ -16,7 +16,7 @@ import com.cronosgroup.core.managers.PermissionsManager;
 import com.cronosgroup.core.view.BaseActivity;
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.application.TinkerLinkApplication;
-import com.cronosgroup.tinkerlink.enums.StyleToolBar;
+import com.cronosgroup.tinkerlink.enums.ToolBarStyle;
 import com.cronosgroup.tinkerlink.utils.logger.Logger;
 import com.cronosgroup.tinkerlink.utils.ImageLoaderHelper;
 
@@ -50,7 +50,7 @@ public abstract class TinkerLinkActivity<F extends MVPTinkerLinkFragment> extend
 
     public abstract boolean hasToolbar();
 
-    public abstract StyleToolBar getActivityStyle();
+    public abstract ToolBarStyle getActivityStyle();
 
     public abstract Class<F> getFragment();
 
@@ -94,10 +94,10 @@ public abstract class TinkerLinkActivity<F extends MVPTinkerLinkFragment> extend
         if (!hasToolbar()) {
             mToolbar.setVisibility(View.GONE);
         } else {
-            StyleToolBar style = getActivityStyle();
+            ToolBarStyle style = getActivityStyle();
             configToolBar(style);
             setSupportActionBar(mToolbar);
-            if (style != StyleToolBar.HOMESTYLE) {
+            if (style != ToolBarStyle.HOMESTYLE) {
                 getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             } else {
                 getSupportActionBar().setTitle(null);
@@ -115,16 +115,15 @@ public abstract class TinkerLinkActivity<F extends MVPTinkerLinkFragment> extend
         }
     }
 
-    protected void configToolbar(int backgroundColor, int textColor, int logo) {
+    protected void configToolbar(int backgroundColor, int logo) {
         mToolbar.setBackgroundColor(getResources().getColor(backgroundColor));
-        mToolbar.setTitleTextColor(getResources().getColor(textColor));
         if (logo != 0) {
             mToolbar.setLogo(getResources().getDrawable(logo));
         }
     }
 
-    protected void configToolBar(StyleToolBar style) {
-        configToolbar(style.getBackgroundColor(), style.getTextColor(), style.getIcon());
+    protected void configToolBar(ToolBarStyle style) {
+        configToolbar(style.getBackgroundColor(), style.getIcon());
         try {
             mLoader.findViewById(R.id.backgroundColor).setBackgroundResource(R.drawable.background_loader);
         } catch (Exception ex) {
@@ -194,7 +193,7 @@ public abstract class TinkerLinkActivity<F extends MVPTinkerLinkFragment> extend
 
     @Override
     public void setTitle(int title) {
-        if (getActivityStyle() != StyleToolBar.HOMESTYLE) {
+        if (getActivityStyle() != ToolBarStyle.HOMESTYLE) {
             getSupportActionBar().setDisplayShowHomeEnabled(false);
             getSupportActionBar().setHomeButtonEnabled(true);
         }

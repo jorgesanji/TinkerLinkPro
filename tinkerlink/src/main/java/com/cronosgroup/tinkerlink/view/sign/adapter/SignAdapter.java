@@ -6,7 +6,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import com.cronosgroup.tinkerlink.enums.StackCard;
+import com.cronosgroup.tinkerlink.enums.StackCardType;
 import com.cronosgroup.tinkerlink.view.sign.adapter.fragments.formuser.FormUserFragment;
 import com.cronosgroup.tinkerlink.view.sign.adapter.fragments.profile.SignProfileFragment;
 import com.cronosgroup.tinkerlink.view.sign.adapter.fragments.tlinker.TLinkerSelectorFragment;
@@ -34,9 +34,9 @@ public class SignAdapter extends FragmentStatePagerAdapter {
     public Fragment getItem(int position) {
         Bundle bundle = new Bundle();
         if (position == 0) {
-            bundle.putSerializable(TLinkerSelectorFragment.KEY_TYPE, StackCard.TINKER);
+            bundle.putSerializable(TLinkerSelectorFragment.KEY_TYPE, StackCardType.TINKER);
         } else if (position == 1) {
-            bundle.putSerializable(TLinkerSelectorFragment.KEY_TYPE, StackCard.LINKER);
+            bundle.putSerializable(TLinkerSelectorFragment.KEY_TYPE, StackCardType.LINKER);
         }
 
         return Fragment.instantiate(mContext, fragments[position].getName(), bundle);

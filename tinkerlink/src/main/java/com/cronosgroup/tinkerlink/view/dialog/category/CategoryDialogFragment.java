@@ -3,7 +3,7 @@ package com.cronosgroup.tinkerlink.view.dialog.category;
 import android.os.Bundle;
 import android.view.View;
 
-import com.cronosgroup.tinkerlink.enums.StackCard;
+import com.cronosgroup.tinkerlink.enums.StackCardType;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestCategoria;
 import com.cronosgroup.tinkerlink.presenter.category.CategoryPresenter;
 import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
@@ -26,7 +26,7 @@ public class CategoryDialogFragment extends MVPTinkerLinkDialogFragment<Category
 
     @Override
     protected View getRootView() {
-        categoryDialogScreen = new CategoryDialogScreen(getActivity(), StackCard.TINKER, this);
+        categoryDialogScreen = new CategoryDialogScreen(getActivity(), StackCardType.TINKER, this);
         return categoryDialogScreen;
     }
 

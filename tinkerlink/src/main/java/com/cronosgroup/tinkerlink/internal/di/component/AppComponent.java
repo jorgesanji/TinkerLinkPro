@@ -4,8 +4,6 @@ import com.cronosgroup.tinkerlink.application.TinkerLinkApplication;
 import com.cronosgroup.tinkerlink.gcm.GcmRegistrationDevice;
 import com.cronosgroup.tinkerlink.internal.di.module.AppModule;
 import com.cronosgroup.tinkerlink.model.manager.AppContactsManager;
-import com.cronosgroup.tinkerlink.model.manager.model.EntryItem;
-import com.cronosgroup.tinkerlink.model.manager.socialnetworks.AppFacebookShareManager;
 import com.cronosgroup.tinkerlink.presenter.base.PresenterDependencies;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
 import com.cronosgroup.tinkerlink.view.base.TinkerLinkActivity;
@@ -29,10 +27,6 @@ public interface AppComponent {
 
     void inject(GcmRegistrationDevice manager);
 
-    void inject(AppFacebookShareManager appFacebookShareManager);
-
-    void inject(EntryItem entryItem);
-    
     void inject(PresenterDependencies dependencies);
 
 }
