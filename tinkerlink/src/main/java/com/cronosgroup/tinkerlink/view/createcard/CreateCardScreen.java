@@ -109,7 +109,7 @@ public class CreateCardScreen extends RelativeLayout {
             public void onPageSelected(int position) {
                 mPageIndicator.setCurrentSelected(position);
                 mCurrentPage.setText((position + 1) + "/" + mAdapter.getCount());
-                nextPage.setText(getResources().getString(isLastPage() ? R.string.create_card_experience_previsualize : R.string.sign_next_button));
+                nextPage.setText(getResources().getString(isLastPage() ? R.string.create_card_experience_previsualize : R.string.next_title));
             }
 
             @Override

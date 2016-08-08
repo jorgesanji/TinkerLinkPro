@@ -4,10 +4,10 @@
 
     <item
         android:id="@+id/action_camera"
-        android:title="@string/camera_title" />
+        android:title="@string/action_camera_title" />
 
     <item
         android:id="@+id/action_gallery"
-        android:title="@string/gallery_title" />
+        android:title="@string/action_gallery_title" />
 
 </menu>

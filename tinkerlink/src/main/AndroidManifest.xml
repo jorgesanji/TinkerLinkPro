@@ -112,10 +112,6 @@
         </activity>
 
         <activity
-            android:name=".view.presignuser.PreSignUserActivity"
-            android:screenOrientation="portrait" />
-
-        <activity
             android:name=".view.login.LoginActivity"
             android:screenOrientation="portrait" />
 
@@ -224,7 +220,7 @@
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".view.status.StatusUserActivity"
+            android:name=".view.status.UserStatusActivity"
             android:screenOrientation="portrait"
             android:theme="@style/ThemeToolbarItemsBlackStyle" />
 

@@ -6,11 +6,11 @@ import android.text.style.ForegroundColorSpan;
 import android.view.View;
 
 import com.cronosgroup.tinkerlink.R;
-import com.cronosgroup.tinkerlink.manager.AppConfigManager;
+import com.cronosgroup.tinkerlink.model.manager.AppConfigManager;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestUser;
 import com.cronosgroup.tinkerlink.utils.DateUtils;
-import com.cronosgroup.tinkerlink.view.interfaces.IOIconListener;
+import com.cronosgroup.tinkerlink.interfaces.IOIconListener;
 
 /**
  * row of the recycler view.
@@ -67,7 +67,7 @@ public class ViewHolderAddContact extends ViewHolderPost {
             }
         });
 
-        mTypeCardTitle.setText(getResources().getString(R.string.card_me));
+        mTypeCardTitle.setText(getResources().getString(R.string.detail_card_me));
         mUserOcupation.setText(contacto.getProfile().getProfession());
         mUserLocation.setText(contacto.getProfile().getLocation());
         mCardDescription.setText(post.getTexto());

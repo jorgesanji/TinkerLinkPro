@@ -4,7 +4,7 @@ package com.cronosgroup.tinkerlink.event.enums;
  * Created by jorgesanmartin on 2/1/16.
  */
 public enum FormState {
-    FACEBOOK(0),
+    SOCIALNETWORK_REGISTRATION(0),
     PHONE(1),
     VALIDATION(2);
 
@@ -21,7 +21,7 @@ public enum FormState {
     public static FormState stateFromIndex(int index) {
         switch (index) {
             case 0:
-                return FACEBOOK;
+                return SOCIALNETWORK_REGISTRATION;
             case 1:
                 return PHONE;
             default:

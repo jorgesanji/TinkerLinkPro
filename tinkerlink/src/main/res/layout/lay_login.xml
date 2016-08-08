@@ -17,7 +17,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-
             android:orientation="vertical">
 
             <LinearLayout
@@ -54,8 +53,15 @@
                 <com.cronosgroup.tinkerlink.view.customviews.TLEditText
                     android:id="@+id/idUser"
                     style="@style/EditFormStyle"
+                    android:ellipsize="end"
                     android:hint="@string/login_phone_hint"
-                     />
+                    android:inputType="phone"
+                    android:maxLines="1"
+                    android:nextFocusForward="@+id/passwordUser">
+
+                    <requestFocus />
+
+                </com.cronosgroup.tinkerlink.view.customviews.TLEditText>
 
                 <com.cronosgroup.tinkerlink.view.customviews.TLTextView
                     android:layout_width="match_parent"
@@ -69,8 +75,11 @@
                 <com.cronosgroup.tinkerlink.view.customviews.TLEditText
                     android:id="@+id/passwordUser"
                     style="@style/EditFormStyle"
+                    android:ellipsize="end"
                     android:hint="@string/login_password_hint"
-                     />
+                    android:imeOptions="actionDone"
+                    android:inputType="textPassword"
+                    android:maxLines="1" />
 
                 <com.cronosgroup.tinkerlink.view.customviews.TLButton
                     android:id="@+id/loginbt"
@@ -81,18 +90,18 @@
 
             </LinearLayout>
 
-            <View
+            <include
+                layout="@layout/lay_separator"
                 android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:layout_marginTop="@dimen/margin_big"
-                android:background="@color/gray" />
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/margin_big" />
 
             <com.cronosgroup.tinkerlink.view.customviews.TLButton
                 android:id="@+id/googlebt"
                 style="@style/SignButtonStyle"
                 android:layout_marginTop="@dimen/margin_big"
                 android:background="@drawable/button_sign_google_states"
-                android:drawableLeft="@mipmap/login_facebooklogo"
+                android:drawableLeft="@mipmap/ic_google_dark"
                 android:paddingLeft="@dimen/padding_content_big"
                 android:text="@string/login_start_google_session" />
 
@@ -101,7 +110,7 @@
                 style="@style/SignButtonStyle"
                 android:layout_marginTop="@dimen/margin_big"
                 android:background="@drawable/button_sign_facebook_states"
-                android:drawableLeft="@mipmap/login_facebooklogo"
+                android:drawableLeft="@mipmap/ic_facebook_dark"
                 android:paddingLeft="@dimen/padding_content_big"
                 android:text="@string/login_start_facebook_session" />
 

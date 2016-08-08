@@ -39,7 +39,7 @@ public class WelcomePage extends LinearLayout {
     }
 
     private void init() {
-        inflate(getContext(), R.layout.lay_welcome_page, this);
+        inflate(getContext(), R.layout.lay_tutorial_welcome, this);
         ButterKnife.bind(this);
         initUI();
     }

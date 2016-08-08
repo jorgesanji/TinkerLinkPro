@@ -4,12 +4,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
 
 import com.cronosgroup.core.view.BaseAdapter;
-import com.cronosgroup.tinkerlink.manager.AppConfigManager;
-import com.cronosgroup.tinkerlink.manager.AppUserSessionManager;
+import com.cronosgroup.tinkerlink.model.manager.AppConfigManager;
+import com.cronosgroup.tinkerlink.model.manager.AppUserSessionManager;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
 import com.cronosgroup.tinkerlink.view.home.fragment.newsfeed.adapter.viewholder.base.ViewHolderPostBase;
-import com.cronosgroup.tinkerlink.view.interfaces.IOActionButtons;
-import com.cronosgroup.tinkerlink.view.interfaces.IOLoadMore;
+import com.cronosgroup.tinkerlink.interfaces.IOActionButtons;
+import com.cronosgroup.tinkerlink.interfaces.IOLoadMore;
 
 import java.util.ArrayList;
 import java.util.List;

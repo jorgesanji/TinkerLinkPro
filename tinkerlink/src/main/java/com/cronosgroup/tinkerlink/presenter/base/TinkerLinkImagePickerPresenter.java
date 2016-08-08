@@ -6,7 +6,7 @@ import android.graphics.Bitmap;
 import com.cronosgroup.core.managers.PermissionsManager;
 import com.cronosgroup.core.presenter.Presenter;
 import com.cronosgroup.core.view.BaseActivity;
-import com.cronosgroup.tinkerlink.manager.AppImagePickerManager;
+import com.cronosgroup.tinkerlink.model.manager.AppImagePickerManager;
 
 import java.util.List;
 

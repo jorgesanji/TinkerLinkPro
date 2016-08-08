@@ -3,7 +3,7 @@ package com.cronosgroup.tinkerlink.view.dialog.validation;
 import android.view.View;
 
 import com.cronosgroup.tinkerlink.event.FormRegistrationEvent;
-import com.cronosgroup.tinkerlink.event.NextPageEvent;
+import com.cronosgroup.tinkerlink.event.RegistrationStepsEvent;
 import com.cronosgroup.tinkerlink.event.SmsEvent;
 import com.cronosgroup.tinkerlink.event.enums.FormState;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestUser;
@@ -97,7 +97,7 @@ public class ValidationDialogFragment extends MVPTinkerLinkDialogFragment<Valida
 
     @Override
     public void validateUser(RestUser restUser) {
-        EventBus.getDefault().post(new NextPageEvent());
+        EventBus.getDefault().post(new RegistrationStepsEvent());
         dismiss();
     }
 

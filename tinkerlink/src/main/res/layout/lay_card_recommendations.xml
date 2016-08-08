@@ -34,7 +34,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:background="@drawable/button_default_states"
-            android:src="@mipmap/ic_action_navigation_arrow_drop_down" />
+            android:src="@mipmap/ic_expand_more" />
 
     </LinearLayout>
 

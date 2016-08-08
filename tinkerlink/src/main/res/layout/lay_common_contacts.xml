@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_marginLeft="@dimen/margin_small"
-        android:src="@mipmap/newsfeed_contacto_amigo" />
+        android:src="@mipmap/ic_contact_add" />
 
     <RelativeLayout
         android:id="@+id/containerCommon"
@@ -90,7 +90,7 @@
             android:layout_centerVertical="true"
             android:layout_marginRight="@dimen/margin_small"
             android:background="@android:color/transparent"
-            android:src="@mipmap/ic_action_social_share" />
+            android:src="@mipmap/ic_network" />
 
     </RelativeLayout>
 

@@ -36,7 +36,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/margin_mediun"
-                    android:src="@mipmap/newsfeed_share_facebook" />
+                    android:src="@mipmap/ic_linkedin" />
 
                 <com.cronosgroup.tinkerlink.view.customviews.TLTextView
                     android:layout_width="wrap_content"
@@ -65,7 +65,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/margin_mediun"
-                    android:src="@mipmap/newsfeed_share_facebook" />
+                    android:src="@mipmap/ic_facebook" />
 
                 <com.cronosgroup.tinkerlink.view.customviews.TLTextView
                     android:layout_width="wrap_content"
@@ -95,7 +95,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/margin_mediun"
-                    android:src="@mipmap/newsfeed_share_facebook" />
+                    android:src="@mipmap/ic_twitter" />
 
                 <com.cronosgroup.tinkerlink.view.customviews.TLTextView
                     android:layout_width="wrap_content"
@@ -112,6 +112,5 @@
         </LinearLayout>
 
     </LinearLayout>
-
 
 </RelativeLayout>

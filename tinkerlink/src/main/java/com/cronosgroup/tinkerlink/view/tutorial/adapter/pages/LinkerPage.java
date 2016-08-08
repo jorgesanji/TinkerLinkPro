@@ -68,9 +68,9 @@ public class LinkerPage extends LinearLayout {
     private void initUI() {
         titleTinker.setText(getResources().getString(R.string.tutorial_linker_title));
         titleTinker.paintTextWithColor(getResources().getString(R.string.tutorial_linker_name), R.color.linkercolor);
-        iconTinker.setImageResource(R.mipmap.newsfeed_linkercard_net);
+        iconTinker.setImageResource(R.mipmap.floating_new_soytinker);
         iconTinker.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.linkercolor)));
-        typeCard.setText(getResources().getString(R.string.card_seek));
+        typeCard.setText(getResources().getString(R.string.detail_card_seek));
         jobCard.setText(getResources().getString(R.string.tutorial_linker_job));
         backgroundCard.setBackgroundResource(R.color.linkercolor_50);
     }

@@ -3,8 +3,9 @@ package com.cronosgroup.tinkerlink.view.tutorial;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.cronosgroup.tinkerlink.enums.StyleToolBar;
 import com.cronosgroup.tinkerlink.gcm.GcmRegistrationDevice;
-import com.cronosgroup.tinkerlink.manager.AppPermissionsManager;
+import com.cronosgroup.tinkerlink.model.manager.AppPermissionsManager;
 import com.cronosgroup.tinkerlink.utils.GcmUtils;
 import com.cronosgroup.tinkerlink.view.base.TinkerLinkActivity;
 

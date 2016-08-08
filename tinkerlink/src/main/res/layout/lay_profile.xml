@@ -88,7 +88,7 @@
                                 android:layout_width="100dp"
                                 android:layout_height="match_parent"
                                 android:gravity="center_vertical"
-                                app:iconItem="@mipmap/ic_views"
+                                app:iconItem="@mipmap/ic_views_small"
                                 app:textItem="239"
                                 app:textItemColor="@color/black"
                                 app:textItemSize="@dimen/text_size_mediun" />
@@ -97,7 +97,7 @@
                                 android:layout_width="100dp"
                                 android:layout_height="match_parent"
                                 android:gravity="center_vertical"
-                                app:iconItem="@mipmap/newsfeed_share"
+                                app:iconItem="@mipmap/ic_share"
                                 app:textItem="239"
                                 app:textItemColor="@color/black"
                                 app:textItemSize="@dimen/text_size_mediun" />

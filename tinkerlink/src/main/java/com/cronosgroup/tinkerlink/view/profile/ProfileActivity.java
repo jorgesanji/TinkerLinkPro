@@ -1,6 +1,7 @@
 package com.cronosgroup.tinkerlink.view.profile;
 
-import com.cronosgroup.tinkerlink.manager.AppPermissionsManager;
+import com.cronosgroup.tinkerlink.enums.StyleToolBar;
+import com.cronosgroup.tinkerlink.model.manager.AppPermissionsManager;
 import com.cronosgroup.tinkerlink.view.base.TinkerLinkActivity;
 
 import java.util.ArrayList;

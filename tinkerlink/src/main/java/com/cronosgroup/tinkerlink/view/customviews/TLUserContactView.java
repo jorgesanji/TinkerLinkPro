@@ -21,9 +21,9 @@ public class TLUserContactView extends LinearLayout {
 
     public enum ContactsType {
         EMAIL(0, R.string.contacts_undo, R.mipmap.nav_mensajes, R.mipmap.nav_mensajes),
-        TINKERLINKUSERS(1, R.string.contacts_undo, R.mipmap.newsfeed_contacto_anadir, R.mipmap.profile_solicitudenviada),
+        TINKERLINKUSERS(1, R.string.contacts_undo, R.mipmap.ic_contact_add, R.mipmap.ic_contact_sent),
         CONTACTSFRIEND(2, 0, 0, 0),
-        OPTIONS(3, 0, R.mipmap.ic_action_navigation_more_vert, R.mipmap.ic_action_navigation_more_vert),
+        OPTIONS(3, 0, R.mipmap.ic_more, R.mipmap.ic_more),
         NONE(4, 0, 0, 0);
 
         private final int idType;

@@ -28,7 +28,7 @@ public class ViewHolderShareTinker extends ViewHolderTinker {
         super.configureItem(post);
         RestPost postShared = post.getPost();
         setUserPostInfo(post.getUser(), R.string.newsfeed_share_tinker_text, post.getFecha());
-        setInfoCard(postShared, R.string.card_user_iam, TLImageView.ImageType.TINKER);
+        setInfoCard(postShared, R.string.detail_card_user_iam, TLImageView.ImageType.TINKER);
         mFriendsButton.setText(String.valueOf(postShared.getUser().getUser().getRecommendations()));
         mShareButton.setText(String.valueOf(post.getNumeroShares()));
         mViews.setText(String.valueOf(post.getNumeroVisualizaciones()));

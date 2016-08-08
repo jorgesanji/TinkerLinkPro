@@ -1,512 +1,487 @@
 <resources>
     <string name="app_name">Tinkerlink</string>
 
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <!-- Status messages-->
 
-    <!-- USER tinker -->
-    <string name="support_name">tinkerlink Support</string>
+    <string name="error_internet_connection">No hemos podido enviar tu petición. Revisa tu conexión a internet</string>
 
-    <!-- ERROR MESSAGES -->
-    <string name="sign_email_error">Invalid email</string>
-    <string name="sign_name_error">Invalid name</string>
-    <string name="sign_datebirth_error">Invalid birthdate</string>
-    <string name="sign_imageProfile_error">Please add a photo to your profile</string>
-    <string name="sign_sex_error">Choose your gender</string>
-    <string name="sign_phone_error">Please add your phone number</string>
-    <string name="sign_request_error">There was a connection error. Try again</string>
-    <string name="sign_code_error">You have to add the 6 digits password that you received via SMS</string>
-    <string name="sign_code_validation_title_error">The password is incorrect</string>
-    <string name="sign_code_validation_message_error">Try again</string>
-    <string name="login_enter_code_error">Please add the 6 digits password received via SMS</string>
-    <string name="login_enter_email_error">Please add your email</string>
-    <string name="login_user_duplicate_error">The number associated with your account has been validated with a different user. Please validate a new phone number so you can access</string>
-    <string name="login_code_expire_error">This password has expired. We are sending you a new one.</string>
-    <string name="login_code_error">Wrong password. Try again</string>
-    <string name="login_recover_error">Wrong phone number or password. Try again</string>
-    <string name="login_enter_email_pasword_error">Wrong email or password. Try again</string>
-    <string name="newsFeed_like_error">There was an error while trying to process your petition. Check your internet connection</string>
-    <string name="newsFeed_chat_error">We couldn\'t send the message. Try again</string>
-    <string name="newsFeed_share_error">We couldn\'t share this post. Try again</string>
-    <string name="newsFeed_contact_error">We couldn\'t connect with this user. Try again</string>
-    <string name="newsFeed_delete_contact_error">We couldn\'t delete this user. Try again</string>
-    <string name="newsFeed_block_contact_error">We couldn\'t block this contact. Try again</string>
-    <string name="create_category_error">Type in your occupation</string>
-    <string name="create_invalid_number_photos_error">The number of photos is limited to 3 photos</string>
-    <string name="profile_upload_photo_error">We couldn\'t update your photo. Try again</string>
-    <string name="profile_delete_photo_error">We couldn\'t delete your photo. Try again</string>
-    <string name="profile_update_profile_error">We couldn\'t update your profile. Try again</string>
-    <string name="profile_no_selecte_users_error">Select at least one user to ask for recommendations</string>
-    <string name="profile_request_recommendation_error">We couldn\'t process the recommendation. Try again</string>
-    <string name="profile_give_recommendation_error">We couldn\'t process the recommendation. Try again</string>
-    <string name="profile_give_recommendation_no_description_error">Please typeTinker a text to give a recommendation</string>
-    <string name="setttings_logout_error">Log out failure. Try again</string>
+    <!-- Share  -->
 
-    <string name="create_category_form_error">There was an error when selecting this profession, please choose another</string>
-    <string name="create_prefession_form_error">Choose your occupation</string>
-    <string name="create_experience_form_error">Choose your years of experience</string>
-    <string name="create_currency_form_error">Choose a currency</string>
-    <string name="create_pay_form_error">Choose your budget</string>
-    <string name="create_time_form_error">Choose a period</string>
-    <string name="create_time_publish_form_error">We couldn\'t post your card. Try again</string>
-    <string name="create_address_form_error">Choose your location</string>
+    <string name="share_text_recommendation" formatted="false">%s recomendó a %s en tinkerlink</string>
+    <string name="share_text_help_linker">Ayuda a %s a encontrar linker en tinkerlink</string>
+    <string name="share_text_help_tinker">Ayuda a %s a encontrar tinker en tinkerlink</string>
 
-    <string name="contacts_invite_error">The request contact has an error. Please try again</string>
-    <string name="newsFeed_status_error">It status is invalid. Please fill status properly</string>
+    <!-- News feed -->
 
-
-    <!-- SUCCESS MESSAGES -->
-
-    <string name="newsFeed_share_success">Post shared</string>
-    <string name="newsFeed_chat_success">Message sent</string>
-    <string name="newsFeed_like_success">Liked</string>
-
-    <string name="newsFeed_request_user_contact">Contact request sent</string>
-    <string name="newsFeed_cancel_user_contact">Conctact request cancelled</string>
-    <string name="newsFeed_delete_user_contact">The contact has been eliminated</string>
-    <string name="newsFeed_sms_user_contact">Invitation sent</string>
-    <string name="newsFeed_block_contact">Contact was blocked</string>
-
-    <string name="profile_update_photo_success">Photo updated</string>
-    <string name="profile_delete_photo_success">Photo deleted</string>
-    <string name="profile_update_profile_success">Profile updated</string>
-    <string name="profile_give_recommendation_success">Recommendation processed</string>
-    <string name="card_deleted_success">Your card has been deleted</string>
-    <string name="newsFeed_status_success">Status updated</string>
-    <string name="contacts_invite">Invitation sent</string>
-    <string name="newsFeed_accept_contact">New user added</string>
-
-    <!-- title buttons menus-->
-    <string name="action_search">search</string>
-    <string name="action_chat">chat</string>
-    <string name="action_notifications">notifications</string>
-    <string name="action_search_card">Search</string>
-    <string name="action_create_card">Create a card</string>
-    <string name="action_invite">Invite</string>
-    <string name="action_watch_profile">Show profile</string>
-    <string name="action_send_message">Send message</string>
-    <string name="action_start_chat">Chat</string>
-    <string name="action_back">back</string>
-    <string name="action_edit_photo">Edit photo</string>
-    <string name="action_delete_photo">Delete Photo</string>
-    <string name="action_add_contact">Add contact</string>
-    <string name="action_cancel_contact">Cancel contact</string>
-    <string name="action_accept_contact">Accept contact</string>
-    <string name="action_add_block_contact">Block contact</string>
-    <string name="action_add_delete_contact">Delete contact</string>
-    <string name="action_edit_profile">Edit Profile</string>
-    <string name="action_gallery">Gallery</string>
-    <string name="action_camera">Camera</string>
-    <string name="action_delete_chat">Delete chat</string>
-    <string name="action_delete_notifications">Delete notification</string>
-
-
-    <string name="action_onlyme">Only me</string>
-    <string name="action_everybody">Everybody</string>
-    <string name="action_my_contacts">My contacts</string>
-
-    <string name="cancel_button_title">Cancel</string>
-    <string name="ok_button_title">OK</string>
-    <string name="send_button_title">Send</string>
-    <string name="add_button_title">Add</string>
-
-    <!-- Menu Drawer Options -->
-    <string name="menu_item_title_inicio">Home</string>
-    <string name="menu_item_title_contactos">Contacts</string>
-    <string name="menu_item_title_chats">Chats</string>
-    <string name="menu_item_title_notifications">Notifications</string>
-    <string name="menu_item_title_settings">Settings</string>
-    <string name="menu_item_edit_profile">My profile</string>
-
-    <!-- Tutorial-->
-    <string name="tutorial_register">SIGN UP</string>
-    <string name="tutorial_login">LOG IN</string>
-    <string name="tutorial_cover1_title">Search, find and connect with reliable experts recommended by people you know</string>
-    <string name="tutorial_cover2_title">Searching for a job?</string>
-    <string name="tutorial_cover2_subtitle">You are a tinker</string>
-    <string name="tutorial_cover3_title">Search, find and connect with reliable experts recommended by people you know</string>
-    <string name="tutorial_cover4_title">Need any help?</string>
-    <string name="tutorial_cover4_subtitle">You are a linker</string>
-    <string name="tutorial_cover5_title">Post your request and wait no longer to start</string>
-
-    <!-- Sign-->
-
-    <string name="sign_hint_phone">Type your phone number</string>
-
-
-    <!--Warning messages -->
-
-    <string name="search_post_no_founded">We couldn\'t find any result</string>
-
-    <string name="sign_title_start">Start now!</string>
-    <string name="sign_add_profile_image">Add a profile photo</string>
-    <string name="sign_hint_email">email</string>
-    <string name="sign_hint_name">Your Full Name</string>
-    <string name="sign_hint_date">dd/mm/yyyy</string>
-    <string name="sign_title_female">Female</string>
-    <string name="sign_title_male">Male</string>
-    <string name="sign_policies">By registering, you agree to our Terms of Use and Privacy Policy</string>
-    <string name="sign_use_policies"> Terms of Use and Privacy Policy</string>
-    <string name="registration_connect_with_facebook">Use your Facebook profile</string>
-    <string name="sign_next_button">Next</string>
-
-    <string name="sign_valid_info">We want to keep the security of your account and the trust in our network by creating unique records through a quick validation process. Select your country code and introduce your phone number.</string>
-    <string name="sign_title_picker_image">Select an option:</string>
-
-    <string name="sign_code_info">We have sent you an SMS with your password. To complete your verification please enter the 6 digits code.</string>
-    <string name="sign_title_validate">Validate your ID</string>
-    <string name="sign_title_send_message">Send message</string>
-
-    <string name="sign_title_enter_code">Enter received code</string>
-    <string name="sign_title_send_code">Send code</string>
-
-    <string name="camera_title">Camera</string>
-    <string name="gallery_title">Gallery</string>
-
-    <string name="hint_country_search_text">Select your country</string>
-    <string name="sign_resend_code_time">Send code again</string>
-    <string name="sign_resend_code_sended">Have not received the code yet?</string>
-    <string name="sign_sucess_validation">Welcome to TinkerLink</string>
-
-    <string name="sign_user_active_title">Existing user. Please Login</string>
-    <string name="sign_user_active_message">Please log in</string>
-    <string name="sign_user_receovery_title">Existing user. Please Login</string>
-    <string name="sign_user_recovery_message">We\'ve sent you a SMS with the password. Check your messages</string>
-
-
-    <!-- Loging -->
-
-    <string name="login_forgot_password">Forgot your password?</string>
-    <string name="login_enter_your_information">Type your user name and access code</string>
-    <string name="login_enter_button">Log In</string>
-    <string name="login_recovery_button">Reset password</string>
-    <string name="login_recovery_title">Reset password</string>
-    <string name="login_enter_code">Password</string>
-
-
-    <!-- Search activity-->
-
-    <string name="search_hint">What are you looking for?</string>
-
-
-    <!-- News Feed-->
-
-    <string name="newsFeed_send_chat">You have something to say</string>
-    <string name="news_feed_sugerencias_title">People you may know</string>
-    <string name="news_feed_sugerencias_new_contacts"> %s has new contacts</string>
-    <string name="news_feed_views">views</string>
-    <string name="news_feed_likes">likes</string>
-    <string name="news_feed_share">share</string>
-    <string name="news_feed_share_title">Share in:</string>
-    <string name="share_news_feed">News Feed</string>
-    <string name="share_facebook">Facebook</string>
-    <string name="share_contact_with">Share contact with: %s</string>
-    <string name="news_feed_recommended">%s has a new recommendation</string>
-    <string name="news_feed_show_recommendations">Show my recommendations</string>
-    <string name="news_feed_recommendations_from">%s recommendations</string>
-    <string name="news_feed_ready_share">You\'ve already shared this post</string>
-    <string name="news_feed_ready_status">%s posted an update</string>
-    <string name="news_feed_update_status">%s has a profile update</string>
-    <string name="news_feed_update_photo">%s has an image update</string>
-    <string name="news_feed_share_profile" formatted="false"> %s shared %s profile</string>
-    <string name="news_feed_suggestions_profiles">People you may know</string>
-    <string name="news_feed_publishtinker_card">%s posted a tinkercard</string>
-    <string name="news_feed_publishlinker_card">%s posted linkercard</string>
-    <string name="news_feed_status_placeholder">Update your status</string>
-    <string name="news_feed_status_title">Status</string>
-
-    <!-- Create tinker and linker card-->
-
-    <string name="stack_empty_message">This user doesn\'t have any cards yet</string>
-    <string name="title_linkercard_stack">LinkerCards</string>
-    <string name="title_tinkercard_stack">TinkerCards</string>
-    <string name="title_linkercard_stack_name">%s LinkerCards </string>
-    <string name="title_tinkercard_stack_name">%s TinkerCards </string>
-    <string name="title_publishcard_stack">Post a card</string>
-
-    <string name="create_tinker_card_title">Edit your tinkercard</string>
-    <string name="create_linker_card_title">Edit your linkercard</string>
-    <string name="create_use_profile_information">Use your profile information</string>
-    <string name="create_use_profile_job_title">OCCUPATION</string>
-    <string name="create_use_profile_job">What is your occupation?</string>
-
-    <string name="create_use_profile_linker_job">What are you looking for?</string>
-    <string name="create_use_profile_linker_select_habilities">What skills should he/she have?</string>
-    <string name="create_use_profile_linker_description_hint">Give a brief description of the requirements of the work</string>
-    <string name="create_use_profile_linker_year_experience">How many years of experience needed?</string>
-    <string name="create_use_profile_linker_budget_job">How much are you wiling to pay?</string>
-    <string name="create_use_profile_linker_budget_time">Timeframe?</string>
-    <string name="create_use_profile_linker_added_hability_title">Select some skills</string>
-    <string name="card_user_linker_knowledge">With skills in</string>
-
-
-    <string name="create_use_profile_habilities">SKILLS</string>
-    <string name="create_use_profile_select_habilities">Select your skills</string>
-    <string name="create_use_profile_added_hability_error">Type a skill</string>
-    <string name="create_use_profile_added_hability_title">Select your skills</string>
-    <string name="create_use_profile_add_custom_hability">+ Add</string>
-    <string name="create_use_profile_add_other_custom_hability">Add other</string>
-    <string name="create_use_profile_experience">EXPERIENCE</string>
-    <string name="create_use_profile_year_experience">How many years of experience do you have?</string>
-    <string name="create_use_profile_budget">BUDGET</string>
-    <string name="create_use_profile_budget_job">How much do you want to charge for your work?</string>
-    <string name="create_use_profile_budget_Currency">Currency</string>
-    <string name="create_use_profile_budget_time">Timeframe?</string>
-    <string name="create_use_profile_my_photos">MY PHOTOS</string>
-    <string name="create_use_profile_add_photos">Add a picture to your description.</string>
-    <string name="create_use_profile_place_title">Location</string>
-    <string name="create_use_profile_place_select">What location?</string>
-    <string name="create_use_profile_description">DESCRIPTION</string>
-    <string name="create_use_profile_description_hint">Give a brief description of your work</string>
-    <string name="create_use_error_empty_profile">You professional profile is incomplete</string>
-
-    <string name="create_use_profile_publish_button">POST</string>
-    <string name="create_use_profile_button_tinkercard">ADD TINKERKARD</string>
-    <string name="create_use_profile_button_linkercard">ADD LINKERKARD</string>
-
-    <string name="create_year_0_to_1">0 to 1 year</string>
-    <string name="create_year_1_to_3">1 to 2 years</string>
-    <string name="create_year_3_to_5">3 to 5 years</string>
-    <string name="create_year_more_5">over 5 years</string>
-
-    <string name="create_price_lower_1000">1000 or less</string>
-    <string name="create_between_1000_to_3000">1000 to 3000</string>
-    <string name="create_between_3000_to_5000">3000 to 5000</string>
-    <string name="create_between_agreement">To discuss</string>
-
-    <string name="create_currency_pesos">Pesos</string>
-    <string name="create_currency_dolars">Dollars</string>
-    <string name="create_currency_euros">Euros</string>
-    <string name="create_currency_pounds">Pounds</string>
-    <string name="create_currency_other">Other</string>
-
-
-    <string name="create_time_by_hour">Per hour</string>
-    <string name="create_time_by_day">per day</string>
-    <string name="create_time_by_proyecto">By project</string>
-    <string name="create_time_agreement">To discuss</string>
-
-    <string name="create_search_hint">Type your occupation</string>
-    <string name="create_search_place_hint">What location?</string>
-
-    <string name="card_send_message">Send message</string>
-    <string name="card_add_contact">Add contact</string>
-    <string name="card_remove">Delete card</string>
-
-
-    <string name="card_user_iam">I am %s</string>
-    <string name="card_user_at">in %s</string>
-    <string name="card_user_knowledge">my skills </string>
-    <string name="news_feed_knowledge" formatted="false">%s skills are%s</string>
-    <string name="news_feed_seek_to" formatted="false">Searching %s with the following skills %s</string>
-    <string name="news_feed_seek">Searching %s</string>
-    <string name="news_feed_empty_message">You haven\'t posted lately</string>
-
-
-    <!-- Contacts -->
-
-    <string name="contacts_tinkerlink_title">TINKERLINK</string>
-    <string name="contacts_suggestions_title">SUGGESTED</string>
-    <string name="contacts_agenda_title">CONTACT LIST</string>
-
-    <string name="list_contact_search_empty_message">No matches found</string>
-    <string name="list_contact_tinkerlink_empty_message">You don\'t have any contacts on tinkerlink yet</string>
-    <string name="list_contact_recommedations_empty_message">No recommendations at this time</string>
-    <string name="list_contact_phonebook_empty_message">You don\'t have any contacts yet</string>
-
-    <!-- Profile -->
-
-    <string name="profile_profile">PROFILE</string>
-    <string name="profile_recomendations">RECOMENDATIONS</string>
-    <string name="profile_activity">ACTIVITY</string>
-    <string name="profile_education">EDUCATION</string>
-    <string name="profile_education_introduce">Add your studies</string>
-    <string name="profile_add_education">Add more</string>
-    <string name="profile_recommendations_empty_messages">You have no recommendations yet. Ask for some</string>
-    <string name="profile_profession_empty_messages">Add your occupation</string>
-    <string name="profile_habilities_empty_messages">Add skills</string>
-    <string name="profile_education_empty_messages">Add education</string>
-    <string name="profile_gallery_empty_messages">No photos</string>
-    <string name="profile_edit_title">EDIT</string>
-    <string name="profile_edit_nombre_curso_placeholder">Course Name</string>
-    <string name="profile_edit_institucion_study_placeholder">School</string>
-    <string name="profile_edit_add_study">Add your education:</string>
-    <string name="profile_recommendation_hint">Help me to improve my profile by recommending my skills</string>
-    <string name="profile_recommendation_select_contacts">+ Select all</string>
-    <string name="profile_recommendation_send_to">Send to:</string>
-    <string name="profile_recommendation_introduce_name_conctact">Add a name</string>
-    <string name="profile_request_recommendation_title">Ask for recommendations</string>
-    <string name="profile_give_recommendation_title">Recommend</string>
-    <string name="profile_recommendation_number_contacts_selected">%s Selected contacts</string>
-    <string name="profile_recommendation_number_contacts_sended">You send a request to %s selected contacts</string>
-    <string name="profile_recommendation_habilities">Recommend skills:</string>
-    <string name="profile_recommendation_description_hint">Say something about the performance</string>
-    <string name="profile_recommendation_request_recommendation_to_user">ASK FOR A RECOMMENDATION TO %s</string>
-    <string name="profile_request_recommendations">%s Recommendations</string>
-    <string name="profile_emptyList">There isn\'t any active post</string>
-    <string name="profile_share">Profile shared</string>
-    <string name="profile_ready_share">Profile ready shared</string>
-
-
-    <!-- Settings -->
-    <string name="settings_name">Name</string>
-    <string name="settings_name_hint">Type your full name</string>
-    <string name="settings_birthdate">Birthdate</string>
-    <string name="settings_birthdate_hint">Type your birthday</string>
-    <string name="settings_mail">Email</string>
-    <string name="settings_mail_hint">Type your email</string>
-    <string name="settings_phone">Phone number</string>
-    <string name="settings_phone_hint">Type your phone number</string>
-    <string name="settings_password">Password</string>
-    <string name="settings_password_hint">Type a new password</string>
-    <string name="settings_confirm_password_hint">Confirm your password</string>
-    <string name="settings_privacy">Privacy</string>
-    <string name="settings_privacy_activity">Who can see my activity?</string>
-    <string name="settings_notifications">Notifications</string>
-    <string name="settings_notifications_request">Contact Request</string>
-    <string name="settings_notifications_messages">Messages</string>
-    <string name="settings_notifications_likes">Likes</string>
-    <string name="settings_notifications_shares">Shares</string>
-    <string name="settings_support_tinkerlink">Tinkerlink Support</string>
-    <string name="settings_use_terms">Terms and Conditions</string>
-    <string name="settings_privacy_policy">Privacy Policy</string>
-    <string name="settings_feedback">Feedback</string>
-    <string name="settings_logout">Log Out</string>
-    <string name="settings_message_logout">Are you sure you want to quit?</string>
-    <string name="settings_feedback_message">Rate us in the Play Store</string>
-
-
-    <!-- Chat -->
-    <string name="chat_delete_message">Are you sure you want to delete this conversation?</string>
-    <string name="chat_user_placeholder">Type something nice</string>
-    <string name="chat_emptyList">There isn\'t any active chat</string>
+    <string name="news_feed_seek_to" formatted="false">Busco %s con habilidades de %s</string>
+    <string name="news_feed_seek">Busco %s</string>
+    <string name="news_feed_empty_message">No tenemos nada que mostrar</string>
+    <string name="news_feed_recommendations_from">Recomendaciones de: %s</string>
+    <string name="news_feed_watch_tinkers">Soy tinker</string>
+    <string name="news_feed_watch_linkers">Busco tinker</string>
+    <string name="news_feed_status_placeholder">Escribe tu estado</string>
+    <string name="newsfeed_new_messages">Hay nuevos posts</string>
+    <string name="news_feed_suggestions_profiles">Gente que puedes conocer</string>
+    <string name="news_feed_sugerencias_new_contacts"> %s tiene nuevos contactos</string>
+    <string name="news_feed_update_status">%s actualizó su perfil</string>
+    <string name="news_feed_update_photo">%s actualizó su imagen</string>
+    <string name="news_feed_ready_status">%s publicó un estado</string>
+    <string name="news_feed_share_profile" formatted="false"> %s compartió perfil de %s</string>
+    <string name="newsfeed_share_recommendations_text">%s compartio una recomendacion</string>
+    <string name="newsfeed_share_updateprofile_text">%s compartio una actualización de perfil</string>
+    <string name="newsfeed_share_updatephoto_text">%s compartio una actualización de imagen de perfil</string>
+    <string name="newsfeed_share_status_text">%s compartio una actualización de estado</string>
+    <string name="newsfeed_share_tinker_text">%s compartio una nueva tarjeta Soy Tinker</string>
+    <string name="newsfeed_share_linker_text">%s compartio una nueva tarjeta Busco Tinker</string>
+    <string name="news_feed_recomendations_to"> %s hizo una recomendación</string>
 
     <!-- Notifications -->
-    <string name="notifications_delete_notification">Are you sure you want to delete this conversation?</string>
-    <string name="notifications_request_contact_with_me">%s sent you a contact request</string>
-    <string name="notifications_request_accept_contact_with_me">%s accepted your request</string>
-    <string name="notifications_request_accept_contact_from_me">%s was accepted</string>
-    <string name="notifications_request_recommendation_accept">%s accepted your recommendation</string>
-    <string name="notifications_request_recommendation_my_profile">%s wants to recommend your profile</string>
-    <string name="notifications_request_recommendation_from_someone">%s asks you for a recommendation</string>
-    <string name="notifications_request_share_my_post">%s shared a post</string>
-    <string name="notifications_request_share_my_profile">%s shared my profile</string>
-    <string name="notification_request_contact_to_me">Do you want to connect with %s ?</string>
-    <string name="notification_request_recommended_to_me">Do you accept %s recommendation?</string>
-    <string name="notification_empty_message">You don\'t have any notifications</string>
-    <string name="notification_recommends_to_you">%s recommended to you</string>
-    <string name="notification_recommends_habilities">Habilities :</string>
 
-    <string name="share_text_recommendation" formatted="false">%s recommended %s in tinkerlink</string>
-    <string name="share_text_help_linker">Help %s to find linker in tinkerlink</string>
-    <string name="share_text_help_tinker">Help %s to find tinker in tinkerlink</string>
+    <string name="notifications_delete_notification">Estás seguro que quieres eliminar esta conversación?</string>
+    <string name="notifications_request_contact_with_me">%s te ha contactado</string>
+    <string name="notifications_request_accept_contact_with_me">%s te aceptó como contacto</string>
+    <string name="notifications_request_accept_contact_from_me">%s fue aceptado como contacto</string>
+    <string name="notifications_request_recommendation_accept">%s aceptó tu recomendación</string>
+    <string name="notifications_request_recommendation_my_profile">%s quiere recomendarte</string>
+    <string name="notifications_request_recommendation_from_someone">%s te ha pedido una recomendación</string>
+    <string name="notifications_request_share_my_post">%s compartió un post</string>
+    <string name="notifications_request_share_my_profile">%s compartió tu perfil</string>
+    <string name="notification_request_contact_to_me">%s te ha solicitado como contacto?</string>
+    <string name="notification_request_recommended_to_me">¿Quieres publicar la recomendación de %s?</string>
+    <string name="notification_empty_message">No tienes notificaciones</string>
+    <string name="notification_recommends_to_you">%s te ha recomendado</string>
+    <string name="notification_recommends_habilities">Habilidades recomendadas:</string>
 
-    <string name="app_exit_message">Are you sure you want to exit?</string>
 
-    <!--
-    ******************************************************************
-    *
-    * News Strings Added
-    *
-    ******************************************************************
--->
+    <!--  Dialog Ubication-->
+
+    <string name="ubication_hint">Introduce una ubicación</string>
+
+
+    <!--  Dialog Strings-->
+
+    <string name="cancel_title">Cancelar</string>
+    <string name="ok_title">Aceptar</string>
+    <string name="send_title">Enviar</string>
+    <string name="add_title">Agregar</string>
+    <string name="next_title">SIGUIENTE</string>
+
+    <!--  Action Strings-->
+
+    <string name="action_add_contact">Agregar contacto</string>
+    <string name="action_search_card">Buscar</string>
+    <string name="action_filter_card">Buscar</string>
+    <string name="action_camera_title">Cámara</string>
+    <string name="action_gallery_title">Galería</string>
 
     <!--  Time Strings-->
 
-    <string name="time_just_now">just now</string>
-    <string name="time_minutes_ago">%s minutes ago</string>
-    <string name="time_minute_ago">a minute ago</string>
-    <string name="time_hour_ago">an hour ago</string>
-    <string name="time_hours_ago">%s hours ago</string>
-    <string name="time_yesterday">yesterday</string>
-    <string name="time_days_ago">%s days ago</string>
+    <string name="time_just_now">ahora</string>
+    <string name="time_minutes_ago">hace %s minutos</string>
+    <string name="time_minute_ago">hace un minuto</string>
+    <string name="time_hour_ago">hace una hora</string>
+    <string name="time_hours_ago">hace %s horas</string>
+    <string name="time_yesterday">ayer</string>
+    <string name="time_days_ago">hace %s dias</string>
 
-    <!-- News Feed -->
-    <string name="watch_tinkers">I\'m Tinker</string>
-    <string name="watch_linkers">Searching Tinker</string>
-    <string name="newsfeed_search_post">POSTS</string>
-    <string name="newsfeed_search_users">USERS</string>
-    <string name="newsfeed_new_messages">There are new posts</string>
-    <string name="newsfeed_search_users_empty_message">There\'s no coincidences</string>
+    <!--  Status Strings-->
 
-    <string name="newsfeed_share_recommendations_text">%s shared a recommendation</string>
-    <string name="newsfeed_share_updateprofile_text">%s shared a profile update</string>
-    <string name="newsfeed_share_updatephoto_text">%s shared a profile image update</string>
-    <string name="newsfeed_share_status_text">%s shared a status update</string>
-    <string name="newsfeed_share_tinker_text">%s shared a new card I\'m Tinker</string>
-    <string name="newsfeed_share_linker_text">%s shared a new card Searching Tinker</string>
+    <string name="profile_recomendations_number">RECOMENDACIONES (%s)</string>
+    <string name="profile_send_request">Agregar</string>
+    <string name="profile_request_sent">Pendiente</string>
+    <string name="profile_request_received">Pendiente</string>
+    <string name="profile_friends">Amigos</string>
+    <string name="profile_contacts_common">en común</string>
 
-    <!-- Profile -->
+    <!-- Tutorial-->
 
-    <string name="profile_recomendations_number">RECOMENDATIONS (%s)</string>
-    <string name="profile_send_request">Add</string>
-    <string name="profile_request_sent">Requested</string>
-    <string name="profile_request_received">Requested</string>
-    <string name="profile_friends">Friends</string>
+    <string name="tutorial_register">REGÍSTRATE</string>
+    <string name="tutorial_login">ENTRA A TU CUENTA</string>
+    <string name="tutorial_start_now">COMIENZA AHORA</string>
+    <string name="tutorial_welcome_title">Biendvenido a Tinkerlink</string>
+    <string name="tutorial_welcome_title_fragment_tinker">Tinker</string>
+    <string name="tutorial_welcome_title_fragment_linker">link</string>
+    <string name="tutorial_welcome_description">La primera aplicación donde puedes\nencontrar y ofrecer servicios a travez\nde tu red de contactos de confianza</string>
+    <string name="tutorial_recomendation_title">Crea tu identidad y consigue\nrecomendaciones para\nvalidar tu perfil</string>
+    <string name="tutorial_recomendation_name">Mariano Martinez</string>
+    <string name="tutorial_recomendation_job">FONTANERO</string>
+    <string name="tutorial_recomendation_city">Barcelona, España</string>
+    <string name="tutorial_tinker_title">Convierte en un Tinker\ny ofrece todos tus servicios</string>
+    <string name="tutorial_tinker_name">Tinker</string>
+    <string name="tutorial_linker_title">Convierte en un Linker\ny encuentra trabajadores\n de confianza</string>
+    <string name="tutorial_linker_name">Linker</string>
+    <string name="tutorial_tinker_job">Reparador de averías</string>
+    <string name="tutorial_linker_job">Zapatero</string>
+    <string name="tutorial_network_title">Descubre personas cercanas a tu\ncirculo de confianza y mantén\ncontacto con tu red</string>
+    <string name="tutorial_network_user_message">Marta forma parte de tu red de confianza</string>
+    <string name="tutorial_network_user_search">Marta está buscando a personas como tú!</string>
+    <string name="tutorial_network_user_name">Marta Díaz</string>
+    <string name="tutorial_network_user_contacts">Contactos en común (15)</string>
 
-    <string name="profile_write_message">Write a message</string>
-    <string name="profile_services">I\'m Tinker</string>
-    <string name="profile_offers">Searching Tinker</string>
+    <!--  Login  -->
+    <string name="login_title">Inicia sessión</string>
+    <string name="login_phone_number">NÚMERO DE MOVIL</string>
+    <string name="login_password">CONTRASEÑA</string>
+    <string name="login_password_hint">Introduce tu contraseña</string>
+    <string name="login_phone_hint">Introduce tu número de telefono</string>
+    <string name="login_start_session">INICIAR SESIÓN</string>
+    <string name="login_start_google_session">Iniciar sesion con gmail</string>
+    <string name="login_start_facebook_session">Iniciar sesion con facebook</string>
 
-    <string name="profile_description_title">DESCRIPTION</string>
-
-    <string name="newsFeed_reject_user_contact">Request contact rejected</string>
-
-    <string name="profile_contacts_common">common contacts</string>
-
-
-    <!-- Edit Profile-->
-
-    <string name="edit_profile_profile_photo">PROFILE PHOTO</string>
-
-
-    <!-- Recommendations -->
-
-    <string name="profile_recomendations_title">Recomendations</string>
-    <string name="profile_cancel_request_sent">are you sure that you want cancel request to %s?</string>
-    <string name="profile_cancel_request_received">Accept to %s like contact?</string>
-    <string name="profile_delete_contact">are you sure that you want delete to %s from your contacts?</string>
-    <!--<string name="news_feed_recomendations_to" formatted="false"> %s recommended to %s</string>-->
-    <string name="news_feed_recomendations_to"> %s made a recommendation</string>
-    <string name="news_feed_status_message"> %s, share something with your friends...</string>
-
-    <!-- Linker card -->
-
-    <string name="card_seek">Searching</string>
-    <string name="card_skills">SKILLS</string>
-
-    <!-- Tinker card -->
-    <string name="card_showmore">Show more</string>
-    <string name="card_me">I\'m</string>
-    <string name="card_requirements">REQUIREMENTS</string>
-
-    <!-- ******************* New version Strings********************** -->
+    <!--  Sign  -->
+    <string name="sign_title">Crea tu cuenta</string>
+    <string name="sign_message">Te enviaremos un SMS gratuito con\n tu código¡ de confirmación</string>
+    <string name="sign_select_country">Selecciona la cobertura</string>
+    <string name="sign_select_country_hint">Ej. España(+34)</string>
+    <string name="sign_select_phone">Escribe tu número de móvil</string>
+    <string name="sign_select_phone_hint">Ej. 734 56 47 32</string>
+    <string name="sign_select_password">CONTRASEÑA</string>
+    <string name="sign_select_password_hint">Define una contraseña para tu cuenta</string>
+    <string name="sign_select_name">NOMBRE</string>
+    <string name="sign_select_name_hint">Escribe tu nombre</string>
+    <string name="sign_select_cogname">APELLIDO</string>
+    <string name="sign_select_cogname_hint">Escribe tu apellido</string>
+    <string name="sign_select_dateBird">FECHA DE NACIMIENTO</string>
+    <string name="sign_select_dateBird_day">Día</string>
+    <string name="sign_select_dateBird_month">Mes</string>
+    <string name="sign_select_dateBird_year">Año</string>
+    <string name="sign_select_gender">SEXO</string>
+    <string name="sign_select_gender_women">Mujer</string>
+    <string name="sign_select_gender_men">Hombre</string>
+    <string name="sign_register_title">!Registrate gratis!</string>
+    <string name="sign_register_sms">Registrarse con SMS</string>
+    <string name="sign_register_gmail">Registrarse con Gmail</string>
+    <string name="sign_register_facebook">Registrarse con facebook</string>
+    <string name="sign_register_or">o</string>
+    <string name="sign_register_title_preferences">Preferecias</string>
+    <string name="sign_register_title_tinker">Selecciona las categorías relacionadas a tu\nocupación así potenciales clientes pódran\necontrarte y coincidir contigo</string>
+    <string name="sign_register_title_linker">¿Que tipo de ayuda podrás necesitar? Queremos\nsugerirte los mejores trabajadores de acuerdo\na tus necesidades</string>
+    <string name="sign_register_validation_title">Registrarse con SMS</string>
+    <string name="sign_register_validation_send">Enviado un SMS al %s</string>
+    <string name="sign_register_validation_introduce_code">Introduce e código de seguridad</string>
+    <string name="sign_register_validation_introduce_code_hint">Código de verificación</string>
+    <string name="sign_register_validation_retry">Reintentar(8)</string>
+    <string name="sign_register_verify">VERIFICAR</string>
+    <string name="sign_register_user_welcome">Bienvenida %s!</string>
+    <string name="sign_register_user_create_profile">Comienza a crear tu perfil</string>
+    <string name="sign_register_user_job">OCUPACIÓN</string>
+    <string name="sign_register_user_select_job">Seleccione una ocupación</string>
+    <string name="sign_register_user_description">DESCRIPCIÓN</string>
+    <string name="sign_register_user_description_hint">Realizo el trabajo con total resposabilidad y entusiasmo. Entrego el material en tiempo y forma. No dudes en enviarme un mensaje por cualquier consulta!</string>
+    <string name="sign_register_user_studies">ESTUDIOS Ó CURSOS</string>
+    <string name="sign_register_user_studies_add">Agregar estudio o curso</string>
+    <string name="sign_register_user_camera">Camara</string>
+    <string name="sign_register_user_gallery">Galeria</string>
 
     <!--  Home  -->
     <string name="home_newsfeed">NewsFeed</string>
-    <string name="home_contacts">Contacts</string>
-    <string name="home_messages">Messages</string>
-    <string name="home_account">Account</string>
+    <string name="home_contacts">Contactos</string>
+    <string name="home_messages">Mensajes</string>
+    <string name="home_account">Cuenta</string>
 
     <!--  StackCard  -->
-    <string name="stack_watch_tinker">Watch i\'m tinker</string>
-    <string name="stack_watch_linker">Watch search tinker</string>
+    <string name="stack_watch_tinker">Ver soy tinker</string>
+    <string name="stack_watch_linker">Ver busco tinker</string>
+    <string name="stack_more_recommended">Más recomendados</string>
+
+    <!--  Search Card  -->
+    <string name="search_card_title">Buscar</string>
 
     <!--  Network  -->
-    <string name="network_title_network">Common with %s</string>
-    <string name="network_user">You</string>
-    <string name="network_common_contacts">Common contacts</string>
-    <string name="network_match_tinkerlink">Matches tinkerlink</string>
-    <string name="network_tinkerlink_offer">Services than you are searching</string>
-    <string name="network_tinkerlink_search">Search services that you are offer</string>
-    <string name="network_categories_loader">Load more</string>
+    <string name="network_title_network">En común con %s</string>
+    <string name="network_user">Tú</string>
+    <string name="network_common_contacts">Contactos en común</string>
+    <string name="network_match_tinkerlink">Coincidencias tinkerlink</string>
+    <string name="network_tinkerlink_offer">Ofrece servicios que tú esta buscando</string>
+    <string name="network_tinkerlink_search">Busca servicios que tú ofreces</string>
+    <string name="network_categories_loader">Cargar más</string>
 
     <!--  Profile  -->
-    <string name="profile_request_recommendation">Request recommendations</string>
-    <string name="profile_new_tinker_card">New card I\'m Tinker</string>
-    <string name="profile_new_linker_card">New card search Tinker</string>
-    <string name="profile_watch_profile">Watch profile</string>
-    <string name="profile_notifications">Notifications</string>
+    <string name="profile_request_recommendation">Solicitar recomendaciones</string>
+    <string name="profile_new_tinker_card">Nueva tarjeta soy Tinker</string>
+    <string name="profile_new_linker_card">Nueva tarjeta busco Tinker</string>
+    <string name="profile_watch_profile">Ver perfil</string>
+    <string name="profile_notifications">Notificaciones</string>
+    <string name="profile_description_title">DESCRIPCIÓN</string>
+    <string name="profile_added_hability_title">Selecciona habilidades</string>
+    <string name="profile_services">Soy Tinker</string>
+    <string name="profile_offers">Busco Tinker</string>
+    <string name="profile_edit_add_study">Agregar estudio ó curso:</string>
+
+    <!--  Recommendation  -->
+    <string name="recommendation_title">Escribe el mensaje</string>
+    <string name="recommendation_hint">Te escribo para pedirte una recomendación breve de mi trabajo que pueda incluir en mi perfil de Tinkerlink. Si tienes alguna pregunta, no dudes en comunicármelo\n\n Gracias antemano por tu ayuda.\n\n %s</string>
+    <string name="recommendation_send_to">Enviar a</string>
+    <string name="recommendation_send_to_all_contacts">Todos mis contactos</string>
+    <string name="recommendation_search_list_contacts">Busca en tu losta de amigos...</string>
+    <string name="recommendation_all_contacts">Todos mis contactos</string>
+    <string name="recommendation_only_friends">Solo amigos</string>
+    <string name="recommendation_send_recommendation">ENVIAR</string>
+
+    <!--  Chat  -->
+    <string name="chat_remove_chat">Eliminar chat</string>
+    <string name="chat_report_chat">Reportar chat</string>
+    <string name="chat_block_contact">Bloquear contact</string>
+    <string name="chat_user_placeholder">Inicia la conversación</string>
+
+    <!--  Create card  -->
+    <string name="create_card_title">Crear card</string>
+    <string name="create_card_ubication">UBICACIÓN</string>
+    <string name="create_card_especify_search">ESPECIFICA TU BUSQUEDA</string>
+    <string name="create_card_country_hint">Selecione su ubicación</string>
+    <string name="create_card_occupation_hint">Selecione ocupación</string>
+    <string name="create_card_subcategory_selected">Hemos seleccionado una imágen de fondo para la categoría de %s, puedes cambiarla si lo deseas.</string>
+    <string name="create_card_add_images">Puedes adjuntar fotografías para orientar a los potenciales candidatos</string>
+    <string name="create_card_add_images_number">0/5</string>
+    <string name="create_card_description_title">DESCRIPTION</string>
+    <string name="create_card_description">Te proponemos una descripción de ejemplo, puedes editarla si lo deseas.</string>
+    <string name="create_card_description_max_characters">0/140</string>
+    <string name="create_card_skill_title">HABILIDADES</string>
+    <string name="create_card_add_skill_hint">Agrega una habilidad</string>
+    <string name="create_card_add_skill_number">0/20</string>
+    <string name="create_card_experience">EXPERIENCIA DESEADA</string>
+    <string name="create_card_experience_default" formatted="false">%s a %s años</string>
+    <string name="create_card_budget_title">PRESUPUESTO</string>
+    <string name="create_card_budget_select_range">Selecciona un rango</string>
+    <string name="create_card_budget_range" formatted="false">%s a %s euros</string>
+    <string name="create_card_experience_agree">A convenir</string>
+    <string name="create_card_experience_previsualize">PREVISUALIZAR</string>
+    <string name="create_card_publish">PUBLICAR</string>
+    <string name="create_card_skills_title">HABILIDADES</string>
+    <string name="create_lorem_ipsun">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non gravida odio. Proin id lobortis nunc. Sed vitae tortor ut sapien scelerisque consectetur. Proin condimentum sit amet tellus eu lacinia. Integer id auctor justo. Pellentesque consequat convallis justo, id semper ante lacinia sed. Ut venenatis vehicula elit, et tempor diam lobortis a. Donec eu dignissim augue, vel volutpat lectus. Ut varius sodales arcu, sit amet gravida metus commodo sit amet. Vestibulum imperdiet, elit sed consectetur fermentum, tortor metus mollis odio, eu molestie lorem metus ac sem. Ut posuere consequat enim, in pharetra libero tempor rutrum. Maecenas id ante et eros maximus maximus bibendum vitae lorem.</string>
+    <string name="create_card_value_title">Selecciona el valor a percibir</string>
+    <string name="create_card_experience_title">EXPERIENCIA</string>
+    <string name="create_card_value_job_title">VALOR DE TU TRABAJO</string>
+    <string name="create_card_value_by_project">Por projecto</string>
+    <string name="create_card_value_by_day">Por día</string>
+    <string name="create_card_value_by_hour">Por hora</string>
+    <string name="create_card_value_by_agree">A convenir</string>
+
+
+    <!--  Edit Profile  -->
+    <string name="edit_profile_title">Editar perfil</string>
+    <string name="edit_profile_job">Ocupación</string>
+    <string name="edit_profile_ubication_title">Ubicación</string>
+    <string name="edit_profile_ubication">Utilizar mi ubicación actual</string>
+    <string name="edit_profile_ubication_hint">Selecciona un país</string>
+    <string name="edit_profile_postal_code_hint">Código postal</string>
+    <string name="edit_profile_category_hint">Selecciona un categoria</string>
+    <string name="edit_profile_description">DESCRIPTION</string>
+    <string name="edit_profile_description_number" formatted="false">%s/%s</string>
+
+
+    <!--  Dialog studies  -->
+    <string name="studies_title">TITULO</string>
+    <string name="studies_title_hint">Escribe el titulo que has logrado</string>
+    <string name="studies_institute_title">ESTABLECIMIENTO</string>
+    <string name="studies_institute_hint">Especifica donde lo has logrado</string>
+    <string name="studies_institute_date">FECHA DE FINILIZACIÓN</string>
+
+
+    <!--  Configuration  -->
+    <string name="configuration_title">Configuración</string>
+    <string name="configuration_account_title">CUENTA</string>
+    <string name="configuration_notificaciones_title">NOTIFICATIONS</string>
+    <string name="configuration_change_password">Cambiar contraseña</string>
+    <string name="configuration_change_password_message">Escoge una nueva contraseña única para tu cuenta</string>
+    <string name="configuration_phone_number">Número de móvil</string>
+    <string name="configuration_phone_number_message">Cambia tu número de móvil</string>
+    <string name="configuration_phone_contacts">Importar contactos</string>
+    <string name="configuration_phone_contacts_message">Averigua a quien ya conoces en Tinkerlink</string>
+    <string name="configuration_privacy">Privacidad</string>
+    <string name="configuration_privacy_message">Escoge quienes pueden ver el contenido de tu perfil y edaita tus contactos bloqueados.</string>
+    <string name="configuration_help_tinkerlink">Centro de ayuda de Tinkerlink</string>
+    <string name="configuration_privacy_policy">Política de privacidad</string>
+    <string name="configuration_frequently_questions">Preguntas frecuentes</string>
+    <string name="configuration_close_session">CERRAR SESIÓN</string>
+    <string name="configuration_create_title">Crear una nueva contraseña</string>
+    <string name="configuration_create_message">Las contraseñas son sensibles a las mayúsculas y deben contener como mínimo 6 caracteres.</string>
+    <string name="configuration_password_title">Escribe tu contraseña actual</string>
+    <string name="configuration_password_hint">Contraseña</string>
+    <string name="configuration_new_password_title">Escribe una contraseña nueva</string>
+    <string name="configuration_new_password_hint">Contraseña nueva</string>
+    <string name="configuration_new_password_repeat_title">Vuelve a escribir tu contraseña nueva</string>
+    <string name="configuration_new_password_repeat_hint">Contraseña nueva</string>
+    <string name="configuration_save_password">GUARDAR</string>
+    <string name="configuration_forgotten_password">¿Has olvidado tu contraseña?</string>
+    <string name="configuration_recovery_title">Recupera tu contraseña</string>
+    <string name="configuration_recovery_insert_email_or_phone">Ingresá tu correo electrónico ó número de móvil</string>
+    <string name="configuration_recovery_email_or_phone">Correo electrónico ó número de móvil</string>
+    <string name="configuration_phones_added">Números de móvil que has añadido</string>
+    <string name="configuration_phones_added_message">Quedate tranquilo, tu númer no se mostrará en tu perfil ni será compartido con nadie</string>
+    <string name="configuration_phone_visible_only_for_owner">Solo tú verás tu número</string>
+    <string name="configuration_phone_has_been_changed">¿Has cambiado tu número de móvil?\nPuedes verificar tu nuevo número aquí</string>
+    <string name="configuration_phone_verify">Verificar nuevo número</string>
+    <string name="configuration_add_new_number">Añadir un nuevo número de móvil</string>
+    <string name="configuration_add_new_number_message">Énviaremos un código de verificación a este númer. Lo necesitarás para el próximo paso.\n\nTu númer de móvil nos ayuda a mantener la seguridad de tu cuenta.\n\nTambién les ayuda a las personas que ya tienen tu número de móvil a encontrarte y conectar contigo</string>
+    <string name="configuration_select_country">Selecciona la cobertura</string>
+    <string name="configuration_write_phone_number">Escribe tu número de móvil</string>
+    <string name="configuration_send_code">Enviar Código</string>
+    <string name="configuration_profile_privacy">Privacidad de tu perfil</string>
+    <string name="configuration_profile_privacy_message">Escoje quienes pueden ver el contenido de tu perfil</string>
+    <string name="configuration_profile_privacy_public">Publico</string>
+    <string name="configuration_profile_privacy_public_message">Todo el mundo pueda ver mis contactos, contactos en común y actividad</string>
+    <string name="configuration_profile_privacy_only_friends">Solo Amigos</string>
+    <string name="configuration_profile_privacy_only_friends_message">Solo mis amigos pueden ver mis contactos, contactos en común y actividad</string>
+    <string name="configuration_profile_privacy_private">Privado</string>
+    <string name="configuration_profile_privacy_private_message">Solo yo puedo ver mis contactos, contactos en común y actividad</string>
+    <string name="configuration_profile_privacy_contacts_locked">Contactos bloqueados</string>
+    <string name="configuration_profile_privacy_remove_contact">Eliminar contacto</string>
+    <string name="configuration_profile_privacy_unlock_contact">Desbloquear contacto</string>
+    <string name="configuration_profile_notifications_email">Notificaciones por correo electrónico</string>
+    <string name="configuration_profile_notifications_movil_permissions_title">Notificaciones en el móvil</string>
+    <string name="configuration_profile_notifications_movil_permissions_message">Te avisamos cuando alguién</string>
+    <string name="configuration_profile_notifications_movil_permissions_recommendation">Te hace una recommendation</string>
+    <string name="configuration_profile_notifications_movil_permissions_share">Comparte contenido tuyo</string>
+    <string name="configuration_profile_notifications_movil_permissions_send_message">Te envía un mensaje</string>
+    <string name="configuration_profile_notifications_movil_permissions_request_contact">Nueva solicitud de contacto</string>
+    <string name="configuration_profile_notifications_movil_permissions_accept_contact">Acepta tu solicitud de contacto</string>
+    <string name="configuration_profile_notifications_movil_permissions_match_cards">Encontramos coincidencias en tarjetas</string>
+
+    <!-- PROFILE -->
+    <string name="profile_title">Perfil</string>
+    <string name="profile_page_user_information">INFORMACIÓN</string>
+    <string name="profile_page_user_recommendation">RECOMENDACIONES</string>
+    <string name="profile_page_user_activity">ACTIVIDAD</string>
+    <string name="profile_information_user_interest">INTERES</string>
+    <string name="profile_information_user_description">DESCRIPCIÓN</string>
+    <string name="profile_information_user_descriptiom_mock">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non gravida odio. Proin id lobortis nunc. Sed vitae tortor ut sapien scelerisque consectetur. </string>
+    <string name="profile_information_studies_or_courses">ESTUDIOS Ó CURSOS</string>
+    <string name="profile_information_contacts_user">Contactos de %s que podrías conocer</string>
+    <string name="profile_information_watch_all_contacts">VER TODOS LOS CONTACTOS DE %s</string>
+
+    <!-- WIDGET CONTACT-->
+    <string name="widget_contact_add">Añadir</string>
+    <string name="widget_contact_watch_network">Ver red</string>
+
+    <!-- RECOMMENDATIONSSTYLE-->
+    <string name="profile_recommendations_title">Recomendaciones</string>
+    <string name="profile_recommendations_message" formatted="false">%s, te gustaría recomendar a %s</string>
+    <string name="profile_recommendations_create">Redacta una recomendación...</string>
+    <string name="profile_recommendations_watch_recommendations">VER %s RECOMENDACIONES</string>
+    <string name="profile_recommendations_publish_recommendations">PUBLICAR</string>
+    <string name="profile_recommendations_write_recommendation_by">Redacta una recomendación para %s</string>
+    <string name="profile_recommendations_write_recommendation_by_hint">Redacta una recomendación</string>
+    <string name="profile_recommendations_message_title">Solicitud de recomendación enviada!</string>
+    <string name="profile_recommendations_message_text">Felicitaciones %s pronto tendrás nuevas recomendaciones de tus contactos!</string>
+
+
+    <!-- CONTACTS-->
+    <string name="contacts_in_common">EN COMÚN(%s)</string>
+    <string name="contacts_all">TODOS(%s)</string>
+    <string name="contacts_from">Contactos de %s</string>
+
+    <!-- DRAG AND DROP-->
+    <string name="drag_drop_watch_network">Ver red</string>
+    <string name="drag_drop_watch_profile">Ver perfil</string>
+    <string name="drag_drop_share">Compartir</string>
+    <string name="drag_drop_write_message">Escribir mensake</string>
+
+
+    <!-- DIALOG OCCUPATION-->
+    <string name="dialog_occupation_search">Busca tu ocupación</string>
+    <string name="dialog_occupation_add_new_one_message">Si no encuentras tu ocupacióne en la lista puedes agregar una</string>
+    <string name="dialog_occupation_add_new_one_message_hint">Especifica tu ocupación</string>
+    <string name="dialog_occupation_add_new_one_message_limit">%s/20</string>
+
+
+    <!-- DIALOG MESSAGE-->
+    <string name="dialog_message_ok_button">OK</string>
+
+    <!-- DIALOG SHARE-->
+    <string name="dialog_share_linkedin">LINKED IN</string>
+    <string name="dialog_share_facebook">FACEBOOK</string>
+    <string name="dialog_share_twitter">TWITTER</string>
+    <string name="dialog_share_title">Compartir en tu newsfeed y en:</string>
+
+
+    <!-- CREATE CARD MESSAGES -->
+    <string name="message_create_card_title">Felicidades has creado una tarjeta</string>
+    <string name="message_create_card_message">Si quieres editarla puedes ir a tu perfil ahí la encotraras y la podrás editar</string>
+
+    <!-- FILTER CARDS -->
+    <string name="filter_cards_title">Filtros</string>
+    <string name="filter_cards_skills">CATEGORÍAS</string>
+    <string name="filter_cards_message" formatted="false">Hemos encontrado %s y %s tarjetas</string>
+
+    <!-- IMPORT CONTACTS -->
+    <string name="import_contacts_message">Comienza añadiendo  tu correo electrónico o escogiendo un proveedor de servicios</string>
+    <string name="import_contacts_email">Correo electrónico</string>
+    <string name="import_contacts_email_hint">ejemplo@ejemplo.com</string>
+    <string name="import_contacts_continue">CONTINUAR</string>
+    <string name="import_contacts_phonebook">Importar contactos de mi agenda</string>
+    <string name="import_contacts_gmail">Importar contactos de gmail</string>
+    <string name="import_contacts_facebook">Importar contactos de facebook</string>
+
+    <!-- DETAIL CARD-->
+    <string name="detail_card_title">Detalle de la card</string>
+    <string name="detail_card_user_linker_knowledge">Con habilidades en</string>
+    <string name="detail_card_user_knowledge">Mis habilidades son</string>
+    <string name="detail_card_user_iam">Soy %s</string>
+    <string name="detail_card_seek">Busco</string>
+    <string name="detail_card_me">Soy</string>
+    <string name="detail_card_requirements">REQUISITOS</string>
+
+    <!-- CONTACTS -->
+    <string name="contacts_intro_title">Averigua a quién más conoces ya en Tinkerlink</string>
+    <string name="contacts_intro_message">Accedemos periódicamente tus contactos para encontrar a personas de tu red que conoces en Tinkerlink</string>
+    <string name="contacts_continue">CONTINUAR</string>
+    <string name="contacts_import_contacts">Importar contactos</string>
+    <string name="contacts_search_contacts">Buscar contactos</string>
+    <string name="contacts_my_contacts">MIS CONTACTOS (%s)</string>
+    <string name="contacts_request_contacts">SOLICITUDES (%s)</string>
+    <string name="contacts_undo">DESHACER</string>
+    <string name="contacts_search_hint">Busca en tu lista de contactos...</string>
+    <string name="contacts_popup_writte_message">Escribir mensaje</string>
+    <string name="contacts_popup_remove_contact">Eliminar contacto</string>
+    <string name="contacts_popup_block_contact">Bloquear contacto</string>
+
+    <!-- DIALOG BLOCK CONTACT-->
+    <string name="dialog_blockcontact_title">¿Bloquear contacto?</string>
+    <string name="dialog_blockcontact_confirm">¿Confirmas que quieres bloquear a %s?</string>
+    <string name="dialog_blockcontact_block_contact">Bloquear contacto</string>
+    <string name="dialog_blockcontact_remove_contact">Eliminar de mis contactos</string>
+    <string name="dialog_blockcontact_message">Siempre que desees desbloquear a un contacto puedes hacerlo en la sección Cuenta> configuración> Privacidad </string>
+    <string name="dialog_blockcontact_confirm_title">Confirmar</string>
+
+    <!-- DIALOG MESSAGE OPTIONS-->
+    <string name="dialog_message_remove_user_options_title">¿ELiminar contacto?</string>
+    <string name="dialog_message_remove_user_options_message">¿Seguro que quieres eliminar a %s de tu lista de contactos?</string>
+
+    <!-- REQUEST CONTACTS-->
+    <string name="request_contacts_new_request_contacts">Nuevas solicitudes de contacto (%s)</string>
+    <string name="request_contacts_suggestion_contacts">¿Seguro que quieres eliminar a %s de tu lista de contactos?</string>
+
+    <!-- DIALOG REPORT-->
+    <string name="dialog_report_title">Ayudanos a entender que sucede</string>
+    <string name="dialog_report_files_content">%s envió archivos ó hizo comentarios sospechosos</string>
+    <string name="dialog_report_sexual_content">%s publicó contenido sexual sospechoso</string>
+    <string name="dialog_report_insult_content">%s está insultando ó amenazando</string>
+    <string name="dialog_report_action_text">REPORTAR CHAT</string>
+
+    <!-- DIALOG  REMOVE CHAT-->
+    <string name="dialog_remove_chat_title">¿Eliminar este chat por completo?</string>
+    <string name="dialog_remove_chat_message">Una vez que elimines tu copia del chat no podras deshacer la acción.</string>
+    <string name="dialog_remove_chat_action_text">ELIMMINAR CHAT</string>
+
+    <!-- DIALOG  SELECT CATEGORY-->
+    <string name="dialog_category_title">Selecciona una categoría que se adecue atu servicio</string>
+
+    <!-- SEARCH NEWSFEED-->
+    <string name="search_newsfeed_title">Buscar</string>
+    <string name="search_newsfeed_title_tab_alltinkerlink">TODO TINKERLINK</string>
+    <string name="search_newsfeed_title_tab_my_contacts">MIS CONTACTOS</string>
+
+    <!-- STATUS-->
+    <string name="status_title">Publicar en Tinkerlink</string>
+    <string name="status_action_publish_title">PUBLICAR</string>
+    <string name="status_message_hint">Comparte algo de tus contactos</string>
+
+    <!-- CREATE RECOMMENDATIOM-->
+    <string name="create_recommendation_title">Crea una recomendación</string>
+
+    <!-- GIVE RECOMMENDATIOM-->
+    <string name="give_recommendation_title">Dar una recomendación</string>
 
 
 </resources>

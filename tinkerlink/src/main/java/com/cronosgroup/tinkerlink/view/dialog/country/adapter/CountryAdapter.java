@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 
 import com.cronosgroup.core.view.BaseAdapter;
 import com.cronosgroup.tinkerlink.R;
-import com.cronosgroup.tinkerlink.manager.AppCountryManager;
+import com.cronosgroup.tinkerlink.model.manager.AppCountryManager;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestCountry;
 import com.cronosgroup.tinkerlink.view.dialog.country.adapter.viewholder.ViewHolderRow;
 

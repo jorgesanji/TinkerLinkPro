@@ -37,6 +37,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
+                    android:layout_marginRight="@dimen/margin_big"
                     android:layout_marginTop="@dimen/margin_big"
                     android:background="@android:color/transparent"
                     android:src="@mipmap/ic_edit" />
@@ -58,28 +59,14 @@
                 android:layout_marginTop="@dimen/margin_big"
                 android:orientation="vertical">
 
-                <RelativeLayout
+                <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                    android:id="@+id/descriptionTitle"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <com.cronosgroup.tinkerlink.view.customviews.TLTextView
-                        android:id="@+id/descriptionTitle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:text="@string/create_card_skills_title"
-                        android:textSize="@dimen/text_size_tiny"
-                        app:fontName="Bold" />
-
-                    <com.cronosgroup.tinkerlink.view.customviews.TLImageButton
-                        android:id="@+id/updateSkills"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:src="@mipmap/ic_edit" />
-
-                </RelativeLayout>
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="@string/create_card_skills_title"
+                    android:textSize="@dimen/text_size_tiny"
+                    app:fontName="Bold" />
 
                 <LinearLayout
                     android:id="@+id/skillsContainer"
@@ -216,21 +203,6 @@
                     app:fontName="Regular" />
 
             </LinearLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="@dimen/margin_big">
-
-                <com.cronosgroup.tinkerlink.view.customviews.TLImageButton
-                    android:id="@+id/updateBudget"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:src="@mipmap/ic_edit" />
-
-            </RelativeLayout>
 
         </LinearLayout>
 

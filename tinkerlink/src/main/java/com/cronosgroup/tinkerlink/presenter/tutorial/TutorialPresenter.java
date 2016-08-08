@@ -25,9 +25,11 @@ public class TutorialPresenter extends TinkerLinkPresenter<TutorialPresenter.Vie
      */
     public interface Actions {
 
-        void onLaunchStart(Activity activity, Bundle bundle);
-
         void onLaunchHome(Activity activity, Bundle bundle);
+
+        void onLaunchLogin(Activity activity, Bundle bundle);
+
+        void onLaunchSign(Activity activity, Bundle bundle);
     }
 
     /**
@@ -39,8 +41,12 @@ public class TutorialPresenter extends TinkerLinkPresenter<TutorialPresenter.Vie
 
     //region **************  View Actions **************
 
-    public void onStartPressed() {
-        listener.onLaunchStart(getView().getActivity(), null);
+    public void onLaunchLogin() {
+        listener.onLaunchLogin(getView().getActivity(), null);
+    }
+
+    public void onLaunchSign() {
+        listener.onLaunchSign(getView().getActivity(), null);
     }
 
     public boolean isUserLoged() {

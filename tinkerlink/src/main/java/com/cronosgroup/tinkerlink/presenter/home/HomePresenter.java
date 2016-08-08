@@ -29,7 +29,7 @@ public class HomePresenter extends TinkerLinkPresenter<HomePresenter.View> {
      * Home actions.
      */
     public interface Actions {
-        void onLaunchCreateRecommendation(Activity activity, Bundle bundle);
+        void onLaunchCreateUserRecommendation(Activity activity, Bundle bundle);
 
         void onLaunchCreateCard(Activity activity, Bundle bundle);
     }
@@ -50,7 +50,7 @@ public class HomePresenter extends TinkerLinkPresenter<HomePresenter.View> {
     //region **************  View Actions **************
 
     public void onLaunchCreateRecommendation() {
-        listener.onLaunchCreateRecommendation(getView().getActivity(), null);
+        listener.onLaunchCreateUserRecommendation(getView().getActivity(), null);
     }
 
     public void onLaunchCreateTinker() {

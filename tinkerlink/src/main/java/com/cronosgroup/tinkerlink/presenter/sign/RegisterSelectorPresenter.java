@@ -2,10 +2,10 @@ package com.cronosgroup.tinkerlink.presenter.sign;
 
 import android.content.Intent;
 
-import com.cronosgroup.tinkerlink.manager.socialnetworks.AppFacebookManager;
-import com.cronosgroup.tinkerlink.manager.socialnetworks.AppGooglePlusManager;
-import com.cronosgroup.tinkerlink.manager.socialnetworks.IOSocialNetwork;
-import com.cronosgroup.tinkerlink.manager.socialnetworks.interfaces.IOSocialNetWorkCallBack;
+import com.cronosgroup.tinkerlink.model.manager.socialnetworks.AppFacebookManager;
+import com.cronosgroup.tinkerlink.model.manager.socialnetworks.AppGooglePlusManager;
+import com.cronosgroup.tinkerlink.model.manager.socialnetworks.IOSocialNetwork;
+import com.cronosgroup.tinkerlink.model.manager.socialnetworks.interfaces.IOSocialNetWorkCallBack;
 import com.cronosgroup.tinkerlink.model.business.model.AppUser;
 import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenter;
 import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenterView;

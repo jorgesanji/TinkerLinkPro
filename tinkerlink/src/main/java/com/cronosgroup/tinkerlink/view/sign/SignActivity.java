@@ -1,10 +1,11 @@
 package com.cronosgroup.tinkerlink.view.sign;
 
-import com.cronosgroup.tinkerlink.manager.AppPermissionsManager;
+import com.cronosgroup.tinkerlink.enums.StyleToolBar;
+import com.cronosgroup.tinkerlink.model.manager.AppPermissionsManager;
 import com.cronosgroup.tinkerlink.model.business.model.AppUser;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.manager.AppRestManager;
 import com.cronosgroup.tinkerlink.view.base.TinkerLinkActivity;
-import com.cronosgroup.tinkerlink.view.interfaces.IOFormListener;
+import com.cronosgroup.tinkerlink.interfaces.IOFormListener;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -40,7 +40,7 @@
         android:layout_weight="1"
         android:background="@android:color/transparent"
         android:gravity="center"
-        android:text="@string/sign_next_button"
+        android:text="@string/next_title"
         android:textColor="@color/black"
         android:textSize="@dimen/text_size_mediun" />
 

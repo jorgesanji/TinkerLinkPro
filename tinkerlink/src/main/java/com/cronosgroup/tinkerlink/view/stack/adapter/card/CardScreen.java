@@ -311,13 +311,13 @@ public class CardScreen extends TLLinearLayout {
     public void setStatus(RestContacto contacto) {
         if (!contacto.getUser().isMe()) {
             if (contacto.isAccepted()) {
-                mUserStatusContact.setImageResource(R.mipmap.profile_contactoagregado);
+                mUserStatusContact.setImageResource(R.mipmap.ic_contact);
             } else if (contacto.meRequestedLikeContact()) {
-                mUserStatusContact.setImageResource(R.mipmap.profile_solicitudenviada);
+                mUserStatusContact.setImageResource(R.mipmap.ic_contact_sent);
             } else if (contacto.wasRequestedToMeLikeContact()) {
-                mUserStatusContact.setImageResource(R.mipmap.profile_solicitudenviada);
+                mUserStatusContact.setImageResource(R.mipmap.ic_contact_accept);
             } else {
-                mUserStatusContact.setImageResource(R.mipmap.profile_agregarcontacto);
+                mUserStatusContact.setImageResource(R.mipmap.ic_contact_add);
             }
         }
     }

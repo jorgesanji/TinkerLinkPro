@@ -8,7 +8,7 @@ import android.support.v4.content.LocalBroadcastManager;
 import android.telephony.SmsMessage;
 import android.util.Log;
 
-import com.cronosgroup.tinkerlink.manager.AppPermissionsManager;
+import com.cronosgroup.tinkerlink.model.manager.AppPermissionsManager;
 
 import java.util.Locale;
 

@@ -6,8 +6,8 @@ import android.util.Log;
 
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.application.TinkerLinkApplication;
-import com.cronosgroup.tinkerlink.manager.AppGcmUserManager;
-import com.cronosgroup.tinkerlink.manager.AppUserSessionManager;
+import com.cronosgroup.tinkerlink.model.manager.AppGcmUserManager;
+import com.cronosgroup.tinkerlink.model.manager.AppUserSessionManager;
 import com.cronosgroup.tinkerlink.model.dataacess.database.entities.TLUser;
 import com.cronosgroup.tinkerlink.utils.AppUserPreferences;
 import com.google.android.gms.gcm.GcmPubSub;

@@ -139,7 +139,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="@dimen/margin_tiny"
                                 android:layout_marginTop="@dimen/margin_tiny"
-                                android:text="@string/card_requirements"
+                                android:text="@string/detail_card_requirements"
                                 android:textColor="@color/gray_30"
                                 android:textSize="@dimen/text_size_small"
                                 android:visibility="visible"

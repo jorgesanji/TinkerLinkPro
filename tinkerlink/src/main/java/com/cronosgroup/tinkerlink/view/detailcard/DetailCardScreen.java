@@ -20,9 +20,6 @@ import butterknife.OnClick;
 public class DetailCardScreen extends RelativeLayout {
 
     public interface Listener {
-        void onUpdateBudgetPressed();
-
-        void onUpdateSkillsPressed();
 
         void onUpdateImagesPressed();
 
@@ -36,12 +33,6 @@ public class DetailCardScreen extends RelativeLayout {
 
     @BindView(R.id.updateImages)
     protected TLImageButton mUpdateImages;
-
-    @BindView(R.id.updateSkills)
-    protected TLImageButton mupdateSkills;
-
-    @BindView(R.id.updateBudget)
-    protected TLImageButton mUpdateBudget;
 
     /**
      * @param context
@@ -86,15 +77,6 @@ public class DetailCardScreen extends RelativeLayout {
 
     // Actions
 
-    @OnClick(R.id.updateBudget)
-    protected void onUpdateBudgetPressed() {
-        listener.onUpdateBudgetPressed();
-    }
-
-    @OnClick(R.id.updateSkills)
-    protected void onUpdateSkillsPressed() {
-        listener.onUpdateSkillsPressed();
-    }
 
     @OnClick(R.id.updateImages)
     protected void onUpdateImagesPressed() {
@@ -118,7 +100,5 @@ public class DetailCardScreen extends RelativeLayout {
 
     public void setAsPublishMode(boolean publishMode) {
         mUpdateImages.setVisibility(publishMode ? VISIBLE : GONE);
-        mupdateSkills.setVisibility(publishMode ? VISIBLE : GONE);
-        mUpdateBudget.setVisibility(publishMode ? VISIBLE : GONE);
     }
 }

@@ -9,8 +9,8 @@ import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
 import com.cronosgroup.tinkerlink.view.dialog.occupation.OccupationDialogFragment;
 import com.cronosgroup.tinkerlink.view.dialog.study.StudyDialogFragment;
-import com.cronosgroup.tinkerlink.view.interfaces.IOFormListener;
-import com.cronosgroup.tinkerlink.view.interfaces.IOValidationForm;
+import com.cronosgroup.tinkerlink.interfaces.IOFormListener;
+import com.cronosgroup.tinkerlink.interfaces.IOValidationForm;
 
 /**
  * Created by jorgesanmartin on 1/29/16.

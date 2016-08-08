@@ -38,7 +38,7 @@ public class MyContactsPresenter extends TinkerLinkPresenter<MyContactsPresenter
     public interface Actions {
         void onLaunchChatUser(Activity activity, Bundle bundle);
 
-        void onLaunchImportContacts(Activity activity, Bundle bundle);
+        void onLaunchImportUserContacts(Activity activity, Bundle bundle);
 
         void onLaunchSearchContacts(Activity activity, Bundle bundle);
     }
@@ -111,7 +111,7 @@ public class MyContactsPresenter extends TinkerLinkPresenter<MyContactsPresenter
 
 
     public void launchImportContacts() {
-        listener.onLaunchImportContacts(getView().getActivity(), null);
+        listener.onLaunchImportUserContacts(getView().getActivity(), null);
     }
 
     public void launchSearchContacts() {

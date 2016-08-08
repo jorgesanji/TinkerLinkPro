@@ -38,7 +38,6 @@ import com.cronosgroup.tinkerlink.presenter.messages.ChatPresenter;
 import com.cronosgroup.tinkerlink.presenter.network.NetworkPresenter;
 import com.cronosgroup.tinkerlink.presenter.newsfeed.NewsFeedPresenter;
 import com.cronosgroup.tinkerlink.presenter.policyprivacy.PolicyPrivacyPresenter;
-import com.cronosgroup.tinkerlink.presenter.presignuser.PreSignUserPresenter;
 import com.cronosgroup.tinkerlink.presenter.privacy.PrivacyPresenter;
 import com.cronosgroup.tinkerlink.presenter.profile.ProfilePresenter;
 import com.cronosgroup.tinkerlink.presenter.profile.UserActivityPresenter;
@@ -63,6 +62,7 @@ import com.cronosgroup.tinkerlink.presenter.stack.StackPresenter;
 import com.cronosgroup.tinkerlink.presenter.tutorial.TutorialPresenter;
 import com.cronosgroup.tinkerlink.presenter.usercontacts.AllUserContactsPresenter;
 import com.cronosgroup.tinkerlink.presenter.usercontacts.UserContactsPresenter;
+import com.cronosgroup.tinkerlink.presenter.userstatus.UserStatusPresenter;
 import com.cronosgroup.tinkerlink.presenter.verify.VerifyPresenter;
 import com.cronosgroup.tinkerlink.view.cardfilter.FilterCardsActivity;
 import com.cronosgroup.tinkerlink.view.chatuser.ChatUserActivity;
@@ -83,7 +83,6 @@ import com.cronosgroup.tinkerlink.view.editprofile.EditProfileActivity;
 import com.cronosgroup.tinkerlink.view.giverecommendation.GiveRecommendationsActivity;
 import com.cronosgroup.tinkerlink.view.home.HomeActivity;
 import com.cronosgroup.tinkerlink.view.login.LoginActivity;
-import com.cronosgroup.tinkerlink.view.presignuser.PreSignUserActivity;
 import com.cronosgroup.tinkerlink.view.profile.ProfileActivity;
 import com.cronosgroup.tinkerlink.view.recommendations.RecommendationsActivity;
 import com.cronosgroup.tinkerlink.view.searchcard.SearchCardActivity;
@@ -91,7 +90,7 @@ import com.cronosgroup.tinkerlink.view.searchcontacts.SearchContactsActivity;
 import com.cronosgroup.tinkerlink.view.searchnewsfeed.SearchNewsFeedActivity;
 import com.cronosgroup.tinkerlink.view.sign.SignActivity;
 import com.cronosgroup.tinkerlink.view.stack.StackActivity;
-import com.cronosgroup.tinkerlink.view.status.StatusUserActivity;
+import com.cronosgroup.tinkerlink.view.status.UserStatusActivity;
 import com.cronosgroup.tinkerlink.view.usercontacts.UserContactsActivity;
 
 /**
@@ -107,7 +106,7 @@ public final class ScreenNavigationHandler implements HomePresenter.Actions,
         EditProfilePresenter.Actions, CreateCardPresenter.Actions,
         CreateRecommendationPresenter.Actions, ChatUserPresenter.Actions,
         CategorySelectionPresenter.Actions, ExperienceSelectionPresenter.Actions,
-        SkillSelectionPresenter.Actions, PreSignUserPresenter.Actions,
+        SkillSelectionPresenter.Actions,
         LoginPresenter.Actions, RegisterSelectorPresenter.Actions, SignProfilePresenter.Actions,
         DetailCardPresenter.Actions, ProfilePresenter.Actions, ConfigAccountUserPresenter.Actions,
         UserNotificationsPresenter.Actions, ChangePasswordPresenter.Actions,
@@ -122,7 +121,7 @@ public final class ScreenNavigationHandler implements HomePresenter.Actions,
         DialogPlacesPresenter.Actions, SearchCardPresenter.Actions, FilterCardsPresenter.Actions,
         CardRecommendationsPresenter.Actions, SharePresenter.Actions, MyContactsPresenter.Actions,
         RequestContactsPresenter.Actions, CategoryPresenter.Actions, SearchNewsFeedPresenter.Actions,
-        SearchContactsPresenter.Actions {
+        SearchContactsPresenter.Actions, UserStatusPresenter.Actions {
 
     //Instance
     private static ScreenNavigationHandler instance = null;
@@ -178,10 +177,6 @@ public final class ScreenNavigationHandler implements HomePresenter.Actions,
 
     // ------------------------ CREATION INTENTS -----------------------------------
 
-    private static Intent preSign(Activity context, Bundle bundle) {
-        return newTask(context, PreSignUserActivity.class, bundle);
-    }
-
     private static Intent sign(Activity context, Bundle bundle) {
         return newTask(context, SignActivity.class, bundle);
     }
@@ -197,7 +192,6 @@ public final class ScreenNavigationHandler implements HomePresenter.Actions,
     private static Intent stack(Activity context, Bundle bundle) {
         return newTask(context, StackActivity.class, bundle);
     }
-
 
     private static Intent detailCard(Activity context, Bundle bundle) {
         return newTask(context, DetailCardActivity.class, bundle);
@@ -288,7 +282,7 @@ public final class ScreenNavigationHandler implements HomePresenter.Actions,
     }
 
     private static Intent userStatus(Activity context, Bundle bundle) {
-        return newTask(context, StatusUserActivity.class, bundle);
+        return newTask(context, UserStatusActivity.class, bundle);
     }
 
     private static Intent searchContacts(Activity context, Bundle bundle) {
@@ -299,168 +293,303 @@ public final class ScreenNavigationHandler implements HomePresenter.Actions,
     //      ACTIONS DEFINITION
     // *************************++***
 
-    // ------------------------ TUTORIAL -----------------------------------
-
-    @Override
-    public void onLaunchStart(Activity activity, Bundle bundle) {
-        startActivity(activity, preSign(activity, bundle));
-    }
+    /**
+     * Launch Home activity
+     * @param activity
+     * @param bundle
+     */
 
     @Override
     public void onLaunchHome(Activity activity, Bundle bundle) {
         startActivity(activity, home(activity, bundle));
     }
 
-    // ------------------------ PRESIGN -----------------------------------
-
+    /**
+     * Launch Login activity
+     * @param activity
+     * @param bundle
+     */
     @Override
     public void onLaunchLogin(Activity activity, Bundle bundle) {
         startActivity(activity, login(activity, bundle));
     }
 
+    /**
+     * Launch Sign activity
+     * @param activity
+     * @param bundle
+     */
     @Override
     public void onLaunchSign(Activity activity, Bundle bundle) {
         startActivity(activity, sign(activity, bundle));
     }
 
-    // ------------------------ NEWSFEED -----------------------------------
+    /**
+     * Launch Stack Activity
+     * @param activity
+     * @param bundle
+     */
 
     @Override
     public void onLaunchStack(Activity activity, Bundle bundle) {
         startActivity(activity, stack(activity, bundle));
     }
 
-    @Override
-    public void onLaunchSearchNewsFeed(Activity activity, Bundle bundle) {
-        startActivity(activity, searchNewsFeed(activity, bundle));
-    }
-
-    @Override
-    public void onLaunchUserStatus(Activity activity, Bundle bundle) {
-        startActivity(activity, userStatus(activity, bundle));
-    }
-
-    // ------------------------ STACK -----------------------------------
+    /**
+     * Launch Detail Stack activity
+     * @param activity
+     * @param bundle
+     */
 
     @Override
     public void onLaunchDetailCard(Activity activity, Bundle bundle) {
         startActivity(activity, detailCard(activity, bundle));
     }
 
+    /**
+     * Launch News feed search activity
+     * @param activity
+     * @param bundle
+     */
     @Override
-    public void onLaunchSearchCards(Activity activity, Bundle bundle) {
+    public void onLaunchNewsFeedSearch(Activity activity, Bundle bundle) {
+        startActivity(activity, searchNewsFeed(activity, bundle));
+    }
+
+    /**
+     * Launch User status activity
+     * @param activity
+     * @param bundle
+     */
+    @Override
+    public void onLaunchUserStatus(Activity activity, Bundle bundle) {
+        startActivity(activity, userStatus(activity, bundle));
+    }
+
+    /**
+     * Launch Cards search activity
+     * @param activity
+     * @param bundle
+     */
+
+    @Override
+    public void onLaunchCardsSearch(Activity activity, Bundle bundle) {
         startActivity(activity, searchCards(activity, bundle));
     }
+
+    /**
+     * Launch Filter cards activity
+     * @param activity
+     * @param bundle
+     */
 
     @Override
     public void onLaunchFilterCars(Activity activity, Bundle bundle) {
         startActivity(activity, filterCards(activity, bundle));
     }
 
-    // ------------------------ ACCOUNT -----------------------------------
+    /**
+     * Launch Edit user profile activity
+     * @param activity
+     * @param bundle
+     */
 
     @Override
-    public void onLaunchEditProfile(Activity activity, Bundle bundle) {
+    public void onLaunchEditUserProfile(Activity activity, Bundle bundle) {
         startActivity(activity, editProfile(activity, bundle));
     }
+
+    /**
+     * Launch Profile activity
+     * @param activity
+     * @param bundle
+     */
 
     @Override
     public void onLaunchProfile(Activity activity, Bundle bundle) {
         startActivity(activity, profile(activity, bundle));
     }
 
+    /**
+     * Launch Config profile activity
+     * @param activity
+     * @param bundle
+     */
+
     @Override
     public void onLaunchConfigProfile(Activity activity, Bundle bundle) {
         startActivity(activity, configProfile(activity, bundle));
     }
 
+    /**
+     * Launch Create user recommendations activity
+     * @param activity
+     * @param bundle
+     */
+
     @Override
-    public void onLaunchCreateRecommendation(Activity activity, Bundle bundle) {
+    public void onLaunchCreateUserRecommendation(Activity activity, Bundle bundle) {
         startActivity(activity, createRecommendation(activity, bundle));
     }
+
+    /**
+     * Launch Create card activity
+     * @param activity
+     * @param bundle
+     */
 
     @Override
     public void onLaunchCreateCard(Activity activity, Bundle bundle) {
         startActivity(activity, createCard(activity, bundle));
     }
 
-    // ------------------------ CONFIG -----------------------------------
-
+    /**
+     * Launch Change user password activity
+     * @param activity
+     * @param bundle
+     */
     @Override
-    public void onLaunchChangePassword(Activity activity, Bundle bundle) {
+    public void onLaunchChangeUserPassword(Activity activity, Bundle bundle) {
         startActivity(activity, changePassword(activity, bundle));
     }
 
+    /**
+     * Launch Change user phone number activity
+     * @param activity
+     * @param bundle
+     */
+
     @Override
-    public void onLaunchChangePhoneNumber(Activity activity, Bundle bundle) {
+    public void onLaunchChangeUserPhoneNumber(Activity activity, Bundle bundle) {
         startActivity(activity, changePhoneNumber(activity, bundle));
     }
 
+    /**
+     * Launch Import user contacts activity
+     * @param activity
+     * @param bundle
+     */
+
     @Override
-    public void onLaunchImportContacts(Activity activity, Bundle bundle) {
+    public void onLaunchImportUserContacts(Activity activity, Bundle bundle) {
         startActivity(activity, importContacts(activity, bundle));
     }
 
+    /**
+     * Launch User privacy activity
+     * @param activity
+     * @param bundle
+     */
+
     @Override
-    public void onLaunchPrivacy(Activity activity, Bundle bundle) {
+    public void onLaunchUserPrivacy(Activity activity, Bundle bundle) {
         startActivity(activity, privacy(activity, bundle));
     }
 
+    /**
+     * Launch Recovery user password
+     * @param activity
+     * @param bundle
+     */
     @Override
-    public void onLaunchHelpTinkerLink(Activity activity, Bundle bundle) {
+    public void onLaunchRecoveryUserPassword(Activity activity, Bundle bundle) {
+        startActivity(activity, recoveryPassword(activity, bundle));
+    }
+
+    /**
+     * Launch User verification activity
+     * @param activity
+     * @param bundle
+     */
+
+    @Override
+    public void onLaunchUserVerification(Activity activity, Bundle bundle) {
+        startActivity(activity, verify(activity, bundle));
+    }
+
+    /**
+     * Launch TinkerLink help activity
+     * @param activity
+     * @param bundle
+     */
+
+    @Override
+    public void onLaunchTinkerLinkHelp(Activity activity, Bundle bundle) {
         startActivity(activity, helperTinkerLink(activity, bundle));
     }
+
+    /**
+     * Launch Policy privacy
+     * @param activity
+     * @param bundle
+     */
 
     @Override
     public void onLaunchPolicyPrivacy(Activity activity, Bundle bundle) {
         startActivity(activity, privacyPolicy(activity, bundle));
     }
 
+    /**
+     * Launch Frequently questions activity
+     * @param activity
+     * @param bundle
+     */
     @Override
     public void onLaunchFrequentlyQuestions(Activity activity, Bundle bundle) {
         startActivity(activity, frequentlyQuestions(activity, bundle));
     }
 
-    @Override
-    public void onLaunchRecoveryPassword(Activity activity, Bundle bundle) {
-        startActivity(activity, recoveryPassword(activity, bundle));
-    }
-
-    @Override
-    public void onLaunchVerify(Activity activity, Bundle bundle) {
-        startActivity(activity, verify(activity, bundle));
-    }
-
-    // ------------------------ PROFILE  -----------------------------------
-
+    /**
+     * Launch User contacts activity
+     * @param activity
+     * @param bundle
+     */
     @Override
     public void onLaunchUserContacts(Activity activity, Bundle bundle) {
         startActivity(activity, userContacts(activity, bundle));
     }
 
-    // ------------------------ RECOMENDATIONS -----------------------------------
-
-    @Override
-    public void onLaunchRecommendations(Activity activity, Bundle bundle) {
-        startActivity(activity, recommendations(activity, bundle));
-    }
-
-    @Override
-    public void onLaunchGiveRecommendation(Activity activity, Bundle bundle) {
-        startActivity(activity, giveRecommendations(activity, bundle));
-    }
-
-    // ------------------------ CHAT -----------------------------------
-
-    @Override
-    public void onLaunchChatUser(Activity activity, Bundle bundle) {
-        startActivity(activity, chatUser(activity, bundle));
-    }
-
-    // ------------------------ CONTACTS -----------------------------------
+    /**
+     * Launch Search Contacts activity
+     * @param activity
+     * @param bundle
+     */
 
     @Override
     public void onLaunchSearchContacts(Activity activity, Bundle bundle) {
         startActivity(activity, searchContacts(activity, bundle));
+    }
+
+    /**
+     * Launch User recommendations activity
+     * @param activity
+     * @param bundle
+     */
+
+    @Override
+    public void onLaunchUserRecommendations(Activity activity, Bundle bundle) {
+        startActivity(activity, recommendations(activity, bundle));
+    }
+
+    /**
+     * Launch Give use recommendation activity
+     * @param activity
+     * @param bundle
+     */
+
+    @Override
+    public void onLaunchGiveUserRecommendation(Activity activity, Bundle bundle) {
+        startActivity(activity, giveRecommendations(activity, bundle));
+    }
+
+    /**
+     * Launch Chat user activity
+     * @param activity
+     * @param bundle
+     */
+
+    @Override
+    public void onLaunchChatUser(Activity activity, Bundle bundle) {
+        startActivity(activity, chatUser(activity, bundle));
     }
 }

@@ -53,7 +53,7 @@ public class StackPresenter extends TinkerLinkPresenter<StackPresenter.View> {
 
         void onLaunchDetailCard(Activity activity, Bundle bundle);
 
-        void onLaunchSearchCards(Activity activity, Bundle bundle);
+        void onLaunchCardsSearch(Activity activity, Bundle bundle);
 
         void onLaunchCreateCard(Activity activity, Bundle bundle);
 
@@ -151,7 +151,7 @@ public class StackPresenter extends TinkerLinkPresenter<StackPresenter.View> {
     public void onSearchCardsPressed() {
         Bundle bundle = new Bundle();
         bundle.putSerializable(StackActivity.STACK_TYPE, getView().getType());
-        listener.onLaunchSearchCards(getView().getActivity(), bundle);
+        listener.onLaunchCardsSearch(getView().getActivity(), bundle);
     }
 
     public void onCreateCardsPressed() {

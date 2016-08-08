@@ -3,6 +3,7 @@ package com.cronosgroup.tinkerlink.view.searchnewsfeed;
 import android.os.Bundle;
 
 import com.cronosgroup.tinkerlink.R;
+import com.cronosgroup.tinkerlink.enums.StyleToolBar;
 import com.cronosgroup.tinkerlink.view.base.TinkerLinkActivity;
 
 public class SearchNewsFeedActivity extends TinkerLinkActivity<SearchNewsFeedFragment> {

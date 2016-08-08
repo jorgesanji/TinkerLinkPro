@@ -54,7 +54,7 @@
             android:layout_marginTop="@dimen/margin_tiny"
             android:gravity="center_vertical"
             android:visibility="gone"
-            app:iconItem="@mipmap/profile_contactoagregado"
+            app:iconItem="@mipmap/ic_contact_add"
             app:textItem="@string/action_add_contact"
             app:textItemColor="@color/gray_30"
             app:textItemFont="Regular"
@@ -82,7 +82,7 @@
         android:layout_marginRight="@dimen/margin_mediun"
         android:layout_weight="0.2"
         android:gravity="center"
-        android:src="@mipmap/ic_action_navigation_more_vert"
+        android:src="@mipmap/ic_more"
         android:visibility="gone" />
 
 </LinearLayout>

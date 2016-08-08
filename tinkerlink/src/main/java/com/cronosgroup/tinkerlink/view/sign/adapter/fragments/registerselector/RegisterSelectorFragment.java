@@ -4,12 +4,13 @@ package com.cronosgroup.tinkerlink.view.sign.adapter.fragments.registerselector;
 import android.app.Activity;
 import android.view.View;
 
-import com.cronosgroup.tinkerlink.event.NextPageEvent;
+import com.cronosgroup.tinkerlink.event.RegistrationStepsEvent;
+import com.cronosgroup.tinkerlink.event.enums.FormState;
 import com.cronosgroup.tinkerlink.model.business.model.AppUser;
 import com.cronosgroup.tinkerlink.presenter.sign.RegisterSelectorPresenter;
 import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
-import com.cronosgroup.tinkerlink.view.interfaces.IOFormListener;
+import com.cronosgroup.tinkerlink.interfaces.IOFormListener;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -79,7 +80,7 @@ public class RegisterSelectorFragment extends MVPTinkerLinkFragment<RegisterSele
             mCallback.getFormUser().setIdUser(user.getIdUser());
             mCallback.getFormUser().setId(user.getId());
         }
-        EventBus.getDefault().post(new NextPageEvent());
+        EventBus.getDefault().post(new RegistrationStepsEvent(FormState.SOCIALNETWORK_REGISTRATION));
     }
 
     //endregion

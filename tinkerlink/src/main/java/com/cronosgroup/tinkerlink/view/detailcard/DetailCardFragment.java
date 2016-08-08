@@ -94,18 +94,9 @@ public class DetailCardFragment extends MVPTinkerLinkFragment<DetailCardPresente
     }
 
     @Override
-    public void onUpdateBudgetPressed() {
-        goToFormPage(2);
-    }
-
-    @Override
-    public void onUpdateSkillsPressed() {
-        goToFormPage(1);
-    }
-
-    @Override
     public void onUpdateImagesPressed() {
-        goToFormPage(2);
+        EventBus.getDefault().post(new UpdateInfoCardEvent(0));
+        getActivity().finish();
     }
 
     @Override

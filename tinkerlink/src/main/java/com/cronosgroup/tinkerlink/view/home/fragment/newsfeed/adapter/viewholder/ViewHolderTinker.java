@@ -7,7 +7,7 @@ import android.text.style.ForegroundColorSpan;
 import android.view.View;
 
 import com.cronosgroup.tinkerlink.R;
-import com.cronosgroup.tinkerlink.manager.AppConfigManager;
+import com.cronosgroup.tinkerlink.model.manager.AppConfigManager;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContacto;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestUser;
@@ -17,7 +17,7 @@ import com.cronosgroup.tinkerlink.view.customviews.TLTabItem;
 import com.cronosgroup.tinkerlink.view.customviews.TLTextView;
 import com.cronosgroup.tinkerlink.view.customviews.TLUserView;
 import com.cronosgroup.tinkerlink.view.home.fragment.newsfeed.adapter.viewholder.base.ViewHolderPostBase;
-import com.cronosgroup.tinkerlink.view.interfaces.IOIconListener;
+import com.cronosgroup.tinkerlink.interfaces.IOIconListener;
 
 import java.util.Date;
 
@@ -84,7 +84,7 @@ public class ViewHolderTinker extends ViewHolderPostBase<RestPost> {
 //        mContainerView.setBackgroundResource(R.drawable.background_tinker_card);
 //        mDividerView.setBackgroundColor(itemView.getResources().getColor(R.color.tinkercolor));
         mFriendsButton.setIcon(getContext().getResources().getDrawable(R.mipmap.newsfeed_recomendations));
-        mTypeCardTitle.setText(getResources().getString(R.string.card_me));
+        mTypeCardTitle.setText(getResources().getString(R.string.detail_card_me));
         mViews.setBackgroundColor(Color.TRANSPARENT);
     }
 
@@ -153,6 +153,6 @@ public class ViewHolderTinker extends ViewHolderPostBase<RestPost> {
     @Override
     public void configureItem(final RestPost post) {
         super.configureItem(post);
-        setInfoCard(post, R.string.card_user_iam, TLImageView.ImageType.TINKER);
+        setInfoCard(post, R.string.detail_card_user_iam, TLImageView.ImageType.TINKER);
     }
 }

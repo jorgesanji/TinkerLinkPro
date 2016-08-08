@@ -2,7 +2,7 @@ package com.cronosgroup.tinkerlink.gcm;
 
 import android.os.Bundle;
 
-import com.cronosgroup.tinkerlink.manager.AppGcmNotificationsManager;
+import com.cronosgroup.tinkerlink.model.manager.AppGcmNotificationsManager;
 import com.google.android.gms.gcm.GcmListenerService;
 
 /**

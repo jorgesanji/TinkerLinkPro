@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:drawable="@mipmap/icon_request_invitation" android:state_pressed="true" />
-    <item android:drawable="@mipmap/icon_request_invitation" android:state_enabled="false" />
-    <item android:drawable="@mipmap/ic_add" android:state_enabled="true" />
-    <item android:drawable="@mipmap/ic_add" />
+    <item android:drawable="@mipmap/ic_contact_sent" android:state_pressed="true" />
+    <item android:drawable="@mipmap/ic_contact_sent" android:state_enabled="false" />
+    <item android:drawable="@mipmap/ic_contact_add" android:state_enabled="true" />
+    <item android:drawable="@mipmap/ic_contact_add" />
 </selector>

@@ -5,19 +5,19 @@
 
     <item
         android:id="@+id/action_stack_add_card"
-        android:icon="@android:drawable/ic_input_add"
-        android:title="@string/action_search_card"
+        android:icon="@mipmap/ic_new_soytinker"
+        android:title="addcard"
         app:showAsAction="withText|ifRoom" />
 
     <item
         android:id="@+id/action_stack_filter"
-        android:icon="@android:drawable/ic_menu_day"
-        android:title="@string/action_search_card"
+        android:icon="@mipmap/ic_filter_list"
+        android:title="filtercard"
         app:showAsAction="withText|ifRoom" />
 
     <item
         android:id="@+id/action_stack_search"
-        android:icon="@mipmap/newsfeed_search"
+        android:icon="@mipmap/ic_search"
         android:title="@string/action_search_card"
         app:showAsAction="withText|ifRoom" />
 

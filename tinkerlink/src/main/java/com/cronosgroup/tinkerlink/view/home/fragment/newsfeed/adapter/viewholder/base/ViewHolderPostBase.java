@@ -5,11 +5,11 @@ import android.content.res.Resources;
 import android.view.View;
 
 import com.cronosgroup.core.view.recyclerview.BaseViewHolder;
-import com.cronosgroup.tinkerlink.manager.AppConfigManager;
-import com.cronosgroup.tinkerlink.manager.AppUserSessionManager;
+import com.cronosgroup.tinkerlink.model.manager.AppConfigManager;
+import com.cronosgroup.tinkerlink.model.manager.AppUserSessionManager;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestUser;
-import com.cronosgroup.tinkerlink.view.interfaces.IOActionButtons;
+import com.cronosgroup.tinkerlink.interfaces.IOActionButtons;
 
 import butterknife.ButterKnife;
 

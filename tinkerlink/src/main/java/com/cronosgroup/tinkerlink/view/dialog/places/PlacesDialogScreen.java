@@ -113,7 +113,7 @@ public class PlacesDialogScreen extends TLLinearLayout {
     private void initUI() {
         mPlacesContainer.setVisibility(INVISIBLE);
         mProgressBar.setVisibility(GONE);
-        mSearchView.setQueryHint(getResources().getString(R.string.create_search_place_hint));
+        mSearchView.setQueryHint(getResources().getString(R.string.ubication_hint));
     }
 
     private void initRecyclerView() {
