@@ -23,17 +23,15 @@
 
             <com.cronosgroup.tinkerlink.view.customviews.TLTextView
                 android:id="@+id/titleValidation"
+                style="@style/Text_16_SemiBlack_SemiBold_Style"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/margin_mediun"
                 android:layout_weight="1"
                 android:gravity="center_vertical"
-                android:text="@string/sign_register_validation_title"
-                android:textColor="@color/black"
-                android:textSize="@dimen/text_size_mediun"
-                app:fontName="Regular" />
+                android:text="@string/sign_register_validation_title" />
 
-            <include layout="@layout/lay_small_loader"/>
+            <include layout="@layout/lay_small_loader" />
 
             <com.cronosgroup.tinkerlink.view.customviews.TLImageView
                 android:id="@+id/closeDialog"
@@ -70,26 +68,23 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/margin_plus_big"
-                        android:src="@android:drawable/ic_menu_gallery" />
+                        android:src="@mipmap/ic_sms" />
 
                     <com.cronosgroup.tinkerlink.view.customviews.TLTextView
                         android:id="@+id/validationNumber"
+                        style="@style/Text_14_Gray_Regular_Style"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/margin_plus_biggest"
-                        android:text="@string/sign_register_validation_send"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/text_size_mediun"
-                        app:fontName="Regular" />
+                        android:text="@string/sign_register_validation_send" />
 
                     <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                        style="@style/TextViewLoginSecctionsStyle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/margin_plus_biggest"
-                        android:text="@string/sign_register_validation_introduce_code"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/text_size_mediun"
-                        app:fontName="Regular" />
+                        android:layout_marginTop="@dimen/margin_plus_plus_biggest"
+                        android:gravity="left"
+                        android:text="@string/sign_register_validation_introduce_code" />
 
                     <com.cronosgroup.tinkerlink.view.customviews.TLEditText
                         android:id="@+id/code"
@@ -98,13 +93,11 @@
                         android:inputType="number" />
 
                     <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                        style="@style/Text_16_Gray_Regular_Style"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="right"
-                        android:text="@string/sign_register_validation_retry"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/text_size_mediun"
-                        app:fontName="Regular" />
+                        android:text="@string/sign_register_validation_retry" />
                 </LinearLayout>
 
                 <com.cronosgroup.tinkerlink.view.customviews.TLButton

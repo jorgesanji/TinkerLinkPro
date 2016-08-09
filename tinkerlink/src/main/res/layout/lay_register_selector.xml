@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
@@ -28,21 +27,19 @@
                     android:layout_width="@dimen/view_max_height_big"
                     android:layout_height="@dimen/view_max_height_big"
                     android:layout_marginTop="@dimen/margin_big"
-                    android:background="@drawable/background_gray" />
+                    android:background="@mipmap/icon_tinkerlink_app" />
 
                 <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                    style="@style/Text_25_Gray_Regular_Style"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_big"
-                    android:text="@string/sign_register_title"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/text_size_big"
-                    app:fontName="Regular" />
+                    android:text="@string/sign_register_title" />
 
                 <com.cronosgroup.tinkerlink.view.customviews.TLButton
                     android:id="@+id/loginbt"
                     style="@style/SignButtonStyle"
-                    android:layout_marginTop="@dimen/margin_big"
+                    android:layout_marginTop="@dimen/margin_plus_biggest"
                     android:background="@drawable/button_sign_states"
                     android:drawableLeft="@mipmap/ic_sms_dark"
                     android:paddingLeft="@dimen/padding_content_big"
@@ -64,14 +61,13 @@
                     android:background="@color/gray" />
 
                 <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                    style="@style/Text_14_SemiBlack_Regular_Style"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/margin_small"
                     android:layout_marginRight="@dimen/margin_small"
                     android:gravity="center"
-                    android:text="@string/sign_register_or"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/text_size_mediun" />
+                    android:text="@string/sign_register_or" />
 
                 <View
                     android:layout_width="0dp"

@@ -132,7 +132,6 @@ public class TLMenuButton extends LinearLayout {
 
     private void configMainButton() {
         mMenuButton = new FloatingActionButton(getContext());
-//        mMenuButton.setBackgroundResource(R.drawable.background_tutorial_gradient);
         mMenuButton.setBackgroundTintList(ColorStateList.valueOf(mTintcolor));
         mMenuButton.setImageDrawable(mIcon);
         addView(mMenuButton);

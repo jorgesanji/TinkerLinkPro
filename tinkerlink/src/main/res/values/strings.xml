@@ -19,7 +19,7 @@
     <string name="news_feed_recommendations_from">Recomendaciones de: %s</string>
     <string name="news_feed_watch_tinkers">Soy tinker</string>
     <string name="news_feed_watch_linkers">Busco tinker</string>
-    <string name="news_feed_status_placeholder">Escribe tu estado</string>
+    <string name="news_feed_status_placeholder">Comparte algo con tus contactos</string>
     <string name="newsfeed_new_messages">Hay nuevos posts</string>
     <string name="news_feed_suggestions_profiles">Gente que puedes conocer</string>
     <string name="news_feed_sugerencias_new_contacts"> %s tiene nuevos contactos</string>
@@ -52,11 +52,9 @@
     <string name="notification_recommends_to_you">%s te ha recomendado</string>
     <string name="notification_recommends_habilities">Habilidades recomendadas:</string>
 
-
     <!--  Dialog Ubication-->
 
     <string name="ubication_hint">Introduce una ubicación</string>
-
 
     <!--  Dialog Strings-->
 
@@ -106,6 +104,7 @@
     <string name="tutorial_recomendation_name">Mariano Martinez</string>
     <string name="tutorial_recomendation_job">FONTANERO</string>
     <string name="tutorial_recomendation_city">Barcelona, España</string>
+    <string name="tutorial_tinker_recommendations">65 Recomendaciones</string>
     <string name="tutorial_tinker_title">Convierte en un Tinker\ny ofrece todos tus servicios</string>
     <string name="tutorial_tinker_name">Tinker</string>
     <string name="tutorial_linker_title">Convierte en un Linker\ny encuentra trabajadores\n de confianza</string>
@@ -170,8 +169,7 @@
     <string name="sign_register_user_description_hint">Realizo el trabajo con total resposabilidad y entusiasmo. Entrego el material en tiempo y forma. No dudes en enviarme un mensaje por cualquier consulta!</string>
     <string name="sign_register_user_studies">ESTUDIOS Ó CURSOS</string>
     <string name="sign_register_user_studies_add">Agregar estudio o curso</string>
-    <string name="sign_register_user_camera">Camara</string>
-    <string name="sign_register_user_gallery">Galeria</string>
+    <string name="sign_register_words" formatted="false">%s/%s</string>
 
     <!--  Home  -->
     <string name="home_newsfeed">NewsFeed</string>
@@ -232,18 +230,19 @@
     <string name="create_card_occupation_hint">Selecione ocupación</string>
     <string name="create_card_subcategory_selected">Hemos seleccionado una imágen de fondo para la categoría de %s, puedes cambiarla si lo deseas.</string>
     <string name="create_card_add_images">Puedes adjuntar fotografías para orientar a los potenciales candidatos</string>
-    <string name="create_card_add_images_number">0/5</string>
+    <string name="create_card_add_images_number" formatted="false">%s/%s</string>
     <string name="create_card_description_title">DESCRIPTION</string>
     <string name="create_card_description">Te proponemos una descripción de ejemplo, puedes editarla si lo deseas.</string>
-    <string name="create_card_description_max_characters">0/140</string>
+    <string name="create_card_description_max_characters" formatted="false">%s/%s</string>
     <string name="create_card_skill_title">HABILIDADES</string>
     <string name="create_card_add_skill_hint">Agrega una habilidad</string>
-    <string name="create_card_add_skill_number">0/20</string>
+    <string name="create_card_add_skill_number" formatted="false">%s/%s</string>
     <string name="create_card_experience">EXPERIENCIA DESEADA</string>
+    <string name="create_card_tinker_experience_default">%s años</string>
     <string name="create_card_experience_default" formatted="false">%s a %s años</string>
     <string name="create_card_budget_title">PRESUPUESTO</string>
     <string name="create_card_budget_select_range">Selecciona un rango</string>
-    <string name="create_card_budget_range" formatted="false">%s a %s euros</string>
+    <string name="create_card_budget_range">%s euros</string>
     <string name="create_card_experience_agree">A convenir</string>
     <string name="create_card_experience_previsualize">PREVISUALIZAR</string>
     <string name="create_card_publish">PUBLICAR</string>
@@ -252,6 +251,7 @@
     <string name="create_card_value_title">Selecciona el valor a percibir</string>
     <string name="create_card_experience_title">EXPERIENCIA</string>
     <string name="create_card_value_job_title">VALOR DE TU TRABAJO</string>
+    <string name="create_card_value_tinker_selection_job_mode">Selecciona en que modalidad trabajas</string>
     <string name="create_card_value_by_project">Por projecto</string>
     <string name="create_card_value_by_day">Por día</string>
     <string name="create_card_value_by_hour">Por hora</string>

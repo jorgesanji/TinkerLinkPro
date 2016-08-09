@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/categorySelected"
     android:layout_width="match_parent"
     android:layout_height="@dimen/view_big_height"
@@ -9,18 +8,15 @@
 
     <CheckBox
         android:id="@+id/skillSelector"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent" />
+        style="@style/CheckBoxStyle" />
 
     <com.cronosgroup.tinkerlink.view.customviews.TLTextView
         android:id="@+id/titleSkill"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/Text_16_Gray_Regular_Style"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_marginLeft="@dimen/margin_small"
-        android:gravity="center"
-        android:text="name text"
-        android:textColor="@color/black"
-        android:textSize="@dimen/text_size_mediun"
-        app:fontName="Regular" />
+        android:gravity="left|center_vertical"
+        android:text="name text" />
 
 </LinearLayout>

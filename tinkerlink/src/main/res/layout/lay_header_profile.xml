@@ -12,13 +12,12 @@
 
     <com.cronosgroup.tinkerlink.view.customviews.TLTextView
         android:id="@+id/titleWelcome"
+        style="@style/Text_25_White_Regular_Style"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_big"
         android:gravity="center"
-        android:text="@string/sign_register_user_welcome"
-        android:textColor="@color/white"
-        android:textSize="@dimen/text_size_mediun" />
+        android:text="@string/sign_register_user_welcome" />
 
     <com.cronosgroup.tinkerlink.view.customviews.TLImageButton
         android:id="@+id/profileUserWallImage"
@@ -40,13 +39,12 @@
 
         <com.cronosgroup.tinkerlink.view.customviews.TLTextView
             android:id="@+id/titleCreateProfile"
+            style="@style/Text_14_White_Regular_Style"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_big"
             android:gravity="center"
-            android:text="@string/sign_register_user_create_profile"
-            android:textColor="@color/white"
-            android:textSize="@dimen/text_size_mediun" />
+            android:text="@string/sign_register_user_create_profile" />
 
         <RelativeLayout
             android:layout_width="wrap_content"

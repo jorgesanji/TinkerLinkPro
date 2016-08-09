@@ -37,13 +37,11 @@
 
         <com.cronosgroup.tinkerlink.view.customviews.TLTextView
             android:id="@+id/title_action"
+            style="@style/Text_11_Gray_Light_Style"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
             android:layout_marginTop="@dimen/margin_tiny"
-            android:textSize="@dimen/text_size_tiny"
-            android:text="title"
-            app:fontName="Regular" />
+            android:text="title" />
 
     </LinearLayout>
 

@@ -2,9 +2,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     android:gravity="center_horizontal"
-    android:orientation="vertical"
-    android:background="@color/white">
+    android:orientation="vertical">
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/iconTinker"
@@ -15,14 +15,12 @@
 
     <com.cronosgroup.tinkerlink.view.customviews.TLTextView
         android:id="@+id/titleTinker"
+        style="@style/Text_18_Gray_SemiBold_Style"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_mediun"
         android:gravity="center"
-        android:text="@string/tutorial_tinker_title"
-        android:textColor="@color/black"
-        android:textSize="@dimen/text_size_big"
-        app:fontName="Regular" />
+        android:text="@string/tutorial_tinker_title" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -65,21 +63,17 @@
 
             <com.cronosgroup.tinkerlink.view.customviews.TLTextView
                 android:id="@+id/typeCard"
+                style="@style/Text_11_White_Regular_Style"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/detail_card_me"
-                android:textColor="@color/white"
-                android:textSize="@dimen/text_size_mediun"
-                app:fontName="Regular" />
+                android:text="@string/detail_card_me" />
 
             <com.cronosgroup.tinkerlink.view.customviews.TLTextView
                 android:id="@+id/jobCard"
+                style="@style/Text_20_White_SemiBold_Style"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/tutorial_tinker_job"
-                android:textColor="@color/white"
-                android:textSize="@dimen/text_size_big"
-                app:fontName="Regular" />
+                android:text="@string/tutorial_tinker_job" />
 
         </LinearLayout>
 

@@ -69,6 +69,7 @@
 
     <com.cronosgroup.tinkerlink.view.customviews.TLTextView
         android:id="@+id/newPosts"
+        style="@style/Text_11_White_Bold_Style"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/topView"
@@ -78,9 +79,6 @@
         android:elevation="@dimen/view_elevation"
         android:gravity="center"
         android:padding="@dimen/padding_content_tiny"
-        android:text="@string/newsfeed_new_messages"
-        android:textColor="@color/white"
-        android:textSize="@dimen/text_size_super_tiny"
-        app:fontName="Bold" />
+        android:text="@string/newsfeed_new_messages" />
 
 </RelativeLayout>

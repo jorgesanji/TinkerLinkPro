@@ -44,6 +44,9 @@ public class StudyDialogScreen extends LinearLayout {
     @BindView(R.id.sendButton)
     protected TLTextView mAddButton;
 
+    @BindView(R.id.titleDialog)
+    protected TLTextView mTitleDialog;
+
     @BindView(R.id.selectMonth)
     protected Spinner mSelectMonth;
 
@@ -97,6 +100,8 @@ public class StudyDialogScreen extends LinearLayout {
     private void init() {
         inflate(getContext(), R.layout.lay_dialog_study, this);
         ButterKnife.bind(this);
+
+        mTitleDialog.setText(getResources().getString(R.string.profile_edit_add_study));
         mSelectMonth.setPrompt(getResources().getString(R.string.sign_select_dateBird_month));
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(
                 getContext(), android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.months_array));
@@ -125,7 +130,7 @@ public class StudyDialogScreen extends LinearLayout {
         listener.onAddPressed();
     }
 
-    @OnClick(R.id.close)
+    @OnClick(R.id.closeDialog)
     protected void closePressed() {
         listener.onCancelPressed();
     }

@@ -49,14 +49,12 @@
 
                         <com.cronosgroup.tinkerlink.view.customviews.TLTextView
                             android:id="@+id/idCategory"
+                            style="@style/Text_14_Gray_Regular_Style"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="0.8"
                             android:hint="@string/sign_register_user_select_job"
-                            android:textColor="@color/black"
-                            android:textColorHint="@color/gray_30"
-                            android:textSize="@dimen/text_size_mediun"
-                            app:fontName="Regular" />
+                            android:textColorHint="@color/text_hint" />
 
                         <com.cronosgroup.tinkerlink.view.customviews.TLImageView
                             android:layout_width="wrap_content"
@@ -84,22 +82,28 @@
                         android:hint="@string/sign_register_user_description_hint" />
 
                     <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                        style="@style/Text_14_Gray_Regular_Style"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:text="@string/sign_register_words" />
+
+                    <com.cronosgroup.tinkerlink.view.customviews.TLTextView
                         style="@style/TextViewLoginSecctionsStyle"
                         android:layout_width="match_parent"
-                        android:layout_marginTop="@dimen/margin_plus_biggest"
+                        android:layout_marginTop="@dimen/margin_plus_big"
                         android:gravity="left"
                         android:text="@string/sign_register_user_studies" />
 
                     <com.cronosgroup.tinkerlink.view.customviews.TLTextView
                         android:id="@+id/addStudyOrCourse"
-                        style="@style/TextViewLoginSecctionsStyle"
+                        style="@style/Text_14_Black_SemiBold_Style"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/view_big_height"
                         android:layout_marginTop="@dimen/margin_mediun"
                         android:background="@drawable/button_default_states"
                         android:gravity="left|center_vertical"
-                        android:text="@string/sign_register_user_studies_add"
-                        app:fontName="Bold" />
+                        android:text="@string/sign_register_user_studies_add" />
 
                 </LinearLayout>
 

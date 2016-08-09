@@ -20,12 +20,11 @@
 
         <com.cronosgroup.tinkerlink.view.customviews.TLTextView
             android:id="@+id/statusMessage"
+            style="@style/Text_16_Gray_Regular_Style"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/margin_small"
-            android:text="@string/news_feed_status_placeholder"
-            android:textColor="@color/black"
-            app:fontName="Regular" />
+            android:text="@string/news_feed_status_placeholder" />
 
     </LinearLayout>
 

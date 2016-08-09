@@ -164,4 +164,19 @@
     <dimen name="view_dialog_height">300dp</dimen>
 
 
+    <!-- TEXT SIZES -->
+    <dimen name="text_size_tiny_11">11sp</dimen>
+    <dimen name="text_size_tiny_12">12sp</dimen>
+    <dimen name="text_size_tiny_13">13sp</dimen>
+    <dimen name="text_size_small_14">14sp</dimen>
+    <dimen name="text_size_small_16">16sp</dimen>
+    <dimen name="text_size_mediun_18">18sp</dimen>
+    <dimen name="text_size_mediun_20">20sp</dimen>
+    <dimen name="text_size_big_25">25sp</dimen>
+
+    <!-- VIEw SIZES -->
+
+    <dimen name="create_card_occupation_image_height">110dp</dimen>
+
+
 </resources>

@@ -71,6 +71,15 @@
         <item name="android:textColor">@color/black_opaque</item>
     </style>
 
+    <style name="ToolBarStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minHeight">?attr/actionBarSize</item>
+        <item name="layout_scrollFlags">scroll|enterAlways</item>
+        <item name="popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
+        <item name="theme">@style/ThemeOverlay.AppCompat.Light</item>
+    </style>
+
     <!-- WIDGET STYLE-->
 
     <style name="DialogStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
@@ -95,14 +104,11 @@
         <!-- remove the shadow from under the title bar -->
     </style>
 
-    <style name="SignButtonStyle">
+    <style name="SignButtonStyle" parent="ButtonText_14_White_SemiBold_Style">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">@dimen/view_min_size_sing</item>
-        <item name="android:textColor">@color/white</item>
-        <item name="android:textSize">@dimen/text_size_tiny</item>
         <item name="android:layout_marginLeft">40dp</item>
         <item name="android:layout_marginRight">40dp</item>
-        <item name="fontName">Regular</item>
     </style>
 
     <style name="buttonsDialogStyle">
@@ -111,10 +117,6 @@
         <item name="android:layout_weight">1</item>
         <item name="android:gravity">center</item>
         <item name="android:textColor">@color/black</item>
-        <!--<item name="android:paddingBottom">8dp</item>-->
-        <!--<item name="android:paddingTop">8dp</item>-->
-        <!--<item name="android:paddingLeft">16dp</item>-->
-        <!--<item name="android:paddingRight">16dp</item>-->
         <item name="android:layout_margin">5dp</item>
         <item name="android:textSize">@dimen/text_size_mediun</item>
         <item name="android:background">@drawable/button_chat_button_states</item>
@@ -139,7 +141,7 @@
     <style name="MenuItemStyle">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="menuItemTitleSize">@dimen/text_size_tiny</item>
+        <item name="menuItemTitleSize">@dimen/text_size_tiny_11</item>
         <item name="menuItemTitleFont">SemiBold</item>
     </style>
 
@@ -163,18 +165,14 @@
         <item name="colorControlHighlight">@color/tinkercolor</item>
     </style>
 
-    <style name="EditTextAppStyle">
+    <style name="EditTextAppStyle" parent="EditText_14_SemiBlack_Regular_Style">
         <item name="android:theme">@style/EdiTextAppTheme</item>
-        <item name="android:textColor">@color/black</item>
-        <item name="android:textColorHint">@color/black</item>
+        <item name="android:textColorHint">@color/text_hint</item>
     </style>
 
     <style name="EditFormStyle" parent="EditTextAppStyle">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textSize">@dimen/text_size_mediun</item>
-        <item name="android:textColorHint">@color/gray_30</item>
-        <item name="fontNameEdit">Regular</item>
         <item name="android:focusable">true</item>
     </style>
 
@@ -195,7 +193,6 @@
         <item name="android:paddingLeft">10dp</item>
         <item name="android:maxLines">6</item>
         <item name="android:scrollHorizontally">false</item>
-        <item name="android:textSize">@dimen/text_size_small</item>
     </style>
 
     <style name="EditMultilineStyle" parent="EditTextAppStyle">
@@ -210,17 +207,10 @@
         <item name="android:maxLines">1</item>
     </style>
 
-    <style name="EdiTextShare" parent="EditTextAppStyle">
-        <item name="android:singleLine">true</item>
-        <item name="android:ellipsize">end</item>
-        <item name="android:maxLines">1</item>
-    </style>
+    <style name="EdiTextShare" parent="EdiTextStyle"></style>
 
-    <style name="EdiTextCodeStyle" parent="EditTextAppStyle">
+    <style name="EdiTextCodeStyle" parent="EdiTextStyle">
         <item name="android:background">@android:color/transparent</item>
-        <item name="android:singleLine">true</item>
-        <item name="android:ellipsize">end</item>
-        <item name="android:maxLines">1</item>
     </style>
 
     <style name="DialogSelectionButtonStyle">
@@ -242,14 +232,11 @@
         <item name="android:layout_marginTop">1dp</item>
     </style>
 
-    <style name="NetWorkSectionsStyle">
+    <style name="NetWorkSectionsStyle" parent="Text_13_Gray_SemiBold_Style">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">25dp</item>
         <item name="android:gravity">center_vertical</item>
         <item name="android:textAllCaps">true</item>
-        <item name="android:textColor">@color/gray_30</item>
-        <item name="android:textSize">@dimen/text_size_mediun</item>
-        <item name="fontName">Regular</item>
     </style>
 
     <style name="NetWorkTinkerSectionsStyle">
@@ -273,14 +260,11 @@
         <item name="android:src">@mipmap/newsfeed_avatar_hombre</item>
     </style>
 
-    <style name="NetworkNameStyle">
+    <style name="NetworkNameStyle" parent="Text_13_Black_Regular_Style">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">25dp</item>
         <item name="android:gravity">center_vertical</item>
         <item name="android:layout_marginLeft">10dp</item>
-        <item name="android:textColor">@color/black</item>
-        <item name="android:textSize">@dimen/text_size_mediun</item>
-        <item name="fontName">Regular</item>
     </style>
 
     <style name="NetworkConnectionStyle">
@@ -362,15 +346,12 @@
         <item name="android:textColor">@color/black</item>
     </style>
 
-    <!-- TEXT VIEWS -->
+    <!-- TEXTVIEW STYLES -->
 
-    <style name="TextViewLoginSecctionsStyle">
+    <style name="TextViewLoginSecctionsStyle" parent="Text_14_Black_SemiBold_Style">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:gravity">center</item>
-        <item name="android:textColor">@color/black</item>
-        <item name="android:textSize">@dimen/text_size_mediun</item>
-        <item name="fontName">Regular</item>
     </style>
 
     <style name="TextViewStudyStyle">
@@ -416,6 +397,12 @@
         <item name="android:textSize">@dimen/text_size_small</item>
         <item name="android:textColor">@color/black_opaque_50</item>
         <item name="fontName">Light</item>
+    </style>
+
+    <style name="CheckBoxStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:button">@drawable/checkbox_states</item>
     </style>
 
 </resources>

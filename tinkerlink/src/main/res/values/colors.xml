@@ -96,5 +96,12 @@
     <!-- Configuration -->
     <color name="configuration_account_color">#F5F6F7</color>
 
+    <!-- Text Colors -->
+    <color name="text_black_totally">#151B26</color>
+    <color name="text_semi_black">#404146</color>
+    <color name="text_black_gray">#777777</color>
+    <color name="text_white">#FFFFFF</color>
+    <color name="text_hint">#4D000000</color>
+
 
 </resources>

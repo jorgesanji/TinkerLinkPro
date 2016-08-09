@@ -3,10 +3,10 @@
 
     <item
         android:id="@+id/action_camera"
-        android:title="@string/sign_register_user_camera" />
+        android:title="@string/action_camera_title" />
 
     <item
         android:id="@+id/action_gallery"
-        android:title="@string/sign_register_user_gallery" />
+        android:title="@string/action_gallery_title" />
 
 </menu>

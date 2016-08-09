@@ -84,7 +84,7 @@ public class ValidationDialogScreen extends TLLinearLayout {
     }
 
     private void init() {
-        inflate(getContext(), R.layout.lay_sign_validation, this);
+        inflate(getContext(), R.layout.lay_dialog_validation, this);
         ButterKnife.bind(this);
         mValidationContainer.setVisibility(INVISIBLE);
         mProgressBar.setVisibility(GONE);

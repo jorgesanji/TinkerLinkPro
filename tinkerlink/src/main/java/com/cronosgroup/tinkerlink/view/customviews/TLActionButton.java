@@ -120,8 +120,8 @@ public class TLActionButton extends RelativeLayout {
     @Override
     public void setSelected(boolean selected) {
         super.setSelected(selected);
-        title_action.setFontName(selected ? TLTextView.Font.BOLD.getType() : TLTextView.Font.REGULAR.getType());
-        title_action.setTextColor(selected ? getResources().getColor(R.color.tinkercolor) : getResources().getColor(R.color.black));
+        title_action.setFontName(selected ? TLTextView.Font.SEMIBOLD.getType() : TLTextView.Font.LIGTH.getType());
+        title_action.setTextColor(selected ? getResources().getColor(R.color.tinkercolor) : getResources().getColor(R.color.text_black_gray));
         iconAction.setSelected(selected);
     }
 }
