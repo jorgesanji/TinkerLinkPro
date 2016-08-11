@@ -12,26 +12,11 @@ import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenterView;
  */
 public class DetailCardPresenter extends TinkerLinkPresenter<DetailCardPresenter.View> {
 
-    private final Actions listener;
-
     /**
      * Detailcard View.
      */
     public interface View extends TinkerLinkPresenterView {
         RestPost getCardData();
-    }
-
-    /**
-     * DetailCard actions.
-     */
-    public interface Actions {
-    }
-
-    /**
-     * @param navigationListener
-     */
-    public DetailCardPresenter(Actions navigationListener) {
-        this.listener = navigationListener;
     }
 
     // public methods
@@ -49,9 +34,6 @@ public class DetailCardPresenter extends TinkerLinkPresenter<DetailCardPresenter
                 }
             }
         }, 1000);
-    }
-
-    public void showNetwork() {
     }
 
 }

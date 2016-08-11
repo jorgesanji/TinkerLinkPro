@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.cronosgroup.tinkerlink.presenter.dialog.places.DialogPlacesPresenter;
-import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.dialog.base.MVPTinkerLinkDialogFragment;
 
 import java.util.List;
@@ -26,7 +25,7 @@ public class PlacesDialogFragment extends MVPTinkerLinkDialogFragment<DialogPlac
 
     @Override
     protected DialogPlacesPresenter createPresenter() {
-        return new DialogPlacesPresenter(ScreenNavigationHandler.getInstance());
+        return new DialogPlacesPresenter();
     }
 
     @Override

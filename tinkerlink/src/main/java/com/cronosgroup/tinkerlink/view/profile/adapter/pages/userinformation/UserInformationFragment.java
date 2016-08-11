@@ -3,7 +3,6 @@ package com.cronosgroup.tinkerlink.view.profile.adapter.pages.userinformation;
 import android.view.View;
 
 import com.cronosgroup.tinkerlink.presenter.profile.UserInformationPresenter;
-import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
 
 
@@ -29,7 +28,7 @@ public class UserInformationFragment extends MVPTinkerLinkFragment<UserInformati
 
     @Override
     protected UserInformationPresenter createPresenter() {
-        return new UserInformationPresenter(ScreenNavigationHandler.getInstance());
+        return new UserInformationPresenter();
     }
 
     @Override

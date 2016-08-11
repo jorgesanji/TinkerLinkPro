@@ -3,9 +3,7 @@ package com.cronosgroup.tinkerlink.view.createcard.adapter.fragments.skills;
 import android.view.View;
 
 import com.cronosgroup.tinkerlink.presenter.createcard.SkillSelectionPresenter;
-import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
-import com.cronosgroup.tinkerlink.view.createcard.adapter.fragments.experience.ExperienceSelectionScreen;
 
 /**
  * Created by jorgesanmartin on 7/20/16.
@@ -27,7 +25,7 @@ public class SkillsSelectionFragment extends MVPTinkerLinkFragment<SkillSelectio
 
     @Override
     protected SkillSelectionPresenter createPresenter() {
-        return new SkillSelectionPresenter(ScreenNavigationHandler.getInstance());
+        return new SkillSelectionPresenter();
     }
 
     @Override

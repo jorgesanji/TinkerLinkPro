@@ -9,6 +9,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.support.v7.widget.Toolbar;
+import android.text.SpannableString;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -16,9 +17,11 @@ import com.cronosgroup.core.managers.PermissionsManager;
 import com.cronosgroup.core.view.BaseActivity;
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.application.TinkerLinkApplication;
+import com.cronosgroup.tinkerlink.enums.Font;
 import com.cronosgroup.tinkerlink.enums.ToolBarStyle;
-import com.cronosgroup.tinkerlink.utils.logger.Logger;
 import com.cronosgroup.tinkerlink.utils.ImageLoaderHelper;
+import com.cronosgroup.tinkerlink.utils.TypeFaceUtils;
+import com.cronosgroup.tinkerlink.utils.logger.Logger;
 
 import java.util.List;
 
@@ -197,23 +200,26 @@ public abstract class TinkerLinkActivity<F extends MVPTinkerLinkFragment> extend
             getSupportActionBar().setDisplayShowHomeEnabled(false);
             getSupportActionBar().setHomeButtonEnabled(true);
         }
-
-        getSupportActionBar().setTitle(title);
+        SpannableString spannableTitle = TypeFaceUtils.getStringByFontType(this, getString(title), Font.REGULAR);
+        getSupportActionBar().setTitle(spannableTitle);
     }
 
     @Override
     public void setTitle(CharSequence title) {
+        SpannableString spannableTitle = TypeFaceUtils.getStringByFontType(this, title.toString(), Font.REGULAR);
         getSupportActionBar().setDisplayShowHomeEnabled(false);
         getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setTitle(title);
+        getSupportActionBar().setTitle(spannableTitle);
     }
 
     public void setSubtitle(CharSequence subtitle) {
-        getSupportActionBar().setSubtitle(subtitle);
+        SpannableString spannableSubTitle = TypeFaceUtils.getStringByFontType(this, subtitle.toString(), Font.LIGTH);
+        getSupportActionBar().setSubtitle(spannableSubTitle);
     }
 
     public void setSubtitle(int subtitle) {
-        getSupportActionBar().setSubtitle(subtitle);
+        SpannableString spannableSubTitle = TypeFaceUtils.getStringByFontType(this, getString(subtitle), Font.LIGTH);
+        getSupportActionBar().setSubtitle(spannableSubTitle);
     }
 
     public void setLogo(Drawable resource) {

@@ -9,7 +9,6 @@ import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenterView;
 public class UserActivityPresenter extends TinkerLinkPresenter<UserActivityPresenter.View> {
 
     // Vars
-    private final Actions listener;
 
     /**
      * UserActivity listeners.
@@ -17,21 +16,6 @@ public class UserActivityPresenter extends TinkerLinkPresenter<UserActivityPrese
     public interface View extends TinkerLinkPresenterView {
 
     }
-
-    /**
-     * UserActivity actions.
-     */
-    public interface Actions {
-    }
-
-
-    /**
-     * @param navigationListener
-     */
-    public UserActivityPresenter(Actions navigationListener) {
-        this.listener = navigationListener;
-    }
-
     //Actions
 
 }

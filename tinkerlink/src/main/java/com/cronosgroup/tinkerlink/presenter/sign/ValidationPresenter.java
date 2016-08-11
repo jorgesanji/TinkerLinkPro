@@ -1,6 +1,5 @@
 package com.cronosgroup.tinkerlink.presenter.sign;
 
-import android.content.Intent;
 import android.os.Handler;
 
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestUser;
@@ -12,8 +11,6 @@ import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkDialogPresenterView;
  */
 public class ValidationPresenter extends TinkerLinkDialogPresenter<ValidationPresenter.View> {
 
-    private final Actions listener;
-
     /**
      * Validation view.
      */
@@ -23,26 +20,6 @@ public class ValidationPresenter extends TinkerLinkDialogPresenter<ValidationPre
         void validateUser(RestUser restUser);
     }
 
-    /**
-     * Validation actions.
-     */
-    public interface Actions {
-    }
-
-    /**
-     * @param navigationListener
-     */
-    public ValidationPresenter(Actions navigationListener) {
-        this.listener = navigationListener;
-    }
-
-    //region **************  BasePresenter **************
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-    }
-
-    //endregion
 
     //region **************  View Actions **************
 

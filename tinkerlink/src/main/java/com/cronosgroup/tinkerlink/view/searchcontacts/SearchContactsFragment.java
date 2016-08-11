@@ -10,7 +10,6 @@ import android.view.View;
 
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.presenter.searchcontacts.SearchContactsPresenter;
-import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
 
 /**
@@ -78,7 +77,7 @@ public class SearchContactsFragment extends MVPTinkerLinkFragment<SearchContacts
 
     @Override
     protected SearchContactsPresenter createPresenter() {
-        return new SearchContactsPresenter(ScreenNavigationHandler.getInstance());
+        return new SearchContactsPresenter();
     }
 
     @Override

@@ -11,6 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 
 import com.cronosgroup.tinkerlink.R;
+import com.cronosgroup.tinkerlink.enums.Font;
 import com.cronosgroup.tinkerlink.utils.DimenUtils;
 import com.cronosgroup.tinkerlink.view.customviews.TLImageView;
 import com.cronosgroup.tinkerlink.view.customviews.TLLinearLayout;
@@ -173,7 +174,7 @@ public class NetworkDialogScreen extends TLLinearLayout {
         categoryView.setTextColor(getResources().getColor(textColor));
         categoryView.setBackgroundResource(background);
         categoryView.setLayoutParams(params);
-        categoryView.setFontName(TLTextView.Font.BOLD.getType());
+        categoryView.setFontName(Font.BOLD.getType());
 
         //Add container
         container.addView(categoryView);

@@ -16,7 +16,7 @@ public interface TinkerLinkPresenterView extends Presenter.View {
     /**
      * Get messages handler
      */
-    AppSnackManager getMessagesHandler();
+    AppSnackManager getSnackMessageManager();
 
     /**
      * Show custom dialog

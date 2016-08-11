@@ -1,10 +1,7 @@
 package com.cronosgroup.tinkerlink.view.dialog.study;
 
 import android.os.Bundle;
-import android.support.v4.app.FragmentTransaction;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestStudy;
 import com.cronosgroup.tinkerlink.view.dialog.base.TinkerDialogFragment;
@@ -19,12 +16,15 @@ public class StudyDialogFragment extends TinkerDialogFragment implements StudyDi
     private StudyDialogScreen studyDialogScreen;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    protected void onDidAppear() {
+
+    }
+
+    @Override
+    protected View getRootView() {
         studyDialogScreen = new StudyDialogScreen(getActivity());
         studyDialogScreen.setListener(this);
-        return studyDialogScreen;
-    }
+        return studyDialogScreen;    }
 
     @Override
     public void onCancelPressed() {
@@ -33,17 +33,6 @@ public class StudyDialogFragment extends TinkerDialogFragment implements StudyDi
 
     @Override
     public void onAddPressed() {
-        sendResult();
-        FragmentTransaction ft = getFragmentManager().beginTransaction();
-        StudyDialogFragment prev = (StudyDialogFragment) getFragmentManager().findFragmentByTag(StudyDialogFragment.class.toString());
-        if (prev != null) {
-            ft.remove(prev);
-            prev.dismiss();
-        }
-        ft.addToBackStack(null);
-    }
-
-    private void sendResult() {
         if (studyDialogScreen.getCourseName().length() > 0 && studyDialogScreen.getInstitutionName().length() > 0) {
             RestStudy estudio = new RestStudy();
             estudio.setCourse(studyDialogScreen.getCourseName());

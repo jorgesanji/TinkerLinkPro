@@ -22,12 +22,14 @@
         android:gravity="center"
         android:text="@string/tutorial_tinker_title" />
 
-    <RelativeLayout
+    <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="220dp"
         android:layout_below="@+id/titleTinker"
         android:layout_margin="@dimen/margin_plus_biggest"
-        android:layout_marginTop="@dimen/margin_plus_biggest">
+        android:padding="6dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="4dp">
 
         <com.cronosgroup.tinkerlink.view.customviews.TLImageView
             android:layout_width="match_parent"
@@ -42,15 +44,9 @@
             android:layout_height="match_parent"
             android:background="@color/tinkercolor_50" />
 
-        <View
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:elevation="@dimen/view_elevation" />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -66,6 +62,7 @@
                 style="@style/Text_11_White_Regular_Style"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_small"
                 android:text="@string/detail_card_me" />
 
             <com.cronosgroup.tinkerlink.view.customviews.TLTextView
@@ -77,6 +74,6 @@
 
         </LinearLayout>
 
-    </RelativeLayout>
+    </android.support.v7.widget.CardView>
 
 </LinearLayout>

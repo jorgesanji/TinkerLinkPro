@@ -8,7 +8,6 @@ import com.cronosgroup.tinkerlink.event.ShowOverLaySelectorEvent;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestRecomendacion;
 import com.cronosgroup.tinkerlink.presenter.stack.CardPresenter;
-import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
 import com.cronosgroup.tinkerlink.view.stack.StackActivity;
 
@@ -83,7 +82,7 @@ public class CardFragment extends MVPTinkerLinkFragment<CardPresenter, CardPrese
 
     @Override
     protected CardPresenter createPresenter() {
-        return new CardPresenter(ScreenNavigationHandler.getInstance());
+        return new CardPresenter();
     }
 
     @Override

@@ -11,31 +11,12 @@ import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenterView;
  */
 public class SignProfilePresenter extends TinkerLinkImagePickerPresenter<SignProfilePresenter.View> {
 
-
-    private final Actions listener;
-
     /**
      * Sign profile listeners.
      */
     public interface View extends TinkerLinkPresenterView {
 
     }
-
-    /**
-     * Sign profile actions.
-     */
-    public interface Actions {
-    }
-
-    /**
-     * @param navigationListener
-     */
-    public SignProfilePresenter(Actions navigationListener) {
-        this.listener = navigationListener;
-    }
-
-    //region **************  BasePresenter **************
-    //endregion
 
     //region **************  View Actions **************
 

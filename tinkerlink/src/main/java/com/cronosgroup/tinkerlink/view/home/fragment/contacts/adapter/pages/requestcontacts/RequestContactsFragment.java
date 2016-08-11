@@ -3,7 +3,6 @@ package com.cronosgroup.tinkerlink.view.home.fragment.contacts.adapter.pages.req
 import android.view.View;
 
 import com.cronosgroup.tinkerlink.presenter.contacts.RequestContactsPresenter;
-import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
 
 /**
@@ -28,7 +27,7 @@ public class RequestContactsFragment extends MVPTinkerLinkFragment<RequestContac
 
     @Override
     protected RequestContactsPresenter createPresenter() {
-        return new RequestContactsPresenter(ScreenNavigationHandler.getInstance());
+        return new RequestContactsPresenter();
     }
 
     @Override

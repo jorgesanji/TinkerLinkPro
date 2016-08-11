@@ -7,7 +7,6 @@ import com.cronosgroup.tinkerlink.enums.StackCardType;
 import com.cronosgroup.tinkerlink.event.UpdateInfoCardEvent;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
 import com.cronosgroup.tinkerlink.presenter.createcard.CreateCardPresenter;
-import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
 import com.cronosgroup.tinkerlink.view.stack.StackActivity;
 
@@ -49,8 +48,6 @@ public class CreateCardFragment extends MVPTinkerLinkFragment<CreateCardPresente
         }
     }
 
-    //region **************  MVPFragment **************
-
     @Override
     protected View getRootView() {
         createCardScreen = new CreateCardScreen(getActivity());
@@ -59,18 +56,20 @@ public class CreateCardFragment extends MVPTinkerLinkFragment<CreateCardPresente
     }
 
     @Override
+    protected void onDidAppear() {
+        createCardScreen.initAdapter(getActivity().getSupportFragmentManager(), type);
+    }
+
+    //region **************  MVPFragment **************
+
+    @Override
     protected CreateCardPresenter createPresenter() {
-        return new CreateCardPresenter(ScreenNavigationHandler.getInstance());
+        return new CreateCardPresenter();
     }
 
     @Override
     protected CreateCardPresenter.View getPresenterView() {
         return this;
-    }
-
-    @Override
-    protected void onDidAppear() {
-        createCardScreen.initAdapter(getActivity().getSupportFragmentManager(), type);
     }
 
     //endregion

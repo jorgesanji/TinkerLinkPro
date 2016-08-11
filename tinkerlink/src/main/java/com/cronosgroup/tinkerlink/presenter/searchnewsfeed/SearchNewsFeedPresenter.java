@@ -9,26 +9,11 @@ import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenterView;
 public class SearchNewsFeedPresenter extends TinkerLinkPresenter<SearchNewsFeedPresenter.View> {
 
     // Vars
-    private final Actions listener;
 
     /**
      * SearchNewsFeed listeners.
      */
     public interface View extends TinkerLinkPresenterView {
-    }
-
-    /**
-     * SearchNewsFeed actions.
-     */
-    public interface Actions {
-    }
-
-
-    /**
-     * @param navigationListener
-     */
-    public SearchNewsFeedPresenter(Actions navigationListener) {
-        this.listener = navigationListener;
     }
 
     //Actions

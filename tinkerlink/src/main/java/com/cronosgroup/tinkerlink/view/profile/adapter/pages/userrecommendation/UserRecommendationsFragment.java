@@ -6,7 +6,6 @@ import android.widget.LinearLayout;
 
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestRecomendacion;
 import com.cronosgroup.tinkerlink.presenter.profile.UserRecommendationsPresenter;
-import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
 import com.cronosgroup.tinkerlink.view.customviews.TLRecommendationView;
 
@@ -35,7 +34,7 @@ public class UserRecommendationsFragment extends MVPTinkerLinkFragment<UserRecom
 
     @Override
     protected UserRecommendationsPresenter createPresenter() {
-        return new UserRecommendationsPresenter(ScreenNavigationHandler.getInstance());
+        return new UserRecommendationsPresenter();
     }
 
     @Override

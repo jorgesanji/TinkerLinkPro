@@ -6,7 +6,6 @@ import android.view.View;
 
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.presenter.home.HomePresenter;
-import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
 
 
@@ -32,7 +31,7 @@ public class HomeFragment extends MVPTinkerLinkFragment<HomePresenter, HomePrese
 
     @Override
     protected HomePresenter createPresenter() {
-        return new HomePresenter(ScreenNavigationHandler.getInstance());
+        return new HomePresenter();
     }
 
     @Override

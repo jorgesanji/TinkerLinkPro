@@ -9,7 +9,6 @@ import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenterView;
 public class RecoveryPasswordPresenter extends TinkerLinkPresenter<RecoveryPasswordPresenter.View> {
 
     // Vars
-    private final Actions listener;
 
     /**
      * Config user account listeners.
@@ -18,19 +17,6 @@ public class RecoveryPasswordPresenter extends TinkerLinkPresenter<RecoveryPassw
 
     }
 
-    /**
-     * Config user account actions.
-     */
-    public interface Actions {
-    }
-
-
-    /**
-     * @param navigationListener
-     */
-    public RecoveryPasswordPresenter(Actions navigationListener) {
-        this.listener = navigationListener;
-    }
 
     //Actions
 

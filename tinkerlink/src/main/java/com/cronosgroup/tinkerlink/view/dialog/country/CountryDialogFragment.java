@@ -5,7 +5,6 @@ import android.view.View;
 
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestCountry;
 import com.cronosgroup.tinkerlink.presenter.dialog.country.DialogCountryPresenter;
-import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.dialog.base.MVPTinkerLinkDialogFragment;
 
 import java.util.List;
@@ -41,7 +40,7 @@ public class CountryDialogFragment extends MVPTinkerLinkDialogFragment<DialogCou
 
     @Override
     protected DialogCountryPresenter createPresenter() {
-        return new DialogCountryPresenter(ScreenNavigationHandler.getInstance());
+        return new DialogCountryPresenter();
     }
 
     @Override

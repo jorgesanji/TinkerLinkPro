@@ -71,15 +71,15 @@
     </declare-styleable>
 
     <declare-styleable name="TLSelectorForm">
-        <attr name="text" format="string" />
-        <attr name="textColorForm" format="color" />
-        <attr name="textSide" format="integer">
-            <flag name="right" value="0" />
-            <flag name="left" value="1" />
-            <flag name="center" value="2" />
-        </attr>
-        <attr name="decoratorImage" format="reference" />
-        <attr name="decoratorVisible" format="boolean" />
+        <attr name="hintText" format="string" />
+        <!--<attr name="textColorForm" format="color" />-->
+        <!--<attr name="textSide" format="integer">-->
+            <!--<flag name="right" value="0" />-->
+            <!--<flag name="left" value="1" />-->
+            <!--<flag name="center" value="2" />-->
+        <!--</attr>-->
+        <!--<attr name="decoratorImage" format="reference" />-->
+        <!--<attr name="decoratorVisible" format="boolean" />-->
     </declare-styleable>
 
     <declare-styleable name="TLSelectorGridView">
@@ -164,7 +164,7 @@
     <declare-styleable name="TLMenuButton">
         <attr name="menuButtonStateExpandedImageResource" format="reference" />
         <attr name="menuButtonImageResource" format="reference" />
-        <attr name="menuButtonBackgroundTintColor" format="color" />
+        <attr name="menuButtonBackgroundResource" format="reference" />
     </declare-styleable>
 
     <declare-styleable name="TLUserView">

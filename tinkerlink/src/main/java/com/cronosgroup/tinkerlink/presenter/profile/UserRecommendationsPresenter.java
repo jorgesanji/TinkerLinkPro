@@ -1,8 +1,5 @@
 package com.cronosgroup.tinkerlink.presenter.profile;
 
-import android.app.Activity;
-import android.os.Bundle;
-
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContacto;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestProfile;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestRecomendacion;
@@ -21,28 +18,12 @@ import java.util.List;
 public class UserRecommendationsPresenter extends TinkerLinkPresenter<UserRecommendationsPresenter.View> {
 
     // Vars
-    private final Actions listener;
 
     /**
      * UserRecommendations listeners.
      */
     public interface View extends TinkerLinkPresenterView {
         void setRecommendationsList(List<RestRecomendacion> list);
-    }
-
-    /**
-     * UserRecommendations actions.
-     */
-    public interface Actions {
-        void onLaunchUserRecommendations(Activity activity, Bundle bundle);
-        void onLaunchGiveUserRecommendation(Activity activity, Bundle bundle);
-    }
-
-    /**
-     * @param navigationListener
-     */
-    public UserRecommendationsPresenter(Actions navigationListener) {
-        this.listener = navigationListener;
     }
 
     //Actions
@@ -86,11 +67,11 @@ public class UserRecommendationsPresenter extends TinkerLinkPresenter<UserRecomm
     }
 
     public void onShowAllRecommendationsPressed() {
-        listener.onLaunchUserRecommendations(getView().getActivity(), null);
+        navigation.onLaunchUserRecommendations(getView().getActivity(), null);
     }
 
     public void onGiveRecommendationPressed() {
-        listener.onLaunchGiveUserRecommendation(getView().getActivity(), null);
+        navigation.onLaunchGiveUserRecommendation(getView().getActivity(), null);
     }
 
 }

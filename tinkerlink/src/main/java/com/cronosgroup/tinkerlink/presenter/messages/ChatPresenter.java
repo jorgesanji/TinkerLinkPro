@@ -1,6 +1,5 @@
 package com.cronosgroup.tinkerlink.presenter.messages;
 
-import android.app.Activity;
 import android.os.Bundle;
 
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestChat;
@@ -21,30 +20,13 @@ import java.util.List;
  */
 public class ChatPresenter extends TinkerLinkPresenter<ChatPresenter.View> {
 
-    private final Actions listener;
-
-
     /**
-     * Message listeners.
+     * Chat listeners.
      */
     public interface View extends TinkerLinkPresenterView{
         void setChats(List<RestChat> list);
 
         List<RestChat> getItems();
-    }
-
-    /**
-     * Mesage actions.
-     */
-    public interface Actions {
-        void onLaunchChatUser(Activity activity, Bundle bundle);
-    }
-
-    /**
-     * @param navigationListener
-     */
-    public ChatPresenter(Actions navigationListener) {
-        this.listener = navigationListener;
     }
 
     // Actions
@@ -102,6 +84,6 @@ public class ChatPresenter extends TinkerLinkPresenter<ChatPresenter.View> {
         RestChat restChat = getView().getItems().get(position);
         Bundle bundle = new Bundle();
         bundle.putSerializable(ChatUserActivity.ITEMS_KEY, restChat);
-        listener.onLaunchChatUser(getView().getActivity(), bundle);
+        navigation.onLaunchChatUser(getView().getActivity(), bundle);
     }
 }

@@ -10,10 +10,10 @@ import com.cronosgroup.core.managers.PermissionsManager;
 import com.cronosgroup.core.presenter.Presenter;
 import com.cronosgroup.core.view.BaseActivity;
 import com.cronosgroup.tinkerlink.event.SmsEvent;
+import com.cronosgroup.tinkerlink.interfaces.IOUserLogin;
 import com.cronosgroup.tinkerlink.model.manager.AppConfigManager;
 import com.cronosgroup.tinkerlink.model.manager.AppCountryManager;
 import com.cronosgroup.tinkerlink.model.manager.AppUserSessionManager;
-import com.cronosgroup.tinkerlink.presenter.interfaces.IOUserLogin;
 import com.cronosgroup.tinkerlink.sms.SMSBroadcastReceiver;
 import com.cronosgroup.tinkerlink.utils.LocaleUtils;
 
@@ -25,6 +25,7 @@ import org.greenrobot.eventbus.EventBus;
  */
 public class TinkerLinkPresenter<V extends TinkerLinkPresenterView> extends PresenterDependencies implements Presenter<V> {
 
+    // Vars
     public static final String ACTIVATION_SMS = "SMSActivacion";
     public static final String ACTIVATION_MESSAGE = "mensajeActivacion";
 
@@ -57,7 +58,6 @@ public class TinkerLinkPresenter<V extends TinkerLinkPresenterView> extends Pres
     public V getView() {
         return view;
     }
-
 
     public PermissionsManager getPermissionManager() {
         return ((BaseActivity) getView().getActivity()).getPermissionsManager();

@@ -3,7 +3,6 @@ package com.cronosgroup.tinkerlink.view.config.main.adapter.pages.usernotificati
 import android.view.View;
 
 import com.cronosgroup.tinkerlink.presenter.editprofile.UserNotificationsPresenter;
-import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
 
 /**
@@ -28,7 +27,7 @@ public class UserNotificationsFragment extends MVPTinkerLinkFragment<UserNotific
 
     @Override
     protected UserNotificationsPresenter createPresenter() {
-        return new UserNotificationsPresenter(ScreenNavigationHandler.getInstance());
+        return new UserNotificationsPresenter();
     }
 
     @Override

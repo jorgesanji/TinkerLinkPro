@@ -5,7 +5,6 @@ import android.view.View;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContacto;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestUser;
 import com.cronosgroup.tinkerlink.presenter.profile.ProfilePresenter;
-import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
 
 
@@ -31,7 +30,7 @@ public class ProfileFragment extends MVPTinkerLinkFragment<ProfilePresenter, Pro
 
     @Override
     protected ProfilePresenter createPresenter() {
-        return new ProfilePresenter(ScreenNavigationHandler.getInstance());
+        return new ProfilePresenter();
     }
 
     @Override

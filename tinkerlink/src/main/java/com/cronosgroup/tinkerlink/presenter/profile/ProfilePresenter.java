@@ -1,6 +1,5 @@
 package com.cronosgroup.tinkerlink.presenter.profile;
 
-import android.app.Activity;
 import android.os.Bundle;
 
 import com.cronosgroup.tinkerlink.enums.StackCardType;
@@ -21,7 +20,6 @@ import java.util.List;
 public class ProfilePresenter extends TinkerLinkPresenter<ProfilePresenter.View> {
 
     // Vars
-    private final Actions listener;
 
     /**
      * Profile listeners.
@@ -30,23 +28,7 @@ public class ProfilePresenter extends TinkerLinkPresenter<ProfilePresenter.View>
         void setContact(RestContacto contact);
     }
 
-    /**
-     * Profile actions.
-     */
-    public interface Actions {
-        void onLaunchStack(Activity activity, Bundle bundle);
-    }
-
-
-    /**
-     * @param navigationListener
-     */
-    public ProfilePresenter(Actions navigationListener) {
-        this.listener = navigationListener;
-    }
-
     //Actions
-
 
     public void getUserInfo() {
 
@@ -102,13 +84,13 @@ public class ProfilePresenter extends TinkerLinkPresenter<ProfilePresenter.View>
     public void onLaunchImTinker() {
         Bundle bundle = new Bundle();
         bundle.putSerializable(StackActivity.STACK_TYPE, StackCardType.TINKER);
-        listener.onLaunchStack(getView().getActivity(), bundle);
+        navigation.onLaunchStack(getView().getActivity(), bundle);
     }
 
     public void onLaunchSearchTinker() {
         Bundle bundle = new Bundle();
         bundle.putSerializable(StackActivity.STACK_TYPE, StackCardType.LINKER);
-        listener.onLaunchStack(getView().getActivity(), bundle);
+        navigation.onLaunchStack(getView().getActivity(), bundle);
     }
 
 }

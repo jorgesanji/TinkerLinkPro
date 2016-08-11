@@ -7,14 +7,11 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
 import com.cronosgroup.core.presenter.Presenter;
 import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkDialogPresenterView;
 import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenter;
-import com.cronosgroup.tinkerlink.view.AppSnackManager;
 import com.cronosgroup.tinkerlink.view.base.TinkerLinkActivity;
 
 /**
@@ -24,20 +21,11 @@ public abstract class MVPTinkerLinkDialogFragment<P extends Presenter<V>, V exte
 
     // Variables
     private P presenter;
-    private boolean readyInitialized = false;
-
-    private AppSnackManager appStatusMessageManager;
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return getRootView();
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.presenter = createPresenter();
-        appStatusMessageManager = new AppSnackManager(getPresenterView());
     }
 
     @Override
@@ -55,20 +43,10 @@ public abstract class MVPTinkerLinkDialogFragment<P extends Presenter<V>, V exte
     }
 
     @Override
-    public void onStart() {
-        super.onStart();
-    }
-
-    @Override
     public void onResume() {
         super.onResume();
         if (presenter != null) {
             presenter.resume();
-        }
-
-        if (!readyInitialized) {
-            onDidAppear();
-            readyInitialized = true;
         }
     }
 
@@ -113,9 +91,6 @@ public abstract class MVPTinkerLinkDialogFragment<P extends Presenter<V>, V exte
 
     protected abstract V getPresenterView();
 
-    protected abstract void onDidAppear();
-
-    protected abstract View getRootView();
 
     /**
      * Calls activity showInfo if container activity extends {@Presenter.View} or shows a info

@@ -2,9 +2,7 @@ package com.cronosgroup.tinkerlink.view.config.frequentlyquestions;
 
 import android.view.View;
 
-import com.cronosgroup.tinkerlink.presenter.changephonenumber.ChangePhoneNumberPresenter;
 import com.cronosgroup.tinkerlink.presenter.frequentlyquestions.FrequentlyQuestionsPresenter;
-import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
 
 
@@ -30,7 +28,7 @@ public class FrequentlyQuestionsFragment extends MVPTinkerLinkFragment<Frequentl
 
     @Override
     protected FrequentlyQuestionsPresenter createPresenter() {
-        return new FrequentlyQuestionsPresenter(ScreenNavigationHandler.getInstance());
+        return new FrequentlyQuestionsPresenter();
     }
 
     @Override

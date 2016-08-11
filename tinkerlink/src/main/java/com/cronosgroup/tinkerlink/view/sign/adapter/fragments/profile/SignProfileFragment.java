@@ -7,7 +7,6 @@ import com.cronosgroup.tinkerlink.interfaces.IOFormListener;
 import com.cronosgroup.tinkerlink.interfaces.IOValidationForm;
 import com.cronosgroup.tinkerlink.model.business.model.AppUser;
 import com.cronosgroup.tinkerlink.presenter.sign.SignProfilePresenter;
-import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
 import com.cronosgroup.tinkerlink.view.dialog.category.CategoryDialogFragment;
 import com.cronosgroup.tinkerlink.view.dialog.study.StudyDialogFragment;
@@ -51,7 +50,7 @@ public class SignProfileFragment extends MVPTinkerLinkFragment<SignProfilePresen
 
     @Override
     protected SignProfilePresenter createPresenter() {
-        return new SignProfilePresenter(ScreenNavigationHandler.getInstance());
+        return new SignProfilePresenter();
     }
 
     @Override

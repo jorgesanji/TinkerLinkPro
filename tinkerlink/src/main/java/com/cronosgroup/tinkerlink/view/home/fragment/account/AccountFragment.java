@@ -29,7 +29,7 @@ public class AccountFragment extends MVPTinkerLinkFragment<AccountPresenter, Acc
 
     @Override
     protected AccountPresenter createPresenter() {
-        return new AccountPresenter(ScreenNavigationHandler.getInstance());
+        return new AccountPresenter();
     }
 
     @Override

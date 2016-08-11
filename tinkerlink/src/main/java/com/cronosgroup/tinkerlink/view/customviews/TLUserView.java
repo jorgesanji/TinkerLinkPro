@@ -15,10 +15,11 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 import com.cronosgroup.tinkerlink.R;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContacto;
-import com.cronosgroup.tinkerlink.utils.TypeFaceUtils;
+import com.cronosgroup.tinkerlink.enums.Font;
 import com.cronosgroup.tinkerlink.interfaces.IOAddContactListener;
 import com.cronosgroup.tinkerlink.interfaces.IOIconListener;
+import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContacto;
+import com.cronosgroup.tinkerlink.utils.TypeFaceUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -137,7 +138,7 @@ public class TLUserView extends LinearLayout {
             }
         } else {
             setTitleColor(Color.BLACK);
-            setTitleFont(TLTextView.Font.BOLD.getType());
+            setTitleFont(Font.BOLD.getType());
             setTitleSize(getResources().getDimensionPixelSize(TLTextView.DEFAULT_TITLE_SIZE));
             setSubTitleColor(Color.BLACK);
             setSubTitleFont(TLTextView.DEFAULT_SUBTITLE_FONT);

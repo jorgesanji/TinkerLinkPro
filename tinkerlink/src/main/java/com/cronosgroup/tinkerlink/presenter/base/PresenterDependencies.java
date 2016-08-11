@@ -3,6 +3,7 @@ package com.cronosgroup.tinkerlink.presenter.base;
 import android.location.Geocoder;
 
 import com.cronosgroup.tinkerlink.application.TinkerLinkApplication;
+import com.cronosgroup.tinkerlink.interfaces.IONavigation;
 import com.cronosgroup.tinkerlink.model.manager.AppConfigManager;
 import com.cronosgroup.tinkerlink.model.manager.AppCountryManager;
 import com.cronosgroup.tinkerlink.model.manager.AppImagePickerManager;
@@ -29,6 +30,9 @@ public class PresenterDependencies {
 
     @Inject
     protected Geocoder geocoder;
+
+    @Inject
+    protected IONavigation navigation;
 
     public PresenterDependencies() {
         TinkerLinkApplication.getApp().getComponent().inject(this);

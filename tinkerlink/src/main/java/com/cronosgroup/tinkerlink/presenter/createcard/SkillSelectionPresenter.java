@@ -8,25 +8,10 @@ import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenterView;
  */
 public class SkillSelectionPresenter extends TinkerLinkPresenter<SkillSelectionPresenter.View> {
 
-    private final Actions listener;
-
     /**
      * Contacts listeners.
      */
     public interface View extends TinkerLinkPresenterView {
-    }
-
-    /**
-     * Contacts actions.
-     */
-    public interface Actions {
-    }
-
-    /**
-     * @param navigationListener
-     */
-    public SkillSelectionPresenter(Actions navigationListener) {
-        this.listener = navigationListener;
     }
 
     // public methods

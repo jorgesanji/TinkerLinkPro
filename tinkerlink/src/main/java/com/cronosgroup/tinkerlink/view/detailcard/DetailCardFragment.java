@@ -1,8 +1,6 @@
 package com.cronosgroup.tinkerlink.view.detailcard;
 
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -10,11 +8,15 @@ import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.event.UpdateInfoCardEvent;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
 import com.cronosgroup.tinkerlink.presenter.detailcard.DetailCardPresenter;
-import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
+import com.cronosgroup.tinkerlink.utils.TLMMenuBuilder;
+import com.cronosgroup.tinkerlink.utils.TLMMenuItem;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
 import com.cronosgroup.tinkerlink.view.dialog.network.NetworkDialogFragment;
 
 import org.greenrobot.eventbus.EventBus;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -36,8 +38,14 @@ public class DetailCardFragment extends MVPTinkerLinkFragment<DetailCardPresente
     }
 
     @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.create_card_menu, menu);
+    protected List<TLMMenuBuilder> getMenuItems() {
+        List<TLMMenuBuilder> menuItems = new ArrayList<>();
+        menuItems.add(new TLMMenuItem().
+                setId(R.id.action_publish).
+                setTitle(R.string.create_card_publish).
+                setTitleColor(R.color.text_white).
+                setAction(TLMMenuItem.SHOW_ACTION));
+        return menuItems;
     }
 
     @Override
@@ -62,7 +70,7 @@ public class DetailCardFragment extends MVPTinkerLinkFragment<DetailCardPresente
 
     @Override
     protected DetailCardPresenter createPresenter() {
-        return new DetailCardPresenter(ScreenNavigationHandler.getInstance());
+        return new DetailCardPresenter();
     }
 
     @Override

@@ -5,65 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 
-import com.cronosgroup.tinkerlink.presenter.account.AccountPresenter;
-import com.cronosgroup.tinkerlink.presenter.category.CategoryPresenter;
-import com.cronosgroup.tinkerlink.presenter.changepassword.ChangePasswordPresenter;
-import com.cronosgroup.tinkerlink.presenter.changephonenumber.ChangePhoneNumberPresenter;
-import com.cronosgroup.tinkerlink.presenter.chatuser.ChatUserPresenter;
-import com.cronosgroup.tinkerlink.presenter.config.ConfigPresenter;
-import com.cronosgroup.tinkerlink.presenter.contacts.ContactsPresenter;
-import com.cronosgroup.tinkerlink.presenter.contacts.MyContactsPresenter;
-import com.cronosgroup.tinkerlink.presenter.contacts.RequestContactsPresenter;
-import com.cronosgroup.tinkerlink.presenter.createcard.CategorySelectionPresenter;
-import com.cronosgroup.tinkerlink.presenter.createcard.CreateCardPresenter;
-import com.cronosgroup.tinkerlink.presenter.createcard.ExperienceSelectionPresenter;
-import com.cronosgroup.tinkerlink.presenter.createcard.SkillSelectionPresenter;
-import com.cronosgroup.tinkerlink.presenter.createrecommendation.CreateRecommendationPresenter;
-import com.cronosgroup.tinkerlink.presenter.detailcard.DetailCardPresenter;
-import com.cronosgroup.tinkerlink.presenter.dialog.country.DialogCountryPresenter;
-import com.cronosgroup.tinkerlink.presenter.dialog.occupation.DialogOccupationPresenter;
-import com.cronosgroup.tinkerlink.presenter.dialog.places.DialogPlacesPresenter;
-import com.cronosgroup.tinkerlink.presenter.dragdrop.DrargDropPresenter;
-import com.cronosgroup.tinkerlink.presenter.editprofile.ConfigAccountUserPresenter;
-import com.cronosgroup.tinkerlink.presenter.editprofile.EditProfilePresenter;
-import com.cronosgroup.tinkerlink.presenter.editprofile.UserNotificationsPresenter;
-import com.cronosgroup.tinkerlink.presenter.filtercards.FilterCardsPresenter;
-import com.cronosgroup.tinkerlink.presenter.frequentlyquestions.FrequentlyQuestionsPresenter;
-import com.cronosgroup.tinkerlink.presenter.giverecommendation.GiveRecommendationPresenter;
-import com.cronosgroup.tinkerlink.presenter.helptinkerlink.HelpTinkerLinkPresenter;
-import com.cronosgroup.tinkerlink.presenter.home.HomePresenter;
-import com.cronosgroup.tinkerlink.presenter.importcontacts.ImportContactsPresenter;
-import com.cronosgroup.tinkerlink.presenter.login.LoginPresenter;
-import com.cronosgroup.tinkerlink.presenter.messages.ChatPresenter;
-import com.cronosgroup.tinkerlink.presenter.network.NetworkPresenter;
-import com.cronosgroup.tinkerlink.presenter.newsfeed.NewsFeedPresenter;
-import com.cronosgroup.tinkerlink.presenter.policyprivacy.PolicyPrivacyPresenter;
-import com.cronosgroup.tinkerlink.presenter.privacy.PrivacyPresenter;
-import com.cronosgroup.tinkerlink.presenter.profile.ProfilePresenter;
-import com.cronosgroup.tinkerlink.presenter.profile.UserActivityPresenter;
-import com.cronosgroup.tinkerlink.presenter.profile.UserInformationPresenter;
-import com.cronosgroup.tinkerlink.presenter.profile.UserRecommendationsPresenter;
-import com.cronosgroup.tinkerlink.presenter.recommendations.RecommendationsPresenter;
-import com.cronosgroup.tinkerlink.presenter.recoverypassword.RecoveryPasswordPresenter;
-import com.cronosgroup.tinkerlink.presenter.searchcard.SearchCardPresenter;
-import com.cronosgroup.tinkerlink.presenter.searchcontacts.SearchContactsPresenter;
-import com.cronosgroup.tinkerlink.presenter.searchnewsfeed.SearchNewsFeedPresenter;
-import com.cronosgroup.tinkerlink.presenter.share.SharePresenter;
-import com.cronosgroup.tinkerlink.presenter.sign.FormUserPresenter;
-import com.cronosgroup.tinkerlink.presenter.sign.RegisterSelectorPresenter;
-import com.cronosgroup.tinkerlink.presenter.sign.SignPresenter;
-import com.cronosgroup.tinkerlink.presenter.sign.SignProfilePresenter;
-import com.cronosgroup.tinkerlink.presenter.sign.TLinkerSelectorPresenter;
-import com.cronosgroup.tinkerlink.presenter.sign.ValidationPresenter;
-import com.cronosgroup.tinkerlink.presenter.stack.CardPresenter;
-import com.cronosgroup.tinkerlink.presenter.stack.CardRecommendationsPresenter;
-import com.cronosgroup.tinkerlink.presenter.stack.DetailStackPresenter;
-import com.cronosgroup.tinkerlink.presenter.stack.StackPresenter;
-import com.cronosgroup.tinkerlink.presenter.tutorial.TutorialPresenter;
-import com.cronosgroup.tinkerlink.presenter.usercontacts.AllUserContactsPresenter;
-import com.cronosgroup.tinkerlink.presenter.usercontacts.UserContactsPresenter;
-import com.cronosgroup.tinkerlink.presenter.userstatus.UserStatusPresenter;
-import com.cronosgroup.tinkerlink.presenter.verify.VerifyPresenter;
+import com.cronosgroup.tinkerlink.interfaces.IONavigation;
 import com.cronosgroup.tinkerlink.view.cardfilter.FilterCardsActivity;
 import com.cronosgroup.tinkerlink.view.chatuser.ChatUserActivity;
 import com.cronosgroup.tinkerlink.view.config.changepassword.ChangePasswordActivity;
@@ -96,47 +38,11 @@ import com.cronosgroup.tinkerlink.view.usercontacts.UserContactsActivity;
 /**
  * Created by jorgesanmartin on 2/26/16.
  */
-public final class ScreenNavigationHandler implements HomePresenter.Actions,
-        TutorialPresenter.Actions, ContactsPresenter.Actions, AccountPresenter.Actions,
-        ChatPresenter.Actions, StackPresenter.Actions, NewsFeedPresenter.Actions,
-        CardPresenter.Actions, DetailStackPresenter.Actions,
-        SignPresenter.Actions, FormUserPresenter.Actions,
-        ValidationPresenter.Actions, TLinkerSelectorPresenter.Actions,
-        NetworkPresenter.Actions, ConfigPresenter.Actions,
-        EditProfilePresenter.Actions, CreateCardPresenter.Actions,
-        CreateRecommendationPresenter.Actions, ChatUserPresenter.Actions,
-        CategorySelectionPresenter.Actions, ExperienceSelectionPresenter.Actions,
-        SkillSelectionPresenter.Actions,
-        LoginPresenter.Actions, RegisterSelectorPresenter.Actions, SignProfilePresenter.Actions,
-        DetailCardPresenter.Actions, ProfilePresenter.Actions, ConfigAccountUserPresenter.Actions,
-        UserNotificationsPresenter.Actions, ChangePasswordPresenter.Actions,
-        ChangePhoneNumberPresenter.Actions, ImportContactsPresenter.Actions,
-        PolicyPrivacyPresenter.Actions, HelpTinkerLinkPresenter.Actions,
-        FrequentlyQuestionsPresenter.Actions, PrivacyPresenter.Actions,
-        RecoveryPasswordPresenter.Actions, VerifyPresenter.Actions, UserActivityPresenter.Actions,
-        UserInformationPresenter.Actions, UserRecommendationsPresenter.Actions,
-        RecommendationsPresenter.Actions, GiveRecommendationPresenter.Actions,
-        UserContactsPresenter.Actions, AllUserContactsPresenter.Actions, DrargDropPresenter.Actions,
-        DialogOccupationPresenter.Actions, DialogCountryPresenter.Actions,
-        DialogPlacesPresenter.Actions, SearchCardPresenter.Actions, FilterCardsPresenter.Actions,
-        CardRecommendationsPresenter.Actions, SharePresenter.Actions, MyContactsPresenter.Actions,
-        RequestContactsPresenter.Actions, CategoryPresenter.Actions, SearchNewsFeedPresenter.Actions,
-        SearchContactsPresenter.Actions, UserStatusPresenter.Actions {
+public final class ScreenNavigationHandler implements IONavigation {
 
     //Instance
-    private static ScreenNavigationHandler instance = null;
 
-    private ScreenNavigationHandler() {
-    }
-
-    /**
-     * @return the instance of ScreenNavigationHandler
-     */
-    public static ScreenNavigationHandler getInstance() {
-        if (instance == null) {
-            instance = new ScreenNavigationHandler();
-        }
-        return instance;
+    public ScreenNavigationHandler() {
     }
 
     // ---------------------------- LAUNCH INTENT -------------------------------
@@ -159,6 +65,8 @@ public final class ScreenNavigationHandler implements HomePresenter.Actions,
         startActivityForResult(context, android.R.anim.fade_in, android.R.anim.fade_out, code, intent);
     }
 
+    // ---------------------------- CREATE INTENT -------------------------------
+
     private static Intent newTask(@NonNull Activity context, @NonNull Class clazz, Bundle bundle) {
         Intent intent = newTask(context, clazz, bundle, false);
         return intent;
@@ -175,7 +83,7 @@ public final class ScreenNavigationHandler implements HomePresenter.Actions,
         return openIntent;
     }
 
-    // ------------------------ CREATION INTENTS -----------------------------------
+    // ------------------------ INTENTS CREATION  -----------------------------------
 
     private static Intent sign(Activity context, Bundle bundle) {
         return newTask(context, SignActivity.class, bundle);

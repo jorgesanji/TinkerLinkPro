@@ -14,29 +14,13 @@ import android.util.Log;
 import android.widget.TextView;
 
 import com.cronosgroup.tinkerlink.R;
+import com.cronosgroup.tinkerlink.enums.Font;
 import com.cronosgroup.tinkerlink.utils.TypeFaceUtils;
 
 /**
  * Created by jorgesanmartin on 21/10/15.
  */
 public class TLTextView extends TextView {
-
-    public enum Font {
-        REGULAR(0),
-        BOLD(1),
-        LIGTH(2),
-        SEMIBOLD(3);
-
-        private final int type;
-
-        Font(int type) {
-            this.type = type;
-        }
-
-        public int getType() {
-            return type;
-        }
-    }
 
     private static final String TAG = TLTextView.class.toString();
     public static final int DEFAULT_TITLE_FONT = Font.REGULAR.getType();

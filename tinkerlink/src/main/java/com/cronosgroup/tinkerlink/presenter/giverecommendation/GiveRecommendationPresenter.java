@@ -11,27 +11,12 @@ import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenterView;
 public class GiveRecommendationPresenter extends TinkerLinkPresenter<GiveRecommendationPresenter.View> {
 
     // Vars
-    private final Actions listener;
 
     /**
      * GiveRecommendation listeners.
      */
     public interface View extends TinkerLinkPresenterView {
 
-    }
-
-    /**
-     * GiveRecommendation actions.
-     */
-    public interface Actions {
-    }
-
-
-    /**
-     * @param navigationListener
-     */
-    public GiveRecommendationPresenter(Actions navigationListener) {
-        this.listener = navigationListener;
     }
 
     //Actions

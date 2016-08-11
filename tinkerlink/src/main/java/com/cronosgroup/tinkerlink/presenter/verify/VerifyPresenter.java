@@ -9,27 +9,12 @@ import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenterView;
 public class VerifyPresenter extends TinkerLinkPresenter<VerifyPresenter.View> {
 
     // Vars
-    private final Actions listener;
 
     /**
      * Verify user account listeners.
      */
     public interface View extends TinkerLinkPresenterView {
 
-    }
-
-    /**
-     * Verify user account actions.
-     */
-    public interface Actions {
-    }
-
-
-    /**
-     * @param navigationListener
-     */
-    public VerifyPresenter(Actions navigationListener) {
-        this.listener = navigationListener;
     }
 
     //Actions

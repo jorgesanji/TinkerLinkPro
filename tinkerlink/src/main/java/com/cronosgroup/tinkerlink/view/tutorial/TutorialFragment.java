@@ -3,7 +3,6 @@ package com.cronosgroup.tinkerlink.view.tutorial;
 import android.view.View;
 
 import com.cronosgroup.tinkerlink.presenter.tutorial.TutorialPresenter;
-import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
 
 /**
@@ -47,7 +46,7 @@ public class TutorialFragment extends MVPTinkerLinkFragment<TutorialPresenter, T
 
     @Override
     protected TutorialPresenter createPresenter() {
-        return new TutorialPresenter(ScreenNavigationHandler.getInstance());
+        return new TutorialPresenter();
     }
 
     @Override

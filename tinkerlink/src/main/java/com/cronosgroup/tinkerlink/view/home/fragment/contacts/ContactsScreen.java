@@ -27,7 +27,7 @@ public class ContactsScreen extends RelativeLayout {
      * listeners of the contacts's screen.
      */
     public interface Listener {
-
+        void onContinuePressed();
     }
 
     // Vars
@@ -121,7 +121,7 @@ public class ContactsScreen extends RelativeLayout {
     @OnClick(R.id.continueButton)
     protected void continuePressed() {
         mIntroView.setVisibility(GONE);
-        mPager.setDisableSwipe(false);
+        listener.onContinuePressed();
     }
 
     // Public methods

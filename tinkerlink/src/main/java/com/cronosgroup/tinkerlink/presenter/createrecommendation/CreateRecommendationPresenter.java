@@ -12,26 +12,11 @@ import com.cronosgroup.tinkerlink.view.base.TinkerLinkActivity;
  */
 public class CreateRecommendationPresenter extends TinkerLinkPresenter<CreateRecommendationPresenter.View> {
 
-    private final Actions listener;
-
     /**
-     * Contacts listeners.
+     * Create Recommendation listeners.
      */
     public interface View extends TinkerLinkPresenterView {
 
-    }
-
-    /**
-     * Contacts actions.
-     */
-    public interface Actions {
-    }
-
-    /**
-     * @param navigationListener
-     */
-    public CreateRecommendationPresenter(Actions navigationListener) {
-        this.listener = navigationListener;
     }
 
     // public methods

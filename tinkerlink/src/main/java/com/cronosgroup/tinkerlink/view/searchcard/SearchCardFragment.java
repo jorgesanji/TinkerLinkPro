@@ -11,7 +11,6 @@ import android.view.View;
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.enums.StackCardType;
 import com.cronosgroup.tinkerlink.presenter.searchcard.SearchCardPresenter;
-import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
 
 /**
@@ -80,7 +79,7 @@ public class SearchCardFragment extends MVPTinkerLinkFragment<SearchCardPresente
 
     @Override
     protected SearchCardPresenter createPresenter() {
-        return new SearchCardPresenter(ScreenNavigationHandler.getInstance());
+        return new SearchCardPresenter();
     }
 
     @Override

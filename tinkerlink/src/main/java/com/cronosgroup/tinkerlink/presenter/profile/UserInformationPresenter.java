@@ -1,8 +1,5 @@
 package com.cronosgroup.tinkerlink.presenter.profile;
 
-import android.app.Activity;
-import android.os.Bundle;
-
 import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenter;
 import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenterView;
 
@@ -12,7 +9,6 @@ import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenterView;
 public class UserInformationPresenter extends TinkerLinkPresenter<UserInformationPresenter.View> {
 
     // Vars
-    private final Actions listener;
 
     /**
      * UserInformation listeners.
@@ -21,25 +17,10 @@ public class UserInformationPresenter extends TinkerLinkPresenter<UserInformatio
 
     }
 
-    /**
-     * UserInformation actions.
-     */
-    public interface Actions {
-        void onLaunchUserContacts(Activity activity, Bundle bundle);
-    }
-
-
-    /**
-     * @param navigationListener
-     */
-    public UserInformationPresenter(Actions navigationListener) {
-        this.listener = navigationListener;
-    }
-
     //Actions
 
     public void onUserContactsPressed() {
-        listener.onLaunchUserContacts(getView().getActivity(), null);
+        navigation.onLaunchUserContacts(getView().getActivity(), null);
     }
 
 }

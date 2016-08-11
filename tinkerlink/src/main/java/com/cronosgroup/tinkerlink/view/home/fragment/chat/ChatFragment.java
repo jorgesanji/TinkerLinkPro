@@ -4,7 +4,6 @@ import android.view.View;
 
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestChat;
 import com.cronosgroup.tinkerlink.presenter.messages.ChatPresenter;
-import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
 import com.cronosgroup.tinkerlink.view.base.TinkerLinkActivity;
 
@@ -14,7 +13,7 @@ import java.util.List;
 /**
  * Messages Fragment
  */
-public class ChatsFragment extends MVPTinkerLinkFragment<ChatPresenter, ChatPresenter.View>
+public class ChatFragment extends MVPTinkerLinkFragment<ChatPresenter, ChatPresenter.View>
         implements ChatPresenter.View, ChatScreen.Listener {
 
     private ChatScreen chatScreen;
@@ -32,7 +31,7 @@ public class ChatsFragment extends MVPTinkerLinkFragment<ChatPresenter, ChatPres
 
     @Override
     protected ChatPresenter createPresenter() {
-        return new ChatPresenter(ScreenNavigationHandler.getInstance());
+        return new ChatPresenter();
     }
 
     @Override

@@ -3,7 +3,6 @@ package com.cronosgroup.tinkerlink.view.config.changepassword;
 import android.view.View;
 
 import com.cronosgroup.tinkerlink.presenter.changepassword.ChangePasswordPresenter;
-import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
 
 
@@ -29,7 +28,7 @@ public class ChangePasswordFragment extends MVPTinkerLinkFragment<ChangePassword
 
     @Override
     protected ChangePasswordPresenter createPresenter() {
-        return new ChangePasswordPresenter(ScreenNavigationHandler.getInstance());
+        return new ChangePasswordPresenter();
     }
 
     @Override

@@ -1,6 +1,5 @@
 package com.cronosgroup.tinkerlink.presenter.contacts;
 
-import android.app.Activity;
 import android.os.Bundle;
 
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestChat;
@@ -21,8 +20,6 @@ import java.util.List;
  */
 public class MyContactsPresenter extends TinkerLinkPresenter<MyContactsPresenter.View> {
 
-    private final Actions listener;
-
     /**
      * Contacts listeners.
      */
@@ -30,24 +27,6 @@ public class MyContactsPresenter extends TinkerLinkPresenter<MyContactsPresenter
         void setContacts(List<RestContacto> list);
 
         List<RestContacto> getItems();
-    }
-
-    /**
-     * Contacts actions.
-     */
-    public interface Actions {
-        void onLaunchChatUser(Activity activity, Bundle bundle);
-
-        void onLaunchImportUserContacts(Activity activity, Bundle bundle);
-
-        void onLaunchSearchContacts(Activity activity, Bundle bundle);
-    }
-
-    /**
-     * @param navigationListener
-     */
-    public MyContactsPresenter(Actions navigationListener) {
-        this.listener = navigationListener;
     }
 
     // public methods
@@ -106,15 +85,15 @@ public class MyContactsPresenter extends TinkerLinkPresenter<MyContactsPresenter
 
         Bundle bundle = new Bundle();
         bundle.putSerializable(ChatUserActivity.ITEMS_KEY, restChat);
-        listener.onLaunchChatUser(getView().getActivity(), bundle);
+        navigation.onLaunchChatUser(getView().getActivity(), bundle);
     }
 
 
     public void launchImportContacts() {
-        listener.onLaunchImportUserContacts(getView().getActivity(), null);
+        navigation.onLaunchImportUserContacts(getView().getActivity(), null);
     }
 
     public void launchSearchContacts() {
-        listener.onLaunchSearchContacts(getView().getActivity(), null);
+        navigation.onLaunchSearchContacts(getView().getActivity(), null);
     }
 }

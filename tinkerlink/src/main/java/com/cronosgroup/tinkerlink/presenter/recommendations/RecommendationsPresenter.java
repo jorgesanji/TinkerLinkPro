@@ -1,8 +1,5 @@
 package com.cronosgroup.tinkerlink.presenter.recommendations;
 
-import android.app.Activity;
-import android.os.Bundle;
-
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContacto;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestProfile;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestRecomendacion;
@@ -21,28 +18,12 @@ import java.util.List;
 public class RecommendationsPresenter extends TinkerLinkPresenter<RecommendationsPresenter.View> {
 
     // Vars
-    private final Actions listener;
 
     /**
      * Recommendation listeners.
      */
     public interface View extends TinkerLinkPresenterView {
         void setRecommendationsList(List<RestRecomendacion> list);
-    }
-
-    /**
-     * Recommendation actions.
-     */
-    public interface Actions {
-        void onLaunchGiveUserRecommendation(Activity activity, Bundle bundle);
-    }
-
-
-    /**
-     * @param navigationListener
-     */
-    public RecommendationsPresenter(Actions navigationListener) {
-        this.listener = navigationListener;
     }
 
     //Actions
@@ -86,7 +67,7 @@ public class RecommendationsPresenter extends TinkerLinkPresenter<Recommendation
     }
 
     public void onGiveRecommendationPressed() {
-        listener.onLaunchGiveUserRecommendation(getView().getActivity(), null);
+        navigation.onLaunchGiveUserRecommendation(getView().getActivity(), null);
     }
 }
 

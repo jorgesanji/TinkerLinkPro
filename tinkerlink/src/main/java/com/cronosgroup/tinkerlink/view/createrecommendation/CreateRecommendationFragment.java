@@ -1,8 +1,6 @@
 package com.cronosgroup.tinkerlink.view.createrecommendation;
 
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,9 +8,13 @@ import android.widget.LinearLayout;
 
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.presenter.createrecommendation.CreateRecommendationPresenter;
-import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
+import com.cronosgroup.tinkerlink.utils.TLMMenuBuilder;
+import com.cronosgroup.tinkerlink.utils.TLMMenuItem;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
 import com.cronosgroup.tinkerlink.view.customviews.TLUserView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -33,11 +35,6 @@ public class CreateRecommendationFragment extends MVPTinkerLinkFragment<CreateRe
     }
 
     @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.recommendations_menu, menu);
-    }
-
-    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.action_send_recommendation) {
@@ -47,7 +44,15 @@ public class CreateRecommendationFragment extends MVPTinkerLinkFragment<CreateRe
         return super.onOptionsItemSelected(item);
     }
 
-    //region **************  MVPFragment **************
+    @Override
+    protected List<TLMMenuBuilder> getMenuItems() {
+        List<TLMMenuBuilder> menuItems = new ArrayList<>();
+        menuItems.add(new TLMMenuItem().setId(R.id.action_send_recommendation).
+                setTitle(R.string.recommendation_send_recommendation).
+                setTitleColor(R.color.text_black_totally).
+                setAction(TLMMenuItem.SHOW_ACTION));
+        return menuItems;
+    }
 
     @Override
     protected View getRootView() {
@@ -56,9 +61,11 @@ public class CreateRecommendationFragment extends MVPTinkerLinkFragment<CreateRe
         return createRecommendationScreen;
     }
 
+    //region **************  MVPFragment **************
+
     @Override
     protected CreateRecommendationPresenter createPresenter() {
-        return new CreateRecommendationPresenter(ScreenNavigationHandler.getInstance());
+        return new CreateRecommendationPresenter();
     }
 
     @Override

@@ -1,9 +1,7 @@
 package com.cronosgroup.tinkerlink.view.dialog.message;
 
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
 import com.cronosgroup.tinkerlink.view.dialog.base.TinkerDialogFragment;
 
@@ -16,8 +14,12 @@ public class MessageDialogFragment extends TinkerDialogFragment implements Messa
     private MessageDialogScreen messageDialogScreen;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    protected void onDidAppear() {
+
+    }
+
+    @Override
+    protected View getRootView() {
         messageDialogScreen = new MessageDialogScreen(getActivity());
         messageDialogScreen.setListener(this);
 

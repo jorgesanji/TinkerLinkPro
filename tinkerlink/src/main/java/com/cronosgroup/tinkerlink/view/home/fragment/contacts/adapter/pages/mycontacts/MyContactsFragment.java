@@ -6,7 +6,6 @@ import android.view.View;
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContacto;
 import com.cronosgroup.tinkerlink.presenter.contacts.MyContactsPresenter;
-import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
 import com.cronosgroup.tinkerlink.view.dialog.blockcontacts.BlockContactsDialogFragment;
 import com.cronosgroup.tinkerlink.view.dialog.messageoptions.MessageOptionsDialogFragment;
@@ -35,7 +34,7 @@ public class MyContactsFragment extends MVPTinkerLinkFragment<MyContactsPresente
 
     @Override
     protected MyContactsPresenter createPresenter() {
-        return new MyContactsPresenter(ScreenNavigationHandler.getInstance());
+        return new MyContactsPresenter();
     }
 
     @Override

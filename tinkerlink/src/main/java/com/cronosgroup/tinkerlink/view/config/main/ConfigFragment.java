@@ -3,7 +3,6 @@ package com.cronosgroup.tinkerlink.view.config.main;
 import android.view.View;
 
 import com.cronosgroup.tinkerlink.presenter.config.ConfigPresenter;
-import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
 
 
@@ -29,7 +28,7 @@ public class ConfigFragment extends MVPTinkerLinkFragment<ConfigPresenter, Confi
 
     @Override
     protected ConfigPresenter createPresenter() {
-        return new ConfigPresenter(ScreenNavigationHandler.getInstance());
+        return new ConfigPresenter();
     }
 
     @Override

@@ -1,9 +1,7 @@
 package com.cronosgroup.tinkerlink.view.dialog.blockcontacts;
 
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
 import com.cronosgroup.tinkerlink.view.dialog.base.TinkerDialogFragment;
 
@@ -11,6 +9,7 @@ import com.cronosgroup.tinkerlink.view.dialog.base.TinkerDialogFragment;
  * Created by jorgesanmartin on 10/26/15.
  */
 public class BlockContactsDialogFragment extends TinkerDialogFragment implements BlockContactsDialogScreen.Listener {
+
 
     // Vars
     public static final int CODE = 128;
@@ -20,8 +19,12 @@ public class BlockContactsDialogFragment extends TinkerDialogFragment implements
     private BlockContactsDialogScreen blockContactsDialogScreen;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    protected void onDidAppear() {
+
+    }
+
+    @Override
+    protected View getRootView() {
         blockContactsDialogScreen = new BlockContactsDialogScreen(getActivity(), this);
         blockContactsDialogScreen.setUserNameToLock(getArguments().getString(USER_NAME_KEY));
         return blockContactsDialogScreen;

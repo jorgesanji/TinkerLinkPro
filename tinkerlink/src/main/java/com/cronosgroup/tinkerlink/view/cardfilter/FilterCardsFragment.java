@@ -6,7 +6,6 @@ import android.view.View;
 import com.cronosgroup.tinkerlink.enums.StackCardType;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestCategoria;
 import com.cronosgroup.tinkerlink.presenter.filtercards.FilterCardsPresenter;
-import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
 import com.cronosgroup.tinkerlink.view.stack.StackActivity;
 
@@ -49,7 +48,7 @@ public class FilterCardsFragment extends MVPTinkerLinkFragment<FilterCardsPresen
 
     @Override
     protected FilterCardsPresenter createPresenter() {
-        return new FilterCardsPresenter(ScreenNavigationHandler.getInstance());
+        return new FilterCardsPresenter();
     }
 
     @Override
@@ -66,7 +65,7 @@ public class FilterCardsFragment extends MVPTinkerLinkFragment<FilterCardsPresen
     @Override
     public void setCategories(List<RestCategoria> cards) {
         filterCardsScreen.setItems(cards, stackType);
-        getMessagesHandler().showCardsFilterWarning(628, 234);
+        getSnackMessageManager().showCardsFilterWarning(628, 234);
     }
     //endregion
 }

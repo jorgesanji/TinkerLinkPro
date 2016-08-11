@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.cronosgroup.tinkerlink.presenter.dialog.occupation.DialogOccupationPresenter;
-import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.dialog.base.MVPTinkerLinkDialogFragment;
 
 import java.util.List;
@@ -42,7 +41,7 @@ public class OccupationDialogFragment extends MVPTinkerLinkDialogFragment<Dialog
 
     @Override
     protected DialogOccupationPresenter createPresenter() {
-        return new DialogOccupationPresenter(ScreenNavigationHandler.getInstance());
+        return new DialogOccupationPresenter();
     }
 
     @Override

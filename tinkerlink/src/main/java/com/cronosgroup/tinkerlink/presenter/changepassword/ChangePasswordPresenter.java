@@ -1,8 +1,5 @@
 package com.cronosgroup.tinkerlink.presenter.changepassword;
 
-import android.app.Activity;
-import android.os.Bundle;
-
 import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenter;
 import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenterView;
 
@@ -11,8 +8,6 @@ import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenterView;
  */
 public class ChangePasswordPresenter extends TinkerLinkPresenter<ChangePasswordPresenter.View> {
 
-    // Vars
-    private final Actions listener;
 
     /**
      * Config user account listeners.
@@ -21,25 +16,10 @@ public class ChangePasswordPresenter extends TinkerLinkPresenter<ChangePasswordP
 
     }
 
-    /**
-     * Config user account actions.
-     */
-    public interface Actions {
-        void onLaunchRecoveryUserPassword(Activity activity, Bundle bundle);
-    }
-
-
-    /**
-     * @param navigationListener
-     */
-    public ChangePasswordPresenter(Actions navigationListener) {
-        this.listener = navigationListener;
-    }
-
     //Actions
 
     public void onRecoveryPressed() {
-        listener.onLaunchRecoveryUserPassword(getView().getActivity(), null);
+        navigation.onLaunchRecoveryUserPassword(getView().getActivity(), null);
     }
 
 }

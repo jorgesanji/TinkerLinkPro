@@ -13,19 +13,11 @@ import com.cronosgroup.tinkerlink.view.dialog.study.StudyDialogFragment;
  */
 public class EditProfilePresenter extends TinkerLinkPresenter<EditProfilePresenter.View> {
 
-    private final Actions listener;
-
     /**
      * EditProfile listeners.
      */
     public interface View extends TinkerLinkPresenterView {
         void addStudy(RestStudy restStudy);
-    }
-
-    /**
-     * EditProfile actions.
-     */
-    public interface Actions {
     }
 
     @Override
@@ -36,13 +28,6 @@ public class EditProfilePresenter extends TinkerLinkPresenter<EditProfilePresent
             RestStudy restStudy = (RestStudy) bundle.getSerializable(StudyDialogFragment.STUDY_ADDED);
             getView().addStudy(restStudy);
         }
-    }
-
-    /**
-     * @param navigationListener
-     */
-    public EditProfilePresenter(Actions navigationListener) {
-        this.listener = navigationListener;
     }
 
     // public methods

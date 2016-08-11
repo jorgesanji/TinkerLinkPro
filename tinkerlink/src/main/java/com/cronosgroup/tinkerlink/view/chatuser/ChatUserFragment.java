@@ -8,7 +8,6 @@ import android.view.View;
 
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.presenter.chatuser.ChatUserPresenter;
-import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
 import com.cronosgroup.tinkerlink.view.dialog.blockcontacts.BlockContactsDialogFragment;
 import com.cronosgroup.tinkerlink.view.dialog.messageoptions.MessageOptionsDialogFragment;
@@ -68,7 +67,7 @@ public class ChatUserFragment extends MVPTinkerLinkFragment<ChatUserPresenter, C
 
     @Override
     protected ChatUserPresenter createPresenter() {
-        return new ChatUserPresenter(ScreenNavigationHandler.getInstance());
+        return new ChatUserPresenter();
     }
 
     @Override

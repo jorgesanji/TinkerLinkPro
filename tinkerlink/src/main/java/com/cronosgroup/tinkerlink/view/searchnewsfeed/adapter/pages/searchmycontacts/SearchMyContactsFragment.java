@@ -5,7 +5,6 @@ import android.view.View;
 
 import com.cronosgroup.tinkerlink.enums.StackCardType;
 import com.cronosgroup.tinkerlink.presenter.searchnewsfeed.SearchNewsFeedPresenter;
-import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
 
 /**
@@ -40,7 +39,7 @@ public class SearchMyContactsFragment extends MVPTinkerLinkFragment<SearchNewsFe
 
     @Override
     protected SearchNewsFeedPresenter createPresenter() {
-        return new SearchNewsFeedPresenter(ScreenNavigationHandler.getInstance());
+        return new SearchNewsFeedPresenter();
     }
 
     @Override

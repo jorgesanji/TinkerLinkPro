@@ -5,7 +5,6 @@ import android.view.View;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestNetwork;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestUser;
 import com.cronosgroup.tinkerlink.presenter.network.NetworkPresenter;
-import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.dialog.base.MVPTinkerLinkDialogFragment;
 
 import java.util.List;
@@ -37,7 +36,7 @@ public class NetworkDialogFragment extends MVPTinkerLinkDialogFragment<NetworkPr
 
     @Override
     protected NetworkPresenter createPresenter() {
-        return new NetworkPresenter(ScreenNavigationHandler.getInstance());
+        return new NetworkPresenter();
     }
 
     @Override

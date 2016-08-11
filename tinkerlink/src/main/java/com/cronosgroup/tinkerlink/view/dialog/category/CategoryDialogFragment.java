@@ -6,7 +6,6 @@ import android.view.View;
 import com.cronosgroup.tinkerlink.enums.StackCardType;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestCategoria;
 import com.cronosgroup.tinkerlink.presenter.category.CategoryPresenter;
-import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.dialog.base.MVPTinkerLinkDialogFragment;
 
 import java.util.List;
@@ -40,7 +39,7 @@ public class CategoryDialogFragment extends MVPTinkerLinkDialogFragment<Category
 
     @Override
     protected CategoryPresenter createPresenter() {
-        return new CategoryPresenter(ScreenNavigationHandler.getInstance());
+        return new CategoryPresenter();
     }
 
     @Override

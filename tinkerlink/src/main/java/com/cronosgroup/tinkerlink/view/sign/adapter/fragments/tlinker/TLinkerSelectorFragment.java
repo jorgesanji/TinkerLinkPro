@@ -4,11 +4,10 @@ import android.app.Activity;
 import android.view.View;
 
 import com.cronosgroup.tinkerlink.enums.StackCardType;
+import com.cronosgroup.tinkerlink.interfaces.IOFormListener;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestCategoria;
 import com.cronosgroup.tinkerlink.presenter.sign.TLinkerSelectorPresenter;
-import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
-import com.cronosgroup.tinkerlink.interfaces.IOFormListener;
 
 import java.util.List;
 
@@ -55,7 +54,7 @@ public class TLinkerSelectorFragment extends MVPTinkerLinkFragment<TLinkerSelect
 
     @Override
     protected TLinkerSelectorPresenter createPresenter() {
-        return new TLinkerSelectorPresenter(ScreenNavigationHandler.getInstance());
+        return new TLinkerSelectorPresenter();
     }
 
     @Override

@@ -9,26 +9,11 @@ import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkDialogPresenterView;
 public class SharePresenter extends TinkerLinkDialogPresenter<SharePresenter.View> {
 
     // Vars
-    private final Actions listener;
 
     /**
      * Share listeners.
      */
     public interface View extends TinkerLinkDialogPresenterView {
-    }
-
-    /**
-     * Share actions.
-     */
-    public interface Actions {
-    }
-
-
-    /**
-     * @param navigationListener
-     */
-    public SharePresenter(Actions navigationListener) {
-        this.listener = navigationListener;
     }
 
     //Actions

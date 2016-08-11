@@ -10,7 +10,6 @@ import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContacto;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
 import com.cronosgroup.tinkerlink.presenter.newsfeed.NewsFeedPresenter;
-import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
 
 import java.util.List;
@@ -68,7 +67,7 @@ public class NewsFeedFragment extends MVPTinkerLinkFragment<NewsFeedPresenter, N
 
     @Override
     protected NewsFeedPresenter createPresenter() {
-        return new NewsFeedPresenter(ScreenNavigationHandler.getInstance());
+        return new NewsFeedPresenter();
     }
 
     @Override

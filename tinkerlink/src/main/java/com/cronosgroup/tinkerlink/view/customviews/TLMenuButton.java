@@ -2,13 +2,10 @@ package com.cronosgroup.tinkerlink.view.customviews;
 
 import android.annotation.TargetApi;
 import android.content.Context;
-import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
-import android.graphics.Color;
 import android.graphics.drawable.Animatable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-import android.support.design.widget.FloatingActionButton;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.Gravity;
@@ -18,6 +15,7 @@ import android.view.ViewTreeObserver;
 import android.widget.LinearLayout;
 
 import com.cronosgroup.tinkerlink.R;
+import com.cronosgroup.tinkerlink.utils.DimenUtils;
 import com.nineoldandroids.animation.Animator;
 import com.nineoldandroids.animation.AnimatorSet;
 import com.nineoldandroids.animation.ObjectAnimator;
@@ -41,17 +39,19 @@ public class TLMenuButton extends LinearLayout {
 
     private static final String TRANSLATION_Y = "translationY";
     private static final String ALPHA = "alpha";
+    private static final int ROTATION_DEGREES = 360;
+    private static final int DEFAULT_SIZE_BUTTON = 60;
 
     //Vars
     private boolean expanded = true;
     private List<Float> mPositions = new ArrayList<>();
-    private int mTintcolor;
+    private int mBackgroundResource;
     private Drawable mIcon;
     private Drawable mIconExpanded;
     private IOMenuButtonState listener;
 
     //Views
-    FloatingActionButton mMenuButton;
+    private TLImageButton mMenuButton;
 
     /**
      * @param context
@@ -103,7 +103,7 @@ public class TLMenuButton extends LinearLayout {
                 attributes = getContext().obtainStyledAttributes(attributeSet, R.styleable.TLMenuButton);
                 setMenuButtonImage(attributes.getDrawable(R.styleable.TLMenuButton_menuButtonImageResource));
                 setMenuButtonExpandedImage(attributes.getDrawable(R.styleable.TLMenuButton_menuButtonStateExpandedImageResource));
-                setMenuButtonBackgroundTintColor(attributes.getColor(R.styleable.TLMenuButton_menuButtonBackgroundTintColor, Color.BLACK));
+                setMenuButtonBackgroundResource(attributes.getResourceId(R.styleable.TLMenuButton_menuButtonBackgroundResource, R.drawable.background_black_gradient));
             } catch (Exception ex) {
                 Log.e(TLMenuItem.class.getName(), ex.getMessage(), ex);
             } finally {
@@ -131,8 +131,11 @@ public class TLMenuButton extends LinearLayout {
     }
 
     private void configMainButton() {
-        mMenuButton = new FloatingActionButton(getContext());
-        mMenuButton.setBackgroundTintList(ColorStateList.valueOf(mTintcolor));
+        int size = Math.round(DimenUtils.getPixelsFromDp(getContext(), DEFAULT_SIZE_BUTTON));
+        LinearLayout.LayoutParams params = new LayoutParams(size, size);
+        mMenuButton = new TLImageButton(getContext());
+        mMenuButton.setLayoutParams(params);
+        mMenuButton.setBackgroundResource(mBackgroundResource);
         mMenuButton.setImageDrawable(mIcon);
         addView(mMenuButton);
         mMenuButton.setOnClickListener(new OnClickListener() {
@@ -144,17 +147,16 @@ public class TLMenuButton extends LinearLayout {
         });
     }
 
-    private void animateFab() {
+    private synchronized void animateFab() {
         Drawable drawable = mMenuButton.getDrawable();
         if (drawable instanceof Animatable) {
             ((Animatable) drawable).start();
         }
-        mMenuButton.animate().rotation(expanded ? 90 : -120).start();
+        mMenuButton.animate().rotation(expanded ? ROTATION_DEGREES : 0).start();
     }
 
-    private void animateMenu() {
+    private synchronized void animateMenu() {
         mMenuButton.setImageDrawable(expanded ? mIconExpanded : mIcon);
-
         boolean isPositionsFilled = mPositions.size() > 0;
         List<Animator> list = new ArrayList<>();
         int indexButtonIn = 0;
@@ -191,7 +193,7 @@ public class TLMenuButton extends LinearLayout {
         }
     }
 
-    private Animator animateItem(View view, float offset) {
+    private synchronized Animator animateItem(View view, float offset) {
         PropertyValuesHolder position = PropertyValuesHolder.ofFloat(TRANSLATION_Y, (!expanded) ? 0 : offset, (!expanded) ? offset : 0);
         PropertyValuesHolder alpha = PropertyValuesHolder.ofFloat(ALPHA, (!expanded) ? 0 : 1);
         ObjectAnimator animator = ObjectAnimator.ofPropertyValuesHolder(view, position, alpha);
@@ -241,10 +243,10 @@ public class TLMenuButton extends LinearLayout {
 
     //Public methods
 
-    public void setMenuButtonBackgroundTintColor(int color) {
-        mTintcolor = color;
+    public void setMenuButtonBackgroundResource(int menuButtonBackgroundResource) {
+        mBackgroundResource = menuButtonBackgroundResource;
         if (mMenuButton != null) {
-            mMenuButton.setBackgroundTintList(ColorStateList.valueOf(mTintcolor));
+            mMenuButton.setBackgroundResource(menuButtonBackgroundResource);
         }
     }
 

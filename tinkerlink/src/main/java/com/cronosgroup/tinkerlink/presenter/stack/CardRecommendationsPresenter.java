@@ -17,26 +17,11 @@ import java.util.List;
  */
 public class CardRecommendationsPresenter extends TinkerLinkPresenter<CardRecommendationsPresenter.View> {
 
-    private final Actions listener;
-
     /**
      * UserRecommendations listeners.
      */
     public interface View extends TinkerLinkPresenterView {
         void setRecommendationsList(List<RestRecomendacion> list);
-    }
-
-    /**
-     * UserRecommendations actions.
-     */
-    public interface Actions {
-    }
-
-    /**
-     * @param navigationListener
-     */
-    public CardRecommendationsPresenter(Actions navigationListener) {
-        this.listener = navigationListener;
     }
 
     //Actions

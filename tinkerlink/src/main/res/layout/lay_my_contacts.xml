@@ -19,7 +19,7 @@
         style="@style/FloatActionButtonStyle"
         android:clipChildren="false"
         android:clipToPadding="false"
-        app:menuButtonBackgroundTintColor="@color/tinkercolor"
+        app:menuButtonBackgroundResource="@drawable/background_menu_gradient"
         app:menuButtonImageResource="@mipmap/ic_network_dark"
         app:menuButtonStateExpandedImageResource="@mipmap/floating_close">
 

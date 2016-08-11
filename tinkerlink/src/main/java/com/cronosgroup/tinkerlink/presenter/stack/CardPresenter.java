@@ -1,6 +1,5 @@
 package com.cronosgroup.tinkerlink.presenter.stack;
 
-import android.app.Activity;
 import android.os.Bundle;
 
 import com.cronosgroup.tinkerlink.enums.StackCardType;
@@ -22,8 +21,6 @@ import java.util.List;
  */
 public class CardPresenter extends TinkerLinkPresenter<CardPresenter.View> {
 
-    private final Actions listener;
-
     /**
      * Card listeners.
      */
@@ -33,29 +30,13 @@ public class CardPresenter extends TinkerLinkPresenter<CardPresenter.View> {
         void setRecommendationsList(List<RestRecomendacion> list);
     }
 
-    /**
-     * Card actions.
-     */
-    public interface Actions {
-        void onLaunchDetailCard(Activity activity, Bundle bundrle);
-    }
-
-    /**
-     * @param navigationListener
-     */
-    public CardPresenter(Actions navigationListener) {
-        this.listener = navigationListener;
-    }
-
-
     //Actions
 
     public void onLaunhDetailStack() {
         Bundle bundle = new Bundle();
         bundle.putSerializable(StackActivity.STACK_TYPE, getView().getType());
-        listener.onLaunchDetailCard(getView().getActivity(), bundle);
+        navigation.onLaunchDetailCard(getView().getActivity(), bundle);
     }
-
 
     public void getRecommendations() {
 

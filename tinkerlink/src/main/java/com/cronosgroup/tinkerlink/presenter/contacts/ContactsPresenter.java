@@ -1,8 +1,5 @@
 package com.cronosgroup.tinkerlink.presenter.contacts;
 
-import android.app.Activity;
-import android.os.Bundle;
-
 import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenter;
 import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenterView;
 
@@ -11,8 +8,6 @@ import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenterView;
  */
 public class ContactsPresenter extends TinkerLinkPresenter<ContactsPresenter.View> {
 
-    private final Actions listener;
-
     /**
      * Contacts listeners.
      */
@@ -20,21 +15,6 @@ public class ContactsPresenter extends TinkerLinkPresenter<ContactsPresenter.Vie
 
     }
 
-    /**
-     * Contacts actions.
-     */
-    public interface Actions {
-
-    }
-
-    /**
-     * @param navigationListener
-     */
-    public ContactsPresenter(Actions navigationListener) {
-        this.listener = navigationListener;
-    }
-
     // public methods
-
 
 }

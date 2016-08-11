@@ -24,9 +24,7 @@ public class DetailCardActivity extends TinkerLinkActivity<DetailCardFragment> {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         boolean isPuslish = getIntent().getExtras().getBoolean(KEY_PUBLISH);
-        if (!isPuslish) {
-            setTitle(R.string.detail_card_title);
-        }
+        setTitle(isPuslish ? R.string.detail_card_title : R.string.create_card_experience_previsualize);
     }
 
     @Override
