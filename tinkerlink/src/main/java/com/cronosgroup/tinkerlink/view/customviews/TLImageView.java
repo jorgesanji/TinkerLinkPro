@@ -195,6 +195,4 @@ public class TLImageView extends ImageView {
         ImageLoader.getInstance().cancelDisplayTask(this);
         this.setImageBitmap(null);
     }
-
-
 }

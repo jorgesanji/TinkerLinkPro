@@ -28,7 +28,6 @@ public abstract class TinkerDialogFragment extends AppCompatDialogFragment {
     protected AppSnackManager appStatusMessageManager;
     private boolean readyInitialized = false;
 
-
     // Abstract methods
     protected abstract void onDidAppear();
 

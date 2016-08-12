@@ -10,7 +10,6 @@ import com.cronosgroup.tinkerlink.view.dialog.base.TinkerDialogFragment;
  */
 public class BlockContactsDialogFragment extends TinkerDialogFragment implements BlockContactsDialogScreen.Listener {
 
-
     // Vars
     public static final int CODE = 128;
     public static final String ACTION_DONE_KEY = "action_added";

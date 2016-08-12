@@ -38,6 +38,7 @@
         android:layout_height="50dp"
         android:layout_marginLeft="@dimen/margin_small"
         android:layout_weight="0.2"
+        android:background="@drawable/button_default_states"
         android:src="@mipmap/ic_close" />
 
     <com.cronosgroup.tinkerlink.view.customviews.TLImageButton
@@ -46,6 +47,7 @@
         android:layout_height="50dp"
         android:layout_marginLeft="@dimen/margin_small"
         android:layout_weight="0.2"
+        android:background="@drawable/button_default_states"
         android:src="@mipmap/ic_edit" />
 
 </LinearLayout>
