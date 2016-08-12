@@ -24,11 +24,11 @@ public interface IONavigation {
 
     void onLaunchCardsSearch(Activity activity, Bundle bundle);
 
-    void onLaunchFilterCars(Activity activity, Bundle bundle);
+    void onLaunchFilterCards(Activity activity, Bundle bundle);
 
     void onLaunchEditUserProfile(Activity activity, Bundle bundle);
 
-    void onLaunchProfile(Activity activity, Bundle bundle);
+    void onLaunchUserProfile(Activity activity, Bundle bundle);
 
     void onLaunchConfigProfile(Activity activity, Bundle bundle);
 

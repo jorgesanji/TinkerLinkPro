@@ -14,7 +14,7 @@ import com.cronosgroup.tinkerlink.model.manager.AppImagePickerManager;
 import com.cronosgroup.tinkerlink.model.manager.AppMessagesManager;
 import com.cronosgroup.tinkerlink.model.manager.AppNotificationsManager;
 import com.cronosgroup.tinkerlink.model.manager.AppUserSessionManager;
-import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
+import com.cronosgroup.tinkerlink.view.AppNavigation;
 
 import javax.inject.Singleton;
 
@@ -54,7 +54,7 @@ public class AppModule {
     @Provides
     @Singleton
     IONavigation providerNavigation() {
-        return new ScreenNavigationHandler();
+        return new AppNavigation();
     }
 
     @Provides

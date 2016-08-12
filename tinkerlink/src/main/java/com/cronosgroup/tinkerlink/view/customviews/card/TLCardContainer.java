@@ -169,7 +169,8 @@ public class TLCardContainer extends FrameLayout {
         }
 
         //pull in views from the adapter at the position the top of the deck is set to
-        //stop when you get to for cards or the end of the adapter
+        //stop when you get to for cards
+        // the end of the adapter
         int childCount = getChildCount();
         for (int i = childCount; i < NUMBER_OF_CARDS; ++i) {
             addNextCard();

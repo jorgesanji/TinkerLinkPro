@@ -2,19 +2,19 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="110dp"
+    android:layout_height="80dp"
     android:gravity="center_vertical"
     android:orientation="horizontal"
     android:padding="@dimen/padding_content_tiny">
 
     <RelativeLayout
-        android:layout_width="@dimen/view_max_height_big"
-        android:layout_height="@dimen/view_max_height_big">
+        android:layout_width="60dp"
+        android:layout_height="60dp">
 
         <com.cronosgroup.tinkerlink.view.customviews.TLImageView
             android:id="@+id/userImage"
-            android:layout_width="@dimen/thumb_size_big"
-            android:layout_height="@dimen/thumb_size_big"
+            android:layout_width="@dimen/thumb_size_mediun"
+            android:layout_height="@dimen/thumb_size_mediun"
             android:layout_centerInParent="true"
             android:scaleType="centerCrop"
             android:src="@drawable/chica"
@@ -24,9 +24,9 @@
             android:id="@+id/cardBadge"
             android:layout_width="@dimen/thumb_size_tiny"
             android:layout_height="@dimen/thumb_size_tiny"
-            android:layout_alignBottom="@+id/userImage"
             android:layout_alignParentRight="true"
-            android:background="@drawable/background_tinker_batge_img" />
+            android:layout_alignParentBottom="true"
+            android:src="@drawable/background_tinker_batge_img" />
 
     </RelativeLayout>
 

@@ -16,6 +16,7 @@ import android.widget.LinearLayout;
 
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.enums.Font;
+import com.cronosgroup.tinkerlink.enums.ImageType;
 import com.cronosgroup.tinkerlink.interfaces.IOAddContactListener;
 import com.cronosgroup.tinkerlink.interfaces.IOIconListener;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContacto;
@@ -263,7 +264,7 @@ public class TLUserView extends LinearLayout {
 
     public void setUserImageFromUrl(String userUrl) {
         this.userUrl = userUrl;
-        mUserImage.setImageFromUrl(userUrl, TLImageView.ImageType.USER);
+        mUserImage.setImageFromUrl(userUrl, ImageType.USER);
     }
 
     public void hideIcon(boolean hide) {

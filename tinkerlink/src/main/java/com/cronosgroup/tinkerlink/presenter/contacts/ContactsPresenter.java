@@ -17,4 +17,8 @@ public class ContactsPresenter extends TinkerLinkPresenter<ContactsPresenter.Vie
 
     // public methods
 
+    public void launchImportContacts() {
+        navigation.onLaunchImportUserContacts(getView().getActivity(), null);
+    }
+
 }

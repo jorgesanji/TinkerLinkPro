@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Typeface;
 import android.text.Spannable;
 import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
 import android.util.Log;
 
 import com.cronosgroup.tinkerlink.enums.Font;
@@ -84,6 +85,17 @@ public class TypeFaceUtils {
                 Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 
         return spannableText;
+    }
+
+    public static SpannableString getStringByDefaultFont(Context context, String text) {
+        return getStringByFontType(context, text, Font.REGULAR);
+    }
+
+    public static SpannableString paintTextWithColor(Context context, String text, int colorBase, String textToChangeColor, int colorToChange, Font font) {
+        SpannableString spannableTitle = getStringByFontType(context, text, font);
+        spannableTitle.setSpan(new ForegroundColorSpan(context.getResources().getColor(colorBase)), 0, text.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        spannableTitle.setSpan(new ForegroundColorSpan(context.getResources().getColor(colorToChange)), text.indexOf(textToChangeColor), text.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        return spannableTitle;
     }
 
 

@@ -103,7 +103,7 @@ public class UserRecommendationsScreen extends RelativeLayout {
 
     public void addRecommendation(TLRecommendationView view) {
         mList.addView(view);
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, Math.round(DimenUtils.getPixelsFromDp(getContext(), 2)));
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, DimenUtils.getIntPixelsFromDp(getContext(), 2));
         LinearLayout separator = new LinearLayout(getContext());
         separator.setBackgroundResource(R.color.gray);
         separator.setLayoutParams(params);

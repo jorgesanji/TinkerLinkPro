@@ -120,8 +120,8 @@ public class ContactsScreen extends RelativeLayout {
 
     @OnClick(R.id.continueButton)
     protected void continuePressed() {
-        mIntroView.setVisibility(GONE);
         listener.onContinuePressed();
+        mIntroView.setVisibility(GONE);
     }
 
     // Public methods

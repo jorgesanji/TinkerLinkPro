@@ -43,7 +43,7 @@ public class ContactsFragment extends MVPTinkerLinkFragment<ContactsPresenter, C
 
     @Override
     public void onContinuePressed() {
-
+        getPresenter().launchImportContacts();
     }
 
     //endregion

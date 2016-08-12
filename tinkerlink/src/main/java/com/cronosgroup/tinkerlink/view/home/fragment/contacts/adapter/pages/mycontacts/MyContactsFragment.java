@@ -67,7 +67,7 @@ public class MyContactsFragment extends MVPTinkerLinkFragment<MyContactsPresente
 
     @Override
     public void onItemClicked(int position) {
-
+        getPresenter().launchUserProfile();
     }
 
     @Override
@@ -100,7 +100,7 @@ public class MyContactsFragment extends MVPTinkerLinkFragment<MyContactsPresente
     }
 
     @Override
-    public void onImportContactsPressed(){
+    public void onImportContactsPressed() {
         getPresenter().launchImportContacts();
     }
 

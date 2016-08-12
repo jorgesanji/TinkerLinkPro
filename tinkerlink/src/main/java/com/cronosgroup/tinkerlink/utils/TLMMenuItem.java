@@ -85,7 +85,7 @@ public class TLMMenuItem implements TLMMenuBuilder<TLMMenuItem, TLTextView> {
 
     @Override
     public TLTextView Build(Context context) {
-        int padding = Math.round(DimenUtils.getPixelsFromDp(context, 6));
+        int padding = DimenUtils.getIntPixelsFromDp(context, 6);
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT);
         TLTextView titleView = new TLTextView(context);
         titleView.setPadding(padding, padding, padding, padding);

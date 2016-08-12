@@ -165,8 +165,8 @@ public class NetworkDialogScreen extends TLLinearLayout {
     }
 
     private void addCategoryToContainer(String category, LinearLayout container, int textColor, int background) {
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, (int) Math.floor(DimenUtils.getPixelsFromDp(getContext(), 40)));
-        params.bottomMargin = (int) Math.floor(DimenUtils.getPixelsFromDp(getContext(), 10));
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, DimenUtils.getIntPixelsFromDp(getContext(), 40));
+        params.bottomMargin = DimenUtils.getIntPixelsFromDp(getContext(), 10);
 
         TLTextView categoryView = new TLTextView(getContext());
         categoryView.setText(category);

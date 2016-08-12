@@ -53,7 +53,9 @@ public class CircleBitmapDisplayer extends RoundedBitmapDisplayer {
             throw new IllegalArgumentException("ImageAware should wrap ImageView. ImageViewAware is expected.");
         }
 
-        RoundedBitmapDrawable rounddrawable = RoundedBitmapDrawableFactory.create(context.getResources(), isWithBorder() ? TLBitmapUtils.bitmapWithBorder(bitmap) : bitmap);
+        int border = DimenUtils.getIntPixelsFromDp(imageAware.getWrappedView().getContext(), 1);
+
+        RoundedBitmapDrawable rounddrawable = RoundedBitmapDrawableFactory.create(context.getResources(), isWithBorder() ? TLBitmapUtils.bitmapWithBorder(bitmap, border) : bitmap);
         rounddrawable.setCircular(true);
         rounddrawable.setAntiAlias(true);
 

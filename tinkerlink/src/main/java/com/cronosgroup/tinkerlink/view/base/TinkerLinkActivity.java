@@ -20,6 +20,7 @@ import com.cronosgroup.tinkerlink.application.TinkerLinkApplication;
 import com.cronosgroup.tinkerlink.enums.Font;
 import com.cronosgroup.tinkerlink.enums.ToolBarStyle;
 import com.cronosgroup.tinkerlink.utils.ImageLoaderHelper;
+import com.cronosgroup.tinkerlink.utils.Reflector;
 import com.cronosgroup.tinkerlink.utils.TypeFaceUtils;
 import com.cronosgroup.tinkerlink.utils.logger.Logger;
 
@@ -32,9 +33,9 @@ import butterknife.ButterKnife;
 
 public abstract class TinkerLinkActivity<F extends MVPTinkerLinkFragment> extends BaseActivity {
 
-    // Variables
+    // Vars
 
-    private TinkerLinkFragment currentFragment;
+    private F currentFragment;
 
     @Inject
     Logger mLooger;
@@ -109,7 +110,7 @@ public abstract class TinkerLinkActivity<F extends MVPTinkerLinkFragment> extend
     }
 
     protected void initFragment() {
-        this.currentFragment = (TinkerLinkFragment) Fragment.instantiate(this, getFragment().getName());
+        this.currentFragment = (F) Fragment.instantiate(this, getFragment().getName());
         if (currentFragment != null) {
             currentFragment.setArguments(getIntent().getExtras());
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
@@ -196,19 +197,20 @@ public abstract class TinkerLinkActivity<F extends MVPTinkerLinkFragment> extend
 
     @Override
     public void setTitle(int title) {
-        if (getActivityStyle() != ToolBarStyle.HOMESTYLE) {
-            getSupportActionBar().setDisplayShowHomeEnabled(false);
-            getSupportActionBar().setHomeButtonEnabled(true);
-        }
-        SpannableString spannableTitle = TypeFaceUtils.getStringByFontType(this, getString(title), Font.REGULAR);
-        getSupportActionBar().setTitle(spannableTitle);
+        setTitle(getString(title));
     }
 
     @Override
     public void setTitle(CharSequence title) {
-        SpannableString spannableTitle = TypeFaceUtils.getStringByFontType(this, title.toString(), Font.REGULAR);
-        getSupportActionBar().setDisplayShowHomeEnabled(false);
-        getSupportActionBar().setHomeButtonEnabled(true);
+        SpannableString spannableTitle = null;
+        if (getActivityStyle() != ToolBarStyle.HOMESTYLE) {
+            getSupportActionBar().setDisplayShowHomeEnabled(false);
+            getSupportActionBar().setHomeButtonEnabled(true);
+            spannableTitle = TypeFaceUtils.getStringByFontType(this, title.toString(), Font.REGULAR);
+        } else {
+            spannableTitle = TypeFaceUtils.paintTextWithColor(this, title.toString(), R.color.tinkercolor, getString(R.string.app_name_truncate_to_paint), R.color.linkercolor, Font.REGULAR);
+        }
+
         getSupportActionBar().setTitle(spannableTitle);
     }
 
@@ -238,4 +240,9 @@ public abstract class TinkerLinkActivity<F extends MVPTinkerLinkFragment> extend
         super.onBackPressed();
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Reflector.fixInputMethodManager(this);
+    }
 }

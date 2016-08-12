@@ -23,13 +23,11 @@
         android:text="@string/tutorial_tinker_title" />
 
     <android.support.v7.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="220dp"
+        style="@style/CardTutorialViewStyle"
+
         android:layout_below="@+id/titleTinker"
         android:layout_margin="@dimen/margin_plus_biggest"
-        android:padding="6dp"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="4dp">
+        android:padding="6dp">
 
         <com.cronosgroup.tinkerlink.view.customviews.TLImageView
             android:layout_width="match_parent"

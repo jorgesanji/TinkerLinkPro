@@ -1,13 +1,11 @@
 package com.cronosgroup.tinkerlink.view.home;
 
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.presenter.home.HomePresenter;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
-
 
 /**
  * Home Fragment
@@ -82,17 +80,14 @@ public class HomeFragment extends MVPTinkerLinkFragment<HomePresenter, HomePrese
     }
 
     private void onMenuItemSelected(int position) {
-        replaceFragment(fragments[position]);
         homeScreen.setItem(position);
+        replaceFragment(fragments[position]);
     }
 
-    private void replaceFragment(MainFragments mainFragments) {
-        Fragment fragment = getActivity().getSupportFragmentManager().findFragmentByTag(mainFragments.getFragment());
-        if (fragment == null || !fragment.getClass().equals(mainFragments.getClassFragment())) {
-            FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-            transaction.setCustomAnimations(R.anim.abc_fade_in, R.anim.abc_fade_out);
-            transaction.replace(R.id.contentActionsFrame, Fragment.instantiate(getActivity(), mainFragments.getFragment()), mainFragments.getFragment());
-            transaction.commit();
+    private void replaceFragment(MainFragments mainFragment) {
+        Fragment fragment = getActivity().getSupportFragmentManager().findFragmentByTag(mainFragment.getFragment());
+        if (fragment == null || !fragment.getClass().equals(mainFragment.getClassFragment())) {
+            addFragment(mainFragment.getClassFragment(), R.id.contentActionsFrame);
         }
     }
 

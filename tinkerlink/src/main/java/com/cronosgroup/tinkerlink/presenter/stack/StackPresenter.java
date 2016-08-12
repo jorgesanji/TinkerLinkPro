@@ -135,7 +135,7 @@ public class StackPresenter extends TinkerLinkPresenter<StackPresenter.View> {
     public void onFilterCardsPressed() {
         Bundle bundle = new Bundle();
         bundle.putSerializable(StackActivity.STACK_TYPE, getView().getType());
-        navigation.onLaunchFilterCars(getView().getActivity(), bundle);
+        navigation.onLaunchFilterCards(getView().getActivity(), bundle);
     }
 
     public void onWritteMessageSelected() {
@@ -168,6 +168,6 @@ public class StackPresenter extends TinkerLinkPresenter<StackPresenter.View> {
     }
 
     public void onWatchProfilePressed() {
-        navigation.onLaunchProfile(getView().getActivity(), null);
+        navigation.onLaunchUserProfile(getView().getActivity(), null);
     }
 }

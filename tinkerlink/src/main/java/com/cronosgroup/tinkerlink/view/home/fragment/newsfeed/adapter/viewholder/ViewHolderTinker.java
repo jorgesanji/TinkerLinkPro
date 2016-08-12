@@ -7,17 +7,18 @@ import android.text.style.ForegroundColorSpan;
 import android.view.View;
 
 import com.cronosgroup.tinkerlink.R;
-import com.cronosgroup.tinkerlink.model.manager.AppConfigManager;
+import com.cronosgroup.tinkerlink.enums.ImageType;
+import com.cronosgroup.tinkerlink.interfaces.IOIconListener;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContacto;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestUser;
+import com.cronosgroup.tinkerlink.model.manager.AppConfigManager;
 import com.cronosgroup.tinkerlink.utils.DateUtils;
 import com.cronosgroup.tinkerlink.view.customviews.TLImageView;
 import com.cronosgroup.tinkerlink.view.customviews.TLTabItem;
 import com.cronosgroup.tinkerlink.view.customviews.TLTextView;
 import com.cronosgroup.tinkerlink.view.customviews.TLUserView;
 import com.cronosgroup.tinkerlink.view.home.fragment.newsfeed.adapter.viewholder.base.ViewHolderPostBase;
-import com.cronosgroup.tinkerlink.interfaces.IOIconListener;
 
 import java.util.Date;
 
@@ -102,10 +103,10 @@ public class ViewHolderTinker extends ViewHolderPostBase<RestPost> {
         }
     }
 
-    protected void setInfoCard(final RestPost post, int title, TLImageView.ImageType imageType) {
+    protected void setInfoCard(final RestPost post, int title, ImageType imageType) {
         final RestUser user = post.getUser().getUser();
 
-        mUserCardImage.setImageFromUrl(getAppConfigManager().getPath(AppConfigManager.Path.PATH_IMAGE_PROFILE_THUMBNAIL) + user.getPhoto(), TLImageView.ImageType.USER);
+        mUserCardImage.setImageFromUrl(getAppConfigManager().getPath(AppConfigManager.Path.PATH_IMAGE_PROFILE_THUMBNAIL) + user.getPhoto(), ImageType.USER);
         mUserCardImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -153,6 +154,6 @@ public class ViewHolderTinker extends ViewHolderPostBase<RestPost> {
     @Override
     public void configureItem(final RestPost post) {
         super.configureItem(post);
-        setInfoCard(post, R.string.detail_card_user_iam, TLImageView.ImageType.TINKER);
+        setInfoCard(post, R.string.detail_card_user_iam, ImageType.TINKER);
     }
 }

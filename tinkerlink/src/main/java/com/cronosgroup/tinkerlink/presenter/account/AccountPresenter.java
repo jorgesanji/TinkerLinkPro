@@ -26,7 +26,7 @@ public class AccountPresenter extends TinkerLinkPresenter<AccountPresenter.View>
     }
 
     public void onLaunchProfile() {
-        navigation.onLaunchProfile(getView().getActivity(), null);
+        navigation.onLaunchUserProfile(getView().getActivity(), null);
     }
 
     public void onLaunchConfigProfile() {

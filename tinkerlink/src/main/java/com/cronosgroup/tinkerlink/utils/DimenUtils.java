@@ -20,6 +20,10 @@ public class DimenUtils {
         return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, r.getDisplayMetrics());
     }
 
+    public static int getIntPixelsFromDp(Context context, float dp) {
+        return Math.round(getPixelsFromDp(context, dp));
+    }
+
     public static int dpToPx(Context context, int dp) {
         int px = Math.round(dp * getPixelScaleFactor(context));
         return px;

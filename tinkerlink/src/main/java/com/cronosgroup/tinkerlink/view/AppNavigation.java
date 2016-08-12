@@ -38,11 +38,11 @@ import com.cronosgroup.tinkerlink.view.usercontacts.UserContactsActivity;
 /**
  * Created by jorgesanmartin on 2/26/16.
  */
-public final class ScreenNavigationHandler implements IONavigation {
+public final class AppNavigation implements IONavigation {
 
     //Instance
 
-    public ScreenNavigationHandler() {
+    public AppNavigation() {
     }
 
     // ---------------------------- LAUNCH INTENT -------------------------------
@@ -83,7 +83,7 @@ public final class ScreenNavigationHandler implements IONavigation {
         return openIntent;
     }
 
-    // ------------------------ INTENTS CREATION  -----------------------------------
+    // ------------------------ ACTIVITY INTENTS CREATION  -----------------------------------
 
     private static Intent sign(Activity context, Bundle bundle) {
         return newTask(context, SignActivity.class, bundle);
@@ -203,6 +203,7 @@ public final class ScreenNavigationHandler implements IONavigation {
 
     /**
      * Launch Home activity
+     *
      * @param activity
      * @param bundle
      */
@@ -214,6 +215,7 @@ public final class ScreenNavigationHandler implements IONavigation {
 
     /**
      * Launch Login activity
+     *
      * @param activity
      * @param bundle
      */
@@ -224,6 +226,7 @@ public final class ScreenNavigationHandler implements IONavigation {
 
     /**
      * Launch Sign activity
+     *
      * @param activity
      * @param bundle
      */
@@ -234,6 +237,7 @@ public final class ScreenNavigationHandler implements IONavigation {
 
     /**
      * Launch Stack Activity
+     *
      * @param activity
      * @param bundle
      */
@@ -245,6 +249,7 @@ public final class ScreenNavigationHandler implements IONavigation {
 
     /**
      * Launch Detail Stack activity
+     *
      * @param activity
      * @param bundle
      */
@@ -256,6 +261,7 @@ public final class ScreenNavigationHandler implements IONavigation {
 
     /**
      * Launch News feed search activity
+     *
      * @param activity
      * @param bundle
      */
@@ -266,6 +272,7 @@ public final class ScreenNavigationHandler implements IONavigation {
 
     /**
      * Launch User status activity
+     *
      * @param activity
      * @param bundle
      */
@@ -276,6 +283,7 @@ public final class ScreenNavigationHandler implements IONavigation {
 
     /**
      * Launch Cards search activity
+     *
      * @param activity
      * @param bundle
      */
@@ -287,17 +295,19 @@ public final class ScreenNavigationHandler implements IONavigation {
 
     /**
      * Launch Filter cards activity
+     *
      * @param activity
      * @param bundle
      */
 
     @Override
-    public void onLaunchFilterCars(Activity activity, Bundle bundle) {
+    public void onLaunchFilterCards(Activity activity, Bundle bundle) {
         startActivity(activity, filterCards(activity, bundle));
     }
 
     /**
      * Launch Edit user profile activity
+     *
      * @param activity
      * @param bundle
      */
@@ -309,17 +319,19 @@ public final class ScreenNavigationHandler implements IONavigation {
 
     /**
      * Launch Profile activity
+     *
      * @param activity
      * @param bundle
      */
 
     @Override
-    public void onLaunchProfile(Activity activity, Bundle bundle) {
+    public void onLaunchUserProfile(Activity activity, Bundle bundle) {
         startActivity(activity, profile(activity, bundle));
     }
 
     /**
      * Launch Config profile activity
+     *
      * @param activity
      * @param bundle
      */
@@ -331,6 +343,7 @@ public final class ScreenNavigationHandler implements IONavigation {
 
     /**
      * Launch Create user recommendations activity
+     *
      * @param activity
      * @param bundle
      */
@@ -342,6 +355,7 @@ public final class ScreenNavigationHandler implements IONavigation {
 
     /**
      * Launch Create card activity
+     *
      * @param activity
      * @param bundle
      */
@@ -353,6 +367,7 @@ public final class ScreenNavigationHandler implements IONavigation {
 
     /**
      * Launch Change user password activity
+     *
      * @param activity
      * @param bundle
      */
@@ -363,6 +378,7 @@ public final class ScreenNavigationHandler implements IONavigation {
 
     /**
      * Launch Change user phone number activity
+     *
      * @param activity
      * @param bundle
      */
@@ -374,6 +390,7 @@ public final class ScreenNavigationHandler implements IONavigation {
 
     /**
      * Launch Import user contacts activity
+     *
      * @param activity
      * @param bundle
      */
@@ -385,6 +402,7 @@ public final class ScreenNavigationHandler implements IONavigation {
 
     /**
      * Launch User privacy activity
+     *
      * @param activity
      * @param bundle
      */
@@ -396,6 +414,7 @@ public final class ScreenNavigationHandler implements IONavigation {
 
     /**
      * Launch Recovery user password
+     *
      * @param activity
      * @param bundle
      */
@@ -406,6 +425,7 @@ public final class ScreenNavigationHandler implements IONavigation {
 
     /**
      * Launch User verification activity
+     *
      * @param activity
      * @param bundle
      */
@@ -417,6 +437,7 @@ public final class ScreenNavigationHandler implements IONavigation {
 
     /**
      * Launch TinkerLink help activity
+     *
      * @param activity
      * @param bundle
      */
@@ -428,6 +449,7 @@ public final class ScreenNavigationHandler implements IONavigation {
 
     /**
      * Launch Policy privacy
+     *
      * @param activity
      * @param bundle
      */
@@ -439,6 +461,7 @@ public final class ScreenNavigationHandler implements IONavigation {
 
     /**
      * Launch Frequently questions activity
+     *
      * @param activity
      * @param bundle
      */
@@ -449,6 +472,7 @@ public final class ScreenNavigationHandler implements IONavigation {
 
     /**
      * Launch User contacts activity
+     *
      * @param activity
      * @param bundle
      */
@@ -459,6 +483,7 @@ public final class ScreenNavigationHandler implements IONavigation {
 
     /**
      * Launch Search Contacts activity
+     *
      * @param activity
      * @param bundle
      */
@@ -470,6 +495,7 @@ public final class ScreenNavigationHandler implements IONavigation {
 
     /**
      * Launch User recommendations activity
+     *
      * @param activity
      * @param bundle
      */
@@ -481,6 +507,7 @@ public final class ScreenNavigationHandler implements IONavigation {
 
     /**
      * Launch Give use recommendation activity
+     *
      * @param activity
      * @param bundle
      */
@@ -492,6 +519,7 @@ public final class ScreenNavigationHandler implements IONavigation {
 
     /**
      * Launch Chat user activity
+     *
      * @param activity
      * @param bundle
      */

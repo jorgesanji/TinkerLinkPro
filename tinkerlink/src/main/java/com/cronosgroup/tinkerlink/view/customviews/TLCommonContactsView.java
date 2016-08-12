@@ -29,17 +29,6 @@ public class TLCommonContactsView extends RelativeLayout {
     private boolean showstatusContact;
 
     //Views
-    @BindView(R.id.contact1)
-    protected TLImageView mContact1;
-
-    @BindView(R.id.contact2)
-    protected TLImageView mContact2;
-
-    @BindView(R.id.contact3)
-    protected TLImageView mContact3;
-
-    @BindView(R.id.contact4)
-    protected TLImageView mContact4;
 
     @BindView(R.id.numberContacts)
     protected TLTextView mNumberContacts;
@@ -107,8 +96,8 @@ public class TLCommonContactsView extends RelativeLayout {
     }
 
     private void setParamsContainer(boolean wrContent) {
-        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(wrContent ? ViewGroup.LayoutParams.WRAP_CONTENT : Math.round(DimenUtils.getPixelsFromDp(getContext(), 50)), ViewGroup.LayoutParams.WRAP_CONTENT);
-        params.leftMargin = isShowstatusContact() ? Math.round(DimenUtils.getPixelsFromDp(getContext(), 100)) : 0;
+        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(wrContent ? ViewGroup.LayoutParams.WRAP_CONTENT :DimenUtils.getIntPixelsFromDp(getContext(), 50), ViewGroup.LayoutParams.WRAP_CONTENT);
+        params.leftMargin = isShowstatusContact() ? DimenUtils.getIntPixelsFromDp(getContext(), 100) : 0;
         params.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
         params.addRule(RelativeLayout.CENTER_VERTICAL);
         mcontainerCommon.setLayoutParams(params);

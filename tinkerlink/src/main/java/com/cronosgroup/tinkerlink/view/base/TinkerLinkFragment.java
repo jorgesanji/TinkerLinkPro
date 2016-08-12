@@ -103,17 +103,28 @@ public abstract class TinkerLinkFragment extends Fragment {
         return fragment;
     }
 
-    public <F extends Fragment> void addFragment(Class<F> clazz, int container) {
-        addFragment(clazz, container, null);
+    public <F extends Fragment> F addFragment(Class<F> clazz, int container) {
+        return addFragment(clazz, container, clazz.getName(), 1, -1);
     }
 
-    public <F extends Fragment> void addFragment(Class<F> clazz, int container, String name) {
+    public <F extends Fragment> F addFragment(Class<F> clazz, int container, int animIn, int animOut) {
+        return addFragment(clazz, container, clazz.getName(), animIn, animOut);
+    }
+
+    public <F extends Fragment> F addFragment(Class<F> clazz, int container, String name, int animationIn, int animaitionOut) {
         Fragment currentFragment = Fragment.instantiate(getActivity(), clazz.getName());
         if (currentFragment != null) {
             FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-            transaction.add(container, currentFragment, name != null ? name : clazz.getName());
+            if (animaitionOut != -1 && animaitionOut != -1) {
+                transaction.setCustomAnimations(animationIn, animaitionOut);
+            }
+            transaction.replace(container, currentFragment, name != null ? name : clazz.getName());
             transaction.commit();
+
+            return (F) currentFragment;
         }
+
+        return null;
     }
 
     public void showDialogMessage(int title, int description, int icon) {

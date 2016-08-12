@@ -131,7 +131,7 @@ public class TLMenuButton extends LinearLayout {
     }
 
     private void configMainButton() {
-        int size = Math.round(DimenUtils.getPixelsFromDp(getContext(), DEFAULT_SIZE_BUTTON));
+        int size = DimenUtils.getIntPixelsFromDp(getContext(), DEFAULT_SIZE_BUTTON);
         LinearLayout.LayoutParams params = new LayoutParams(size, size);
         mMenuButton = new TLImageButton(getContext());
         mMenuButton.setLayoutParams(params);

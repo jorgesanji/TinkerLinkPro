@@ -96,4 +96,8 @@ public class MyContactsPresenter extends TinkerLinkPresenter<MyContactsPresenter
     public void launchSearchContacts() {
         navigation.onLaunchSearchContacts(getView().getActivity(), null);
     }
+
+    public void launchUserProfile() {
+        navigation.onLaunchUserProfile(getView().getActivity(), null);
+    }
 }
