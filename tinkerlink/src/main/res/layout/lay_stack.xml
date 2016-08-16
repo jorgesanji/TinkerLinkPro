@@ -2,7 +2,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:clipChildren="false"
+    android:clipToPadding="false">
 
     <View
         android:id="@+id/backgroundFadeIn"
@@ -19,21 +21,16 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:clipChildren="false"
+        android:clipToPadding="false"
         android:gravity="center_horizontal"
         android:orientation="vertical">
 
-        <!--<com.bartoszlipinski.flippablestackview.FlippableStackView-->
-        <!--android:id="@+id/pager"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="0dp"-->
-        <!--android:layout_weight="1"-->
-        <!--android:visibility="gone" />-->
-
         <com.cronosgroup.tinkerlink.view.customviews.card.TLCardFrameLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:background="@color/gray">
+            android:layout_height="350dp"
+            android:layout_marginTop="@dimen/margin_big"
+            android:background="@android:color/transparent">
 
             <com.cronosgroup.tinkerlink.view.customviews.card.TLCardContainer
                 android:id="@+id/cardContainer"
@@ -42,11 +39,9 @@
                 app:card_spacing="10dp"
                 app:max_items_visible="3"
                 app:opacity_end="0.2"
-                app:render_above="true"
-                app:max_rotation_degrees="0" />
+                app:render_mode="below" />
 
         </com.cronosgroup.tinkerlink.view.customviews.card.TLCardFrameLayout>
-
 
         <SeekBar
             android:id="@+id/stackIndicator"
@@ -66,16 +61,6 @@
             android:gravity="center"
             android:text="56/78" />
 
-        <com.cronosgroup.tinkerlink.view.customviews.TLTextView
-            android:id="@+id/selectCardsType"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:background="@drawable/button_default_states"
-            android:gravity="center"
-            android:padding="20dp"
-            android:textSize="@dimen/text_size_mediun"
-            app:fontName="Bold" />
 
     </LinearLayout>
 
@@ -84,6 +69,17 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="gone" />
+
+    <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+        android:id="@+id/selectCardsType"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/button_default_states"
+        android:gravity="center"
+        android:padding="20dp"
+        android:textSize="@dimen/text_size_mediun"
+        app:fontName="Bold" />
 
 </RelativeLayout>
 

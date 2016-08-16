@@ -160,7 +160,7 @@ public class StackScreen extends RelativeLayout {
                 final float oneElementWidth = TotalWidth / adapter.getCount();
                 final float currentWidthProgress = (progress * TotalWidth) / 100;
                 final int currentIndex = (int) Math.ceil(currentWidthProgress / oneElementWidth) - 1;
-//                mPager.setCurrentItem(Math.abs(currentIndex - (adapter.getCount() - 1)), true);
+                mCardContainer.setSelection(Math.abs(currentIndex - (adapter.getCount() - 1)));
                 setNumberPages(adapter.getCount(), (currentIndex == -1) ? 1 : currentIndex + 1);
             }
 

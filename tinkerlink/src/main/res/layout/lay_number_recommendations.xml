@@ -4,6 +4,7 @@
     android:layout_height="40dp"
     android:background="@drawable/background_recommendation_roundborders"
     android:gravity="center_vertical"
+    android:elevation="6dp"
     android:orientation="horizontal">
 
     <com.cronosgroup.tinkerlink.view.customviews.TLImageView

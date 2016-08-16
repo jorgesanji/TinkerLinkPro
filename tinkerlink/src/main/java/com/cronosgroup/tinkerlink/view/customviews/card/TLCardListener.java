@@ -12,7 +12,6 @@ import android.view.animation.OvershootInterpolator;
  */
 public class TLCardListener implements View.OnTouchListener {
 
-    private float ROTATION_DEGREES = 15f;
     float OPACITY_END = 0.33f;
     private float initialX;
     private float initialY;
@@ -29,54 +28,37 @@ public class TLCardListener implements View.OnTouchListener {
     private boolean deactivated;
     private View rightView;
     private View leftView;
+    private boolean click = true;
 
-
-    public TLCardListener(View card, final SwipeCallback callback, float initialX, float initialY, float rotation, float opacityEnd) {
+    public TLCardListener(View card, final SwipeCallback callback, float initialX, float initialY, float opacityEnd) {
         this.card = card;
         this.initialX = initialX;
         this.initialY = initialY;
         this.callback = callback;
         this.parent = (ViewGroup) card.getParent();
         this.parentWidth = parent.getWidth();
-        this.ROTATION_DEGREES = rotation;
         this.OPACITY_END = opacityEnd;
         this.paddingLeft = ((ViewGroup) card.getParent()).getPaddingLeft();
     }
 
-    public TLCardListener(View card, final SwipeCallback callback, float initialX, float initialY, float rotation, float opacityEnd, int screenWidth) {
-        this.card = card;
-        this.initialX = initialX;
-        this.initialY = initialY;
-        this.callback = callback;
-        this.parent = (ViewGroup) card.getParent();
-        this.parentWidth = screenWidth;
-        this.ROTATION_DEGREES = rotation;
-        this.OPACITY_END = opacityEnd;
-        this.paddingLeft = ((ViewGroup) card.getParent()).getPaddingLeft();
-    }
-
-
-    private boolean click = true;
 
     @Override
-    public boolean onTouch(View v, MotionEvent event) {
+    public boolean onTouch(View view, MotionEvent event) {
         if (deactivated) return false;
         switch (event.getAction() & MotionEvent.ACTION_MASK) {
 
             case MotionEvent.ACTION_DOWN:
                 click = true;
-                //gesture has begun
-                float x;
-                float y;
+
                 //cancel any current animations
-                v.clearAnimation();
+                view.clearAnimation();
 
                 mActivePointerId = event.getPointerId(0);
 
-                x = event.getX();
-                y = event.getY();
+                final float x = event.getX();
+                final float y = event.getY();
 
-                if(event.findPointerIndex(mActivePointerId) == 0) {
+                if (event.findPointerIndex(mActivePointerId) == 0) {
                     callback.cardActionDown();
                 }
 
@@ -88,8 +70,7 @@ public class TLCardListener implements View.OnTouchListener {
                 //gesture is in progress
 
                 final int pointerIndex = event.findPointerIndex(mActivePointerId);
-                //Log.i("pointer index: " , Integer.toString(pointerIndex));
-                if(pointerIndex < 0 || pointerIndex > 0 ){
+                if (pointerIndex < 0 || pointerIndex > 0) {
                     break;
                 }
 
@@ -102,30 +83,23 @@ public class TLCardListener implements View.OnTouchListener {
 
                 //throw away the move in this case as it seems to be wrong
                 //TODO: figure out why this is the case
-                if((int)initialXPress == 0 && (int) initialYPress == 0){
-                    //makes sure the pointer is valid
+                if ((int) initialXPress == 0 && (int) initialYPress == 0) {
                     break;
                 }
-                //calc rotation here
+
                 float posX = card.getX() + dx;
-                float posY = card.getY() + dy;
+                //Consider the motion a click
+                if (Math.abs(dx + dy) > 5) {
+                    click = false;
+                }
 
-                //in this circumstance consider the motion a click
-                if (Math.abs(dx + dy) > 5) click = false;
-
+                // Move and rotation
                 card.setX(posX);
-                card.setY(posY);
+                card.setRotation(posX * 0.1f);
 
-                //card.setRotation
-                float distobjectX = posX - initialX;
-                float rotation = ROTATION_DEGREES * 2.f * distobjectX / parentWidth;
-                card.setRotation(rotation);
-
-                if (rightView != null && leftView != null){
+                if (rightView != null && leftView != null) {
                     //set alpha of left and right image
                     float alpha = (((posX - paddingLeft) / (parentWidth * OPACITY_END)));
-                    //float alpha = (((posX - paddingLeft) / parentWidth) * ALPHA_MAGNITUDE );
-                    //Log.i("alpha: ", Float.toString(alpha));
                     rightView.setAlpha(alpha);
                     leftView.setAlpha(-alpha);
                 }
@@ -138,14 +112,13 @@ public class TLCardListener implements View.OnTouchListener {
                 //card position
                 checkCardForEvent();
 
-                if(event.findPointerIndex(mActivePointerId) == 0) {
+                if (event.findPointerIndex(mActivePointerId) == 0) {
                     callback.cardActionUp();
                 }
-                //check if this is a click event and then perform a click
-                //this is a workaround, android doesn't play well with multiple listeners
 
-                if (click) v.performClick();
-                //if(click) return false;
+                if (click){
+                    view.performClick();
+                }
 
                 break;
 
@@ -225,8 +198,8 @@ public class TLCardListener implements View.OnTouchListener {
     }
 
     private ViewPropertyAnimator resetCardPosition() {
-        if(rightView!=null)rightView.setAlpha(0);
-        if(leftView!=null)leftView.setAlpha(0);
+        if (rightView != null) rightView.setAlpha(0);
+        if (leftView != null) leftView.setAlpha(0);
         return card.animate()
                 .setDuration(200)
                 .setInterpolator(new OvershootInterpolator(1.5f))
@@ -262,9 +235,13 @@ public class TLCardListener implements View.OnTouchListener {
 
     public interface SwipeCallback {
         void cardSwipedLeft();
+
         void cardSwipedRight();
+
         void cardOffScreen();
+
         void cardActionDown();
+
         void cardActionUp();
     }
 

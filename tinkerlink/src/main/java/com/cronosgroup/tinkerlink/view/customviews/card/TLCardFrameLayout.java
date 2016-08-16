@@ -14,18 +14,21 @@ import java.util.ArrayList;
 public class TLCardFrameLayout extends FrameLayout {
 
     public TLCardFrameLayout(Context context) {
-        super(context);
-        setClipChildren(false);
+        this(context, null);
     }
 
     public TLCardFrameLayout(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        setClipChildren(false);
+        this(context, attrs, 0);
     }
 
     public TLCardFrameLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        init();
+    }
+
+    private void init() {
         setClipChildren(false);
+        setClipToPadding(false);
     }
 
     //this is so that on versions of android pre lollipop it will render the cardstack above

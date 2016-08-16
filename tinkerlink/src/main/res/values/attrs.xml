@@ -74,9 +74,9 @@
         <attr name="hintText" format="string" />
         <!--<attr name="textColorForm" format="color" />-->
         <!--<attr name="textSide" format="integer">-->
-            <!--<flag name="right" value="0" />-->
-            <!--<flag name="left" value="1" />-->
-            <!--<flag name="center" value="2" />-->
+        <!--<flag name="right" value="0" />-->
+        <!--<flag name="left" value="1" />-->
+        <!--<flag name="center" value="2" />-->
         <!--</attr>-->
         <!--<attr name="decoratorImage" format="reference" />-->
         <!--<attr name="decoratorVisible" format="boolean" />-->
@@ -268,15 +268,17 @@
 
     <declare-styleable name="TLCardContainer">
         <attr name="max_items_visible" format="integer" />
-        <attr name="max_rotation_degrees" format="float" />
         <attr name="card_spacing" format="dimension" />
-        <attr name="render_above" format="boolean" />
-        <attr name="render_below" format="boolean" />
         <attr name="opacity_end" format="float" />
         <attr name="card_gravity" format="enum">
             <enum name="top" value="0" />
             <enum name="center" value="1" />
             <enum name="bottom" value="2" />
+        </attr>
+
+        <attr name="render_mode" format="enum">
+            <enum name="above" value="0" />
+            <enum name="below" value="1" />
         </attr>
     </declare-styleable>
 

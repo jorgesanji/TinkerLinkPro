@@ -424,6 +424,12 @@
         <item name="android:layout_margin">4dp</item>
     </style>
 
+    <style name="CardsViewStyle" parent="CardViewStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+
     <style name="CardSuggestionViewStyle" parent="CardViewStyle">
         <item name="android:layout_width">200dp</item>
         <item name="android:layout_height">150dp</item>
