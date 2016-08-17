@@ -65,7 +65,7 @@ public class RestUser extends RestBase {
     private List<String> usersShareProfile = new ArrayList<>();
 
     @SerializedName("contactos")
-    private List<RestContacto> contacts = new ArrayList<>();
+    private List<RestContact> contacts = new ArrayList<>();
 
     @SerializedName("perfil")
     private RestProfile profile = new RestProfile();
@@ -164,11 +164,11 @@ public class RestUser extends RestBase {
         this.usersShareProfile = usersShareProfile;
     }
 
-    public List<RestContacto> getContacts() {
+    public List<RestContact> getContacts() {
         return contacts;
     }
 
-    public void setContacts(List<RestContacto> contacts) {
+    public void setContacts(List<RestContact> contacts) {
         this.contacts = contacts;
     }
 

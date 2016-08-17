@@ -32,9 +32,9 @@ public class ViewHolderShareUpdatePhoto extends ViewHolderUpdatePhoto {
     @Override
     public void configureItem(final RestPost post) {
         setPost(post);
-        setSharedUser(post.getUser(), post.getFecha(), R.string.newsfeed_share_updatephoto_text);
+        setSharedUser(post.getUser(), post.getDate(), R.string.newsfeed_share_updatephoto_text);
         setOwnerUserPost(post.getPost());
         setImageCard(post.getPost());
-        setInfoButtons(post.getPost().getUser().getUser().getRecommendations(), post.getPost().getNumeroShares(), post.getPost().getNumeroVisualizaciones());
+        setInfoButtons(post.getPost().getUser().getUser().getRecommendations(), post.getPost().getNumberShares(), post.getPost().getNumberOfViews());
     }
 }

@@ -8,7 +8,6 @@ import android.view.View;
 
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.presenter.usercontacts.UserContactsPresenter;
-import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
 
 
@@ -59,7 +58,7 @@ public class UserContactsFragment extends MVPTinkerLinkFragment<UserContactsPres
 
     @Override
     protected UserContactsPresenter createPresenter() {
-        return new UserContactsPresenter(ScreenNavigationHandler.getInstance());
+        return new UserContactsPresenter();
     }
 
     @Override

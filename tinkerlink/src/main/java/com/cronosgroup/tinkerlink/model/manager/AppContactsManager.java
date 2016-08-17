@@ -17,7 +17,7 @@ import com.cronosgroup.tinkerlink.model.manager.model.Contact;
 import com.cronosgroup.tinkerlink.model.manager.model.EntryItem;
 import com.cronosgroup.tinkerlink.model.manager.model.SectionItem;
 import com.cronosgroup.tinkerlink.model.business.logic.ContactsUseCases;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContacto;
+import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContact;
 import com.cronosgroup.tinkerlink.utils.AsyncLoader;
 import com.google.gson.Gson;
 
@@ -126,13 +126,13 @@ public class AppContactsManager {
     }
 
 
-    private static Pair<List<Item>, List<Item>> createSeccionableList(List<RestContacto> list, boolean recoverTinkerLinkUsers) {
+    private static Pair<List<Item>, List<Item>> createSeccionableList(List<RestContact> list, boolean recoverTinkerLinkUsers) {
         List<Item> seccionableItems = new ArrayList<>();
         List<Item> tinkerItems = new ArrayList<>();
 
         if (!list.isEmpty()) {
 
-            RestContacto contact = list.get(0);
+            RestContact contact = list.get(0);
             String firstsLetter = contact.getUser().getName().substring(0, 1).toUpperCase();
             String firstsLetterTinker = "";
 
@@ -147,7 +147,7 @@ public class AppContactsManager {
 
             list.remove(contact);
 
-            for (RestContacto contacto : list) {
+            for (RestContact contacto : list) {
                 String newfirstsLetter = contacto.getUser().getName().substring(0, 1).toUpperCase();
                 if (!firstsLetter.equalsIgnoreCase(newfirstsLetter)) {
                     firstsLetter = newfirstsLetter;
@@ -194,9 +194,9 @@ public class AppContactsManager {
 
             @Override
             public void postProcess(String result) {
-                ContactsUseCases.getContactsFromAgenda(result, new Callback<List<RestContacto>, RestError>() {
+                ContactsUseCases.getContactsFromAgenda(result, new Callback<List<RestContact>, RestError>() {
                     @Override
-                    public void onResponse(List<RestContacto> response) {
+                    public void onResponse(List<RestContact> response) {
                         getListSectionableAndOrderAlphabetical(response, new IORecoverContactsInOrder() {
                             @Override
                             public void onContacts(Pair<List<Item>, List<Item>> pair) {
@@ -220,9 +220,9 @@ public class AppContactsManager {
     }
 
     public void loadSuggestionContacts() {
-        ContactsUseCases.getSuggestionContacts(new Callback<List<RestContacto>, RestError>() {
+        ContactsUseCases.getSuggestionContacts(new Callback<List<RestContact>, RestError>() {
             @Override
-            public void onResponse(List<RestContacto> response) {
+            public void onResponse(List<RestContact> response) {
                 getListSectionableAndOrderAlphabetical(response, new IORecoverContactsInOrder() {
                     @Override
                     public void onContacts(Pair<List<Item>, List<Item>> pair) {
@@ -244,9 +244,9 @@ public class AppContactsManager {
     public void loadUserContacts() {
         if (mUserSessionManager.getCurrentUser() != null) {
             String idUser = mUserSessionManager.getCurrentUser().getIdUser();
-            ContactsUseCases.getUserContacts(idUser, new Callback<List<RestContacto>, RestError>() {
+            ContactsUseCases.getUserContacts(idUser, new Callback<List<RestContact>, RestError>() {
                 @Override
-                public void onResponse(List<RestContacto> response) {
+                public void onResponse(List<RestContact> response) {
                     getListSectionableAndOrderAlphabetical(response, new IORecoverContactsInOrder() {
                         @Override
                         public void onContacts(Pair<List<Item>, List<Item>> pair) {
@@ -282,16 +282,16 @@ public class AppContactsManager {
         return userContacts;
     }
 
-    public static void getListSectionableAndOrderAlphabetical(final List<RestContacto> response, final IORecoverContactsInOrder callback, final boolean recoverTinkerLinkUsers) {
+    public static void getListSectionableAndOrderAlphabetical(final List<RestContact> response, final IORecoverContactsInOrder callback, final boolean recoverTinkerLinkUsers) {
 
         AsyncLoader asyncLoader = new AsyncLoader<Pair<List<Item>, List<Item>>>() {
             @Override
             public Pair<List<Item>, List<Item>> doInBackground() {
 
                 if (response != null) {
-                    Collections.sort(response, new Comparator<RestContacto>() {
+                    Collections.sort(response, new Comparator<RestContact>() {
                         @Override
-                        public int compare(RestContacto s1, RestContacto s2) {
+                        public int compare(RestContact s1, RestContact s2) {
                             return s1.getUser().getName().compareToIgnoreCase(s2.getUser().getName());
                         }
                     });

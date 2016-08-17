@@ -2,9 +2,12 @@ package com.cronosgroup.tinkerlink.utils;
 
 import android.content.Context;
 import android.graphics.Typeface;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
 import android.util.Log;
 
-import com.cronosgroup.tinkerlink.view.customviews.TLTextView;
+import com.cronosgroup.tinkerlink.enums.Font;
 
 /**
  * Font utils.
@@ -32,13 +35,13 @@ public class TypeFaceUtils {
 
     public static Typeface getFontWithFlag(Context context, int type) {
 
-        if (type == TLTextView.Font.REGULAR.getType()) {
+        if (type == Font.REGULAR.getType()) {
             return getRegularFont(context);
-        } else if (type == TLTextView.Font.BOLD.getType()) {
+        } else if (type == Font.BOLD.getType()) {
             return getBoldFont(context);
-        } else if (type == TLTextView.Font.LIGTH.getType()) {
+        } else if (type == Font.LIGTH.getType()) {
             return getLightFont(context);
-        } else if (type == TLTextView.Font.SEMIBOLD.getType()) {
+        } else if (type == Font.SEMIBOLD.getType()) {
             return getSemiBoldFont(context);
         }
 
@@ -50,27 +53,50 @@ public class TypeFaceUtils {
      * @return
      */
     public static Typeface getRegularFont(Context context) {
-        return getFont(context, "OpenSans-Regular.ttf");
+        return getFont(context, Font.REGULAR.getFontName());
     }
 
     /**
      * @return
      */
     public static Typeface getBoldFont(Context context) {
-        return getFont(context, "OpenSans-Bold.ttf");
+        return getFont(context, Font.BOLD.getFontName());
     }
 
     /**
      * @return
      */
     public static Typeface getLightFont(Context context) {
-        return getFont(context, "OpenSans-Light.ttf");
+        return getFont(context, Font.LIGTH.getFontName());
     }
 
     /**
      * @return
      */
     public static Typeface getSemiBoldFont(Context context) {
-        return getFont(context, "OpenSans-Semibold.ttf");
+        return getFont(context, Font.SEMIBOLD.getFontName());
     }
+
+    public static SpannableString getStringByFontType(Context context, String text, Font type) {
+        Typeface typeFace = TypeFaceUtils.getFont(context, type.getFontName());
+        SpannableString spannableText = new SpannableString(text);
+        spannableText.setSpan(new TLTypeFaceSpan("", typeFace),
+                0, spannableText.length(),
+                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+        return spannableText;
+    }
+
+    public static SpannableString getStringByDefaultFont(Context context, String text) {
+        return getStringByFontType(context, text, Font.REGULAR);
+    }
+
+    public static SpannableString paintTextWithColor(Context context, String text, int colorBase, String textToChangeColor, int colorToChange, Font font) {
+        SpannableString spannableTitle = getStringByFontType(context, text, font);
+        spannableTitle.setSpan(new ForegroundColorSpan(context.getResources().getColor(colorBase)), 0, text.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        spannableTitle.setSpan(new ForegroundColorSpan(context.getResources().getColor(colorToChange)), text.indexOf(textToChangeColor), text.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        return spannableTitle;
+    }
+
+
 }

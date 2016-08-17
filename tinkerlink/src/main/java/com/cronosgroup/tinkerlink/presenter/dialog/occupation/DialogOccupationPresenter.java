@@ -12,26 +12,11 @@ import java.util.List;
  */
 public class DialogOccupationPresenter extends TinkerLinkDialogPresenter<DialogOccupationPresenter.View> {
 
-    private final Actions listener;
-
     /**
      * DialogOccupation View.
      */
     public interface View extends TinkerLinkDialogPresenterView {
         void setOccupations(List<String> occupations);
-    }
-
-    /**
-     * DialogOccupation actions.
-     */
-    public interface Actions {
-    }
-
-    /**
-     * @param navigationListener
-     */
-    public DialogOccupationPresenter(Actions navigationListener) {
-        this.listener = navigationListener;
     }
 
     // public methods

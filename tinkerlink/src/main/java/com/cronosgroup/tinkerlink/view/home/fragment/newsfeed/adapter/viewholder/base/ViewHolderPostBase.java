@@ -5,11 +5,10 @@ import android.content.res.Resources;
 import android.view.View;
 
 import com.cronosgroup.core.view.recyclerview.BaseViewHolder;
-import com.cronosgroup.tinkerlink.model.manager.AppConfigManager;
-import com.cronosgroup.tinkerlink.model.manager.AppUserSessionManager;
+import com.cronosgroup.tinkerlink.interfaces.IOActionButtons;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestUser;
-import com.cronosgroup.tinkerlink.interfaces.IOActionButtons;
+import com.cronosgroup.tinkerlink.model.manager.AppUserSessionManager;
 
 import butterknife.ButterKnife;
 
@@ -21,7 +20,6 @@ public abstract class ViewHolderPostBase<T extends RestPost> extends BaseViewHol
     private IOActionButtons actionButtons;
     private T post;
 
-    private AppConfigManager appConfigManager;
     private AppUserSessionManager appUserSessionManager;
 
     /**
@@ -72,17 +70,8 @@ public abstract class ViewHolderPostBase<T extends RestPost> extends BaseViewHol
         this.post = post;
     }
 
-    public AppConfigManager getAppConfigManager() {
-        return appConfigManager;
-    }
-
     public AppUserSessionManager getAppUserSessionManager() {
         return appUserSessionManager;
-    }
-
-    public ViewHolderPostBase<T> setAppConfigManager(AppConfigManager appConfigManager) {
-        this.appConfigManager = appConfigManager;
-        return this;
     }
 
     public ViewHolderPostBase<T> setAppUserSessionManager(AppUserSessionManager appUserSessionManager) {

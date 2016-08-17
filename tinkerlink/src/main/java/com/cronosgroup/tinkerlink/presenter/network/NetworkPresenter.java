@@ -1,8 +1,5 @@
 package com.cronosgroup.tinkerlink.presenter.network;
 
-import android.app.Activity;
-import android.os.Bundle;
-
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestNetwork;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestProfile;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestUser;
@@ -22,7 +19,6 @@ public class NetworkPresenter extends TinkerLinkDialogPresenter<NetworkPresenter
     // Vars
     private static final int MAX_ITEM = 10;
     private RestNetwork network;
-    private final Actions listener;
 
     /**
      * Network listeners.
@@ -30,21 +26,6 @@ public class NetworkPresenter extends TinkerLinkDialogPresenter<NetworkPresenter
     public interface View extends TinkerLinkDialogPresenterView {
         void setNetworkInfo(RestNetwork network);
     }
-
-    /**
-     * NetWork actions.
-     */
-    public interface Actions {
-        public void onLaunchUserContacts(Activity activity, Bundle bundle);
-    }
-
-    /**
-     * @param navigationListener
-     */
-    public NetworkPresenter(Actions navigationListener) {
-        this.listener = navigationListener;
-    }
-
 
     //Actions
 
@@ -318,7 +299,7 @@ public class NetworkPresenter extends TinkerLinkDialogPresenter<NetworkPresenter
     }
 
     public void onShowContactsPressed() {
-        listener.onLaunchUserContacts(getView().getActivity(), null);
+        navigation.onLaunchUserContacts(getView().getActivity(), null);
     }
 
 }

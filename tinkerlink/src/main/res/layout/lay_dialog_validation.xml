@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/validationContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="@dimen/margin_plus_plus_plus_biggest"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                android:id="@+id/titleValidation"
+                style="@style/Text_16_SemiBlack_SemiBold_Style"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_mediun"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="@string/sign_register_validation_title" />
+
+            <include layout="@layout/lay_small_loader" />
+
+            <com.cronosgroup.tinkerlink.view.customviews.TLImageView
+                android:id="@+id/closeDialog"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.15"
+                android:scaleType="center"
+                android:src="@mipmap/ic_close" />
+
+        </LinearLayout>
+
+        <include layout="@layout/lay_separator" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginLeft="@dimen/margin_mediun"
+                    android:layout_marginRight="@dimen/margin_mediun"
+                    android:layout_weight="0.5"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <com.cronosgroup.tinkerlink.view.customviews.TLImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_plus_big"
+                        android:src="@mipmap/ic_sms" />
+
+                    <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                        android:id="@+id/validationNumber"
+                        style="@style/Text_14_Gray_Regular_Style"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_plus_biggest"
+                        android:text="@string/sign_register_validation_send" />
+
+                    <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                        style="@style/TextViewLoginSecctionsStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_plus_plus_biggest"
+                        android:gravity="left"
+                        android:text="@string/sign_register_validation_introduce_code" />
+
+                    <com.cronosgroup.tinkerlink.view.customviews.TLEditText
+                        android:id="@+id/code"
+                        style="@style/EditFormStyle"
+                        android:hint="@string/sign_register_validation_introduce_code_hint"
+                        android:inputType="number" />
+
+                    <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                        style="@style/Text_16_Gray_Regular_Style"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:text="@string/sign_register_validation_retry" />
+                </LinearLayout>
+
+                <com.cronosgroup.tinkerlink.view.customviews.TLButton
+                    android:id="@+id/verifybt"
+                    style="@style/SignButtonStyle"
+                    android:layout_marginBottom="@dimen/margin_plus_big"
+                    android:layout_marginTop="@dimen/margin_plus_plus_biggest"
+                    android:background="@drawable/button_sign_states"
+                    android:text="@string/sign_register_verify" />
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+
+</RelativeLayout>

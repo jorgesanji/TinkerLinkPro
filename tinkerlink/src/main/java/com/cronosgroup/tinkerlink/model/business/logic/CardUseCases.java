@@ -52,19 +52,19 @@ public class CardUseCases {
         String endpoint = ((type == TYPE_LINKER) ? CREATE_LINKER_KEY : CREATE_TINKER_KEY);
 
         HashMap<String, String> params = new HashMap<>();
-        params.put(CATEGORY_KEY, form.getCategoria());
-        params.put(PROFESSION_KEY, form.getProfesion());
-        params.put(HABILITIES_KEY, AppRestManager.sharedManager().getMapperUsed().toJson(form.getHabilidades()));
-        params.put(DURATION_KEY, form.getTipoProyecto());
-        params.put(SALARY_TYPE_KEY, form.getTipoCambio());
-        params.put(SALARY_KEY, form.getCosteAproximado());
-        params.put(EXPERIENCE_KEY, form.getExperiencia());
-        params.put(IMAGES_KEY, AppRestManager.sharedManager().getMapperUsed().toJson(form.getFotoString()));
-        params.put(COUNTRY_KEY, form.getPais());
-        params.put(CITY_KEY, form.getCiudad());
+        params.put(CATEGORY_KEY, form.getCategory());
+        params.put(PROFESSION_KEY, form.getProfession());
+        params.put(HABILITIES_KEY, AppRestManager.sharedManager().getMapperUsed().toJson(form.getSkills()));
+        params.put(DURATION_KEY, form.getTimeByProject());
+        params.put(SALARY_TYPE_KEY, form.getSalaryType());
+        params.put(SALARY_KEY, form.getSalary());
+        params.put(EXPERIENCE_KEY, form.getExperience());
+        params.put(IMAGES_KEY, AppRestManager.sharedManager().getMapperUsed().toJson(form.getPictures()));
+        params.put(COUNTRY_KEY, form.getCountry());
+        params.put(CITY_KEY, form.getCity());
         params.put(LATITUDE_KEY, String.valueOf(form.getLatitude()));
         params.put(LONGITUDE_KEY, String.valueOf(form.getLongitude()));
-        params.put(DESCRIPTION_KEY, form.getDescripcion());
+        params.put(DESCRIPTION_KEY, form.getDescription());
 
 //        CardServices.createCard(endpoint, params, RestPost.class, callback, tag);
     }

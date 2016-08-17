@@ -6,7 +6,7 @@ import android.text.style.ForegroundColorSpan;
 import android.view.View;
 
 import com.cronosgroup.tinkerlink.R;
-import com.cronosgroup.tinkerlink.model.manager.AppConfigManager;
+import com.cronosgroup.tinkerlink.interfaces.IOIconListener;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
 import com.cronosgroup.tinkerlink.utils.DateUtils;
 import com.cronosgroup.tinkerlink.view.customviews.TLImageView;
@@ -14,7 +14,6 @@ import com.cronosgroup.tinkerlink.view.customviews.TLTabItem;
 import com.cronosgroup.tinkerlink.view.customviews.TLTextView;
 import com.cronosgroup.tinkerlink.view.customviews.TLUserView;
 import com.cronosgroup.tinkerlink.view.home.fragment.newsfeed.adapter.viewholder.base.ViewHolderPostBase;
-import com.cronosgroup.tinkerlink.interfaces.IOIconListener;
 
 import butterknife.BindView;
 
@@ -85,8 +84,8 @@ public class ViewHolderUpdateProfile extends ViewHolderPostBase<RestPost> {
         ForegroundColorSpan color = new ForegroundColorSpan(getResources().getColor(R.color.news_feed_detail_info));
         spannableString.setSpan(color, post.getUser().getUser().getName().length(), userStatus.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         mUserContainer.setTitle(spannableString);
-        mUserContainer.setSubTitle(DateUtils.getInterval(post.getFecha(), getContext(), null));
-        mUserContainer.setUserImageFromUrl(getAppConfigManager().getPath(AppConfigManager.Path.PATH_IMAGE_PROFILE_THUMBNAIL) + post.getUser().getUser().getPhoto());
+        mUserContainer.setSubTitle(DateUtils.getInterval(post.getDate(), getContext(), null));
+        mUserContainer.setUserImageFromUrl(post.getUser().getUser().getPhoto());
         mUserContainer.setListener(new IOIconListener() {
             @Override
             public void onIconPressed() {

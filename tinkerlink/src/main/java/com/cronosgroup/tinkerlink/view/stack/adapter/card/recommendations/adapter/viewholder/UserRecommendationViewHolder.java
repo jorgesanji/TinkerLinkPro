@@ -4,7 +4,7 @@ import android.view.View;
 
 import com.cronosgroup.core.view.recyclerview.BaseViewHolder;
 import com.cronosgroup.tinkerlink.R;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestRecomendacion;
+import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestRecommendation;
 import com.cronosgroup.tinkerlink.view.customviews.TLImageView;
 import com.cronosgroup.tinkerlink.view.customviews.TLTabItem;
 import com.cronosgroup.tinkerlink.view.customviews.TLTextView;
@@ -15,7 +15,7 @@ import butterknife.ButterKnife;
 /**
  * Created by jorgesanmartin on 2/8/16.
  */
-public class UserRecommendationViewHolder extends BaseViewHolder<RestRecomendacion> {
+public class UserRecommendationViewHolder extends BaseViewHolder<RestRecommendation> {
 
     @BindView(R.id.userTitle)
     protected TLTextView mUserTitle;
@@ -41,7 +41,7 @@ public class UserRecommendationViewHolder extends BaseViewHolder<RestRecomendaci
     }
 
     @Override
-    public void configureItem(RestRecomendacion item) {
+    public void configureItem(RestRecommendation item) {
         super.configureItem(item);
     }
 }

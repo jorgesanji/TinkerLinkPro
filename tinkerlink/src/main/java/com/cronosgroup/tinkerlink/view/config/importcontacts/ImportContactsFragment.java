@@ -2,9 +2,7 @@ package com.cronosgroup.tinkerlink.view.config.importcontacts;
 
 import android.view.View;
 
-import com.cronosgroup.tinkerlink.presenter.changephonenumber.ChangePhoneNumberPresenter;
 import com.cronosgroup.tinkerlink.presenter.importcontacts.ImportContactsPresenter;
-import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
 
 
@@ -30,7 +28,7 @@ public class ImportContactsFragment extends MVPTinkerLinkFragment<ImportContacts
 
     @Override
     protected ImportContactsPresenter createPresenter() {
-        return new ImportContactsPresenter(ScreenNavigationHandler.getInstance());
+        return new ImportContactsPresenter();
     }
 
     @Override

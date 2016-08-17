@@ -2,9 +2,10 @@ package com.cronosgroup.tinkerlink.view.stack;
 
 import android.animation.Animator;
 import android.annotation.TargetApi;
+import android.content.ClipData;
+import android.content.ClipDescription;
 import android.content.Context;
 import android.os.Build;
-import android.support.v4.app.FragmentManager;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewTreeObserver;
@@ -17,10 +18,10 @@ import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.enums.StackCardType;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
 import com.cronosgroup.tinkerlink.view.customviews.TLTextView;
-import com.cronosgroup.tinkerlink.view.customviews.card.TLCardContainer;
+import com.cronosgroup.tinkerlink.view.customviews.card.TLCardStack;
 import com.cronosgroup.tinkerlink.view.dragdrop.DragDropScreen;
 import com.cronosgroup.tinkerlink.view.stack.adapter.CardsAdapter;
-import com.cronosgroup.tinkerlink.view.stack.adapter.StackAdapter;
+import com.cronosgroup.tinkerlink.view.stack.adapter.card.CardScreen;
 
 import java.util.List;
 
@@ -30,34 +31,30 @@ import butterknife.OnClick;
 
 
 /**
- * StackCardType view.
+ * StackCard view.
  */
 public class StackScreen extends RelativeLayout {
 
-    public static final int DEFAULT_PAGES = 3;
     public static final long TIME_TO_ANIMATION = 500;
     public static final long DELAY_TO_ANIMATION = 80;
-
 
     /**
      * listeners of the stack's screen.
      */
     public interface Listener {
         void onSelectCardsPressed();
+
+        void onCardPressed(int position);
     }
 
     // Vars
     private Listener listener;
 
-    private StackAdapter adapter;
     private CardsAdapter mAdapter;
-    private FragmentManager fragmentManager;
     private StackCardType stackType;
     private int TotalWidth;
 
     // Views
-//    @BindView(R.id.pager)
-//    protected FlippableStackView mPager;
 
     @BindView(R.id.backgroundFadeIn)
     protected View mBackgroundIn;
@@ -78,16 +75,7 @@ public class StackScreen extends RelativeLayout {
     protected DragDropScreen dragDropScreen;
 
     @BindView(R.id.cardContainer)
-    protected TLCardContainer mCardContainer;
-
-    /**
-     * @param context
-     */
-    public StackScreen(Context context, Listener listener, FragmentManager fragmentManager) {
-        this(context);
-        this.listener = listener;
-        this.fragmentManager = fragmentManager;
-    }
+    protected TLCardStack<CardScreen> mPager;
 
     /**
      * @param context
@@ -141,6 +129,10 @@ public class StackScreen extends RelativeLayout {
         initListener();
     }
 
+    private void setPage(int currentPage) {
+        setNumberPages(mAdapter.getCount(), (currentPage == -1) ? 1 : currentPage + 1);
+    }
+
     private void initListener() {
 
         final ViewTreeObserver obs = mStackIndicator.getViewTreeObserver();
@@ -154,14 +146,55 @@ public class StackScreen extends RelativeLayout {
             }
         });
 
+        mPager.setSwipeListener(new TLCardStack.SwipeListener<CardScreen>() {
+            @Override
+            public void cardSwipedLeft(int position) {
+                setPage(mPager.getCurrentItem());
+            }
+
+            @Override
+            public void cardSwipedRight(int position) {
+                setPage(mPager.getCurrentItem());
+            }
+
+            @Override
+            public void cardsDepleted() {
+
+            }
+
+            @Override
+            public void cardPressed(CardScreen view, int position) {
+                listener.onCardPressed(position);
+            }
+
+            @Override
+            public void cardOnLongPressed(CardScreen view, int position) {
+
+                View viewToShow = view.getViewForDrag();
+
+                // create it from the object's tag
+                ClipData.Item item = new ClipData.Item((CharSequence) viewToShow.getTag());
+
+                String[] mimeTypes = {ClipDescription.MIMETYPE_TEXT_PLAIN};
+                ClipData data = new ClipData(viewToShow.getTag().toString(), mimeTypes, item);
+
+                View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(viewToShow);
+
+                viewToShow.startDrag(data, //data to be dragged
+                        shadowBuilder, //drag shadow
+                        viewToShow, //local data about the drag and drop operation
+                        0   //no needed flags
+                );
+
+                viewToShow.setVisibility(View.INVISIBLE);
+                showOverlaySelector();
+            }
+        });
+
         mStackIndicator.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                final float oneElementWidth = TotalWidth / adapter.getCount();
-                final float currentWidthProgress = (progress * TotalWidth) / 100;
-                final int currentIndex = (int) Math.ceil(currentWidthProgress / oneElementWidth) - 1;
-//                mPager.setCurrentItem(Math.abs(currentIndex - (adapter.getCount() - 1)), true);
-                setNumberPages(adapter.getCount(), (currentIndex == -1) ? 1 : currentIndex + 1);
+
             }
 
             @Override
@@ -171,23 +204,24 @@ public class StackScreen extends RelativeLayout {
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-
+                int progress = seekBar.getProgress();
+                final float oneElementWidth = TotalWidth / mAdapter.getCount();
+                final float currentWidthProgress = (progress * TotalWidth) / 100;
+                final int currentIndex = (int) Math.ceil(currentWidthProgress / oneElementWidth) - 1;
+                setPage(currentIndex);
+                mPager.setSelection(Math.abs(currentIndex - (mAdapter.getCount() - 1)));
             }
         });
-
-
     }
 
     private void initUI() {
         mAdapter = new CardsAdapter(getContext());
-        mCardContainer.setAdapter(mAdapter);
+        mPager.setAdapter(mAdapter);
+        mPager.setVisibility(INVISIBLE);
 
         mPageNumberIndicator.setVisibility(INVISIBLE);
         mStackIndicator.setVisibility(INVISIBLE);
-//        mPager.setVisibility(INVISIBLE);
         mBackgroundIn.setAlpha(0);
-//        mPager.initStack(DEFAULT_PAGES,
-//                StackPageTransformer.Orientation.VERTICAL);
     }
 
     // **************  UI Actions **************
@@ -221,9 +255,6 @@ public class StackScreen extends RelativeLayout {
 
     public void initView(StackCardType stackType) {
         this.stackType = stackType;
-        adapter = new StackAdapter(fragmentManager);
-        adapter.setStackType(stackType);
-        adapter.setDetail(true);
         boolean isLinker = (stackType.getStackType() == StackCardType.LINKER.getStackType());
         int color = (isLinker) ? StackCardType.TINKER.getStackColor() : StackCardType.LINKER.getStackColor();
         int title = (isLinker) ? StackCardType.TINKER.getStackTitleAction() : StackCardType.LINKER.getStackTitleAction();
@@ -234,36 +265,19 @@ public class StackScreen extends RelativeLayout {
 
     public void addItems(List<RestPost> restPosts) {
         if (mAdapter.getCount() == 0 && !restPosts.isEmpty()) {
-//            mPager.setVisibility(VISIBLE);
+            mPager.setVisibility(VISIBLE);
             mPageNumberIndicator.setVisibility(VISIBLE);
             mStackIndicator.setVisibility(VISIBLE);
             mAdapter.setItems(restPosts);
             mAdapter.notifyDataSetChanged();
         } else {
-            adapter.addItems(restPosts);
-            adapter.notifyDataSetChanged();
+            mAdapter.addItems(restPosts);
+            mAdapter.notifyDataSetChanged();
         }
         if (!restPosts.isEmpty()) {
-            setNumberPages(adapter.getCount(), 1);
+            setNumberPages(mAdapter.getCount(), 1);
         }
     }
-
-//    public void addItems(List<RestPost> restPosts) {
-//        if (adapter.getCount() == 0 && !restPosts.isEmpty()) {
-//            mPager.setVisibility(VISIBLE);
-//            mPageNumberIndicator.setVisibility(VISIBLE);
-//            mStackIndicator.setVisibility(VISIBLE);
-//            adapter.addItems(restPosts);
-//            mPager.setAdapter(adapter);
-//            adapter.notifyDataSetChanged();
-//        } else {
-//            adapter.addItems(restPosts);
-//            adapter.notifyDataSetChanged();
-//        }
-//        if (!restPosts.isEmpty()) {
-//            setNumberPages(adapter.getCount(), 1);
-//        }
-//    }
 
     public void animBackground() {
         mBackgroundIn.animate().alpha(1).setDuration(TIME_TO_ANIMATION).setInterpolator(new DecelerateInterpolator()).setListener(new Animator.AnimatorListener() {
@@ -290,12 +304,11 @@ public class StackScreen extends RelativeLayout {
     }
 
     public List<RestPost> getItems() {
-        return adapter.getItems();
+        return mAdapter.getItems();
     }
 
     public int getCurrentIndexPage() {
-        return 1;
-//        return mPager.getCurrentItem();
+        return mPager.getCurrentItem();
     }
 
     public void showOverlaySelector() {

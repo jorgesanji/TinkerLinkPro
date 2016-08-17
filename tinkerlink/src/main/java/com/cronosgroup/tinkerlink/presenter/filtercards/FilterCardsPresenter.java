@@ -13,28 +13,11 @@ import java.util.List;
  */
 public class FilterCardsPresenter extends TinkerLinkPresenter<FilterCardsPresenter.View> {
 
-    // Vars
-    private final Actions listener;
-
     /**
      * FilterCards listeners.
      */
     public interface View extends TinkerLinkPresenterView {
         void setCategories(List<RestCategoria> cards);
-    }
-
-    /**
-     * FilterCards actions.
-     */
-    public interface Actions {
-    }
-
-
-    /**
-     * @param navigationListener
-     */
-    public FilterCardsPresenter(Actions navigationListener) {
-        this.listener = navigationListener;
     }
 
     //Actions

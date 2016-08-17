@@ -15,26 +15,11 @@ import java.util.List;
  */
 public class CategorySelectionPresenter extends TinkerLinkImagePickerPresenter<CategorySelectionPresenter.View> {
 
-    private final Actions listener;
-
     /**
      * Contacts listeners.
      */
     public interface View extends TinkerLinkPresenterView {
         void setCategories(List<RestCategoria> categories);
-    }
-
-    /**
-     * Contacts actions.
-     */
-    public interface Actions {
-    }
-
-    /**
-     * @param navigationListener
-     */
-    public CategorySelectionPresenter(Actions navigationListener) {
-        this.listener = navigationListener;
     }
 
     // public methods

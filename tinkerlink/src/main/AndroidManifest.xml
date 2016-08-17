@@ -5,6 +5,9 @@
 
     <!-- ****** PERMISSIONS ******** -->
 
+    <!-- Vibration -->
+    <uses-permission android:name="android.permission.VIBRATE"/>
+
     <!-- Google plus-->
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.USE_CREDENTIALS" />

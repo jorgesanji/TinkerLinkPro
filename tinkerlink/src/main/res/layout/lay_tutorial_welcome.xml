@@ -14,17 +14,17 @@
 
     <com.cronosgroup.tinkerlink.view.customviews.TLTextView
         android:id="@+id/titleWelcome"
+        style="@style/Text_25_Gray_Regular_Style"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_plus_big"
-        android:text="@string/tutorial_welcome_title"
-        android:textSize="@dimen/text_size_super_big" />
+        android:text="@string/tutorial_welcome_title" />
 
     <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+        style="@style/Text_14_SemiBlack_Regular_Style"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_mediun"
-        android:text="@string/tutorial_welcome_description"
-        android:textSize="@dimen/text_size_big" />
+        android:text="@string/tutorial_welcome_description" />
 
 </LinearLayout>

@@ -1,117 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="200dp"
-    android:layout_height="180dp"
-    android:orientation="vertical"
-    android:background="@drawable/container_shadow"
-    android:padding="@dimen/padding_content_super_big">
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/CardContactViewStyle">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.8"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        <com.cronosgroup.tinkerlink.view.customviews.TLImageView
-            android:id="@+id/userImage"
-            android:layout_width="@dimen/thumb_size_mediun"
-            android:layout_height="@dimen/thumb_size_mediun"
-            android:src="@mipmap/newsfeed_avatar_hombre"
-            app:imageType="User" />
+        <include
+            layout="@layout/lay_user_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_small" />
+
+        <include
+            layout="@layout/lay_separator"
+            android:layout_width="match_parent"
+            android:layout_height="1dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/margin_tiny"
-            android:orientation="vertical">
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
 
-            <com.cronosgroup.tinkerlink.view.customviews.TLTextView
-                android:id="@+id/userName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ellipsize="end"
-                android:maxLines="1"
-                android:text="Marta Díaz"
-                android:textColor="@color/black"
-                android:textSize="@dimen/text_size_mediun"
-                app:fontName="Regular" />
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
 
-            <com.cronosgroup.tinkerlink.view.customviews.TLTextView
-                android:id="@+id/userJob"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ellipsize="end"
-                android:maxLines="1"
-                android:text="Cocinera"
-                android:textColor="@color/black"
-                android:textSize="@dimen/text_size_small"
-                app:fontName="Light" />
+                <com.cronosgroup.tinkerlink.view.customviews.TLImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@mipmap/ic_contact_add" />
+
+                <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_tiny"
+                    android:gravity="center"
+                    android:text="@string/widget_contact_add"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_mediun" />
+
+            </LinearLayout>
+
+
+            <include
+                layout="@layout/lay_separator"
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/margin_small"
+                android:layout_marginTop="@dimen/margin_small" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <com.cronosgroup.tinkerlink.view.customviews.TLImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@mipmap/ic_network" />
+
+                <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_tiny"
+                    android:gravity="center"
+                    android:text="@string/widget_contact_watch_network"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_mediun" />
+
+            </LinearLayout>
 
         </LinearLayout>
-
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="horizontal">
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <com.cronosgroup.tinkerlink.view.customviews.TLImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:src="@mipmap/ic_contact_add" />
-
-            <com.cronosgroup.tinkerlink.view.customviews.TLTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_tiny"
-                android:gravity="center"
-                android:text="@string/widget_contact_add"
-                android:textColor="@color/black"
-                android:textSize="@dimen/text_size_mediun" />
-
-        </LinearLayout>
-
-        <View
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="@dimen/margin_small"
-            android:layout_marginTop="@dimen/margin_small"
-            android:background="@color/gray_30" />
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <com.cronosgroup.tinkerlink.view.customviews.TLImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:src="@mipmap/ic_network" />
-
-            <com.cronosgroup.tinkerlink.view.customviews.TLTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_tiny"
-                android:gravity="center"
-                android:text="@string/widget_contact_watch_network"
-                android:textColor="@color/black"
-                android:textSize="@dimen/text_size_mediun" />
-
-        </LinearLayout>
-
-    </LinearLayout>
-
-</LinearLayout>
+</android.support.v7.widget.CardView>

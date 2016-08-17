@@ -2,13 +2,12 @@ package com.cronosgroup.tinkerlink.view.dialog.validation;
 
 import android.view.View;
 
+import com.cronosgroup.tinkerlink.enums.FormState;
 import com.cronosgroup.tinkerlink.event.FormRegistrationEvent;
 import com.cronosgroup.tinkerlink.event.RegistrationStepsEvent;
 import com.cronosgroup.tinkerlink.event.SmsEvent;
-import com.cronosgroup.tinkerlink.enums.FormState;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestUser;
 import com.cronosgroup.tinkerlink.presenter.sign.ValidationPresenter;
-import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.dialog.base.MVPTinkerLinkDialogFragment;
 
 import org.greenrobot.eventbus.EventBus;
@@ -78,7 +77,7 @@ public class ValidationDialogFragment extends MVPTinkerLinkDialogFragment<Valida
 
     @Override
     protected ValidationPresenter createPresenter() {
-        return new ValidationPresenter(ScreenNavigationHandler.getInstance());
+        return new ValidationPresenter();
     }
 
     @Override

@@ -3,7 +3,6 @@ package com.cronosgroup.tinkerlink.view.createcard.adapter.fragments.experience;
 import android.view.View;
 
 import com.cronosgroup.tinkerlink.presenter.createcard.ExperienceSelectionPresenter;
-import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
 
 /**
@@ -26,7 +25,7 @@ public class ExperienceSelectionFragment extends MVPTinkerLinkFragment<Experienc
 
     @Override
     protected ExperienceSelectionPresenter createPresenter() {
-        return new ExperienceSelectionPresenter(ScreenNavigationHandler.getInstance());
+        return new ExperienceSelectionPresenter();
     }
 
     @Override

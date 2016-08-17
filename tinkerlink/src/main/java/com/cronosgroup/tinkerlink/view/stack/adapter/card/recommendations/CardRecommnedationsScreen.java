@@ -11,7 +11,7 @@ import android.widget.RelativeLayout;
 import com.cronosgroup.core.view.BaseAdapter;
 import com.cronosgroup.core.view.animator.SlideInUpAnimator;
 import com.cronosgroup.tinkerlink.R;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestRecomendacion;
+import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestRecommendation;
 import com.cronosgroup.tinkerlink.utils.TLDividerItemDecoration;
 import com.cronosgroup.tinkerlink.view.customviews.TLRecyclerView;
 import com.cronosgroup.tinkerlink.view.stack.adapter.card.recommendations.adapter.CardRecommendationsAdapter;
@@ -138,7 +138,7 @@ public class CardRecommnedationsScreen extends RelativeLayout {
         this.listener = listener;
     }
 
-    public void setItems(List<RestRecomendacion> list) {
+    public void setItems(List<RestRecommendation> list) {
         mAdapter.addItems(list);
         mProgressBar.setVisibility(GONE);
     }

@@ -1,15 +1,13 @@
 package com.cronosgroup.tinkerlink.presenter.login;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.os.Bundle;
 import android.os.Handler;
 
+import com.cronosgroup.tinkerlink.model.business.model.AppUser;
 import com.cronosgroup.tinkerlink.model.manager.socialnetworks.AppFacebookManager;
 import com.cronosgroup.tinkerlink.model.manager.socialnetworks.AppGooglePlusManager;
 import com.cronosgroup.tinkerlink.model.manager.socialnetworks.IOSocialNetwork;
 import com.cronosgroup.tinkerlink.model.manager.socialnetworks.interfaces.IOSocialNetWorkCallBack;
-import com.cronosgroup.tinkerlink.model.business.model.AppUser;
 import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenter;
 import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenterView;
 
@@ -21,7 +19,6 @@ public class LoginPresenter extends TinkerLinkPresenter<LoginPresenter.View> {
     // Vars
     private IOSocialNetwork<AppUser> appGooglePlusManager;
     private IOSocialNetwork<AppUser> appFacebookManager;
-    private final Actions listener;
 
     /**
      * Login listeners.
@@ -30,20 +27,6 @@ public class LoginPresenter extends TinkerLinkPresenter<LoginPresenter.View> {
         String getIdUser();
 
         String getPasswordUser();
-    }
-
-    /**
-     * Login actions.
-     */
-    public interface Actions {
-        void onLaunchHome(Activity activity, Bundle bundle);
-    }
-
-    /**
-     * @param navigationListener
-     */
-    public LoginPresenter(Actions navigationListener) {
-        this.listener = navigationListener;
     }
 
     @Override
@@ -68,13 +51,13 @@ public class LoginPresenter extends TinkerLinkPresenter<LoginPresenter.View> {
             @Override
             public void onResponse(AppUser response) {
                 getView().hideLoading();
-                listener.onLaunchHome(getView().getActivity(), null);
+                navigation.onLaunchHome(getView().getActivity(), null);
             }
 
             @Override
             public void onError(Object response) {
                 getView().hideLoading();
-                getView().getMessagesHandler().showNetworkError();
+                getView().getSnackMessageManager().showNetworkError();
             }
         });
     }
@@ -91,7 +74,7 @@ public class LoginPresenter extends TinkerLinkPresenter<LoginPresenter.View> {
             public void run() {
                 if (getView().getActivity() != null) {
                     getView().hideLoading();
-                    listener.onLaunchHome(getView().getActivity(), null);
+                    navigation.onLaunchHome(getView().getActivity(), null);
                 }
             }
         }, 2000);

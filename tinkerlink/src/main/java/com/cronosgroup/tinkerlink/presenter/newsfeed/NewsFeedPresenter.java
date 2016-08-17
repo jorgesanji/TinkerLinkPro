@@ -1,15 +1,14 @@
 package com.cronosgroup.tinkerlink.presenter.newsfeed;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
 import com.cronosgroup.core.rest.Callback;
 import com.cronosgroup.core.rest.RestError;
 import com.cronosgroup.tinkerlink.enums.StackCardType;
-import com.cronosgroup.tinkerlink.model.manager.socialnetworks.AppFacebookShareManager;
 import com.cronosgroup.tinkerlink.model.business.logic.NewsFeedUseCases;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
+import com.cronosgroup.tinkerlink.model.manager.socialnetworks.AppFacebookShareManager;
 import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenter;
 import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenterView;
 import com.cronosgroup.tinkerlink.view.stack.StackActivity;
@@ -26,7 +25,6 @@ public class NewsFeedPresenter extends TinkerLinkPresenter<NewsFeedPresenter.Vie
     public static final int RECOMENDATIONS_CODE = 8000;
     public static final int TIME_TO_OBSERVER = 3000;
 
-    private final Actions listener;
     private AppFacebookShareManager mFacebookManager;
 
     /**
@@ -35,26 +33,6 @@ public class NewsFeedPresenter extends TinkerLinkPresenter<NewsFeedPresenter.Vie
     public interface View extends TinkerLinkPresenterView {
         void addPosts(List<RestPost> list);
     }
-
-    /**
-     * NewsFeed actions.
-     */
-    public interface Actions {
-        void onLaunchStack(Activity activity, Bundle bundle);
-
-        void onLaunchNewsFeedSearch(Activity activity, Bundle bundle);
-
-        void onLaunchUserStatus(Activity activity, Bundle bundle);
-    }
-
-    /**
-     * @param navigationListener
-     */
-    public NewsFeedPresenter(Actions navigationListener) {
-        this.listener = navigationListener;
-    }
-
-    //region
 
     // **************  BasePresenter **************
 
@@ -84,23 +62,23 @@ public class NewsFeedPresenter extends TinkerLinkPresenter<NewsFeedPresenter.Vie
     //endregion
 
     public void onLaunchNewsFeed() {
-        listener.onLaunchNewsFeedSearch(getView().getActivity(), null);
+        navigation.onLaunchNewsFeedSearch(getView().getActivity(), null);
     }
 
     public void onLaunchUserStatus() {
-        listener.onLaunchUserStatus(getView().getActivity(), null);
+        navigation.onLaunchUserStatus(getView().getActivity(), null);
     }
 
     public void onLaunchImTinker() {
         Bundle bundle = new Bundle();
         bundle.putSerializable(StackActivity.STACK_TYPE, StackCardType.TINKER);
-        listener.onLaunchStack(getView().getActivity(), bundle);
+        navigation.onLaunchStack(getView().getActivity(), bundle);
     }
 
     public void onLaunchSearchTinker() {
         Bundle bundle = new Bundle();
         bundle.putSerializable(StackActivity.STACK_TYPE, StackCardType.LINKER);
-        listener.onLaunchStack(getView().getActivity(), bundle);
+        navigation.onLaunchStack(getView().getActivity(), bundle);
     }
 
     public void getPosts(String idLastPost) {
@@ -119,7 +97,7 @@ public class NewsFeedPresenter extends TinkerLinkPresenter<NewsFeedPresenter.Vie
             @Override
             public void onErrorResponse(RestError error) {
                 getView().hideLoading();
-                getView().getMessagesHandler().showNetworkError();
+                getView().getSnackMessageManager().showNetworkError();
             }
 
         }, getView().getActivity());

@@ -1,8 +1,5 @@
 package com.cronosgroup.tinkerlink.presenter.changephonenumber;
 
-import android.app.Activity;
-import android.os.Bundle;
-
 import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenter;
 import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenterView;
 
@@ -11,9 +8,6 @@ import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenterView;
  */
 public class ChangePhoneNumberPresenter extends TinkerLinkPresenter<ChangePhoneNumberPresenter.View> {
 
-    // Vars
-    private final Actions listener;
-
     /**
      * Config user account listeners.
      */
@@ -21,25 +15,10 @@ public class ChangePhoneNumberPresenter extends TinkerLinkPresenter<ChangePhoneN
 
     }
 
-    /**
-     * Config user account actions.
-     */
-    public interface Actions {
-        void onLaunchUserVerification(Activity activity, Bundle bundle);
-    }
-
-
-    /**
-     * @param navigationListener
-     */
-    public ChangePhoneNumberPresenter(Actions navigationListener) {
-        this.listener = navigationListener;
-    }
-
     //Actions
 
     public void onVerifyPressed() {
-        listener.onLaunchUserVerification(getView().getActivity(), null);
+        navigation.onLaunchUserVerification(getView().getActivity(), null);
     }
 }
 

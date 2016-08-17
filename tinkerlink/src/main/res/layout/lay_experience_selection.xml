@@ -19,7 +19,9 @@
             android:text="@string/create_card_experience" />
 
         <com.cronosgroup.tinkerlink.view.customviews.TLTextView
-            style="@style/TextViewLoginSecctionsStyle"
+            style="@style/Text_16_Black_Light_Style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_small"
             android:text="@string/create_card_experience_default" />
 
@@ -34,14 +36,37 @@
             android:text="@string/create_card_budget_title" />
 
         <com.cronosgroup.tinkerlink.view.customviews.TLTextView
-            style="@style/TextViewLoginSecctionsStyle"
+            style="@style/Text_16_Black_Regular_Style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_small"
             android:text="@string/create_card_budget_select_range" />
 
-        <com.cronosgroup.tinkerlink.view.customviews.TLTextView
-            style="@style/TextViewLoginSecctionsStyle"
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_small"
-            android:text="@string/create_card_budget_range" />
+            android:orientation="horizontal">
+
+            <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                style="@style/Text_16_Black_Light_Style"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="left"
+                android:text="@string/create_card_budget_range" />
+
+            <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                style="@style/Text_16_Black_Light_Style"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:text="@string/create_card_budget_range" />
+
+        </LinearLayout>
+
 
         <com.cronosgroup.tinkerlink.view.customviews.TLRangeView
             android:layout_width="match_parent"
@@ -55,11 +80,14 @@
             android:orientation="horizontal">
 
             <CheckBox
+                style="@style/CheckBoxStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
             <com.cronosgroup.tinkerlink.view.customviews.TLTextView
-                style="@style/TextViewLoginSecctionsStyle"
+                style="@style/Text_16_Black_Regular_Style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/margin_small"
                 android:text="@string/create_card_experience_agree" />
 

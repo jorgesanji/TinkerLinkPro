@@ -23,9 +23,11 @@
                 android:text="@string/create_card_experience_title" />
 
             <com.cronosgroup.tinkerlink.view.customviews.TLTextView
-                style="@style/TextViewLoginSecctionsStyle"
+                style="@style/Text_16_Black_Light_Style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_small"
-                android:text="@string/create_card_experience_default" />
+                android:text="@string/create_card_tinker_experience_default" />
 
             <com.cronosgroup.tinkerlink.view.customviews.TLRangeView
                 android:layout_width="match_parent"
@@ -34,114 +36,43 @@
 
             <com.cronosgroup.tinkerlink.view.customviews.TLTextView
                 style="@style/TextViewLoginSecctionsStyle"
-                android:layout_marginTop="@dimen/margin_mediun"
+                android:layout_marginTop="@dimen/margin_small"
                 android:text="@string/create_card_value_job_title" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
+            <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                style="@style/Text_16_Black_Regular_Style"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_big"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
+                android:layout_marginTop="@dimen/margin_small"
+                android:text="@string/create_card_value_tinker_selection_job_mode" />
 
-                <CheckBox
-                    android:id="@+id/suspectsFiles"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-
-                <com.cronosgroup.tinkerlink.view.customviews.TLTextView
-                    android:id="@+id/suspectContentText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/margin_small"
-                    android:ellipsize="end"
-                    android:maxLines="1"
-                    android:text="@string/create_card_value_by_project"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/text_size_mediun"
-                    app:fontName="Regular" />
-
-            </LinearLayout>
-
-            <LinearLayout
+            <com.cronosgroup.tinkerlink.view.customviews.TLSkillView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_big"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
+                android:layout_height="wrap_content" />
 
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-
-                <com.cronosgroup.tinkerlink.view.customviews.TLTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/margin_small"
-                    android:ellipsize="end"
-                    android:maxLines="1"
-                    android:text="@string/create_card_value_by_day"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/text_size_mediun"
-                    app:fontName="Regular" />
-
-            </LinearLayout>
-
-            <LinearLayout
+            <com.cronosgroup.tinkerlink.view.customviews.TLSkillView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_big"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
+                android:layout_height="wrap_content" />
 
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-
-                <com.cronosgroup.tinkerlink.view.customviews.TLTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/margin_small"
-                    android:ellipsize="end"
-                    android:maxLines="1"
-                    android:text="@string/create_card_value_by_hour"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/text_size_mediun"
-                    app:fontName="Regular" />
-
-            </LinearLayout>
-
-            <LinearLayout
+            <com.cronosgroup.tinkerlink.view.customviews.TLSkillView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_big"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
+                android:layout_height="wrap_content" />
 
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-
-                <com.cronosgroup.tinkerlink.view.customviews.TLTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/margin_small"
-                    android:ellipsize="end"
-                    android:maxLines="1"
-                    android:text="@string/create_card_value_by_agree"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/text_size_mediun"
-                    app:fontName="Regular" />
-
-            </LinearLayout>
+            <com.cronosgroup.tinkerlink.view.customviews.TLSkillView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
             <com.cronosgroup.tinkerlink.view.customviews.TLTextView
-                style="@style/TextViewLoginSecctionsStyle"
+                style="@style/Text_16_Black_Regular_Style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_mediun"
                 android:text="@string/create_card_value_title" />
 
             <com.cronosgroup.tinkerlink.view.customviews.TLTextView
-                style="@style/TextViewLoginSecctionsStyle"
+                style="@style/Text_16_Black_Regular_Style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_small"
                 android:text="@string/create_card_experience_agree" />
 

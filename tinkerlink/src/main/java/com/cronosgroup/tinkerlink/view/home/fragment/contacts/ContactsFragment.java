@@ -3,7 +3,6 @@ package com.cronosgroup.tinkerlink.view.home.fragment.contacts;
 import android.view.View;
 
 import com.cronosgroup.tinkerlink.presenter.contacts.ContactsPresenter;
-import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
 
 /**
@@ -27,7 +26,7 @@ public class ContactsFragment extends MVPTinkerLinkFragment<ContactsPresenter, C
 
     @Override
     protected ContactsPresenter createPresenter() {
-        return new ContactsPresenter(ScreenNavigationHandler.getInstance());
+        return new ContactsPresenter();
     }
 
     @Override
@@ -41,6 +40,11 @@ public class ContactsFragment extends MVPTinkerLinkFragment<ContactsPresenter, C
     }
 
     //region **************  ContactsScreen.Listener **************
+
+    @Override
+    public void onContinuePressed() {
+        getPresenter().launchImportContacts();
+    }
 
     //endregion
 

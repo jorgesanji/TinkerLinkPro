@@ -15,10 +15,12 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 import com.cronosgroup.tinkerlink.R;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContacto;
-import com.cronosgroup.tinkerlink.utils.TypeFaceUtils;
+import com.cronosgroup.tinkerlink.enums.Font;
+import com.cronosgroup.tinkerlink.enums.ImageType;
 import com.cronosgroup.tinkerlink.interfaces.IOAddContactListener;
 import com.cronosgroup.tinkerlink.interfaces.IOIconListener;
+import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContact;
+import com.cronosgroup.tinkerlink.utils.TypeFaceUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -137,7 +139,7 @@ public class TLUserView extends LinearLayout {
             }
         } else {
             setTitleColor(Color.BLACK);
-            setTitleFont(TLTextView.Font.BOLD.getType());
+            setTitleFont(Font.BOLD.getType());
             setTitleSize(getResources().getDimensionPixelSize(TLTextView.DEFAULT_TITLE_SIZE));
             setSubTitleColor(Color.BLACK);
             setSubTitleFont(TLTextView.DEFAULT_SUBTITLE_FONT);
@@ -244,7 +246,7 @@ public class TLUserView extends LinearLayout {
         mUserSubTitle.setTextColor(color);
     }
 
-    public void setStatus(RestContacto contacto) {
+    public void setStatus(RestContact contacto) {
         if (!contacto.getUser().isMe()) {
             mUserStatusContact.setItemFromStatus(contacto);
         } else {
@@ -262,7 +264,7 @@ public class TLUserView extends LinearLayout {
 
     public void setUserImageFromUrl(String userUrl) {
         this.userUrl = userUrl;
-        mUserImage.setImageFromUrl(userUrl, TLImageView.ImageType.USER);
+        mUserImage.setImageFromUrl(userUrl, ImageType.USER);
     }
 
     public void hideIcon(boolean hide) {

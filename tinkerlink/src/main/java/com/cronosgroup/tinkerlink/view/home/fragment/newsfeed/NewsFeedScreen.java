@@ -18,9 +18,8 @@ import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.enums.PostType;
 import com.cronosgroup.tinkerlink.interfaces.IOActionButtons;
 import com.cronosgroup.tinkerlink.interfaces.IOLoadMore;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContacto;
+import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContact;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
-import com.cronosgroup.tinkerlink.model.manager.AppConfigManager;
 import com.cronosgroup.tinkerlink.model.manager.AppUserSessionManager;
 import com.cronosgroup.tinkerlink.view.customviews.TLRecyclerView;
 import com.cronosgroup.tinkerlink.view.customviews.TLTextView;
@@ -51,7 +50,7 @@ public class NewsFeedScreen extends RelativeLayout {
 
         void onLikePressed(RestPost restPost);
 
-        void onChatPressed(RestContacto restContacto);
+        void onChatPressed(RestContact restContact);
 
         void onShareFacebookPressed(RestPost post);
 
@@ -61,7 +60,7 @@ public class NewsFeedScreen extends RelativeLayout {
 
         void onAddContactPressed(RestPost restPost);
 
-        void onUserIconPressed(RestContacto userContact);
+        void onUserIconPressed(RestContact userContact);
 
         void onShowDetailCard(RestPost restPost);
 
@@ -209,7 +208,7 @@ public class NewsFeedScreen extends RelativeLayout {
             }
 
             @Override
-            public void onIconProfilePressed(RestContacto contacto) {
+            public void onIconProfilePressed(RestContact contacto) {
                 listener.onUserIconPressed(contacto);
             }
 
@@ -228,7 +227,7 @@ public class NewsFeedScreen extends RelativeLayout {
             }
 
             @Override
-            public void onChatPressed(RestContacto contacto) {
+            public void onChatPressed(RestContact contacto) {
                 listener.onChatPressed(contacto);
             }
 
@@ -309,10 +308,9 @@ public class NewsFeedScreen extends RelativeLayout {
         this.listener = listener;
     }
 
-    public void initAdapter(AppConfigManager appConfigManager,
-                            AppUserSessionManager appUserSessionManager) {
+    public void initAdapter(
+            AppUserSessionManager appUserSessionManager) {
         getAdapter().setAppUserSessionManager(appUserSessionManager);
-        getAdapter().setAppConfigManager(appConfigManager);
     }
 
     public void setStatusMessage(String statusMessage) {
@@ -355,7 +353,7 @@ public class NewsFeedScreen extends RelativeLayout {
 
             if (list.size() == MAX_ITEMS) {
                 RestPost post = new RestPost();
-                post.setTipo(PostType.LOAD.getTypeString());
+                post.setType(PostType.LOAD.getTypeString());
                 list.add(post);
             }
             mAdapter.addItems(list);

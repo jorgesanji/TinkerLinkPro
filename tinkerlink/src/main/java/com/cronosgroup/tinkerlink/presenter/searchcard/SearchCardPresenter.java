@@ -9,26 +9,11 @@ import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenterView;
 public class SearchCardPresenter extends TinkerLinkPresenter<SearchCardPresenter.View> {
 
     // Vars
-    private final Actions listener;
 
     /**
      * SearchCard listeners.
      */
     public interface View extends TinkerLinkPresenterView {
-    }
-
-    /**
-     * SearchCard actions.
-     */
-    public interface Actions {
-    }
-
-
-    /**
-     * @param navigationListener
-     */
-    public SearchCardPresenter(Actions navigationListener) {
-        this.listener = navigationListener;
     }
 
     //Actions

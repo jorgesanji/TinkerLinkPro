@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 
 import com.cronosgroup.core.view.BaseAdapter;
 import com.cronosgroup.tinkerlink.R;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContacto;
+import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContact;
 import com.cronosgroup.tinkerlink.view.customviews.TLUserContactView;
 import com.cronosgroup.tinkerlink.view.home.fragment.contacts.adapter.pages.mycontacts.adapter.viewholder.ContactUserViewHolder;
 
@@ -15,7 +15,7 @@ import java.util.List;
 /**
  * Created by jorgesanmartin on 8/2/16.
  */
-public class MyContactsAdapter extends BaseAdapter<ContactUserViewHolder, RestContacto> {
+public class MyContactsAdapter extends BaseAdapter<ContactUserViewHolder, RestContact> {
 
     public interface Listener {
         void onItemPressed(int position, View view, TLUserContactView.ContactsType type);
@@ -44,7 +44,7 @@ public class MyContactsAdapter extends BaseAdapter<ContactUserViewHolder, RestCo
     }
 
     @Override
-    public List<RestContacto> filterBy(String query) {
+    public List<RestContact> filterBy(String query) {
         return null;
     }
 

@@ -3,8 +3,6 @@ package com.cronosgroup.tinkerlink.view.config.helptinkerlink;
 import android.view.View;
 
 import com.cronosgroup.tinkerlink.presenter.helptinkerlink.HelpTinkerLinkPresenter;
-import com.cronosgroup.tinkerlink.presenter.policyprivacy.PolicyPrivacyPresenter;
-import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
 
 
@@ -30,7 +28,7 @@ public class HelpTinkerLinkFragment extends MVPTinkerLinkFragment<HelpTinkerLink
 
     @Override
     protected HelpTinkerLinkPresenter createPresenter() {
-        return new HelpTinkerLinkPresenter(ScreenNavigationHandler.getInstance());
+        return new HelpTinkerLinkPresenter();
     }
 
     @Override

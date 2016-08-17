@@ -8,8 +8,6 @@ import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenterView;
  */
 public class FormUserPresenter extends TinkerLinkPresenter<FormUserPresenter.View> {
 
-    private final Actions listener;
-
     /**
      * FormUser view.
      */
@@ -17,24 +15,7 @@ public class FormUserPresenter extends TinkerLinkPresenter<FormUserPresenter.Vie
 
     }
 
-    /**
-     * FormUser actions.
-     */
-    public interface Actions {
-    }
-
-    /**
-     * @param navigationListener
-     */
-    public FormUserPresenter(Actions navigationListener) {
-        this.listener = navigationListener;
-    }
-
-    //region **************  BasePresenter **************
-    //endregion
-
     //region **************  View Actions **************
-
 
     //endregion
 

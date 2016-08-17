@@ -155,7 +155,6 @@ public class TLViewPagerIndicator extends LinearLayout {
 
     public void setSizeDot(int sizeDot) {
         this.sizeDot = sizeDot;
-//        this.sizeDot = DimentionsUtils.pxToDp(getContext(), sizeDot);
         updateDots();
     }
 }

@@ -9,12 +9,14 @@
         android:id="@+id/cancelButton"
         style="@style/buttonsDialogStyle"
         android:text="@string/cancel_title"
+        android:textAllCaps="true"
         android:textColor="@color/black_opaque_50" />
 
     <com.cronosgroup.tinkerlink.view.customviews.TLTextView
         android:id="@+id/sendButton"
         style="@style/buttonsDialogStyle"
         android:text="@string/send_title"
+        android:textAllCaps="true"
         android:textColor="@color/black" />
 
 </LinearLayout>

@@ -1,9 +1,7 @@
 package com.cronosgroup.tinkerlink.view.dialog.messageoptions;
 
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
 import com.cronosgroup.tinkerlink.view.dialog.base.TinkerDialogFragment;
 
@@ -19,8 +17,12 @@ public class MessageOptionsDialogFragment extends TinkerDialogFragment implement
     private MessageOptionsDialogScreen blockContactsDialogScreen;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    protected void onDidAppear() {
+
+    }
+
+    @Override
+    protected View getRootView() {
         blockContactsDialogScreen = new MessageOptionsDialogScreen(getActivity(), this);
         blockContactsDialogScreen.setTitle(getArguments().getString(TITLE_KEY));
         blockContactsDialogScreen.setMessage(getArguments().getString(DESCRIPTION_KEY));

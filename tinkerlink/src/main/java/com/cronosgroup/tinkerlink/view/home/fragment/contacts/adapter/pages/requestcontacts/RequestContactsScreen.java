@@ -7,7 +7,9 @@ import android.util.AttributeSet;
 import android.widget.RelativeLayout;
 
 import com.cronosgroup.tinkerlink.R;
+import com.cronosgroup.tinkerlink.view.customviews.TLRecyclerView;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
@@ -24,6 +26,8 @@ public class RequestContactsScreen extends RelativeLayout {
     private Listener listener;
 
     // Views
+    @BindView(R.id.list)
+    protected TLRecyclerView mList;
 
     /**
      * @param context

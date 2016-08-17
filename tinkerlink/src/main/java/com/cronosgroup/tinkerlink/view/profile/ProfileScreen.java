@@ -10,7 +10,7 @@ import android.util.AttributeSet;
 import android.widget.RelativeLayout;
 
 import com.cronosgroup.tinkerlink.R;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContacto;
+import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContact;
 import com.cronosgroup.tinkerlink.view.customviews.TLCommonContactsView;
 import com.cronosgroup.tinkerlink.view.customviews.TLImageButton;
 import com.cronosgroup.tinkerlink.view.customviews.TLImageRoundBorder;
@@ -209,7 +209,7 @@ public class ProfileScreen extends RelativeLayout {
         mUserCountry.setText(userCountry);
     }
 
-    public void setContacts(List<RestContacto> contacts){
+    public void setContacts(List<RestContact> contacts){
         mContactsView.setContacts(contacts);
     }
 }

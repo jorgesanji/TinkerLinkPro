@@ -3,7 +3,6 @@ package com.cronosgroup.tinkerlink.view.profile.adapter.pages.useractivity;
 import android.view.View;
 
 import com.cronosgroup.tinkerlink.presenter.profile.UserActivityPresenter;
-import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
 
 
@@ -29,7 +28,7 @@ public class UserActivityFragment extends MVPTinkerLinkFragment<UserActivityPres
 
     @Override
     protected UserActivityPresenter createPresenter() {
-        return new UserActivityPresenter(ScreenNavigationHandler.getInstance());
+        return new UserActivityPresenter();
     }
 
     @Override

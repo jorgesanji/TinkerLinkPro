@@ -5,7 +5,6 @@ import android.view.View;
 import com.cronosgroup.tinkerlink.enums.SourceImageType;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestCategoria;
 import com.cronosgroup.tinkerlink.presenter.createcard.CategorySelectionPresenter;
-import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
 import com.cronosgroup.tinkerlink.view.dialog.category.CategoryDialogFragment;
 import com.cronosgroup.tinkerlink.view.dialog.places.PlacesDialogFragment;
@@ -35,7 +34,7 @@ public class CategorySelectionFragment extends MVPTinkerLinkFragment<CategorySel
 
     @Override
     protected CategorySelectionPresenter createPresenter() {
-        return new CategorySelectionPresenter(ScreenNavigationHandler.getInstance());
+        return new CategorySelectionPresenter();
     }
 
     @Override

@@ -7,15 +7,16 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
 import com.cronosgroup.core.presenter.Presenter;
 import com.cronosgroup.core.view.BaseActivity;
 import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenter;
 import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenterView;
+import com.cronosgroup.tinkerlink.utils.TLMMenuBuilder;
 import com.cronosgroup.tinkerlink.view.AppSnackManager;
+
+import java.util.List;
 
 
 /**
@@ -26,9 +27,6 @@ public abstract class MVPTinkerLinkFragment<P extends Presenter<V>, V extends Ti
 
     // Variables
     private P presenter;
-    private boolean readyInitialized = false;
-
-    private AppSnackManager appStatusMessageManager;
 
     // Abstract methods
 
@@ -36,26 +34,17 @@ public abstract class MVPTinkerLinkFragment<P extends Presenter<V>, V extends Ti
 
     protected abstract V getPresenterView();
 
-    protected abstract void onDidAppear();
-
-    protected abstract View getRootView();
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return getRootView();
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.presenter = createPresenter();
-        appStatusMessageManager = new AppSnackManager(getPresenterView());
     }
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         presenter.attachView(getPresenterView());
+        appStatusMessageManager.setView(getPresenterView());
     }
 
     @Override
@@ -67,20 +56,10 @@ public abstract class MVPTinkerLinkFragment<P extends Presenter<V>, V extends Ti
     }
 
     @Override
-    public void onStart() {
-        super.onStart();
-    }
-
-    @Override
     public void onResume() {
         super.onResume();
         if (presenter != null) {
             presenter.resume();
-        }
-
-        if (!readyInitialized) {
-            onDidAppear();
-            readyInitialized = true;
         }
     }
 
@@ -204,7 +183,12 @@ public abstract class MVPTinkerLinkFragment<P extends Presenter<V>, V extends Ti
     }
 
     @Override
-    public AppSnackManager getMessagesHandler() {
+    public AppSnackManager getSnackMessageManager() {
         return appStatusMessageManager;
+    }
+
+    @Override
+    protected List<TLMMenuBuilder> getMenuItems() {
+        return null;
     }
 }

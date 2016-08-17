@@ -1,7 +1,5 @@
 package com.cronosgroup.tinkerlink.model.dataacess.rest.model;
 
-import android.text.TextUtils;
-
 import com.cronosgroup.core.rest.RestBase;
 import com.cronosgroup.tinkerlink.enums.PostStatus;
 import com.cronosgroup.tinkerlink.enums.PostType;
@@ -16,87 +14,83 @@ import java.util.List;
  */
 public class RestPost extends RestBase{
 
-    @SerializedName("_id")
+    @SerializedName("id")
     private String id = "";
 
-    @SerializedName("usuario")
-    private RestContacto user = new RestContacto();
+    @SerializedName("user")
+    private RestContact user = new RestContact();
 
-    @SerializedName("usuario2")
-    private RestContacto contacto = null;
+    @SerializedName("contact")
+    private RestContact contact = null;
 
-    @SerializedName("tipo")
+    @SerializedName("type")
+    private String type = "tinker";
 
-    private String tipo = "tinker";
-
-    @SerializedName("fecha")
-    private Date fecha = null;
+    @SerializedName("date")
+    private Date date = null;
 
     @SerializedName("likes")
     private Integer likes = 0;
 
+    @SerializedName("view")
+    private Integer numberOfViews = 0;
+
+    @SerializedName("shares")
+    private Integer numberShares = 0;
+
     @SerializedName("usersLike")
     private List<String> usersLike = new ArrayList<String>();
 
-    @SerializedName("usersCompartido")
-    private List<String> usersCompartido = new ArrayList<String>();
+    @SerializedName("usersShare")
+    private List<String> usersShare = new ArrayList<String>();
 
-    @SerializedName("visto")
-    private Integer numeroVisualizaciones = 0;
+    @SerializedName("text")
+    private String text = "";
 
-    @SerializedName("shares")
-    private Integer numeroShares = 0;
-
-    @SerializedName("texto")
-    private String texto = "";
-
-    @SerializedName("fotos")
-    private List<String> fotoString = new ArrayList<String>();
+    @SerializedName("pictures")
+    private List<String> pictures = new ArrayList<String>();
 
     @SerializedName("post")
     private RestPost post = null;
 
-    @SerializedName("pais")
-    private String pais = "";
+    @SerializedName("country")
+    private String country = "";
 
-    @SerializedName("ciudad")
-    private String ciudad = "";
+    @SerializedName("city")
+    private String city = "";
 
     @SerializedName("latitude")
-    private double latitude = 0;
+    private double latitude = 0.0;
 
     @SerializedName("longitude")
-    private double longitude = 0;
+    private double longitude = 0.0;
 
-    @SerializedName("categoria")
-    private String categoria = "";
+    @SerializedName("category")
+    private String category = "";
 
-    @SerializedName("descripcion")
-    private String descripcion = "";
+    @SerializedName("description")
+    private String description = "";
 
-    @SerializedName("salario")
-    private String costeAproximado = "";
+    @SerializedName("salary")
+    private String salary = "";
 
-    @SerializedName("tipoSalario")
-    private String tipoCambio = "";
+    @SerializedName("salaryType")
+    private String salaryType = "";
 
-    @SerializedName("habilidades")
-    private List<String> habilidades = new ArrayList<String>();
+    @SerializedName("skills")
+    private List<RestSkill> skills = new ArrayList<RestSkill>();
 
-    @SerializedName("duracion")
-    private String tipoProyecto = "";
+    @SerializedName("timeByProject")
+    private String timeByProject = "";
 
-    @SerializedName("profesion")
-    private String profesion = "";
+    @SerializedName("profession")
+    private String profession = "";
 
-    @SerializedName("experiencia")
-    private String experiencia = "";
+    @SerializedName("experience")
+    private String experience = "";
 
-    @SerializedName("habilities")
-    private String intervalo = "";
-
-    @SerializedName("compartido")
-    private Boolean compartido = false;
+    @SerializedName("share")
+    private Boolean share = false;
 
     @SerializedName("like")
     private Boolean like = false;
@@ -115,8 +109,6 @@ public class RestPost extends RestBase{
 
     private PostStatus status = PostStatus.PUBLISHED;
 
-    private String habilidadesStringFormat = null;
-
     public String getId() {
         return id;
     }
@@ -125,36 +117,36 @@ public class RestPost extends RestBase{
         this.id = id;
     }
 
-    public RestContacto getUser() {
+    public RestContact getUser() {
         return user;
     }
 
-    public void setUser(RestContacto user) {
+    public void setUser(RestContact user) {
         this.user = user;
     }
 
-    public RestContacto getContacto() {
-        return contacto;
+    public RestContact getContact() {
+        return contact;
     }
 
-    public void setContacto(RestContacto contacto) {
-        this.contacto = contacto;
+    public void setContact(RestContact contact) {
+        this.contact = contact;
     }
 
-    public String getTipo() {
-        return tipo;
+    public String getType() {
+        return type;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setType(String type) {
+        this.type = type;
     }
 
-    public Date getFecha() {
-        return fecha;
+    public Date getDate() {
+        return date;
     }
 
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     public Integer getLikes() {
@@ -173,44 +165,44 @@ public class RestPost extends RestBase{
         this.usersLike = usersLike;
     }
 
-    public List<String> getUsersCompartido() {
-        return usersCompartido;
+    public List<String> getUsersShare() {
+        return usersShare;
     }
 
-    public void setUsersCompartido(List<String> usersCompartido) {
-        this.usersCompartido = usersCompartido;
+    public void setUsersShare(List<String> usersShare) {
+        this.usersShare = usersShare;
     }
 
-    public Integer getNumeroVisualizaciones() {
-        return numeroVisualizaciones;
+    public Integer getNumberOfViews() {
+        return numberOfViews;
     }
 
-    public void setNumeroVisualizaciones(Integer numeroVisualizaciones) {
-        this.numeroVisualizaciones = numeroVisualizaciones;
+    public void setNumberOfViews(Integer numberOfViews) {
+        this.numberOfViews = numberOfViews;
     }
 
-    public Integer getNumeroShares() {
-        return numeroShares;
+    public Integer getNumberShares() {
+        return numberShares;
     }
 
-    public void setNumeroShares(Integer numeroShares) {
-        this.numeroShares = numeroShares;
+    public void setNumberShares(Integer numberShares) {
+        this.numberShares = numberShares;
     }
 
-    public String getTexto() {
-        return texto;
+    public String getText() {
+        return text;
     }
 
-    public void setTexto(String texto) {
-        this.texto = texto;
+    public void setText(String text) {
+        this.text = text;
     }
 
-    public List<String> getFotoString() {
-        return fotoString;
+    public List<String> getPictures() {
+        return pictures;
     }
 
-    public void setFotoString(List<String> fotoString) {
-        this.fotoString = fotoString;
+    public void setPictures(List<String> pictures) {
+        this.pictures = pictures;
     }
 
     public RestPost getPost() {
@@ -221,20 +213,20 @@ public class RestPost extends RestBase{
         this.post = post;
     }
 
-    public String getPais() {
-        return pais;
+    public String getCountry() {
+        return country;
     }
 
-    public void setPais(String pais) {
-        this.pais = pais;
+    public void setCountry(String country) {
+        this.country = country;
     }
 
-    public String getCiudad() {
-        return ciudad;
+    public String getCity() {
+        return city;
     }
 
-    public void setCiudad(String ciudad) {
-        this.ciudad = ciudad;
+    public void setCity(String city) {
+        this.city = city;
     }
 
     public double getLatitude() {
@@ -253,84 +245,76 @@ public class RestPost extends RestBase{
         this.longitude = longitude;
     }
 
-    public String getCategoria() {
-        return categoria;
+    public String getCategory() {
+        return category;
     }
 
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
+    public void setCategory(String category) {
+        this.category = category;
     }
 
-    public String getDescripcion() {
-        return descripcion;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public String getCosteAproximado() {
-        return costeAproximado;
+    public String getSalary() {
+        return salary;
     }
 
-    public void setCosteAproximado(String costeAproximado) {
-        this.costeAproximado = costeAproximado;
+    public void setSalary(String salary) {
+        this.salary = salary;
     }
 
-    public String getTipoCambio() {
-        return tipoCambio;
+    public String getSalaryType() {
+        return salaryType;
     }
 
-    public void setTipoCambio(String tipoCambio) {
-        this.tipoCambio = tipoCambio;
+    public void setSalaryType(String salaryType) {
+        this.salaryType = salaryType;
     }
 
-    public List<String> getHabilidades() {
-        return habilidades;
+    public List<RestSkill> getSkills() {
+        return skills;
     }
 
-    public void setHabilidades(List<String> habilidades) {
-        this.habilidades = habilidades;
+    public void setSkills(List<RestSkill> skills) {
+        this.skills = skills;
     }
 
-    public String getTipoProyecto() {
-        return tipoProyecto;
+    public String getTimeByProject() {
+        return timeByProject;
     }
 
-    public void setTipoProyecto(String tipoProyecto) {
-        this.tipoProyecto = tipoProyecto;
+    public void setTimeByProject(String timeByProject) {
+        this.timeByProject = timeByProject;
     }
 
-    public String getProfesion() {
-        return profesion;
+    public String getProfession() {
+        return profession;
     }
 
-    public void setProfesion(String profesion) {
-        this.profesion = profesion;
+    public void setProfession(String profession) {
+        this.profession = profession;
     }
 
-    public String getExperiencia() {
-        return experiencia;
+    public String getExperience() {
+        return experience;
     }
 
-    public void setExperiencia(String experiencia) {
-        this.experiencia = experiencia;
+    public void setExperience(String experience) {
+        this.experience = experience;
     }
 
-    public String getIntervalo() {
-        return intervalo;
+    public Boolean getShare() {
+        return share;
     }
 
-    public void setIntervalo(String intervalo) {
-        this.intervalo = intervalo;
-    }
-
-    public Boolean getCompartido() {
-        return compartido;
-    }
-
-    public void setCompartido(Boolean compartido) {
-        this.compartido = compartido;
+    public void setShare(Boolean share) {
+        this.share = share;
     }
 
     public Boolean getLike() {
@@ -350,15 +334,11 @@ public class RestPost extends RestBase{
     }
 
     public PostType getTypePost() {
-        PostType type = PostType.typeFromString(getTipo());
+        PostType type = PostType.typeFromString(getType());
         if (type == PostType.SHARE) {
-            type = PostType.typeFromString(getTipo() + "_" + getPost().getTipo());
+            type = PostType.typeFromString(getType() + "_" + getPost().getType());
         }
         return type;
-    }
-
-    public void setHabilidadesStringFormat(String habilidadesStringFormat) {
-        this.habilidadesStringFormat = habilidadesStringFormat;
     }
 
     public String getLinkUrl() {
@@ -393,17 +373,8 @@ public class RestPost extends RestBase{
         this.linkImage = linkImage;
     }
 
-    public String getHabilidadesStringFormat() {
-
-        if (habilidadesStringFormat == null && habilidades != null) {
-            habilidadesStringFormat = TextUtils.join(",#", habilidades).replace("\"", "");
-        }
-
-        return habilidadesStringFormat;
-    }
-
     public String getLocation() {
-        return (getCiudad() == null || getCiudad().isEmpty()) ? ((getPais() == null || getPais().isEmpty()) ? null : getPais()) : getCiudad() + ", " + getPais();
+        return (getCity() == null || getCity().isEmpty()) ? ((getCountry() == null || getCountry().isEmpty()) ? null : getCountry()) : getCity() + ", " + getCountry();
     }
 
     public boolean isShared() {

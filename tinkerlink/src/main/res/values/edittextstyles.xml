@@ -1,0 +1,580 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <!-- TEXTVIEW 11 FONT BLACK-->
+
+    <style name="EditText_11_Black_Regular_Style" parent="Text_11_BlackStyle">
+        <item name="fontNameEdit">Regular</item>
+    </style>
+
+    <style name="EditText_11_Black_Bold_Style" parent="Text_11_BlackStyle">
+        <item name="fontNameEdit">Bold</item>
+    </style>
+
+    <style name="EditText_11_Black_SemiBold_Style" parent="Text_11_BlackStyle">
+        <item name="fontNameEdit">SemiBold</item>
+    </style>
+
+    <style name="EditText_11_Black_Light_Style" parent="Text_11_BlackStyle">
+        <item name="fontNameEdit">Light</item>
+    </style>
+
+    <!-- TEXTVIEW 11 FONT SEMIBLACK-->
+
+    <style name="EditText_11_SemiBlack_Regular_Style" parent="Text_11_SemiBlackStyle">
+        <item name="fontNameEdit">Regular</item>
+    </style>
+
+    <style name="EditText_11_SemiBlack_Bold_Style" parent="Text_11_SemiBlackStyle">
+        <item name="fontNameEdit">Bold</item>
+    </style>
+
+    <style name="EditText_11_SemiBlack_SemiBold_Style" parent="Text_11_SemiBlackStyle">
+        <item name="fontNameEdit">SemiBold</item>
+    </style>
+
+    <style name="EditText_11_SemiBlack_Light_Style" parent="Text_11_SemiBlackStyle">
+        <item name="fontNameEdit">Light</item>
+    </style>
+
+    <!-- TEXTVIEW 11 FONT SEMIBLACK-->
+
+    <style name="EditText_11_Gray_Regular_Style" parent="Text_11_SemiBlackGrayStyle">
+        <item name="fontNameEdit">Regular</item>
+    </style>
+
+    <style name="EditText_11_Gray_Bold_Style" parent="Text_11_SemiBlackGrayStyle">
+        <item name="fontNameEdit">Bold</item>
+    </style>
+
+    <style name="EditText_11_Gray_SemiBold_Style" parent="Text_11_SemiBlackGrayStyle">
+        <item name="fontNameEdit">SemiBold</item>
+    </style>
+
+    <style name="EditText_11_Gray_Light_Style" parent="Text_11_SemiBlackGrayStyle">
+        <item name="fontNameEdit">Light</item>
+    </style>
+
+    <!-- TEXTVIEW 11 FONT WHITE-->
+
+    <style name="EditText_11_White_Regular_Style" parent="Text_11_WhiteStyle">
+        <item name="fontNameEdit">Regular</item>
+    </style>
+
+    <style name="EditText_11_White_Bold_Style" parent="Text_11_WhiteStyle">
+        <item name="fontNameEdit">Bold</item>
+    </style>
+
+    <style name="EditText_11_White_SemiBold_Style" parent="Text_11_WhiteStyle">
+        <item name="fontNameEdit">SemiBold</item>
+    </style>
+
+    <style name="EditText_11_White_Light_Style" parent="Text_11_WhiteStyle">
+        <item name="fontNameEdit">Light</item>
+    </style>
+
+    <!-- TEXTVIEW 12 FONT BLACK-->
+
+    <style name="EditText_12_Black_Regular_Style" parent="Text_12_BlackStyle">
+        <item name="fontName">Regular</item>
+    </style>
+
+    <style name="EditText_12_Black_Bold_Style" parent="Text_12_BlackStyle">
+        <item name="fontName">Bold</item>
+    </style>
+
+    <style name="EditText_12_Black_SemiBold_Style" parent="Text_12_BlackStyle">
+        <item name="fontName">SemiBold</item>
+    </style>
+
+    <style name="EditText_12_Black_Light_Style" parent="Text_12_BlackStyle">
+        <item name="fontName">Light</item>
+    </style>
+
+    <!-- TEXTVIEW 12 FONT SEMIBLACK-->
+
+    <style name="EditText_12_SemiBlack_Regular_Style" parent="Text_12_SemiBlackStyle">
+        <item name="fontName">Regular</item>
+    </style>
+
+    <style name="EditText_12_SemiBlack_Bold_Style" parent="Text_12_SemiBlackStyle">
+        <item name="fontName">Bold</item>
+    </style>
+
+    <style name="EditText_12_SemiBlack_SemiBold_Style" parent="Text_12_SemiBlackStyle">
+        <item name="fontName">SemiBold</item>
+    </style>
+
+    <style name="EditText_12_SemiBlack_Light_Style" parent="Text_12_SemiBlackStyle">
+        <item name="fontName">Light</item>
+    </style>
+
+    <!-- TEXTVIEW 12 FONT SEMIBLACK-->
+
+    <style name="EditText_12_Gray_Regular_Style" parent="Text_12_SemiBlackGrayStyle">
+        <item name="fontName">Regular</item>
+    </style>
+
+    <style name="EditText_12_Gray_Bold_Style" parent="Text_12_SemiBlackGrayStyle">
+        <item name="fontName">Bold</item>
+    </style>
+
+    <style name="EditText_12_Gray_SemiBold_Style" parent="Text_12_SemiBlackGrayStyle">
+        <item name="fontName">SemiBold</item>
+    </style>
+
+    <style name="EditText_12_Gray_Light_Style" parent="Text_12_SemiBlackGrayStyle">
+        <item name="fontName">Light</item>
+    </style>
+
+    <!-- TEXTVIEW 12 FONT WHITE-->
+
+    <style name="EditText_12_White_Regular_Style" parent="Text_12_WhiteStyle">
+        <item name="fontName">Regular</item>
+    </style>
+
+    <style name="EditText_12_White_Bold_Style" parent="Text_12_WhiteStyle">
+        <item name="fontName">Bold</item>
+    </style>
+
+    <style name="EditText_12_White_SemiBold_Style" parent="Text_12_WhiteStyle">
+        <item name="fontName">SemiBold</item>
+    </style>
+
+    <style name="EditText_12_White_Light_Style" parent="Text_12_WhiteStyle">
+        <item name="fontName">Light</item>
+    </style>
+
+    <!-- TEXTVIEW 13 FONT BLACK-->
+
+    <style name="EditText_13_Black_Regular_Style" parent="Text_13_BlackStyle">
+        <item name="fontNameEdit">Regular</item>
+    </style>
+
+    <style name="EditText_13_Black_Bold_Style" parent="Text_13_BlackStyle">
+        <item name="fontNameEdit">Bold</item>
+    </style>
+
+    <style name="EditText_13_Black_SemiBold_Style" parent="Text_13_BlackStyle">
+        <item name="fontNameEdit">SemiBold</item>
+    </style>
+
+    <style name="EditText_13_Black_Light_Style" parent="Text_13_BlackStyle">
+        <item name="fontNameEdit">Light</item>
+    </style>
+
+    <!-- TEXTVIEW 13 FONT SEMIBLACK-->
+
+    <style name="EditText_13_SemiBlack_Regular_Style" parent="Text_13_SemiBlackStyle">
+        <item name="fontNameEdit">Regular</item>
+    </style>
+
+    <style name="EditText_13_SemiBlack_Bold_Style" parent="Text_13_SemiBlackStyle">
+        <item name="fontNameEdit">Bold</item>
+    </style>
+
+    <style name="EditText_13_SemiBlack_SemiBold_Style" parent="Text_13_SemiBlackStyle">
+        <item name="fontNameEdit">SemiBold</item>
+    </style>
+
+    <style name="EditText_13_SemiBlack_Light_Style" parent="Text_13_SemiBlackStyle">
+        <item name="fontNameEdit">Light</item>
+    </style>
+
+    <!-- TEXTVIEW 13 FONT SEMIBLACK-->
+
+    <style name="EditText_13_Gray_Regular_Style" parent="Text_13_SemiBlackGrayStyle">
+        <item name="fontNameEdit">Regular</item>
+    </style>
+
+    <style name="EditText_13_Gray_Bold_Style" parent="Text_13_SemiBlackGrayStyle">
+        <item name="fontNameEdit">Bold</item>
+    </style>
+
+    <style name="EditText_13_Gray_SemiBold_Style" parent="Text_13_SemiBlackGrayStyle">
+        <item name="fontNameEdit">SemiBold</item>
+    </style>
+
+    <style name="EditText_13_Gray_Light_Style" parent="Text_13_SemiBlackGrayStyle">
+        <item name="fontNameEdit">Light</item>
+    </style>
+
+    <!-- TEXTVIEW 13 FONT WHITE-->
+
+    <style name="EditText_13_White_Regular_Style" parent="Text_13_WhiteStyle">
+        <item name="fontNameEdit">Regular</item>
+    </style>
+
+    <style name="EditText_13_White_Bold_Style" parent="Text_13_WhiteStyle">
+        <item name="fontNameEdit">Bold</item>
+    </style>
+
+    <style name="EditText_13_White_SemiBold_Style" parent="Text_13_WhiteStyle">
+        <item name="fontNameEdit">SemiBold</item>
+    </style>
+
+    <style name="EditText_13_White_Light_Style" parent="Text_13_WhiteStyle">
+        <item name="fontNameEdit">Light</item>
+    </style>
+
+    <!-- TEXTVIEW 14 FONT BLACK-->
+
+    <style name="EditText_14_Black_Regular_Style" parent="Text_14_BlackStyle">
+        <item name="fontNameEdit">Regular</item>
+    </style>
+
+    <style name="EditText_14_Black_Bold_Style" parent="Text_14_BlackStyle">
+        <item name="fontNameEdit">Bold</item>
+    </style>
+
+    <style name="EditText_14_Black_SemiBold_Style" parent="Text_14_BlackStyle">
+        <item name="fontNameEdit">SemiBold</item>
+    </style>
+
+    <style name="EditText_14_Black_Light_Style" parent="Text_14_BlackStyle">
+        <item name="fontNameEdit">Light</item>
+    </style>
+
+    <!-- TEXTVIEW 14 FONT SEMIBLACK-->
+
+    <style name="EditText_14_SemiBlack_Regular_Style" parent="Text_14_SemiBlackStyle">
+        <item name="fontNameEdit">Regular</item>
+    </style>
+
+    <style name="EditText_14_SemiBlack_Bold_Style" parent="Text_14_SemiBlackStyle">
+        <item name="fontNameEdit">Bold</item>
+    </style>
+
+    <style name="EditText_14_SemiBlack_SemiBold_Style" parent="Text_14_SemiBlackStyle">
+        <item name="fontNameEdit">SemiBold</item>
+    </style>
+
+    <style name="EditText_14_SemiBlack_Light_Style" parent="Text_14_SemiBlackStyle">
+        <item name="fontNameEdit">Light</item>
+    </style>
+
+    <!-- TEXTVIEW 14 FONT SEMIBLACK-->
+
+    <style name="EditText_14_Gray_Regular_Style" parent="Text_14_SemiBlackGrayStyle">
+        <item name="fontNameEdit">Regular</item>
+    </style>
+
+    <style name="EditText_14_Gray_Bold_Style" parent="Text_14_SemiBlackGrayStyle">
+        <item name="fontNameEdit">Bold</item>
+    </style>
+
+    <style name="EditText_14_Gray_SemiBold_Style" parent="Text_14_SemiBlackGrayStyle">
+        <item name="fontNameEdit">SemiBold</item>
+    </style>
+
+    <style name="EditText_14_Gray_Light_Style" parent="Text_14_SemiBlackGrayStyle">
+        <item name="fontNameEdit">Light</item>
+    </style>
+
+    <!-- TEXTVIEW 14 FONT WHITE-->
+
+    <style name="EditText_14_White_Regular_Style" parent="Text_14_WhiteStyle">
+        <item name="fontNameEdit">Regular</item>
+    </style>
+
+    <style name="EditText_14_White_Bold_Style" parent="Text_14_WhiteStyle">
+        <item name="fontNameEdit">Bold</item>
+    </style>
+
+    <style name="EditText_14_White_SemiBold_Style" parent="Text_14_WhiteStyle">
+        <item name="fontNameEdit">SemiBold</item>
+    </style>
+
+    <style name="EditText_14_White_Light_Style" parent="Text_14_WhiteStyle">
+        <item name="fontNameEdit">Light</item>
+    </style>
+
+    <!-- TEXTVIEW 16 FONT BLACK-->
+
+    <style name="EditText_16_Black_Regular_Style" parent="Text_16_BlackStyle">
+        <item name="fontName">Regular</item>
+    </style>
+
+    <style name="EditText_16_Black_Bold_Style" parent="Text_16_BlackStyle">
+        <item name="fontName">Bold</item>
+    </style>
+
+    <style name="EditText_16_Black_SemiBold_Style" parent="Text_16_BlackStyle">
+        <item name="fontName">SemiBold</item>
+    </style>
+
+    <style name="EditText_16_Black_Light_Style" parent="Text_16_BlackStyle">
+        <item name="fontName">Light</item>
+    </style>
+
+    <!-- TEXTVIEW 16 FONT SEMIBLACK-->
+
+    <style name="EditText_16_SemiBlack_Regular_Style" parent="Text_16_SemiBlackStyle">
+        <item name="fontName">Regular</item>
+    </style>
+
+    <style name="EditText_16_SemiBlack_Bold_Style" parent="Text_16_SemiBlackStyle">
+        <item name="fontName">Bold</item>
+    </style>
+
+    <style name="EditText_16_SemiBlack_SemiBold_Style" parent="Text_16_SemiBlackStyle">
+        <item name="fontName">SemiBold</item>
+    </style>
+
+    <style name="EditText_16_SemiBlack_Light_Style" parent="Text_16_SemiBlackStyle">
+        <item name="fontName">Light</item>
+    </style>
+
+    <!-- TEXTVIEW 16 FONT SEMIBLACK-->
+
+    <style name="EditText_16_Gray_Regular_Style" parent="Text_16_SemiBlackGrayStyle">
+        <item name="fontName">Regular</item>
+    </style>
+
+    <style name="EditText_16_Gray_Bold_Style" parent="Text_16_SemiBlackGrayStyle">
+        <item name="fontName">Bold</item>
+    </style>
+
+    <style name="EditText_16_Gray_SemiBold_Style" parent="Text_16_SemiBlackGrayStyle">
+        <item name="fontName">SemiBold</item>
+    </style>
+
+    <style name="EditText_16_Gray_Light_Style" parent="Text_16_SemiBlackGrayStyle">
+        <item name="fontName">Light</item>
+    </style>
+
+    <!-- TEXTVIEW 16 FONT WHITE-->
+
+    <style name="EditText_16_White_Regular_Style" parent="Text_16_WhiteStyle">
+        <item name="fontName">Regular</item>
+    </style>
+
+    <style name="EditText_16_White_Bold_Style" parent="Text_16_WhiteStyle">
+        <item name="fontName">Bold</item>
+    </style>
+
+    <style name="EditText_16_White_SemiBold_Style" parent="Text_16_WhiteStyle">
+        <item name="fontName">SemiBold</item>
+    </style>
+
+    <style name="EditText_16_White_Light_Style" parent="Text_16_WhiteStyle">
+        <item name="fontName">Light</item>
+    </style>
+
+    <!-- TEXTVIEW 18 FONT BLACK-->
+
+    <style name="EditText_18_Black_Regular_Style" parent="Text_18_BlackStyle">
+        <item name="fontNameEdit">Regular</item>
+    </style>
+
+    <style name="EditText_18_Black_Bold_Style" parent="Text_18_BlackStyle">
+        <item name="fontNameEdit">Bold</item>
+    </style>
+
+    <style name="EditText_18_Black_SemiBold_Style" parent="Text_18_BlackStyle">
+        <item name="fontNameEdit">SemiBold</item>
+    </style>
+
+    <style name="EditText_18_Black_Light_Style" parent="Text_18_BlackStyle">
+        <item name="fontNameEdit">Light</item>
+    </style>
+
+    <!-- TEXTVIEW 18 FONT SEMIBLACK-->
+
+    <style name="EditText_18_SemiBlack_Regular_Style" parent="Text_18_SemiBlackStyle">
+        <item name="fontNameEdit">Regular</item>
+    </style>
+
+    <style name="EditText_18_SemiBlack_Bold_Style" parent="Text_18_SemiBlackStyle">
+        <item name="fontNameEdit">Bold</item>
+    </style>
+
+    <style name="EditText_18_SemiBlack_SemiBold_Style" parent="Text_18_SemiBlackStyle">
+        <item name="fontNameEdit">SemiBold</item>
+    </style>
+
+    <style name="EditText_18_SemiBlack_Light_Style" parent="Text_18_SemiBlackStyle">
+        <item name="fontNameEdit">Light</item>
+    </style>
+
+    <!-- TEXTVIEW 18 FONT SEMIBLACK-->
+
+    <style name="EditText_18_Gray_Regular_Style" parent="Text_18_SemiBlackGrayStyle">
+        <item name="fontNameEdit">Regular</item>
+    </style>
+
+    <style name="EditText_18_Gray_Bold_Style" parent="Text_18_SemiBlackGrayStyle">
+        <item name="fontNameEdit">Bold</item>
+    </style>
+
+    <style name="EditText_18_Gray_SemiBold_Style" parent="Text_18_SemiBlackGrayStyle">
+        <item name="fontNameEdit">SemiBold</item>
+    </style>
+
+    <style name="EditText_18_Gray_Light_Style" parent="Text_18_SemiBlackGrayStyle">
+        <item name="fontNameEdit">Light</item>
+    </style>
+
+    <!-- TEXTVIEW 18 FONT WHITE-->
+
+    <style name="EditText_18_White_Regular_Style" parent="Text_18_WhiteStyle">
+        <item name="fontNameEdit">Regular</item>
+    </style>
+
+    <style name="EditText_18_White_Bold_Style" parent="Text_18_WhiteStyle">
+        <item name="fontNameEdit">Bold</item>
+    </style>
+
+    <style name="EditText_18_White_SemiBold_Style" parent="Text_18_WhiteStyle">
+        <item name="fontNameEdit">SemiBold</item>
+    </style>
+
+    <style name="EditText_18_White_Light_Style" parent="Text_18_WhiteStyle">
+        <item name="fontNameEdit">Light</item>
+    </style>
+
+    <!-- TEXTVIEW 20 FONT BLACK-->
+
+    <style name="EditText_20_Black_Regular_Style" parent="Text_20_BlackStyle">
+        <item name="fontNameEdit">Regular</item>
+    </style>
+
+    <style name="EditText_20_Black_Bold_Style" parent="Text_20_BlackStyle">
+        <item name="fontNameEdit">Bold</item>
+    </style>
+
+    <style name="EditText_20_Black_SemiBold_Style" parent="Text_20_BlackStyle">
+        <item name="fontNameEdit">SemiBold</item>
+    </style>
+
+    <style name="EditText_20_Black_Light_Style" parent="Text_20_BlackStyle">
+        <item name="fontNameEdit">Light</item>
+    </style>
+
+    <!-- TEXTVIEW 20 FONT SEMIBLACK-->
+
+    <style name="EditText_20_SemiBlack_Regular_Style" parent="Text_20_SemiBlackStyle">
+        <item name="fontNameEdit">Regular</item>
+    </style>
+
+    <style name="EditText_20_SemiBlack_Bold_Style" parent="Text_20_SemiBlackStyle">
+        <item name="fontNameEdit">Bold</item>
+    </style>
+
+    <style name="EditText_20_SemiBlack_SemiBold_Style" parent="Text_20_SemiBlackStyle">
+        <item name="fontNameEdit">SemiBold</item>
+    </style>
+
+    <style name="EditText_20_SemiBlack_Light_Style" parent="Text_20_SemiBlackStyle">
+        <item name="fontNameEdit">Light</item>
+    </style>
+
+    <!-- TEXTVIEW 20 FONT SEMIBLACK-->
+
+    <style name="EditText_20_Gray_Regular_Style" parent="Text_20_SemiBlackGrayStyle">
+        <item name="fontNameEdit">Regular</item>
+    </style>
+
+    <style name="EditText_20_Gray_Bold_Style" parent="Text_20_SemiBlackGrayStyle">
+        <item name="fontNameEdit">Bold</item>
+    </style>
+
+    <style name="EditText_20_Gray_SemiBold_Style" parent="Text_20_SemiBlackGrayStyle">
+        <item name="fontNameEdit">SemiBold</item>
+    </style>
+
+    <style name="EditText_20_Gray_Light_Style" parent="Text_20_SemiBlackGrayStyle">
+        <item name="fontNameEdit">Light</item>
+    </style>
+
+    <!-- TEXTVIEW 20 FONT WHITE-->
+
+    <style name="EditText_20_White_Regular_Style" parent="Text_20_WhiteStyle">
+        <item name="fontNameEdit">Regular</item>
+    </style>
+
+    <style name="EditText_20_White_Bold_Style" parent="Text_20_WhiteStyle">
+        <item name="fontNameEdit">Bold</item>
+    </style>
+
+    <style name="EditText_20_White_SemiBold_Style" parent="Text_20_WhiteStyle">
+        <item name="fontNameEdit">SemiBold</item>
+    </style>
+
+    <style name="EditText_20_White_Light_Style" parent="Text_20_WhiteStyle">
+        <item name="fontNameEdit">Light</item>
+    </style>
+
+    <!-- TEXTVIEW 25 FONT BLACK-->
+
+    <style name="EditText_25_Black_Regular_Style" parent="Text_25_BlackStyle">
+        <item name="fontNameEdit">Regular</item>
+    </style>
+
+    <style name="EditText_25_Black_Bold_Style" parent="Text_25_BlackStyle">
+        <item name="fontNameEdit">Bold</item>
+    </style>
+
+    <style name="EditText_25_Black_SemiBold_Style" parent="Text_25_BlackStyle">
+        <item name="fontNameEdit">SemiBold</item>
+    </style>
+
+    <style name="EditText_25_Black_Light_Style" parent="Text_25_BlackStyle">
+        <item name="fontNameEdit">Light</item>
+    </style>
+
+    <!-- TEXTVIEW 25 FONT SEMIBLACK-->
+
+    <style name="EditText_25_SemiBlack_Regular_Style" parent="Text_25_SemiBlackStyle">
+        <item name="fontNameEdit">Regular</item>
+    </style>
+
+    <style name="EditText_25_SemiBlack_Bold_Style" parent="Text_25_SemiBlackStyle">
+        <item name="fontNameEdit">Bold</item>
+    </style>
+
+    <style name="EditText_25_SemiBlack_SemiBold_Style" parent="Text_25_SemiBlackStyle">
+        <item name="fontNameEdit">SemiBold</item>
+    </style>
+
+    <style name="EditText_25_SemiBlack_Light_Style" parent="Text_25_SemiBlackStyle">
+        <item name="fontNameEdit">Light</item>
+    </style>
+
+    <!-- TEXTVIEW 25 FONT SEMIBLACK-->
+
+    <style name="EditText_25_Gray_Regular_Style" parent="Text_25_SemiBlackGrayStyle">
+        <item name="fontNameEdit">Regular</item>
+    </style>
+
+    <style name="EditText_25_Gray_Bold_Style" parent="Text_25_SemiBlackGrayStyle">
+        <item name="fontNameEdit">Bold</item>
+    </style>
+
+    <style name="EditText_25_Gray_SemiBold_Style" parent="Text_25_SemiBlackGrayStyle">
+        <item name="fontNameEdit">SemiBold</item>
+    </style>
+
+    <style name="EditText_25_Gray_Light_Style" parent="Text_25_SemiBlackGrayStyle">
+        <item name="fontNameEdit">Light</item>
+    </style>
+
+    <!-- TEXTVIEW 25 FONT WHITE-->
+
+    <style name="EditText_25_White_Regular_Style" parent="Text_25_WhiteStyle">
+        <item name="fontNameEdit">Regular</item>
+    </style>
+
+    <style name="EditText_25_White_Bold_Style" parent="Text_25_WhiteStyle">
+        <item name="fontNameEdit">Bold</item>
+    </style>
+
+    <style name="EditText_25_White_SemiBold_Style" parent="Text_25_WhiteStyle">
+        <item name="fontNameEdit">SemiBold</item>
+    </style>
+
+    <style name="EditText_25_White_Light_Style" parent="Text_25_WhiteStyle">
+        <item name="fontNameEdit">Light</item>
+    </style>
+
+</resources>

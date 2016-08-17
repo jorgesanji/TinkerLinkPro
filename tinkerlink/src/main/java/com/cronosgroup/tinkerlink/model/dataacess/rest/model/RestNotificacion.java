@@ -16,7 +16,7 @@ public class RestNotificacion extends RestBase {
     private String id = "";
 
     @SerializedName("usuario")
-    private RestContacto user = new RestContacto();
+    private RestContact user = new RestContact();
 
     @SerializedName("idNotificacion")
     private long idNotificacion = 0;
@@ -66,11 +66,11 @@ public class RestNotificacion extends RestBase {
         this.tipo = tipo;
     }
 
-    public RestContacto getUser() {
+    public RestContact getUser() {
         return user;
     }
 
-    public void setUsuario(RestContacto usuario) {
+    public void setUsuario(RestContact usuario) {
         this.user = usuario;
     }
 

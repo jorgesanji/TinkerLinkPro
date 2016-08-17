@@ -3,7 +3,6 @@ package com.cronosgroup.tinkerlink.view.config.recoverypassword;
 import android.view.View;
 
 import com.cronosgroup.tinkerlink.presenter.recoverypassword.RecoveryPasswordPresenter;
-import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
 
 
@@ -29,7 +28,7 @@ public class RecoveryPasswordFragment extends MVPTinkerLinkFragment<RecoveryPass
 
     @Override
     protected RecoveryPasswordPresenter createPresenter() {
-        return new RecoveryPasswordPresenter(ScreenNavigationHandler.getInstance());
+        return new RecoveryPasswordPresenter();
     }
 
     @Override

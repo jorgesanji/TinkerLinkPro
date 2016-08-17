@@ -7,7 +7,8 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:fillViewport="false">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -22,8 +23,10 @@
                 android:text="@string/create_card_description_title" />
 
             <com.cronosgroup.tinkerlink.view.customviews.TLTextView
-                style="@style/TextViewLoginSecctionsStyle"
-                android:layout_marginTop="@dimen/margin_mediun"
+                style="@style/Text_14_SemiBlack_Regular_Style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_small"
                 android:gravity="left"
                 android:text="@string/create_card_description" />
 
@@ -33,9 +36,10 @@
                 android:hint="@string/sign_register_user_description_hint" />
 
             <com.cronosgroup.tinkerlink.view.customviews.TLTextView
-                style="@style/TextViewLoginSecctionsStyle"
+                style="@style/Text_14_Gray_Regular_Style"
                 android:layout_width="match_parent"
-                android:layout_marginTop="@dimen/margin_small"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_tiny"
                 android:gravity="right"
                 android:text="@string/create_card_description_max_characters"
                 android:textSize="@dimen/text_size_small" />
@@ -84,13 +88,13 @@
                     android:paddingRight="45dp" />
 
                 <com.cronosgroup.tinkerlink.view.customviews.TLTextView
-                    style="@style/TextViewLoginSecctionsStyle"
+                    style="@style/Text_14_Gray_Regular_Style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:layout_marginTop="@dimen/margin_mediun"
-                    android:text="@string/create_card_add_skill_number"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/text_size_small" />
+                    android:text="@string/create_card_add_skill_number" />
 
             </RelativeLayout>
 

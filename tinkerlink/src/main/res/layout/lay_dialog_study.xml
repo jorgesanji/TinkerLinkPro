@@ -1,44 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="@dimen/margin_mediun"
     android:background="@color/white"
     android:orientation="vertical">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:orientation="horizontal">
-
-        <com.cronosgroup.tinkerlink.view.customviews.TLTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
-            android:text="@string/profile_edit_add_study"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            app:fontName="Regular" />
-
-        <com.cronosgroup.tinkerlink.view.customviews.TLImageButton
-            android:id="@+id/close"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="@dimen/margin_mediun"
-            android:background="@android:color/transparent"
-            android:src="@mipmap/ic_close" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_alignParentBottom="true"
-            android:background="@color/gray_30" />
-
-    </RelativeLayout>
+    <include layout="@layout/lay_title_header"/>
 
     <LinearLayout
         android:layout_width="match_parent"

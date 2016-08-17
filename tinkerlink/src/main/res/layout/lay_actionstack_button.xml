@@ -14,17 +14,17 @@
 
         <com.cronosgroup.tinkerlink.view.customviews.TLTextView
             android:id="@+id/stackTitle"
+            style="@style/Text_25_Black_Light_Style"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:textSize="@dimen/text_size_big" />
+            android:textAlignment="center" />
 
         <com.cronosgroup.tinkerlink.view.customviews.TLTextView
             android:id="@+id/stackSubTitle"
+            style="@style/Text_11_Black_SemiBold_Style"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:textSize="@dimen/text_size_tiny" />
+            android:textAlignment="center" />
 
         <View
             android:id="@+id/stackLine"
@@ -39,7 +39,7 @@
         android:id="@+id/stackIcon"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:visibility="gone"
-        android:layout_weight="1.0" />
+        android:layout_weight="1.0"
+        android:visibility="gone" />
 
 </LinearLayout>

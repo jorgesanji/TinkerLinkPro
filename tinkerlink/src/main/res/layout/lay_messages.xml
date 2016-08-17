@@ -10,10 +10,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <android.support.design.widget.FloatingActionButton
+    <com.cronosgroup.tinkerlink.view.customviews.TLImageButton
         android:id="@+id/messageButton"
         style="@style/FloatActionButtonStyle"
-        android:src="@mipmap/nav_mensajes_act"
-        app:fabSize="normal" />
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@drawable/background_menu_gradient"
+        android:src="@mipmap/nav_mensajes_act" />
 
 </RelativeLayout>

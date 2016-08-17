@@ -4,7 +4,7 @@ import com.cronosgroup.core.rest.Callback;
 import com.cronosgroup.core.rest.RestBase;
 import com.cronosgroup.core.rest.RestError;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.mapping.JsonToModel;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContacto;
+import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContact;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestResponse;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.services.base.AppService;
 
@@ -106,7 +106,7 @@ public class ContactsServices extends AppService {
         }, tag);
     }
 
-    public static <T extends RestBase> void searchContacts(String params, final Class<RestContacto> clazz, final Callback<List<RestContacto>, RestError> callback, Object tag) {
+    public static <T extends RestBase> void searchContacts(String params, final Class<RestContact> clazz, final Callback<List<RestContact>, RestError> callback, Object tag) {
 
         String url = URL_GET_CONTACTS_SEARCH + params;
 
@@ -115,10 +115,10 @@ public class ContactsServices extends AppService {
             public void onResponse(RestResponse response) {
                 if (callback != null) {
                     if (response != null && !response.getError().hasError()) {
-                        mappingListInBackground(response.getData(), ROOT_PATH_CONTACTS, clazz, new JsonToModel.Listener<List<RestContacto>, RestError>() {
+                        mappingListInBackground(response.getData(), ROOT_PATH_CONTACTS, clazz, new JsonToModel.Listener<List<RestContact>, RestError>() {
 
                             @Override
-                            public void mappingFinished(List<RestContacto> contacto) {
+                            public void mappingFinished(List<RestContact> contacto) {
                                 if (callback != null) {
                                     callback.onResponse(contacto);
                                 }

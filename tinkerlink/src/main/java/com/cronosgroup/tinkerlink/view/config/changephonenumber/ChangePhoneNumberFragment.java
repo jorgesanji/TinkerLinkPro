@@ -3,7 +3,6 @@ package com.cronosgroup.tinkerlink.view.config.changephonenumber;
 import android.view.View;
 
 import com.cronosgroup.tinkerlink.presenter.changephonenumber.ChangePhoneNumberPresenter;
-import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
 
 
@@ -29,7 +28,7 @@ public class ChangePhoneNumberFragment extends MVPTinkerLinkFragment<ChangePhone
 
     @Override
     protected ChangePhoneNumberPresenter createPresenter() {
-        return new ChangePhoneNumberPresenter(ScreenNavigationHandler.getInstance());
+        return new ChangePhoneNumberPresenter();
     }
 
     @Override

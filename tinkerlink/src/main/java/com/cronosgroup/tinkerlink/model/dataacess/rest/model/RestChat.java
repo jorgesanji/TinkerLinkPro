@@ -12,7 +12,7 @@ public class RestChat extends RestBase {
     private String id = "";
 
     @SerializedName("user")
-    private RestContacto user = new RestContacto();
+    private RestContact user = new RestContact();
 
     @SerializedName("messages")
     private List<RestMessage> mensajes = new ArrayList<RestMessage>();
@@ -25,11 +25,11 @@ public class RestChat extends RestBase {
         this.id = id;
     }
 
-    public RestContacto getUser() {
+    public RestContact getUser() {
         return user;
     }
 
-    public void setUser(RestContacto user) {
+    public void setUser(RestContact user) {
         this.user = user;
     }
 

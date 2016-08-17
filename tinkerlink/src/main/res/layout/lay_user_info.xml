@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <com.cronosgroup.tinkerlink.view.customviews.TLImageView
+        android:id="@+id/userImage"
+        android:layout_width="@dimen/thumb_size_mediun"
+        android:layout_height="@dimen/thumb_size_mediun"
+        android:layout_marginBottom="@dimen/margin_tiny"
+        android:layout_marginLeft="@dimen/margin_tiny"
+        android:layout_marginTop="@dimen/margin_tiny"
+        android:src="@mipmap/newsfeed_avatar_hombre"
+        android:contentDescription="Image user"
+        app:imageType="User" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_tiny"
+        android:layout_marginLeft="@dimen/margin_small"
+        android:layout_marginRight="@dimen/margin_small"
+        android:layout_marginTop="@dimen/margin_tiny"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+            android:id="@+id/userName"
+            style="@style/Text_16_Black_Regular_Style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name User"
+            />
+
+        <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+            android:id="@+id/userJob"
+            style="@style/Text_14_Gray_Regular_Style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Job User"
+            app:fontName="Regular" />
+
+    </LinearLayout>
+
+</LinearLayout>

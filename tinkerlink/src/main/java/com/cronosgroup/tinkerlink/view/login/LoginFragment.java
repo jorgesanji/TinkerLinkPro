@@ -3,7 +3,6 @@ package com.cronosgroup.tinkerlink.view.login;
 import android.view.View;
 
 import com.cronosgroup.tinkerlink.presenter.login.LoginPresenter;
-import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
 
 
@@ -29,7 +28,7 @@ public class LoginFragment extends MVPTinkerLinkFragment<LoginPresenter, LoginPr
 
     @Override
     protected LoginPresenter createPresenter() {
-        return new LoginPresenter(ScreenNavigationHandler.getInstance());
+        return new LoginPresenter();
     }
 
     @Override

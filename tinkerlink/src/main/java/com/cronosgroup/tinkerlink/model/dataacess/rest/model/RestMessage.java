@@ -14,7 +14,7 @@ public class RestMessage extends RestBase {
     private String idChat = "";
 
     @SerializedName("user")
-    private RestContacto usuario = new RestContacto();
+    private RestContact usuario = new RestContact();
 
     @SerializedName("message")
     private String mensaje = "";
@@ -41,11 +41,11 @@ public class RestMessage extends RestBase {
         this.idChat = idChat;
     }
 
-    public RestContacto getUser() {
+    public RestContact getUser() {
         return usuario;
     }
 
-    public void setUsuario(RestContacto usuario) {
+    public void setUsuario(RestContact usuario) {
         this.usuario = usuario;
     }
 

@@ -1,10 +1,9 @@
 package com.cronosgroup.tinkerlink.presenter.contacts;
 
-import android.app.Activity;
 import android.os.Bundle;
 
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestChat;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContacto;
+import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContact;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestMessage;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestProfile;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestUser;
@@ -21,33 +20,13 @@ import java.util.List;
  */
 public class MyContactsPresenter extends TinkerLinkPresenter<MyContactsPresenter.View> {
 
-    private final Actions listener;
-
     /**
      * Contacts listeners.
      */
     public interface View extends TinkerLinkPresenterView {
-        void setContacts(List<RestContacto> list);
+        void setContacts(List<RestContact> list);
 
-        List<RestContacto> getItems();
-    }
-
-    /**
-     * Contacts actions.
-     */
-    public interface Actions {
-        void onLaunchChatUser(Activity activity, Bundle bundle);
-
-        void onLaunchImportUserContacts(Activity activity, Bundle bundle);
-
-        void onLaunchSearchContacts(Activity activity, Bundle bundle);
-    }
-
-    /**
-     * @param navigationListener
-     */
-    public MyContactsPresenter(Actions navigationListener) {
-        this.listener = navigationListener;
+        List<RestContact> getItems();
     }
 
     // public methods
@@ -56,16 +35,16 @@ public class MyContactsPresenter extends TinkerLinkPresenter<MyContactsPresenter
 
         getView().showLoading();
 
-        AsyncLoader<List<RestContacto>> asyncLoader = new AsyncLoader<List<RestContacto>>() {
+        AsyncLoader<List<RestContact>> asyncLoader = new AsyncLoader<List<RestContact>>() {
             @Override
-            public List<RestContacto> doInBackground() {
+            public List<RestContact> doInBackground() {
 
                 RestProfile restProfile = new RestProfile();
                 restProfile.setProfession("Fontanero");
                 restProfile.setCity("Barcelona");
                 restProfile.setCountry("España");
 
-                List<RestContacto> list = new ArrayList<>();
+                List<RestContact> list = new ArrayList<>();
 
                 for (int contacts = 0; contacts < 20; contacts++) {
 
@@ -74,7 +53,7 @@ public class MyContactsPresenter extends TinkerLinkPresenter<MyContactsPresenter
                     restUser1.setPhoto("http://qsrock.com/wp-content/uploads/2016/04/130699422.jpg");
                     restUser1.setProfile(restProfile);
 
-                    RestContacto contacto = new RestContacto();
+                    RestContact contacto = new RestContact();
                     contacto.setUser(restUser1);
 
                     list.add(contacto);
@@ -84,7 +63,7 @@ public class MyContactsPresenter extends TinkerLinkPresenter<MyContactsPresenter
             }
 
             @Override
-            public void postProcess(List<RestContacto> result) {
+            public void postProcess(List<RestContact> result) {
                 getView().setContacts(result);
                 getView().hideLoading();
             }
@@ -95,9 +74,9 @@ public class MyContactsPresenter extends TinkerLinkPresenter<MyContactsPresenter
 
     public void onWritteMessageSelected(int position) {
 
-        RestContacto restContacto = getView().getItems().get(position);
+        RestContact restContact = getView().getItems().get(position);
         RestChat restChat = new RestChat();
-        restChat.setUser(restContacto);
+        restChat.setUser(restContact);
         List<RestMessage> listMessages = new ArrayList<>();
         RestMessage restMessage = new RestMessage();
         restMessage.setMensaje("Esto es una mentira");
@@ -106,15 +85,19 @@ public class MyContactsPresenter extends TinkerLinkPresenter<MyContactsPresenter
 
         Bundle bundle = new Bundle();
         bundle.putSerializable(ChatUserActivity.ITEMS_KEY, restChat);
-        listener.onLaunchChatUser(getView().getActivity(), bundle);
+        navigation.onLaunchChatUser(getView().getActivity(), bundle);
     }
 
 
     public void launchImportContacts() {
-        listener.onLaunchImportUserContacts(getView().getActivity(), null);
+        navigation.onLaunchImportUserContacts(getView().getActivity(), null);
     }
 
     public void launchSearchContacts() {
-        listener.onLaunchSearchContacts(getView().getActivity(), null);
+        navigation.onLaunchSearchContacts(getView().getActivity(), null);
+    }
+
+    public void launchUserProfile() {
+        navigation.onLaunchUserProfile(getView().getActivity(), null);
     }
 }

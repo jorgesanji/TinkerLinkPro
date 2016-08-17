@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
 import com.cronosgroup.tinkerlink.R;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContacto;
+import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContact;
 import com.cronosgroup.tinkerlink.utils.DimenUtils;
 
 import java.util.List;
@@ -29,17 +29,6 @@ public class TLCommonContactsView extends RelativeLayout {
     private boolean showstatusContact;
 
     //Views
-    @BindView(R.id.contact1)
-    protected TLImageView mContact1;
-
-    @BindView(R.id.contact2)
-    protected TLImageView mContact2;
-
-    @BindView(R.id.contact3)
-    protected TLImageView mContact3;
-
-    @BindView(R.id.contact4)
-    protected TLImageView mContact4;
 
     @BindView(R.id.numberContacts)
     protected TLTextView mNumberContacts;
@@ -107,8 +96,8 @@ public class TLCommonContactsView extends RelativeLayout {
     }
 
     private void setParamsContainer(boolean wrContent) {
-        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(wrContent ? ViewGroup.LayoutParams.WRAP_CONTENT : Math.round(DimenUtils.getPixelsFromDp(getContext(), 50)), ViewGroup.LayoutParams.WRAP_CONTENT);
-        params.leftMargin = isShowstatusContact() ? Math.round(DimenUtils.getPixelsFromDp(getContext(), 100)) : 0;
+        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(wrContent ? ViewGroup.LayoutParams.WRAP_CONTENT :DimenUtils.getIntPixelsFromDp(getContext(), 50), ViewGroup.LayoutParams.WRAP_CONTENT);
+        params.leftMargin = isShowstatusContact() ? DimenUtils.getIntPixelsFromDp(getContext(), 100) : 0;
         params.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
         params.addRule(RelativeLayout.CENTER_VERTICAL);
         mcontainerCommon.setLayoutParams(params);
@@ -116,7 +105,7 @@ public class TLCommonContactsView extends RelativeLayout {
 
     //Public methods
 
-    public void setContacts(List<RestContacto> contacts) {
+    public void setContacts(List<RestContact> contacts) {
         if (!contacts.isEmpty()) {
             setParamsContainer(true);
             mContactsContainer.setVisibility(VISIBLE);
@@ -126,7 +115,7 @@ public class TLCommonContactsView extends RelativeLayout {
 
             int size = contacts.size() > 4 ? 4 : contacts.size();
             for (int index = 0; index < size; index++) {
-                RestContacto contacto = contacts.get(index);
+                RestContact contacto = contacts.get(index);
                 TLImageView imageView = (TLImageView) mContactsContainer.getChildAt(index);
                 imageView.setImageFromUrl(contacto.getUser().getPhoto());
             }

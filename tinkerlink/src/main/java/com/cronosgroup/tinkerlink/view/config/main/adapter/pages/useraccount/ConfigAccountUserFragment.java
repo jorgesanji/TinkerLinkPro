@@ -3,7 +3,6 @@ package com.cronosgroup.tinkerlink.view.config.main.adapter.pages.useraccount;
 import android.view.View;
 
 import com.cronosgroup.tinkerlink.presenter.editprofile.ConfigAccountUserPresenter;
-import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
 
 /**
@@ -28,7 +27,7 @@ public class ConfigAccountUserFragment extends MVPTinkerLinkFragment<ConfigAccou
 
     @Override
     protected ConfigAccountUserPresenter createPresenter() {
-        return new ConfigAccountUserPresenter(ScreenNavigationHandler.getInstance());
+        return new ConfigAccountUserPresenter();
     }
 
     @Override

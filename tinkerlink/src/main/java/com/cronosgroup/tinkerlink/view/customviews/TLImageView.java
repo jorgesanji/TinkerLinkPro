@@ -9,6 +9,7 @@ import android.util.Log;
 import android.widget.ImageView;
 
 import com.cronosgroup.tinkerlink.R;
+import com.cronosgroup.tinkerlink.enums.ImageType;
 import com.cronosgroup.tinkerlink.utils.CircleBitmapDisplayer;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -21,51 +22,8 @@ public class TLImageView extends ImageView {
 
     public static final String TAG = TLImageView.class.getName();
 
-    public enum ImageType {
-        DEFAULT(0, R.mipmap.placeholder, R.mipmap.placeholder),
-        USER(1, R.mipmap.newsfeed_avatar_hombre, R.mipmap.newsfeed_avatar_hombre),
-        UPDATEPROFILE(2, R.mipmap.newsfeed_photo_nomostrar, R.mipmap.newsfeed_photo_nomostrar),
-        TINKER(3, R.mipmap.tinkercard_noicon, R.mipmap.tinkercard_noicon),
-        LINKER(4, R.mipmap.linkercard_noicon, R.mipmap.linkercard_noicon),
-        NONE(5, -1, -1);
-
-        private final int type;
-        private final int errorResource;
-        private final int emptyUriResource;
-
-        ImageType(int type, int resource, int emptyUri) {
-            this.type = type;
-            this.errorResource = resource;
-            this.emptyUriResource = emptyUri;
-        }
-
-        public int getType() {
-            return type;
-        }
-
-        public int getErrorResource() {
-            return errorResource;
-        }
-
-        public int getEmptyUriResource() {
-            return emptyUriResource;
-        }
-
-        public static ImageType getImageTypeFromType(int type) {
-            if (type == USER.getType()) {
-                return USER;
-            } else if (type == UPDATEPROFILE.getType()) {
-                return UPDATEPROFILE;
-            } else if (type == DEFAULT.getType()) {
-                return DEFAULT;
-            } else {
-                return NONE;
-            }
-        }
-    }
-
     private boolean rounded = false;
-    private boolean withBorder = false;
+    private boolean hasBorder = false;
     private int placeHolderErrorImage;
     private int placerHolderEmptyUri;
     private ImageType imageType;
@@ -117,7 +75,7 @@ public class TLImageView extends ImageView {
             try {
                 attributes = getContext().obtainStyledAttributes(attributeSet, R.styleable.TLImageView);
                 setRounded(attributes.getBoolean(R.styleable.TLImageView_imageRounded, false));
-                setWithBorder(attributes.getBoolean(R.styleable.TLImageView_imageWithBorder, false));
+                setHasBorder(attributes.getBoolean(R.styleable.TLImageView_imageWithBorder, false));
                 setImageType(ImageType.getImageTypeFromType(attributes.getInt(R.styleable.TLImageView_imageType, ImageType.DEFAULT.getType())));
             } catch (Exception ex) {
                 Log.e(TAG, ex.getMessage(), ex);
@@ -147,7 +105,7 @@ public class TLImageView extends ImageView {
 
             if (isRounded()) {
                 options.displayer(new CircleBitmapDisplayer(getContext(),
-                        false, isWithBorder()));
+                        false, hasBorder()));
             }
 
             ImageLoader.getInstance().displayImage(url, this, (options != null) ? options.build() : null, listener);
@@ -165,12 +123,12 @@ public class TLImageView extends ImageView {
 
     //Publics methods
 
-    public boolean isWithBorder() {
-        return withBorder;
+    public boolean hasBorder() {
+        return hasBorder;
     }
 
-    public void setWithBorder(boolean withBorder) {
-        this.withBorder = withBorder;
+    public void setHasBorder(boolean hasBorder) {
+        this.hasBorder = hasBorder;
     }
 
     public ImageLoadingListener getListener() {
@@ -237,6 +195,4 @@ public class TLImageView extends ImageView {
         ImageLoader.getInstance().cancelDisplayTask(this);
         this.setImageBitmap(null);
     }
-
-
 }

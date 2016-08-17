@@ -16,8 +16,12 @@ public class DimenUtils {
     }
 
     public static float getPixelsFromDp(Context context, float dp) {
-        Resources r = context.getResources();
-        return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, r.getDisplayMetrics());
+        Resources resources = context.getResources();
+        return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, resources.getDisplayMetrics());
+    }
+
+    public static int getIntPixelsFromDp(Context context, float dp) {
+        return Math.round(getPixelsFromDp(context, dp));
     }
 
     public static int dpToPx(Context context, int dp) {

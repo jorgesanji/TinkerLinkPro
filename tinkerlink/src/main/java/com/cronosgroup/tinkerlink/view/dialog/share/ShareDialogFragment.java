@@ -3,7 +3,6 @@ package com.cronosgroup.tinkerlink.view.dialog.share;
 import android.view.View;
 
 import com.cronosgroup.tinkerlink.presenter.share.SharePresenter;
-import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.dialog.base.MVPTinkerLinkDialogFragment;
 
 
@@ -30,7 +29,7 @@ public class ShareDialogFragment extends MVPTinkerLinkDialogFragment<SharePresen
 
     @Override
     protected SharePresenter createPresenter() {
-        return new SharePresenter(ScreenNavigationHandler.getInstance());
+        return new SharePresenter();
     }
 
     @Override

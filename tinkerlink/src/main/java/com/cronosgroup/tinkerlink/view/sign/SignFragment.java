@@ -10,12 +10,11 @@ import android.support.v4.content.LocalBroadcastManager;
 import android.view.View;
 
 import com.cronosgroup.tinkerlink.R;
+import com.cronosgroup.tinkerlink.enums.FormState;
 import com.cronosgroup.tinkerlink.event.RegistrationStepsEvent;
 import com.cronosgroup.tinkerlink.event.SmsEvent;
-import com.cronosgroup.tinkerlink.enums.FormState;
 import com.cronosgroup.tinkerlink.presenter.sign.SignPresenter;
 import com.cronosgroup.tinkerlink.sms.SMSBroadcastReceiver;
-import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
 import com.cronosgroup.tinkerlink.view.dialog.validation.ValidationDialogFragment;
 import com.cronosgroup.tinkerlink.view.sign.adapter.SignAdapter;
@@ -73,7 +72,7 @@ public class SignFragment extends MVPTinkerLinkFragment<SignPresenter, SignPrese
 
     @Override
     protected SignPresenter createPresenter() {
-        return new SignPresenter(ScreenNavigationHandler.getInstance());
+        return new SignPresenter();
     }
 
     @Override

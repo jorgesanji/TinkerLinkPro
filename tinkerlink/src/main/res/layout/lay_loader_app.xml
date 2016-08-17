@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:paddingBottom="5dp"
@@ -12,16 +13,24 @@
         android:layout_width="80dp"
         android:layout_height="60dp"
         android:layout_centerInParent="true"
-        android:elevation="@dimen/view_elevation"
-        android:background="@drawable/background_loader" />
+        android:background="@drawable/background_loader"
+        android:elevation="@dimen/view_elevation" />
 
-    <ProgressBar
+    <com.wang.avi.AVLoadingIndicatorView
         android:id="@+id/progressBar1"
-        style="?android:attr/progressBarStyleSmall"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:background="@drawable/progressbar_progress"
-        android:indeterminateTint="@color/tinkercolor_50" />
+        app:indicator="BallClipRotatePulse"
+        app:indicator_color="@color/tinkercolor" />
+
+    <!--<ProgressBar-->
+    <!--android:id="@+id/progressBar1"-->
+    <!--style="?android:attr/progressBarStyleSmall"-->
+    <!--android:layout_width="25dp"-->
+    <!--android:layout_height="25dp"-->
+    <!--android:layout_centerInParent="true"-->
+    <!--android:background="@drawable/progressbar_progress"-->
+    <!--android:indeterminateTint="@color/tinkercolor_50" />-->
 
 </RelativeLayout>

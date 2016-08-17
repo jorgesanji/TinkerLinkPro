@@ -46,6 +46,14 @@ public class SkillsViewHolder extends ChildViewHolder {
         }
     }
 
+    @OnClick(R.id.titleSkill)
+    protected void titlePressed() {
+        mSkillSelector.setChecked(!mSkillSelector.isChecked());
+        if (listener != null) {
+            listener.onSkillSelected(getAdapterPosition());
+        }
+    }
+
     public CategoriesAdapter.IOSkillListener getListener() {
         return listener;
     }

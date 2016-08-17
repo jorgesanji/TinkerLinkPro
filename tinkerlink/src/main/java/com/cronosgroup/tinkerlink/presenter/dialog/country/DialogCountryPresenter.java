@@ -11,26 +11,11 @@ import java.util.List;
  */
 public class DialogCountryPresenter extends TinkerLinkDialogPresenter<DialogCountryPresenter.View> {
 
-    private final Actions listener;
-
     /**
      * DialogCountry View.
      */
     public interface View extends TinkerLinkDialogPresenterView {
         void setCountries(List<RestCountry> list);
-    }
-
-    /**
-     * DialogCountry actions.
-     */
-    public interface Actions {
-    }
-
-    /**
-     * @param navigationListener
-     */
-    public DialogCountryPresenter(Actions navigationListener) {
-        this.listener = navigationListener;
     }
 
     // public methods

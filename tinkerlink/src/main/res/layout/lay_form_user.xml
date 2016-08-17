@@ -22,29 +22,25 @@
             android:orientation="vertical">
 
             <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                style="@style/Text_25_Gray_Regular_Style"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_plus_biggest"
-                android:text="@string/sign_title"
-                android:textColor="@color/black"
-                android:textSize="@dimen/text_size_big"
-                app:fontName="Regular" />
+                android:text="@string/sign_title" />
 
             <com.cronosgroup.tinkerlink.view.customviews.TLImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_plus_big"
-                android:src="@android:drawable/ic_menu_gallery" />
+                android:src="@mipmap/ic_sms" />
 
             <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                style="@style/Text_14_Gray_Regular_Style"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_plus_biggest"
                 android:gravity="center"
-                android:text="@string/sign_message"
-                android:textColor="@color/black"
-                android:textSize="@dimen/text_size_mediun"
-                app:fontName="Regular" />
+                android:text="@string/sign_message" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -58,44 +54,12 @@
                     style="@style/TextViewLoginSecctionsStyle"
                     android:text="@string/sign_select_country" />
 
-                <LinearLayout
+                <com.cronosgroup.tinkerlink.view.customviews.TLSelectorForm
                     android:id="@+id/selectorCountry"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_small"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:orientation="horizontal">
-
-                        <com.cronosgroup.tinkerlink.view.customviews.TLTextView
-                            android:id="@+id/idCountry"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="0.8"
-                            android:hint="@string/sign_select_country_hint"
-                            android:textColor="@color/black"
-                            android:textColorHint="@color/gray_30"
-                            android:textSize="@dimen/text_size_mediun"
-                            app:fontName="Regular" />
-
-                        <com.cronosgroup.tinkerlink.view.customviews.TLImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@mipmap/ic_expand_more" />
-
-                    </LinearLayout>
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginTop="@dimen/margin_mini"
-                        android:background="@color/black" />
-
-                </LinearLayout>
+                    app:hintText="@string/sign_select_country_hint" />
 
                 <com.cronosgroup.tinkerlink.view.customviews.TLTextView
                     style="@style/TextViewLoginSecctionsStyle"
@@ -105,8 +69,8 @@
                 <com.cronosgroup.tinkerlink.view.customviews.TLEditText
                     android:id="@+id/idUser"
                     style="@style/EditFormStyle"
-                    android:inputType="number"
-                    android:hint="@string/sign_select_phone_hint" />
+                    android:hint="@string/sign_select_phone_hint"
+                    android:inputType="number" />
 
                 <com.cronosgroup.tinkerlink.view.customviews.TLTextView
                     style="@style/TextViewLoginSecctionsStyle"
@@ -116,8 +80,8 @@
                 <com.cronosgroup.tinkerlink.view.customviews.TLEditText
                     android:id="@+id/passwordUser"
                     style="@style/EditFormStyle"
-                    android:inputType="textPassword"
-                    android:hint="@string/sign_select_password_hint" />
+                    android:hint="@string/sign_select_password_hint"
+                    android:inputType="textPassword" />
 
                 <com.cronosgroup.tinkerlink.view.customviews.TLTextView
                     style="@style/TextViewLoginSecctionsStyle"
@@ -127,8 +91,8 @@
                 <com.cronosgroup.tinkerlink.view.customviews.TLEditText
                     android:id="@+id/nameUser"
                     style="@style/EditFormStyle"
-                    android:inputType="text"
-                    android:hint="@string/sign_select_name_hint" />
+                    android:hint="@string/sign_select_name_hint"
+                    android:inputType="text" />
 
                 <com.cronosgroup.tinkerlink.view.customviews.TLTextView
                     style="@style/TextViewLoginSecctionsStyle"
@@ -138,8 +102,8 @@
                 <com.cronosgroup.tinkerlink.view.customviews.TLEditText
                     android:id="@+id/cognameUser"
                     style="@style/EditFormStyle"
-                    android:inputType="text"
-                    android:hint="@string/sign_select_cogname_hint" />
+                    android:hint="@string/sign_select_cogname_hint"
+                    android:inputType="text" />
 
                 <com.cronosgroup.tinkerlink.view.customviews.TLTextView
                     style="@style/TextViewLoginSecctionsStyle"
@@ -228,19 +192,15 @@
                         android:gravity="center_vertical"
                         android:orientation="horizontal">
 
-                        <CheckBox
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
+                        <CheckBox style="@style/CheckBoxStyle" />
 
                         <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                            style="@style/Text_14_Black_Regular_Style"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="@dimen/margin_small"
                             android:gravity="left"
-                            android:text="@string/sign_select_gender_men"
-                            android:textColor="@color/black"
-                            android:textSize="@dimen/text_size_mediun"
-                            app:fontName="Regular" />
+                            android:text="@string/sign_select_gender_men" />
 
                     </LinearLayout>
 
@@ -251,19 +211,15 @@
                         android:gravity="center_vertical"
                         android:orientation="horizontal">
 
-                        <CheckBox
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
+                        <CheckBox style="@style/CheckBoxStyle" />
 
                         <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                            style="@style/Text_14_Black_Regular_Style"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="@dimen/margin_small"
                             android:gravity="left"
-                            android:text="@string/sign_select_gender_women"
-                            android:textColor="@color/black"
-                            android:textSize="@dimen/text_size_mediun"
-                            app:fontName="Regular" />
+                            android:text="@string/sign_select_gender_women" />
 
                     </LinearLayout>
 

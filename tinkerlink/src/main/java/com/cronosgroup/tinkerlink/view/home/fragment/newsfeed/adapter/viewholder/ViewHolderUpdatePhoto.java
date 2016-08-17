@@ -9,8 +9,8 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.cronosgroup.tinkerlink.R;
-import com.cronosgroup.tinkerlink.model.manager.AppConfigManager;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContacto;
+import com.cronosgroup.tinkerlink.interfaces.IOIconListener;
+import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContact;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestUser;
 import com.cronosgroup.tinkerlink.utils.DateUtils;
@@ -19,7 +19,6 @@ import com.cronosgroup.tinkerlink.view.customviews.TLTabItem;
 import com.cronosgroup.tinkerlink.view.customviews.TLTextView;
 import com.cronosgroup.tinkerlink.view.customviews.TLUserView;
 import com.cronosgroup.tinkerlink.view.home.fragment.newsfeed.adapter.viewholder.base.ViewHolderPostBase;
-import com.cronosgroup.tinkerlink.interfaces.IOIconListener;
 import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 
@@ -108,19 +107,19 @@ public class ViewHolderUpdatePhoto extends ViewHolderPostBase<RestPost> {
     @Override
     public void configureItem(final RestPost post) {
         super.configureItem(post);
-        setSharedUser(post.getUser(), post.getFecha(), R.string.news_feed_update_photo);
+        setSharedUser(post.getUser(), post.getDate(), R.string.news_feed_update_photo);
         setImageCard(post);
-        setInfoButtons(post.getUser().getUser().getRecommendations(), post.getNumeroShares(), post.getNumeroVisualizaciones());
+        setInfoButtons(post.getUser().getUser().getRecommendations(), post.getNumberShares(), post.getNumberOfViews());
     }
 
-    protected void setSharedUser(final RestContacto contacto, Date date, int title) {
+    protected void setSharedUser(final RestContact contacto, Date date, int title) {
         String userStatus = String.format(getResources().getString(title), contacto.getUser().getName());
         final SpannableString spannableString = new SpannableString(userStatus);
         ForegroundColorSpan color = new ForegroundColorSpan(getResources().getColor(R.color.news_feed_detail_info));
         spannableString.setSpan(color, contacto.getUser().getName().length(), userStatus.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         mUserContainer.setTitle(spannableString);
         mUserContainer.setSubTitle(DateUtils.getInterval(date, itemView.getContext(), null));
-        mUserContainer.setUserImageFromUrl(getAppConfigManager().getPath(AppConfigManager.Path.PATH_IMAGE_PROFILE_THUMBNAIL) + contacto.getUser().getPhoto());
+        mUserContainer.setUserImageFromUrl(contacto.getUser().getPhoto());
         mUserContainer.setListener(new IOIconListener() {
             @Override
             public void onIconPressed() {
@@ -131,7 +130,7 @@ public class ViewHolderUpdatePhoto extends ViewHolderPostBase<RestPost> {
 
     protected void setOwnerUserPost(final RestPost post) {
         final RestUser user = post.getUser().getUser();
-        mUserCardImage.setImageFromUrl(getAppConfigManager().getPath(AppConfigManager.Path.PATH_IMAGE_PROFILE_THUMBNAIL) + user.getPhoto());
+        mUserCardImage.setImageFromUrl(user.getPhoto());
         mUserCardImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -157,7 +156,7 @@ public class ViewHolderUpdatePhoto extends ViewHolderPostBase<RestPost> {
 
     protected void setImageCard(final RestPost post) {
         mCardShareImage.setScaleType(ImageView.ScaleType.CENTER);
-        mCardShareImage.setImageFromUrl(getAppConfigManager().getPath(AppConfigManager.Path.PATH_IMAGE_PROFILE) + post.getUser().getUser().getPhoto(), new ImageLoadingListener() {
+        mCardShareImage.setImageFromUrl(post.getUser().getUser().getPhoto(), new ImageLoadingListener() {
             @Override
             public void onLoadingStarted(String imageUri, View view) {
 

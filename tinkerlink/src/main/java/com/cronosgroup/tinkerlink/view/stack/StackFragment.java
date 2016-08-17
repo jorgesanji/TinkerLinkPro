@@ -7,14 +7,13 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.cronosgroup.tinkerlink.R;
+import com.cronosgroup.tinkerlink.animation.RevealAnimation;
 import com.cronosgroup.tinkerlink.enums.StackCardType;
 import com.cronosgroup.tinkerlink.event.ShowDetailCardsEvent;
 import com.cronosgroup.tinkerlink.event.ShowOverLaySelectorEvent;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestUser;
 import com.cronosgroup.tinkerlink.presenter.stack.StackPresenter;
-import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
-import com.cronosgroup.tinkerlink.animation.RevealAnimation;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
 import com.cronosgroup.tinkerlink.view.dialog.network.NetworkDialogFragment;
 import com.cronosgroup.tinkerlink.view.dialog.share.ShareDialogFragment;
@@ -44,7 +43,7 @@ public class StackFragment extends MVPTinkerLinkFragment<StackPresenter, StackPr
 
     @Override
     protected View getRootView() {
-        stackScreen = new StackScreen(getActivity(), this, getFragmentManager());
+        stackScreen = new StackScreen(getActivity(), this);
         stackScreen.setDragdropListener(this);
         return stackScreen;
     }
@@ -93,7 +92,7 @@ public class StackFragment extends MVPTinkerLinkFragment<StackPresenter, StackPr
 
     @Override
     protected StackPresenter createPresenter() {
-        return new StackPresenter(ScreenNavigationHandler.getInstance());
+        return new StackPresenter();
     }
 
     @Override
@@ -148,6 +147,11 @@ public class StackFragment extends MVPTinkerLinkFragment<StackPresenter, StackPr
     @Override
     public void onSelectCardsPressed() {
         getPresenter().onSelectCardsType();
+    }
+
+    @Override
+    public void onCardPressed(int position) {
+        getPresenter().onLaunhDetailStack();
     }
 
     //endregion

@@ -2,9 +2,7 @@ package com.cronosgroup.tinkerlink.view.config.policyprivacy;
 
 import android.view.View;
 
-import com.cronosgroup.tinkerlink.presenter.importcontacts.ImportContactsPresenter;
 import com.cronosgroup.tinkerlink.presenter.policyprivacy.PolicyPrivacyPresenter;
-import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
 
 
@@ -30,7 +28,7 @@ public class PolicyPrivacyFragment extends MVPTinkerLinkFragment<PolicyPrivacyPr
 
     @Override
     protected PolicyPrivacyPresenter createPresenter() {
-        return new PolicyPrivacyPresenter(ScreenNavigationHandler.getInstance());
+        return new PolicyPrivacyPresenter();
     }
 
     @Override

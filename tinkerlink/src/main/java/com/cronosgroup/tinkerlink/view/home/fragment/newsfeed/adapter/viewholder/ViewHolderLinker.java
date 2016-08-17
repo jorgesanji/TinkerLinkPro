@@ -3,8 +3,8 @@ package com.cronosgroup.tinkerlink.view.home.fragment.newsfeed.adapter.viewholde
 import android.view.View;
 
 import com.cronosgroup.tinkerlink.R;
+import com.cronosgroup.tinkerlink.enums.ImageType;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
-import com.cronosgroup.tinkerlink.view.customviews.TLImageView;
 
 /**
  * row of the recycler view.
@@ -26,6 +26,6 @@ public class ViewHolderLinker extends ViewHolderTinker {
     @Override
     public void configureItem(final RestPost post) {
         setPost(post);
-        setInfoCard(post, R.string.news_feed_seek, TLImageView.ImageType.LINKER);
+        setInfoCard(post, R.string.news_feed_seek, ImageType.LINKER);
     }
 }

@@ -1,15 +1,17 @@
 package com.cronosgroup.tinkerlink.view.giverecommendation;
 
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.presenter.giverecommendation.GiveRecommendationPresenter;
-import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
+import com.cronosgroup.tinkerlink.utils.TLMMenuBuilder;
+import com.cronosgroup.tinkerlink.utils.TLMMenuItem;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -30,8 +32,14 @@ public class GiveRecommendationsFragment extends MVPTinkerLinkFragment<GiveRecom
     }
 
     @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.giverecommendation_menu, menu);
+    protected List<TLMMenuBuilder> getMenuItems() {
+        List<TLMMenuBuilder> menuItems = new ArrayList<>();
+        menuItems.add(new TLMMenuItem().
+                setId(R.id.action_send_recommendation).
+                setTitle(R.string.profile_recommendations_publish_recommendations).
+                setTitleColor(R.color.text_black_totally).
+                setAction(TLMMenuItem.SHOW_ACTION));
+        return menuItems;
     }
 
     @Override
@@ -55,7 +63,7 @@ public class GiveRecommendationsFragment extends MVPTinkerLinkFragment<GiveRecom
 
     @Override
     protected GiveRecommendationPresenter createPresenter() {
-        return new GiveRecommendationPresenter(ScreenNavigationHandler.getInstance());
+        return new GiveRecommendationPresenter();
     }
 
     @Override
@@ -71,7 +79,6 @@ public class GiveRecommendationsFragment extends MVPTinkerLinkFragment<GiveRecom
     //endregion
 
     //region ************** GiveRecommendationsPresenter.View **************
-
 
     //endregion
 

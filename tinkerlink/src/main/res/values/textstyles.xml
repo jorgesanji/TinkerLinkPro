@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- TEXTVIEW SIZE_11_SEMI_BLACK_WHITE-->
+
+    <style name="Text_11_Style">
+        <item name="android:textSize">@dimen/text_size_tiny_11</item>
+    </style>
+
+    <style name="Text_11_BlackStyle" parent="Text_11_Style">
+        <item name="android:textColor">@color/text_black_totally</item>
+    </style>
+
+    <style name="Text_11_SemiBlackStyle" parent="Text_11_Style">
+        <item name="android:textColor">@color/text_semi_black</item>
+    </style>
+
+    <style name="Text_11_SemiBlackGrayStyle" parent="Text_11_Style">
+        <item name="android:textColor">@color/text_black_gray</item>
+    </style>
+
+    <style name="Text_11_WhiteStyle" parent="Text_11_Style">
+        <item name="android:textColor">@color/text_white</item>
+    </style>
+
+    <!-- TEXTVIEW SIZE_12_SEMI_BLACK_WHITE-->
+
+    <style name="Text_12_Style">
+        <item name="android:textSize">@dimen/text_size_tiny_12</item>
+    </style>
+
+    <style name="Text_12_BlackStyle" parent="Text_12_Style">
+        <item name="android:textColor">@color/text_black_totally</item>
+    </style>
+
+    <style name="Text_12_SemiBlackStyle" parent="Text_12_Style">
+        <item name="android:textColor">@color/text_semi_black</item>
+    </style>
+
+    <style name="Text_12_SemiBlackGrayStyle" parent="Text_12_Style">
+        <item name="android:textColor">@color/text_black_gray</item>
+    </style>
+
+    <style name="Text_12_WhiteStyle" parent="Text_12_Style">
+        <item name="android:textColor">@color/text_white</item>
+    </style>
+
+    <!-- TEXTVIEW SIZE_13_SEMI_BLACK_WHITE-->
+
+    <style name="Text_13_Style">
+        <item name="android:textSize">@dimen/text_size_tiny_13</item>
+    </style>
+
+    <style name="Text_13_BlackStyle" parent="Text_13_Style">
+        <item name="android:textColor">@color/text_black_totally</item>
+    </style>
+
+    <style name="Text_13_SemiBlackStyle" parent="Text_13_Style">
+        <item name="android:textColor">@color/text_semi_black</item>
+    </style>
+
+    <style name="Text_13_SemiBlackGrayStyle" parent="Text_13_Style">
+        <item name="android:textColor">@color/text_black_gray</item>
+    </style>
+
+    <style name="Text_13_WhiteStyle" parent="Text_13_Style">
+        <item name="android:textColor">@color/text_white</item>
+    </style>
+
+    <!-- TEXTVIEW SIZE_14_SEMI_BLACK_WHITE-->
+
+    <style name="Text_14_Style">
+        <item name="android:textSize">@dimen/text_size_small_14</item>
+    </style>
+
+    <style name="Text_14_BlackStyle" parent="Text_14_Style">
+        <item name="android:textColor">@color/text_black_totally</item>
+    </style>
+
+    <style name="Text_14_SemiBlackStyle" parent="Text_14_Style">
+        <item name="android:textColor">@color/text_semi_black</item>
+    </style>
+
+    <style name="Text_14_SemiBlackGrayStyle" parent="Text_14_Style">
+        <item name="android:textColor">@color/text_black_gray</item>
+    </style>
+
+    <style name="Text_14_WhiteStyle" parent="Text_14_Style">
+        <item name="android:textColor">@color/text_white</item>
+    </style>
+
+    <!-- TEXTVIEW SIZE_16_SEMI_BLACK_WHITE-->
+
+    <style name="Text_16_Style">
+        <item name="android:textSize">@dimen/text_size_small_16</item>
+    </style>
+
+    <style name="Text_16_BlackStyle" parent="Text_16_Style">
+        <item name="android:textColor">@color/text_black_totally</item>
+    </style>
+
+    <style name="Text_16_SemiBlackStyle" parent="Text_16_Style">
+        <item name="android:textColor">@color/text_semi_black</item>
+    </style>
+
+    <style name="Text_16_SemiBlackGrayStyle" parent="Text_16_Style">
+        <item name="android:textColor">@color/text_black_gray</item>
+    </style>
+
+    <style name="Text_16_WhiteStyle" parent="Text_16_Style">
+        <item name="android:textColor">@color/text_white</item>
+    </style>
+
+    <!-- TEXTVIEW SIZE_18_SEMI_BLACK_WHITE-->
+
+    <style name="Text_18_Style">
+        <item name="android:textSize">@dimen/text_size_mediun_18</item>
+    </style>
+
+    <style name="Text_18_BlackStyle" parent="Text_18_Style">
+        <item name="android:textColor">@color/text_black_totally</item>
+    </style>
+
+    <style name="Text_18_SemiBlackStyle" parent="Text_18_Style">
+        <item name="android:textColor">@color/text_semi_black</item>
+    </style>
+
+    <style name="Text_18_SemiBlackGrayStyle" parent="Text_18_Style">
+        <item name="android:textColor">@color/text_black_gray</item>
+    </style>
+
+    <style name="Text_18_WhiteStyle" parent="Text_18_Style">
+        <item name="android:textColor">@color/text_white</item>
+    </style>
+
+    <!-- TEXTVIEW SIZE_20_SEMI_BLACK_WHITE-->
+
+    <style name="Text_20_Style">
+        <item name="android:textSize">@dimen/text_size_mediun_20</item>
+    </style>
+
+    <style name="Text_20_BlackStyle" parent="Text_20_Style">
+        <item name="android:textColor">@color/text_black_totally</item>
+    </style>
+
+    <style name="Text_20_SemiBlackStyle" parent="Text_20_Style">
+        <item name="android:textColor">@color/text_semi_black</item>
+    </style>
+
+    <style name="Text_20_SemiBlackGrayStyle" parent="Text_20_Style">
+        <item name="android:textColor">@color/text_black_gray</item>
+    </style>
+
+    <style name="Text_20_WhiteStyle" parent="Text_20_Style">
+        <item name="android:textColor">@color/text_white</item>
+    </style>
+
+    <!-- TEXTVIEW SIZE_25_SEMI_BLACK_WHITE-->
+
+    <style name="Text_25_Style">
+        <item name="android:textSize">@dimen/text_size_big_25</item>
+    </style>
+
+    <style name="Text_25_BlackStyle" parent="Text_25_Style">
+        <item name="android:textColor">@color/text_black_totally</item>
+    </style>
+
+    <style name="Text_25_SemiBlackStyle" parent="Text_25_Style">
+        <item name="android:textColor">@color/text_semi_black</item>
+    </style>
+
+    <style name="Text_25_SemiBlackGrayStyle" parent="Text_25_Style">
+        <item name="android:textColor">@color/text_black_gray</item>
+    </style>
+
+    <style name="Text_25_WhiteStyle" parent="Text_25_Style">
+        <item name="android:textColor">@color/text_white</item>
+    </style>
+
+</resources>

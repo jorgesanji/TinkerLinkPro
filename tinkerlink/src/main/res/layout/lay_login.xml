@@ -30,25 +30,22 @@
                     android:layout_width="@dimen/view_max_height_big"
                     android:layout_height="@dimen/view_max_height_big"
                     android:layout_marginTop="@dimen/margin_big"
-                    android:background="@drawable/background_gray" />
+                    android:background="@mipmap/icon_tinkerlink_app" />
 
                 <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                    style="@style/Text_25_Gray_Regular_Style"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_big"
-                    android:text="@string/login_title"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/text_size_big"
-                    app:fontName="Regular" />
+                    android:text="@string/login_title" />
 
                 <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                    style="@style/TextViewLoginSecctionsStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_plus_big"
-                    android:text="@string/login_phone_number"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/text_size_mediun"
-                    app:fontName="Regular" />
+                    android:gravity="left"
+                    android:text="@string/login_phone_number" />
 
                 <com.cronosgroup.tinkerlink.view.customviews.TLEditText
                     android:id="@+id/idUser"
@@ -64,13 +61,12 @@
                 </com.cronosgroup.tinkerlink.view.customviews.TLEditText>
 
                 <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                    style="@style/TextViewLoginSecctionsStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_big"
-                    android:text="@string/login_password"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/text_size_mediun"
-                    app:fontName="Regular" />
+                    android:gravity="left"
+                    android:text="@string/login_password" />
 
                 <com.cronosgroup.tinkerlink.view.customviews.TLEditText
                     android:id="@+id/passwordUser"

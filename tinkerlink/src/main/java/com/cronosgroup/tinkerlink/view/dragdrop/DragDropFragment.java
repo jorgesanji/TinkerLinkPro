@@ -3,7 +3,6 @@ package com.cronosgroup.tinkerlink.view.dragdrop;
 import android.view.View;
 
 import com.cronosgroup.tinkerlink.presenter.dragdrop.DrargDropPresenter;
-import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
 
 
@@ -29,7 +28,7 @@ public class DragDropFragment extends MVPTinkerLinkFragment<DrargDropPresenter, 
 
     @Override
     protected DrargDropPresenter createPresenter() {
-        return new DrargDropPresenter(ScreenNavigationHandler.getInstance());
+        return new DrargDropPresenter();
     }
 
     @Override

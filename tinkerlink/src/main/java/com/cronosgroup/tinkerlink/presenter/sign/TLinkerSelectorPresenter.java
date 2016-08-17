@@ -13,31 +13,12 @@ import java.util.List;
  */
 public class TLinkerSelectorPresenter extends TinkerLinkPresenter<TLinkerSelectorPresenter.View> {
 
-    private final Actions listener;
-
     /**
      * TLinkerSelectorPresenter view.
      */
     public interface View extends TinkerLinkPresenterView {
          void setCategories(List<RestCategoria> categories);
     }
-
-    /**
-     * TLinkerSelectorPresenter actions.
-     */
-    public interface Actions {
-    }
-
-    /**
-     * @param navigationListener
-     */
-    public TLinkerSelectorPresenter(Actions navigationListener) {
-        this.listener = navigationListener;
-    }
-
-    //region **************  BasePresenter **************
-
-    //endregion
 
     //region **************  View Actions **************
 

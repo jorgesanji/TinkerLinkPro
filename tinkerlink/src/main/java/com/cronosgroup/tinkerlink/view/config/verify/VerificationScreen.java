@@ -4,14 +4,10 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
 import android.util.AttributeSet;
-import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.RelativeLayout;
 
 import com.cronosgroup.tinkerlink.R;
 
-import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -22,15 +18,15 @@ import butterknife.OnClick;
 public class VerificationScreen extends RelativeLayout {
 
     public interface Listener {
+        void onSendPressed();
 
+        void onSelectorCountryPressed();
     }
 
     // Vars
     private Listener listener;
 
     // Views
-    @BindView(R.id.validationContainer)
-    protected View mValidationContainer;
 
     /**
      * @param context
@@ -79,10 +75,14 @@ public class VerificationScreen extends RelativeLayout {
     // Actions
     @OnClick(R.id.sendButton)
     protected void sendPressed() {
-        Animation animation = AnimationUtils.loadAnimation(getContext(), R.anim.anim_activity_up);
-        mValidationContainer.setVisibility(VISIBLE);
-        mValidationContainer.startAnimation(animation);
+        listener.onSendPressed();
     }
+
+    @OnClick(R.id.selectorCountry)
+    protected void selectorCountryPressed() {
+        listener.onSelectorCountryPressed();
+    }
+
 
     // Public methods
 
@@ -94,25 +94,4 @@ public class VerificationScreen extends RelativeLayout {
         this.listener = listener;
     }
 
-    public void closeValidator() {
-        Animation animation = AnimationUtils.loadAnimation(getContext(), R.anim.anim_activity_down);
-        animation.setAnimationListener(new Animation.AnimationListener() {
-            @Override
-            public void onAnimationStart(Animation animation) {
-
-            }
-
-            @Override
-            public void onAnimationEnd(Animation animation) {
-                mValidationContainer.setVisibility(VISIBLE);
-
-            }
-
-            @Override
-            public void onAnimationRepeat(Animation animation) {
-
-            }
-        });
-        mValidationContainer.startAnimation(animation);
-    }
 }

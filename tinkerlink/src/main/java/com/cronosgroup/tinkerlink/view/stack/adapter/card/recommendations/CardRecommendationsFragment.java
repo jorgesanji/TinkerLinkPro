@@ -4,9 +4,8 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.cronosgroup.tinkerlink.enums.StackCardType;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestRecomendacion;
+import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestRecommendation;
 import com.cronosgroup.tinkerlink.presenter.stack.CardRecommendationsPresenter;
-import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
 
 import java.util.List;
@@ -39,7 +38,7 @@ public class CardRecommendationsFragment extends MVPTinkerLinkFragment<CardRecom
 
     @Override
     protected CardRecommendationsPresenter createPresenter() {
-        return new CardRecommendationsPresenter(ScreenNavigationHandler.getInstance());
+        return new CardRecommendationsPresenter();
     }
 
     @Override
@@ -64,7 +63,7 @@ public class CardRecommendationsFragment extends MVPTinkerLinkFragment<CardRecom
     //region **************  CardRecommendationsPresenter.View **************
 
     @Override
-    public void setRecommendationsList(List<RestRecomendacion> list) {
+    public void setRecommendationsList(List<RestRecommendation> list) {
         cardRecommnedationsScreen.setItems(list);
     }
 

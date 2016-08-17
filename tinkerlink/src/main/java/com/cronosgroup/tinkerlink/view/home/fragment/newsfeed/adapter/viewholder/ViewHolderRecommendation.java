@@ -7,8 +7,8 @@ import android.text.style.ForegroundColorSpan;
 import android.view.View;
 
 import com.cronosgroup.tinkerlink.R;
-import com.cronosgroup.tinkerlink.model.manager.AppConfigManager;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContacto;
+import com.cronosgroup.tinkerlink.interfaces.IOIconListener;
+import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContact;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestUser;
 import com.cronosgroup.tinkerlink.view.customviews.TLImageView;
@@ -16,7 +16,6 @@ import com.cronosgroup.tinkerlink.view.customviews.TLTabItem;
 import com.cronosgroup.tinkerlink.view.customviews.TLTextView;
 import com.cronosgroup.tinkerlink.view.customviews.TLUserView;
 import com.cronosgroup.tinkerlink.view.home.fragment.newsfeed.adapter.viewholder.base.ViewHolderPostBase;
-import com.cronosgroup.tinkerlink.interfaces.IOIconListener;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -98,24 +97,24 @@ public class ViewHolderRecommendation extends ViewHolderPostBase {
         mTabActions.setVisibility(isMe() ? View.GONE : View.VISIBLE);
         mDividerView.setVisibility(isMe() ? View.GONE : View.VISIBLE);
 
-        final RestUser contacto = post.getContacto().getUser();
+        final RestUser contacto = post.getContact().getUser();
 
         setUserRecommendationAction(post.getUser(), R.string.news_feed_recomendations_to);
-        setInfoContact(post.getContacto());
+        setInfoContact(post.getContact());
 
-        if (post.getTexto().isEmpty()) {
+        if (post.getText().isEmpty()) {
             mCardDescription.setVisibility(View.GONE);
         } else {
-            mCardDescription.setText(post.getTexto());
+            mCardDescription.setText(post.getText());
             mCardDescription.setVisibility(View.VISIBLE);
         }
 
         mFriendsButton.setText(String.valueOf(contacto.getRecommendations()));
-        mShareButton.setText(String.valueOf(post.getNumeroShares()));
-        mViews.setText(String.valueOf(post.getNumeroVisualizaciones()));
+        mShareButton.setText(String.valueOf(post.getNumberShares()));
+        mViews.setText(String.valueOf(post.getNumberOfViews()));
     }
 
-    protected void setUserRecommendationAction(final RestContacto contacto, int text) {
+    protected void setUserRecommendationAction(final RestContact contacto, int text) {
         String textContat = String.format(getResources().getString(text), contacto.getUser().getName());
         int index = contacto.getUser().getName().length();
         final SpannableString spannableString = new SpannableString(textContat);
@@ -130,8 +129,8 @@ public class ViewHolderRecommendation extends ViewHolderPostBase {
         });
     }
 
-    protected void setInfoContact(final RestContacto contacto) {
-        mUserCardImage.setImageFromUrl(getAppConfigManager().getPath(AppConfigManager.Path.PATH_IMAGE_PROFILE_THUMBNAIL) + contacto.getUser().getPhoto());
+    protected void setInfoContact(final RestContact contacto) {
+        mUserCardImage.setImageFromUrl(contacto.getUser().getPhoto());
         mUserCardImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

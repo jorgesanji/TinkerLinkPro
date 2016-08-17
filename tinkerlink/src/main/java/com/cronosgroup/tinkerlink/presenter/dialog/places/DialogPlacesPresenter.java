@@ -13,7 +13,6 @@ import java.util.List;
  */
 public class DialogPlacesPresenter extends TinkerLinkDialogPresenter<DialogPlacesPresenter.View> {
 
-    private final Actions listener;
     public static final int MAX_RESULTS = 10;
 
     /**
@@ -23,19 +22,6 @@ public class DialogPlacesPresenter extends TinkerLinkDialogPresenter<DialogPlace
         String getTextSearchable();
 
         void setPlaces(List<Address> addresses);
-    }
-
-    /**
-     * DialogPlaces actions.
-     */
-    public interface Actions {
-    }
-
-    /**
-     * @param navigationListener
-     */
-    public DialogPlacesPresenter(Actions navigationListener) {
-        this.listener = navigationListener;
     }
 
     // public methods

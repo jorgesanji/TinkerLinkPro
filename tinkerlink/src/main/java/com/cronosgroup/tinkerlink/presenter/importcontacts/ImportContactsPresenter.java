@@ -9,27 +9,12 @@ import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenterView;
 public class ImportContactsPresenter extends TinkerLinkPresenter<ImportContactsPresenter.View> {
 
     // Vars
-    private final Actions listener;
 
     /**
-     * Config user account listeners.
+     * Import contacts listeners.
      */
     public interface View extends TinkerLinkPresenterView {
 
-    }
-
-    /**
-     * Config user account actions.
-     */
-    public interface Actions {
-    }
-
-
-    /**
-     * @param navigationListener
-     */
-    public ImportContactsPresenter(Actions navigationListener) {
-        this.listener = navigationListener;
     }
 
     //Actions

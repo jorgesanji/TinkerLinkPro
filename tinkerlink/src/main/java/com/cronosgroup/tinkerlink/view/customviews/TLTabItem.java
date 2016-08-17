@@ -14,7 +14,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 
 import com.cronosgroup.tinkerlink.R;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContacto;
+import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContact;
 import com.cronosgroup.tinkerlink.utils.TypeFaceUtils;
 
 import butterknife.BindView;
@@ -140,7 +140,7 @@ public class TLTabItem extends LinearLayout {
         mIconTabItem.setAnimation(animation);
     }
 
-    public void setItemFromStatus(RestContacto contacto) {
+    public void setItemFromStatus(RestContact contacto) {
         if (!contacto.getUser().isMe()) {
             if (contacto.isAccepted()) {
                 setText(getContext().getString(R.string.profile_friends));

@@ -6,9 +6,8 @@ import android.view.View;
 import com.cronosgroup.tinkerlink.enums.StackCardType;
 import com.cronosgroup.tinkerlink.event.ShowOverLaySelectorEvent;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestRecomendacion;
+import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestRecommendation;
 import com.cronosgroup.tinkerlink.presenter.stack.CardPresenter;
-import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
 import com.cronosgroup.tinkerlink.view.stack.StackActivity;
 
@@ -54,7 +53,7 @@ public class CardFragment extends MVPTinkerLinkFragment<CardPresenter, CardPrese
     protected void onDidAppear() {
 
         getPresenter().getRecommendations();
-        cardScreen.setUrlUser("http://qsrock.com/wp-content/uploads/2016/04/130699422.jpg");
+        cardScreen.setUserImageUrl("http://qsrock.com/wp-content/uploads/2016/04/130699422.jpg");
         cardScreen.setUserName("Jorge Sanmartin");
         cardScreen.setUserCardJob("Fontanero");
         cardScreen.setUserLocation("Barcelo, España");
@@ -62,15 +61,15 @@ public class CardFragment extends MVPTinkerLinkFragment<CardPresenter, CardPrese
 //        boolean isLinker = (stackType.getStackType() == StackActivity.StackCardType.LINKER.getStackType());
 //        RestUser restUser = restPost.getUser().getUser();
 //        String urlImageProfile = getPresenter().getAppConfigManager().getPath(AppConfigManager.Path.PATH_IMAGE_PROFILE_THUMBNAIL) + restUser.getPhoto();
-//        cardScreen.setUrlUser(urlImageProfile);
+//        cardScreen.setUserImageUrl(urlImageProfile);
 //        cardScreen.setUserName(restUser.getName());
 //        cardScreen.setUserCardType(getResources().getString(isLinker ? R.string.card_seek : R.string.card_me));
-//        cardScreen.setUserCardJob(restPost.getProfesion().toUpperCase());
+//        cardScreen.setUserCardJob(restPost.getProfession().toUpperCase());
 //        cardScreen.setUserLocation(restPost.getLocation());
 //        cardScreen.setOverlayColor(isLinker ? R.mipmap.linkercard_back : R.mipmap.tinkercard_back);
-//        cardScreen.setUserCardDescription(restPost.getDescripcion());
+//        cardScreen.setUserCardDescription(restPost.getDescription());
 //        cardScreen.showDetail(showDetail);
-//        cardScreen.setUserSkills(restPost.getHabilidades());
+//        cardScreen.setUserSkills(restPost.getSkills());
 //        cardScreen.setUserCommonContacts(restPost.getUser().getUsersCommon());
 //        cardScreen.setStatus(restPost.getUser());
 //        cardScreen.setUserNumberRecommendations(String.valueOf(restUser.getProfile().getRecommendations()));
@@ -83,7 +82,7 @@ public class CardFragment extends MVPTinkerLinkFragment<CardPresenter, CardPrese
 
     @Override
     protected CardPresenter createPresenter() {
-        return new CardPresenter(ScreenNavigationHandler.getInstance());
+        return new CardPresenter();
     }
 
     @Override
@@ -101,7 +100,7 @@ public class CardFragment extends MVPTinkerLinkFragment<CardPresenter, CardPrese
     }
 
     @Override
-    public void setRecommendationsList(List<RestRecomendacion> list) {
+    public void setRecommendationsList(List<RestRecommendation> list) {
         cardScreen.setRecommendationItems(list);
     }
 

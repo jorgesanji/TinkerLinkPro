@@ -13,26 +13,11 @@ import java.util.List;
  */
 public class CategoryPresenter extends TinkerLinkDialogPresenter<CategoryPresenter.View> {
 
-    private final Actions listener;
-
     /**
      * Contacts listeners.
      */
     public interface View extends TinkerLinkDialogPresenterView {
         void setCategories(List<RestCategoria> list);
-    }
-
-    /**
-     * Contacts actions.
-     */
-    public interface Actions {
-    }
-
-    /**
-     * @param navigationListener
-     */
-    public CategoryPresenter(Actions navigationListener) {
-        this.listener = navigationListener;
     }
 
     // public methods

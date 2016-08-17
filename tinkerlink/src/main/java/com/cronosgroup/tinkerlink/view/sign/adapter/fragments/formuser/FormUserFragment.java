@@ -3,11 +3,10 @@ package com.cronosgroup.tinkerlink.view.sign.adapter.fragments.formuser;
 import android.app.Activity;
 import android.view.View;
 
+import com.cronosgroup.tinkerlink.interfaces.IOFormListener;
 import com.cronosgroup.tinkerlink.presenter.sign.FormUserPresenter;
-import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
 import com.cronosgroup.tinkerlink.view.dialog.country.CountryDialogFragment;
-import com.cronosgroup.tinkerlink.interfaces.IOFormListener;
 
 /**
  * Created by jorgesanmartin on 1/29/16.
@@ -47,7 +46,7 @@ public class FormUserFragment extends MVPTinkerLinkFragment<FormUserPresenter, F
 
     @Override
     protected FormUserPresenter createPresenter() {
-        return new FormUserPresenter(ScreenNavigationHandler.getInstance());
+        return new FormUserPresenter();
     }
 
     @Override

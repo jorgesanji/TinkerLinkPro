@@ -9,6 +9,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.support.v7.widget.Toolbar;
+import android.text.SpannableString;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -16,9 +17,12 @@ import com.cronosgroup.core.managers.PermissionsManager;
 import com.cronosgroup.core.view.BaseActivity;
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.application.TinkerLinkApplication;
+import com.cronosgroup.tinkerlink.enums.Font;
 import com.cronosgroup.tinkerlink.enums.ToolBarStyle;
-import com.cronosgroup.tinkerlink.utils.logger.Logger;
 import com.cronosgroup.tinkerlink.utils.ImageLoaderHelper;
+import com.cronosgroup.tinkerlink.utils.Reflector;
+import com.cronosgroup.tinkerlink.utils.TypeFaceUtils;
+import com.cronosgroup.tinkerlink.utils.logger.Logger;
 
 import java.util.List;
 
@@ -29,9 +33,9 @@ import butterknife.ButterKnife;
 
 public abstract class TinkerLinkActivity<F extends MVPTinkerLinkFragment> extends BaseActivity {
 
-    // Variables
+    // Vars
 
-    private TinkerLinkFragment currentFragment;
+    private F currentFragment;
 
     @Inject
     Logger mLooger;
@@ -106,7 +110,7 @@ public abstract class TinkerLinkActivity<F extends MVPTinkerLinkFragment> extend
     }
 
     protected void initFragment() {
-        this.currentFragment = (TinkerLinkFragment) Fragment.instantiate(this, getFragment().getName());
+        this.currentFragment = (F) Fragment.instantiate(this, getFragment().getName());
         if (currentFragment != null) {
             currentFragment.setArguments(getIntent().getExtras());
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
@@ -193,27 +197,31 @@ public abstract class TinkerLinkActivity<F extends MVPTinkerLinkFragment> extend
 
     @Override
     public void setTitle(int title) {
-        if (getActivityStyle() != ToolBarStyle.HOMESTYLE) {
-            getSupportActionBar().setDisplayShowHomeEnabled(false);
-            getSupportActionBar().setHomeButtonEnabled(true);
-        }
-
-        getSupportActionBar().setTitle(title);
+        setTitle(getString(title));
     }
 
     @Override
     public void setTitle(CharSequence title) {
-        getSupportActionBar().setDisplayShowHomeEnabled(false);
-        getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setTitle(title);
+        SpannableString spannableTitle = null;
+        if (getActivityStyle() != ToolBarStyle.HOMESTYLE) {
+            getSupportActionBar().setDisplayShowHomeEnabled(false);
+            getSupportActionBar().setHomeButtonEnabled(true);
+            spannableTitle = TypeFaceUtils.getStringByFontType(this, title.toString(), Font.REGULAR);
+        } else {
+            spannableTitle = TypeFaceUtils.paintTextWithColor(this, title.toString(), R.color.tinkercolor, getString(R.string.app_name_truncate_to_paint), R.color.linkercolor, Font.REGULAR);
+        }
+
+        getSupportActionBar().setTitle(spannableTitle);
     }
 
     public void setSubtitle(CharSequence subtitle) {
-        getSupportActionBar().setSubtitle(subtitle);
+        SpannableString spannableSubTitle = TypeFaceUtils.getStringByFontType(this, subtitle.toString(), Font.LIGTH);
+        getSupportActionBar().setSubtitle(spannableSubTitle);
     }
 
     public void setSubtitle(int subtitle) {
-        getSupportActionBar().setSubtitle(subtitle);
+        SpannableString spannableSubTitle = TypeFaceUtils.getStringByFontType(this, getString(subtitle), Font.LIGTH);
+        getSupportActionBar().setSubtitle(spannableSubTitle);
     }
 
     public void setLogo(Drawable resource) {
@@ -232,4 +240,9 @@ public abstract class TinkerLinkActivity<F extends MVPTinkerLinkFragment> extend
         super.onBackPressed();
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Reflector.fixInputMethodManager(this);
+    }
 }

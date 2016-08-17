@@ -30,97 +30,32 @@
                     android:layout_marginTop="@dimen/margin_mediun"
                     android:text="@string/create_card_ubication" />
 
-                <LinearLayout
+                <com.cronosgroup.tinkerlink.view.customviews.TLSelectorForm
                     android:id="@+id/selectGeoPosition"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_small"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:orientation="horizontal">
-
-                        <com.cronosgroup.tinkerlink.view.customviews.TLTextView
-                            android:id="@+id/idCountry"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="0.8"
-                            android:hint="@string/create_card_country_hint"
-                            android:textColor="@color/black"
-                            android:textColorHint="@color/gray_30"
-                            android:textSize="@dimen/text_size_mediun"
-                            app:fontName="Regular" />
-
-                        <com.cronosgroup.tinkerlink.view.customviews.TLImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@mipmap/ic_expand_more" />
-
-                    </LinearLayout>
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginTop="@dimen/margin_mini"
-                        android:background="@color/black" />
-
-                </LinearLayout>
+                    app:hintText="@string/create_card_country_hint" />
 
                 <com.cronosgroup.tinkerlink.view.customviews.TLTextView
                     style="@style/TextViewLoginSecctionsStyle"
-                    android:layout_marginTop="@dimen/margin_plus_plus_plus_biggest"
+                    android:layout_marginTop="@dimen/margin_mediun"
                     android:text="@string/create_card_especify_search" />
 
-                <LinearLayout
+                <com.cronosgroup.tinkerlink.view.customviews.TLSelectorForm
                     android:id="@+id/selectorCategory"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_small"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:orientation="horizontal">
-
-                        <com.cronosgroup.tinkerlink.view.customviews.TLTextView
-                            android:id="@+id/idCategory"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="0.8"
-                            android:hint="@string/create_card_occupation_hint"
-                            android:textColor="@color/black"
-                            android:textColorHint="@color/gray_30"
-                            android:textSize="@dimen/text_size_mediun"
-                            app:fontName="Regular" />
-
-                        <com.cronosgroup.tinkerlink.view.customviews.TLImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@mipmap/ic_expand_more" />
-
-                    </LinearLayout>
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginTop="@dimen/margin_mini"
-                        android:background="@color/black" />
-
-                </LinearLayout>
+                    app:hintText="@string/create_card_occupation_hint" />
 
                 <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                    style="@style/Text_14_Gray_Light_Style"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_plus_biggest"
                     android:gravity="left"
-                    android:text="@string/create_card_subcategory_selected"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/text_size_mediun" />
+                    android:text="@string/create_card_subcategory_selected" />
 
             </LinearLayout>
 
@@ -131,14 +66,14 @@
 
                 <com.cronosgroup.tinkerlink.view.customviews.TLImageView
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/view_max_height"
+                    android:layout_height="@dimen/create_card_occupation_image_height"
                     android:scaleType="centerCrop"
                     android:src="@drawable/zapatero" />
+
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/view_max_height"
-                    android:background="@color/white_50"
-                    />
+                    android:layout_height="@dimen/create_card_occupation_image_height"
+                    android:background="@color/white_50" />
 
                 <com.cronosgroup.tinkerlink.view.customviews.TLImageButton
                     android:id="@+id/addImageCategory"
@@ -151,15 +86,14 @@
             </RelativeLayout>
 
             <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                style="@style/Text_16_Black_Regular_Style"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/margin_big"
                 android:layout_marginRight="@dimen/margin_big"
                 android:layout_marginTop="@dimen/margin_plus_biggest"
                 android:gravity="left"
-                android:text="@string/create_card_add_images"
-                android:textColor="@color/black"
-                android:textSize="@dimen/text_size_mediun" />
+                android:text="@string/create_card_add_images" />
 
             <RelativeLayout
                 android:layout_width="wrap_content"
@@ -183,6 +117,7 @@
                 </FrameLayout>
 
                 <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                    style="@style/Text_14_Black_SemiBold_Style"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
@@ -201,5 +136,5 @@
         </LinearLayout>
 
     </ScrollView>
-    
+
 </LinearLayout>

@@ -12,6 +12,7 @@ import com.cronosgroup.tinkerlink.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Created by jorgesanmartin on 3/11/16.
@@ -22,10 +23,10 @@ public class TLSkillView extends LinearLayout {
 
     //Views
     @BindView(R.id.skillSelector)
-    CheckBox mHabilitySelected;
+    protected CheckBox mHabilitySelected;
 
     @BindView(R.id.titleSkill)
-    TLTextView mHabilityTitle;
+    protected TLTextView mHabilityTitle;
 
     /**
      * @param context
@@ -70,6 +71,12 @@ public class TLSkillView extends LinearLayout {
         inflate(getContext(), R.layout.lay_skills_item, this);
         ButterKnife.bind(this);
     }
+    // Actions
+
+    @OnClick(R.id.titleSkill)
+    protected void titlePressed() {
+        mHabilitySelected.setChecked(!mHabilitySelected.isChecked());
+    }
 
     //Public methods
 
@@ -88,9 +95,7 @@ public class TLSkillView extends LinearLayout {
     public void setTitleSize(float size) {
         mHabilityTitle.setTextSize(TypedValue.COMPLEX_UNIT_PX, size);
     }
-
     public void setTitleColor(int color) {
         mHabilityTitle.setTextColor(color);
     }
-
 }

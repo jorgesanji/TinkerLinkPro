@@ -1,15 +1,17 @@
 package com.cronosgroup.tinkerlink.view.status;
 
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.presenter.userstatus.UserStatusPresenter;
-import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
+import com.cronosgroup.tinkerlink.utils.TLMMenuBuilder;
+import com.cronosgroup.tinkerlink.utils.TLMMenuItem;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -30,9 +32,16 @@ public class UserStatusFragment extends MVPTinkerLinkFragment<UserStatusPresente
     }
 
     @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.status_menu, menu);
+    protected List<TLMMenuBuilder> getMenuItems() {
+        List<TLMMenuBuilder> menuItems = new ArrayList<>();
+        menuItems.add(new TLMMenuItem().
+                setId(R.id.action_publish_status).
+                setTitle(R.string.status_action_publish_title).
+                setTitleColor(R.color.text_black_totally).
+                setAction(TLMMenuItem.SHOW_ACTION));
+        return menuItems;
     }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -55,7 +64,7 @@ public class UserStatusFragment extends MVPTinkerLinkFragment<UserStatusPresente
 
     @Override
     protected UserStatusPresenter createPresenter() {
-        return new UserStatusPresenter(ScreenNavigationHandler.getInstance());
+        return new UserStatusPresenter();
     }
 
     @Override

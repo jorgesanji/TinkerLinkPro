@@ -60,8 +60,8 @@
     <dimen name="news_feed_item_size">160dp</dimen>
     <dimen name="news_feed_shared_name_size">14sp</dimen>
     <dimen name="news_feed_shared_time_size">12sp</dimen>
-    <dimen name="news_feed_image_size">80dp</dimen>
     <dimen name="news_feed_card_type_image_size">40dp</dimen>
+    <dimen name="news_feed_image_size">80dp</dimen>
 
     <!-- Recommendations-->
     <dimen name="recommendations_row_size">50dp</dimen>
@@ -93,12 +93,6 @@
     <dimen name="text_size_mediun">16sp</dimen>
     <dimen name="text_size_big">20sp</dimen>
     <dimen name="text_size_super_big">22sp</dimen>
-
-    <!-- thumb text size -->
-    <dimen name="thumb_size_tiny">30dp</dimen>
-    <dimen name="thumb_size_mediun">40dp</dimen>
-    <dimen name="thumb_size_big">60dp</dimen>
-    <dimen name="thumb_size_plus_big">100dp</dimen>
 
     <!-- paddings -->
     <dimen name="padding_content_plus_tiny">1dp</dimen>
@@ -163,5 +157,25 @@
     <!-- Dialog -->
     <dimen name="view_dialog_height">300dp</dimen>
 
+
+    <!-- TEXT SIZES -->
+    <dimen name="text_size_tiny_11">11sp</dimen>
+    <dimen name="text_size_tiny_12">12sp</dimen>
+    <dimen name="text_size_tiny_13">13sp</dimen>
+    <dimen name="text_size_small_14">14sp</dimen>
+    <dimen name="text_size_small_16">16sp</dimen>
+    <dimen name="text_size_mediun_18">18sp</dimen>
+    <dimen name="text_size_mediun_20">20sp</dimen>
+    <dimen name="text_size_big_25">25sp</dimen>
+
+    <!-- VIEw SIZES -->
+
+    <dimen name="create_card_occupation_image_height">110dp</dimen>
+
+    <!-- thumb text size -->
+    <dimen name="thumb_size_tiny">25dp</dimen>
+    <dimen name="thumb_size_mediun">40dp</dimen>
+    <!--<dimen name="thumb_size_big">60dp</dimen>-->
+    <dimen name="thumb_size_plus_big">100dp</dimen>
 
 </resources>

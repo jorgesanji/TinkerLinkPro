@@ -32,7 +32,7 @@
                         android:id="@+id/editProfile"
                         android:layout_width="@dimen/view_min_width"
                         android:layout_height="@dimen/view_min_width"
-                        android:background="@android:color/transparent"
+                        android:background="@drawable/button_default_states"
                         android:src="@mipmap/ic_edit" />
 
                     <include layout="@layout/lay_user_badge_recommendations" />
@@ -41,7 +41,7 @@
                         android:id="@+id/configAccount"
                         android:layout_width="@dimen/view_min_width"
                         android:layout_height="@dimen/view_min_width"
-                        android:background="@android:color/transparent"
+                        android:background="@drawable/button_default_states"
                         android:src="@mipmap/ic_settings" />
 
                 </LinearLayout>
@@ -71,15 +71,26 @@
 
             <include layout="@layout/lay_newsfeed_action_buttons" />
 
-            <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin_mediun"
-                android:text="@string/profile_notifications"
-                android:textAllCaps="true"
-                android:textColor="@color/black"
-                android:textSize="@dimen/text_size_mediun"
-                app:fontName="Regular" />
+                android:orientation="vertical">
+
+                <include layout="@layout/lay_separator" />
+
+                <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_mediun"
+                    android:text="@string/profile_notifications"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_mediun"
+                    app:fontName="Regular" />
+
+                <include layout="@layout/lay_separator" />
+
+            </LinearLayout>
 
             <include layout="@layout/lay_item_notification" />
 

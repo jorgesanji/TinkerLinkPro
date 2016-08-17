@@ -18,28 +18,12 @@ public class RegisterSelectorPresenter extends TinkerLinkPresenter<RegisterSelec
     // Vars
     private IOSocialNetwork<AppUser> appGooglePlusManager;
     private IOSocialNetwork<AppUser> appFacebookManager;
-    private final Actions listener;
 
     /**
      * FormUser view.
      */
     public interface View extends TinkerLinkPresenterView {
         void setAppUser(AppUser user);
-    }
-
-    /**
-     * FormUser actions.
-     */
-    public interface Actions {
-    }
-
-    //region **************  BasePresenter **************
-
-    /**
-     * @param navigationListener
-     */
-    public RegisterSelectorPresenter(Actions navigationListener) {
-        this.listener = navigationListener;
     }
 
     @Override
@@ -71,7 +55,7 @@ public class RegisterSelectorPresenter extends TinkerLinkPresenter<RegisterSelec
             public void onError(Object response) {
                 getView().hideLoading();
                 getView().setAppUser(null);
-//                getView().getMessagesHandler().showNetworkError();
+//                getView().getSnackMessageManager().showNetworkError();
             }
         });
     }

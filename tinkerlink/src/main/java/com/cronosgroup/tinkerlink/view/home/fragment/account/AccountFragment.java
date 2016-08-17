@@ -3,7 +3,6 @@ package com.cronosgroup.tinkerlink.view.home.fragment.account;
 import android.view.View;
 
 import com.cronosgroup.tinkerlink.presenter.account.AccountPresenter;
-import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
 
 
@@ -29,7 +28,7 @@ public class AccountFragment extends MVPTinkerLinkFragment<AccountPresenter, Acc
 
     @Override
     protected AccountPresenter createPresenter() {
-        return new AccountPresenter(ScreenNavigationHandler.getInstance());
+        return new AccountPresenter();
     }
 
     @Override

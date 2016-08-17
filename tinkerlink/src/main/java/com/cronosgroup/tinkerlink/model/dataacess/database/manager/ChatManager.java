@@ -6,7 +6,7 @@ import com.cronosgroup.tinkerlink.model.dataacess.database.entities.TLConversati
 import com.cronosgroup.tinkerlink.model.dataacess.database.entities.TLMessage;
 import com.cronosgroup.tinkerlink.model.dataacess.database.entities.TLMessage$Table;
 import com.cronosgroup.tinkerlink.model.dataacess.database.entities.TLUser;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContacto;
+import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContact;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestMessage;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestUser;
 import com.raizlabs.android.dbflow.runtime.TransactionManager;
@@ -47,14 +47,14 @@ public class ChatManager {
         return new Select().from(TLMessage.class).where(Condition.column(TLMessage$Table.ID).eq(id)).querySingle();
     }
 
-    private Pair<TLConversation, TLMessage> saveMessage(RestContacto contacto, RestMessage message, TLMessage messagedb, boolean isMe) {
+    private Pair<TLConversation, TLMessage> saveMessage(RestContact contacto, RestMessage message, TLMessage messagedb, boolean isMe) {
 
-        RestContacto restContacto = contacto;
-        if (restContacto == null) {
-            restContacto = message.getUser();
+        RestContact restContact = contacto;
+        if (restContact == null) {
+            restContact = message.getUser();
         }
 
-        RestUser user = restContacto.getUser();
+        RestUser user = restContact.getUser();
 
         TLConversation conversation = getConversation(message.getIdChat());
 
@@ -84,7 +84,7 @@ public class ChatManager {
             userdb.setName(user.getName());
             userdb.setBirthday(user.getBirthday());
             userdb.setEmail(user.getEmail());
-            userdb.setStatus(restContacto.getStatus());
+            userdb.setStatus(restContact.getStatus());
             userdb.save();
 
             if (messagedb == null) {
@@ -133,8 +133,8 @@ public class ChatManager {
     }
 
 
-    public Pair<TLConversation, TLMessage> saveSenderMessage(RestContacto restContacto, RestMessage mensaje, TLMessage messagedb) {
-        return saveMessage(restContacto, mensaje, messagedb, true);
+    public Pair<TLConversation, TLMessage> saveSenderMessage(RestContact restContact, RestMessage mensaje, TLMessage messagedb) {
+        return saveMessage(restContact, mensaje, messagedb, true);
     }
 
     public Pair<TLConversation, TLMessage> saveReceiverMessage(RestMessage mensaje) {

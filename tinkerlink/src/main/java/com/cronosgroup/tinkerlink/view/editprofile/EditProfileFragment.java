@@ -6,7 +6,6 @@ import android.widget.LinearLayout;
 
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestStudy;
 import com.cronosgroup.tinkerlink.presenter.editprofile.EditProfilePresenter;
-import com.cronosgroup.tinkerlink.view.ScreenNavigationHandler;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
 import com.cronosgroup.tinkerlink.view.customviews.TLStudyView;
 import com.cronosgroup.tinkerlink.view.dialog.country.CountryDialogFragment;
@@ -36,7 +35,7 @@ public class EditProfileFragment extends MVPTinkerLinkFragment<EditProfilePresen
 
     @Override
     protected EditProfilePresenter createPresenter() {
-        return new EditProfilePresenter(ScreenNavigationHandler.getInstance());
+        return new EditProfilePresenter();
     }
 
     @Override

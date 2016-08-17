@@ -1,6 +1,6 @@
 package com.cronosgroup.tinkerlink.interfaces;
 
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContacto;
+import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContact;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
 
 /**
@@ -9,13 +9,13 @@ import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
 
 public interface IOActionButtons {
 
-    void onIconProfilePressed(RestContacto contacto);
+    void onIconProfilePressed(RestContact contacto);
 
     void onLikePressed(int position);
 
     void onSharePressed(int position);
 
-    void onChatPressed(RestContacto restContacto);
+    void onChatPressed(RestContact restContact);
 
     void onAddContactPressed(RestPost restPost);
 
