@@ -43,7 +43,7 @@ public class StackFragment extends MVPTinkerLinkFragment<StackPresenter, StackPr
 
     @Override
     protected View getRootView() {
-        stackScreen = new StackScreen(getActivity(), this, getFragmentManager());
+        stackScreen = new StackScreen(getActivity(), this);
         stackScreen.setDragdropListener(this);
         return stackScreen;
     }
@@ -147,6 +147,11 @@ public class StackFragment extends MVPTinkerLinkFragment<StackPresenter, StackPr
     @Override
     public void onSelectCardsPressed() {
         getPresenter().onSelectCardsType();
+    }
+
+    @Override
+    public void onCardPressed(int position) {
+        getPresenter().onLaunhDetailStack();
     }
 
     //endregion

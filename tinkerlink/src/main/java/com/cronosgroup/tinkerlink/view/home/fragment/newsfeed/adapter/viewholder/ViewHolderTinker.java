@@ -9,10 +9,9 @@ import android.view.View;
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.enums.ImageType;
 import com.cronosgroup.tinkerlink.interfaces.IOIconListener;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContacto;
+import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContact;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestUser;
-import com.cronosgroup.tinkerlink.model.manager.AppConfigManager;
 import com.cronosgroup.tinkerlink.utils.DateUtils;
 import com.cronosgroup.tinkerlink.view.customviews.TLImageView;
 import com.cronosgroup.tinkerlink.view.customviews.TLTabItem;
@@ -106,7 +105,7 @@ public class ViewHolderTinker extends ViewHolderPostBase<RestPost> {
     protected void setInfoCard(final RestPost post, int title, ImageType imageType) {
         final RestUser user = post.getUser().getUser();
 
-        mUserCardImage.setImageFromUrl(getAppConfigManager().getPath(AppConfigManager.Path.PATH_IMAGE_PROFILE_THUMBNAIL) + user.getPhoto(), ImageType.USER);
+        mUserCardImage.setImageFromUrl(user.getPhoto(), ImageType.USER);
         mUserCardImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -114,7 +113,7 @@ public class ViewHolderTinker extends ViewHolderPostBase<RestPost> {
             }
         });
 
-        String urlImageType = getAppConfigManager().getPath(AppConfigManager.Path.PATH_ICON) + "categorias/" + post.getTipo().toLowerCase() + "/" + post.getCategoria().toLowerCase() + "/" + post.getProfesion() + ".png";
+        String urlImageType = "";
         mCardImageType.setImageFromUrl(urlImageType, imageType);
         mCardImageType.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -124,17 +123,17 @@ public class ViewHolderTinker extends ViewHolderPostBase<RestPost> {
         });
 
         mUserName.setText(user.getName());
-        mUserOcupation.setText(post.getProfesion().toUpperCase());
+        mUserOcupation.setText(post.getProfession().toUpperCase());
         mUserLocation.setText(post.getLocation());
-        String description = String.format(getResources().getString(title), post.getProfesion() + " " + post.getTipoProyecto().toLowerCase());
+        String description = String.format(getResources().getString(title), post.getProfession() + " " + post.getTimeByProject().toLowerCase());
         mCardDescription.setText(description);
         mFriendsButton.setText(String.valueOf(user.getRecommendations()));
-        mShareButton.setText(String.valueOf(post.getNumeroShares()));
-        mViews.setText(String.valueOf(post.getNumeroVisualizaciones()));
+        mShareButton.setText(String.valueOf(post.getNumberShares()));
+        mViews.setText(String.valueOf(post.getNumberOfViews()));
     }
 
 
-    protected void setUserPostInfo(final RestContacto contacto, int message, Date fecha) {
+    protected void setUserPostInfo(final RestContact contacto, int message, Date fecha) {
         String textContat = String.format(getResources().getString(message), contacto.getUser().getName());
         final SpannableString spannableString = new SpannableString(textContat);
         ForegroundColorSpan color = new ForegroundColorSpan(getResources().getColor(R.color.news_feed_detail_info));

@@ -6,7 +6,7 @@ import com.cronosgroup.core.rest.Callback;
 import com.cronosgroup.core.utils.BitmapUtils;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.manager.AppRestManager;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestRecomendacion;
+import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestRecommendation;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.services.NewsFeedServices;
 import com.cronosgroup.tinkerlink.utils.AsyncLoader;
 import com.cronosgroup.tinkerlink.utils.DateUtils;
@@ -58,7 +58,7 @@ public class NewsFeedUseCases {
     }
 
     public static void getRecommendations(String idUser, Callback callback, Object tag) {
-        NewsFeedServices.getRecommendations(idUser, RestRecomendacion.class, callback, tag);
+        NewsFeedServices.getRecommendations(idUser, RestRecommendation.class, callback, tag);
     }
 
     public static void sendStatus(final List<Bitmap> images, final String status, final String link, final String title, final String description, final String imageUrl, final Callback callback, final Object tag) {

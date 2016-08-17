@@ -14,22 +14,29 @@ import android.widget.FrameLayout;
 import com.cronosgroup.tinkerlink.R;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 /**
  * Created by jorgesanmartin on 8/5/16.
  */
-public class TLCardContainer extends FrameLayout {
+public class TLCardStack<C extends TLCardBase> extends FrameLayout {
 
-    public interface SwipeEventCallback {
+    public static int ANIMATION_DURATION = 160;
+    public static int DELAY_TO_UPDATE = 90;
+
+    public interface SwipeListener<C extends TLCardBase> {
+
         void cardSwipedLeft(int position);
 
         void cardSwipedRight(int position);
 
         void cardsDepleted();
 
-        void cardActionDown();
+        void cardPressed(C view, int position);
 
-        void cardActionUp();
+        void cardOnLongPressed(C view, int position);
+
+
     }
 
     public enum RenderType {
@@ -52,36 +59,29 @@ public class TLCardContainer extends FrameLayout {
             }
             return ABOVE;
         }
-
     }
 
     private int mNumberOfCards;
     private float mCardSpacing;
     private RenderType mRenderType;
     private float mOpacityEnd;
-    private int mCardGravity;
-    private int paddingLeft;
     private boolean hardwareAccelerationEnabled = true;
-
+    private int paddingLeft;
     private int paddingRight;
     private int paddingTop;
     private int paddingBottom;
-
-    private SwipeEventCallback eventCallback;
-
+    private int leftImageResource;
+    private int rightImageResource;
+    private SwipeListener swipeListener;
     private Adapter mAdapter;
+
     private DataSetObserver observer;
     private int nextAdapterCard = 0;
     private boolean restoreInstanceState = false;
+    private TLCardSwipeHandler listener;
+    private final LinkedList<C> mCachedItemViews = new LinkedList<C>();
 
-    private TLCardListener swipeListener;
-    private int leftImageResource;
-    private int rightImageResource;
-
-    private boolean cardInteraction;
-    private int mAnimationDuration = 160;
-
-    public TLCardContainer(Context context, AttributeSet attrs) {
+    public TLCardStack(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(attrs);
     }
@@ -90,14 +90,13 @@ public class TLCardContainer extends FrameLayout {
         if (attributeSet != null) {
             TypedArray a = getContext().getTheme().obtainStyledAttributes(
                     attributeSet,
-                    R.styleable.TLCardContainer,
+                    R.styleable.TLCardStack,
                     0, 0);
             try {
-                mNumberOfCards = a.getInt(R.styleable.TLCardContainer_max_items_visible, 3);
-                mCardSpacing = a.getDimension(R.styleable.TLCardContainer_card_spacing, 15f);
-                mRenderType = RenderType.fromId(a.getInt(R.styleable.TLCardContainer_render_mode, RenderType.BELOW.getRenderMode()));
-                mCardGravity = a.getInt(R.styleable.TLCardContainer_card_gravity, 0);
-                mOpacityEnd = a.getFloat(R.styleable.TLCardContainer_opacity_end, 0.33f);
+                mNumberOfCards = a.getInt(R.styleable.TLCardStack_max_items_visible, 3);
+                mCardSpacing = a.getDimension(R.styleable.TLCardStack_card_spacing, 15f);
+                mRenderType = RenderType.fromId(a.getInt(R.styleable.TLCardStack_render_mode, RenderType.BELOW.getRenderMode()));
+                mOpacityEnd = a.getFloat(R.styleable.TLCardStack_opacity_end, 0.33f);
             } finally {
                 a.recycle();
             }
@@ -154,27 +153,39 @@ public class TLCardContainer extends FrameLayout {
         final View child = getChildAt(getChildCount() - (isLastPage ? 1 : childOffset));
         if (child != null) {
             child.setOnTouchListener(null);
-            swipeListener = null;
+            listener = null;
             //this will also check to see if cards are depleted
             new RemoveViewOnAnimCompleted().execute(child);
         }
     }
 
+    /**
+     * Checks if there is a cached view that can be used
+     *
+     * @return A cached view or, if none was found, null
+     */
+    private View getCachedView() {
+        if (mCachedItemViews.size() > mNumberOfCards) {
+            View view = mCachedItemViews.removeFirst();
+            view.setX(0);
+            view.setRotation(0);
+            return view;
+        }
+        return null;
+    }
 
     private void addNextCard() {
         if (nextAdapterCard < mAdapter.getCount()) {
 
-            // TODO: Make view recycling work
-            // TODO: Instead of removing the view from here and adding it again when it's swiped
-            // ... don't remove and add to this instance: don't call removeView & addView in sequence.
-            View newBottomChild = mAdapter.getView(nextAdapterCard, null/*lastRemovedView*/, this);
+            C card = (C) mAdapter.getView(nextAdapterCard, getCachedView(), this);
+            mCachedItemViews.add(card);
 
             if (hardwareAccelerationEnabled) {
                 //set backed by an off-screen buffer
-                newBottomChild.setLayerType(View.LAYER_TYPE_HARDWARE, null);
+                card.setLayerType(View.LAYER_TYPE_HARDWARE, null);
             }
 
-            addAndMeasureChild(newBottomChild);
+            addAndMeasureChild(card);
             nextAdapterCard++;
         }
         setupTopCard();
@@ -184,27 +195,28 @@ public class TLCardContainer extends FrameLayout {
 
         boolean isLastPage = nextAdapterCard == mAdapter.getCount();
         final int childOffset = getChildCount() - mNumberOfCards + 1;
-        final View child = getChildAt(getChildCount() - (isLastPage ? 1 : childOffset));
+        final C child = (C) getChildAt(getChildCount() - (isLastPage ? 1 : childOffset));
         final int initialX = paddingLeft;
         final int initialY = paddingTop;
 
         if (child != null) {
-            swipeListener = new TLCardListener(child, new TLCardListener.SwipeCallback() {
+
+            listener = new TLCardSwipeHandler(child, new TLCardSwipeHandler.SwipeHandlerListener() {
                 @Override
                 public void cardSwipedLeft() {
-                    int positionInAdapter = getPositionInAdapter();
+                    int positionInAdapter = getCurrentItem();
                     removeTopCard();
-                    if (eventCallback != null) {
-                        eventCallback.cardSwipedLeft(positionInAdapter);
+                    if (swipeListener != null) {
+                        swipeListener.cardSwipedLeft(positionInAdapter);
                     }
                 }
 
                 @Override
                 public void cardSwipedRight() {
-                    int positionInAdapter = getPositionInAdapter();
+                    int positionInAdapter = getCurrentItem();
                     removeTopCard();
-                    if (eventCallback != null) {
-                        eventCallback.cardSwipedRight(positionInAdapter);
+                    if (swipeListener != null) {
+                        swipeListener.cardSwipedRight(positionInAdapter);
                     }
                 }
 
@@ -213,21 +225,15 @@ public class TLCardContainer extends FrameLayout {
                 }
 
                 @Override
-                public void cardActionDown() {
-                    if (eventCallback != null) {
-                        eventCallback.cardActionDown();
-                    }
-                    cardInteraction = true;
+                public void cardPressed() {
+                    swipeListener.cardPressed(child, getCurrentItem());
                 }
 
                 @Override
-                public void cardActionUp() {
-                    if (eventCallback != null) {
-                        eventCallback.cardActionUp();
-                    }
-                    cardInteraction = false;
-                }
+                public void cardOnLongPressed() {
+                    swipeListener.cardOnLongPressed(child, getCurrentItem());
 
+                }
             }, initialX, initialY, mOpacityEnd);
 
 
@@ -241,10 +247,10 @@ public class TLCardContainer extends FrameLayout {
             if (!(leftImageResource == 0)) {
                 leftView = child.findViewById(leftImageResource);
             }
-            swipeListener.setLeftView(leftView);
-            swipeListener.setRightView(rightView);
+            listener.setLeftView(leftView);
+            listener.setRightView(rightView);
 
-            child.setOnTouchListener(swipeListener);
+            child.setOnTouchListener(listener);
         }
     }
 
@@ -318,7 +324,7 @@ public class TLCardContainer extends FrameLayout {
         float offset = (int) (((childCount - 1) * mCardSpacing) - (index * mCardSpacing));
 
         child.animate()
-                .setDuration(restoreInstanceState ? 0 : mAnimationDuration)
+                .setDuration(restoreInstanceState ? 0 : ANIMATION_DURATION)
                 .y(paddingTop - offset);
 
         restoreInstanceState = false;
@@ -333,7 +339,7 @@ public class TLCardContainer extends FrameLayout {
 
         @Override
         protected View doInBackground(View... params) {
-            android.os.SystemClock.sleep(mAnimationDuration);
+            android.os.SystemClock.sleep(ANIMATION_DURATION);
             return params[0];
         }
 
@@ -343,27 +349,37 @@ public class TLCardContainer extends FrameLayout {
             removeView(view);
 
             //if there are no more children left after top card removal let the callback know
-            if (getChildCount() <= 0 && eventCallback != null) {
-                eventCallback.cardsDepleted();
+            if (getChildCount() <= 0 && swipeListener != null) {
+                swipeListener.cardsDepleted();
             }
         }
     }
 
-    private int getPositionInAdapter() {
-        return nextAdapterCard - getChildCount();
-    }
 
     /**
      * Public methods
      */
 
+    /**
+     * @return
+     */
+
+    public int getCurrentItem() {
+        return nextAdapterCard - getChildCount();
+    }
+
+    /**
+     * @param adapter
+     */
     public void setAdapter(Adapter adapter) {
         if (this.mAdapter != null) {
             this.mAdapter.unregisterDataSetObserver(observer);
         }
         mAdapter = adapter;
         // if we're not restoring previous instance state
-        if (!restoreInstanceState) nextAdapterCard = 0;
+        if (!restoreInstanceState) {
+            nextAdapterCard = 0;
+        }
 
         observer = new DataSetObserver() {
             @Override
@@ -397,37 +413,56 @@ public class TLCardContainer extends FrameLayout {
         requestLayout();
     }
 
-    public void setEventCallback(SwipeEventCallback eventCallback) {
-        this.eventCallback = eventCallback;
+    /**
+     * @param swipeListener
+     */
+
+    public void setSwipeListener(SwipeListener swipeListener) {
+        this.swipeListener = swipeListener;
     }
+
+    /**
+     * @param duration
+     */
 
     public void swipeTopCardLeft(int duration) {
         int childCount = getChildCount();
         if (childCount > 0 && getChildCount() < (mNumberOfCards + 1)) {
-            swipeListener.animateOffScreenLeft(duration);
-            int positionInAdapter = getPositionInAdapter();
+            listener.animateOffScreenLeft(duration);
+            int positionInAdapter = getCurrentItem();
             removeTopCard();
-            if (eventCallback != null) {
-                eventCallback.cardSwipedLeft(positionInAdapter);
+            if (swipeListener != null) {
+                swipeListener.cardSwipedLeft(positionInAdapter);
             }
         }
     }
+
+    /**
+     * @param duration
+     */
 
     public void swipeTopCardRight(int duration) {
         int childCount = getChildCount();
         if (childCount > 0 && getChildCount() < (mNumberOfCards + 1)) {
-            swipeListener.animateOffScreenRight(duration);
-            int positionInAdapter = getPositionInAdapter();
+            listener.animateOffScreenRight(duration);
+            int positionInAdapter = getCurrentItem();
             removeTopCard();
-            if (eventCallback != null) {
-                eventCallback.cardSwipedRight(positionInAdapter);
+            if (swipeListener != null) {
+                swipeListener.cardSwipedRight(positionInAdapter);
             }
         }
     }
 
+    /**
+     * @param imageResource
+     */
     public void setLeftImage(int imageResource) {
         leftImageResource = imageResource;
     }
+
+    /**
+     * @param imageResource
+     */
 
     public void setRightImage(int imageResource) {
         rightImageResource = imageResource;
@@ -441,8 +476,12 @@ public class TLCardContainer extends FrameLayout {
     public void setSelection(int position) {
         if (position < mAdapter.getCount()) {
             this.nextAdapterCard = position;
-            removeAllViews();
-            requestLayout();
+            getHandler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    removeAllViews();
+                }
+            }, DELAY_TO_UPDATE);
         }
     }
 

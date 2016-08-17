@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
 import com.cronosgroup.core.view.sectionable.Item;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContacto;
+import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContact;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.io.File;
@@ -14,9 +14,9 @@ import java.io.File;
  */
 public class EntryItem implements Item {
 
-    private RestContacto contacto;
+    private RestContact contacto;
 
-    public EntryItem(RestContacto contacto) {
+    public EntryItem(RestContact contacto) {
         super();
         this.contacto = contacto;
     }
@@ -41,11 +41,11 @@ public class EntryItem implements Item {
         return (file != null) ? BitmapFactory.decodeFile(file.getPath()) : null;
     }
 
-    public RestContacto getContacto() {
+    public RestContact getContacto() {
         return contacto;
     }
 
-    public void setContacto(RestContacto contacto) {
+    public void setContacto(RestContact contacto) {
         this.contacto = contacto;
     }
 }

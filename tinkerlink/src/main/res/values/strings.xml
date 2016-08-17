@@ -14,7 +14,7 @@
 
     <!-- News feed -->
 
-    <string name="news_feed_seek_to" formatted="false">Busco %s con habilidades de %s</string>
+    <string name="news_feed_seek_to" formatted="false">Busco %s con skills de %s</string>
     <string name="news_feed_seek">Busco %s</string>
     <string name="news_feed_empty_message">No tenemos nada que mostrar</string>
     <string name="news_feed_recommendations_from">Recomendaciones de: %s</string>
@@ -40,14 +40,14 @@
 
     <string name="notifications_delete_notification">Estás seguro que quieres eliminar esta conversación?</string>
     <string name="notifications_request_contact_with_me">%s te ha contactado</string>
-    <string name="notifications_request_accept_contact_with_me">%s te aceptó como contacto</string>
-    <string name="notifications_request_accept_contact_from_me">%s fue aceptado como contacto</string>
+    <string name="notifications_request_accept_contact_with_me">%s te aceptó como contact</string>
+    <string name="notifications_request_accept_contact_from_me">%s fue aceptado como contact</string>
     <string name="notifications_request_recommendation_accept">%s aceptó tu recomendación</string>
     <string name="notifications_request_recommendation_my_profile">%s quiere recomendarte</string>
     <string name="notifications_request_recommendation_from_someone">%s te ha pedido una recomendación</string>
     <string name="notifications_request_share_my_post">%s compartió un post</string>
     <string name="notifications_request_share_my_profile">%s compartió tu perfil</string>
-    <string name="notification_request_contact_to_me">%s te ha solicitado como contacto?</string>
+    <string name="notification_request_contact_to_me">%s te ha solicitado como contact?</string>
     <string name="notification_request_recommended_to_me">¿Quieres publicar la recomendación de %s?</string>
     <string name="notification_empty_message">No tienes notificaciones</string>
     <string name="notification_recommends_to_you">%s te ha recomendado</string>
@@ -67,7 +67,7 @@
 
     <!--  Action Strings-->
 
-    <string name="action_add_contact">Agregar contacto</string>
+    <string name="action_add_contact">Agregar contact</string>
     <string name="action_search_card">Buscar</string>
     <string name="action_filter_card">Buscar</string>
     <string name="action_camera_title">Cámara</string>
@@ -155,7 +155,7 @@
     <string name="sign_register_or">o</string>
     <string name="sign_register_title_preferences">Preferecias</string>
     <string name="sign_register_title_tinker">Selecciona las categorías relacionadas a tu\nocupación así potenciales clientes pódran\necontrarte y coincidir contigo</string>
-    <string name="sign_register_title_linker">¿Que tipo de ayuda podrás necesitar? Queremos\nsugerirte los mejores trabajadores de acuerdo\na tus necesidades</string>
+    <string name="sign_register_title_linker">¿Que type de ayuda podrás necesitar? Queremos\nsugerirte los mejores trabajadores de acuerdo\na tus necesidades</string>
     <string name="sign_register_validation_title">Registrarse con SMS</string>
     <string name="sign_register_validation_send">Enviado un SMS al %s</string>
     <string name="sign_register_validation_introduce_code">Introduce e código de seguridad</string>
@@ -202,7 +202,7 @@
     <string name="profile_watch_profile">Ver perfil</string>
     <string name="profile_notifications">Notificaciones</string>
     <string name="profile_description_title">DESCRIPCIÓN</string>
-    <string name="profile_added_hability_title">Selecciona habilidades</string>
+    <string name="profile_added_hability_title">Selecciona skills</string>
     <string name="profile_services">Soy Tinker</string>
     <string name="profile_offers">Busco Tinker</string>
     <string name="profile_edit_add_study">Agregar estudio ó curso:</string>
@@ -266,7 +266,7 @@
     <string name="edit_profile_ubication">Utilizar mi ubicación actual</string>
     <string name="edit_profile_ubication_hint">Selecciona un país</string>
     <string name="edit_profile_postal_code_hint">Código postal</string>
-    <string name="edit_profile_category_hint">Selecciona un categoria</string>
+    <string name="edit_profile_category_hint">Selecciona un category</string>
     <string name="edit_profile_description">DESCRIPTION</string>
     <string name="edit_profile_description_number" formatted="false">%s/%s</string>
 
@@ -309,7 +309,7 @@
     <string name="configuration_recovery_insert_email_or_phone">Ingresá tu correo electrónico ó número de móvil</string>
     <string name="configuration_recovery_email_or_phone">Correo electrónico ó número de móvil</string>
     <string name="configuration_phones_added">Números de móvil que has añadido</string>
-    <string name="configuration_phones_added_message">Quedate tranquilo, tu númer no se mostrará en tu perfil ni será compartido con nadie</string>
+    <string name="configuration_phones_added_message">Quedate tranquilo, tu númer no se mostrará en tu perfil ni será share con nadie</string>
     <string name="configuration_phone_visible_only_for_owner">Solo tú verás tu número</string>
     <string name="configuration_phone_has_been_changed">¿Has cambiado tu número de móvil?\nPuedes verificar tu nuevo número aquí</string>
     <string name="configuration_phone_verify">Verificar nuevo número</string>
@@ -327,16 +327,16 @@
     <string name="configuration_profile_privacy_private">Privado</string>
     <string name="configuration_profile_privacy_private_message">Solo yo puedo ver mis contactos, contactos en común y actividad</string>
     <string name="configuration_profile_privacy_contacts_locked">Contactos bloqueados</string>
-    <string name="configuration_profile_privacy_remove_contact">Eliminar contacto</string>
-    <string name="configuration_profile_privacy_unlock_contact">Desbloquear contacto</string>
+    <string name="configuration_profile_privacy_remove_contact">Eliminar contact</string>
+    <string name="configuration_profile_privacy_unlock_contact">Desbloquear contact</string>
     <string name="configuration_profile_notifications_email">Notificaciones por correo electrónico</string>
     <string name="configuration_profile_notifications_movil_permissions_title">Notificaciones en el móvil</string>
     <string name="configuration_profile_notifications_movil_permissions_message">Te avisamos cuando alguién</string>
     <string name="configuration_profile_notifications_movil_permissions_recommendation">Te hace una recommendation</string>
     <string name="configuration_profile_notifications_movil_permissions_share">Comparte contenido tuyo</string>
     <string name="configuration_profile_notifications_movil_permissions_send_message">Te envía un mensaje</string>
-    <string name="configuration_profile_notifications_movil_permissions_request_contact">Nueva solicitud de contacto</string>
-    <string name="configuration_profile_notifications_movil_permissions_accept_contact">Acepta tu solicitud de contacto</string>
+    <string name="configuration_profile_notifications_movil_permissions_request_contact">Nueva solicitud de contact</string>
+    <string name="configuration_profile_notifications_movil_permissions_accept_contact">Acepta tu solicitud de contact</string>
     <string name="configuration_profile_notifications_movil_permissions_match_cards">Encontramos coincidencias en tarjetas</string>
 
     <!-- PROFILE -->
@@ -416,8 +416,8 @@
 
     <!-- DETAIL CARD-->
     <string name="detail_card_title">Detalle de la card</string>
-    <string name="detail_card_user_linker_knowledge">Con habilidades en</string>
-    <string name="detail_card_user_knowledge">Mis habilidades son</string>
+    <string name="detail_card_user_linker_knowledge">Con skills en</string>
+    <string name="detail_card_user_knowledge">Mis skills son</string>
     <string name="detail_card_user_iam">Soy %s</string>
     <string name="detail_card_seek">Busco</string>
     <string name="detail_card_me">Soy</string>
@@ -434,23 +434,23 @@
     <string name="contacts_undo">DESHACER</string>
     <string name="contacts_search_hint">Busca en tu lista de contactos...</string>
     <string name="contacts_popup_writte_message">Escribir mensaje</string>
-    <string name="contacts_popup_remove_contact">Eliminar contacto</string>
-    <string name="contacts_popup_block_contact">Bloquear contacto</string>
+    <string name="contacts_popup_remove_contact">Eliminar contact</string>
+    <string name="contacts_popup_block_contact">Bloquear contact</string>
 
     <!-- DIALOG BLOCK CONTACT-->
-    <string name="dialog_blockcontact_title">¿Bloquear contacto?</string>
+    <string name="dialog_blockcontact_title">¿Bloquear contact?</string>
     <string name="dialog_blockcontact_confirm">¿Confirmas que quieres bloquear a %s?</string>
-    <string name="dialog_blockcontact_block_contact">Bloquear contacto</string>
+    <string name="dialog_blockcontact_block_contact">Bloquear contact</string>
     <string name="dialog_blockcontact_remove_contact">Eliminar de mis contactos</string>
-    <string name="dialog_blockcontact_message">Siempre que desees desbloquear a un contacto puedes hacerlo en la sección Cuenta> configuración> Privacidad </string>
+    <string name="dialog_blockcontact_message">Siempre que desees desbloquear a un contact puedes hacerlo en la sección Cuenta> configuración> Privacidad </string>
     <string name="dialog_blockcontact_confirm_title">Confirmar</string>
 
     <!-- DIALOG MESSAGE OPTIONS-->
-    <string name="dialog_message_remove_user_options_title">¿ELiminar contacto?</string>
+    <string name="dialog_message_remove_user_options_title">¿ELiminar contact?</string>
     <string name="dialog_message_remove_user_options_message">¿Seguro que quieres eliminar a %s de tu lista de contactos?</string>
 
     <!-- REQUEST CONTACTS-->
-    <string name="request_contacts_new_request_contacts">Nuevas solicitudes de contacto (%s)</string>
+    <string name="request_contacts_new_request_contacts">Nuevas solicitudes de contact (%s)</string>
     <string name="request_contacts_suggestion_contacts">¿Seguro que quieres eliminar a %s de tu lista de contactos?</string>
 
     <!-- DIALOG REPORT-->

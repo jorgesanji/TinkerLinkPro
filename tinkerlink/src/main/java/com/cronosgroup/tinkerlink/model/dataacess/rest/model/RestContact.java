@@ -9,7 +9,7 @@ import com.google.gson.annotations.SerializedName;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RestContacto extends RestBase {
+public class RestContact extends RestBase {
 
     public enum StatusContact {
         REQUESTEDTO("requestedTo"),
@@ -55,7 +55,7 @@ public class RestContacto extends RestBase {
     private Integer orden = 0;
 
     @SerializedName("usersCommon")
-    private List<RestContacto> usersCommon = new ArrayList<>();
+    private List<RestContact> usersCommon = new ArrayList<>();
 
     @SerializedName("dateConnected")
     private String dateConnected = "";
@@ -94,11 +94,11 @@ public class RestContacto extends RestBase {
         this.user = user;
     }
 
-    public List<RestContacto> getUsersCommon() {
+    public List<RestContact> getUsersCommon() {
         return usersCommon;
     }
 
-    public void setUsersCommon(List<RestContacto> usersCommon) {
+    public void setUsersCommon(List<RestContact> usersCommon) {
         this.usersCommon = usersCommon;
     }
 

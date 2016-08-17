@@ -4,7 +4,7 @@ import com.cronosgroup.core.rest.Callback;
 import com.cronosgroup.core.rest.RestError;
 import com.cronosgroup.tinkerlink.model.business.model.UserForm;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.manager.AppRestManager;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContacto;
+import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContact;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestNotificacion;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestUser;
@@ -22,7 +22,6 @@ public class ProfileUseCases {
 
     public static final String KEY_PHOTO = "foto";
     public static final String KEY_PHOTO_CROPPED = "foto2";
-
     private static final String CATEGORY_KEY = "categoria";
     private static final String PROFESSION_KEY = "profesion";
     private static final String HABILITIES_KEY = "habilidades";
@@ -33,14 +32,13 @@ public class ProfileUseCases {
     private static final String LATITUDE_KEY = "longitude";
     private static final String ESTUDIES_KEY = "estudios";
     private static final String IDUSERS_KEY = "destinations";
-
     private static final String TEXT_KEY = "texto";
     private static final String REQUESTRECOMMENDATION_KEY = "requestRecommendation";
     private static final String IDNOTIFICATION_KEY = "idNotification";
 
 
-    public static void getProfile(String idUser, Callback<RestContacto, RestError> callback, Object tag) {
-        ProfileServices.getProfile(idUser, RestContacto.class, callback, tag);
+    public static void getProfile(String idUser, Callback<RestContact, RestError> callback, Object tag) {
+        ProfileServices.getProfile(idUser, RestContact.class, callback, tag);
     }
 
     public static void getActivityUser(String params, Callback callback, Object tag) {
@@ -69,7 +67,7 @@ public class ProfileUseCases {
         HashMap<String, String> params = new HashMap<>();
         params.put(CATEGORY_KEY, form.getCategory());
         params.put(PROFESSION_KEY, form.getProfession());
-        params.put(HABILITIES_KEY, AppRestManager.mapping.mappingToStringJson(form.getHabilitiesAsString()));
+//        params.put(HABILITIES_KEY, AppRestManager.mapping.mappingToStringJson(form.getHabilitiesAsString()));
         params.put(ESTUDIES_KEY, form.getEstudiesAsString());
         params.put(COUNTRY_KEY, form.getCountry());
         params.put(CITY_KEY, form.getCity());

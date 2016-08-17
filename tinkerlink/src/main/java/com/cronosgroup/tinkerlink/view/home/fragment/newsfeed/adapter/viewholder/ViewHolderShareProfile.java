@@ -6,10 +6,9 @@ import android.text.style.ForegroundColorSpan;
 import android.view.View;
 
 import com.cronosgroup.tinkerlink.R;
-import com.cronosgroup.tinkerlink.model.manager.AppConfigManager;
+import com.cronosgroup.tinkerlink.interfaces.IOIconListener;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestUser;
-import com.cronosgroup.tinkerlink.interfaces.IOIconListener;
 
 /**
  * row of the recycler view.
@@ -43,7 +42,7 @@ public class ViewHolderShareProfile extends ViewHolderPost {
     public void configureItem(final RestPost post) {
         super.configureItem(post);
 
-        final RestUser contacto = post.getContacto().getUser();
+        final RestUser contacto = post.getContact().getUser();
         final RestUser usuario = post.getUser().getUser();
 
         String textContat = String.format(getResources().getString(R.string.news_feed_share_profile), usuario.getName(), contacto.getName());
@@ -58,11 +57,11 @@ public class ViewHolderShareProfile extends ViewHolderPost {
             }
         });
 
-        mUserCardImage.setImageFromUrl(getAppConfigManager().getPath(AppConfigManager.Path.PATH_IMAGE_PROFILE_THUMBNAIL) + contacto.getPhoto());
+        mUserCardImage.setImageFromUrl(contacto.getPhoto());
         mUserCardImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getActionButtons().onIconProfilePressed(post.getContacto());
+                getActionButtons().onIconProfilePressed(post.getContact());
             }
         });
 
@@ -81,16 +80,16 @@ public class ViewHolderShareProfile extends ViewHolderPost {
             mUserLocation.setVisibility(View.VISIBLE);
         }
 
-        if (post.getTexto().isEmpty()) {
+        if (post.getText().isEmpty()) {
             mCardDescription.setVisibility(View.GONE);
             mTitleDescription.setVisibility(View.GONE);
         } else {
-            mCardDescription.setText(post.getTexto());
+            mCardDescription.setText(post.getText());
             mTitleDescription.setVisibility(View.VISIBLE);
         }
 
         mFriendsButton.setText(String.valueOf(contacto.getProfile().getRecommendations()));
-        mShareButton.setText(String.valueOf(post.getNumeroShares()));
-        mViews.setText(String.valueOf(post.getNumeroVisualizaciones()));
+        mShareButton.setText(String.valueOf(post.getNumberShares()));
+        mViews.setText(String.valueOf(post.getNumberOfViews()));
     }
 }

@@ -14,18 +14,21 @@ import java.util.ArrayList;
 public class TLCardCoordinatorLayout extends CoordinatorLayout {
 
     public TLCardCoordinatorLayout(Context context) {
-        super(context);
-        setClipChildren(false);
+        this(context, null);
     }
 
     public TLCardCoordinatorLayout(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        setClipChildren(false);
+        this(context, attrs, 0);
     }
 
     public TLCardCoordinatorLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        init();
+    }
+
+    private void init() {
         setClipChildren(false);
+        setClipToPadding(false);
     }
 
     //this is so that on versions of android pre lollipop it will render the cardstack above
@@ -40,7 +43,7 @@ public class TLCardCoordinatorLayout extends CoordinatorLayout {
         View swipeDeck = null;
         for(int i=0; i< childCount; ++i){
             View child = getChildAt(i);
-            if(child instanceof TLCardContainer){
+            if(child instanceof TLCardStack){
                 swipeDeck = getChildAt(i);
             }else{
                 children.add(child);

@@ -6,14 +6,13 @@ import android.location.Geocoder;
 import com.cronosgroup.core.managers.LocationManager;
 import com.cronosgroup.tinkerlink.application.TinkerLinkApplication;
 import com.cronosgroup.tinkerlink.interfaces.IONavigation;
-import com.cronosgroup.tinkerlink.utils.logger.Logger;
-import com.cronosgroup.tinkerlink.model.manager.AppConfigManager;
 import com.cronosgroup.tinkerlink.model.manager.AppContactsManager;
 import com.cronosgroup.tinkerlink.model.manager.AppCountryManager;
 import com.cronosgroup.tinkerlink.model.manager.AppImagePickerManager;
 import com.cronosgroup.tinkerlink.model.manager.AppMessagesManager;
 import com.cronosgroup.tinkerlink.model.manager.AppNotificationsManager;
 import com.cronosgroup.tinkerlink.model.manager.AppUserSessionManager;
+import com.cronosgroup.tinkerlink.utils.logger.Logger;
 import com.cronosgroup.tinkerlink.view.AppNavigation;
 
 import javax.inject.Singleton;
@@ -76,11 +75,6 @@ public class AppModule {
     @Provides
     AppImagePickerManager providerPickerImage() {
         return new AppImagePickerManager();
-    }
-
-    @Provides
-    AppConfigManager provideConfigManager() {
-        return new AppConfigManager(provideApplicationContext());
     }
 
     @Provides

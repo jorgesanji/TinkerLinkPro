@@ -1,15 +1,12 @@
 package com.cronosgroup.tinkerlink.model.business.model;
 
-import android.content.res.Resources;
 import android.location.Address;
-import android.text.TextUtils;
 
-import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.application.TinkerLinkApplication;
 import com.cronosgroup.tinkerlink.enums.PostStatus;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContacto;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestHabilidad;
+import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContact;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
+import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestSkill;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestStudy;
 import com.cronosgroup.tinkerlink.model.mapper.TLUsers;
 import com.google.gson.Gson;
@@ -31,7 +28,7 @@ public class UserForm {
     private String currency;
     private String time;
     private List<String> images = new ArrayList<>();
-    private List<RestHabilidad> habilities = new ArrayList<>();
+    private List<RestSkill> habilities = new ArrayList<>();
     private List<RestStudy> estudies = new ArrayList<>();
     private String country;
     private String city;
@@ -86,11 +83,11 @@ public class UserForm {
         this.images = images;
     }
 
-    public List<RestHabilidad> getHabilities() {
+    public List<RestSkill> getHabilities() {
         return habilities;
     }
 
-    public void setHabilities(List<RestHabilidad> habilities) {
+    public void setHabilities(List<RestSkill> habilities) {
         this.habilities = habilities;
     }
 
@@ -124,14 +121,6 @@ public class UserForm {
         this.description = description;
     }
 
-    public List<String> getHabilitiesAsString() {
-        List<String> habilities = new ArrayList<>();
-        for (RestHabilidad habilidad : getHabilities()) {
-            habilities.add(habilidad.getName());
-        }
-        return habilities;
-    }
-
     public String getEstudiesAsString() {
         Gson gson = new Gson();
         return gson.toJson(getEstudies());
@@ -139,10 +128,6 @@ public class UserForm {
 
     public List<String> getImageAsString() {
         List<String> bitmaps = new ArrayList<>();
-//        for (Bitmap bitmap : getImages()) {
-//            bitmaps.add("\"" + BitmapUtils.getBase64StringfromBitmap(bitmap) + "\"");
-//        }
-
         for (String imageBase64 : getImages()) {
             bitmaps.add("\"" + imageBase64 + "\"");
         }
@@ -205,22 +190,22 @@ public class UserForm {
 
     public RestPost toRestPost() {
         RestPost restPost = new RestPost();
-        restPost.setProfesion(getProfession());
-        restPost.setCategoria(getCategory());
-        restPost.setHabilidades(getHabilitiesAsString());
-        restPost.setExperiencia(getExperience());
-        restPost.setCosteAproximado(getCost());
-        restPost.setTipoCambio(getCurrency());
-        restPost.setTipoProyecto(getCostByTime());
-        restPost.setFotoString(getImageAsString());
-        restPost.setCiudad(getAddress().getLocality());
-        restPost.setPais(getAddress().getCountryName());
+        restPost.setProfession(getProfession());
+        restPost.setCategory(getCategory());
+        restPost.setSkills(getHabilities());
+        restPost.setExperience(getExperience());
+        restPost.setSalary(getCost());
+        restPost.setSalaryType(getCurrency());
+        restPost.setTimeByProject(getCostByTime());
+        restPost.setPictures(getImageAsString());
+        restPost.setCity(getAddress().getLocality());
+        restPost.setCountry(getAddress().getCountryName());
         restPost.setLatitude(getAddress().getLatitude());
         restPost.setLongitude(getAddress().getLongitude());
         restPost.setStatus(PostStatus.TO_PUBLISH);
-        restPost.setDescripcion(getDescription());
+        restPost.setDescription(getDescription());
 
-        RestContacto contacto = new RestContacto();
+        RestContact contacto = new RestContact();
         contacto.setUsuario(TLUsers.toRest(TinkerLinkApplication.getApp().getCurrentUserLoged(), true));
 
         restPost.setUser(contacto);
@@ -228,13 +213,4 @@ public class UserForm {
         return restPost;
     }
 
-    public String getDescription(Resources resources, boolean isLinker) {
-        String resultHabilidades = getProfession();
-        if (!getHabilities().isEmpty()) {
-            resultHabilidades += " " + resources.getString(isLinker ? R.string.detail_card_user_linker_knowledge : R.string.detail_card_user_knowledge) + " " + TextUtils.join(",", getHabilitiesAsString()).replace("\"", "");
-        }
-        setDescription(resultHabilidades);
-
-        return resultHabilidades;
-    }
 }

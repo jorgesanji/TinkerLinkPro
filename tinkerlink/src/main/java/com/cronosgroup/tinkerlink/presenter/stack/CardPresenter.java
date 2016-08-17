@@ -3,9 +3,9 @@ package com.cronosgroup.tinkerlink.presenter.stack;
 import android.os.Bundle;
 
 import com.cronosgroup.tinkerlink.enums.StackCardType;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContacto;
+import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContact;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestProfile;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestRecomendacion;
+import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestRecommendation;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestUser;
 import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenter;
 import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenterView;
@@ -27,7 +27,7 @@ public class CardPresenter extends TinkerLinkPresenter<CardPresenter.View> {
     public interface View extends TinkerLinkPresenterView {
         StackCardType getType();
 
-        void setRecommendationsList(List<RestRecomendacion> list);
+        void setRecommendationsList(List<RestRecommendation> list);
     }
 
     //Actions
@@ -40,10 +40,10 @@ public class CardPresenter extends TinkerLinkPresenter<CardPresenter.View> {
 
     public void getRecommendations() {
 
-        AsyncLoader<List<RestRecomendacion>> asyncLoader = new AsyncLoader<List<RestRecomendacion>>() {
+        AsyncLoader<List<RestRecommendation>> asyncLoader = new AsyncLoader<List<RestRecommendation>>() {
             @Override
-            public List<RestRecomendacion> doInBackground() {
-                List<RestRecomendacion> list = new ArrayList<>();
+            public List<RestRecommendation> doInBackground() {
+                List<RestRecommendation> list = new ArrayList<>();
 
                 RestProfile restProfile = new RestProfile();
                 restProfile.setProfession("Developer");
@@ -53,12 +53,12 @@ public class CardPresenter extends TinkerLinkPresenter<CardPresenter.View> {
                 restUser.setPhoto("http://api.ning.com/files/3G-NNOsexAFFbCt-XN5LbraHbYlrzivPtxx39pnQ8w48JITkdWKLhPCFGwt4p7794nvVE97YYfqtSwVmiSLhl1jXxV4IfejV/Staindwallcopy.jpg");
                 restUser.setProfile(restProfile);
 
-                RestContacto restContacto = new RestContacto();
-                restContacto.setUser(restUser);
+                RestContact restContact = new RestContact();
+                restContact.setUser(restUser);
 
                 for (int init = 0; init < 10; init++) {
-                    RestRecomendacion restRecomendacion = new RestRecomendacion();
-                    restRecomendacion.setUser(restContacto);
+                    RestRecommendation restRecomendacion = new RestRecommendation();
+                    restRecomendacion.setUser(restContact);
                     restRecomendacion.setRecomendacion("Es un crack de craks es el padre de la informatica si si siiiiiiii");
                     restRecomendacion.setCreateDate(DateUtils.getDateIntervalFromTimeStamp(1350574775, getView().getContext()));
                     list.add(restRecomendacion);
@@ -68,7 +68,7 @@ public class CardPresenter extends TinkerLinkPresenter<CardPresenter.View> {
             }
 
             @Override
-            public void postProcess(List<RestRecomendacion> result) {
+            public void postProcess(List<RestRecommendation> result) {
                 getView().setRecommendationsList(result);
             }
         };

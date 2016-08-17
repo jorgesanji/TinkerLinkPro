@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 
 import com.cronosgroup.core.view.BaseAdapter;
 import com.cronosgroup.tinkerlink.R;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestRecomendacion;
+import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestRecommendation;
 import com.cronosgroup.tinkerlink.view.recommendations.adapter.viewholder.RecommendationViewHolder;
 
 import java.util.List;
@@ -14,7 +14,7 @@ import java.util.List;
 /**
  * Created by jorgesanmartin on 7/27/16.
  */
-public class RecommendationsAdapter extends BaseAdapter<RecommendationViewHolder, RestRecomendacion> {
+public class RecommendationsAdapter extends BaseAdapter<RecommendationViewHolder, RestRecommendation> {
 
     @Override
     public RecyclerView.ViewHolder getHolder(ViewGroup parent, int viewType) {
@@ -30,7 +30,7 @@ public class RecommendationsAdapter extends BaseAdapter<RecommendationViewHolder
     }
 
     @Override
-    public List<RestRecomendacion> filterBy(String query) {
+    public List<RestRecommendation> filterBy(String query) {
         return null;
     }
 }

@@ -8,6 +8,7 @@ import android.widget.BaseAdapter;
 
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
+import com.cronosgroup.tinkerlink.view.stack.adapter.card.CardScreen;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,7 +42,16 @@ public class CardsAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        View view = LayoutInflater.from(mContext).inflate(R.layout.lay_card, parent, false);
+        CardScreen view = (CardScreen)convertView;
+        if (view == null) {
+            view = (CardScreen)LayoutInflater.from(mContext).inflate(R.layout.lay_card_internal, parent, false);
+        }
+
+        view.setUserImageUrl("http://qsrock.com/wp-content/uploads/2016/04/6d43fc_ed0189fbfceb4a0795ddb0ae695f509b.jpg");
+        view.setUserName("Jorge Sanmartin");
+        view.setUserCardJob("Electricista");
+        view.setUserLocation("Barcelona - Spain");
+
         return view;
     }
 
@@ -51,5 +61,10 @@ public class CardsAdapter extends BaseAdapter {
 
     public void setItems(List<RestPost> items) {
         this.items = items;
+    }
+
+    public void addItems(List<RestPost> list) {
+        items.addAll(list);
+        notifyDataSetChanged();
     }
 }

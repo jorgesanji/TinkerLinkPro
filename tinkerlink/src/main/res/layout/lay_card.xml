@@ -128,6 +128,19 @@
 
         </LinearLayout>
 
+        <RelativeLayout
+            android:id="@+id/recommendationContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+            <com.cronosgroup.tinkerlink.view.stack.adapter.card.recommendations.CardRecommnedationsScreen
+                android:id="@+id/cardRecommendations"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </RelativeLayout>
+
     </android.support.v7.widget.CardView>
 
     <View
@@ -136,7 +149,7 @@
         android:layout_height="match_parent"
         android:layout_margin="@dimen/margin_mediun"
         android:background="@drawable/button_default_states"
-        android:visibility="visible" />
+        android:visibility="gone" />
 
     <include
         android:id="@+id/containerRecommendation"
@@ -145,23 +158,5 @@
         android:layout_height="40dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
-
-    <RelativeLayout
-        android:id="@+id/recommendationContainer"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="@dimen/margin_mediun"
-        android:layout_marginRight="@dimen/margin_mediun"
-        android:layout_marginTop="@dimen/margin_small"
-        android:background="@drawable/background_card_border"
-        android:padding="4dp"
-        android:visibility="gone">
-
-        <com.cronosgroup.tinkerlink.view.stack.adapter.card.recommendations.CardRecommnedationsScreen
-            android:id="@+id/cardRecommendations"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-    </RelativeLayout>
 
 </RelativeLayout>

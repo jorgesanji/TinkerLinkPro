@@ -32,7 +32,7 @@
             android:layout_marginTop="@dimen/margin_big"
             android:background="@android:color/transparent">
 
-            <com.cronosgroup.tinkerlink.view.customviews.card.TLCardContainer
+            <com.cronosgroup.tinkerlink.view.customviews.card.TLCardStack
                 android:id="@+id/cardContainer"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

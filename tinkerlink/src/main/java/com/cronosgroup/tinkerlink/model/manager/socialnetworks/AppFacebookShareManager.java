@@ -87,7 +87,7 @@ public class AppFacebookShareManager {
         switch (post.getTypePost()) {
             case RECOMMENDATION: //3
                 imagetoShare += "photo3.png";
-                title = String.format(getActivity().getString(R.string.share_text_recommendation), post.getUser().getUser().getName(), post.getContacto().getUser().getName());
+                title = String.format(getActivity().getString(R.string.share_text_recommendation), post.getUser().getUser().getName(), post.getContact().getUser().getName());
                 break;
             case TINKER://2
                 imagetoShare += "photo2.png";

@@ -4,7 +4,7 @@ import android.view.View;
 
 import com.cronosgroup.core.view.recyclerview.BaseViewHolder;
 import com.cronosgroup.tinkerlink.R;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContacto;
+import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContact;
 import com.cronosgroup.tinkerlink.view.customviews.TLUserContactView;
 import com.cronosgroup.tinkerlink.view.home.fragment.contacts.adapter.pages.mycontacts.adapter.MyContactsAdapter;
 
@@ -14,7 +14,7 @@ import butterknife.ButterKnife;
 /**
  * Created by jorgesanmartin on 8/2/16.
  */
-public class ContactUserViewHolder extends BaseViewHolder<RestContacto> {
+public class ContactUserViewHolder extends BaseViewHolder<RestContact> {
 
     // Vars
     MyContactsAdapter.Listener listener;
@@ -31,7 +31,7 @@ public class ContactUserViewHolder extends BaseViewHolder<RestContacto> {
     }
 
     @Override
-    public void configureItem(RestContacto item) {
+    public void configureItem(RestContact item) {
         super.configureItem(item);
         mContactView.setUserName(item.getUser().getName());
         mContactView.setUserProfession(item.getUser().getProfile().getProfession());

@@ -11,18 +11,21 @@ import android.widget.LinearLayout;
  */
 public class TLCardLinearLayout extends LinearLayout {
     public TLCardLinearLayout(Context context) {
-        super(context);
-        setClipChildren(false);
+        this(context, null);
     }
 
     public TLCardLinearLayout(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        setClipChildren(false);
+        this(context, attrs, 0);
     }
 
     public TLCardLinearLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        init();
+    }
+
+    private void init() {
         setClipChildren(false);
+        setClipToPadding(false);
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)

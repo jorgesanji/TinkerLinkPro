@@ -8,15 +8,14 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 import com.cronosgroup.tinkerlink.R;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContacto;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestRecomendacion;
+import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContact;
+import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestRecommendation;
 import com.cronosgroup.tinkerlink.view.customviews.TLCommonContactsView;
 import com.cronosgroup.tinkerlink.view.customviews.TLImageView;
-import com.cronosgroup.tinkerlink.view.customviews.TLLinearLayout;
 import com.cronosgroup.tinkerlink.view.customviews.TLScrollView;
 import com.cronosgroup.tinkerlink.view.customviews.TLSkillView;
 import com.cronosgroup.tinkerlink.view.customviews.TLTextView;
-import com.cronosgroup.tinkerlink.view.dragdrop.engine.DDLongListener;
+import com.cronosgroup.tinkerlink.view.customviews.card.TLCardBase;
 import com.cronosgroup.tinkerlink.view.stack.adapter.card.recommendations.CardRecommnedationsScreen;
 
 import java.util.List;
@@ -28,7 +27,7 @@ import butterknife.OnClick;
 /**
  * Main contacts view.
  */
-public class CardScreen extends TLLinearLayout {
+public class CardScreen extends TLCardBase {
 
     public static final String TAG_SCREEN = "screen";
 
@@ -39,7 +38,6 @@ public class CardScreen extends TLLinearLayout {
         void showDetailPressed();
 
         void onLongClikDone();
-
     }
 
     // Vars
@@ -52,7 +50,7 @@ public class CardScreen extends TLLinearLayout {
     private String userCardType;
     private String userLocation;
     private List<String> userSkills;
-    private List<RestContacto> userCommonContacts;
+    private List<RestContact> userCommonContacts;
     private String userCardDescription;
     private int iconContactStatus;
     private int overlayColor;
@@ -111,6 +109,9 @@ public class CardScreen extends TLLinearLayout {
     @BindView(R.id.cardRecommendations)
     protected CardRecommnedationsScreen mCardRecommnedationsScreen;
 
+    @BindView(R.id.containerRecommendation)
+    protected View mRecommendationsButton;
+
     /**
      * @param context
      */
@@ -159,17 +160,7 @@ public class CardScreen extends TLLinearLayout {
     private void init() {
         inflate(getContext(), R.layout.lay_card, this);
         ButterKnife.bind(this);
-        initListeners();
-    }
-
-    private void initListeners() {
         mUserCardImage.setTag(TAG_SCREEN);
-        mTouchView.setOnLongClickListener(new DDLongListener(mUserCardImage).setListener(new DDLongListener.Listener() {
-            @Override
-            public void onLongClickDone() {
-                listener.onLongClikDone();
-            }
-        }));
     }
 
     // **************  UI Actions **************
@@ -177,16 +168,13 @@ public class CardScreen extends TLLinearLayout {
     @OnClick(R.id.containerRecommendation)
     protected void showRecommendationsPressed() {
         appear(mRecommendationContainer);
-    }
-
-    @OnClick(R.id.touchView)
-    protected void showDetailPressed() {
-        listener.showDetailPressed();
+        mRecommendationsButton.setVisibility(INVISIBLE);
     }
 
     @OnClick(R.id.closeRecommendations)
     protected void closeRecommendationsPressed() {
         dissmiss(mRecommendationContainer);
+        mRecommendationsButton.setVisibility(VISIBLE);
     }
 
     // Public methods
@@ -203,7 +191,7 @@ public class CardScreen extends TLLinearLayout {
         return urlUser;
     }
 
-    public void setUrlUser(String urlUser) {
+    public void setUserImageUrl(String urlUser) {
         this.urlUser = urlUser;
         mUserCardImage.setImageFromUrl(urlUser);
     }
@@ -252,11 +240,11 @@ public class CardScreen extends TLLinearLayout {
         }
     }
 
-    public List<RestContacto> getUserCommonContacts() {
+    public List<RestContact> getUserCommonContacts() {
         return userCommonContacts;
     }
 
-    public void setUserCommonContacts(List<RestContacto> userCommonContacts) {
+    public void setUserCommonContacts(List<RestContact> userCommonContacts) {
         this.userCommonContacts = userCommonContacts;
         mContactsView.setContacts(userCommonContacts);
     }
@@ -308,7 +296,7 @@ public class CardScreen extends TLLinearLayout {
         mScrollView.setHorizontalScrollBarEnabled(!showDetail);
     }
 
-    public void setStatus(RestContacto contacto) {
+    public void setStatus(RestContact contacto) {
         if (!contacto.getUser().isMe()) {
             if (contacto.isAccepted()) {
                 mUserStatusContact.setImageResource(R.mipmap.ic_contact);
@@ -331,7 +319,12 @@ public class CardScreen extends TLLinearLayout {
         mRecommendationNumber.setText(userNumberRecommendations);
     }
 
-    public void setRecommendationItems(List<RestRecomendacion> list) {
+    public void setRecommendationItems(List<RestRecommendation> list) {
         mCardRecommnedationsScreen.setItems(list);
+    }
+
+    @Override
+    public View getViewForDrag() {
+        return mUserCardImage;
     }
 }

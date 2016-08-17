@@ -43,7 +43,7 @@ public class TLCardFrameLayout extends FrameLayout {
         View swipeDeck = null;
         for (int i = 0; i < childCount; ++i) {
             View child = getChildAt(i);
-            if (child instanceof TLCardContainer) {
+            if (child instanceof TLCardStack) {
                 swipeDeck = getChildAt(i);
             } else {
                 children.add(child);

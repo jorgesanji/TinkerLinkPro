@@ -6,11 +6,10 @@ import android.text.style.ForegroundColorSpan;
 import android.view.View;
 
 import com.cronosgroup.tinkerlink.R;
-import com.cronosgroup.tinkerlink.model.manager.AppConfigManager;
+import com.cronosgroup.tinkerlink.interfaces.IOIconListener;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestUser;
 import com.cronosgroup.tinkerlink.utils.DateUtils;
-import com.cronosgroup.tinkerlink.interfaces.IOIconListener;
 
 /**
  * row of the recycler view.
@@ -40,8 +39,8 @@ public class ViewHolderShareUpdateProfile extends ViewHolderUpdateProfile {
         ForegroundColorSpan color = new ForegroundColorSpan(getResources().getColor(R.color.news_feed_detail_info));
         spannableString.setSpan(color, user.getName().length(), textContat.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         mUserContainer.setTitle(spannableString);
-        mUserContainer.setSubTitle(DateUtils.getInterval(post.getFecha(), itemView.getContext(), null));
-        mUserContainer.setUserImageFromUrl(getAppConfigManager().getPath(AppConfigManager.Path.PATH_IMAGE_PROFILE_THUMBNAIL) + user.getPhoto());
+        mUserContainer.setSubTitle(DateUtils.getInterval(post.getDate(), itemView.getContext(), null));
+        mUserContainer.setUserImageFromUrl(user.getPhoto());
         mUserContainer.setListener(new IOIconListener() {
             @Override
             public void onIconPressed() {
@@ -50,8 +49,8 @@ public class ViewHolderShareUpdateProfile extends ViewHolderUpdateProfile {
         });
 
         mRecommendations.setText(String.valueOf(postShared.getUser().getUser().getRecommendations()));
-        mShareButton.setText(String.valueOf(post.getNumeroShares()));
-        mViews.setText(String.valueOf(post.getNumeroVisualizaciones()));
+        mShareButton.setText(String.valueOf(post.getNumberShares()));
+        mViews.setText(String.valueOf(post.getNumberOfViews()));
     }
 
 
@@ -59,7 +58,7 @@ public class ViewHolderShareUpdateProfile extends ViewHolderUpdateProfile {
 
         final RestUser user = post.getUser().getUser();
 
-        mUserCardImage.setImageFromUrl(getAppConfigManager().getPath(AppConfigManager.Path.PATH_IMAGE_PROFILE_THUMBNAIL) + user.getPhoto());
+        mUserCardImage.setImageFromUrl(user.getPhoto());
         mUserCardImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -82,10 +81,10 @@ public class ViewHolderShareUpdateProfile extends ViewHolderUpdateProfile {
             mUserLocation.setVisibility(View.VISIBLE);
         }
 
-        if (post.getTexto().isEmpty()) {
+        if (post.getText().isEmpty()) {
             mCardDescription.setVisibility(View.GONE);
         } else {
-            mCardDescription.setText(post.getTexto());
+            mCardDescription.setText(post.getText());
             mCardDescription.setVisibility(View.VISIBLE);
         }
     }

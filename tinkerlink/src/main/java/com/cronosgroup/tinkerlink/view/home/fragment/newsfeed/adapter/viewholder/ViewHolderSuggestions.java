@@ -4,14 +4,13 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 import com.cronosgroup.tinkerlink.R;
-import com.cronosgroup.tinkerlink.model.manager.AppConfigManager;
+import com.cronosgroup.tinkerlink.interfaces.IOAddContactListener;
+import com.cronosgroup.tinkerlink.interfaces.IOIconListener;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestUser;
 import com.cronosgroup.tinkerlink.view.customviews.TLTextView;
 import com.cronosgroup.tinkerlink.view.customviews.TLUserView;
 import com.cronosgroup.tinkerlink.view.home.fragment.newsfeed.adapter.viewholder.base.ViewHolderPostBase;
-import com.cronosgroup.tinkerlink.interfaces.IOAddContactListener;
-import com.cronosgroup.tinkerlink.interfaces.IOIconListener;
 
 import butterknife.BindView;
 
@@ -49,7 +48,7 @@ public class ViewHolderSuggestions extends ViewHolderPostBase {
         TLUserView userView = new TLUserView(getContext());
         userView.setTitle(user.getName());
         userView.setSubTitle(user.getProfile().getLocation());
-        userView.setUserImageFromUrl(getAppConfigManager().getPath(AppConfigManager.Path.PATH_IMAGE_PROFILE_THUMBNAIL) + user.getPhoto());
+        userView.setUserImageFromUrl(user.getPhoto());
 
         userView.setAddContactListener(new IOAddContactListener() {
             @Override

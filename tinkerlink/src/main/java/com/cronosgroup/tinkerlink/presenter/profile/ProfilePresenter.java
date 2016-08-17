@@ -3,7 +3,7 @@ package com.cronosgroup.tinkerlink.presenter.profile;
 import android.os.Bundle;
 
 import com.cronosgroup.tinkerlink.enums.StackCardType;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContacto;
+import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContact;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestProfile;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestUser;
 import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenter;
@@ -25,7 +25,7 @@ public class ProfilePresenter extends TinkerLinkPresenter<ProfilePresenter.View>
      * Profile listeners.
      */
     public interface View extends TinkerLinkPresenterView {
-        void setContact(RestContacto contact);
+        void setContact(RestContact contact);
     }
 
     //Actions
@@ -34,9 +34,9 @@ public class ProfilePresenter extends TinkerLinkPresenter<ProfilePresenter.View>
 
         getView().showLoading();
 
-        AsyncLoader<RestContacto> asyncLoader = new AsyncLoader<RestContacto>() {
+        AsyncLoader<RestContact> asyncLoader = new AsyncLoader<RestContact>() {
             @Override
-            public RestContacto doInBackground() {
+            public RestContact doInBackground() {
 
                 RestProfile restProfile = new RestProfile();
                 restProfile.setProfession("Fontanero");
@@ -48,10 +48,10 @@ public class ProfilePresenter extends TinkerLinkPresenter<ProfilePresenter.View>
                 restUser.setPhoto("http://qsrock.com/wp-content/uploads/2016/04/130699422.jpg");
                 restUser.setProfile(restProfile);
 
-                RestContacto restContacto = new RestContacto();
-                restContacto.setUser(restUser);
+                RestContact restContact = new RestContact();
+                restContact.setUser(restUser);
 
-                List<RestContacto> list = new ArrayList<>();
+                List<RestContact> list = new ArrayList<>();
 
                 for (int contacts = 0; contacts < 20; contacts++) {
 
@@ -60,19 +60,19 @@ public class ProfilePresenter extends TinkerLinkPresenter<ProfilePresenter.View>
                     restUser1.setPhoto("http://qsrock.com/wp-content/uploads/2016/04/130699422.jpg");
                     restUser1.setProfile(restProfile);
 
-                    RestContacto contacto = new RestContacto();
+                    RestContact contacto = new RestContact();
                     contacto.setUser(restUser1);
 
                     list.add(contacto);
                 }
 
-                restContacto.setUsersCommon(list);
+                restContact.setUsersCommon(list);
 
-                return restContacto;
+                return restContact;
             }
 
             @Override
-            public void postProcess(RestContacto result) {
+            public void postProcess(RestContact result) {
                 getView().setContact(result);
                 getView().hideLoading();
             }

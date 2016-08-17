@@ -6,7 +6,7 @@ import com.cronosgroup.core.rest.Callback;
 import com.cronosgroup.core.rest.RestError;
 import com.cronosgroup.core.view.sectionable.Item;
 import com.cronosgroup.tinkerlink.model.manager.AppContactsManager;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContacto;
+import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContact;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestNotificacion;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.services.ContactsServices;
 import com.cronosgroup.tinkerlink.utils.DateUtils;
@@ -22,25 +22,25 @@ public class ContactsUseCases {
     public static final String KEY_SEARCH = "texto";
     public static final String KEY_CONTACTS = "contacts";
 
-    public static void getContactsFromAgenda(String param, final Callback<List<RestContacto>, RestError> callback, Object tag) {
+    public static void getContactsFromAgenda(String param, final Callback<List<RestContact>, RestError> callback, Object tag) {
 
         HashMap<String, String> params = new HashMap<>();
         params.put(KEY_CONTACTS, param);
 
-        ContactsServices.getContactsFromAgenda(params, RestContacto.class, callback, tag);
+        ContactsServices.getContactsFromAgenda(params, RestContact.class, callback, tag);
     }
 
     public static void getSuggestionContacts(final Callback callback, Object tag) {
-        ContactsServices.getSuggestionContacts(RestContacto.class, callback, tag);
+        ContactsServices.getSuggestionContacts(RestContact.class, callback, tag);
     }
 
     public static void searchContacts(String texto, String offset, final Callback callback, Object tag) {
 
         String params = texto + "/" + offset;
 
-        ContactsServices.searchContacts(params, RestContacto.class, new Callback<List<RestContacto>, RestError>() {
+        ContactsServices.searchContacts(params, RestContact.class, new Callback<List<RestContact>, RestError>() {
             @Override
-            public void onResponse(List<RestContacto> response) {
+            public void onResponse(List<RestContact> response) {
                 if (callback != null) {
                     AppContactsManager.getListSectionableAndOrderAlphabetical(response, new AppContactsManager.IORecoverContactsInOrder() {
                         @Override
@@ -62,7 +62,7 @@ public class ContactsUseCases {
     }
 
     public static void getUserContacts(String params, final Callback callback, Object tag) {
-        ContactsServices.getUserContacts(params, RestContacto.class, callback, tag);
+        ContactsServices.getUserContacts(params, RestContact.class, callback, tag);
     }
 
     public static void addContact(String idUser, final Callback callback, Object tag) {

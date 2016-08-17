@@ -4,7 +4,7 @@ import android.os.Bundle;
 
 import com.cronosgroup.tinkerlink.enums.StackCardType;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestChat;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContacto;
+import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContact;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestMessage;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestProfile;
@@ -50,6 +50,12 @@ public class StackPresenter extends TinkerLinkPresenter<StackPresenter.View> {
         bundle.putSerializable(StackActivity.STACK_TYPE, (getView().getType().getStackType() == StackCardType.LINKER.getStackType()) ? StackCardType.TINKER : StackCardType.LINKER);
         navigation.onLaunchStack(getView().getActivity(), bundle);
         getView().getActivity().finish();
+    }
+
+    public void onLaunhDetailStack() {
+        Bundle bundle = new Bundle();
+        bundle.putSerializable(StackActivity.STACK_TYPE, getView().getType());
+        navigation.onLaunchDetailCard(getView().getActivity(), bundle);
     }
 
     public void getAllCards(String offset) {
@@ -147,11 +153,11 @@ public class StackPresenter extends TinkerLinkPresenter<StackPresenter.View> {
         restUser.setPhoto("https://pixabay.com/static/uploads/photo/2016/03/28/12/35/cat-1285634_960_720.png");
         restUser.setProfile(restProfile);
 
-        RestContacto restContacto = new RestContacto();
-        restContacto.setUser(restUser);
+        RestContact restContact = new RestContact();
+        restContact.setUser(restUser);
 
         RestChat restChat = new RestChat();
-        restChat.setUser(restContacto);
+        restChat.setUser(restContact);
 
         List<RestMessage> listMessages = new ArrayList<>();
 

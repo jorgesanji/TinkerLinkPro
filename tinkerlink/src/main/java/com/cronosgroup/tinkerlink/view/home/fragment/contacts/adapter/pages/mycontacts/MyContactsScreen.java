@@ -14,7 +14,7 @@ import android.widget.RelativeLayout;
 import com.cronosgroup.core.view.BaseAdapter;
 import com.cronosgroup.core.view.animator.SlideInUpAnimator;
 import com.cronosgroup.tinkerlink.R;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContacto;
+import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContact;
 import com.cronosgroup.tinkerlink.utils.TLDividerItemDecoration;
 import com.cronosgroup.tinkerlink.view.customviews.TLImageButton;
 import com.cronosgroup.tinkerlink.view.customviews.TLMenuButton;
@@ -206,11 +206,11 @@ public class MyContactsScreen extends RelativeLayout {
         this.listener = listener;
     }
 
-    public void setItems(List<RestContacto> list) {
+    public void setItems(List<RestContact> list) {
         mAdapter.addItems(list);
     }
 
-    public List<RestContacto> getItems() {
+    public List<RestContact> getItems() {
         return mAdapter.getItems();
     }
 

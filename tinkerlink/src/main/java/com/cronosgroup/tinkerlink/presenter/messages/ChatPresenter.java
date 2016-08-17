@@ -3,7 +3,7 @@ package com.cronosgroup.tinkerlink.presenter.messages;
 import android.os.Bundle;
 
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestChat;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContacto;
+import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContact;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestMessage;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestProfile;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestUser;
@@ -48,11 +48,11 @@ public class ChatPresenter extends TinkerLinkPresenter<ChatPresenter.View> {
                     restUser.setPhoto("https://pixabay.com/static/uploads/photo/2016/03/28/12/35/cat-1285634_960_720.png");
                     restUser.setProfile(restProfile);
 
-                    RestContacto restContacto = new RestContacto();
-                    restContacto.setUser(restUser);
+                    RestContact restContact = new RestContact();
+                    restContact.setUser(restUser);
 
                     RestChat restChat = new RestChat();
-                    restChat.setUser(restContacto);
+                    restChat.setUser(restContact);
 
                     List<RestMessage> listMessages = new ArrayList<>();
 

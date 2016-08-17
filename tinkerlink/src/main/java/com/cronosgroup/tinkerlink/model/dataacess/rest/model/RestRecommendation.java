@@ -9,13 +9,13 @@ import java.util.List;
 /**
  * Created by aaronasencio on 30/7/15.
  */
-public class RestRecomendacion extends RestBase {
+public class RestRecommendation extends RestBase {
 
     @SerializedName("_id")
     private String id = "";
 
     @SerializedName("user")
-    private RestContacto user = new RestContacto();
+    private RestContact user = new RestContact();
 
     @SerializedName("create_date")
     private String createDate = "";
@@ -35,11 +35,11 @@ public class RestRecomendacion extends RestBase {
         this.id = id;
     }
 
-    public RestContacto getUser() {
+    public RestContact getUser() {
         return user;
     }
 
-    public void setUser(RestContacto user) {
+    public void setUser(RestContact user) {
         this.user = user;
     }
 

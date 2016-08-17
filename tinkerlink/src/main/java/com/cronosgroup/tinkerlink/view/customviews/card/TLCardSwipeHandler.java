@@ -1,8 +1,11 @@
 package com.cronosgroup.tinkerlink.view.customviews.card;
 
 import android.animation.Animator;
+import android.content.Context;
+import android.os.Vibrator;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.view.ViewPropertyAnimator;
 import android.view.animation.OvershootInterpolator;
@@ -10,9 +13,23 @@ import android.view.animation.OvershootInterpolator;
 /**
  * Created by jorgesanmartin on 8/5/16.
  */
-public class TLCardListener implements View.OnTouchListener {
+public class TLCardSwipeHandler implements View.OnTouchListener {
 
-    float OPACITY_END = 0.33f;
+    public interface SwipeHandlerListener {
+        void cardSwipedLeft();
+
+        void cardSwipedRight();
+
+        void cardOffScreen();
+
+        void cardPressed();
+
+        void cardOnLongPressed();
+    }
+
+    public static int VIBRATION_VALUE = 300;
+
+    private float opacityEnd = 0.33f;
     private float initialX;
     private float initialY;
 
@@ -24,50 +41,60 @@ public class TLCardListener implements View.OnTouchListener {
     private int paddingLeft;
 
     private View card;
-    SwipeCallback callback;
+    private SwipeHandlerListener listener;
     private boolean deactivated;
     private View rightView;
     private View leftView;
-    private boolean click = true;
+    private boolean mViewClicked = true;
+    private Runnable mLongPressRunnable = new Runnable() {
+        public void run() {
+            if (mViewClicked) {
+                mViewClicked = false;
+                Vibrator vibrator = (Vibrator) parent.getContext().getSystemService(Context.VIBRATOR_SERVICE);
+                if (vibrator.hasVibrator()) {
+                    vibrator.vibrate(VIBRATION_VALUE);
+                }
+                resetCardPosition();
+                listener.cardOnLongPressed();
+            }
+        }
+    };
 
-    public TLCardListener(View card, final SwipeCallback callback, float initialX, float initialY, float opacityEnd) {
+    public TLCardSwipeHandler(View card, final SwipeHandlerListener listener, float initialX, float initialY, float opacityEnd) {
         this.card = card;
         this.initialX = initialX;
         this.initialY = initialY;
-        this.callback = callback;
+        this.listener = listener;
         this.parent = (ViewGroup) card.getParent();
         this.parentWidth = parent.getWidth();
-        this.OPACITY_END = opacityEnd;
+        this.opacityEnd = opacityEnd;
         this.paddingLeft = ((ViewGroup) card.getParent()).getPaddingLeft();
     }
 
 
     @Override
     public boolean onTouch(View view, MotionEvent event) {
-        if (deactivated) return false;
+
+        if (deactivated) {
+            return false;
+        }
+
         switch (event.getAction() & MotionEvent.ACTION_MASK) {
 
             case MotionEvent.ACTION_DOWN:
-                click = true;
+                mViewClicked = true;
 
-                //cancel any current animations
+                startLongPressCheck();
+
                 view.clearAnimation();
 
                 mActivePointerId = event.getPointerId(0);
 
-                final float x = event.getX();
-                final float y = event.getY();
-
-                if (event.findPointerIndex(mActivePointerId) == 0) {
-                    callback.cardActionDown();
-                }
-
-                initialXPress = x;
-                initialYPress = y;
+                initialXPress = event.getX();
+                initialYPress = event.getY();
                 break;
 
             case MotionEvent.ACTION_MOVE:
-                //gesture is in progress
 
                 final int pointerIndex = event.findPointerIndex(mActivePointerId);
                 if (pointerIndex < 0 || pointerIndex > 0) {
@@ -82,15 +109,14 @@ public class TLCardListener implements View.OnTouchListener {
                 final float dy = yMove - initialYPress;
 
                 //throw away the move in this case as it seems to be wrong
-                //TODO: figure out why this is the case
                 if ((int) initialXPress == 0 && (int) initialYPress == 0) {
                     break;
                 }
 
                 float posX = card.getX() + dx;
-                //Consider the motion a click
+                //Consider the motion a mViewClicked
                 if (Math.abs(dx + dy) > 5) {
-                    click = false;
+                    mViewClicked = false;
                 }
 
                 // Move and rotation
@@ -99,7 +125,7 @@ public class TLCardListener implements View.OnTouchListener {
 
                 if (rightView != null && leftView != null) {
                     //set alpha of left and right image
-                    float alpha = (((posX - paddingLeft) / (parentWidth * OPACITY_END)));
+                    float alpha = (((posX - paddingLeft) / (parentWidth * opacityEnd)));
                     rightView.setAlpha(alpha);
                     leftView.setAlpha(-alpha);
                 }
@@ -107,31 +133,45 @@ public class TLCardListener implements View.OnTouchListener {
                 break;
 
             case MotionEvent.ACTION_UP:
-                //gesture has finished
-                //check to see if card has moved beyond the left or right bounds or reset
-                //card position
-                checkCardForEvent();
-
-                if (event.findPointerIndex(mActivePointerId) == 0) {
-                    callback.cardActionUp();
-                }
-
-                if (click){
-                    view.performClick();
+                endTouch();
+                if (mViewClicked) {
+                    listener.cardPressed();
+                } else {
+                    //check to see if card has moved beyond the left or right bounds or reset
+                    checkCardForEvent();
                 }
 
                 break;
-
             default:
                 return false;
         }
         return true;
     }
 
-    public void checkCardForEvent() {
+    /**
+     * Posts (and creates if necessary) a runnable that will when executed call
+     * the long click listener
+     */
+    private void startLongPressCheck() {
+        // then post it with a delay
+        parent.postDelayed(mLongPressRunnable, ViewConfiguration.getLongPressTimeout());
+    }
+
+    /**
+     * Resets and recycles all things that need to when we end a touch gesture
+     */
+    private void endTouch() {
+        // remove any existing check for longpress
+        parent.removeCallbacks(mLongPressRunnable);
+
+        // reset touch state
+        mViewClicked = false;
+    }
+
+    private void checkCardForEvent() {
 
         if (cardBeyondLeftBorder()) {
-            animateOffScreenLeft(160)
+            animateOffScreenLeft(TLCardStack.ANIMATION_DURATION)
                     .setListener(new Animator.AnimatorListener() {
 
                         @Override
@@ -141,8 +181,7 @@ public class TLCardListener implements View.OnTouchListener {
 
                         @Override
                         public void onAnimationEnd(Animator animation) {
-
-                            callback.cardOffScreen();
+                            listener.cardOffScreen();
                         }
 
                         @Override
@@ -154,10 +193,10 @@ public class TLCardListener implements View.OnTouchListener {
                         public void onAnimationRepeat(Animator animation) {
                         }
                     });
-            callback.cardSwipedLeft();
-            this.deactivated = true;
+            listener.cardSwipedLeft();
+            deactivated = true;
         } else if (cardBeyondRightBorder()) {
-            animateOffScreenRight(160)
+            animateOffScreenRight(TLCardStack.ANIMATION_DURATION)
                     .setListener(new Animator.AnimatorListener() {
 
                         @Override
@@ -167,7 +206,7 @@ public class TLCardListener implements View.OnTouchListener {
 
                         @Override
                         public void onAnimationEnd(Animator animation) {
-                            callback.cardOffScreen();
+                            listener.cardOffScreen();
                         }
 
                         @Override
@@ -180,8 +219,8 @@ public class TLCardListener implements View.OnTouchListener {
 
                         }
                     });
-            callback.cardSwipedRight();
-            this.deactivated = true;
+            listener.cardSwipedRight();
+            deactivated = true;
         } else {
             resetCardPosition();
         }
@@ -232,17 +271,4 @@ public class TLCardListener implements View.OnTouchListener {
     public void setLeftView(View image) {
         this.leftView = image;
     }
-
-    public interface SwipeCallback {
-        void cardSwipedLeft();
-
-        void cardSwipedRight();
-
-        void cardOffScreen();
-
-        void cardActionDown();
-
-        void cardActionUp();
-    }
-
 }

@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.cronosgroup.tinkerlink.R;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContacto;
+import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContact;
 import com.cronosgroup.tinkerlink.presenter.contacts.MyContactsPresenter;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
 import com.cronosgroup.tinkerlink.view.dialog.blockcontacts.BlockContactsDialogFragment;
@@ -52,12 +52,12 @@ public class MyContactsFragment extends MVPTinkerLinkFragment<MyContactsPresente
     //region ************** MyContactsPresenter.View **************
 
     @Override
-    public void setContacts(List<RestContacto> list) {
+    public void setContacts(List<RestContact> list) {
         contactsUserScreen.setItems(list);
     }
 
     @Override
-    public List<RestContacto> getItems() {
+    public List<RestContact> getItems() {
         return contactsUserScreen.getItems();
     }
 
@@ -77,9 +77,9 @@ public class MyContactsFragment extends MVPTinkerLinkFragment<MyContactsPresente
 
     @Override
     public void onRemoveContactPressed(int position) {
-        RestContacto restContacto = getItems().get(position);
-        String userName = restContacto.getUser().getName();
-        String userId = restContacto.getUser().getId();
+        RestContact restContact = getItems().get(position);
+        String userName = restContact.getUser().getName();
+        String userId = restContact.getUser().getId();
         Bundle bundle = new Bundle();
         bundle.putString(MessageOptionsDialogFragment.USER_ID_KEY, userId);
         showDialogMessageOptions(
@@ -90,9 +90,9 @@ public class MyContactsFragment extends MVPTinkerLinkFragment<MyContactsPresente
 
     @Override
     public void onBlockContactPressed(int position) {
-        RestContacto restContacto = getItems().get(position);
-        String userName = restContacto.getUser().getName();
-        String userId = restContacto.getUser().getId();
+        RestContact restContact = getItems().get(position);
+        String userName = restContact.getUser().getName();
+        String userId = restContact.getUser().getId();
         Bundle bundle = new Bundle();
         bundle.putString(BlockContactsDialogFragment.USER_NAME_KEY, userName);
         bundle.putString(BlockContactsDialogFragment.USER_ID_KEY, userId);

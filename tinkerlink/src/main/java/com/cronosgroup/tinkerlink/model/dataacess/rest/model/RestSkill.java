@@ -1,10 +1,19 @@
 package com.cronosgroup.tinkerlink.model.dataacess.rest.model;
 
+import com.cronosgroup.core.rest.RestBase;
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by jorgesanmartin on 11/18/15.
  */
-public class RestHabilidad implements Cloneable {
+public class RestSkill extends RestBase {
+
+    @SerializedName("name")
     private String name;
+
+    @SerializedName("id")
+    private int id;
+
     private boolean custom = false;
     private boolean selected = false;
 
@@ -12,7 +21,7 @@ public class RestHabilidad implements Cloneable {
         return name;
     }
 
-    public RestHabilidad setName(String name) {
+    public RestSkill setName(String name) {
         this.name = name;
         return this;
     }
@@ -21,22 +30,24 @@ public class RestHabilidad implements Cloneable {
         return custom;
     }
 
-    public RestHabilidad setCustom(boolean custom) {
+    public void setCustom(boolean custom) {
         this.custom = custom;
-        return this;
     }
 
     public boolean isSelected() {
         return selected;
     }
 
-    public RestHabilidad setSelected(boolean selected) {
+    public void setSelected(boolean selected) {
         this.selected = selected;
-        return this;
     }
 
-    @Override
-    public Object clone() throws CloneNotSupportedException {
-        return super.clone();
+    public int getId() {
+        return id;
     }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
 }

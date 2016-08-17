@@ -4,7 +4,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestRecomendacion;
+import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestRecommendation;
 import com.cronosgroup.tinkerlink.presenter.profile.UserRecommendationsPresenter;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
 import com.cronosgroup.tinkerlink.view.customviews.TLRecommendationView;
@@ -52,16 +52,16 @@ public class UserRecommendationsFragment extends MVPTinkerLinkFragment<UserRecom
     //region ************** CardRecommendationsPresenter.View **************
 
     @Override
-    public void setRecommendationsList(List<RestRecomendacion> list) {
+    public void setRecommendationsList(List<RestRecommendation> list) {
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
 
-        for (RestRecomendacion restRecomendacion : list) {
+        for (RestRecommendation restRecommendation : list) {
 
             TLRecommendationView recommendationView = new TLRecommendationView(getContext());
-            recommendationView.setUserName(restRecomendacion.getUser().getUser().getName());
-            recommendationView.setJob(restRecomendacion.getUser().getUser().getProfile().getProfession());
-            recommendationView.setTime(restRecomendacion.getCreateDate());
-            recommendationView.setRecommendation(restRecomendacion.getRecomendacion());
+            recommendationView.setUserName(restRecommendation.getUser().getUser().getName());
+            recommendationView.setJob(restRecommendation.getUser().getUser().getProfile().getProfession());
+            recommendationView.setTime(restRecommendation.getCreateDate());
+            recommendationView.setRecommendation(restRecommendation.getRecomendacion());
             recommendationView.setLayoutParams(params);
 
             userRecommendationsScreen.addRecommendation(recommendationView);

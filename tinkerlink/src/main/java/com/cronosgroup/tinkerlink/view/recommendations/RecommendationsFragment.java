@@ -2,7 +2,7 @@ package com.cronosgroup.tinkerlink.view.recommendations;
 
 import android.view.View;
 
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestRecomendacion;
+import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestRecommendation;
 import com.cronosgroup.tinkerlink.presenter.recommendations.RecommendationsPresenter;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
 
@@ -49,7 +49,7 @@ public class RecommendationsFragment extends MVPTinkerLinkFragment<Recommendatio
     //region ************** RecommendationsPresenter.View **************
 
     @Override
-    public void setRecommendationsList(List<RestRecomendacion> list) {
+    public void setRecommendationsList(List<RestRecommendation> list) {
         recommendationsScreen.setItems(list);
     }
 

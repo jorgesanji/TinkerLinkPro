@@ -7,7 +7,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.cronosgroup.tinkerlink.R;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContacto;
+import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContact;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
 import com.cronosgroup.tinkerlink.presenter.newsfeed.NewsFeedPresenter;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
@@ -51,7 +51,7 @@ public class NewsFeedFragment extends MVPTinkerLinkFragment<NewsFeedPresenter, N
     protected View getRootView() {
         newsFeedScreen = new NewsFeedScreen(getActivity());
         newsFeedScreen.setListener(this);
-        newsFeedScreen.initAdapter(getPresenter().getAppConfigManager(), getPresenter().getAppUserSessionManager());
+        newsFeedScreen.initAdapter(getPresenter().getAppUserSessionManager());
         return newsFeedScreen;
     }
 
@@ -98,7 +98,7 @@ public class NewsFeedFragment extends MVPTinkerLinkFragment<NewsFeedPresenter, N
     }
 
     @Override
-    public void onChatPressed(RestContacto restContacto) {
+    public void onChatPressed(RestContact restContact) {
 
     }
 
@@ -123,7 +123,7 @@ public class NewsFeedFragment extends MVPTinkerLinkFragment<NewsFeedPresenter, N
     }
 
     @Override
-    public void onUserIconPressed(RestContacto userContact) {
+    public void onUserIconPressed(RestContact userContact) {
 
     }
 

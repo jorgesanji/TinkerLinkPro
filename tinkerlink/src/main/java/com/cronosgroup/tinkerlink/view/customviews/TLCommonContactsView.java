@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
 import com.cronosgroup.tinkerlink.R;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContacto;
+import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContact;
 import com.cronosgroup.tinkerlink.utils.DimenUtils;
 
 import java.util.List;
@@ -105,7 +105,7 @@ public class TLCommonContactsView extends RelativeLayout {
 
     //Public methods
 
-    public void setContacts(List<RestContacto> contacts) {
+    public void setContacts(List<RestContact> contacts) {
         if (!contacts.isEmpty()) {
             setParamsContainer(true);
             mContactsContainer.setVisibility(VISIBLE);
@@ -115,7 +115,7 @@ public class TLCommonContactsView extends RelativeLayout {
 
             int size = contacts.size() > 4 ? 4 : contacts.size();
             for (int index = 0; index < size; index++) {
-                RestContacto contacto = contacts.get(index);
+                RestContact contacto = contacts.get(index);
                 TLImageView imageView = (TLImageView) mContactsContainer.getChildAt(index);
                 imageView.setImageFromUrl(contacto.getUser().getPhoto());
             }

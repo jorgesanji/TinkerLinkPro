@@ -29,9 +29,9 @@ public class ViewHolderShareStatus extends ViewHolderStatus {
     public void configureItem(final RestPost post) {
         setPost(post);
         RestPost postShared = post.getPost();
-        setSharedUser(post.getUser(), post.getFecha(), R.string.newsfeed_share_status_text);
+        setSharedUser(post.getUser(), post.getDate(), R.string.newsfeed_share_status_text);
         setOwnerUserPost(postShared);
         setPostInfo(postShared);
-        setInfoButtons(postShared.getUser().getUser().getRecommendations(), postShared.getNumeroShares(), postShared.getNumeroVisualizaciones());
+        setInfoButtons(postShared.getUser().getUser().getRecommendations(), postShared.getNumberShares(), postShared.getNumberOfViews());
     }
 }

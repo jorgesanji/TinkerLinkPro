@@ -4,7 +4,6 @@ import android.location.Geocoder;
 
 import com.cronosgroup.tinkerlink.application.TinkerLinkApplication;
 import com.cronosgroup.tinkerlink.interfaces.IONavigation;
-import com.cronosgroup.tinkerlink.model.manager.AppConfigManager;
 import com.cronosgroup.tinkerlink.model.manager.AppCountryManager;
 import com.cronosgroup.tinkerlink.model.manager.AppImagePickerManager;
 import com.cronosgroup.tinkerlink.model.manager.AppUserSessionManager;
@@ -18,9 +17,6 @@ public class PresenterDependencies {
 
     @Inject
     public AppCountryManager appCountryManager;
-
-    @Inject
-    public AppConfigManager appConfigManager;
 
     @Inject
     protected AppUserSessionManager appUserSessionManager;

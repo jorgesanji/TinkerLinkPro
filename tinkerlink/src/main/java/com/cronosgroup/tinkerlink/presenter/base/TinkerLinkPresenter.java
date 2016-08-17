@@ -11,7 +11,6 @@ import com.cronosgroup.core.presenter.Presenter;
 import com.cronosgroup.core.view.BaseActivity;
 import com.cronosgroup.tinkerlink.event.SmsEvent;
 import com.cronosgroup.tinkerlink.interfaces.IOUserLogin;
-import com.cronosgroup.tinkerlink.model.manager.AppConfigManager;
 import com.cronosgroup.tinkerlink.model.manager.AppCountryManager;
 import com.cronosgroup.tinkerlink.model.manager.AppUserSessionManager;
 import com.cronosgroup.tinkerlink.sms.SMSBroadcastReceiver;
@@ -142,8 +141,5 @@ public class TinkerLinkPresenter<V extends TinkerLinkPresenterView> extends Pres
     public AppCountryManager getAppCountryManager() {
         return appCountryManager;
     }
-
-    public AppConfigManager getAppConfigManager() {
-        return appConfigManager;
-    }
 }
+

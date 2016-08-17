@@ -8,7 +8,6 @@ import com.cronosgroup.tinkerlink.enums.PostType;
 import com.cronosgroup.tinkerlink.interfaces.IOActionButtons;
 import com.cronosgroup.tinkerlink.interfaces.IOLoadMore;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
-import com.cronosgroup.tinkerlink.model.manager.AppConfigManager;
 import com.cronosgroup.tinkerlink.model.manager.AppUserSessionManager;
 import com.cronosgroup.tinkerlink.view.home.fragment.newsfeed.adapter.viewholder.base.ViewHolderPostBase;
 
@@ -22,7 +21,6 @@ public class HomeAdapter extends BaseAdapter<ViewHolderPostBase, RestPost> {
 
     private static final int ELEMENTS_TO_REQUEST_LOAD = 15;
 
-    private AppConfigManager appConfigManager;
     private AppUserSessionManager appUserSessionManager;
     private IOActionButtons actionButtons;
     private IOLoadMore loadMorePost;
@@ -38,7 +36,7 @@ public class HomeAdapter extends BaseAdapter<ViewHolderPostBase, RestPost> {
     public RecyclerView.ViewHolder getHolder(ViewGroup parent, int viewType) {
         ViewHolderPostBase holder = UICardsHelper.getViewHolder(parent, viewType, actionButtons);
         if (holder != null) {
-            ((ViewHolderPostBase) holder.setClickListener(getClickListener())).setAppConfigManager(getAppConfigManager()).setAppUserSessionManager(getAppUserSessionManager());
+            ((ViewHolderPostBase) holder.setClickListener(getClickListener())).setAppUserSessionManager(getAppUserSessionManager());
         }
         return holder;
     }
@@ -92,13 +90,6 @@ public class HomeAdapter extends BaseAdapter<ViewHolderPostBase, RestPost> {
         notifyDataSetChanged();
     }
 
-    public AppConfigManager getAppConfigManager() {
-        return appConfigManager;
-    }
-
-    public void setAppConfigManager(AppConfigManager appConfigManager) {
-        this.appConfigManager = appConfigManager;
-    }
 
     public AppUserSessionManager getAppUserSessionManager() {
         return appUserSessionManager;
