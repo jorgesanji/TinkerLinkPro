@@ -17,7 +17,7 @@ import java.util.List;
 /**
  * RecyclerView news feed list adapter.
  */
-public class HomeAdapter extends BaseAdapter<ViewHolderPostBase, RestPost> {
+public class NewsFeedAdapter extends BaseAdapter<ViewHolderPostBase, RestPost> {
 
     private static final int ELEMENTS_TO_REQUEST_LOAD = 15;
 

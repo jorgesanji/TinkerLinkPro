@@ -23,7 +23,7 @@ import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
 import com.cronosgroup.tinkerlink.model.manager.AppUserSessionManager;
 import com.cronosgroup.tinkerlink.view.customviews.TLRecyclerView;
 import com.cronosgroup.tinkerlink.view.customviews.TLTextView;
-import com.cronosgroup.tinkerlink.view.home.fragment.newsfeed.adapter.HomeAdapter;
+import com.cronosgroup.tinkerlink.view.home.fragment.newsfeed.adapter.NewsFeedAdapter;
 
 import java.util.List;
 
@@ -72,7 +72,7 @@ public class NewsFeedScreen extends RelativeLayout {
     // Vars
     private boolean mRefreshing = false;
     private Listener listener;
-    private HomeAdapter mAdapter;
+    private NewsFeedAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
 
     // Views
@@ -248,7 +248,7 @@ public class NewsFeedScreen extends RelativeLayout {
     }
 
     private void initAdapter() {
-        mAdapter = new HomeAdapter();
+        mAdapter = new NewsFeedAdapter();
 //        mAdapter.setHasStableIds(true);
 //        AlphaInAnimationAdapter alphaAdapter = new AlphaInAnimationAdapter(mAdapter);
 //        ScaleInAnimationAdapter scaleInAnimationAdapter = new ScaleInAnimationAdapter(alphaAdapter);
@@ -281,7 +281,7 @@ public class NewsFeedScreen extends RelativeLayout {
         listener.onSearchTinkerStackPressed();
     }
 
-    protected HomeAdapter getAdapter() {
+    protected NewsFeedAdapter getAdapter() {
         return mAdapter;
     }
 

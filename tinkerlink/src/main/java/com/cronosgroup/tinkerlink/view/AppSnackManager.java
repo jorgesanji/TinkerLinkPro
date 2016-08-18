@@ -35,14 +35,11 @@ public class AppSnackManager extends StatusMessageManager {
 
     ////// SHOW SUCCESSFULL MESSAGES
 
-
     ////// SHOW ERROR MESSAGES
-
 
     public void showNetworkError() {
         showError(R.string.error_internet_connection);
     }
-
 
     ////// SHOW INFORMATIVE MESSAGES
 

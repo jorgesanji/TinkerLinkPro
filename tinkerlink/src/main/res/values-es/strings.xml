@@ -336,7 +336,7 @@
     <string name="configuration_profile_notifications_movil_permissions_accept_contact">Acepta tu solicitud de contact</string>
     <string name="configuration_profile_notifications_movil_permissions_match_cards">Encontramos coincidencias en tarjetas</string>
 
-    <!-- PROFILE -->
+    <!-- ACCOUNT -->
     <string name="profile_title">Perfil</string>
     <string name="profile_page_user_information">INFORMACIÓN</string>
     <string name="profile_page_user_recommendation">RECOMENDACIONES</string>

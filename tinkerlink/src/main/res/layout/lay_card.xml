@@ -134,7 +134,7 @@
             android:layout_height="match_parent"
             android:visibility="gone">
 
-            <com.cronosgroup.tinkerlink.view.stack.adapter.card.recommendations.CardRecommnedationsScreen
+            <com.cronosgroup.tinkerlink.view.stack.adapter.stackcards.adapter.card.recommendations.CardRecommnedationsScreen
                 android:id="@+id/cardRecommendations"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />

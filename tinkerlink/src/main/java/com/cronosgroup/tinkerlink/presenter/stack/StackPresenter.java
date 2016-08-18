@@ -6,12 +6,10 @@ import com.cronosgroup.tinkerlink.enums.StackCardType;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestChat;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContact;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestMessage;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestProfile;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestUser;
 import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenter;
 import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenterView;
-import com.cronosgroup.tinkerlink.utils.AsyncLoader;
 import com.cronosgroup.tinkerlink.view.chatuser.ChatUserActivity;
 import com.cronosgroup.tinkerlink.view.detailcard.DetailCardActivity;
 import com.cronosgroup.tinkerlink.view.stack.StackActivity;
@@ -28,12 +26,6 @@ public class StackPresenter extends TinkerLinkPresenter<StackPresenter.View> {
      * StackCardType listeners.
      */
     public interface View extends TinkerLinkPresenterView {
-
-        int getCurrentIndexPage();
-
-        List<RestPost> getItems();
-
-        void setCards(List<RestPost> cars);
 
         boolean isUser();
 
@@ -58,69 +50,9 @@ public class StackPresenter extends TinkerLinkPresenter<StackPresenter.View> {
         navigation.onLaunchDetailCard(getView().getActivity(), bundle);
     }
 
-    public void getAllCards(String offset) {
-
-        getView().showLoading();
-        AsyncLoader<List<RestPost>> asyncLoader = new AsyncLoader<List<RestPost>>() {
-            @Override
-            public List<RestPost> doInBackground() {
-
-                List<RestPost> list = new ArrayList<>();
-                for (int posts = 0; posts < 10; posts++) {
-                    RestPost restPost = new RestPost();
-                    list.add(restPost);
-                }
-                return list;
-            }
-
-            @Override
-            public void postProcess(List<RestPost> result) {
-                getView().setCards(result);
-                getView().hideLoading();
-            }
-        };
-
-        asyncLoader.start();
-//        getView().showLoading();
-
-//        if (getView().isUser()) {
-//            CardUseCases.getUserCards(getView().getUser().getId(), getView().getType().getStackType(), offset, new Callback<List<RestPost>, RestError>() {
-//
-//                @Override
-//                public void onResponse(List<RestPost> response) {
-//                    getView().setCards(response);
-//                    getView().hideLoading();
-//                }
-//
-//                @Override
-//                public void onErrorResponse(RestError error) {
-//                    getView().getSnackMessageManager().showNetworkError();
-//                    getView().hideLoading();
-//                }
-//
-//            }, getView().getActivity());
-//        } else {
-//            CardUseCases.getAllCards(getView().getType().getStackType(), offset, new Callback<List<RestPost>, RestError>() {
-//
-//                @Override
-//                public void onResponse(List<RestPost> response) {
-//                    getView().setCards(response);
-//                    getView().hideLoading();
-//                }
-//
-//                @Override
-//                public void onErrorResponse(RestError error) {
-//                    getView().getSnackMessageManager().showNetworkError();
-//                    getView().hideLoading();
-//                }
-//
-//            }, getView().getActivity());
-//        }
-    }
-
     public void showDetailCard() {
         Bundle bundle = new Bundle();
-        bundle.putSerializable(DetailCardActivity.KEY_ITEM, getView().getItems().get(getView().getCurrentIndexPage()));
+//        bundle.putSerializable(DetailCardActivity.KEY_ITEM, getView().getItems().get(getView().getCurrentIndexPage()));
         bundle.putBoolean(DetailCardActivity.KEY_PUBLISH, false);
         bundle.putSerializable(StackActivity.STACK_TYPE, getView().getType());
         navigation.onLaunchDetailCard(getView().getActivity(), bundle);
@@ -172,6 +104,7 @@ public class StackPresenter extends TinkerLinkPresenter<StackPresenter.View> {
 
         navigation.onLaunchChatUser(getView().getActivity(), bundle);
     }
+
 
     public void onWatchProfilePressed() {
         navigation.onLaunchUserProfile(getView().getActivity(), null);

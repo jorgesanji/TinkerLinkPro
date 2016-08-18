@@ -33,7 +33,7 @@
             app:actionTitle="@string/home_contacts" />
 
         <com.cronosgroup.tinkerlink.view.customviews.TLActionButton
-            android:id="@+id/mensajesbt"
+            android:id="@+id/messagesbt"
             style="@style/TLActionButtonStyle"
             android:layout_marginLeft="0.5dp"
             android:layout_marginRight="0.5dp"
@@ -41,7 +41,7 @@
             app:actionTitle="@string/home_messages" />
 
         <com.cronosgroup.tinkerlink.view.customviews.TLActionButton
-            android:id="@+id/profilebt"
+            android:id="@+id/accountbt"
             style="@style/TLActionButtonStyle"
             android:layout_marginLeft="0.5dp"
             android:layout_marginRight="1.0dp"
@@ -50,8 +50,14 @@
 
     </LinearLayout>
 
-    <FrameLayout
-        android:id="@+id/contentActionsFrame"
+    <!--<FrameLayout-->
+    <!--android:id="@+id/contentActionsFrame"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:layout_below="@+id/topTabActions" />-->
+
+    <com.cronosgroup.tinkerlink.view.customviews.TLViewPager
+        android:id="@+id/pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/topTabActions" />

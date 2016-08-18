@@ -1,4 +1,4 @@
-package com.cronosgroup.tinkerlink.view.stack.adapter.card.recommendations;
+package com.cronosgroup.tinkerlink.view.stack.adapter.stackcards.adapter.card.recommendations;
 
 import android.annotation.TargetApi;
 import android.content.Context;
@@ -14,7 +14,7 @@ import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestRecommendation;
 import com.cronosgroup.tinkerlink.utils.TLDividerItemDecoration;
 import com.cronosgroup.tinkerlink.view.customviews.TLRecyclerView;
-import com.cronosgroup.tinkerlink.view.stack.adapter.card.recommendations.adapter.CardRecommendationsAdapter;
+import com.cronosgroup.tinkerlink.view.stack.adapter.stackcards.adapter.card.recommendations.adapter.CardRecommendationsAdapter;
 
 import java.util.List;
 

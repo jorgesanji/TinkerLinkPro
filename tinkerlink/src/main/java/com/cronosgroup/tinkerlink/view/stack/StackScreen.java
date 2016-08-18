@@ -4,28 +4,21 @@ import android.animation.Animator;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.FragmentManager;
 import android.util.AttributeSet;
 import android.view.View;
-import android.view.ViewTreeObserver;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.RelativeLayout;
-import android.widget.SeekBar;
 
 import com.cronosgroup.tinkerlink.R;
-import com.cronosgroup.tinkerlink.enums.StackCardType;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
-import com.cronosgroup.tinkerlink.view.customviews.TLTextView;
-import com.cronosgroup.tinkerlink.view.customviews.card.TLCardStack;
+import com.cronosgroup.tinkerlink.view.customviews.TLViewPager;
 import com.cronosgroup.tinkerlink.view.dragdrop.DragDropScreen;
-import com.cronosgroup.tinkerlink.view.stack.adapter.CardsAdapter;
-import com.cronosgroup.tinkerlink.view.stack.adapter.card.CardScreen;
-
-import java.util.List;
+import com.cronosgroup.tinkerlink.view.stack.adapter.StackAdapter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 
 /**
@@ -40,18 +33,20 @@ public class StackScreen extends RelativeLayout {
      * listeners of the stack's screen.
      */
     public interface Listener {
-        void onSelectCardsPressed();
 
-        void onCardPressed(int position);
     }
 
     // Vars
     private Listener listener;
-
-    private CardsAdapter mAdapter;
-    private StackCardType stackType;
+    private StackAdapter mAdapter;
 
     // Views
+
+    @BindView(R.id.tablayout)
+    protected TabLayout mTab;
+
+    @BindView(R.id.pager)
+    protected TLViewPager mPager;
 
     @BindView(R.id.backgroundFadeIn)
     protected View mBackgroundIn;
@@ -59,20 +54,8 @@ public class StackScreen extends RelativeLayout {
     @BindView(R.id.backgroundFadeOut)
     protected View mBackgroundOut;
 
-    @BindView(R.id.selectCardsType)
-    protected TLTextView mSelectCardsType;
-
-    @BindView(R.id.stackIndicator)
-    protected SeekBar mStackIndicator;
-
-    @BindView(R.id.pageNumberIndicator)
-    protected TLTextView mPageNumberIndicator;
-
     @BindView(R.id.dragDropScreen)
     protected DragDropScreen dragDropScreen;
-
-    @BindView(R.id.cardContainer)
-    protected TLCardStack<CardScreen> mPager;
 
     /**
      * @param context
@@ -122,93 +105,34 @@ public class StackScreen extends RelativeLayout {
     private void init() {
         inflate(getContext(), R.layout.lay_stack, this);
         ButterKnife.bind(this);
-        initUI();
-        initListener();
-    }
-
-    private void initListener() {
-
-        mPager.setSwipeListener(new TLCardStack.SwipeListener<CardScreen>() {
-            @Override
-            public void cardSwipedLeft(int position) {
-                position++;
-                setProgress(position);
-            }
-
-            @Override
-            public void cardSwipedRight(int position) {
-                position++;
-                setProgress(position);
-            }
-
-            @Override
-            public void cardsDepleted() {
-
-            }
-
-            @Override
-            public void cardPressed(CardScreen card, int position) {
-                listener.onCardPressed(position);
-            }
-
-            @Override
-            public void cardOnLongPressed(CardScreen card, int position) {
-                showOverlaySelector();
-            }
-        });
-
-        mStackIndicator.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-
-            }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-                int progress = seekBar.getProgress();
-                setPage(progress);
-                mPager.setSelection(progress);
-            }
-        });
-    }
-
-    private void setProgress(int position) {
-        if (position < mAdapter.getCount()) {
-            setPage(position);
-            mStackIndicator.setProgress(position);
-        }
-    }
-
-    private void initUI() {
-        mAdapter = new CardsAdapter(getContext());
-        mPager.setAdapter(mAdapter);
-        mPager.setVisibility(INVISIBLE);
-
-        mPageNumberIndicator.setVisibility(INVISIBLE);
-        mStackIndicator.setVisibility(INVISIBLE);
         mBackgroundIn.setAlpha(0);
     }
 
+    private void initUI() {
+        mPager.setDisableSwipe(true);
+        mTab.setTabTextColors(getResources().getColor(R.color.black_opaque), getResources().getColor(R.color.black_opaque));
+        mTab.setupWithViewPager(mPager);
+        mPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(mTab));
+        mTab.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                mPager.setCurrentItem(tab.getPosition());
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+            }
+        });
+    }
+
+
     // **************  UI Actions **************
 
-    @OnClick(R.id.selectCardsType)
-    protected void selectCardsPressed() {
-        listener.onSelectCardsPressed();
-    }
-
     // Public methods
-
-    public void setPage(int currentPage) {
-        setNumberPages(mAdapter.getCount() - 1, (currentPage == -1) ? 0 : currentPage);
-    }
-
-    public void setNumberPages(int numPages, int currentPage) {
-        mPageNumberIndicator.setText(String.valueOf(currentPage) + " / " + String.valueOf(numPages));
-    }
 
     public View getAnimableView() {
         return mBackgroundOut;
@@ -226,32 +150,10 @@ public class StackScreen extends RelativeLayout {
         dragDropScreen.setListener(dragdropListener);
     }
 
-    public void initView(StackCardType stackType) {
-        this.stackType = stackType;
-        boolean isLinker = (stackType.getStackType() == StackCardType.LINKER.getStackType());
-        int color = (isLinker) ? StackCardType.TINKER.getStackColor() : StackCardType.LINKER.getStackColor();
-        int title = (isLinker) ? StackCardType.TINKER.getStackTitleAction() : StackCardType.LINKER.getStackTitleAction();
-        mSelectCardsType.setTextColor(getContext().getResources().getColor(color));
-        mSelectCardsType.setText(getContext().getString(title));
-    }
-
-    public void addItems(List<RestPost> restPosts) {
-        if (mAdapter.getCount() == 0 && !restPosts.isEmpty()) {
-            mPager.setVisibility(VISIBLE);
-            mPageNumberIndicator.setVisibility(VISIBLE);
-            mStackIndicator.setVisibility(VISIBLE);
-            mAdapter.setItems(restPosts);
-            mAdapter.notifyDataSetChanged();
-        } else {
-            mAdapter.addItems(restPosts);
-            mAdapter.notifyDataSetChanged();
-        }
-
-        mStackIndicator.setMax(mAdapter.getCount() - 1);
-
-        if (!restPosts.isEmpty()) {
-            setPage(0);
-        }
+    public void initPager(FragmentManager manager) {
+        mAdapter = new StackAdapter(manager, getContext());
+        mPager.setAdapter(mAdapter);
+        initUI();
     }
 
     public void animBackground() {
@@ -278,13 +180,6 @@ public class StackScreen extends RelativeLayout {
         }).start();
     }
 
-    public List<RestPost> getItems() {
-        return mAdapter.getItems();
-    }
-
-    public int getCurrentIndexPage() {
-        return mPager.getCurrentItem();
-    }
 
     public void showOverlaySelector() {
         dragDropScreen.setVisibility(VISIBLE);

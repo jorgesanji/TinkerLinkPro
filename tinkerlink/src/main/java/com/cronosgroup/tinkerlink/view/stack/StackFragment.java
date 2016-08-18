@@ -11,7 +11,6 @@ import com.cronosgroup.tinkerlink.animation.RevealAnimation;
 import com.cronosgroup.tinkerlink.enums.StackCardType;
 import com.cronosgroup.tinkerlink.event.ShowDetailCardsEvent;
 import com.cronosgroup.tinkerlink.event.ShowOverLaySelectorEvent;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestUser;
 import com.cronosgroup.tinkerlink.presenter.stack.StackPresenter;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
@@ -21,8 +20,6 @@ import com.cronosgroup.tinkerlink.view.dragdrop.DragDropScreen;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
-
-import java.util.List;
 
 /**
  * StackCardType Fragment
@@ -109,8 +106,7 @@ public class StackFragment extends MVPTinkerLinkFragment<StackPresenter, StackPr
             }
         });
 
-        stackScreen.initView(stackType);
-        getPresenter().getAllCards("0");
+        stackScreen.initPager(getActivity().getSupportFragmentManager());
     }
 
     //region **************  DragDropScreen.Listener **************
@@ -140,38 +136,11 @@ public class StackFragment extends MVPTinkerLinkFragment<StackPresenter, StackPr
         stackScreen.dissmissOverlaySelector();
     }
 
-    //endregion
-
-    //region **************  StackScreen.Listener **************
-
-    @Override
-    public void onSelectCardsPressed() {
-        getPresenter().onSelectCardsType();
-    }
-
-    @Override
-    public void onCardPressed(int position) {
-        getPresenter().onLaunhDetailStack();
-    }
 
     //endregion
 
     //region **************  StackPresenter.View **************
 
-    @Override
-    public int getCurrentIndexPage() {
-        return stackScreen.getCurrentIndexPage();
-    }
-
-    @Override
-    public List<RestPost> getItems() {
-        return stackScreen.getItems();
-    }
-
-    @Override
-    public void setCards(List<RestPost> cars) {
-        stackScreen.addItems(cars);
-    }
 
     @Override
     public boolean isUser() {

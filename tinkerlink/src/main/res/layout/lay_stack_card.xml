@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    android:orientation="vertical">
+
+    <com.cronosgroup.tinkerlink.view.customviews.card.TLCardFrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/margin_big"
+        android:layout_weight="1"
+        android:background="@android:color/transparent"
+        android:visibility="visible">
+
+        <com.cronosgroup.tinkerlink.view.customviews.card.TLCardStack
+            android:id="@+id/cardContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:card_spacing="10dp"
+            app:max_items_visible="3"
+            app:render_mode="below" />
+
+    </com.cronosgroup.tinkerlink.view.customviews.card.TLCardFrameLayout>
+
+    <LinearLayout
+        android:id="@+id/bottomBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_small"
+        android:orientation="vertical">
+
+        <SeekBar
+            android:id="@+id/stackIndicator"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_mediun"
+            android:progressTint="@color/black"
+            android:thumbOffset="8dp"
+            android:thumbTint="@color/black" />
+
+        <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+            android:id="@+id/pageNumberIndicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_small"
+            android:gravity="left" />
+
+    </LinearLayout>
+
+</LinearLayout>
+

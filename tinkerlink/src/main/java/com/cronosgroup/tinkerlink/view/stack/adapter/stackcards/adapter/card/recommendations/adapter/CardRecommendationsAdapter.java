@@ -1,4 +1,4 @@
-package com.cronosgroup.tinkerlink.view.stack.adapter.card.recommendations.adapter;
+package com.cronosgroup.tinkerlink.view.stack.adapter.stackcards.adapter.card.recommendations.adapter;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import com.cronosgroup.core.view.BaseAdapter;
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestRecommendation;
-import com.cronosgroup.tinkerlink.view.stack.adapter.card.recommendations.adapter.viewholder.UserRecommendationViewHolder;
+import com.cronosgroup.tinkerlink.view.stack.adapter.stackcards.adapter.card.recommendations.adapter.viewholder.UserRecommendationViewHolder;
 
 import java.util.List;
 

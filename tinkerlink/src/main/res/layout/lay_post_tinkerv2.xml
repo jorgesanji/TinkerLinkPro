@@ -11,7 +11,7 @@
         android:background="@color/white"
         android:orientation="vertical">
 
-    <com.cronosgroup.tinkerlink.view.stack.adapter.card.CardScreen
+    <com.cronosgroup.tinkerlink.view.stack.adapter.stackcards.adapter.card.CardScreen
         android:layout_width="match_parent"
         android:layout_height="300dp"/>
 

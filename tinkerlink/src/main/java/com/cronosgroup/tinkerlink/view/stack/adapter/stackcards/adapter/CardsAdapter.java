@@ -1,4 +1,4 @@
-package com.cronosgroup.tinkerlink.view.stack.adapter;
+package com.cronosgroup.tinkerlink.view.stack.adapter.stackcards.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -7,8 +7,9 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
 import com.cronosgroup.tinkerlink.R;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
-import com.cronosgroup.tinkerlink.view.stack.adapter.card.CardScreen;
+import com.cronosgroup.tinkerlink.enums.StackCardType;
+import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestCard;
+import com.cronosgroup.tinkerlink.view.stack.adapter.stackcards.adapter.card.CardScreen;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,8 +19,9 @@ import java.util.List;
  */
 public class CardsAdapter extends BaseAdapter {
 
-    private List<RestPost> items = new ArrayList<>();
+    private List<RestCard> items = new ArrayList<>();
     private final Context mContext;
+    private StackCardType type;
 
     public CardsAdapter(Context mContext) {
         this.mContext = mContext;
@@ -42,11 +44,12 @@ public class CardsAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        CardScreen view = (CardScreen)convertView;
+        CardScreen view = (CardScreen) convertView;
         if (view == null) {
-            view = (CardScreen)LayoutInflater.from(mContext).inflate(R.layout.lay_card_internal, parent, false);
+            view = (CardScreen) LayoutInflater.from(mContext).inflate(R.layout.lay_card_internal, parent, false);
         }
 
+        view.setStyleByStackType(type);
         view.setUserImageUrl("http://qsrock.com/wp-content/uploads/2016/04/6d43fc_ed0189fbfceb4a0795ddb0ae695f509b.jpg");
         view.setUserName("Jorge Sanmartin");
         view.setUserCardJob("Electricista");
@@ -55,16 +58,24 @@ public class CardsAdapter extends BaseAdapter {
         return view;
     }
 
-    public List<RestPost> getItems() {
+    public List<RestCard> getItems() {
         return items;
     }
 
-    public void setItems(List<RestPost> items) {
+    public void setItems(List<RestCard> items) {
         this.items = items;
     }
 
-    public void addItems(List<RestPost> list) {
+    public void addItems(List<RestCard> list) {
         items.addAll(list);
         notifyDataSetChanged();
+    }
+
+    public StackCardType getType() {
+        return type;
+    }
+
+    public void setType(StackCardType type) {
+        this.type = type;
     }
 }

@@ -1,4 +1,4 @@
-package com.cronosgroup.tinkerlink.view.stack.adapter.card.recommendations.adapter.viewholder;
+package com.cronosgroup.tinkerlink.view.stack.adapter.stackcards.adapter.card.recommendations.adapter.viewholder;
 
 import android.view.View;
 

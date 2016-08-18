@@ -15,7 +15,7 @@ public enum MainFragments {
     NEWSFEED(NewsFeedFragment.class),
     CONTACTS(ContactsFragment.class),
     CHAT(ChatFragment.class),
-    PROFILE(AccountFragment.class);
+    ACCOUNT(AccountFragment.class);
 
     private Class<? extends Fragment> fragment;
 

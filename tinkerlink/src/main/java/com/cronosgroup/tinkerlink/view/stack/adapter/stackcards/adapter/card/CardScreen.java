@@ -1,4 +1,4 @@
-package com.cronosgroup.tinkerlink.view.stack.adapter.card;
+package com.cronosgroup.tinkerlink.view.stack.adapter.stackcards.adapter.card;
 
 import android.annotation.TargetApi;
 import android.content.Context;
@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 import com.cronosgroup.tinkerlink.R;
+import com.cronosgroup.tinkerlink.enums.StackCardType;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContact;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestRecommendation;
 import com.cronosgroup.tinkerlink.view.customviews.TLCommonContactsView;
@@ -17,7 +18,7 @@ import com.cronosgroup.tinkerlink.view.customviews.TLScrollView;
 import com.cronosgroup.tinkerlink.view.customviews.TLSkillView;
 import com.cronosgroup.tinkerlink.view.customviews.TLTextView;
 import com.cronosgroup.tinkerlink.view.customviews.card.TLCardView;
-import com.cronosgroup.tinkerlink.view.stack.adapter.card.recommendations.CardRecommnedationsScreen;
+import com.cronosgroup.tinkerlink.view.stack.adapter.stackcards.adapter.card.recommendations.CardRecommnedationsScreen;
 
 import java.util.List;
 
@@ -26,36 +27,11 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
- * Main contacts view.
+ * Main Card view.
  */
 public class CardScreen extends TLLinearLayout implements TLCardView {
 
     public static final String TAG_SCREEN = "screen";
-
-    /**
-     * listeners of the Card's screen.
-     */
-    public interface Listener {
-        void showDetailPressed();
-
-        void onLongClikDone();
-    }
-
-    // Vars
-    private Listener listener;
-
-    // Properties
-    private String urlUser;
-    private String userName;
-    private String userCardJob;
-    private String userCardType;
-    private String userLocation;
-    private List<String> userSkills;
-    private List<RestContact> userCommonContacts;
-    private String userCardDescription;
-    private int iconContactStatus;
-    private int overlayColor;
-    private String userNumberRecommendations;
 
     // Views
 
@@ -113,13 +89,8 @@ public class CardScreen extends TLLinearLayout implements TLCardView {
     @BindView(R.id.containerRecommendation)
     protected View mRecommendationsButton;
 
-    /**
-     * @param context
-     */
-    public CardScreen(Context context, Listener listener) {
-        this(context);
-        this.listener = listener;
-    }
+    @BindView(R.id.cardGradient)
+    protected TLImageView mGradient;
 
     /**
      * @param context
@@ -180,56 +151,28 @@ public class CardScreen extends TLLinearLayout implements TLCardView {
 
     // Public methods
 
-    public Listener getListener() {
-        return listener;
-    }
 
-    public void setListener(Listener listener) {
-        this.listener = listener;
-    }
-
-    public String getUrlUser() {
-        return urlUser;
+    public void setStyleByStackType(StackCardType type) {
+        mGradient.setImageResource(type.getGradientCard());
     }
 
     public void setUserImageUrl(String urlUser) {
-        this.urlUser = urlUser;
         mUserCardImage.setImageFromUrl(urlUser);
     }
 
-    public String getUserName() {
-        return userName;
-    }
-
     public void setUserName(String userName) {
-        this.userName = userName;
         mUserName.setText(userName);
     }
 
-    public String getUserCardType() {
-        return userCardType;
-    }
-
     public void setUserCardType(String userCardType) {
-        this.userCardType = userCardType;
         mUserCardType.setText(userCardType);
     }
 
-    public String getUserLocation() {
-        return userLocation;
-    }
-
     public void setUserLocation(String userLocation) {
-        this.userLocation = userLocation;
         mUserCardLocation.setText(userLocation);
     }
 
-    public List<String> getUserSkills() {
-        return userSkills;
-    }
-
     public void setUserSkills(List<String> userSkills) {
-        this.userSkills = userSkills;
         if (userSkills != null && userSkills.size() > 0) {
             for (String habilidad : userSkills) {
                 TLSkillView view = new TLSkillView(getContext());
@@ -241,21 +184,11 @@ public class CardScreen extends TLLinearLayout implements TLCardView {
         }
     }
 
-    public List<RestContact> getUserCommonContacts() {
-        return userCommonContacts;
-    }
-
     public void setUserCommonContacts(List<RestContact> userCommonContacts) {
-        this.userCommonContacts = userCommonContacts;
         mContactsView.setContacts(userCommonContacts);
     }
 
-    public String getUserCardDescription() {
-        return userCardDescription;
-    }
-
     public void setUserCardDescription(String userCardDescription) {
-        this.userCardDescription = userCardDescription;
         if (userCardDescription != null && userCardDescription.isEmpty()) {
             mDescriptionText.setText(userCardDescription);
         } else {
@@ -263,30 +196,15 @@ public class CardScreen extends TLLinearLayout implements TLCardView {
         }
     }
 
-    public int getIconContactStatus() {
-        return iconContactStatus;
-    }
-
     public void setIconContactStatus(int iconContactStatus) {
-        this.iconContactStatus = iconContactStatus;
         mUserStatusContact.setImageResource(iconContactStatus);
     }
 
-    public String getUserCardJob() {
-        return userCardJob;
-    }
-
     public void setUserCardJob(String userCardJob) {
-        this.userCardJob = userCardJob;
         mUserJob.setText(userCardJob);
     }
 
-    public int getOverlayColor() {
-        return overlayColor;
-    }
-
     public void setOverlayColor(int overlayColor) {
-        this.overlayColor = overlayColor;
         mCardOverlay.setImageResource(overlayColor);
     }
 
@@ -311,12 +229,7 @@ public class CardScreen extends TLLinearLayout implements TLCardView {
         }
     }
 
-    public String getUserNumberRecommendations() {
-        return userNumberRecommendations;
-    }
-
     public void setUserNumberRecommendations(String userNumberRecommendations) {
-        this.userNumberRecommendations = userNumberRecommendations;
         mRecommendationNumber.setText(userNumberRecommendations);
     }
 

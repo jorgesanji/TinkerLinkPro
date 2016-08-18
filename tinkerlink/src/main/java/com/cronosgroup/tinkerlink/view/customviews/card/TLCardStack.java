@@ -67,13 +67,13 @@ public class TLCardStack<C extends TLCardView> extends FrameLayout {
     private int paddingRight;
     private int paddingTop;
     private int paddingBottom;
-    private SwipeListener swipeListener;
+    private SwipeListener listener;
     private Adapter mAdapter;
 
     private DataSetObserver observer;
     private int nextAdapterCard = 0;
     private boolean restoreInstanceState = false;
-    private TLCardSwipeHandler listener;
+    private TLCardSwipeHandler handlerSwipe;
     private final LinkedList<C> mCachedItemViews = new LinkedList<C>();
 
     public TLCardStack(Context context, AttributeSet attrs) {
@@ -148,7 +148,7 @@ public class TLCardStack<C extends TLCardView> extends FrameLayout {
         final View child = getChildAt(getChildCount() - (isLastPage ? 1 : childOffset));
         if (child != null) {
             child.setOnTouchListener(null);
-            listener = null;
+            handlerSwipe = null;
             //this will also check to see if cards are depleted
             new RemoveViewOnAnimCompleted().execute(child);
         }
@@ -191,7 +191,7 @@ public class TLCardStack<C extends TLCardView> extends FrameLayout {
     }
 
     /**
-     * Setup swipe listener in top card
+     * Setup swipe handlerSwipe in top card
      */
     private void setupTopCard() {
 
@@ -203,22 +203,20 @@ public class TLCardStack<C extends TLCardView> extends FrameLayout {
 
         if (card != null) {
 
-            listener = new TLCardSwipeHandler(card, new TLCardSwipeHandler.SwipeHandlerListener() {
+            handlerSwipe = new TLCardSwipeHandler(getContext(),this,card, new TLCardSwipeHandler.SwipeHandlerListener() {
                 @Override
                 public void cardSwipedLeft() {
-                    int positionInAdapter = getCurrentItem();
                     removeTopCard();
-                    if (swipeListener != null) {
-                        swipeListener.cardSwipedLeft(positionInAdapter);
+                    if (listener != null) {
+                        listener.cardSwipedLeft(getCurrentItem());
                     }
                 }
 
                 @Override
                 public void cardSwipedRight() {
-                    int positionInAdapter = getCurrentItem();
                     removeTopCard();
-                    if (swipeListener != null) {
-                        swipeListener.cardSwipedRight(positionInAdapter);
+                    if (listener != null) {
+                        listener.cardSwipedRight(getCurrentItem());
                     }
                 }
 
@@ -228,17 +226,21 @@ public class TLCardStack<C extends TLCardView> extends FrameLayout {
 
                 @Override
                 public void cardPressed() {
-                    swipeListener.cardPressed(card, getCurrentItem());
+                    if (listener != null) {
+                        listener.cardPressed(card, getCurrentItem());
+                    }
                 }
 
                 @Override
                 public void cardOnLongPressed() {
-                    swipeListener.cardOnLongPressed(card, getCurrentItem());
+                    if (listener != null) {
+                        listener.cardOnLongPressed(card, getCurrentItem());
+                    }
 
                 }
             }, initialX, initialY);
 
-            card.getView().setOnTouchListener(listener);
+            card.getView().setOnTouchListener(handlerSwipe);
         }
     }
 
@@ -319,8 +321,8 @@ public class TLCardStack<C extends TLCardView> extends FrameLayout {
             removeView(view);
 
             //if there are no more children left after top card removal let the callback know
-            if (getChildCount() <= 0 && swipeListener != null) {
-                swipeListener.cardsDepleted();
+            if (getChildCount() <= 0 && listener != null) {
+                listener.cardsDepleted();
             }
         }
     }
@@ -390,11 +392,11 @@ public class TLCardStack<C extends TLCardView> extends FrameLayout {
     }
 
     /**
-     * @param swipeListener
+     * @param listener
      */
 
-    public void setSwipeListener(SwipeListener swipeListener) {
-        this.swipeListener = swipeListener;
+    public void setListener(SwipeListener listener) {
+        this.listener = listener;
     }
 
     /**
@@ -404,11 +406,13 @@ public class TLCardStack<C extends TLCardView> extends FrameLayout {
     public void swipeTopCardLeft(int duration) {
         int childCount = getChildCount();
         if (childCount > 0 && getChildCount() < (mNumberOfCards + 1)) {
-            listener.animateOffScreenLeft(duration);
+            if (handlerSwipe != null) {
+                handlerSwipe.animateOffScreenLeft(duration);
+            }
             int positionInAdapter = getCurrentItem();
             removeTopCard();
-            if (swipeListener != null) {
-                swipeListener.cardSwipedLeft(positionInAdapter);
+            if (listener != null) {
+                listener.cardSwipedLeft(positionInAdapter);
             }
         }
     }
@@ -420,11 +424,13 @@ public class TLCardStack<C extends TLCardView> extends FrameLayout {
     public void swipeTopCardRight(int duration) {
         int childCount = getChildCount();
         if (childCount > 0 && getChildCount() < (mNumberOfCards + 1)) {
-            listener.animateOffScreenRight(duration);
+            if (handlerSwipe != null) {
+                handlerSwipe.animateOffScreenRight(duration);
+            }
             int positionInAdapter = getCurrentItem();
             removeTopCard();
-            if (swipeListener != null) {
-                swipeListener.cardSwipedRight(positionInAdapter);
+            if (listener != null) {
+                listener.cardSwipedRight(positionInAdapter);
             }
         }
     }

@@ -38,6 +38,9 @@ public class RestPost extends RestBase{
     @SerializedName("shares")
     private Integer numberShares = 0;
 
+    @SerializedName("recommendations")
+    private List<RestRecommendation> recommendations = new ArrayList<RestRecommendation>();
+
     @SerializedName("usersLike")
     private List<String> usersLike = new ArrayList<String>();
 
@@ -283,6 +286,14 @@ public class RestPost extends RestBase{
 
     public void setSkills(List<RestSkill> skills) {
         this.skills = skills;
+    }
+
+    public List<RestRecommendation> getRecommendations() {
+        return recommendations;
+    }
+
+    public void setRecommendations(List<RestRecommendation> recommendations) {
+        this.recommendations = recommendations;
     }
 
     public String getTimeByProject() {
