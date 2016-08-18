@@ -19,12 +19,12 @@ import java.util.LinkedList;
 /**
  * Created by jorgesanmartin on 8/5/16.
  */
-public class TLCardStack<C extends TLCardBase> extends FrameLayout {
+public class TLCardStack<C extends TLCardView> extends FrameLayout {
 
     public static int ANIMATION_DURATION = 160;
     public static int DELAY_TO_UPDATE = 90;
 
-    public interface SwipeListener<C extends TLCardBase> {
+    public interface SwipeListener<C extends TLCardView> {
 
         void cardSwipedLeft(int position);
 
@@ -32,11 +32,9 @@ public class TLCardStack<C extends TLCardBase> extends FrameLayout {
 
         void cardsDepleted();
 
-        void cardPressed(C view, int position);
+        void cardPressed(C card, int position);
 
-        void cardOnLongPressed(C view, int position);
-
-
+        void cardOnLongPressed(C card, int position);
     }
 
     public enum RenderType {
@@ -64,14 +62,11 @@ public class TLCardStack<C extends TLCardBase> extends FrameLayout {
     private int mNumberOfCards;
     private float mCardSpacing;
     private RenderType mRenderType;
-    private float mOpacityEnd;
     private boolean hardwareAccelerationEnabled = true;
     private int paddingLeft;
     private int paddingRight;
     private int paddingTop;
     private int paddingBottom;
-    private int leftImageResource;
-    private int rightImageResource;
     private SwipeListener swipeListener;
     private Adapter mAdapter;
 
@@ -96,7 +91,6 @@ public class TLCardStack<C extends TLCardBase> extends FrameLayout {
                 mNumberOfCards = a.getInt(R.styleable.TLCardStack_max_items_visible, 3);
                 mCardSpacing = a.getDimension(R.styleable.TLCardStack_card_spacing, 15f);
                 mRenderType = RenderType.fromId(a.getInt(R.styleable.TLCardStack_render_mode, RenderType.BELOW.getRenderMode()));
-                mOpacityEnd = a.getFloat(R.styleable.TLCardStack_opacity_end, 0.33f);
             } finally {
                 a.recycle();
             }
@@ -132,20 +126,21 @@ public class TLCardStack<C extends TLCardBase> extends FrameLayout {
             return;
         }
 
-        //pull in views from the adapter at the position the top of the deck is set to
-        //stop when you get to for cards
-        // the end of the adapter
+        //get views from adapter
         int childCount = getChildCount();
         for (int i = childCount; i < mNumberOfCards; ++i) {
             addNextCard();
         }
 
-        //position the new children we just added and set up the top card with a listener etc
+        //setup the position the new view
         for (int i = 0; i < getChildCount(); ++i) {
             positionItem(i);
         }
     }
 
+    /**
+     * Remove card on Top
+     */
     private void removeTopCard() {
         //top card is now the last in view children
         int childOffset = getChildCount() - mNumberOfCards + 1;
@@ -166,14 +161,18 @@ public class TLCardStack<C extends TLCardBase> extends FrameLayout {
      */
     private View getCachedView() {
         if (mCachedItemViews.size() > mNumberOfCards) {
-            View view = mCachedItemViews.removeFirst();
-            view.setX(0);
-            view.setRotation(0);
-            return view;
+            C card = mCachedItemViews.removeFirst();
+            card.getView().setX(0);
+            card.getView().setRotation(0);
+            return card.getView();
         }
         return null;
     }
 
+
+    /**
+     * Add new card from adapter
+     */
     private void addNextCard() {
         if (nextAdapterCard < mAdapter.getCount()) {
 
@@ -182,26 +181,29 @@ public class TLCardStack<C extends TLCardBase> extends FrameLayout {
 
             if (hardwareAccelerationEnabled) {
                 //set backed by an off-screen buffer
-                card.setLayerType(View.LAYER_TYPE_HARDWARE, null);
+                card.getView().setLayerType(View.LAYER_TYPE_HARDWARE, null);
             }
 
-            addAndMeasureChild(card);
+            addAndMeasureChild(card.getView());
             nextAdapterCard++;
         }
         setupTopCard();
     }
 
+    /**
+     * Setup swipe listener in top card
+     */
     private void setupTopCard() {
 
         boolean isLastPage = nextAdapterCard == mAdapter.getCount();
         final int childOffset = getChildCount() - mNumberOfCards + 1;
-        final C child = (C) getChildAt(getChildCount() - (isLastPage ? 1 : childOffset));
+        final C card = (C) getChildAt(getChildCount() - (isLastPage ? 1 : childOffset));
         final int initialX = paddingLeft;
         final int initialY = paddingTop;
 
-        if (child != null) {
+        if (card != null) {
 
-            listener = new TLCardSwipeHandler(child, new TLCardSwipeHandler.SwipeHandlerListener() {
+            listener = new TLCardSwipeHandler(card, new TLCardSwipeHandler.SwipeHandlerListener() {
                 @Override
                 public void cardSwipedLeft() {
                     int positionInAdapter = getCurrentItem();
@@ -226,31 +228,17 @@ public class TLCardStack<C extends TLCardBase> extends FrameLayout {
 
                 @Override
                 public void cardPressed() {
-                    swipeListener.cardPressed(child, getCurrentItem());
+                    swipeListener.cardPressed(card, getCurrentItem());
                 }
 
                 @Override
                 public void cardOnLongPressed() {
-                    swipeListener.cardOnLongPressed(child, getCurrentItem());
+                    swipeListener.cardOnLongPressed(card, getCurrentItem());
 
                 }
-            }, initialX, initialY, mOpacityEnd);
+            }, initialX, initialY);
 
-
-            //if we specified these image resources, get the views and pass them to the swipe listener
-            //for the sake of animating them
-            View rightView = null;
-            View leftView = null;
-            if (!(rightImageResource == 0)) {
-                rightView = child.findViewById(rightImageResource);
-            }
-            if (!(leftImageResource == 0)) {
-                leftView = child.findViewById(leftImageResource);
-            }
-            listener.setLeftView(leftView);
-            listener.setRightView(rightView);
-
-            child.setOnTouchListener(listener);
+            card.getView().setOnTouchListener(listener);
         }
     }
 
@@ -270,41 +258,23 @@ public class TLCardStack<C extends TLCardBase> extends FrameLayout {
         child.setY(paddingTop);
 
         //every time we add and measure a child refresh the children on screen and order them
-        ArrayList<View> children = new ArrayList<>();
-        children.add(child);
+        ArrayList<View> childrenViews = new ArrayList<>();
+        childrenViews.add(child);
         for (int i = 0; i < getChildCount(); ++i) {
-            children.add(getChildAt(i));
+            childrenViews.add(getChildAt(i));
         }
 
         removeAllViews();
 
-        for (View view : children) {
+        int index = 0;
+        for (View view : childrenViews) {
             addViewInLayout(view, -1, params, true);
             int itemWidth = getWidth() - (paddingLeft + paddingRight);
             int itemHeight = getHeight() - (paddingTop + paddingBottom);
-            view.measure(MeasureSpec.EXACTLY | itemWidth, MeasureSpec.EXACTLY | itemHeight); //MeasureSpec.UNSPECIFIED
-
-            //ensure that if there's a left and right image set their alpha to 0 initially
-            //alpha animation is handled in the swipe listener
-            if (leftImageResource != 0) {
-                child.findViewById(leftImageResource).setAlpha(0);
-            }
-            if (rightImageResource != 0) {
-                child.findViewById(rightImageResource).setAlpha(0);
-            }
-        }
-        setZTranslations();
-    }
-
-
-    /**
-     * Set transition on z axis on all child views
-     */
-
-    private void setZTranslations() {
-        int count = getChildCount();
-        for (int i = 0; i < count; ++i) {
-            ViewCompat.setTranslationZ(getChildAt(i), i * 10);
+            view.measure(MeasureSpec.EXACTLY | itemWidth, MeasureSpec.EXACTLY | itemHeight);
+            // Set z translation in each view
+            ViewCompat.setTranslationZ(view, index * 10);
+            index++;
         }
     }
 
@@ -355,27 +325,10 @@ public class TLCardStack<C extends TLCardBase> extends FrameLayout {
         }
     }
 
-
     /**
-     * Public methods
+     * Set data observer for support changes in the adapter
      */
-
-    /**
-     * @return
-     */
-
-    public int getCurrentItem() {
-        return nextAdapterCard - getChildCount();
-    }
-
-    /**
-     * @param adapter
-     */
-    public void setAdapter(Adapter adapter) {
-        if (this.mAdapter != null) {
-            this.mAdapter.unregisterDataSetObserver(observer);
-        }
-        mAdapter = adapter;
+    private void setDataObserver() {
         // if we're not restoring previous instance state
         if (!restoreInstanceState) {
             nextAdapterCard = 0;
@@ -408,9 +361,32 @@ public class TLCardStack<C extends TLCardBase> extends FrameLayout {
             }
         };
 
-        adapter.registerDataSetObserver(observer);
+        mAdapter.registerDataSetObserver(observer);
         removeAllViewsInLayout();
         requestLayout();
+    }
+
+    /**
+     * Public methods
+     */
+
+    /**
+     * @return
+     */
+
+    public int getCurrentItem() {
+        return nextAdapterCard - getChildCount();
+    }
+
+    /**
+     * @param adapter
+     */
+    public void setAdapter(Adapter adapter) {
+        if (this.mAdapter != null) {
+            this.mAdapter.unregisterDataSetObserver(observer);
+        }
+        mAdapter = adapter;
+        setDataObserver();
     }
 
     /**
@@ -451,21 +427,6 @@ public class TLCardStack<C extends TLCardBase> extends FrameLayout {
                 swipeListener.cardSwipedRight(positionInAdapter);
             }
         }
-    }
-
-    /**
-     * @param imageResource
-     */
-    public void setLeftImage(int imageResource) {
-        leftImageResource = imageResource;
-    }
-
-    /**
-     * @param imageResource
-     */
-
-    public void setRightImage(int imageResource) {
-        rightImageResource = imageResource;
     }
 
     /**

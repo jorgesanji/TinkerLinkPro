@@ -12,10 +12,11 @@ import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContact;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestRecommendation;
 import com.cronosgroup.tinkerlink.view.customviews.TLCommonContactsView;
 import com.cronosgroup.tinkerlink.view.customviews.TLImageView;
+import com.cronosgroup.tinkerlink.view.customviews.TLLinearLayout;
 import com.cronosgroup.tinkerlink.view.customviews.TLScrollView;
 import com.cronosgroup.tinkerlink.view.customviews.TLSkillView;
 import com.cronosgroup.tinkerlink.view.customviews.TLTextView;
-import com.cronosgroup.tinkerlink.view.customviews.card.TLCardBase;
+import com.cronosgroup.tinkerlink.view.customviews.card.TLCardView;
 import com.cronosgroup.tinkerlink.view.stack.adapter.card.recommendations.CardRecommnedationsScreen;
 
 import java.util.List;
@@ -27,7 +28,7 @@ import butterknife.OnClick;
 /**
  * Main contacts view.
  */
-public class CardScreen extends TLCardBase {
+public class CardScreen extends TLLinearLayout implements TLCardView {
 
     public static final String TAG_SCREEN = "screen";
 
@@ -326,5 +327,10 @@ public class CardScreen extends TLCardBase {
     @Override
     public View getViewForDrag() {
         return mUserCardImage;
+    }
+
+    @Override
+    public View getView() {
+        return this;
     }
 }

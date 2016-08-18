@@ -43,7 +43,8 @@ public class DDDragListener implements View.OnDragListener {
                 break;
             //the user has moved the drag shadow outside the bounding box of the View
             case DragEvent.ACTION_DRAG_EXITED:
-                container.setBackgroundResource(NORMAL_SHAPE);    //change the dragdrop_default_shape of the view back to normal
+                container.setBackgroundResource(NORMAL_SHAPE);
+                //change the dragdrop_default_shape of the view back to normal
                 break;
             //drag shadow has been released,the drag point is within the bounding box of the View
             case DragEvent.ACTION_DROP:

@@ -1,6 +1,8 @@
 package com.cronosgroup.tinkerlink.view.customviews.card;
 
 import android.animation.Animator;
+import android.content.ClipData;
+import android.content.ClipDescription;
 import android.content.Context;
 import android.os.Vibrator;
 import android.view.MotionEvent;
@@ -29,7 +31,6 @@ public class TLCardSwipeHandler implements View.OnTouchListener {
 
     public static int VIBRATION_VALUE = 300;
 
-    private float opacityEnd = 0.33f;
     private float initialX;
     private float initialY;
 
@@ -38,39 +39,48 @@ public class TLCardSwipeHandler implements View.OnTouchListener {
     private float initialYPress;
     private ViewGroup parent;
     private float parentWidth;
-    private int paddingLeft;
 
-    private View card;
+    private TLCardView card;
     private SwipeHandlerListener listener;
     private boolean deactivated;
-    private View rightView;
-    private View leftView;
     private boolean mViewClicked = true;
+
     private Runnable mLongPressRunnable = new Runnable() {
         public void run() {
-            if (mViewClicked) {
-                mViewClicked = false;
-                Vibrator vibrator = (Vibrator) parent.getContext().getSystemService(Context.VIBRATOR_SERVICE);
-                if (vibrator.hasVibrator()) {
-                    vibrator.vibrate(VIBRATION_VALUE);
-                }
-                resetCardPosition();
-                listener.cardOnLongPressed();
-            }
+            validateOnClickLongPressed();
         }
     };
 
-    public TLCardSwipeHandler(View card, final SwipeHandlerListener listener, float initialX, float initialY, float opacityEnd) {
+    private Animator.AnimatorListener mAnimationListener = new Animator.AnimatorListener() {
+
+        @Override
+        public void onAnimationStart(Animator animation) {
+
+        }
+
+        @Override
+        public void onAnimationEnd(Animator animation) {
+            listener.cardOffScreen();
+        }
+
+        @Override
+        public void onAnimationCancel(Animator animation) {
+
+        }
+
+        @Override
+        public void onAnimationRepeat(Animator animation) {
+        }
+    };
+
+    public TLCardSwipeHandler(TLCardView card, final SwipeHandlerListener listener, float initialX, float initialY) {
         this.card = card;
         this.initialX = initialX;
         this.initialY = initialY;
         this.listener = listener;
-        this.parent = (ViewGroup) card.getParent();
+        this.parent = (ViewGroup) card.getView().getParent();
         this.parentWidth = parent.getWidth();
-        this.opacityEnd = opacityEnd;
-        this.paddingLeft = ((ViewGroup) card.getParent()).getPaddingLeft();
     }
-
 
     @Override
     public boolean onTouch(View view, MotionEvent event) {
@@ -83,69 +93,96 @@ public class TLCardSwipeHandler implements View.OnTouchListener {
 
             case MotionEvent.ACTION_DOWN:
                 mViewClicked = true;
-
-                startLongPressCheck();
-
-                view.clearAnimation();
-
-                mActivePointerId = event.getPointerId(0);
-
                 initialXPress = event.getX();
                 initialYPress = event.getY();
-                break;
+                mActivePointerId = event.getPointerId(0);
+                // Handler onClickLongPressed
+                startLongPressCheck();
+                //Clean view for animations
+                view.clearAnimation();
+                //Set Alpha to give  pressed effect
+                card.getView().setAlpha(0.9f);
 
+                break;
             case MotionEvent.ACTION_MOVE:
 
+                // Verify invalid pointer
                 final int pointerIndex = event.findPointerIndex(mActivePointerId);
                 if (pointerIndex < 0 || pointerIndex > 0) {
                     break;
                 }
-
-                final float xMove = event.getX(pointerIndex);
-                final float yMove = event.getY(pointerIndex);
-
-                //calculate distance moved
-                final float dx = xMove - initialXPress;
-                final float dy = yMove - initialYPress;
 
                 //throw away the move in this case as it seems to be wrong
                 if ((int) initialXPress == 0 && (int) initialYPress == 0) {
                     break;
                 }
 
-                float posX = card.getX() + dx;
-                //Consider the motion a mViewClicked
+                //calculate distance
+                final float dx = event.getX(pointerIndex) - initialXPress;
+                final float dy = event.getY(pointerIndex) - initialYPress;
+
+                //Consider the motion is not a click
                 if (Math.abs(dx + dy) > 5) {
                     mViewClicked = false;
                 }
 
                 // Move and rotation
-                card.setX(posX);
-                card.setRotation(posX * 0.1f);
-
-                if (rightView != null && leftView != null) {
-                    //set alpha of left and right image
-                    float alpha = (((posX - paddingLeft) / (parentWidth * opacityEnd)));
-                    rightView.setAlpha(alpha);
-                    leftView.setAlpha(-alpha);
-                }
+                final float posX = card.getView().getX() + dx;
+                card.getView().setX(posX);
+                card.getView().setRotation(posX * 0.1f);
 
                 break;
-
             case MotionEvent.ACTION_UP:
-                endTouch();
                 if (mViewClicked) {
+                    resetCardPosition();
                     listener.cardPressed();
                 } else {
                     //check to see if card has moved beyond the left or right bounds or reset
                     checkCardForEvent();
                 }
+                endTouch();
 
                 break;
             default:
                 return false;
         }
         return true;
+    }
+
+    /**
+     * Verify motion longpress on current card
+     */
+
+    private void validateOnClickLongPressed() {
+        if (mViewClicked) {
+            mViewClicked = false;
+
+            Vibrator vibrator = (Vibrator) parent.getContext().getSystemService(Context.VIBRATOR_SERVICE);
+            if (vibrator.hasVibrator()) {
+                vibrator.vibrate(VIBRATION_VALUE);
+            }
+
+            resetCardPosition();
+
+            View viewToShow = card.getViewForDrag();
+
+            // create it from the object's tag
+            ClipData.Item item = new ClipData.Item((CharSequence) viewToShow.getTag());
+
+            String[] mimeTypes = {ClipDescription.MIMETYPE_TEXT_PLAIN};
+            ClipData data = new ClipData(viewToShow.getTag().toString(), mimeTypes, item);
+
+            View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(viewToShow);
+
+            viewToShow.startDrag(data, //data to be dragged
+                    shadowBuilder, //drag shadow
+                    viewToShow, //local data about the drag and drop operation
+                    0   //no needed flags
+            );
+
+            viewToShow.setVisibility(View.INVISIBLE);
+            listener.cardOnLongPressed();
+        }
     }
 
     /**
@@ -168,57 +205,16 @@ public class TLCardSwipeHandler implements View.OnTouchListener {
         mViewClicked = false;
     }
 
+    /**
+     * Check valid card position if it is near to left or right
+     */
     private void checkCardForEvent() {
-
         if (cardBeyondLeftBorder()) {
-            animateOffScreenLeft(TLCardStack.ANIMATION_DURATION)
-                    .setListener(new Animator.AnimatorListener() {
-
-                        @Override
-                        public void onAnimationStart(Animator animation) {
-
-                        }
-
-                        @Override
-                        public void onAnimationEnd(Animator animation) {
-                            listener.cardOffScreen();
-                        }
-
-                        @Override
-                        public void onAnimationCancel(Animator animation) {
-
-                        }
-
-                        @Override
-                        public void onAnimationRepeat(Animator animation) {
-                        }
-                    });
+            animateOffScreenLeft(TLCardStack.ANIMATION_DURATION).setListener(mAnimationListener);
             listener.cardSwipedLeft();
             deactivated = true;
         } else if (cardBeyondRightBorder()) {
-            animateOffScreenRight(TLCardStack.ANIMATION_DURATION)
-                    .setListener(new Animator.AnimatorListener() {
-
-                        @Override
-                        public void onAnimationStart(Animator animation) {
-
-                        }
-
-                        @Override
-                        public void onAnimationEnd(Animator animation) {
-                            listener.cardOffScreen();
-                        }
-
-                        @Override
-                        public void onAnimationCancel(Animator animation) {
-
-                        }
-
-                        @Override
-                        public void onAnimationRepeat(Animator animation) {
-
-                        }
-                    });
+            animateOffScreenRight(TLCardStack.ANIMATION_DURATION).setListener(mAnimationListener);
             listener.cardSwipedRight();
             deactivated = true;
         } else {
@@ -228,18 +224,18 @@ public class TLCardSwipeHandler implements View.OnTouchListener {
 
     private boolean cardBeyondLeftBorder() {
         //check if cards middle is beyond the left quarter of the screen
-        return (card.getX() + (card.getWidth() / 2) < (parentWidth / 4.f));
+        return (card.getView().getX() + (card.getView().getWidth() / 2) < (parentWidth / 4.f));
     }
 
     private boolean cardBeyondRightBorder() {
         //check if card middle is beyond the right quarter of the screen
-        return (card.getX() + (card.getWidth() / 2) > ((parentWidth / 4.f) * 3));
+        return (card.getView().getX() + (card.getView().getWidth() / 2) > ((parentWidth / 4.f) * 3));
     }
 
     private ViewPropertyAnimator resetCardPosition() {
-        if (rightView != null) rightView.setAlpha(0);
-        if (leftView != null) leftView.setAlpha(0);
-        return card.animate()
+        card.getView().setAlpha(1.0f);
+
+        return card.getView().animate()
                 .setDuration(200)
                 .setInterpolator(new OvershootInterpolator(1.5f))
                 .x(initialX)
@@ -248,27 +244,18 @@ public class TLCardSwipeHandler implements View.OnTouchListener {
     }
 
     public ViewPropertyAnimator animateOffScreenLeft(int duration) {
-        return card.animate()
+        return card.getView().animate()
                 .setDuration(duration)
                 .x(-(parentWidth))
                 .y(0)
                 .rotation(-30);
     }
 
-
     public ViewPropertyAnimator animateOffScreenRight(int duration) {
-        return card.animate()
+        return card.getView().animate()
                 .setDuration(duration)
                 .x(parentWidth * 2)
                 .y(0)
                 .rotation(30);
-    }
-
-    public void setRightView(View image) {
-        this.rightView = image;
-    }
-
-    public void setLeftView(View image) {
-        this.leftView = image;
     }
 }

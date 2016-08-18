@@ -2,8 +2,6 @@ package com.cronosgroup.tinkerlink.view.stack;
 
 import android.animation.Animator;
 import android.annotation.TargetApi;
-import android.content.ClipData;
-import android.content.ClipDescription;
 import android.content.Context;
 import android.os.Build;
 import android.util.AttributeSet;
@@ -52,7 +50,6 @@ public class StackScreen extends RelativeLayout {
 
     private CardsAdapter mAdapter;
     private StackCardType stackType;
-    private int TotalWidth;
 
     // Views
 
@@ -129,32 +126,19 @@ public class StackScreen extends RelativeLayout {
         initListener();
     }
 
-    private void setPage(int currentPage) {
-        setNumberPages(mAdapter.getCount(), (currentPage == -1) ? 1 : currentPage + 1);
-    }
-
     private void initListener() {
-
-        final ViewTreeObserver obs = mStackIndicator.getViewTreeObserver();
-        obs.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
-            @Override
-            public void onGlobalLayout() {
-                if (mStackIndicator.getViewTreeObserver().isAlive()) {
-                    mStackIndicator.getViewTreeObserver().removeGlobalOnLayoutListener(this);
-                }
-                TotalWidth = mStackIndicator.getWidth();
-            }
-        });
 
         mPager.setSwipeListener(new TLCardStack.SwipeListener<CardScreen>() {
             @Override
             public void cardSwipedLeft(int position) {
-                setPage(mPager.getCurrentItem());
+                position++;
+                setProgress(position);
             }
 
             @Override
             public void cardSwipedRight(int position) {
-                setPage(mPager.getCurrentItem());
+                position++;
+                setProgress(position);
             }
 
             @Override
@@ -163,30 +147,12 @@ public class StackScreen extends RelativeLayout {
             }
 
             @Override
-            public void cardPressed(CardScreen view, int position) {
+            public void cardPressed(CardScreen card, int position) {
                 listener.onCardPressed(position);
             }
 
             @Override
-            public void cardOnLongPressed(CardScreen view, int position) {
-
-                View viewToShow = view.getViewForDrag();
-
-                // create it from the object's tag
-                ClipData.Item item = new ClipData.Item((CharSequence) viewToShow.getTag());
-
-                String[] mimeTypes = {ClipDescription.MIMETYPE_TEXT_PLAIN};
-                ClipData data = new ClipData(viewToShow.getTag().toString(), mimeTypes, item);
-
-                View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(viewToShow);
-
-                viewToShow.startDrag(data, //data to be dragged
-                        shadowBuilder, //drag shadow
-                        viewToShow, //local data about the drag and drop operation
-                        0   //no needed flags
-                );
-
-                viewToShow.setVisibility(View.INVISIBLE);
+            public void cardOnLongPressed(CardScreen card, int position) {
                 showOverlaySelector();
             }
         });
@@ -194,7 +160,6 @@ public class StackScreen extends RelativeLayout {
         mStackIndicator.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-
             }
 
             @Override
@@ -205,13 +170,17 @@ public class StackScreen extends RelativeLayout {
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
                 int progress = seekBar.getProgress();
-                final float oneElementWidth = TotalWidth / mAdapter.getCount();
-                final float currentWidthProgress = (progress * TotalWidth) / 100;
-                final int currentIndex = (int) Math.ceil(currentWidthProgress / oneElementWidth) - 1;
-                setPage(currentIndex);
-                mPager.setSelection(Math.abs(currentIndex - (mAdapter.getCount() - 1)));
+                setPage(progress);
+                mPager.setSelection(progress);
             }
         });
+    }
+
+    private void setProgress(int position) {
+        if (position < mAdapter.getCount()) {
+            setPage(position);
+            mStackIndicator.setProgress(position);
+        }
     }
 
     private void initUI() {
@@ -232,6 +201,10 @@ public class StackScreen extends RelativeLayout {
     }
 
     // Public methods
+
+    public void setPage(int currentPage) {
+        setNumberPages(mAdapter.getCount() - 1, (currentPage == -1) ? 0 : currentPage);
+    }
 
     public void setNumberPages(int numPages, int currentPage) {
         mPageNumberIndicator.setText(String.valueOf(currentPage) + " / " + String.valueOf(numPages));
@@ -262,7 +235,6 @@ public class StackScreen extends RelativeLayout {
         mSelectCardsType.setText(getContext().getString(title));
     }
 
-
     public void addItems(List<RestPost> restPosts) {
         if (mAdapter.getCount() == 0 && !restPosts.isEmpty()) {
             mPager.setVisibility(VISIBLE);
@@ -274,8 +246,11 @@ public class StackScreen extends RelativeLayout {
             mAdapter.addItems(restPosts);
             mAdapter.notifyDataSetChanged();
         }
+
+        mStackIndicator.setMax(mAdapter.getCount() - 1);
+
         if (!restPosts.isEmpty()) {
-            setNumberPages(mAdapter.getCount(), 1);
+            setPage(0);
         }
     }
 
@@ -318,5 +293,4 @@ public class StackScreen extends RelativeLayout {
     public void dissmissOverlaySelector() {
         dragDropScreen.setVisibility(GONE);
     }
-
 }
