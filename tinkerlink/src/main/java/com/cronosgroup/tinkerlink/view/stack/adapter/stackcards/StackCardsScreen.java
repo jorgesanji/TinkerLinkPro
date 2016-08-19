@@ -4,6 +4,7 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
 import android.util.AttributeSet;
+import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 
@@ -25,6 +26,9 @@ import butterknife.ButterKnife;
  * StackCard view.
  */
 public class StackCardsScreen extends RelativeLayout {
+
+    private static final float DEFAULT_ALPHA = 0.6f;
+
     /**
      * listeners of the StackCard's screen.
      */
@@ -49,6 +53,9 @@ public class StackCardsScreen extends RelativeLayout {
 
     @BindView(R.id.cardContainer)
     protected TLCardStack<CardScreen> mPager;
+
+    @BindView(R.id.progressBar)
+    protected View mLoader;
 
     /**
      * @param context
@@ -136,6 +143,11 @@ public class StackCardsScreen extends RelativeLayout {
         mStackIndicator.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                if (fromUser) {
+                    mPager.setAlpha(DEFAULT_ALPHA);
+                    mPager.setEnabled(false);
+                }
+                setPage(progress);
             }
 
             @Override
@@ -147,6 +159,8 @@ public class StackCardsScreen extends RelativeLayout {
             public void onStopTrackingTouch(SeekBar seekBar) {
                 int progress = seekBar.getProgress();
                 setPage(progress);
+                mPager.setAlpha(1);
+                mPager.setEnabled(true);
                 mPager.setSelection(progress);
             }
         });
@@ -219,5 +233,13 @@ public class StackCardsScreen extends RelativeLayout {
 
     public int getCurrentIndexPage() {
         return mPager.getCurrentItem();
+    }
+
+    public void showLoading() {
+        mLoader.setVisibility(VISIBLE);
+    }
+
+    public void hideLoading() {
+        mLoader.setVisibility(GONE);
     }
 }

@@ -34,24 +34,17 @@
         <com.cronosgroup.tinkerlink.view.customviews.TLViewPager
             android:id="@+id/pager"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent" />
 
     </LinearLayout>
 
-    <com.cronosgroup.tinkerlink.view.dragdrop.DragDropScreen
-        android:id="@+id/dragDropScreen"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="gone" />
-
     <com.cronosgroup.tinkerlink.view.customviews.TLImageButton
-        android:id="@+id/messageButton"
+        android:id="@+id/createCardButton"
         style="@style/FloatActionButtonStyle"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:background="@drawable/background_menu_gradient"
-        android:src="@mipmap/nav_mensajes_act" />
-
+        android:src="@mipmap/floating_add" />
 
 </RelativeLayout>
 

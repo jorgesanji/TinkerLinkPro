@@ -6,8 +6,8 @@ import com.cronosgroup.tinkerlink.R;
  * Created by jorgesanmartin on 8/2/16.
  */
 public enum StackCardType {
-    LINKER(1, R.color.linkercolor, R.string.news_feed_watch_linkers, R.string.stack_watch_linker, R.drawable.background_linker_category_color_filled, R.drawable.background_linker_gradient),
-    TINKER(2, R.color.tinkercolor, R.string.news_feed_watch_tinkers, R.string.stack_watch_tinker, R.drawable.background_tinker_category_color_filled, R.drawable.background_tinker_gradient);
+    TINKER(0, R.color.tinkercolor, R.string.news_feed_watch_tinkers, R.string.stack_watch_tinker, R.drawable.background_tinker_category_color_filled, R.drawable.background_tinker_gradient),
+    LINKER(1, R.color.linkercolor, R.string.news_feed_watch_linkers, R.string.stack_watch_linker, R.drawable.background_linker_category_color_filled, R.drawable.background_linker_gradient);
 
     private final int stackType;
     private final int stackColor;

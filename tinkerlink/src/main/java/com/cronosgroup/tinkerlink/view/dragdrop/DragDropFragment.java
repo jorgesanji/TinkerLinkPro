@@ -10,18 +10,18 @@ import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
  * DragDrop Fragment
  */
 public class DragDropFragment extends MVPTinkerLinkFragment<DrargDropPresenter, DrargDropPresenter.View>
-        implements DrargDropPresenter.View, DragDropScreen.Listener {
+        implements DrargDropPresenter.View, DragAndDropScreen.Listener {
 
     // Vars
 
     // Views
-    private DragDropScreen editProfileScreen;
+    private DragAndDropScreen editProfileScreen;
 
     //region **************  MVPFragment **************
 
     @Override
     protected View getRootView() {
-        editProfileScreen = new DragDropScreen(getActivity());
+        editProfileScreen = new DragAndDropScreen(getActivity());
         editProfileScreen.setListener(this);
         return editProfileScreen;
     }

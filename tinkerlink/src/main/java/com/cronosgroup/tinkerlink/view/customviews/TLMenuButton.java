@@ -11,7 +11,6 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
 import android.widget.LinearLayout;
 
 import com.cronosgroup.tinkerlink.R;
@@ -104,6 +103,7 @@ public class TLMenuButton extends LinearLayout {
                 setMenuButtonImage(attributes.getDrawable(R.styleable.TLMenuButton_menuButtonImageResource));
                 setMenuButtonExpandedImage(attributes.getDrawable(R.styleable.TLMenuButton_menuButtonStateExpandedImageResource));
                 setMenuButtonBackgroundResource(attributes.getResourceId(R.styleable.TLMenuButton_menuButtonBackgroundResource, R.drawable.background_black_gradient));
+                setExpanded(attributes.getBoolean(R.styleable.TLMenuButton_menuButtonExpanded, true));
             } catch (Exception ex) {
                 Log.e(TLMenuItem.class.getName(), ex.getMessage(), ex);
             } finally {
@@ -112,22 +112,15 @@ public class TLMenuButton extends LinearLayout {
                 }
             }
         }
+    }
 
+    @Override
+    protected void onLayout(boolean changed, int l, int t, int r, int b) {
+        super.onLayout(changed, l, t, r, b);
+        animateMenu();
     }
 
     private void initUI() {
-        getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
-            @Override
-            public void onGlobalLayout() {
-                if (Build.VERSION.SDK_INT < 16) {
-                    getViewTreeObserver().removeGlobalOnLayoutListener(this);
-                } else {
-                    getViewTreeObserver().removeOnGlobalLayoutListener(this);
-                }
-                collapseMenu();
-                expanded = false;
-            }
-        });
     }
 
     private void configMainButton() {
@@ -142,7 +135,7 @@ public class TLMenuButton extends LinearLayout {
             @Override
             public void onClick(View v) {
                 expanded = !expanded;
-                animateMenu();
+                requestLayout();
             }
         });
     }
@@ -217,11 +210,6 @@ public class TLMenuButton extends LinearLayout {
     }
 
     @Override
-    public void addView(View child) {
-        super.addView(child);
-    }
-
-    @Override
     public void addView(View child, int width, int height) {
         this.removeView(mMenuButton);
         super.addView(child, width, height);
@@ -242,6 +230,14 @@ public class TLMenuButton extends LinearLayout {
     }
 
     //Public methods
+
+    public boolean isExpanded() {
+        return expanded;
+    }
+
+    public void setExpanded(boolean expanded) {
+        this.expanded = expanded;
+    }
 
     public void setMenuButtonBackgroundResource(int menuButtonBackgroundResource) {
         mBackgroundResource = menuButtonBackgroundResource;

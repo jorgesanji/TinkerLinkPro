@@ -8,6 +8,10 @@ import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestCard;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestUser;
 import com.cronosgroup.tinkerlink.presenter.stack.StackCardsPresenter;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
+import com.cronosgroup.tinkerlink.view.base.TinkerLinkActivity;
+import com.cronosgroup.tinkerlink.view.dialog.network.NetworkDialogFragment;
+import com.cronosgroup.tinkerlink.view.dialog.share.ShareDialogFragment;
+import com.cronosgroup.tinkerlink.view.dragdrop.DragAndDropScreen;
 import com.cronosgroup.tinkerlink.view.stack.StackActivity;
 
 import java.util.List;
@@ -15,22 +19,27 @@ import java.util.List;
 /**
  * StackCards Fragment
  */
-public class StackCardsFragment extends MVPTinkerLinkFragment<StackCardsPresenter, StackCardsPresenter.View> implements StackCardsPresenter.View, StackCardsScreen.Listener {
+public class StackCardsFragment extends MVPTinkerLinkFragment<StackCardsPresenter, StackCardsPresenter.View> implements
+        StackCardsPresenter.View, StackCardsScreen.Listener, DragAndDropScreen.Listener {
 
-    private StackCardsScreen stackScreen;
+    // Vars
     private StackCardType stackType;
+
+    // Views
+    private StackCardsScreen stackScreen;
+    private DragAndDropScreen dragAndDropScreen;
 
     //region **************  Fragment **************
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setHasOptionsMenu(true);
         stackType = (StackCardType) getArguments().getSerializable(StackActivity.STACK_TYPE);
     }
 
     @Override
     protected View getRootView() {
+        addDragAndDropOverlay();
         stackScreen = new StackCardsScreen(getActivity(), this);
         return stackScreen;
     }
@@ -39,6 +48,29 @@ public class StackCardsFragment extends MVPTinkerLinkFragment<StackCardsPresente
     protected void onDidAppear() {
         stackScreen.initView(stackType);
         getPresenter().getAllCards("0");
+    }
+
+    @Override
+    public void showLoading() {
+        stackScreen.showLoading();
+    }
+
+    @Override
+    public void hideLoading() {
+        stackScreen.hideLoading();
+    }
+
+    private void addDragAndDropOverlay() {
+        dragAndDropScreen = (DragAndDropScreen) ((TinkerLinkActivity) getActivity()).addOverLayView(new DragAndDropScreen(getActivity()), false);
+        dragAndDropScreen.setListener(this);
+    }
+
+    private void showOverLay() {
+        ((TinkerLinkActivity) getActivity()).showOverLayView();
+    }
+
+    private void hideOverLay() {
+        ((TinkerLinkActivity) getActivity()).hideOverLayView();
     }
 
     //endregion
@@ -64,11 +96,43 @@ public class StackCardsFragment extends MVPTinkerLinkFragment<StackCardsPresente
 
     @Override
     public void onShowOverLaySelector(int position) {
-
+        showOverLay();
     }
 
     //endregion
 
+    //region **************  DragAndDropScreen.Listener **************
+
+    @Override
+    public void onWatchNetwork() {
+        hideOverLay();
+        addDialogFragment(NetworkDialogFragment.class, NetworkDialogFragment.CODE);
+    }
+
+    @Override
+    public void onWatchProfile() {
+        getPresenter().onLaunchProfilePressed();
+    }
+
+    @Override
+    public void onShare() {
+        hideOverLay();
+        addDialogFragment(ShareDialogFragment.class, ShareDialogFragment.CODE);
+    }
+
+    @Override
+    public void onWritteMessage() {
+        hideOverLay();
+        getPresenter().onWritteMessageSelected();
+    }
+
+    @Override
+    public void onCloseDragView() {
+        hideOverLay();
+    }
+
+
+    //endregion
     //region **************  StackCardsPresenter.View **************
 
     @Override

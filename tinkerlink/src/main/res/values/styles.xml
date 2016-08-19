@@ -26,7 +26,7 @@
         <item name="android:displayOptions">showHome|homeAsUp|showTitle</item>
     </style>
 
-    <style name="ActivityTransparentTheme" parent="AppTheme">
+    <style name="ThemeActivityTransparent" parent="AppTheme">
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:windowContentOverlay">@null</item>

@@ -67,11 +67,19 @@ public class StackCardsPresenter extends TinkerLinkPresenter<StackCardsPresenter
             @Override
             public List<RestCard> doInBackground() {
 
+                try {
+                    sleep(300);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
                 List<RestCard> list = new ArrayList<>();
                 for (int posts = 0; posts < 10; posts++) {
                     RestCard restPost = new RestCard();
                     list.add(restPost);
                 }
+
+
                 return list;
             }
 
@@ -212,7 +220,7 @@ public class StackCardsPresenter extends TinkerLinkPresenter<StackCardsPresenter
         asyncLoader.start();
     }
 
-    public void onWatchProfilePressed() {
+    public void onLaunchProfilePressed() {
         navigation.onLaunchUserProfile(getView().getActivity(), null);
     }
 }

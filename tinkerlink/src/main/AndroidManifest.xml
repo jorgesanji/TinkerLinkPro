@@ -6,7 +6,7 @@
     <!-- ****** PERMISSIONS ******** -->
 
     <!-- Vibration -->
-    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <!-- Google plus-->
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
@@ -231,6 +231,11 @@
             android:name=".view.searchcontacts.SearchContactsActivity"
             android:screenOrientation="portrait"
             android:theme="@style/ThemeToolbarItemsBlackStyle" />
+
+        <activity
+            android:name=".view.dragdrop.DragAndDropActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ThemeActivityTransparent" />
 
     </application>
 

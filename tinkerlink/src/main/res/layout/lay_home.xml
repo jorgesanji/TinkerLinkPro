@@ -50,12 +50,6 @@
 
     </LinearLayout>
 
-    <!--<FrameLayout-->
-    <!--android:id="@+id/contentActionsFrame"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="match_parent"-->
-    <!--android:layout_below="@+id/topTabActions" />-->
-
     <com.cronosgroup.tinkerlink.view.customviews.TLViewPager
         android:id="@+id/pager"
         android:layout_width="match_parent"
@@ -69,6 +63,7 @@
         style="@style/FloatActionButtonStyle"
         android:clipChildren="false"
         android:clipToPadding="false"
+        app:menuButtonExpanded="false"
         app:menuButtonBackgroundResource="@drawable/background_menu_gradient"
         app:menuButtonImageResource="@mipmap/ic_network_dark"
         app:menuButtonStateExpandedImageResource="@mipmap/floating_close">

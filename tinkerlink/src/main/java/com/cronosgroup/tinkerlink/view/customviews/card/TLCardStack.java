@@ -5,7 +5,9 @@ import android.content.res.TypedArray;
 import android.database.DataSetObserver;
 import android.os.AsyncTask;
 import android.support.v4.view.ViewCompat;
+import android.support.v4.view.animation.FastOutSlowInInterpolator;
 import android.util.AttributeSet;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Adapter;
@@ -23,6 +25,8 @@ public class TLCardStack<C extends TLCardView> extends FrameLayout {
 
     public static int ANIMATION_DURATION = 160;
     public static int DELAY_TO_UPDATE = 90;
+    public static float DEFAULT_ALPHA = 0.55f;
+    public static float DEFAULT_ELEVATION = 10;
 
     public interface SwipeListener<C extends TLCardView> {
 
@@ -73,7 +77,7 @@ public class TLCardStack<C extends TLCardView> extends FrameLayout {
     private DataSetObserver observer;
     private int nextAdapterCard = 0;
     private boolean restoreInstanceState = false;
-    private TLCardSwipeHandler handlerSwipe;
+    private TLCardSwipeHandler mHandlerSwipe;
     private final LinkedList<C> mCachedItemViews = new LinkedList<C>();
 
     public TLCardStack(Context context, AttributeSet attrs) {
@@ -115,6 +119,17 @@ public class TLCardStack<C extends TLCardView> extends FrameLayout {
         }
     }
 
+    /**
+     * Enable and disable touch
+     *
+     * @param ev
+     * @return
+     */
+    @Override
+    public boolean onInterceptTouchEvent(MotionEvent ev) {
+        return !isEnabled();
+    }
+
     @Override
     protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
         super.onLayout(changed, left, top, right, bottom);
@@ -148,7 +163,7 @@ public class TLCardStack<C extends TLCardView> extends FrameLayout {
         final View child = getChildAt(getChildCount() - (isLastPage ? 1 : childOffset));
         if (child != null) {
             child.setOnTouchListener(null);
-            handlerSwipe = null;
+            mHandlerSwipe = null;
             //this will also check to see if cards are depleted
             new RemoveViewOnAnimCompleted().execute(child);
         }
@@ -191,7 +206,7 @@ public class TLCardStack<C extends TLCardView> extends FrameLayout {
     }
 
     /**
-     * Setup swipe handlerSwipe in top card
+     * Setup swipe handler in top card
      */
     private void setupTopCard() {
 
@@ -203,7 +218,9 @@ public class TLCardStack<C extends TLCardView> extends FrameLayout {
 
         if (card != null) {
 
-            handlerSwipe = new TLCardSwipeHandler(getContext(),this,card, new TLCardSwipeHandler.SwipeHandlerListener() {
+            card.getView().animate().setInterpolator(new FastOutSlowInInterpolator()).alpha(1.0f);
+
+            mHandlerSwipe = new TLCardSwipeHandler(getContext(), this, card, new TLCardSwipeHandler.SwipeHandlerListener() {
                 @Override
                 public void cardSwipedLeft() {
                     removeTopCard();
@@ -240,7 +257,7 @@ public class TLCardStack<C extends TLCardView> extends FrameLayout {
                 }
             }, initialX, initialY);
 
-            card.getView().setOnTouchListener(handlerSwipe);
+            card.getView().setOnTouchListener(mHandlerSwipe);
         }
     }
 
@@ -274,8 +291,10 @@ public class TLCardStack<C extends TLCardView> extends FrameLayout {
             int itemWidth = getWidth() - (paddingLeft + paddingRight);
             int itemHeight = getHeight() - (paddingTop + paddingBottom);
             view.measure(MeasureSpec.EXACTLY | itemWidth, MeasureSpec.EXACTLY | itemHeight);
+            //set alpha
+            view.setAlpha(DEFAULT_ALPHA);
             // Set z translation in each view
-            ViewCompat.setTranslationZ(view, index * 10);
+            ViewCompat.setTranslationZ(view, index * DEFAULT_ELEVATION);
             index++;
         }
     }
@@ -368,6 +387,7 @@ public class TLCardStack<C extends TLCardView> extends FrameLayout {
         requestLayout();
     }
 
+
     /**
      * Public methods
      */
@@ -406,8 +426,8 @@ public class TLCardStack<C extends TLCardView> extends FrameLayout {
     public void swipeTopCardLeft(int duration) {
         int childCount = getChildCount();
         if (childCount > 0 && getChildCount() < (mNumberOfCards + 1)) {
-            if (handlerSwipe != null) {
-                handlerSwipe.animateOffScreenLeft(duration);
+            if (mHandlerSwipe != null) {
+                mHandlerSwipe.animateOffScreenLeft(duration);
             }
             int positionInAdapter = getCurrentItem();
             removeTopCard();
@@ -424,8 +444,8 @@ public class TLCardStack<C extends TLCardView> extends FrameLayout {
     public void swipeTopCardRight(int duration) {
         int childCount = getChildCount();
         if (childCount > 0 && getChildCount() < (mNumberOfCards + 1)) {
-            if (handlerSwipe != null) {
-                handlerSwipe.animateOffScreenRight(duration);
+            if (mHandlerSwipe != null) {
+                mHandlerSwipe.animateOffScreenRight(duration);
             }
             int positionInAdapter = getCurrentItem();
             removeTopCard();

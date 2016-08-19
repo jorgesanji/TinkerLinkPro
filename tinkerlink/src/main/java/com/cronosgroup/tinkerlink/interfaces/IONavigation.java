@@ -63,4 +63,7 @@ public interface IONavigation {
     void onLaunchGiveUserRecommendation(Activity activity, Bundle bundle);
 
     void onLaunchChatUser(Activity activity, Bundle bundle);
+
+    void onLaunchDragAndDrop(Activity activity, Bundle bundle);
+
 }

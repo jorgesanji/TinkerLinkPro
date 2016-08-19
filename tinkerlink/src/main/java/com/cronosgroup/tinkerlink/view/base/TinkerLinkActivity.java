@@ -12,6 +12,8 @@ import android.support.v7.widget.Toolbar;
 import android.text.SpannableString;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
 
 import com.cronosgroup.core.managers.PermissionsManager;
 import com.cronosgroup.core.view.BaseActivity;
@@ -48,7 +50,7 @@ public abstract class TinkerLinkActivity<F extends MVPTinkerLinkFragment> extend
     @BindView(R.id.progressBar)
     View mLoader;
 
-    protected View view;
+    protected ViewGroup view;
 
     // Abstract methods
 
@@ -77,9 +79,9 @@ public abstract class TinkerLinkActivity<F extends MVPTinkerLinkFragment> extend
     }
 
     @Override
-    public View getView() {
+    public ViewGroup getView() {
         if (view == null) {
-            view = getLayoutInflater().inflate(getActivityStyle().getLayout(), null);
+            view = (ViewGroup) getLayoutInflater().inflate(getActivityStyle().getLayout(), null);
         }
         return view;
     }
@@ -164,7 +166,41 @@ public abstract class TinkerLinkActivity<F extends MVPTinkerLinkFragment> extend
         return currentFragment;
     }
 
+    private View addOverLayView(View overlay) {
+        if (overlay != null) {
+            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.overLayContent);
+            FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+            overlay.setId(R.id.overlay_view);
+            overlay.setLayoutParams(params);
+            frameLayout.addView(overlay);
+
+            return overlay;
+        }
+
+        return null;
+    }
+
     // Public methods
+
+    public View addOverLayView(View view, boolean clean) {
+        View overLayView = findViewById(R.id.overlay_view);
+        if (overLayView != null && clean) {
+            getView().removeView(overLayView);
+            overLayView = addOverLayView(view);
+        } else if (overLayView == null) {
+            overLayView = addOverLayView(view);
+        }
+
+        return overLayView;
+    }
+
+    public void showOverLayView() {
+        findViewById(R.id.overLayContent).setVisibility(View.VISIBLE);
+    }
+
+    public void hideOverLayView() {
+        findViewById(R.id.overLayContent).setVisibility(View.GONE);
+    }
 
     public void showLoading() {
         mLoader.setVisibility(View.VISIBLE);

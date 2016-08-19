@@ -8,17 +8,17 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentManager;
 import android.util.AttributeSet;
 import android.view.View;
-import android.view.animation.AccelerateInterpolator;
-import android.view.animation.DecelerateInterpolator;
+import android.view.animation.LinearInterpolator;
 import android.widget.RelativeLayout;
 
 import com.cronosgroup.tinkerlink.R;
+import com.cronosgroup.tinkerlink.enums.StackCardType;
 import com.cronosgroup.tinkerlink.view.customviews.TLViewPager;
-import com.cronosgroup.tinkerlink.view.dragdrop.DragDropScreen;
 import com.cronosgroup.tinkerlink.view.stack.adapter.StackAdapter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 
 /**
@@ -26,14 +26,13 @@ import butterknife.ButterKnife;
  */
 public class StackScreen extends RelativeLayout {
 
-    public static final long TIME_TO_ANIMATION = 500;
-    public static final long DELAY_TO_ANIMATION = 80;
+    public static final long TIME_TO_ANIMATION = 100;
 
     /**
      * listeners of the stack's screen.
      */
     public interface Listener {
-
+        void onCreateCardPressed();
     }
 
     // Vars
@@ -54,8 +53,6 @@ public class StackScreen extends RelativeLayout {
     @BindView(R.id.backgroundFadeOut)
     protected View mBackgroundOut;
 
-    @BindView(R.id.dragDropScreen)
-    protected DragDropScreen dragDropScreen;
 
     /**
      * @param context
@@ -106,10 +103,10 @@ public class StackScreen extends RelativeLayout {
         inflate(getContext(), R.layout.lay_stack, this);
         ButterKnife.bind(this);
         mBackgroundIn.setAlpha(0);
+        mPager.setDisableSwipe(true);
     }
 
     private void initUI() {
-        mPager.setDisableSwipe(true);
         mTab.setTabTextColors(getResources().getColor(R.color.black_opaque), getResources().getColor(R.color.black_opaque));
         mTab.setupWithViewPager(mPager);
         mPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(mTab));
@@ -132,6 +129,11 @@ public class StackScreen extends RelativeLayout {
 
     // **************  UI Actions **************
 
+    @OnClick(R.id.createCardButton)
+    protected void createCardPressed() {
+        listener.onCreateCardPressed();
+    }
+
     // Public methods
 
     public View getAnimableView() {
@@ -146,18 +148,15 @@ public class StackScreen extends RelativeLayout {
         this.listener = listener;
     }
 
-    public void setDragdropListener(DragDropScreen.Listener dragdropListener) {
-        dragDropScreen.setListener(dragdropListener);
-    }
-
-    public void initPager(FragmentManager manager) {
+    public void initPager(final FragmentManager manager, final StackCardType type) {
         mAdapter = new StackAdapter(manager, getContext());
         mPager.setAdapter(mAdapter);
         initUI();
+        mPager.setCurrentItem(type.getStackType());
     }
 
     public void animBackground() {
-        mBackgroundIn.animate().alpha(1).setDuration(TIME_TO_ANIMATION).setInterpolator(new DecelerateInterpolator()).setListener(new Animator.AnimatorListener() {
+        mBackgroundIn.animate().alpha(1).setDuration(TIME_TO_ANIMATION).setInterpolator(new LinearInterpolator()).setListener(new Animator.AnimatorListener() {
             @Override
             public void onAnimationStart(Animator animation) {
 
@@ -165,7 +164,7 @@ public class StackScreen extends RelativeLayout {
 
             @Override
             public void onAnimationEnd(Animator animation) {
-                mBackgroundOut.animate().alpha(0).setDuration(TIME_TO_ANIMATION).setStartDelay(DELAY_TO_ANIMATION).setInterpolator(new AccelerateInterpolator()).start();
+                mBackgroundOut.animate().alpha(0).setDuration(TIME_TO_ANIMATION).setInterpolator(new LinearInterpolator()).start();
             }
 
             @Override
@@ -178,14 +177,5 @@ public class StackScreen extends RelativeLayout {
 
             }
         }).start();
-    }
-
-
-    public void showOverlaySelector() {
-        dragDropScreen.setVisibility(VISIBLE);
-    }
-
-    public void dissmissOverlaySelector() {
-        dragDropScreen.setVisibility(GONE);
     }
 }

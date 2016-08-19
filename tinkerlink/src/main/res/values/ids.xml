@@ -2,4 +2,5 @@
 <resources>
     <item name="action_publish" type="id" />
     <item name="action_send_recommendation" type="id" />
+    <item name="overlay_view" type="id" />
 </resources>

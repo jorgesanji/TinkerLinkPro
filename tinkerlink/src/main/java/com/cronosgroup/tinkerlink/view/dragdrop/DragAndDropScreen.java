@@ -16,7 +16,7 @@ import butterknife.ButterKnife;
 /**
  * DragDrop view.
  */
-public class DragDropScreen extends RelativeLayout {
+public class DragAndDropScreen extends RelativeLayout {
 
     public interface Listener {
         void onWatchNetwork();
@@ -49,7 +49,7 @@ public class DragDropScreen extends RelativeLayout {
     /**
      * @param context
      */
-    public DragDropScreen(Context context) {
+    public DragAndDropScreen(Context context) {
         this(context, null);
     }
 
@@ -57,7 +57,7 @@ public class DragDropScreen extends RelativeLayout {
      * @param context
      * @param attrs
      */
-    public DragDropScreen(Context context, AttributeSet attrs) {
+    public DragAndDropScreen(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
@@ -66,8 +66,9 @@ public class DragDropScreen extends RelativeLayout {
      * @param attrs
      * @param defStyleAttr
      */
-    public DragDropScreen(Context context, AttributeSet attrs, int defStyleAttr) {
-        this(context, attrs, defStyleAttr, 0);
+    public DragAndDropScreen(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+        init();
     }
 
     /**
@@ -77,7 +78,7 @@ public class DragDropScreen extends RelativeLayout {
      * @param defStyleRes
      */
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    public DragDropScreen(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+    public DragAndDropScreen(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         init();
     }
@@ -112,7 +113,6 @@ public class DragDropScreen extends RelativeLayout {
                 }
 
                 target.setVisibility(View.VISIBLE);
-
             }
         });
 

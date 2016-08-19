@@ -21,6 +21,7 @@ import com.cronosgroup.tinkerlink.view.config.verify.VerificationActivity;
 import com.cronosgroup.tinkerlink.view.createcard.CreateCardActivity;
 import com.cronosgroup.tinkerlink.view.createrecommendation.CreateRecommendationActivity;
 import com.cronosgroup.tinkerlink.view.detailcard.DetailCardActivity;
+import com.cronosgroup.tinkerlink.view.dragdrop.DragAndDropActivity;
 import com.cronosgroup.tinkerlink.view.editprofile.EditProfileActivity;
 import com.cronosgroup.tinkerlink.view.giverecommendation.GiveRecommendationsActivity;
 import com.cronosgroup.tinkerlink.view.home.HomeActivity;
@@ -195,6 +196,10 @@ public final class AppNavigation implements IONavigation {
 
     private static Intent searchContacts(Activity context, Bundle bundle) {
         return newTask(context, SearchContactsActivity.class, bundle);
+    }
+
+    private static Intent dragAndDrop(Activity context, Bundle bundle) {
+        return newTask(context, DragAndDropActivity.class, bundle);
     }
 
     // ******************************
@@ -527,5 +532,11 @@ public final class AppNavigation implements IONavigation {
     @Override
     public void onLaunchChatUser(Activity activity, Bundle bundle) {
         startActivity(activity, chatUser(activity, bundle));
+    }
+
+    @Override
+    public void onLaunchDragAndDrop(Activity activity, Bundle bundle) {
+        startActivity(activity, dragAndDrop(activity, bundle));
+
     }
 }

@@ -9,22 +9,14 @@ import android.view.View;
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.animation.RevealAnimation;
 import com.cronosgroup.tinkerlink.enums.StackCardType;
-import com.cronosgroup.tinkerlink.event.ShowDetailCardsEvent;
-import com.cronosgroup.tinkerlink.event.ShowOverLaySelectorEvent;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestUser;
 import com.cronosgroup.tinkerlink.presenter.stack.StackPresenter;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
-import com.cronosgroup.tinkerlink.view.dialog.network.NetworkDialogFragment;
-import com.cronosgroup.tinkerlink.view.dialog.share.ShareDialogFragment;
-import com.cronosgroup.tinkerlink.view.dragdrop.DragDropScreen;
-
-import org.greenrobot.eventbus.EventBus;
-import org.greenrobot.eventbus.Subscribe;
 
 /**
- * StackCardType Fragment
+ * StackScreen Fragment
  */
-public class StackFragment extends MVPTinkerLinkFragment<StackPresenter, StackPresenter.View> implements StackPresenter.View, StackScreen.Listener, DragDropScreen.Listener {
+public class StackFragment extends MVPTinkerLinkFragment<StackPresenter, StackPresenter.View> implements StackPresenter.View, StackScreen.Listener {
 
     private StackScreen stackScreen;
     private StackCardType stackType;
@@ -32,17 +24,28 @@ public class StackFragment extends MVPTinkerLinkFragment<StackPresenter, StackPr
     //region **************  Fragment **************
 
     @Override
+    protected View getRootView() {
+        stackScreen = new StackScreen(getActivity(), this);
+        return stackScreen;
+    }
+
+    @Override
+    protected void onDidAppear() {
+        RevealAnimation.revealFromBottom(stackScreen.getAnimableView(), stackType.getStackColor(), new RevealAnimation.Listener() {
+            @Override
+            public void onFinishAnimation() {
+                stackScreen.animBackground();
+            }
+        });
+
+        stackScreen.initPager(getActivity().getSupportFragmentManager(), getType());
+    }
+
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
         stackType = (StackCardType) getArguments().getSerializable(StackActivity.STACK_TYPE);
-    }
-
-    @Override
-    protected View getRootView() {
-        stackScreen = new StackScreen(getActivity(), this);
-        stackScreen.setDragdropListener(this);
-        return stackScreen;
     }
 
     @Override
@@ -56,31 +59,12 @@ public class StackFragment extends MVPTinkerLinkFragment<StackPresenter, StackPr
         if (id == R.id.action_stack_search) {
             getPresenter().onSearchCardsPressed();
             return true;
-        } else if (id == R.id.action_stack_add_card) {
-            getPresenter().onCreateCardsPressed();
-            return true;
         } else if (id == R.id.action_stack_filter) {
             getPresenter().onFilterCardsPressed();
             return true;
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        if (EventBus.getDefault().isRegistered(this)) {
-            EventBus.getDefault().unregister(this);
-        }
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        if (!EventBus.getDefault().isRegistered(this)) {
-            EventBus.getDefault().register(this);
-        }
     }
 
     //endregion
@@ -97,50 +81,17 @@ public class StackFragment extends MVPTinkerLinkFragment<StackPresenter, StackPr
         return this;
     }
 
-    @Override
-    protected void onDidAppear() {
-        RevealAnimation.revealFromBottom(stackScreen.getAnimableView(), stackType.getStackColor(), new RevealAnimation.Listener() {
-            @Override
-            public void onFinishAnimation() {
-                stackScreen.animBackground();
-            }
-        });
 
-        stackScreen.initPager(getActivity().getSupportFragmentManager());
-    }
-
-    //region **************  DragDropScreen.Listener **************
+    //region **************  StackScreen.View **************
 
     @Override
-    public void onWatchNetwork() {
-        addDialogFragment(NetworkDialogFragment.class, NetworkDialogFragment.CODE);
+    public void onCreateCardPressed() {
+        getPresenter().onCreateCardsPressed();
     }
-
-    @Override
-    public void onWatchProfile() {
-        getPresenter().onWatchProfilePressed();
-    }
-
-    @Override
-    public void onShare() {
-        addDialogFragment(ShareDialogFragment.class, ShareDialogFragment.CODE);
-    }
-
-    @Override
-    public void onWritteMessage() {
-        getPresenter().onWritteMessageSelected();
-    }
-
-    @Override
-    public void onCloseDragView() {
-        stackScreen.dissmissOverlaySelector();
-    }
-
 
     //endregion
 
     //region **************  StackPresenter.View **************
-
 
     @Override
     public boolean isUser() {
@@ -159,15 +110,4 @@ public class StackFragment extends MVPTinkerLinkFragment<StackPresenter, StackPr
 
     //endregion
 
-    //region **************  EevntBus  **************
-
-    @Subscribe
-    public void onEventMainThread(ShowDetailCardsEvent event) {
-        getPresenter().showDetailCard();
-    }
-
-    @Subscribe
-    public void onEventMainThread(ShowOverLaySelectorEvent event) {
-        stackScreen.showOverlaySelector();
-    }
 }
