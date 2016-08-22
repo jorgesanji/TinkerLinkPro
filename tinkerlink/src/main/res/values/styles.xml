@@ -90,18 +90,16 @@
     </style>
 
     <style name="DialogTheme" parent="@android:style/Theme.Dialog">
-        <!-- title encapsulating main part (backgroud) of custom alertdialog -->
-        <!--<item name="android:windowFrame">@null</item>-->
-        <!-- turn off any drawable used to draw a frame on the window -->
         <item name="android:windowBackground">@android:color/transparent</item>
-        <item name="android:background">@android:color/transparent</item>
-        <!-- turn off any drawable used to draw a frame on the window -->
+        <item name="android:background">@color/tinkercolor_30</item>
         <item name="android:windowIsFloating">true</item>
-        <!-- float the window so it does not fill the screen -->
         <item name="android:windowNoTitle">true</item>
-        <!-- remove the title bar we make our own-->
-        <!--<item name="android:windowContentOverlay">@null</item>-->
-        <!-- remove the shadow from under the title bar -->
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowTitleStyle">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
+        <item name="android:backgroundDimEnabled">true</item>
     </style>
 
     <style name="SignButtonStyle" parent="ButtonText_14_White_SemiBold_Style">
