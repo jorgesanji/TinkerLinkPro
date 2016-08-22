@@ -174,8 +174,8 @@
 
     <!-- thumb text size -->
     <dimen name="thumb_size_tiny">25dp</dimen>
-    <dimen name="thumb_size_mediun">40dp</dimen>
-    <!--<dimen name="thumb_size_big">60dp</dimen>-->
-    <dimen name="thumb_size_plus_big">100dp</dimen>
+    <dimen name="thumb_size_small">40dp</dimen>
+    <dimen name="thumb_size_mediun">60dp</dimen>
+    <dimen name="thumb_size_big">80dp</dimen>
 
 </resources>

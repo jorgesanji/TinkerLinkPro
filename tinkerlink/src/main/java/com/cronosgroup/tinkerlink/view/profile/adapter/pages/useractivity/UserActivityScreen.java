@@ -64,7 +64,7 @@ public class UserActivityScreen extends RelativeLayout {
     }
 
     private void init() {
-        inflate(getContext(), R.layout.lay_user_activity, this);
+        inflate(getContext(), R.layout.lay_user_newsfeed, this);
         ButterKnife.bind(this);
     }
 

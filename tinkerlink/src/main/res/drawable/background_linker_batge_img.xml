@@ -11,12 +11,14 @@
             <corners android:radius="120dp" />
         </shape>
     </item>
-
+    
     <item
-        android:bottom="7dp"
+        android:width="@dimen/thumb_size_small"
+        android:height="@dimen/thumb_size_small"
+        android:bottom="15dp"
         android:drawable="@mipmap/floating_new_soytinker"
-        android:left="10dp"
-        android:right="10dp"
-        android:top="9dp" />
+        android:left="13dp"
+        android:right="13dp"
+        android:top="15dp" />
 
 </layer-list>

@@ -33,7 +33,7 @@
                     android:layout_centerHorizontal="true" />
 
                 <com.cronosgroup.tinkerlink.view.customviews.TLImageButton
-                    android:id="@+id/updateImages"
+                    android:id="@+id/updateForm"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
@@ -44,12 +44,11 @@
 
             </RelativeLayout>
 
-            <include
-                layout="@layout/lay_contact_container"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginLeft="@dimen/margin_small"
-                android:layout_marginTop="@dimen/margin_big" />
+            <com.cronosgroup.tinkerlink.view.customviews.TLCommonContactsView
+                android:id="@+id/contactsView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_small" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -175,7 +174,6 @@
                         app:fontName="Bold" />
 
                 </LinearLayout>
-
 
                 <ProgressBar
                     style="@android:style/Widget.ProgressBar.Horizontal"

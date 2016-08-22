@@ -3,7 +3,8 @@ package com.cronosgroup.tinkerlink.presenter.stack;
 import android.os.Bundle;
 
 import com.cronosgroup.tinkerlink.enums.StackCardType;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestCard;
+import com.cronosgroup.tinkerlink.model.dataacess.database.entities.TLCard;
+import com.cronosgroup.tinkerlink.model.dataacess.database.manager.CardManager;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestChat;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContact;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestMessage;
@@ -15,7 +16,7 @@ import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenterView;
 import com.cronosgroup.tinkerlink.utils.AsyncLoader;
 import com.cronosgroup.tinkerlink.utils.DateUtils;
 import com.cronosgroup.tinkerlink.view.chatuser.ChatUserActivity;
-import com.cronosgroup.tinkerlink.view.detailcard.DetailCardActivity;
+import com.cronosgroup.tinkerlink.view.detailcard.DetailStackActivity;
 import com.cronosgroup.tinkerlink.view.stack.StackActivity;
 
 import java.util.ArrayList;
@@ -33,9 +34,9 @@ public class StackCardsPresenter extends TinkerLinkPresenter<StackCardsPresenter
 
         int getCurrentIndexPage();
 
-        List<RestCard> getItems();
+        List<TLCard> getItems();
 
-        void setCards(List<RestCard> cars);
+        void setCards(List<TLCard> cars);
 
         boolean isFromUser();
 
@@ -62,10 +63,13 @@ public class StackCardsPresenter extends TinkerLinkPresenter<StackCardsPresenter
 
     public void getAllCards(String offset) {
 
+        CardManager cardManager = new CardManager();
+        cardManager.deleteAll();
+
         getView().showLoading();
-        AsyncLoader<List<RestCard>> asyncLoader = new AsyncLoader<List<RestCard>>() {
+        AsyncLoader<List<TLCard>> asyncLoader = new AsyncLoader<List<TLCard>>() {
             @Override
-            public List<RestCard> doInBackground() {
+            public List<TLCard> doInBackground() {
 
                 try {
                     sleep(300);
@@ -73,18 +77,18 @@ public class StackCardsPresenter extends TinkerLinkPresenter<StackCardsPresenter
                     e.printStackTrace();
                 }
 
-                List<RestCard> list = new ArrayList<>();
+                List<TLCard> list = new ArrayList<>();
                 for (int posts = 0; posts < 10; posts++) {
-                    RestCard restPost = new RestCard();
-                    list.add(restPost);
+                    TLCard tlCard = new TLCard();
+                    tlCard.setId(posts + "");
+                    list.add(tlCard);
                 }
-
 
                 return list;
             }
 
             @Override
-            public void postProcess(List<RestCard> result) {
+            public void postProcess(List<TLCard> result) {
                 getView().setCards(result);
                 getView().hideLoading();
             }
@@ -130,8 +134,8 @@ public class StackCardsPresenter extends TinkerLinkPresenter<StackCardsPresenter
 
     public void showDetailCard() {
         Bundle bundle = new Bundle();
-        bundle.putSerializable(DetailCardActivity.KEY_ITEM, getView().getItems().get(getView().getCurrentIndexPage()));
-        bundle.putBoolean(DetailCardActivity.KEY_PUBLISH, false);
+        bundle.putString(DetailStackActivity.KEY_ITEM, getView().getItems().get(getView().getCurrentIndexPage()).getId());
+        bundle.putBoolean(DetailStackActivity.KEY_PUBLISH, false);
         bundle.putSerializable(StackActivity.STACK_TYPE, getView().getType());
         navigation.onLaunchDetailCard(getView().getActivity(), bundle);
     }

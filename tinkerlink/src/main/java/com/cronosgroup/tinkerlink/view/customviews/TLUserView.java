@@ -11,7 +11,6 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.LinearLayout;
 
 import com.cronosgroup.tinkerlink.R;
@@ -37,17 +36,11 @@ public class TLUserView extends LinearLayout {
         void onUnLockPressed();
     }
 
-    //Properties
-    private String title;
-    private String subTitle;
-    private String userUrl;
-    private String userTime;
-    private int iconCard;
-    private boolean options;
-    private boolean badge;
 
     //Vars
 
+    private boolean options;
+    private boolean badge;
     private Listener optionslistener;
     private IOIconListener listener;
     private IOAddContactListener addContactListener;
@@ -200,11 +193,10 @@ public class TLUserView extends LinearLayout {
     }
 
     public String getTitle() {
-        return title;
+        return mUserTitle.getText().toString();
     }
 
     public void setTitle(String title) {
-        this.title = title;
         mUserTitle.setText(title);
     }
 
@@ -225,11 +217,10 @@ public class TLUserView extends LinearLayout {
     }
 
     public String getSubTitle() {
-        return subTitle;
+        return mUserSubTitle.getText().toString();
     }
 
     public void setSubTitle(String subTitle) {
-        this.subTitle = subTitle;
         mUserSubTitle.setText(subTitle);
         mUserSubTitle.setVisibility((subTitle != null) ? VISIBLE : GONE);
     }
@@ -258,12 +249,7 @@ public class TLUserView extends LinearLayout {
         mUserImage.setImageResource(icon);
     }
 
-    public String getUserUrl() {
-        return userUrl;
-    }
-
     public void setUserImageFromUrl(String userUrl) {
-        this.userUrl = userUrl;
         mUserImage.setImageFromUrl(userUrl, ImageType.USER);
     }
 
@@ -271,21 +257,15 @@ public class TLUserView extends LinearLayout {
         mUserImage.setVisibility(hide ? GONE : VISIBLE);
     }
 
-    public int getIconCard() {
-        return iconCard;
-    }
-
     public void setIconCard(int iconCard) {
-        this.iconCard = iconCard;
         mCardBadge.setImageResource(iconCard);
     }
 
     public String getUserTime() {
-        return userTime;
+        return mUserTime.getText().toString();
     }
 
     public void setTime(String userTime) {
-        this.userTime = userTime;
         mUserTime.setText(userTime);
     }
 
@@ -306,15 +286,15 @@ public class TLUserView extends LinearLayout {
     public void setAddContactListener(IOAddContactListener addContactListener) {
         this.addContactListener = addContactListener;
         if (addContactListener != null) {
-            mUserStatusContact.setVisibility(VISIBLE);
-            mUserStatusContact.setOnClickListener(new OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (getAddContactListener() != null) {
-                        getAddContactListener().AddContact();
-                    }
-                }
-            });
+//            mUserStatusContact.setVisibility(VISIBLE);
+//            mUserStatusContact.setOnClickListener(new OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    if (getAddContactListener() != null) {
+//                        getAddContactListener().AddContact();
+//                    }
+//                }
+//            });
         }
     }
 

@@ -123,7 +123,7 @@ public class NotificationsManager {
                     userdb.setName(user.getName());
                     userdb.setBirthday(user.getBirthday());
                     userdb.setEmail(user.getEmail());
-                    userdb.setStatus(restNotificacion.getUser().getStatus());
+//                    userdb.setStatus(restNotificacion.getUser().getStatus());
                     userdb.save();
                 }
 

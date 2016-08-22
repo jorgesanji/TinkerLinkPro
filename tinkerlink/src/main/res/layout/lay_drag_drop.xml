@@ -1,34 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white_50"
-    android:gravity="center"
-    android:orientation="vertical">
+    android:layout_margin="2dp"
+    app:cardBackgroundColor="@color/dragandrop_bg_color"
+    app:cardCornerRadius="0dp"
+    app:cardElevation="6dp">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="horizontal">
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
 
-        <RelativeLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
 
             <RelativeLayout
-                android:id="@+id/topleft"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true">
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
 
                 <LinearLayout style="@style/DragDropContainertStyle">
 
-                    <com.cronosgroup.tinkerlink.view.customviews.TLImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@mipmap/ic_network" />
+                    <com.cronosgroup.tinkerlink.view.customviews.TLImageButton
+                        android:id="@+id/actionWatchNetwork"
+                        style="@style/ImageFloatActionButtonStyle"
+                        android:src="@mipmap/ic_network_dark" />
 
                     <com.cronosgroup.tinkerlink.view.customviews.TLTextView
                         style="@style/DragDropTextStyle"
@@ -38,24 +40,16 @@
 
             </RelativeLayout>
 
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
-
             <RelativeLayout
-                android:id="@+id/topright"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true">
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
 
                 <LinearLayout style="@style/DragDropContainertStyle">
 
-                <com.cronosgroup.tinkerlink.view.customviews.TLImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                    <com.cronosgroup.tinkerlink.view.customviews.TLImageButton
+                        android:id="@+id/actionWatchProfile"
+                        style="@style/ImageFloatActionButtonStyle"
                         android:src="@mipmap/nav_user" />
 
                     <com.cronosgroup.tinkerlink.view.customviews.TLTextView
@@ -64,59 +58,44 @@
                 </LinearLayout>
 
             </RelativeLayout>
-        </RelativeLayout>
-    </LinearLayout>
+        </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="horizontal">
-
-        <RelativeLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
 
             <RelativeLayout
-                android:id="@+id/bottomleft"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true">
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
 
                 <LinearLayout style="@style/DragDropContainertStyle">
 
-                <com.cronosgroup.tinkerlink.view.customviews.TLImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@mipmap/ic_share" />
+                    <com.cronosgroup.tinkerlink.view.customviews.TLImageButton
+                        android:id="@+id/actionShare"
+                        style="@style/ImageFloatActionButtonStyle"
+                        android:src="@mipmap/ic_share_dark" />
 
                     <com.cronosgroup.tinkerlink.view.customviews.TLTextView
                         style="@style/DragDropTextStyle"
                         android:text="@string/drag_drop_share" />
 
                 </LinearLayout>
+
             </RelativeLayout>
 
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
-
             <RelativeLayout
-                android:id="@+id/bottomright"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true">
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
 
                 <LinearLayout style="@style/DragDropContainertStyle">
 
-                <com.cronosgroup.tinkerlink.view.customviews.TLImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                    <com.cronosgroup.tinkerlink.view.customviews.TLImageButton
+                        android:id="@+id/actionWritteMessage"
+                        style="@style/ImageFloatActionButtonStyle"
                         android:src="@mipmap/ic_new_message" />
 
                     <com.cronosgroup.tinkerlink.view.customviews.TLTextView
@@ -125,6 +104,6 @@
 
                 </LinearLayout>
             </RelativeLayout>
-        </RelativeLayout>
+        </LinearLayout>
     </LinearLayout>
-</LinearLayout>
+</RelativeLayout>

@@ -388,6 +388,13 @@
         <item name="android:layout_margin">16dp</item>
     </style>
 
+    <style name="ImageFloatActionButtonStyle" parent="FloatActionButtonStyle">
+        <item name="android:background">@drawable/background_menu_gradient</item>
+        <item name="android:layout_width">60dp</item>
+        <item name="android:layout_height">60dp</item>
+        <item name="android:layout_margin">0dp</item>
+    </style>
+
     <style name="DragDropTextStyle">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -398,12 +405,9 @@
     </style>
 
     <style name="DragDropContainertStyle">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">match_parent</item>
-        <item name="android:layout_marginTop">50dp</item>
-        <item name="android:layout_marginBottom">50dp</item>
-        <item name="android:layout_marginLeft">20dp</item>
-        <item name="android:layout_marginRight">20dp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
         <item name="android:orientation">vertical</item>
         <item name="android:gravity">center</item>
     </style>

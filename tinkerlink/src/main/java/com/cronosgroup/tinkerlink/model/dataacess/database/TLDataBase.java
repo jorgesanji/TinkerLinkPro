@@ -11,5 +11,5 @@ public class TLDataBase {
 
     public static final String NAME = "TinKerLinkDatabase";
 
-    public static final int VERSION = 2;
+    public static final int VERSION = 3;
 }

@@ -31,7 +31,7 @@ public class AppService {
     }
 
     public static void PUT(String url, Map<String, String> params, Map<String, String> headers, Callback callback, Object tag) {
-        AppRestManager.sharedManager().putRequest(url, params, headers, callback, tag);
+        AppRestManager.sharedManager().PUT(url, params, headers, callback, tag);
     }
 
     public static void DELETE(String url, Callback callback, Object tag) {
@@ -43,7 +43,7 @@ public class AppService {
     }
 
     public static void DELETE(String url, Map<String, String> params, Map<String, String> headers, Callback callback, Object tag) {
-        AppRestManager.sharedManager().deleteRequest(url, params, headers, callback, tag);
+        AppRestManager.sharedManager().DELETE(url, params, headers, callback, tag);
     }
 
     public static void GET(String url, Callback callback, Object tag) {
@@ -55,7 +55,7 @@ public class AppService {
     }
 
     public static void GET(String url, Map<String, String> params, Map<String, String> headers, Callback callback, Object tag) {
-        AppRestManager.sharedManager().getRequest(url, params, headers, callback, tag);
+        AppRestManager.sharedManager().GET(url, params, headers, callback, tag);
     }
 
     public static void POST(String url, Callback callback, Object tag) {
@@ -67,7 +67,7 @@ public class AppService {
     }
 
     public static void POST(String url, Map<String, String> params, Map<String, String> headers, Callback callback, Object tag) {
-        AppRestManager.sharedManager().postRequest(url, params, headers, callback, tag);
+        AppRestManager.sharedManager().POST(url, params, headers, callback, tag);
     }
 
     // Mapping Json to Model

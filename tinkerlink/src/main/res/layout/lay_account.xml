@@ -57,7 +57,7 @@
                     android:textSize="@dimen/text_size_mediun" />
 
                 <com.cronosgroup.tinkerlink.view.customviews.TLTextView
-                    android:id="@+id/watchProfile"
+                    android:id="@+id/actionWatchProfile"
                     style="@style/UserProfileTextStyle"
                     android:layout_width="match_parent"
                     android:layout_height="30dp"

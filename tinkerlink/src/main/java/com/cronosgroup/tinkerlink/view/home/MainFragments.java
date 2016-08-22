@@ -2,10 +2,10 @@ package com.cronosgroup.tinkerlink.view.home;
 
 import android.support.v4.app.Fragment;
 
-import com.cronosgroup.tinkerlink.view.home.fragment.contacts.ContactsFragment;
-import com.cronosgroup.tinkerlink.view.home.fragment.chat.ChatFragment;
-import com.cronosgroup.tinkerlink.view.home.fragment.newsfeed.NewsFeedFragment;
-import com.cronosgroup.tinkerlink.view.home.fragment.account.AccountFragment;
+import com.cronosgroup.tinkerlink.view.home.adapter.fragment.contacts.ContactsFragment;
+import com.cronosgroup.tinkerlink.view.home.adapter.fragment.chat.ChatFragment;
+import com.cronosgroup.tinkerlink.view.home.adapter.fragment.newsfeed.NewsFeedFragment;
+import com.cronosgroup.tinkerlink.view.home.adapter.fragment.account.AccountFragment;
 
 /**
  * Enumeration of the fragments that are in the slide menu.

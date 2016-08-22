@@ -84,7 +84,7 @@ public class ChatManager {
             userdb.setName(user.getName());
             userdb.setBirthday(user.getBirthday());
             userdb.setEmail(user.getEmail());
-            userdb.setStatus(restContact.getStatus());
+//            userdb.setStatus(restContact.getStatus());
             userdb.save();
 
             if (messagedb == null) {
@@ -172,4 +172,5 @@ public class ChatManager {
     public void deleteAll() {
         TransactionManager.getInstance().addTransaction(new DeleteModelListTransaction<>(ProcessModelInfo.<TLConversation>withModels().models(getAllConversations())));
     }
+
 }

@@ -4,6 +4,8 @@ import android.animation.Animator;
 import android.content.ClipData;
 import android.content.ClipDescription;
 import android.content.Context;
+import android.os.Handler;
+import android.os.Looper;
 import android.os.Vibrator;
 import android.view.MotionEvent;
 import android.view.View;
@@ -45,6 +47,7 @@ public class TLCardSwipeHandler implements View.OnTouchListener {
     private float initialXPress;
     private float initialYPress;
 
+    private Handler mHandler = new Handler(Looper.myLooper());
     private Runnable mLongPressRunnable = new Runnable() {
         public void run() {
             validateOnClickLongPressed();
@@ -165,6 +168,7 @@ public class TLCardSwipeHandler implements View.OnTouchListener {
 
             resetCardPosition();
 
+            card.showCardType();
             View viewToShow = card.getViewForDrag();
             if (viewToShow == null) {
                 viewToShow = card.getView();
@@ -173,22 +177,31 @@ public class TLCardSwipeHandler implements View.OnTouchListener {
                 }
             }
 
-            // create it from the object's tag
-            ClipData.Item item = new ClipData.Item((CharSequence) viewToShow.getTag());
+            final View overView = viewToShow;
 
-            String[] mimeTypes = {ClipDescription.MIMETYPE_TEXT_PLAIN};
-            ClipData data = new ClipData(viewToShow.getTag().toString(), mimeTypes, item);
+            mHandler.post(new Runnable() {
+                @Override
+                public void run() {
+                    // create it from the object's tag
+                    ClipData.Item item = new ClipData.Item((CharSequence) overView.getTag());
 
-            View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(viewToShow);
+                    String[] mimeTypes = {ClipDescription.MIMETYPE_TEXT_PLAIN};
+                    ClipData data = new ClipData(overView.getTag().toString(), mimeTypes, item);
 
-            viewToShow.startDrag(data, //data to be dragged
-                    shadowBuilder, //drag shadow
-                    viewToShow, //local data about the drag and drop operation
-                    0   //no needed flags
-            );
+                    View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(overView);
 
-            viewToShow.setVisibility(View.INVISIBLE);
-            listener.cardOnLongPressed();
+                    overView.startDrag(data, //data to be dragged
+                            shadowBuilder, //drag shadow
+                            overView, //local data about the drag and drop operation
+                            0   //no needed flags
+                    );
+
+                    overView.setVisibility(View.INVISIBLE);
+                    card.hideCardType();
+
+                    listener.cardOnLongPressed();
+                }
+            });
         }
     }
 
@@ -198,7 +211,7 @@ public class TLCardSwipeHandler implements View.OnTouchListener {
      */
     private void startLongPressCheck() {
         // then post it with a delay
-        parent.postDelayed(mLongPressRunnable, ViewConfiguration.getLongPressTimeout());
+        mHandler.postDelayed(mLongPressRunnable, ViewConfiguration.getLongPressTimeout());
     }
 
     /**
@@ -206,7 +219,7 @@ public class TLCardSwipeHandler implements View.OnTouchListener {
      */
     private void resetState() {
         // remove any existing check for longpress
-        parent.removeCallbacks(mLongPressRunnable);
+        mHandler.removeCallbacks(mLongPressRunnable);
         // reset touch state
         mViewClicked = false;
     }
@@ -241,7 +254,7 @@ public class TLCardSwipeHandler implements View.OnTouchListener {
     private ViewPropertyAnimator resetCardPosition() {
 
         return card.getView().animate()
-                .setDuration(200)
+                .setDuration(TLCardStack.ANIMATION_DURATION)
                 .setInterpolator(new OvershootInterpolator(1.5f))
                 .x(initialX)
                 .y(initialY)

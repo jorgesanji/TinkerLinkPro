@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.cronosgroup.tinkerlink.enums.StackCardType;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestCard;
+import com.cronosgroup.tinkerlink.model.dataacess.database.entities.TLCard;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestUser;
 import com.cronosgroup.tinkerlink.presenter.stack.StackCardsPresenter;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
@@ -105,7 +105,6 @@ public class StackCardsFragment extends MVPTinkerLinkFragment<StackCardsPresente
 
     @Override
     public void onWatchNetwork() {
-        hideOverLay();
         addDialogFragment(NetworkDialogFragment.class, NetworkDialogFragment.CODE);
     }
 
@@ -116,13 +115,11 @@ public class StackCardsFragment extends MVPTinkerLinkFragment<StackCardsPresente
 
     @Override
     public void onShare() {
-        hideOverLay();
         addDialogFragment(ShareDialogFragment.class, ShareDialogFragment.CODE);
     }
 
     @Override
     public void onWritteMessage() {
-        hideOverLay();
         getPresenter().onWritteMessageSelected();
     }
 
@@ -131,8 +128,8 @@ public class StackCardsFragment extends MVPTinkerLinkFragment<StackCardsPresente
         hideOverLay();
     }
 
-
     //endregion
+
     //region **************  StackCardsPresenter.View **************
 
     @Override
@@ -141,12 +138,12 @@ public class StackCardsFragment extends MVPTinkerLinkFragment<StackCardsPresente
     }
 
     @Override
-    public List<RestCard> getItems() {
+    public List<TLCard> getItems() {
         return stackScreen.getItems();
     }
 
     @Override
-    public void setCards(List<RestCard> cars) {
+    public void setCards(List<TLCard> cars) {
         stackScreen.addItems(cars);
     }
 

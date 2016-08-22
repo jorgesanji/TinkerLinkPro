@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 import com.cronosgroup.tinkerlink.R;
-import com.cronosgroup.tinkerlink.enums.StackCardType;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContact;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestRecommendation;
 import com.cronosgroup.tinkerlink.view.customviews.TLCommonContactsView;
@@ -92,6 +91,12 @@ public class CardScreen extends TLLinearLayout implements TLCardView {
     @BindView(R.id.cardGradient)
     protected TLImageView mGradient;
 
+    @BindView(R.id.imageContainer)
+    protected View mImageContainer;
+
+    @BindView(R.id.cardType)
+    protected TLImageView mcardType;
+
     /**
      * @param context
      */
@@ -132,7 +137,7 @@ public class CardScreen extends TLLinearLayout implements TLCardView {
     private void init() {
         inflate(getContext(), R.layout.lay_card, this);
         ButterKnife.bind(this);
-        mUserCardImage.setTag(TAG_SCREEN);
+        mImageContainer.setTag(TAG_SCREEN);
     }
 
     // **************  UI Actions **************
@@ -151,9 +156,12 @@ public class CardScreen extends TLLinearLayout implements TLCardView {
 
     // Public methods
 
+    public void setCardType(int type) {
+        mcardType.setImageResource(type);
+    }
 
-    public void setStyleByStackType(StackCardType type) {
-        mGradient.setImageResource(type.getGradientCard());
+    public void setStyleByStackType(int gradient) {
+        mGradient.setImageResource(gradient);
     }
 
     public void setUserImageUrl(String urlUser) {
@@ -239,11 +247,21 @@ public class CardScreen extends TLLinearLayout implements TLCardView {
 
     @Override
     public View getViewForDrag() {
-        return mUserCardImage;
+        return mImageContainer;
     }
 
     @Override
     public View getView() {
         return this;
+    }
+
+    @Override
+    public void showCardType() {
+        mcardType.setVisibility(VISIBLE);
+    }
+
+    @Override
+    public void hideCardType() {
+        mcardType.setVisibility(GONE);
     }
 }

@@ -12,6 +12,7 @@ import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenterView;
  */
 public class DetailCardPresenter extends TinkerLinkPresenter<DetailCardPresenter.View> {
 
+
     /**
      * Detailcard View.
      */

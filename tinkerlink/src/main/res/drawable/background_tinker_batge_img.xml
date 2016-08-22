@@ -13,12 +13,12 @@
     </item>
 
     <item
-        android:height="@dimen/thumb_size_tiny"
-        android:width="@dimen/thumb_size_tiny"
-        android:bottom="12dp"
+        android:height="@dimen/thumb_size_small"
+        android:width="@dimen/thumb_size_small"
+        android:bottom="15dp"
         android:drawable="@mipmap/floating_new_buscotinker"
-        android:left="12dp"
-        android:right="12dp"
-        android:top="12dp" />
+        android:left="13dp"
+        android:right="13dp"
+        android:top="15dp" />
 
 </layer-list>

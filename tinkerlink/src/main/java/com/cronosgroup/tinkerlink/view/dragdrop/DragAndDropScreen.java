@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.RelativeLayout;
 
 import com.cronosgroup.tinkerlink.R;
+import com.cronosgroup.tinkerlink.view.customviews.TLImageButton;
 import com.cronosgroup.tinkerlink.view.dragdrop.engine.DDDragListener;
 
 import butterknife.BindView;
@@ -34,17 +35,17 @@ public class DragAndDropScreen extends RelativeLayout {
     private Listener listener;
 
     // Views
-    @BindView(R.id.topleft)
-    protected RelativeLayout mWatchNetworkContainer;
+    @BindView(R.id.actionWatchNetwork)
+    protected TLImageButton mWatchNetworkContainer;
 
-    @BindView(R.id.topright)
-    protected RelativeLayout mWatchProfileContainer;
+    @BindView(R.id.actionWatchProfile)
+    protected TLImageButton mWatchProfileContainer;
 
-    @BindView(R.id.bottomleft)
-    protected RelativeLayout mShareContainer;
+    @BindView(R.id.actionShare)
+    protected TLImageButton mShareContainer;
 
-    @BindView(R.id.bottomright)
-    protected RelativeLayout mSendMessageContainer;
+    @BindView(R.id.actionWritteMessage)
+    protected TLImageButton mSendMessageContainer;
 
     /**
      * @param context
@@ -101,7 +102,7 @@ public class DragAndDropScreen extends RelativeLayout {
 
             @Override
             public void onViewDropped(final View container, final View target) {
-
+                listener.onCloseDragView();
                 if (container == mWatchNetworkContainer) {
                     listener.onWatchNetwork();
                 } else if (container == mWatchProfileContainer) {
