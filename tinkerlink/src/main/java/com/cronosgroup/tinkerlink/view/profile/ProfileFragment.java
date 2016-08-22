@@ -54,7 +54,7 @@ public class ProfileFragment extends MVPTinkerLinkFragment<ProfilePresenter, Pro
         profileScreen.setUserJob(restUser.getProfile().getProfession());
         profileScreen.setUserImage(restUser.getPhoto());
         profileScreen.setUserCountry(restUser.getProfile().getCity() + "," + restUser.getProfile().getCountry());
-        profileScreen.setContacts(contact.getUsersCommon());
+        profileScreen.setContacts(contact.getCommonContacts());
         profileScreen.initPager(getActivity().getSupportFragmentManager());
     }
 

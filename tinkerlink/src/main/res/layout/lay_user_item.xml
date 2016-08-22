@@ -24,8 +24,8 @@
             android:id="@+id/cardBadge"
             android:layout_width="@dimen/thumb_size_tiny"
             android:layout_height="@dimen/thumb_size_tiny"
-            android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
             android:src="@drawable/background_tinker_batge_img" />
 
     </RelativeLayout>

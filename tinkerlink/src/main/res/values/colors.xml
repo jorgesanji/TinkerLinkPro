@@ -103,5 +103,8 @@
     <color name="text_white">#FFFFFF</color>
     <color name="text_hint">#4D000000</color>
 
+    <color name="dragandrop_bg_color">#E6FFFFFF</color>
+
+
 
 </resources>

@@ -20,7 +20,7 @@ import com.cronosgroup.tinkerlink.view.config.recoverypassword.RecoveryPasswordA
 import com.cronosgroup.tinkerlink.view.config.verify.VerificationActivity;
 import com.cronosgroup.tinkerlink.view.createcard.CreateCardActivity;
 import com.cronosgroup.tinkerlink.view.createrecommendation.CreateRecommendationActivity;
-import com.cronosgroup.tinkerlink.view.detailcard.DetailCardActivity;
+import com.cronosgroup.tinkerlink.view.detailcard.DetailStackActivity;
 import com.cronosgroup.tinkerlink.view.dragdrop.DragAndDropActivity;
 import com.cronosgroup.tinkerlink.view.editprofile.EditProfileActivity;
 import com.cronosgroup.tinkerlink.view.giverecommendation.GiveRecommendationsActivity;
@@ -103,7 +103,7 @@ public final class AppNavigation implements IONavigation {
     }
 
     private static Intent detailCard(Activity context, Bundle bundle) {
-        return newTask(context, DetailCardActivity.class, bundle);
+        return newTask(context, DetailStackActivity.class, bundle);
     }
 
     private static Intent searchCards(Activity context, Bundle bundle) {

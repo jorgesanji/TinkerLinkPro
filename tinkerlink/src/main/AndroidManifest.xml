@@ -127,7 +127,7 @@
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".view.detailcard.DetailCardActivity"
+            android:name=".view.detailcard.DetailStackActivity"
             android:screenOrientation="portrait" />
 
         <activity

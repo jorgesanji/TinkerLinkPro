@@ -9,4 +9,8 @@ public interface TLCardView {
     View getView();
 
     View getViewForDrag();
+
+    void showCardType();
+
+    void hideCardType();
 }

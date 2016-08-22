@@ -8,7 +8,7 @@ import android.widget.BaseAdapter;
 
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.enums.StackCardType;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestCard;
+import com.cronosgroup.tinkerlink.model.dataacess.database.entities.TLCard;
 import com.cronosgroup.tinkerlink.view.stack.adapter.stackcards.adapter.card.CardScreen;
 
 import java.util.ArrayList;
@@ -19,7 +19,7 @@ import java.util.List;
  */
 public class CardsAdapter extends BaseAdapter {
 
-    private List<RestCard> items = new ArrayList<>();
+    private List<TLCard> items = new ArrayList<>();
     private final Context mContext;
     private StackCardType type;
 
@@ -49,7 +49,8 @@ public class CardsAdapter extends BaseAdapter {
             view = (CardScreen) LayoutInflater.from(mContext).inflate(R.layout.lay_card_internal, parent, false);
         }
 
-        view.setStyleByStackType(type);
+        view.setCardType(type.getCardType());
+        view.setStyleByStackType(type.getGradientCard());
         view.setUserImageUrl("http://qsrock.com/wp-content/uploads/2016/04/6d43fc_ed0189fbfceb4a0795ddb0ae695f509b.jpg");
         view.setUserName("Jorge Sanmartin");
         view.setUserCardJob("Electricista");
@@ -58,15 +59,15 @@ public class CardsAdapter extends BaseAdapter {
         return view;
     }
 
-    public List<RestCard> getItems() {
+    public List<TLCard> getItems() {
         return items;
     }
 
-    public void setItems(List<RestCard> items) {
+    public void setItems(List<TLCard> items) {
         this.items = items;
     }
 
-    public void addItems(List<RestCard> list) {
+    public void addItems(List<TLCard> list) {
         items.addAll(list);
         notifyDataSetChanged();
     }

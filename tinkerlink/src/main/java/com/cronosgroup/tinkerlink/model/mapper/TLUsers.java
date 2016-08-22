@@ -41,7 +41,7 @@ public class TLUsers {
         restUser.setProfile(profile);
 
         RestContact restContact = new RestContact();
-        restContact.setStatus(user.getStatus());
+//        restContact.setStatus(user.getStatus());
         restContact.setUser(restUser);
 
         return restContact;

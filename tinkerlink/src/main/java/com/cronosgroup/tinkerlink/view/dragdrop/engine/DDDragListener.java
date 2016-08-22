@@ -16,7 +16,7 @@ public class DDDragListener implements View.OnDragListener {
         void onExitView(View view, boolean okDragged);
     }
 
-    private static final int NORMAL_SHAPE = R.drawable.dragdrop_default_shape;
+    private static final int NORMAL_SHAPE = R.drawable.background_menu_gradient;
     private static final int TARGET_SHAPE = R.drawable.dragdrop_target_shape;
 
     private Listener listener;

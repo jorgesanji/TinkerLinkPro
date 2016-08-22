@@ -33,14 +33,31 @@
                     android:gravity="center"
                     android:orientation="vertical">
 
-                    <com.cronosgroup.tinkerlink.view.customviews.TLImageView
-                        android:id="@+id/userCardImage"
-                        android:layout_width="@dimen/view_size_user"
-                        android:layout_height="@dimen/view_size_user"
-                        android:scaleType="centerCrop"
-                        app:imageRounded="true"
-                        app:imageType="User"
-                        app:imageWithBorder="true" />
+                    <RelativeLayout
+                        android:id="@+id/imageContainer"
+                        android:layout_width="110dp"
+                        android:layout_height="110dp">
+
+                        <com.cronosgroup.tinkerlink.view.customviews.TLImageView
+                            android:id="@+id/userCardImage"
+                            android:layout_width="@dimen/thumb_size_big"
+                            android:layout_height="@dimen/thumb_size_big"
+                            android:layout_centerInParent="true"
+                            android:scaleType="centerCrop"
+                            app:imageRounded="true"
+                            app:imageType="User"
+                            app:imageWithBorder="true" />
+
+                        <com.cronosgroup.tinkerlink.view.customviews.TLImageView
+                            android:id="@+id/cardType"
+                            android:layout_width="@dimen/thumb_size_small"
+                            android:layout_height="@dimen/thumb_size_small"
+                            android:layout_alignParentLeft="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/background_tinker_batge_img"
+                            android:visibility="gone" />
+
+                    </RelativeLayout>
 
                     <com.cronosgroup.tinkerlink.view.customviews.TLTextView
                         android:id="@+id/userName"

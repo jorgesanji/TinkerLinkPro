@@ -7,34 +7,35 @@ import com.cronosgroup.core.rest.RestBase;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class RestContact extends RestBase {
 
     public enum StatusContact {
-        REQUESTEDTO("requestedTo"),
-        REQUESTEDFROM("requestedFrom"),
-        ACCEPTED("accepted"),
-        NONE("none");
+        REQUESTEDTO(0),
+        REQUESTEDFROM(1),
+        ACCEPTED(2),
+        NONE(-1);
 
-        private final String state;
+        private final int state;
 
-        StatusContact(String state) {
+        StatusContact(int state) {
             this.state = state;
         }
 
-        public String getState() {
+        public int getState() {
             return state;
         }
 
-        public static StatusContact statusFromString(String state) {
-            if (state == null) {
+        public static StatusContact statusFromId(int state) {
+            if (state == 0) {
                 return NONE;
-            } else if (state.equalsIgnoreCase(REQUESTEDFROM.getState())) {
+            } else if (state == (REQUESTEDFROM.getState())) {
                 return REQUESTEDFROM;
-            } else if (state.equalsIgnoreCase(REQUESTEDTO.getState())) {
+            } else if (state == (REQUESTEDTO.getState())) {
                 return REQUESTEDTO;
-            } else if (state.equalsIgnoreCase(ACCEPTED.getState())) {
+            } else if (state == (ACCEPTED.getState())) {
                 return ACCEPTED;
             } else {
                 return NONE;
@@ -42,29 +43,26 @@ public class RestContact extends RestBase {
         }
     }
 
-    @SerializedName("_id")
+    @SerializedName("id")
     private String id = "";
 
-    @SerializedName("idNotificacion")
-    private long idNotificacion = 0;
-
-    @SerializedName("usuario")
+    @SerializedName("user")
     private RestUser user = new RestUser();
 
-    @SerializedName("orden")
-    private Integer orden = 0;
+    @SerializedName("order")
+    private Integer order = 0;
 
-    @SerializedName("usersCommon")
-    private List<RestContact> usersCommon = new ArrayList<>();
+    @SerializedName("commonContacts")
+    private List<RestContact> commonContacts = new ArrayList<>();
 
     @SerializedName("dateConnected")
-    private String dateConnected = "";
+    private Date dateConnected;
 
     @SerializedName("dateRequested")
-    private String dateRequested = "";
+    private Date dateRequested;
 
     @SerializedName("status")
-    private String status = "";
+    private int status = StatusContact.NONE.ordinal();
 
     public String getId() {
         return id;
@@ -82,71 +80,63 @@ public class RestContact extends RestBase {
         this.user = usuario;
     }
 
-    public Integer getOrden() {
-        return orden;
+    public Integer getOrder() {
+        return order;
     }
 
-    public void setOrden(Integer orden) {
-        this.orden = orden;
+    public void setOrder(Integer order) {
+        this.order = order;
     }
 
     public void setUser(RestUser user) {
         this.user = user;
     }
 
-    public List<RestContact> getUsersCommon() {
-        return usersCommon;
+    public List<RestContact> getCommonContacts() {
+        return commonContacts;
     }
 
-    public void setUsersCommon(List<RestContact> usersCommon) {
-        this.usersCommon = usersCommon;
+    public void setCommonContacts(List<RestContact> commonContacts) {
+        this.commonContacts = commonContacts;
     }
 
-    public String getDateConnected() {
+    public Date getDateConnected() {
         return dateConnected;
     }
 
-    public void setDateConnected(String dateConnected) {
+    public void setDateConnected(Date dateConnected) {
         this.dateConnected = dateConnected;
     }
 
-    public String getDateRequested() {
+    public Date getDateRequested() {
         return dateRequested;
     }
 
-    public void setDateRequested(String dateRequested) {
+    public void setDateRequested(Date dateRequested) {
         this.dateRequested = dateRequested;
     }
 
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
+    public void setStatus(int status) {
         this.status = status;
     }
 
-    public long getIdNotificacion() {
-        return idNotificacion;
-    }
-
-    public void setIdNotificacion(long idNotificacion) {
-        this.idNotificacion = idNotificacion;
+    public int getStatus() {
+        return status;
     }
 
     public boolean isAccepted() {
-        return StatusContact.statusFromString(getStatus()).equals(StatusContact.ACCEPTED);
+        return getStatus() == StatusContact.ACCEPTED.getState();
     }
 
     public boolean meRequestedLikeContact() {
-        return StatusContact.statusFromString(getStatus()).equals(StatusContact.REQUESTEDTO);
+        return getStatus() == StatusContact.REQUESTEDTO.getState();
     }
 
     public boolean wasRequestedToMeLikeContact() {
-        return StatusContact.statusFromString(getStatus()).equals(StatusContact.REQUESTEDFROM);
+        return getStatus() == StatusContact.REQUESTEDFROM.getState();
     }
 
     public boolean isTinkerLinkUser() {
-        return getOrden() != -1;
+        return getOrder() != -1;
     }
 }

@@ -10,7 +10,7 @@ import android.widget.SeekBar;
 
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.enums.StackCardType;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestCard;
+import com.cronosgroup.tinkerlink.model.dataacess.database.entities.TLCard;
 import com.cronosgroup.tinkerlink.view.customviews.TLTextView;
 import com.cronosgroup.tinkerlink.view.customviews.card.TLCardStack;
 import com.cronosgroup.tinkerlink.view.stack.adapter.stackcards.adapter.CardsAdapter;
@@ -208,7 +208,7 @@ public class StackCardsScreen extends RelativeLayout {
         mAdapter.setType(stackType);
     }
 
-    public void addItems(List<RestCard> restPosts) {
+    public void addItems(List<TLCard> restPosts) {
         if (mAdapter.getCount() == 0 && !restPosts.isEmpty()) {
             mPager.setVisibility(VISIBLE);
             mPageNumberIndicator.setVisibility(VISIBLE);
@@ -227,7 +227,7 @@ public class StackCardsScreen extends RelativeLayout {
         }
     }
 
-    public List<RestCard> getItems() {
+    public List<TLCard> getItems() {
         return mAdapter.getItems();
     }
 

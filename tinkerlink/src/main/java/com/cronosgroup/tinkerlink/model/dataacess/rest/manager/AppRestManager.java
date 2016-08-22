@@ -56,51 +56,51 @@ public class AppRestManager extends RestManager {
         return mGson;
     }
 
-    public void putRequest(String url, Callback callback, Object tag) {
+    public void PUT(String url, Callback callback, Object tag) {
         putRequest(url, null, RestResponse.class, callback, tag);
     }
 
-    public void putRequest(String url, Map<String, String> params, Callback callback, Object tag) {
+    public void PUT(String url, Map<String, String> params, Callback callback, Object tag) {
         putRequest(url, params, RestResponse.class, callback, tag);
     }
 
-    public void putRequest(String url, Map<String, String> params, Map<String, String> headers, Callback callback, Object tag) {
+    public void PUT(String url, Map<String, String> params, Map<String, String> headers, Callback callback, Object tag) {
         putRequest(url, params, headers, RestResponse.class, callback, tag);
     }
 
-    public void deleteRequest(String url, Callback callback, Object tag) {
+    public void DELETE(String url, Callback callback, Object tag) {
         deleteRequest(url, null, RestResponse.class, callback, tag);
     }
 
-    public void deleteRequest(String url, Map<String, String> params, Callback callback, Object tag) {
+    public void DELETE(String url, Map<String, String> params, Callback callback, Object tag) {
         deleteRequest(url, params, RestResponse.class, callback, tag);
     }
 
-    public void deleteRequest(String url, Map<String, String> params, Map<String, String> headers, Callback callback, Object tag) {
+    public void DELETE(String url, Map<String, String> params, Map<String, String> headers, Callback callback, Object tag) {
         deleteRequest(url, params, headers, RestResponse.class, callback, tag);
     }
 
-    public void getRequest(String url, Callback callback, Object tag) {
+    public void GET(String url, Callback callback, Object tag) {
         getRequest(url, RestResponse.class, callback, tag);
     }
 
-    public void getRequest(String url, Map<String, String> params, Callback callback, Object tag) {
+    public void GET(String url, Map<String, String> params, Callback callback, Object tag) {
         getRequest(url, params, null, RestResponse.class, callback, tag);
     }
 
-    public void getRequest(String url, Map<String, String> params, Map<String, String> headers, Callback callback, Object tag) {
+    public void GET(String url, Map<String, String> params, Map<String, String> headers, Callback callback, Object tag) {
         getRequest(url, params, headers, RestResponse.class, callback, tag);
     }
 
-    public void postRequest(String url, Callback callback, Object tag) {
+    public void POST(String url, Callback callback, Object tag) {
         postRequest(url, RestResponse.class, callback, tag);
     }
 
-    public void postRequest(String url, Map<String, String> params, Callback callback, Object tag) {
+    public void POST(String url, Map<String, String> params, Callback callback, Object tag) {
         postRequest(url, params, null, RestResponse.class, callback, tag);
     }
 
-    public void postRequest(String url, Map<String, String> params, Map<String, String> headers, Callback callback, Object tag) {
+    public void POST(String url, Map<String, String> params, Map<String, String> headers, Callback callback, Object tag) {
         postRequest(url, params, headers, RestResponse.class, callback, tag);
     }
 }

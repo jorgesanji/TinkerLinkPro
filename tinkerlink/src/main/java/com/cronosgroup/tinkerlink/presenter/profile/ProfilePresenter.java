@@ -66,7 +66,7 @@ public class ProfilePresenter extends TinkerLinkPresenter<ProfilePresenter.View>
                     list.add(contacto);
                 }
 
-                restContact.setUsersCommon(list);
+                restContact.setCommonContacts(list);
 
                 return restContact;
             }
