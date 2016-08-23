@@ -14,6 +14,7 @@ import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContact;
 import com.cronosgroup.tinkerlink.view.customviews.TLCommonContactsView;
 import com.cronosgroup.tinkerlink.view.customviews.TLImageButton;
 import com.cronosgroup.tinkerlink.view.customviews.TLImageRoundBorder;
+import com.cronosgroup.tinkerlink.view.customviews.TLImageView;
 import com.cronosgroup.tinkerlink.view.customviews.TLStackButton;
 import com.cronosgroup.tinkerlink.view.customviews.TLTextView;
 import com.cronosgroup.tinkerlink.view.customviews.TLViewPager;
@@ -39,7 +40,6 @@ public class ProfileScreen extends RelativeLayout {
         void onSearchTinkerStackPressed();
     }
 
-
     // Vars
     private Listener listener;
     private ProfileAdapter mAdapter;
@@ -59,6 +59,9 @@ public class ProfileScreen extends RelativeLayout {
 
     @BindView(R.id.titleWelcome)
     protected TLTextView mTitleWelcome;
+
+    @BindView(R.id.cardOverlay)
+    protected TLImageView mCardOverlay;
 
     @BindView(R.id.titleCreateProfile)
     protected TLTextView mtTitleCreateProfile;
@@ -135,6 +138,7 @@ public class ProfileScreen extends RelativeLayout {
 
     private void initUI() {
 
+        mCardOverlay.setImageResource(R.mipmap.card_bg_shadow_white);
         mTitleWelcome.setVisibility(GONE);
         mtTitleCreateProfile.setVisibility(GONE);
         mProfileUserWallImage.setVisibility(GONE);
@@ -209,7 +213,7 @@ public class ProfileScreen extends RelativeLayout {
         mUserCountry.setText(userCountry);
     }
 
-    public void setContacts(List<RestContact> contacts){
+    public void setContacts(List<RestContact> contacts) {
         mContactsView.setContacts(contacts);
     }
 }

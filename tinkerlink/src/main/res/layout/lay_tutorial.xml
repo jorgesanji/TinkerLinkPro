@@ -16,7 +16,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="@dimen/margin_big"
         android:gravity="center"
         android:orientation="vertical">
 
@@ -26,16 +25,19 @@
             android:layout_height="40dp"
             android:layout_above="@+id/containerButtons"
             android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/margin_big"
             android:background="@android:color/transparent"
             app:currentSelected="0"
             app:imageSelectedDot="@drawable/tutorial_dot_selected"
             app:imageUnSelectedDot="@drawable/tutorial_dot_unselected"
-            app:numDots="5"
+            app:numDots="4"
             app:sizeDot="8dp" />
+
+        <include layout="@layout/lay_separator"/>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="80dp"
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
@@ -43,23 +45,21 @@
                 android:id="@+id/logButton"
                 style="@style/SignButtonStyle"
                 android:layout_width="0dp"
+                android:layout_marginLeft="@dimen/margin_small"
+                android:layout_marginRight="@dimen/margin_small"
                 android:layout_weight="1"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:background="@drawable/button_sign_states"
+                android:background="@drawable/button_default_states"
                 android:text="@string/tutorial_login"
-                android:textColor="@color/white" />
+                android:textColor="@color/text_black_totally" />
 
             <com.cronosgroup.tinkerlink.view.customviews.TLButton
                 android:id="@+id/signButton"
                 style="@style/SignButtonStyle"
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_marginLeft="0dp"
-                android:layout_marginRight="10dp"
-                android:background="@drawable/button_sign_states"
-                android:text="@string/tutorial_register"
-                android:textColor="@color/white" />
+                android:layout_marginRight="@dimen/margin_small"
+                android:layout_weight="1"
+                android:text="@string/tutorial_register" />
 
         </LinearLayout>
 

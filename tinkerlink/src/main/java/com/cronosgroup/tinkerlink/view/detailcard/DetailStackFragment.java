@@ -2,8 +2,11 @@ package com.cronosgroup.tinkerlink.view.detailcard;
 
 import android.view.View;
 
+import com.cronosgroup.tinkerlink.model.dataacess.database.entities.TLCard;
 import com.cronosgroup.tinkerlink.presenter.detailcard.DetailStackPresenter;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
+
+import java.util.List;
 
 
 /**
@@ -24,8 +27,8 @@ public class DetailStackFragment extends MVPTinkerLinkFragment<DetailStackPresen
 
     @Override
     protected void onDidAppear() {
-        int position = getArguments().getInt(DetailStackActivity.KEY_POSITION);
-        detailCardScreen.initPager(getActivity().getSupportFragmentManager(), position);
+        detailCardScreen.initPager(getActivity().getSupportFragmentManager());
+        getPresenter().getCards();
     }
 
     //region **************  MVPFragment **************
@@ -43,6 +46,22 @@ public class DetailStackFragment extends MVPTinkerLinkFragment<DetailStackPresen
     //endregion
 
     //region ************** DetailStackPresenter.View **************
+
+    @Override
+    public String getIdCard() {
+        return getArguments().getString(DetailStackActivity.KEY_ITEM);
+    }
+
+    @Override
+    public void setCards(List<TLCard> list) {
+        detailCardScreen.setItems(list);
+    }
+
+    @Override
+    public void setCurrentCardVisible(int index) {
+        detailCardScreen.setCurrentCardVisible(index);
+    }
+
     //endregion
 
     //region ************** DetailStackScreen.Listener **************

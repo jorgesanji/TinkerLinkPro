@@ -10,13 +10,7 @@
         android:id="@+id/user"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:userBadge="false"
-        app:userSubTitleColor="@color/black"
-        app:userSubTitleFont="Regular"
-        app:userSubTitleSize="@dimen/text_size_small"
-        app:userTitleColor="@color/black"
-        app:userTitleFont="Regular"
-        app:userTitleSize="@dimen/text_size_mediun" />
+        app:userBadge="false" />
 
     <com.cronosgroup.tinkerlink.view.customviews.TLTextView
         android:id="@+id/recommendationText"

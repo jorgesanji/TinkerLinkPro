@@ -19,7 +19,10 @@ import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.animation.tutorial.DepthPageTransformer;
 import com.cronosgroup.tinkerlink.view.customviews.TLViewPager;
 import com.cronosgroup.tinkerlink.view.customviews.TLViewPagerIndicator;
+import com.cronosgroup.tinkerlink.view.tutorial.adapter.TutoriaItem;
 import com.cronosgroup.tinkerlink.view.tutorial.adapter.TutorialAdapter;
+
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -89,7 +92,8 @@ class TutorialScreen extends RelativeLayout {
      * @param defStyleAttr
      */
     public TutorialScreen(Context context, AttributeSet attrs, int defStyleAttr) {
-        this(context, attrs, defStyleAttr, 0);
+        super(context, attrs, defStyleAttr);
+        init();
     }
 
     /**
@@ -218,5 +222,10 @@ class TutorialScreen extends RelativeLayout {
         } else {
             mTimer.postDelayed(mAutomaticScroll, INTERVAL_TIME);
         }
+    }
+
+    public void setTutorialItems(List<TutoriaItem> list) {
+        mAdapter.setTutoriaItems(list);
+        mAdapter.notifyDataSetChanged();
     }
 }

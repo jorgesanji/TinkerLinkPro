@@ -8,67 +8,65 @@ import android.os.Build;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
-import android.widget.RelativeLayout;
 
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.enums.Font;
-import com.cronosgroup.tinkerlink.utils.TypeFaceUtils;
+import com.cronosgroup.tinkerlink.view.customviews.base.TLBaseView;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * Created by jorgesanmartin on 30/5/16.
  */
-public class TLActionButton extends RelativeLayout {
+public class TLActionButton extends TLBaseView {
 
     private static final String TAG = TLActionButton.class.getName();
 
     // Variables
     private Drawable actionIcon;
     private String actionTitle;
-    private int actionTitleFont;
     private boolean actionStatus;
 
     // View
     @BindView(R.id.ic_action)
-    TLImageView iconAction;
+    protected TLImageView iconAction;
 
     @BindView(R.id.badge_action)
-    View badge_action;
+    protected View badge_action;
 
     @BindView(R.id.title_action)
-    TLTextView title_action;
+    protected TLTextView title_action;
 
     public TLActionButton(Context context) {
-        this(context, null);
+        super(context);
     }
 
     public TLActionButton(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
+        super(context, attrs);
     }
 
     public TLActionButton(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init(attrs);
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public TLActionButton(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        init(attrs);
     }
 
-    private void init(AttributeSet attributeSet) {
-        inflate(getContext(), R.layout.lay_action_menu_button, this);
-        ButterKnife.bind(this);
+    @Override
+    public int getLayout() {
+        return R.layout.lay_action_menu_button;
+    }
+
+    @Override
+    public void initUI(AttributeSet attributeSet) {
         if (attributeSet != null) {
             TypedArray attributes = null;
             try {
                 attributes = getContext().obtainStyledAttributes(attributeSet, R.styleable.TLActionButton);
                 setActionIcon(attributes.getDrawable(R.styleable.TLActionButton_actionIcon));
                 setActionTitle(attributes.getString(R.styleable.TLActionButton_actionTitle));
-                setActionTitleFont(attributes.getInt(R.styleable.TLActionButton_actionTitleFont, TLTextView.DEFAULT_TITLE_FONT));
                 setActionStatus(attributes.getBoolean(R.styleable.TLActionButton_actionUpdateStatus, false));
             } catch (Exception ex) {
                 Log.e(TAG, ex.getMessage(), ex);
@@ -107,15 +105,6 @@ public class TLActionButton extends RelativeLayout {
     public void setActionTitle(String actionTitle) {
         this.actionTitle = actionTitle;
         title_action.setText(actionTitle);
-    }
-
-    public int getActionTitleFont() {
-        return actionTitleFont;
-    }
-
-    public void setActionTitleFont(int actionTitleFont) {
-        this.actionTitleFont = actionTitleFont;
-        title_action.setTypeface(TypeFaceUtils.getFontWithFlag(getContext(), actionTitleFont));
     }
 
     @Override

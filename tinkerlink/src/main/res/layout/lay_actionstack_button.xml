@@ -14,7 +14,7 @@
 
         <com.cronosgroup.tinkerlink.view.customviews.TLTextView
             android:id="@+id/stackTitle"
-            style="@style/Text_25_Black_Light_Style"
+            style="@style/Text_24_Black_Light_Style"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAlignment="center" />
@@ -28,7 +28,7 @@
 
         <View
             android:id="@+id/stackLine"
-            android:layout_width="30dp"
+            android:layout_width="@dimen/newsfeed_stack_line_size_button"
             android:layout_height="2dp"
             android:layout_marginTop="10dp"
             android:background="@color/tinkercolor" />

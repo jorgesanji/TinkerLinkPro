@@ -3,23 +3,20 @@ package com.cronosgroup.tinkerlink.view.customviews;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.graphics.Color;
 import android.os.Build;
 import android.support.v7.widget.PopupMenu;
 import android.text.SpannableString;
 import android.util.AttributeSet;
 import android.util.Log;
-import android.util.TypedValue;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.LinearLayout;
 
 import com.cronosgroup.tinkerlink.R;
-import com.cronosgroup.tinkerlink.enums.Font;
 import com.cronosgroup.tinkerlink.enums.ImageType;
 import com.cronosgroup.tinkerlink.interfaces.IOAddContactListener;
 import com.cronosgroup.tinkerlink.interfaces.IOIconListener;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContact;
-import com.cronosgroup.tinkerlink.utils.TypeFaceUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -113,13 +110,7 @@ public class TLUserView extends LinearLayout {
             try {
                 attributes = getContext().obtainStyledAttributes(attributeSet, R.styleable.TLUserView);
                 setTitle(attributes.getString(R.styleable.TLUserView_userTitle));
-                setTitleColor(attributes.getColor(R.styleable.TLUserView_userTitleColor, Color.BLACK));
-                setTitleFont(attributes.getInt(R.styleable.TLUserView_userTitleFont, TLTextView.DEFAULT_TITLE_FONT));
-                setTitleSize(attributes.getDimensionPixelSize(R.styleable.TLUserView_userTitleSize, TLTextView.DEFAULT_TITLE_SIZE));
                 setSubTitle(attributes.getString(R.styleable.TLUserView_userSubTitle));
-                setSubTitleColor(attributes.getColor(R.styleable.TLUserView_userSubTitleColor, Color.BLACK));
-                setSubTitleFont(attributes.getInt(R.styleable.TLUserView_userSubTitleFont, TLTextView.DEFAULT_TITLE_FONT));
-                setSubTitleSize(attributes.getDimensionPixelSize(R.styleable.TLUserView_userSubTitleSize, TLTextView.DEFAULT_TITLE_SIZE));
                 setUserIcon(attributes.getResourceId(R.styleable.TLUserView_userIcon, R.mipmap.newsfeed_avatar_hombre));
                 setOptions(attributes.getBoolean(R.styleable.TLUserView_userOptions, false));
                 setBadge(attributes.getBoolean(R.styleable.TLUserView_userBadge, true));
@@ -131,12 +122,6 @@ public class TLUserView extends LinearLayout {
                 }
             }
         } else {
-            setTitleColor(Color.BLACK);
-            setTitleFont(Font.BOLD.getType());
-            setTitleSize(getResources().getDimensionPixelSize(TLTextView.DEFAULT_TITLE_SIZE));
-            setSubTitleColor(Color.BLACK);
-            setSubTitleFont(TLTextView.DEFAULT_SUBTITLE_FONT);
-            setSubTitleSize(getResources().getDimensionPixelSize(TLTextView.DEFAULT_SUBTITLE_SIZE));
             setUserIcon(R.mipmap.newsfeed_avatar_hombre);
             setOptions(false);
             setBadge(true);
@@ -204,17 +189,6 @@ public class TLUserView extends LinearLayout {
         mUserTitle.setText(userTitle);
     }
 
-    public void setTitleFont(int font) {
-        mUserTitle.setTypeface(TypeFaceUtils.getFontWithFlag(getContext(), font));
-    }
-
-    public void setTitleSize(float size) {
-        mUserTitle.setTextSize(TypedValue.COMPLEX_UNIT_PX, size);
-    }
-
-    public void setTitleColor(int color) {
-        mUserTitle.setTextColor(color);
-    }
 
     public String getSubTitle() {
         return mUserSubTitle.getText().toString();
@@ -225,17 +199,6 @@ public class TLUserView extends LinearLayout {
         mUserSubTitle.setVisibility((subTitle != null) ? VISIBLE : GONE);
     }
 
-    public void setSubTitleFont(int font) {
-        mUserSubTitle.setTypeface(TypeFaceUtils.getFontWithFlag(getContext(), font));
-    }
-
-    public void setSubTitleSize(float size) {
-        mUserSubTitle.setTextSize(TypedValue.COMPLEX_UNIT_PX, size);
-    }
-
-    public void setSubTitleColor(int color) {
-        mUserSubTitle.setTextColor(color);
-    }
 
     public void setStatus(RestContact contacto) {
         if (!contacto.getUser().isMe()) {
@@ -286,15 +249,15 @@ public class TLUserView extends LinearLayout {
     public void setAddContactListener(IOAddContactListener addContactListener) {
         this.addContactListener = addContactListener;
         if (addContactListener != null) {
-//            mUserStatusContact.setVisibility(VISIBLE);
-//            mUserStatusContact.setOnClickListener(new OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    if (getAddContactListener() != null) {
-//                        getAddContactListener().AddContact();
-//                    }
-//                }
-//            });
+            mUserStatusContact.setVisibility(VISIBLE);
+            mUserStatusContact.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (getAddContactListener() != null) {
+                        getAddContactListener().AddContact();
+                    }
+                }
+            });
         }
     }
 

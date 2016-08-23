@@ -4,6 +4,9 @@ import android.view.View;
 
 import com.cronosgroup.tinkerlink.presenter.tutorial.TutorialPresenter;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
+import com.cronosgroup.tinkerlink.view.tutorial.adapter.TutoriaItem;
+
+import java.util.List;
 
 /**
  * Tutorial Fragment
@@ -56,11 +59,17 @@ public class TutorialFragment extends MVPTinkerLinkFragment<TutorialPresenter, T
 
     @Override
     protected void onDidAppear() {
+        getPresenter().getTutorialItems();
     }
 
     //endregion
 
     //region **************  TutorialPresenter.View **************
+
+    @Override
+    public void setTutorialItems(List<TutoriaItem> list) {
+        tutorialScreen.setTutorialItems(list);
+    }
 
     //endregion
 
@@ -81,7 +90,6 @@ public class TutorialFragment extends MVPTinkerLinkFragment<TutorialPresenter, T
     public boolean isUserLoged() {
         return getPresenter().isUserLoged();
     }
-
 
     //endregion
 

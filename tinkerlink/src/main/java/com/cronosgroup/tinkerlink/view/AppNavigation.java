@@ -17,7 +17,7 @@ import com.cronosgroup.tinkerlink.view.config.main.ConfigActivity;
 import com.cronosgroup.tinkerlink.view.config.policyprivacy.PolicyPrivacyActivity;
 import com.cronosgroup.tinkerlink.view.config.privacy.PrivacyActivity;
 import com.cronosgroup.tinkerlink.view.config.recoverypassword.RecoveryPasswordActivity;
-import com.cronosgroup.tinkerlink.view.config.verify.VerificationActivity;
+import com.cronosgroup.tinkerlink.view.config.verifyphone.VerifyPhonenActivity;
 import com.cronosgroup.tinkerlink.view.createcard.CreateCardActivity;
 import com.cronosgroup.tinkerlink.view.createrecommendation.CreateRecommendationActivity;
 import com.cronosgroup.tinkerlink.view.detailcard.DetailStackActivity;
@@ -35,6 +35,7 @@ import com.cronosgroup.tinkerlink.view.sign.SignActivity;
 import com.cronosgroup.tinkerlink.view.stack.StackActivity;
 import com.cronosgroup.tinkerlink.view.status.UserStatusActivity;
 import com.cronosgroup.tinkerlink.view.usercontacts.UserContactsActivity;
+import com.cronosgroup.tinkerlink.view.verifyemail.VerifyEmailActivity;
 
 /**
  * Created by jorgesanmartin on 2/26/16.
@@ -170,8 +171,8 @@ public final class AppNavigation implements IONavigation {
         return newTask(context, RecoveryPasswordActivity.class, bundle);
     }
 
-    private static Intent verify(Activity context, Bundle bundle) {
-        return newTask(context, VerificationActivity.class, bundle);
+    private static Intent verifyPhone(Activity context, Bundle bundle) {
+        return newTask(context, VerifyPhonenActivity.class, bundle);
     }
 
     private static Intent recommendations(Activity context, Bundle bundle) {
@@ -200,6 +201,10 @@ public final class AppNavigation implements IONavigation {
 
     private static Intent dragAndDrop(Activity context, Bundle bundle) {
         return newTask(context, DragAndDropActivity.class, bundle);
+    }
+
+    private static Intent verifyEmail(Activity context, Bundle bundle) {
+        return newTask(context, VerifyEmailActivity.class, bundle);
     }
 
     // ******************************
@@ -437,7 +442,7 @@ public final class AppNavigation implements IONavigation {
 
     @Override
     public void onLaunchUserVerification(Activity activity, Bundle bundle) {
-        startActivity(activity, verify(activity, bundle));
+        startActivity(activity, verifyPhone(activity, bundle));
     }
 
     /**
@@ -534,9 +539,24 @@ public final class AppNavigation implements IONavigation {
         startActivity(activity, chatUser(activity, bundle));
     }
 
+    /**
+     * Launch drag and drop
+     * @param activity
+     * @param bundle
+     */
+
     @Override
     public void onLaunchDragAndDrop(Activity activity, Bundle bundle) {
         startActivity(activity, dragAndDrop(activity, bundle));
+    }
 
+    /**
+     * Launch email verification
+     * @param activity
+     * @param bundle
+     */
+    @Override
+    public void onLaunchVerifyEmail(Activity activity, Bundle bundle) {
+        startActivity(activity, verifyEmail(activity, bundle));
     }
 }

@@ -166,7 +166,7 @@
     <dimen name="text_size_small_16">16sp</dimen>
     <dimen name="text_size_mediun_18">18sp</dimen>
     <dimen name="text_size_mediun_20">20sp</dimen>
-    <dimen name="text_size_big_25">25sp</dimen>
+    <dimen name="text_size_big_24">24sp</dimen>
 
     <!-- VIEw SIZES -->
 
@@ -177,5 +177,16 @@
     <dimen name="thumb_size_small">40dp</dimen>
     <dimen name="thumb_size_mediun">60dp</dimen>
     <dimen name="thumb_size_big">80dp</dimen>
+
+
+    <!-- TUTORIAL -->
+    <dimen name="tutorial_size_header">240dp</dimen>
+
+    <!-- NESFEED -->
+    <dimen name="newsfeed_size_tinker_buttons">120dp</dimen>
+    <dimen name="newsfeed_stack_line_size_button">60dp</dimen>
+
+
+
 
 </resources>

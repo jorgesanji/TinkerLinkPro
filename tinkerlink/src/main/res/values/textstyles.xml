@@ -157,23 +157,23 @@
 
     <!-- TEXTVIEW SIZE_25_SEMI_BLACK_WHITE-->
 
-    <style name="Text_25_Style">
-        <item name="android:textSize">@dimen/text_size_big_25</item>
+    <style name="Text_24_Style">
+        <item name="android:textSize">@dimen/text_size_big_24</item>
     </style>
 
-    <style name="Text_25_BlackStyle" parent="Text_25_Style">
+    <style name="Text_24_BlackStyle" parent="Text_24_Style">
         <item name="android:textColor">@color/text_black_totally</item>
     </style>
 
-    <style name="Text_25_SemiBlackStyle" parent="Text_25_Style">
+    <style name="Text_24_SemiBlackStyle" parent="Text_24_Style">
         <item name="android:textColor">@color/text_semi_black</item>
     </style>
 
-    <style name="Text_25_SemiBlackGrayStyle" parent="Text_25_Style">
+    <style name="Text_24_SemiBlackGrayStyle" parent="Text_24_Style">
         <item name="android:textColor">@color/text_black_gray</item>
     </style>
 
-    <style name="Text_25_WhiteStyle" parent="Text_25_Style">
+    <style name="Text_24_WhiteStyle" parent="Text_24_Style">
         <item name="android:textColor">@color/text_white</item>
     </style>
 

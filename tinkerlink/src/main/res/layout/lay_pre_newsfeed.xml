@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_and_text_color"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/stackButtonsContainer"
+        android:layout_marginBottom="@dimen/margin_mediun"
+        android:clipChildren="false"
+        android:clipToPadding="false">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_mediun"
+            android:layout_marginRight="@dimen/margin_mediun"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <include layout="@layout/lay_prenewsfeed_message" />
+
+            <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                style="@style/Text_24_SemiBlack_Regular_Style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_mediun"
+                android:text="@string/prenewsfeed_intro_time" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_mediun"
+                android:gravity="top|center_horizontal"
+                android:orientation="horizontal">
+
+                <com.cronosgroup.tinkerlink.view.customviews.TLImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/ic_nav_messages" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_mediun"
+                    android:layout_marginTop="-4dp"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                        style="@style/Text_16_SemiBlack_SemiBold_Style"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/prenewsfeed_intro_email" />
+
+                    <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                        style="@style/Text_16_SemiBlack_Regular_Style"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/prenewsfeed_intro_email_verify_message" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <com.cronosgroup.tinkerlink.view.customviews.TLButton
+                android:id="@+id/emailVerify"
+                style="@style/SignButtonStyle"
+                android:layout_marginTop="@dimen/margin_mediun"
+                android:text="@string/prenewsfeed_intro_verify_title" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_mediun"
+                android:gravity="top|center_horizontal"
+                android:orientation="horizontal">
+
+                <com.cronosgroup.tinkerlink.view.customviews.TLImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/ic_nav_account" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_mediun"
+                    android:layout_marginTop="-4dp"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                        style="@style/Text_16_SemiBlack_SemiBold_Style"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/prenewsfeed_intro_complete_your_profile" />
+
+                    <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+                        style="@style/Text_16_SemiBlack_Regular_Style"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/prenewsfeed_intro_complete_your_profile_message" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <com.cronosgroup.tinkerlink.view.customviews.TLButton
+                android:id="@+id/completeProfile"
+                style="@style/SignButtonStyle"
+                android:layout_marginTop="@dimen/margin_mediun"
+                android:text="@string/prenewsfeed_intro_complete_title" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <include layout="@layout/lay_newsfeed_action_buttons" />
+
+</RelativeLayout>

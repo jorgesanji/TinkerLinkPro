@@ -507,73 +507,73 @@
 
     <!-- TEXTVIEW 25 FONT BLACK-->
 
-    <style name="EditText_25_Black_Regular_Style" parent="Text_25_BlackStyle">
+    <style name="EditText_25_Black_Regular_Style" parent="Text_24_BlackStyle">
         <item name="fontNameEdit">Regular</item>
     </style>
 
-    <style name="EditText_25_Black_Bold_Style" parent="Text_25_BlackStyle">
+    <style name="EditText_25_Black_Bold_Style" parent="Text_24_BlackStyle">
         <item name="fontNameEdit">Bold</item>
     </style>
 
-    <style name="EditText_25_Black_SemiBold_Style" parent="Text_25_BlackStyle">
+    <style name="EditText_25_Black_SemiBold_Style" parent="Text_24_BlackStyle">
         <item name="fontNameEdit">SemiBold</item>
     </style>
 
-    <style name="EditText_25_Black_Light_Style" parent="Text_25_BlackStyle">
+    <style name="EditText_25_Black_Light_Style" parent="Text_24_BlackStyle">
         <item name="fontNameEdit">Light</item>
     </style>
 
     <!-- TEXTVIEW 25 FONT SEMIBLACK-->
 
-    <style name="EditText_25_SemiBlack_Regular_Style" parent="Text_25_SemiBlackStyle">
+    <style name="EditText_25_SemiBlack_Regular_Style" parent="Text_24_SemiBlackStyle">
         <item name="fontNameEdit">Regular</item>
     </style>
 
-    <style name="EditText_25_SemiBlack_Bold_Style" parent="Text_25_SemiBlackStyle">
+    <style name="EditText_25_SemiBlack_Bold_Style" parent="Text_24_SemiBlackStyle">
         <item name="fontNameEdit">Bold</item>
     </style>
 
-    <style name="EditText_25_SemiBlack_SemiBold_Style" parent="Text_25_SemiBlackStyle">
+    <style name="EditText_25_SemiBlack_SemiBold_Style" parent="Text_24_SemiBlackStyle">
         <item name="fontNameEdit">SemiBold</item>
     </style>
 
-    <style name="EditText_25_SemiBlack_Light_Style" parent="Text_25_SemiBlackStyle">
+    <style name="EditText_25_SemiBlack_Light_Style" parent="Text_24_SemiBlackStyle">
         <item name="fontNameEdit">Light</item>
     </style>
 
     <!-- TEXTVIEW 25 FONT SEMIBLACK-->
 
-    <style name="EditText_25_Gray_Regular_Style" parent="Text_25_SemiBlackGrayStyle">
+    <style name="EditText_25_Gray_Regular_Style" parent="Text_24_SemiBlackGrayStyle">
         <item name="fontNameEdit">Regular</item>
     </style>
 
-    <style name="EditText_25_Gray_Bold_Style" parent="Text_25_SemiBlackGrayStyle">
+    <style name="EditText_25_Gray_Bold_Style" parent="Text_24_SemiBlackGrayStyle">
         <item name="fontNameEdit">Bold</item>
     </style>
 
-    <style name="EditText_25_Gray_SemiBold_Style" parent="Text_25_SemiBlackGrayStyle">
+    <style name="EditText_25_Gray_SemiBold_Style" parent="Text_24_SemiBlackGrayStyle">
         <item name="fontNameEdit">SemiBold</item>
     </style>
 
-    <style name="EditText_25_Gray_Light_Style" parent="Text_25_SemiBlackGrayStyle">
+    <style name="EditText_25_Gray_Light_Style" parent="Text_24_SemiBlackGrayStyle">
         <item name="fontNameEdit">Light</item>
     </style>
 
     <!-- TEXTVIEW 25 FONT WHITE-->
 
-    <style name="EditText_25_White_Regular_Style" parent="Text_25_WhiteStyle">
+    <style name="EditText_25_White_Regular_Style" parent="Text_24_WhiteStyle">
         <item name="fontNameEdit">Regular</item>
     </style>
 
-    <style name="EditText_25_White_Bold_Style" parent="Text_25_WhiteStyle">
+    <style name="EditText_25_White_Bold_Style" parent="Text_24_WhiteStyle">
         <item name="fontNameEdit">Bold</item>
     </style>
 
-    <style name="EditText_25_White_SemiBold_Style" parent="Text_25_WhiteStyle">
+    <style name="EditText_25_White_SemiBold_Style" parent="Text_24_WhiteStyle">
         <item name="fontNameEdit">SemiBold</item>
     </style>
 
-    <style name="EditText_25_White_Light_Style" parent="Text_25_WhiteStyle">
+    <style name="EditText_25_White_Light_Style" parent="Text_24_WhiteStyle">
         <item name="fontNameEdit">Light</item>
     </style>
 

@@ -16,8 +16,7 @@ import java.util.List;
  */
 public class DetailStackActivity extends TinkerLinkActivity<DetailStackFragment> {
 
-    public static final String KEY_ITEM = "card";
-    public static final String KEY_ITEMS = "cards";
+    public static final String KEY_ITEM = "item";
     public static final String KEY_PUBLISH = "publish";
     public static final String KEY_POSITION = "position";
 

@@ -55,15 +55,7 @@
             android:layout_marginRight="@dimen/margin_mini"
             android:visibility="visible" />
 
-        <FrameLayout
-            android:id="@+id/stackButtonsContainer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:elevation="@dimen/view_elevation">
-
-            <include layout="@layout/lay_newsfeed_action_buttons" />
-
-        </FrameLayout>
+        <include layout="@layout/lay_newsfeed_action_buttons" />
 
     </RelativeLayout>
 

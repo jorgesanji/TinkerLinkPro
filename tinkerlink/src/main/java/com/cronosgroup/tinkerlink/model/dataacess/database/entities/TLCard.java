@@ -12,6 +12,7 @@ import com.raizlabs.android.dbflow.sql.language.Select;
 import com.raizlabs.android.dbflow.structure.BaseModel;
 import com.raizlabs.android.dbflow.structure.container.ForeignKeyContainer;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -20,7 +21,7 @@ import java.util.Date;
 
 @ModelContainer
 @Table(databaseName = TLDataBase.NAME)
-public class TLCard extends BaseModel {
+public class TLCard extends BaseModel implements Serializable {
 
     public static final String COLUMN_ID_CARD = "id_card";
     public static final String COLUMN_ID_USER = "id_user";

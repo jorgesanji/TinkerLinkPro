@@ -138,6 +138,8 @@ public class CardScreen extends TLLinearLayout implements TLCardView {
         inflate(getContext(), R.layout.lay_card, this);
         ButterKnife.bind(this);
         mImageContainer.setTag(TAG_SCREEN);
+        mCardOverlay.setImageResource(R.mipmap.card_bg_shadow_white);
+
     }
 
     // **************  UI Actions **************
@@ -210,10 +212,6 @@ public class CardScreen extends TLLinearLayout implements TLCardView {
 
     public void setUserCardJob(String userCardJob) {
         mUserJob.setText(userCardJob);
-    }
-
-    public void setOverlayColor(int overlayColor) {
-        mCardOverlay.setImageResource(overlayColor);
     }
 
     public void showDetail(boolean showDetail) {

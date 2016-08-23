@@ -8,18 +8,17 @@ import android.os.Build;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
-import android.widget.RelativeLayout;
 
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.utils.TypeFaceUtils;
+import com.cronosgroup.tinkerlink.view.customviews.base.TLBaseView;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * Created by jorgesanmartin on 30/5/16.
  */
-public class TLStackButton extends RelativeLayout {
+public class TLStackButton extends TLBaseView {
 
     private static final String TAG = TLStackButton.class.getName();
 
@@ -27,47 +26,47 @@ public class TLStackButton extends RelativeLayout {
     private Drawable stackIcon;
     private String stackTitle;
     private String stackSubTitle;
-    private int stackTitleFont;
-    private int stackSubTitleFont;
     private int stackColorLine;
     private int stackTitleColor;
     private int stackSubTitleColor;
 
     // View
     @BindView(R.id.stackIcon)
-    TLImageView stack_Icon;
+    protected TLImageView stack_Icon;
 
     @BindView(R.id.stackLine)
-    View stack_Line;
+    protected View stack_Line;
 
     @BindView(R.id.stackTitle)
-    TLTextView stack_Title;
+    protected TLTextView stack_Title;
 
     @BindView(R.id.stackSubTitle)
-    TLTextView stack_SubTitle;
+    protected TLTextView stack_SubTitle;
 
     public TLStackButton(Context context) {
-        this(context, null);
+        super(context);
     }
 
     public TLStackButton(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
+        super(context, attrs, 0);
     }
 
     public TLStackButton(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init(attrs);
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public TLStackButton(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        init(attrs);
     }
 
-    private void init(AttributeSet attributeSet) {
-        inflate(getContext(), R.layout.lay_actionstack_button, this);
-        ButterKnife.bind(this);
+    @Override
+    public int getLayout() {
+        return R.layout.lay_actionstack_button;
+    }
+
+    @Override
+    public void initUI(AttributeSet attributeSet) {
         if (attributeSet != null) {
             TypedArray attributes = null;
             try {
@@ -75,8 +74,6 @@ public class TLStackButton extends RelativeLayout {
                 setStackIcon(attributes.getDrawable(R.styleable.TLStackButton_stackIcon));
                 setStackTitle(attributes.getString(R.styleable.TLStackButton_stackTitle));
                 setStackSubTitle(attributes.getString(R.styleable.TLStackButton_stackSubTitle));
-                setStackSubTitleFont(attributes.getInt(R.styleable.TLStackButton_stackSubTitleFont, TLTextView.DEFAULT_TITLE_FONT));
-                setStackTitleFont(attributes.getInt(R.styleable.TLStackButton_stackTitleFont, TLTextView.DEFAULT_TITLE_FONT));
                 setStackTitleColor(attributes.getColor(R.styleable.TLStackButton_stackTitleColor, TLTextView.DEFAULT_COLOR));
                 setStackSubTitleColor(attributes.getColor(R.styleable.TLStackButton_stackSubTitleColor, TLTextView.DEFAULT_COLOR));
                 setStackColorLine((attributes.getColor(R.styleable.TLStackButton_stackLineColor, TLTextView.DEFAULT_COLOR)));
@@ -117,24 +114,6 @@ public class TLStackButton extends RelativeLayout {
     public void setStackSubTitle(String stackSubTitle) {
         this.stackSubTitle = stackSubTitle;
         stack_SubTitle.setText(stackSubTitle);
-    }
-
-    public int getStackTitleFont() {
-        return stackTitleFont;
-    }
-
-    public void setStackTitleFont(int stackTitleFont) {
-        this.stackTitleFont = stackTitleFont;
-        stack_Title.setTypeface(TypeFaceUtils.getFontWithFlag(getContext(), stackTitleFont));
-    }
-
-    public int getStackSubTitleFont() {
-        return stackSubTitleFont;
-    }
-
-    public void setStackSubTitleFont(int stackSubTitleFont) {
-        this.stackSubTitleFont = stackSubTitleFont;
-        stack_SubTitle.setTypeface(TypeFaceUtils.getFontWithFlag(getContext(), stackSubTitleFont));
     }
 
     public int getStackSubTitleColor() {

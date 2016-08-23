@@ -103,8 +103,27 @@
     <color name="text_white">#FFFFFF</color>
     <color name="text_hint">#4D000000</color>
 
+    <!-- Backgrounds -->
     <color name="dragandrop_bg_color">#E6FFFFFF</color>
 
+
+    <!-- APP Color -->
+    <color name="links_color">#151B26</color>
+    <color name="title_color">#404146</color>
+    <color name="subtitle_and_lines_color">#777777</color>
+    <color name="texts_color">#777777</color>
+    <color name="background_and_text_color">#E6E6EA</color>
+    <color name="background_white_and_texts_color">#FFFFFF</color>
+    <color name="lines_color">#DDDDDD</color>
+    <color name="background_color">#F1F4F8</color>
+    <color name="tinker_primary_color">#9C27B0</color>
+    <color name="tinker_hover_color">#7C108E</color>
+    <color name="linker_primary_color">#418C34</color>
+    <color name="linker_hover_color">#4CA03E</color>
+    <color name="recommendations_color">#F0B400</color>
+    <color name="recommendations_hover_color">#DBA400</color>
+    <color name="error_color">#F55857</color>
+    <color name="notify_color">#4586DF</color>
 
 
 </resources>

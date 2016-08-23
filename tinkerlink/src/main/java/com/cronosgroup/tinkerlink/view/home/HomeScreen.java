@@ -202,7 +202,7 @@ public class HomeScreen extends RelativeLayout {
 
     @OnClick(R.id.newsfeedbt)
     protected void newsFeedbtPressed() {
-        setPageSelected(MainFragments.NEWSFEED.ordinal());
+        setPageSelected(MainFragments.PRENEWSFEED.ordinal());
     }
 
     @OnClick(R.id.contactsbt)

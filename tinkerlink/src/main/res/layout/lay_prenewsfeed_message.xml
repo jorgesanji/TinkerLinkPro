@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/messageInfo"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/containerMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-3dp"
+        android:layout_below="@+id/arrowTop"
+        android:padding="@dimen/padding_content_big"
+        android:background="@mipmap/bubble_cuadrado"
+        android:orientation="vertical">
+
+        <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+            android:id="@+id/prenewsfeed_title"
+            style="@style/Text_24_SemiBlack_Regular_Style"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/prenewsfeed_intro_title" />
+
+        <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+            android:id="@+id/prenewsfeed_message"
+            style="@style/Text_16_Gray_Regular_Style"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_mediun"
+            android:text="@string/prenewsfeed_intro_message" />
+
+        <com.cronosgroup.tinkerlink.view.customviews.TLButton
+            android:id="@+id/prenewsfeed_button"
+            style="@style/ButtonText_14_Black_SemiBold_Style"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_mediun"
+            android:background="@drawable/button_default_states"
+            android:text="@string/prenewsfeed_intro_button" />
+
+    </LinearLayout>
+
+    <com.cronosgroup.tinkerlink.view.customviews.TLImageView
+        android:id="@+id/arrowTop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:src="@mipmap/bubble_triangulo"
+        />
+
+</RelativeLayout>

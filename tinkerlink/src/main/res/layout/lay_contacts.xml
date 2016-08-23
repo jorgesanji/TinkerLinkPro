@@ -51,9 +51,7 @@
                 android:id="@+id/continueButton"
                 style="@style/SignButtonStyle"
                 android:layout_marginTop="@dimen/margin_plus_plus_biggest"
-                android:background="@drawable/button_sign_states"
-                android:text="@string/contacts_continue"
-                android:textColor="@color/white" />
+                android:text="@string/contacts_continue" />
 
         </LinearLayout>
 

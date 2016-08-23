@@ -6,7 +6,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestCard;
+import com.cronosgroup.tinkerlink.model.dataacess.database.entities.TLCard;
 import com.cronosgroup.tinkerlink.view.detailcard.DetailStackActivity;
 import com.cronosgroup.tinkerlink.view.detailcard.adapter.page.DetailCardFragment;
 
@@ -18,7 +18,7 @@ import java.util.List;
  */
 public class DetailStackAdapter extends FragmentStatePagerAdapter {
 
-    private List<RestCard> items = new ArrayList<>();
+    private List<TLCard> items = new ArrayList<>();
 
     private final Context mContext;
 
@@ -41,11 +41,11 @@ public class DetailStackAdapter extends FragmentStatePagerAdapter {
         return items.size();
     }
 
-    public List<RestCard> getItems() {
+    public List<TLCard> getItems() {
         return items;
     }
 
-    public void setItems(List<RestCard> items) {
+    public void setItems(List<TLCard> items) {
         this.items = items;
     }
 }

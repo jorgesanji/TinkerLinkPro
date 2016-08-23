@@ -154,7 +154,6 @@ public class ChatManager {
     public List<TLMessage> getUnReadMessagesWithIdChat(String idChat) {
         return new Select().from(TLMessage.class)
                 .where(Condition.column(TLMessage$Table.READED).eq(false)).and(Condition.column(TLMessage.COLUMN_CONVERSATION).eq(idChat)).queryList();
-
     }
 
     public List<TLConversation> getAllConversations() {

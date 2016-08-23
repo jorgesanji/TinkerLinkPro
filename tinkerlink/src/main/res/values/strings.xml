@@ -110,13 +110,33 @@
     <string name="tutorial_tinker_name">Tinker</string>
     <string name="tutorial_linker_title">Convierte en un Linker\ny encuentra trabajadores\n de confianza</string>
     <string name="tutorial_linker_name">Linker</string>
-    <string name="tutorial_tinker_job">Reparador de averías</string>
-    <string name="tutorial_linker_job">Zapatero</string>
     <string name="tutorial_network_title">Descubre personas cercanas a tu\ncirculo de confianza y mantén\ncontacto con tu red</string>
     <string name="tutorial_network_user_message">Marta forma parte de tu red de confianza</string>
     <string name="tutorial_network_user_search">Marta está buscando a personas como tú!</string>
     <string name="tutorial_network_user_name">Marta Díaz</string>
     <string name="tutorial_network_user_contacts">Contactos en común (15)</string>
+
+    <string name="tutorial_tinkerLink_title">!Biendvenido a Tinkerlink!</string>
+    <string name="tutorial_tinkerLink_description">En Tinkerlink puedes crear tu propia red de expertos de confianza. No vuelvas a confiar en desconocidos.</string>
+
+    <string name="tutorial_tinkerLink_tinker_title">Ofrece servicios</string>
+    <string name="tutorial_tinkerLink_tinker_subtitle">Haz que tu trabajo hable bien de ti</string>
+    <string name="tutorial_tinkerLink_tinker_description">Consigue dinero extra trabajando en aquello en lo que eres bueno. Tu red de contactos te ayudará a destacar</string>
+    <string name="tutorial_tinker_user_name">Laura Fontana</string>
+    <string name="tutorial_tinker_type">Soy</string>
+    <string name="tutorial_tinker_job">Empleada doméstica</string>
+
+    <string name="tutorial_tinkerLink_linker_title">Encuentra expertos</string>
+    <string name="tutorial_tinkerLink_linker_subtitle">Dentro de tu red de confianza</string>
+    <string name="tutorial_tinkerLink_linker_description">Publica tu tarjeta Busco Tinker y encuentra al experto de confianza dentro de tu red de contactos para que realice el trabajo por ti.</string>
+    <string name="tutorial_linker_user_name">Alberto Días</string>
+    <string name="tutorial_linker_type">Busco</string>
+    <string name="tutorial_linker_job">Empleada doméstica</string>
+
+    <string name="tutorial_network_type">Red de confianza</string>
+    <string name="tutorial_tinkerLink_network_title">Red de confianza</string>
+    <string name="tutorial_tinkerLink_network_subtitle">Importa tus contactos y crea tu red</string>
+    <string name="tutorial_tinkerLink_network_description">Conecta con tus redes sociales y comienza a contratar gente de confianza.</string>
 
     <!--  Login  -->
     <string name="login_title">Inicia sessión</string>
@@ -173,7 +193,7 @@
     <string name="sign_register_words" formatted="false">%s/%s</string>
 
     <!--  Home  -->
-    <string name="home_newsfeed">NewsFeed</string>
+    <string name="home_newsfeed">TinkerFeed</string>
     <string name="home_contacts">Contactos</string>
     <string name="home_messages">Mensajes</string>
     <string name="home_account">Cuenta</string>
@@ -483,6 +503,24 @@
 
     <!-- GIVE RECOMMENDATIOM-->
     <string name="give_recommendation_title">Dar una recomendación</string>
+
+    <!-- PRENEWSFEED -->
+    <string name="prenewsfeed_intro_title">Navega entre las tarjetas</string>
+    <string name="prenewsfeed_intro_message">Encuentra al experto de confianza recomendado por tu red de contactos cercana</string>
+    <string name="prenewsfeed_intro_button">ENTENDIDO</string>
+    <string name="prenewsfeed_intro_time">¿Tienes unos minutos?</string>
+    <string name="prenewsfeed_intro_email">Correo electrónico</string>
+    <string name="prenewsfeed_intro_email_verify_message">Verifica tu dirección de correo electrónico para aumentar la confianza de la comunidad Tinkerlin</string>
+    <string name="prenewsfeed_intro_verify_title">VERIFICAR</string>
+    <string name="prenewsfeed_intro_complete_your_profile">Completa tu perfil</string>
+    <string name="prenewsfeed_intro_complete_your_profile_message">Incluye una breve descripción y agrega tus estudios para que los demas usuarios de Tinkerlink te conozcan un poco mejor antes de contactarte.</string>
+    <string name="prenewsfeed_intro_complete_title">COMPLETAR</string>
+
+    <!-- VERIFY EMAIL -->
+    <string name="verify_email_title">Verificar correo electrónico</string>
+    <string name="verify_email_message">Ingresa tu correo electrónico</string>
+    <string name="verify_email_hint">ejemplo@ejemplo.com</string>
+    <string name="verify_email_verify_title">VERIFY</string>
 
 
 </resources>

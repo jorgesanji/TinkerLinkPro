@@ -95,7 +95,7 @@ dependencies {
     testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2'
 
     //Streams
-    compile 'com.annimon:stream:1.1.1'
+//    compile 'com.annimon:stream:1.1.2'
 
     //Rx android
     compile 'io.reactivex:rxandroid:1.2.1'

@@ -5,11 +5,10 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 
-import com.cronosgroup.tinkerlink.view.tutorial.adapter.pages.LinkerPage;
-import com.cronosgroup.tinkerlink.view.tutorial.adapter.pages.NetworkPage;
-import com.cronosgroup.tinkerlink.view.tutorial.adapter.pages.RecomendationPage;
-import com.cronosgroup.tinkerlink.view.tutorial.adapter.pages.TinkerPage;
-import com.cronosgroup.tinkerlink.view.tutorial.adapter.pages.WelcomePage;
+import com.cronosgroup.tinkerlink.view.tutorial.adapter.pages.TutorialPage;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -18,6 +17,7 @@ import com.cronosgroup.tinkerlink.view.tutorial.adapter.pages.WelcomePage;
 public class TutorialAdapter extends PagerAdapter {
 
     private Context mContext;
+    private List<TutoriaItem> tutoriaItems = new ArrayList<>();
 
     public TutorialAdapter(Context context) {
         this.mContext = context;
@@ -25,28 +25,22 @@ public class TutorialAdapter extends PagerAdapter {
 
     @Override
     public int getCount() {
-        return 5;
+        return tutoriaItems.size();
     }
 
     @Override
     public Object instantiateItem(View collection, int position) {
-        View page;
-        switch (position) {
-            case 0:
-                page = new WelcomePage(mContext);
-                break;
-            case 1:
-                page = new RecomendationPage(mContext);
-                break;
-            case 2:
-                page = new TinkerPage(mContext);
-                break;
-            case 3:
-                page = new LinkerPage(mContext);
-                break;
-            default:
-                page = new NetworkPage(mContext);
-        }
+        TutoriaItem item = tutoriaItems.get(position);
+
+        TutorialPage page = new TutorialPage(mContext);
+        page.setCarBackground(item.getBackgroundHeader());
+        page.setImageHeader(item.getImageHeader());
+        page.setNameHeader(item.getNameHeader());
+        page.setTypeTinkerHeader(item.getTypeHeader());
+        page.setJobHeader(item.getJobHeader());
+        page.setTitle(item.getTitle());
+        page.setSubTitle(item.getSubTitle());
+        page.setDescription(item.getDescription());
 
         ((ViewPager) collection).addView(page);
         return page;
@@ -62,4 +56,11 @@ public class TutorialAdapter extends PagerAdapter {
         return view == object;
     }
 
+    public List<TutoriaItem> getTutoriaItems() {
+        return tutoriaItems;
+    }
+
+    public void setTutoriaItems(List<TutoriaItem> tutoriaItems) {
+        this.tutoriaItems = tutoriaItems;
+    }
 }

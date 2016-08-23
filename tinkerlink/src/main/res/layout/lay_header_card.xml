@@ -22,9 +22,9 @@
     <com.cronosgroup.tinkerlink.view.customviews.TLImageView
         android:id="@+id/cardOverlay"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_centerInParent="true"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:scaleType="fitXY"
-        android:src="@mipmap/card_mask" />
+        android:src="@mipmap/card_shadow_bg" />
 
 </RelativeLayout>

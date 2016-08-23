@@ -107,7 +107,9 @@
         <item name="android:layout_height">@dimen/view_min_size_sing</item>
         <item name="android:layout_marginLeft">40dp</item>
         <item name="android:layout_marginRight">40dp</item>
+        <item name="android:background">@drawable/button_sign_states</item>
     </style>
+
 
     <style name="buttonsDialogStyle">
         <item name="android:layout_width">0dp</item>
@@ -389,7 +391,7 @@
     </style>
 
     <style name="ImageFloatActionButtonStyle" parent="FloatActionButtonStyle">
-        <item name="android:background">@drawable/background_menu_gradient</item>
+        <item name="android:background">@drawable/background_tinker_linker_gradient</item>
         <item name="android:layout_width">60dp</item>
         <item name="android:layout_height">60dp</item>
         <item name="android:layout_margin">0dp</item>

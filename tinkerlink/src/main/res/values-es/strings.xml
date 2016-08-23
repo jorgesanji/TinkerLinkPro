@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">Tinkerlink</string>
+    <string name="app_name_truncate_to_paint">link</string>
 
     <!-- Status messages-->
 
@@ -109,13 +110,33 @@
     <string name="tutorial_tinker_name">Tinker</string>
     <string name="tutorial_linker_title">Convierte en un Linker\ny encuentra trabajadores\n de confianza</string>
     <string name="tutorial_linker_name">Linker</string>
-    <string name="tutorial_tinker_job">Reparador de averías</string>
-    <string name="tutorial_linker_job">Zapatero</string>
     <string name="tutorial_network_title">Descubre personas cercanas a tu\ncirculo de confianza y mantén\ncontacto con tu red</string>
     <string name="tutorial_network_user_message">Marta forma parte de tu red de confianza</string>
     <string name="tutorial_network_user_search">Marta está buscando a personas como tú!</string>
     <string name="tutorial_network_user_name">Marta Díaz</string>
     <string name="tutorial_network_user_contacts">Contactos en común (15)</string>
+
+    <string name="tutorial_tinkerLink_title">!Biendvenido a Tinkerlink!</string>
+    <string name="tutorial_tinkerLink_description">En Tinkerlink puedes crear tu propia red de expertos de confianza. No vuelvas a confiar en desconocidos.</string>
+
+    <string name="tutorial_tinkerLink_tinker_title">Ofrece servicios</string>
+    <string name="tutorial_tinkerLink_tinker_subtitle">Haz que tu trabajo hable bien de ti</string>
+    <string name="tutorial_tinkerLink_tinker_description">Consigue dinero extra trabajando en aquello en lo que eres bueno. Tu red de contactos te ayudará a destacar</string>
+    <string name="tutorial_tinker_user_name">Laura Fontana</string>
+    <string name="tutorial_tinker_type">Soy</string>
+    <string name="tutorial_tinker_job">Empleada doméstica</string>
+
+    <string name="tutorial_tinkerLink_linker_title">Encuentra expertos</string>
+    <string name="tutorial_tinkerLink_linker_subtitle">Dentro de tu red de confianza</string>
+    <string name="tutorial_tinkerLink_linker_description">Publica tu tarjeta Busco Tinker y encuentra al experto de confianza dentro de tu red de contactos para que realice el trabajo por ti.</string>
+    <string name="tutorial_linker_user_name">Alberto Días</string>
+    <string name="tutorial_linker_type">Busco</string>
+    <string name="tutorial_linker_job">Empleada doméstica</string>
+
+    <string name="tutorial_network_type">Red de confianza</string>
+    <string name="tutorial_tinkerLink_network_title">Red de confianza</string>
+    <string name="tutorial_tinkerLink_network_subtitle">Importa tus contactos y crea tu red</string>
+    <string name="tutorial_tinkerLink_network_description">Conecta con tus redes sociales y comienza a contratar gente de confianza.</string>
 
     <!--  Login  -->
     <string name="login_title">Inicia sessión</string>
@@ -172,7 +193,7 @@
     <string name="sign_register_words" formatted="false">%s/%s</string>
 
     <!--  Home  -->
-    <string name="home_newsfeed">NewsFeed</string>
+    <string name="home_newsfeed">TinkerFeed</string>
     <string name="home_contacts">Contactos</string>
     <string name="home_messages">Mensajes</string>
     <string name="home_account">Cuenta</string>
@@ -238,10 +259,11 @@
     <string name="create_card_add_skill_hint">Agrega una habilidad</string>
     <string name="create_card_add_skill_number" formatted="false">%s/%s</string>
     <string name="create_card_experience">EXPERIENCIA DESEADA</string>
+    <string name="create_card_tinker_experience_default">%s años</string>
     <string name="create_card_experience_default" formatted="false">%s a %s años</string>
     <string name="create_card_budget_title">PRESUPUESTO</string>
     <string name="create_card_budget_select_range">Selecciona un rango</string>
-    <string name="create_card_budget_range" formatted="false">%s a %s euros</string>
+    <string name="create_card_budget_range">%s euros</string>
     <string name="create_card_experience_agree">A convenir</string>
     <string name="create_card_experience_previsualize">PREVISUALIZAR</string>
     <string name="create_card_publish">PUBLICAR</string>
@@ -250,6 +272,7 @@
     <string name="create_card_value_title">Selecciona el valor a percibir</string>
     <string name="create_card_experience_title">EXPERIENCIA</string>
     <string name="create_card_value_job_title">VALOR DE TU TRABAJO</string>
+    <string name="create_card_value_tinker_selection_job_mode">Selecciona en que modalidad trabajas</string>
     <string name="create_card_value_by_project">Por projecto</string>
     <string name="create_card_value_by_day">Por día</string>
     <string name="create_card_value_by_hour">Por hora</string>

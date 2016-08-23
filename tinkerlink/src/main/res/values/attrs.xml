@@ -170,24 +170,7 @@
 
     <declare-styleable name="TLUserView">
         <attr name="userTitle" format="string" />
-        <attr name="userTitleFont" format="integer">
-            <flag name="Regular" value="0" />
-            <flag name="Bold" value="1" />
-            <flag name="Light" value="2" />
-            <flag name="SemiBold" value="3" />
-        </attr>
-        <attr name="userTitleSize" format="dimension" />
-        <attr name="userTitleColor" format="color" />
-
         <attr name="userSubTitle" format="string" />
-        <attr name="userSubTitleFont" format="integer">
-            <flag name="Regular" value="0" />
-            <flag name="Bold" value="1" />
-            <flag name="Light" value="2" />
-            <flag name="SemiBold" value="3" />
-        </attr>
-        <attr name="userSubTitleSize" format="dimension" />
-        <attr name="userSubTitleColor" format="color" />
         <attr name="userOptions" format="boolean" />
         <attr name="userBadge" format="boolean" />
         <attr name="userIcon" format="reference" />
@@ -198,13 +181,6 @@
         <attr name="actionIcon" format="reference" />
         <attr name="actionTitle" format="string" />
         <attr name="actionUpdateStatus" format="boolean" />
-        <attr name="actionTitleFont" format="integer">
-            <flag name="Regular" value="0" />
-            <flag name="Bold" value="1" />
-            <flag name="Light" value="2" />
-            <flag name="SemiBold" value="3" />
-        </attr>
-
     </declare-styleable>
 
     <declare-styleable name="TLStackButton">
@@ -215,19 +191,6 @@
         <attr name="stackSubTitleColor" format="color" />
         <attr name="stackIcon" format="reference" />
         <attr name="stackIconPressed" format="reference" />
-        <attr name="stackTitleFont" format="integer">
-            <flag name="Regular" value="0" />
-            <flag name="Bold" value="1" />
-            <flag name="Light" value="2" />
-            <flag name="SemiBold" value="3" />
-        </attr>
-
-        <attr name="stackSubTitleFont" format="integer">
-            <flag name="Regular" value="0" />
-            <flag name="Bold" value="1" />
-            <flag name="Light" value="2" />
-            <flag name="SemiBold" value="3" />
-        </attr>
 
     </declare-styleable>
 

@@ -7,7 +7,7 @@
 
     <com.cronosgroup.tinkerlink.view.customviews.TLTextView
         android:id="@+id/titleTLinker"
-        style="@style/Text_25_Gray_Regular_Style"
+        style="@style/Text_24_Gray_Regular_Style"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_mediun"

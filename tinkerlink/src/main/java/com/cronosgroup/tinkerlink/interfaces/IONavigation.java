@@ -66,4 +66,6 @@ public interface IONavigation {
 
     void onLaunchDragAndDrop(Activity activity, Bundle bundle);
 
+    void onLaunchVerifyEmail(Activity activity, Bundle bundle);
+
 }

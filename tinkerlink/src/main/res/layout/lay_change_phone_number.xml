@@ -61,8 +61,7 @@
             style="@style/SignButtonStyle"
             android:layout_marginTop="@dimen/margin_small"
             android:background="@drawable/button_sign_states"
-            android:text="@string/configuration_phone_verify"
-            android:textColor="@color/white" />
+            android:text="@string/configuration_phone_verify" />
 
 
     </LinearLayout>

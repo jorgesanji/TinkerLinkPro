@@ -63,9 +63,7 @@
                 android:id="@+id/sendButton"
                 style="@style/SignButtonStyle"
                 android:layout_marginTop="@dimen/margin_plus_big"
-                android:background="@drawable/button_sign_states"
-                android:text="@string/configuration_send_code"
-                android:textColor="@color/white" />
+                android:text="@string/configuration_send_code" />
 
         </LinearLayout>
 

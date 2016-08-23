@@ -8,7 +8,7 @@ import android.util.AttributeSet;
 import android.widget.RelativeLayout;
 
 import com.cronosgroup.tinkerlink.R;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestCard;
+import com.cronosgroup.tinkerlink.model.dataacess.database.entities.TLCard;
 import com.cronosgroup.tinkerlink.view.customviews.TLViewPager;
 import com.cronosgroup.tinkerlink.view.detailcard.adapter.DetailStackAdapter;
 
@@ -56,7 +56,8 @@ public class DetailStackScreen extends RelativeLayout {
      * @param defStyleAttr
      */
     public DetailStackScreen(Context context, AttributeSet attrs, int defStyleAttr) {
-        this(context, attrs, defStyleAttr, 0);
+        super(context, attrs, defStyleAttr);
+        init();
     }
 
     /**
@@ -89,15 +90,17 @@ public class DetailStackScreen extends RelativeLayout {
         this.listener = listener;
     }
 
-    public void initPager(FragmentManager manager, int position) {
+    public void initPager(FragmentManager manager) {
         mAdapter = new DetailStackAdapter(manager, getContext());
         mPager.setAdapter(mAdapter);
-        mPager.setCurrentItem(position);
     }
 
-    public void setItems(List<RestCard> list) {
+    public void setItems(List<TLCard> list) {
         mAdapter.getItems().addAll(list);
         mAdapter.notifyDataSetChanged();
     }
 
+    public void setCurrentCardVisible(int index) {
+        mPager.setCurrentItem(index);
+    }
 }

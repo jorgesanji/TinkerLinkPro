@@ -13,8 +13,7 @@ import com.cronosgroup.tinkerlink.view.home.MainFragments;
 public class HomeAdapter extends FragmentStatePagerAdapter {
 
     // Vars
-    private MainFragments[] fragments = {MainFragments.NEWSFEED, MainFragments.CONTACTS, MainFragments.CHAT, MainFragments.ACCOUNT};
-
+    private MainFragments[] fragments = {MainFragments.PRENEWSFEED, MainFragments.CONTACTS, MainFragments.CHAT, MainFragments.ACCOUNT};
 
     private Context mContetxt;
 

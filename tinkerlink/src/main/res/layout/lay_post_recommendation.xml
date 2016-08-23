@@ -17,13 +17,7 @@
             android:id="@+id/userContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margin_small"
-            app:userSubTitleColor="@color/gray_30"
-            app:userSubTitleFont="Regular"
-            app:userSubTitleSize="@dimen/text_size_tiny"
-            app:userTitleColor="@color/black"
-            app:userTitleFont="Bold"
-            app:userTitleSize="@dimen/text_size_mediun" />
+            android:layout_margin="@dimen/margin_small" />
 
         <RelativeLayout
             android:id="@+id/containerInfocard"

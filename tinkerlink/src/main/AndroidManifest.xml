@@ -193,7 +193,7 @@
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".view.config.verify.VerificationActivity"
+            android:name=".view.config.verifyphone.VerifyPhonenActivity"
             android:screenOrientation="portrait" />
 
         <activity
@@ -236,6 +236,10 @@
             android:name=".view.dragdrop.DragAndDropActivity"
             android:screenOrientation="portrait"
             android:theme="@style/ThemeActivityTransparent" />
+
+        <activity
+            android:name=".view.verifyemail.VerifyEmailActivity"
+            android:screenOrientation="portrait" />
 
     </application>
 

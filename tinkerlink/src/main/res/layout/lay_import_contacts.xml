@@ -57,7 +57,6 @@
                 android:layout_marginLeft="@dimen/margin_plus_plus_biggest"
                 android:layout_marginRight="@dimen/margin_plus_plus_biggest"
                 android:layout_marginTop="@dimen/margin_big"
-                android:background="@drawable/button_sign_states"
                 android:text="@string/import_contacts_continue" />
 
             <com.cronosgroup.tinkerlink.view.customviews.TLButton

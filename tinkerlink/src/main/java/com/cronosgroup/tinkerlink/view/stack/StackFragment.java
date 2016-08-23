@@ -81,7 +81,6 @@ public class StackFragment extends MVPTinkerLinkFragment<StackPresenter, StackPr
         return this;
     }
 
-
     //region **************  StackScreen.View **************
 
     @Override

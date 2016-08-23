@@ -54,9 +54,10 @@ public class StackCardsPresenter extends TinkerLinkPresenter<StackCardsPresenter
         getView().getActivity().finish();
     }
 
-    public void onLaunhDetailStack() {
+    public void onLaunhDetailStack(int position) {
         Bundle bundle = new Bundle();
         bundle.putSerializable(StackActivity.STACK_TYPE, getView().getType());
+        bundle.putString(DetailStackActivity.KEY_ITEM, getView().getItems().get(position).getId());
         navigation.onLaunchDetailCard(getView().getActivity(), bundle);
     }
 
@@ -80,6 +81,7 @@ public class StackCardsPresenter extends TinkerLinkPresenter<StackCardsPresenter
                 for (int posts = 0; posts < 10; posts++) {
                     TLCard tlCard = new TLCard();
                     tlCard.setId(posts + "");
+                    tlCard.save();
                     list.add(tlCard);
                 }
 

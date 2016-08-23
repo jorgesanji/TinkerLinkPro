@@ -39,7 +39,7 @@ public class NewsFeedScreen extends RelativeLayout {
     public static final int MAX_ITEMS = 25;
 
     /**
-     * listeners of the home's screen.
+     * listeners of the NewsFeed's screen.
      */
     public interface Listener {
         void onImTinkerStackPressed();

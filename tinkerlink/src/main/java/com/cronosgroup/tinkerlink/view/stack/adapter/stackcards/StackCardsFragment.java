@@ -91,7 +91,7 @@ public class StackCardsFragment extends MVPTinkerLinkFragment<StackCardsPresente
 
     @Override
     public void onCardPressed(int position) {
-        getPresenter().onLaunhDetailStack();
+        getPresenter().onLaunhDetailStack(position);
     }
 
     @Override
