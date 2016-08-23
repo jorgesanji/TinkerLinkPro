@@ -8,7 +8,7 @@ import java.util.List;
 
 public class RestChat extends RestBase {
 
-    @SerializedName("_id")
+    @SerializedName("id")
     private String id = "";
 
     @SerializedName("user")

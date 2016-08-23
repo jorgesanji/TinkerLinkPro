@@ -8,18 +8,17 @@ import com.cronosgroup.tinkerlink.model.dataacess.database.manager.CardManager;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestChat;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContact;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestMessage;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestProfile;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestRecommendation;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestUser;
 import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenter;
 import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenterView;
 import com.cronosgroup.tinkerlink.utils.AsyncLoader;
-import com.cronosgroup.tinkerlink.utils.DateUtils;
 import com.cronosgroup.tinkerlink.view.chatuser.ChatUserActivity;
 import com.cronosgroup.tinkerlink.view.detailcard.DetailStackActivity;
 import com.cronosgroup.tinkerlink.view.stack.StackActivity;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -95,41 +94,6 @@ public class StackCardsPresenter extends TinkerLinkPresenter<StackCardsPresenter
         };
 
         asyncLoader.start();
-//        getView().showLoading();
-
-//        if (getView().isFromUser()) {
-//            CardUseCases.getUserCards(getView().getUser().getId(), getView().getType().getStackType(), offset, new Callback<List<RestPost>, RestError>() {
-//
-//                @Override
-//                public void onResponse(List<RestPost> response) {
-//                    getView().setCards(response);
-//                    getView().hideLoading();
-//                }
-//
-//                @Override
-//                public void onErrorResponse(RestError error) {
-//                    getView().getSnackMessageManager().showNetworkError();
-//                    getView().hideLoading();
-//                }
-//
-//            }, getView().getActivity());
-//        } else {
-//            CardUseCases.getAllCards(getView().getType().getStackType(), offset, new Callback<List<RestPost>, RestError>() {
-//
-//                @Override
-//                public void onResponse(List<RestPost> response) {
-//                    getView().setCards(response);
-//                    getView().hideLoading();
-//                }
-//
-//                @Override
-//                public void onErrorResponse(RestError error) {
-//                    getView().getSnackMessageManager().showNetworkError();
-//                    getView().hideLoading();
-//                }
-//
-//            }, getView().getActivity());
-//        }
     }
 
     public void showDetailCard() {
@@ -159,13 +123,11 @@ public class StackCardsPresenter extends TinkerLinkPresenter<StackCardsPresenter
     }
 
     public void onWritteMessageSelected() {
-        RestProfile restProfile = new RestProfile();
-        restProfile.setProfession("Fontanero");
 
         RestUser restUser = new RestUser();
         restUser.setName("Jorge Sanmartin");
         restUser.setPhoto("https://pixabay.com/static/uploads/photo/2016/03/28/12/35/cat-1285634_960_720.png");
-        restUser.setProfile(restProfile);
+        restUser.setProfession("Fontanero");
 
         RestContact restContact = new RestContact();
         restContact.setUser(restUser);
@@ -194,22 +156,17 @@ public class StackCardsPresenter extends TinkerLinkPresenter<StackCardsPresenter
             public List<RestRecommendation> doInBackground() {
                 List<RestRecommendation> list = new ArrayList<>();
 
-                RestProfile restProfile = new RestProfile();
-                restProfile.setProfession("Developer");
-
                 RestUser restUser = new RestUser();
                 restUser.setName("Luisito");
                 restUser.setPhoto("http://api.ning.com/files/3G-NNOsexAFFbCt-XN5LbraHbYlrzivPtxx39pnQ8w48JITkdWKLhPCFGwt4p7794nvVE97YYfqtSwVmiSLhl1jXxV4IfejV/Staindwallcopy.jpg");
-                restUser.setProfile(restProfile);
-
-                RestContact restContact = new RestContact();
-                restContact.setUser(restUser);
+                restUser.setProfession("Developer");
 
                 for (int init = 0; init < 10; init++) {
                     RestRecommendation restRecomendacion = new RestRecommendation();
-                    restRecomendacion.setUser(restContact);
-                    restRecomendacion.setRecomendacion("Es un crack de craks es el padre de la informatica si si siiiiiiii");
-                    restRecomendacion.setCreateDate(DateUtils.getDateIntervalFromTimeStamp(1350574775, getView().getContext()));
+                    restRecomendacion.setUser(restUser);
+                    restRecomendacion.setText("Es un crack de craks es el padre de la informatica si si siiiiiiii");
+//                    restRecomendacion.setCreateDate(DateUtils.getDateIntervalFromTimeStamp(1350574775, getView().getContext()));
+                    restRecomendacion.setCreateDate(new Date());
                     list.add(restRecomendacion);
                 }
 

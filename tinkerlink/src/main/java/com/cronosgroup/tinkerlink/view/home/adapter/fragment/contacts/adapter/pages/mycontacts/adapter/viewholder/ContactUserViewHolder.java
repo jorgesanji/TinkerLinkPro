@@ -34,7 +34,7 @@ public class ContactUserViewHolder extends BaseViewHolder<RestContact> {
     public void configureItem(RestContact item) {
         super.configureItem(item);
         mContactView.setUserName(item.getUser().getName());
-        mContactView.setUserProfession(item.getUser().getProfile().getProfession());
+        mContactView.setUserProfession(item.getUser().getProfession());
         mContactView.setUserImageFromUrl(item.getUser().getPhoto());
         mContactView.setListener(new TLUserContactView.Listener() {
             @Override

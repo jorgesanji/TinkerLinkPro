@@ -5,7 +5,7 @@ import android.view.View;
 
 import com.cronosgroup.tinkerlink.enums.StackCardType;
 import com.cronosgroup.tinkerlink.interfaces.IOFormListener;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestCategoria;
+import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestCategory;
 import com.cronosgroup.tinkerlink.presenter.sign.TLinkerSelectorPresenter;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
 
@@ -21,7 +21,7 @@ public class TLinkerSelectorFragment extends MVPTinkerLinkFragment<TLinkerSelect
 
     //Vars
     private IOFormListener mCallback;
-    private RestCategoria categoria;
+    private RestCategory categoria;
     private StackCardType typeTinker;
 
     //Views
@@ -72,7 +72,7 @@ public class TLinkerSelectorFragment extends MVPTinkerLinkFragment<TLinkerSelect
     //region **************  TLinkerSelectorPresenter.View **************
 
     @Override
-    public void setCategories(List<RestCategoria> categories) {
+    public void setCategories(List<RestCategory> categories) {
         tLinkerSelectorScreen.setItems(categories);
     }
 
@@ -81,7 +81,7 @@ public class TLinkerSelectorFragment extends MVPTinkerLinkFragment<TLinkerSelect
     //region **************  LinkerSelectorScreen.Listener **************
 
     @Override
-    public void setCurrentCategorySelected(RestCategoria categoria) {
+    public void setCurrentCategorySelected(RestCategory categoria) {
         this.categoria = categoria;
     }
 

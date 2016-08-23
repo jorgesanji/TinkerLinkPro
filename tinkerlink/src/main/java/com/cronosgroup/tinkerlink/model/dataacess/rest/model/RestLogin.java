@@ -8,7 +8,7 @@ import com.google.gson.annotations.SerializedName;
  */
 public class RestLogin extends RestBase {
 
-    @SerializedName("usuario")
+    @SerializedName("user")
     private RestUser user = new RestUser();
 
     public RestUser getUser() {

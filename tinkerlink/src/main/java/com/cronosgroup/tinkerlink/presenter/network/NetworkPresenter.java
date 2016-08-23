@@ -1,7 +1,6 @@
 package com.cronosgroup.tinkerlink.presenter.network;
 
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestNetwork;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestProfile;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestUser;
 import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkDialogPresenter;
 import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkDialogPresenterView;
@@ -217,43 +216,41 @@ public class NetworkPresenter extends TinkerLinkDialogPresenter<NetworkPresenter
                 tinkcategories.add("Reparaciónes");
 
                 // set Contacts
-                RestProfile restProfile = new RestProfile();
-                restProfile.setProfession("Carpintero");
 
                 RestUser restUser = new RestUser();
                 restUser.setName("Jorge Luis");
                 restUser.setPhoto("http://img.webme.com/pic/m/metallica-cf/jameshetfield.jpg");
-                restUser.setProfile(restProfile);
+                restUser.setProfession("Carpintero");
 
                 RestUser restUser1 = new RestUser();
                 restUser1.setName("Jorge Luis");
                 restUser1.setPhoto("http://img.webme.com/pic/m/metallica-cf/jameshetfield.jpg");
-                restUser1.setProfile(restProfile);
+                restUser1.setProfession("Carpintero");
 
                 RestUser restUser2 = new RestUser();
                 restUser2.setName("Jorge Luis");
                 restUser2.setPhoto("http://img.webme.com/pic/m/metallica-cf/jameshetfield.jpg");
-                restUser2.setProfile(restProfile);
+                restUser2.setProfession("Carpintero");
 
                 RestUser restUser3 = new RestUser();
                 restUser3.setName("Jorge Luis");
                 restUser3.setPhoto("http://img.webme.com/pic/m/metallica-cf/jameshetfield.jpg");
-                restUser3.setProfile(restProfile);
+                restUser3.setProfession("Carpintero");
 
                 RestUser restUser4 = new RestUser();
                 restUser4.setName("Jorge Luis");
                 restUser4.setPhoto("http://img.webme.com/pic/m/metallica-cf/jameshetfield.jpg");
-                restUser4.setProfile(restProfile);
+                restUser4.setProfession("Carpintero");
 
                 RestUser restUser5 = new RestUser();
                 restUser5.setName("Jorge Luis");
                 restUser5.setPhoto("http://img.webme.com/pic/m/metallica-cf/jameshetfield.jpg");
-                restUser5.setProfile(restProfile);
+                restUser5.setProfession("Carpintero");
 
                 RestUser restUser6 = new RestUser();
                 restUser6.setName("Jorge Luis");
                 restUser6.setPhoto("http://img.webme.com/pic/m/metallica-cf/jameshetfield.jpg");
-                restUser6.setProfile(restProfile);
+                restUser6.setProfession("Carpintero");
 
                 List<RestUser> contacts = new ArrayList<>();
                 contacts.add(restUser);

@@ -12,7 +12,7 @@ import com.cronosgroup.core.view.BaseAdapter;
 import com.cronosgroup.core.view.animator.SlideInUpAnimator;
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.enums.StackCardType;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestCategoria;
+import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestCategory;
 import com.cronosgroup.tinkerlink.utils.TLDIviderGridSpacingDecoration;
 import com.cronosgroup.tinkerlink.view.cardfilter.adapter.FilterCardsAdapter;
 import com.cronosgroup.tinkerlink.view.customviews.TLRecyclerView;
@@ -138,7 +138,7 @@ public class FilterCardsScreen extends LinearLayout {
         this.listener = listener;
     }
 
-    public void setItems(List<RestCategoria> list, StackCardType type) {
+    public void setItems(List<RestCategory> list, StackCardType type) {
         mAdapter.setType(type);
         mAdapter.addItems(list);
     }

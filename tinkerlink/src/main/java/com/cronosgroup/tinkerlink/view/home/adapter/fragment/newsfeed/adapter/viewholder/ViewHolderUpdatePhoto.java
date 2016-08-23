@@ -139,19 +139,19 @@ public class ViewHolderUpdatePhoto extends ViewHolderPostBase<RestPost> {
         });
 
         mUserName.setText(user.getName());
-        if (user.getProfile().getProfession().isEmpty()) {
+        if (user.getProfession().isEmpty()) {
             mUserOcupation.setVisibility(View.GONE);
         } else {
-            mUserOcupation.setText(user.getProfile().getProfession());
+            mUserOcupation.setText(user.getProfession());
             mUserOcupation.setVisibility(View.VISIBLE);
         }
 
-        if (user.getProfile().getLocation() == null) {
-            mUserLocation.setVisibility(View.GONE);
-        } else {
-            mUserLocation.setText(user.getProfile().getLocation());
-            mUserLocation.setVisibility(View.VISIBLE);
-        }
+//        if (user.getProfile().getLocation() == null) {
+//            mUserLocation.setVisibility(View.GONE);
+//        } else {
+//            mUserLocation.setText(user.getProfile().getLocation());
+//            mUserLocation.setVisibility(View.VISIBLE);
+//        }
     }
 
     protected void setImageCard(final RestPost post) {

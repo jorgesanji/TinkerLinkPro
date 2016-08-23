@@ -8,11 +8,11 @@ import com.google.gson.annotations.SerializedName;
  */
 public class RestStudy extends RestBase {
 
-    @SerializedName("escuela")
+    @SerializedName("school")
     private String school = "";
 
-    @SerializedName("curso")
-    private String course = "";
+    @SerializedName("course_name")
+    private String courseName = "";
 
     public String getSchool() {
         return school;
@@ -22,11 +22,11 @@ public class RestStudy extends RestBase {
         this.school = school;
     }
 
-    public String getCourse() {
-        return course;
+    public String getCourseName() {
+        return courseName;
     }
 
-    public void setCourse(String course) {
-        this.course = course;
+    public void setCourseName(String courseName) {
+        this.courseName = courseName;
     }
 }

@@ -3,7 +3,6 @@ package com.cronosgroup.tinkerlink.model.dataacess.database.manager;
 import com.cronosgroup.tinkerlink.model.dataacess.database.entities.TLNotification;
 import com.cronosgroup.tinkerlink.model.dataacess.database.entities.TLNotification$Table;
 import com.cronosgroup.tinkerlink.model.dataacess.database.entities.TLUser;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.manager.AppRestManager;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestNotificacion;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestUser;
 import com.raizlabs.android.dbflow.runtime.TransactionManager;
@@ -107,7 +106,7 @@ public class NotificationsManager {
     }
 
     public TLNotification saveNotification(RestNotificacion restNotificacion) {
-        if (notificationsAllowed.contains(restNotificacion.getTipo())) {
+        if (notificationsAllowed.contains(restNotificacion.getType())) {
 
             RestUser user = restNotificacion.getUser().getUser();
 
@@ -123,23 +122,19 @@ public class NotificationsManager {
                     userdb.setName(user.getName());
                     userdb.setBirthday(user.getBirthday());
                     userdb.setEmail(user.getEmail());
-//                    userdb.setStatus(restNotificacion.getUser().getStatus());
                     userdb.save();
                 }
 
                 notification = new TLNotification();
                 notification.setId(restNotificacion.getId());
-                notification.setIdNotifications(restNotificacion.getIdNotificacion());
                 notification.setUserForeignKeyContainer(userdb);
 
             }
 
-            notification.setDate(restNotificacion.getFecha());
-            notification.setHabilities(restNotificacion.getIntervalo());
-            notification.setTipo(restNotificacion.getTipo());
-            notification.setReaded(restNotificacion.getLeida());
+            notification.setDate(restNotificacion.getDate());
+            notification.setTipo(restNotificacion.getType());
+            notification.setReaded(restNotificacion.getReaded());
             notification.setTexto(restNotificacion.getTexto());
-            notification.setHabilities(AppRestManager.mapping.mappingToStringJson(restNotificacion.getHabilities()));
             notification.save();
 
             return notification;

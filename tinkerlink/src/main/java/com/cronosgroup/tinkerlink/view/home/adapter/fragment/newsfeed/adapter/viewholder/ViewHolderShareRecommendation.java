@@ -24,13 +24,13 @@ public class ViewHolderShareRecommendation extends ViewHolderRecommendation {
 
         RestPost postShared = post.getPost();
         setUserRecommendationAction(post.getUser(), R.string.newsfeed_share_recommendations_text);
-        setInfoContact(postShared.getContact());
-        if (postShared.getText().isEmpty()) {
-            mCardDescription.setVisibility(View.GONE);
-        } else {
-            mCardDescription.setText(postShared.getText());
-            mCardDescription.setVisibility(View.VISIBLE);
-        }
+//        setInfoContact(postShared.getContact());
+//        if (postShared.getText().isEmpty()) {
+//            mCardDescription.setVisibility(View.GONE);
+//        } else {
+//            mCardDescription.setText(postShared.getText());
+//            mCardDescription.setVisibility(View.VISIBLE);
+//        }
         mFriendsButton.setText(String.valueOf(postShared.getUser().getUser().getRecommendations()));
         mShareButton.setText(String.valueOf(post.getNumberShares()));
         mViews.setText(String.valueOf(post.getNumberOfViews()));

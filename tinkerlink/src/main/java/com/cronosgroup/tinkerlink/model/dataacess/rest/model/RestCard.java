@@ -66,6 +66,14 @@ public class RestCard extends RestBase {
     @SerializedName("images")
     private List<String> images = new ArrayList<String>();
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
     public List<String> getImages() {
         return images;
     }
@@ -200,13 +208,5 @@ public class RestCard extends RestBase {
 
     public void setRecommendations(List<RestRecommendation> recommendations) {
         this.recommendations = recommendations;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 }

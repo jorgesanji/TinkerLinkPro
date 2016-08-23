@@ -123,10 +123,10 @@ public class ViewHolderTinker extends ViewHolderPostBase<RestPost> {
         });
 
         mUserName.setText(user.getName());
-        mUserOcupation.setText(post.getProfession().toUpperCase());
-        mUserLocation.setText(post.getLocation());
-        String description = String.format(getResources().getString(title), post.getProfession() + " " + post.getTimeByProject().toLowerCase());
-        mCardDescription.setText(description);
+//        mUserOcupation.setText(post.getProfession().toUpperCase());
+//        mUserLocation.setText(post.getLocation());
+//        String description = String.format(getResources().getString(title), post.getProfession() + " " + post.getTimeByProject().toLowerCase());
+//        mCardDescription.setText(description);
         mFriendsButton.setText(String.valueOf(user.getRecommendations()));
         mShareButton.setText(String.valueOf(post.getNumberShares()));
         mViews.setText(String.valueOf(post.getNumberOfViews()));

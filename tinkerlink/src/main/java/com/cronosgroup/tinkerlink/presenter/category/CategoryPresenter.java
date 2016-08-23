@@ -1,6 +1,6 @@
 package com.cronosgroup.tinkerlink.presenter.category;
 
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestCategoria;
+import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestCategory;
 import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkDialogPresenter;
 import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkDialogPresenterView;
 import com.cronosgroup.tinkerlink.utils.AsyncLoader;
@@ -17,7 +17,7 @@ public class CategoryPresenter extends TinkerLinkDialogPresenter<CategoryPresent
      * Contacts listeners.
      */
     public interface View extends TinkerLinkDialogPresenterView {
-        void setCategories(List<RestCategoria> list);
+        void setCategories(List<RestCategory> list);
     }
 
     // public methods
@@ -26,13 +26,13 @@ public class CategoryPresenter extends TinkerLinkDialogPresenter<CategoryPresent
 
         getView().showLoading();
 
-        AsyncLoader<List<RestCategoria>> asyncLoader = new AsyncLoader<List<RestCategoria>>() {
+        AsyncLoader<List<RestCategory>> asyncLoader = new AsyncLoader<List<RestCategory>>() {
             @Override
-            public List<RestCategoria> doInBackground() {
-                final List<RestCategoria> list = new ArrayList<>();
+            public List<RestCategory> doInBackground() {
+                final List<RestCategory> list = new ArrayList<>();
 
                 for (int i = 0; i < 10; i++) {
-                    final RestCategoria categoria = new RestCategoria();
+                    final RestCategory categoria = new RestCategory();
                     categoria.setCategoria("Reparación");
                     final List<String> stringList = new ArrayList<>();
                     for (int j = 0; j < 10; j++) {
@@ -46,7 +46,7 @@ public class CategoryPresenter extends TinkerLinkDialogPresenter<CategoryPresent
             }
 
             @Override
-            public void postProcess(List<RestCategoria> result) {
+            public void postProcess(List<RestCategory> result) {
                 getView().setCategories(result);
                 getView().hideLoading();
             }

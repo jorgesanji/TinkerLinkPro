@@ -58,10 +58,10 @@ public class UserRecommendationsFragment extends MVPTinkerLinkFragment<UserRecom
         for (RestRecommendation restRecommendation : list) {
 
             TLRecommendationView recommendationView = new TLRecommendationView(getContext());
-            recommendationView.setUserName(restRecommendation.getUser().getUser().getName());
-            recommendationView.setJob(restRecommendation.getUser().getUser().getProfile().getProfession());
-            recommendationView.setTime(restRecommendation.getCreateDate());
-            recommendationView.setRecommendation(restRecommendation.getRecomendacion());
+            recommendationView.setUserName(restRecommendation.getUser().getName());
+            recommendationView.setJob(restRecommendation.getUser().getProfession());
+//            recommendationView.setTime(restRecommendation.getCreateDate());
+            recommendationView.setRecommendation(restRecommendation.getText());
             recommendationView.setLayoutParams(params);
 
             userRecommendationsScreen.addRecommendation(recommendationView);

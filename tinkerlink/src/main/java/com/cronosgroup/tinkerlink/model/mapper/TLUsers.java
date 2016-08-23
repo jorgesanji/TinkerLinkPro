@@ -2,7 +2,6 @@ package com.cronosgroup.tinkerlink.model.mapper;
 
 import com.cronosgroup.tinkerlink.model.dataacess.database.entities.TLUser;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContact;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestProfile;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestUser;
 
 /**
@@ -19,11 +18,6 @@ public class TLUsers {
         restUser.setName(user.getName());
         restUser.setBirthday(user.getBirthday());
         restUser.setEmail(user.getEmail());
-        restUser.setVisibility(user.getVisibility());
-
-        RestProfile profile = new RestProfile();
-        profile.setDescripcion(user.getJobDescription());
-        restUser.setProfile(profile);
 
         return restUser;
     }
@@ -35,10 +29,6 @@ public class TLUsers {
         restUser.setId(user.getIdUser());
         restUser.setPhoto(user.getPhoto());
         restUser.setName(user.getName());
-
-        RestProfile profile = new RestProfile();
-        profile.setDescripcion(user.getJobDescription());
-        restUser.setProfile(profile);
 
         RestContact restContact = new RestContact();
 //        restContact.setStatus(user.getStatus());

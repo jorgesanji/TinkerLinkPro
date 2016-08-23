@@ -10,7 +10,7 @@ import com.bignerdranch.expandablerecyclerview.Adapter.ExpandableRecyclerAdapter
 import com.bignerdranch.expandablerecyclerview.Model.ParentListItem;
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.enums.StackCardType;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestCategoria;
+import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestCategory;
 import com.cronosgroup.tinkerlink.view.sign.adapter.fragments.tlinker.adapter.viewholder.CategoryViewHolder;
 import com.cronosgroup.tinkerlink.view.sign.adapter.fragments.tlinker.adapter.viewholder.SkillsViewHolder;
 
@@ -58,7 +58,7 @@ public class CategoriesAdapter extends ExpandableRecyclerAdapter<CategoryViewHol
 
     @Override
     public void onBindParentViewHolder(CategoryViewHolder parentViewHolder, int position, ParentListItem parentListItem) {
-        parentViewHolder.configureItem((RestCategoria) parentListItem);
+        parentViewHolder.configureItem((RestCategory) parentListItem);
     }
 
     @Override

@@ -8,11 +8,11 @@ import com.google.gson.annotations.SerializedName;
  */
 public class RestSkill extends RestBase {
 
-    @SerializedName("name")
-    private String name;
-
     @SerializedName("id")
     private int id;
+
+    @SerializedName("name")
+    private String name;
 
     private boolean custom = false;
     private boolean selected = false;

@@ -12,7 +12,7 @@ import android.view.View;
 import com.bignerdranch.expandablerecyclerview.Adapter.ExpandableRecyclerAdapter;
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.enums.StackCardType;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestCategoria;
+import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestCategory;
 import com.cronosgroup.tinkerlink.view.customviews.TLLinearLayout;
 import com.cronosgroup.tinkerlink.view.customviews.TLRecyclerView;
 import com.cronosgroup.tinkerlink.view.customviews.TLTextView;
@@ -33,7 +33,7 @@ public class CategoryDialogScreen extends TLLinearLayout {
     public interface Listener {
         void onClosePressed();
 
-        void setCurrentCategorySelected(RestCategoria categoria);
+        void setCurrentCategorySelected(RestCategory categoria);
 
         void skillSelectAtPosition(int position);
     }
@@ -139,7 +139,7 @@ public class CategoryDialogScreen extends TLLinearLayout {
                 if (viewHolderSelected != null) {
                     viewHolderSelected.collapse();
                 }
-                listener.setCurrentCategorySelected((RestCategoria) mAdapter.getParentItemList().get(position));
+                listener.setCurrentCategorySelected((RestCategory) mAdapter.getParentItemList().get(position));
             }
 
             @Override
@@ -178,15 +178,15 @@ public class CategoryDialogScreen extends TLLinearLayout {
         this.typeTinker = typeTinker;
     }
 
-    public void setItems(List<RestCategoria> restCategorias) {
-        mAdapter = new CategoriesAdapter(restCategorias, getContext());
+    public void setItems(List<RestCategory> restCategories) {
+        mAdapter = new CategoriesAdapter(restCategories, getContext());
         mAdapter.setTypeTinker(getTypeTinker());
         mCategoriesList.setAdapter(mAdapter);
         initListeners();
     }
 
-    public List<RestCategoria> getItems() {
-        return (List<RestCategoria>) mAdapter.getParentItemList();
+    public List<RestCategory> getItems() {
+        return (List<RestCategory>) mAdapter.getParentItemList();
     }
 
 }

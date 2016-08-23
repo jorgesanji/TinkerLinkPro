@@ -11,64 +11,32 @@ import java.util.List;
  */
 public class RestUser extends RestBase {
 
-    public enum UserStatus {
-        ACTIVE("active", 1),
-        INACTIVE("inactive", 2),
-        UNVERIFIED("unverified", 3),
-        UNSIGNED("unsigned", 4),
-        BOOKED("booked", 5),
-        NONE("none", 6);
-
-        private final String state;
-        private final int code;
-
-        UserStatus(String state, int code) {
-            this.state = state;
-            this.code = code;
-        }
-
-        public String getState() {
-            return state;
-        }
-
-        public int getCode() {
-            return code;
-        }
-    }
-
-
-    @SerializedName("_id")
+    @SerializedName("id")
     private String id = "";
 
-    @SerializedName("telefono")
+    @SerializedName("phone")
     private String phone = "";
 
-    @SerializedName("nombreCompleto")
+    @SerializedName("name")
     private String name = "";
 
-    @SerializedName("sexo")
+    @SerializedName("lastname")
+    private String lastname = "";
+
+    @SerializedName("gender")
     private String gender = "";
 
     @SerializedName("email")
     private String email = "";
 
-    @SerializedName("foto")
+    @SerializedName("photo")
     private String photo = "";
 
-    @SerializedName("cumpleanos")
+    @SerializedName("birthday")
     private String birthday = "";
 
-    @SerializedName("signing")
-    private Boolean signing = Boolean.FALSE;
-
-    @SerializedName("usersCompartido")
-    private List<String> usersShareProfile = new ArrayList<>();
-
-    @SerializedName("contactos")
-    private List<RestContact> contacts = new ArrayList<>();
-
-    @SerializedName("perfil")
-    private RestProfile profile = new RestProfile();
+    @SerializedName("contacts")
+    private List<RestUser> contacts = new ArrayList<>();
 
     @SerializedName("linker")
     private int numberLinkers;
@@ -79,14 +47,29 @@ public class RestUser extends RestBase {
     @SerializedName("recommendations")
     private int recommendations;
 
-    @SerializedName("visibility")
-    private String visibility = "";
+    @SerializedName("description")
+    private String description = "";
 
-    @SerializedName("duplicado")
-    private Boolean duplicate = Boolean.FALSE;
+    @SerializedName("category")
+    private String category = "";
 
-    @SerializedName("state")
-    private String state = UserStatus.UNSIGNED.getState();
+    @SerializedName("profession")
+    private String profession = "";
+
+    @SerializedName("estudies")
+    private List<RestStudy> studies = new ArrayList<>();
+
+    @SerializedName("skills")
+    private List<String> skills = new ArrayList<>();
+
+    @SerializedName("gallery")
+    private List<String> gallery = new ArrayList<>();
+
+    @SerializedName("country")
+    private String country = "";
+
+    @SerializedName("city")
+    private String city = "";
 
     private boolean me = false;
 
@@ -115,6 +98,15 @@ public class RestUser extends RestBase {
     public void setName(String name) {
         this.name = name;
     }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+
 
     public String getGender() {
         return gender;
@@ -148,36 +140,12 @@ public class RestUser extends RestBase {
         this.birthday = birthday;
     }
 
-    public Boolean getSigning() {
-        return signing;
-    }
-
-    public void setSigning(Boolean signing) {
-        this.signing = signing;
-    }
-
-    public List<String> getUsersShareProfile() {
-        return usersShareProfile;
-    }
-
-    public void setUsersShareProfile(List<String> usersShareProfile) {
-        this.usersShareProfile = usersShareProfile;
-    }
-
-    public List<RestContact> getContacts() {
+    public List<RestUser> getContacts() {
         return contacts;
     }
 
-    public void setContacts(List<RestContact> contacts) {
+    public void setContacts(List<RestUser> contacts) {
         this.contacts = contacts;
-    }
-
-    public RestProfile getProfile() {
-        return profile;
-    }
-
-    public void setProfile(RestProfile profile) {
-        this.profile = profile;
     }
 
     public int getNumberLinkers() {
@@ -204,28 +172,68 @@ public class RestUser extends RestBase {
         this.recommendations = recommendations;
     }
 
-    public String getVisibility() {
-        return visibility;
+    public String getDescription() {
+        return description;
     }
 
-    public void setVisibility(String visibility) {
-        this.visibility = visibility;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public Boolean getDuplicate() {
-        return duplicate;
+    public String getCategory() {
+        return category;
     }
 
-    public void setDuplicate(Boolean duplicate) {
-        this.duplicate = duplicate;
+    public void setCategory(String category) {
+        this.category = category;
     }
 
-    public String getState() {
-        return state;
+    public String getProfession() {
+        return profession;
     }
 
-    public void setState(String state) {
-        this.state = state;
+    public void setProfession(String profession) {
+        this.profession = profession;
+    }
+
+    public List<RestStudy> getStudies() {
+        return studies;
+    }
+
+    public void setStudies(List<RestStudy> studies) {
+        this.studies = studies;
+    }
+
+    public List<String> getSkills() {
+        return skills;
+    }
+
+    public void setSkills(List<String> skills) {
+        this.skills = skills;
+    }
+
+    public List<String> getGallery() {
+        return gallery;
+    }
+
+    public void setGallery(List<String> gallery) {
+        this.gallery = gallery;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
     }
 
     public boolean isMe() {
@@ -245,7 +253,4 @@ public class RestUser extends RestBase {
         this.support = support;
     }
 
-    public boolean isActive() {
-        return UserStatus.ACTIVE.getState().equalsIgnoreCase(getState());
-    }
 }

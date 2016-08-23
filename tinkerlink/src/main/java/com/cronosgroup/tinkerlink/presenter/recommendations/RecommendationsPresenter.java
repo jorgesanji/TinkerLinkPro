@@ -1,15 +1,13 @@
 package com.cronosgroup.tinkerlink.presenter.recommendations;
 
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContact;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestProfile;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestRecommendation;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestUser;
 import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenter;
 import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenterView;
 import com.cronosgroup.tinkerlink.utils.AsyncLoader;
-import com.cronosgroup.tinkerlink.utils.DateUtils;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -35,22 +33,17 @@ public class RecommendationsPresenter extends TinkerLinkPresenter<Recommendation
             public List<RestRecommendation> doInBackground() {
                 List<RestRecommendation> list = new ArrayList<>();
 
-                RestProfile restProfile = new RestProfile();
-                restProfile.setProfession("Developer");
-
                 RestUser restUser = new RestUser();
                 restUser.setName("Luisito");
                 restUser.setPhoto("http://api.ning.com/files/3G-NNOsexAFFbCt-XN5LbraHbYlrzivPtxx39pnQ8w48JITkdWKLhPCFGwt4p7794nvVE97YYfqtSwVmiSLhl1jXxV4IfejV/Staindwallcopy.jpg");
-                restUser.setProfile(restProfile);
-
-                RestContact restContact = new RestContact();
-                restContact.setUser(restUser);
+                restUser.setProfession("Developer");
 
                 for (int init = 0; init < 10; init++) {
                     RestRecommendation restRecommendation = new RestRecommendation();
-                    restRecommendation.setUser(restContact);
-                    restRecommendation.setRecomendacion("Es un crack de craks es el padre de la informatica si si siiiiiiii");
-                    restRecommendation.setCreateDate(DateUtils.getDateIntervalFromTimeStamp(1350574775, getView().getContext()));
+                    restRecommendation.setUser(restUser);
+                    restRecommendation.setText("Es un crack de craks es el padre de la informatica si si siiiiiiii");
+//                    restRecommendation.setCreateDate(DateUtils.getDateIntervalFromTimeStamp(1350574775, getView().getContext()));
+                    restRecommendation.setCreateDate(new Date());
                     list.add(restRecommendation);
                 }
 

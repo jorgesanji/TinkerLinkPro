@@ -1,82 +1,102 @@
 package com.cronosgroup.tinkerlink.model.business.logic;
 
 import com.cronosgroup.core.rest.Callback;
+import com.cronosgroup.tinkerlink.model.business.model.AppUser;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.manager.AppRestManager;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.services.CardServices;
+import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestCode;
+import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestLogin;
+import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestRecovery;
+import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestSign;
+import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestUser;
+import com.cronosgroup.tinkerlink.model.dataacess.rest.services.UserServices;
+import com.cronosgroup.tinkerlink.model.manager.model.Contact;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+
 
 /**
- * Created by jorgesanmartin on 11/20/15.
+ * Created by jorgesanmartin on 15/10/15.
  */
 public class CardUseCases {
 
-    public static final int TYPE_LINKER = 1;
-    public static final int TYPE_TINKER = 2;
-
-    private static final String TINKER_KEY = "tinker/";
-    private static final String LINKER_KEY = "linker/";
-
-    private static final String CREATE_TINKER_KEY = "createTinker";
-    private static final String CREATE_LINKER_KEY = "createLinker";
-
-    private static final String CATEGORY_KEY = "categoria";
-    private static final String PROFESSION_KEY = "profesion";
-    private static final String HABILITIES_KEY = "habilidades";
-    private static final String DESCRIPTION_KEY = "descripcion";
-    private static final String COUNTRY_KEY = "pais";
-    private static final String CITY_KEY = "ciudad";
-    private static final String DURATION_KEY = "duracion";
-    private static final String SALARY_TYPE_KEY = "tipoSalario";
-    private static final String SALARY_KEY = "salario";
-    private static final String EXPERIENCE_KEY = "experiencia";
-    private static final String IMAGES_KEY = "fotos";
-    private static final String LONGITUDE_KEY = "latitude";
-    private static final String LATITUDE_KEY = "longitude";
+    public static final String KEY_USER_NAME = "nombre";
+    public static final String KEY_USER_PICTURE = "foto";
+    public static final String KEY_USER_PICTURE_CROP = "croppedFoto";
+    public static final String KEY_USER_BIRTHDAY = "cumpleanos";
+    public static final String KEY_USER_SEX = "sexo";
+    public static final String KEY_NEW_USER = "false";
+    public static final String KEY_REG_ID = "regId";
+    public static final String KEY_RECEIPTS = "receipts";
 
 
-    public static void getAllCards(int type, String offset, Callback callback, Object tag) {
-        String endpoint = ((type == TYPE_LINKER) ? LINKER_KEY : TINKER_KEY) + offset;
-
-//        CardServices.getCards(endpoint, RestPost.class, callback, tag);
+    public static void doLogin(String param, final Callback callback, Object tag) {
+        UserServices.doLogin(param, RestLogin.class, callback, tag);
     }
 
-    public static void getUserCards(String idUser, int type, String offset, Callback callback, Object tag) {
-        String endpoint = idUser + "/" + ((type == TYPE_LINKER) ? LINKER_KEY : TINKER_KEY) + offset;
-
-//        CardServices.getUserCards(endpoint, RestPost.class, callback, tag);
-    }
-
-    public static void createCard(int type, RestPost form, Callback callback, Object tag) {
-        String endpoint = ((type == TYPE_LINKER) ? CREATE_LINKER_KEY : CREATE_TINKER_KEY);
+    public static void doLogout(String token, final Callback callback, Object tag) {
 
         HashMap<String, String> params = new HashMap<>();
-        params.put(CATEGORY_KEY, form.getCategory());
-        params.put(PROFESSION_KEY, form.getProfession());
-        params.put(HABILITIES_KEY, AppRestManager.sharedManager().getMapperUsed().toJson(form.getSkills()));
-        params.put(DURATION_KEY, form.getTimeByProject());
-        params.put(SALARY_TYPE_KEY, form.getSalaryType());
-        params.put(SALARY_KEY, form.getSalary());
-        params.put(EXPERIENCE_KEY, form.getExperience());
-        params.put(IMAGES_KEY, AppRestManager.sharedManager().getMapperUsed().toJson(form.getPictures()));
-        params.put(COUNTRY_KEY, form.getCountry());
-        params.put(CITY_KEY, form.getCity());
-        params.put(LATITUDE_KEY, String.valueOf(form.getLatitude()));
-        params.put(LONGITUDE_KEY, String.valueOf(form.getLongitude()));
-        params.put(DESCRIPTION_KEY, form.getDescription());
+        params.put(KEY_REG_ID, token);
 
-//        CardServices.createCard(endpoint, params, RestPost.class, callback, tag);
+        UserServices.doLogout(params, callback, tag);
     }
 
-    public static void searchCards(int type, String text, Callback callback, Object tag) {
-        String endpoint = ((type == TYPE_LINKER) ? LINKER_KEY : TINKER_KEY) + text;
-
-//        CardServices.searchCards(endpoint, RestPost.class, callback, tag);
+    public static void getCodeAndPassword(String param, Callback callback, Object tag) {
+        UserServices.getCodeAndPassword(param, RestCode.class, callback, tag);
     }
 
-    public static void deleteCard(String endpoint, final Callback callback, Object tag) {
-        CardServices.deleteCard(endpoint, callback, tag);
+    public static void checkCode(String param, final Callback callback, Object tag) {
+        UserServices.checkCode(param, RestCode.class, callback, tag);
     }
 
+    public static void recoveryPassword(String param, Callback callback, Object tag) {
+        UserServices.recoveryPassword(param, RestRecovery.class, callback, tag);
+    }
+
+    public static void setUser(AppUser user, Callback callback, Object tag) {
+
+        String codigo = user.getCode();
+        String telefono = user.getPhone();
+        String email = user.getEmail();
+
+        String url = codigo + telefono + "/" +
+                email + "/" + KEY_NEW_USER;
+
+        HashMap<String, String> params = new HashMap<String, String>();
+        params.put(KEY_USER_NAME, user.getName());
+        params.put(KEY_USER_PICTURE, user.getOriginalBitmageBase64());
+        params.put(KEY_USER_PICTURE_CROP, user.getCropBitmageBase64());
+        params.put(KEY_USER_BIRTHDAY, user.getBirthday());
+        params.put(KEY_USER_SEX, "" + user.getGender().charAt(0));
+
+        UserServices.setUser(url, params, RestSign.class, callback, tag);
+    }
+
+
+    public static void setVisibility(int param, Callback callback, Object tag) {
+        UserServices.setVisibility(param, RestUser.class, callback, tag);
+    }
+
+    public static void inviteUser(RestUser restUser, Callback callback, Object tag) {
+        List<Contact> contacts = new ArrayList<>();
+
+        Contact contact = new Contact();
+        contact.setName(restUser.getName());
+        contact.setPhoneNumber(restUser.getPhone());
+
+        if (restUser.getEmail() != null && !restUser.getEmail().isEmpty()) {
+            List<String> emails = new ArrayList<>();
+            emails.add(restUser.getEmail());
+            contact.setMail(emails);
+        }
+
+        contacts.add(contact);
+
+        HashMap<String, String> params = new HashMap<>();
+        params.put(KEY_RECEIPTS, AppRestManager.mapping.mappingToJson(contacts));
+
+        UserServices.inviteUser(params, callback, tag);
+    }
 }

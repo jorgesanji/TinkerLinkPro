@@ -12,13 +12,12 @@ public class TLNotifications {
     public static RestNotificacion toRest(TLNotification notification) {
 
         RestNotificacion restNotificacion = new RestNotificacion();
-        restNotificacion.setUsuario(TLUsers.toContact(notification.getUser(), false));
+        restNotificacion.setUser(TLUsers.toContact(notification.getUser(), false));
         restNotificacion.setId(notification.getId());
-        restNotificacion.setIdNotificacion(notification.getIdNotifications());
-        restNotificacion.setTipo(notification.getTipo());
-        restNotificacion.setFecha(notification.getDate());
+        restNotificacion.setType(notification.getTipo());
+        restNotificacion.setDate(notification.getDate());
         restNotificacion.setTexto(notification.getTexto());
-        restNotificacion.setHabilities(AppRestManager.mapping.mappingFromStrinToStringList(notification.getHabilities()));
+        restNotificacion.setSkills(AppRestManager.mapping.mappingFromStrinToStringList(notification.getHabilities()));
 
         return restNotificacion;
     }

@@ -40,7 +40,7 @@ public class ViewHolderAddContact extends ViewHolderPost {
     public void configureItem(final RestPost post) {
         super.configureItem(post);
 
-        final RestUser contacto = post.getContact().getUser();
+        final RestUser contacto = null;
         final RestUser user = post.getUser().getUser();
 
         String newContact = String.format(getResources().getString(R.string.news_feed_sugerencias_new_contacts), user.getName());
@@ -62,15 +62,15 @@ public class ViewHolderAddContact extends ViewHolderPost {
         mUserCardImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getActionButtons().onIconProfilePressed(post.getContact());
+//                getActionButtons().onIconProfilePressed(post.getContact());
             }
         });
 
         mTypeCardTitle.setText(getResources().getString(R.string.detail_card_me));
-        mUserOcupation.setText(contacto.getProfile().getProfession());
-        mUserLocation.setText(contacto.getProfile().getLocation());
-        mCardDescription.setText(post.getText());
-        mTitleDescription.setVisibility(post.getText().isEmpty() ? View.GONE : View.VISIBLE);
+        mUserOcupation.setText(contacto.getProfession());
+        mUserLocation.setText("");
+//        mCardDescription.setText(post.getText());
+//        mTitleDescription.setVisibility(post.getText().isEmpty() ? View.GONE : View.VISIBLE);
 
         mFriendsButton.setText(String.valueOf(post.getNumberOfViews()));
         mShareButton.setText(String.valueOf(post.getNumberShares()));

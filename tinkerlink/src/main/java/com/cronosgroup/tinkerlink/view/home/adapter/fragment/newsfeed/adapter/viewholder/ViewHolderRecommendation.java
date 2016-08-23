@@ -10,7 +10,6 @@ import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.interfaces.IOIconListener;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContact;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestUser;
 import com.cronosgroup.tinkerlink.view.customviews.TLImageView;
 import com.cronosgroup.tinkerlink.view.customviews.TLTabItem;
 import com.cronosgroup.tinkerlink.view.customviews.TLTextView;
@@ -97,19 +96,19 @@ public class ViewHolderRecommendation extends ViewHolderPostBase {
         mTabActions.setVisibility(isMe() ? View.GONE : View.VISIBLE);
         mDividerView.setVisibility(isMe() ? View.GONE : View.VISIBLE);
 
-        final RestUser contacto = post.getContact().getUser();
+//        final RestUser contacto = post.getContact().getUser();
 
         setUserRecommendationAction(post.getUser(), R.string.news_feed_recomendations_to);
-        setInfoContact(post.getContact());
+//        setInfoContact(post.getContact());
 
-        if (post.getText().isEmpty()) {
+//        if (post.getText().isEmpty()) {
             mCardDescription.setVisibility(View.GONE);
-        } else {
-            mCardDescription.setText(post.getText());
-            mCardDescription.setVisibility(View.VISIBLE);
-        }
+//        } else {
+//            mCardDescription.setText(post.getText());
+//            mCardDescription.setVisibility(View.VISIBLE);
+//        }
 
-        mFriendsButton.setText(String.valueOf(contacto.getRecommendations()));
+//        mFriendsButton.setText(String.valueOf(contacto.getRecommendations()));
         mShareButton.setText(String.valueOf(post.getNumberShares()));
         mViews.setText(String.valueOf(post.getNumberOfViews()));
     }
@@ -139,18 +138,18 @@ public class ViewHolderRecommendation extends ViewHolderPostBase {
         });
 
         mUserName.setText(contacto.getUser().getName());
-        if (contacto.getUser().getProfile().getProfession().isEmpty()) {
+        if (contacto.getUser().getProfession().isEmpty()) {
             mUserOcupation.setVisibility(View.GONE);
         } else {
-            mUserOcupation.setText(contacto.getUser().getProfile().getProfession());
+            mUserOcupation.setText(contacto.getUser().getProfession());
             mUserOcupation.setVisibility(View.VISIBLE);
         }
 
-        if (contacto.getUser().getProfile().getLocation() == null) {
-            mUserLocation.setVisibility(View.GONE);
-        } else {
-            mUserLocation.setText(contacto.getUser().getProfile().getLocation());
-            mUserLocation.setVisibility(View.VISIBLE);
-        }
+//        if (contacto.getUser().getLocation() == null) {
+//            mUserLocation.setVisibility(View.GONE);
+//        } else {
+//            mUserLocation.setText(contacto.getUser().getProfile().getLocation());
+//            mUserLocation.setVisibility(View.VISIBLE);
+//        }
     }
 }

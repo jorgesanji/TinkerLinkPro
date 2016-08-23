@@ -12,90 +12,68 @@ import java.util.List;
 
 public class RestNotificacion extends RestBase {
 
-    @SerializedName("_id")
+    @SerializedName("id")
     private String id = "";
 
-    @SerializedName("usuario")
+    @SerializedName("user")
     private RestContact user = new RestContact();
 
-    @SerializedName("idNotificacion")
-    private long idNotificacion = 0;
+    @SerializedName("type")
+    private Integer type = 0;
 
-    @SerializedName("tipo")
-    private Integer tipo = 0;
+    @SerializedName("date")
+    private Date date;
 
-    @SerializedName("fecha")
-    private Date fecha;
-
-    @SerializedName("leida")
-    private Boolean leida = false;
+    @SerializedName("readed")
+    private Boolean readed = false;
 
     @SerializedName("done")
     private Boolean done = false;
 
-    @SerializedName("habilities")
-    private String intervalo = "";
-
-    @SerializedName("texto")
+    @SerializedName("text")
     private String texto = "";
 
-    @SerializedName("habilidades")
-    private List<String> habilities = new ArrayList<>();
+    @SerializedName("skills")
+    private List<String> skills = new ArrayList<>();
 
     public String getId() {
         return id;
-    }
-
-    public long getIdNotificacion() {
-        return idNotificacion;
-    }
-
-    public void setIdNotificacion(long idNotificacion) {
-        this.idNotificacion = idNotificacion;
     }
 
     public void setId(String id) {
         this.id = id;
     }
 
-    public Integer getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(Integer tipo) {
-        this.tipo = tipo;
+    public void setUser(RestContact user) {
+        this.user = user;
     }
 
     public RestContact getUser() {
         return user;
     }
 
-    public void setUsuario(RestContact usuario) {
-        this.user = usuario;
+    public Integer getType() {
+        return type;
     }
 
-    public Date getFecha() {
-        return fecha;
+    public void setType(Integer type) {
+        this.type = type;
     }
 
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
+    public Date getDate() {
+        return date;
     }
 
-    public String getIntervalo() {
-        return intervalo;
+    public void setDate(Date date) {
+        this.date = date;
     }
 
-    public void setIntervalo(String intervalo) {
-        this.intervalo = intervalo;
+    public Boolean getReaded() {
+        return readed;
     }
 
-    public Boolean getLeida() {
-        return leida;
-    }
-
-    public void setLeida(Boolean leida) {
-        this.leida = leida;
+    public void setReaded(Boolean readed) {
+        this.readed = readed;
     }
 
     public String getTexto() {
@@ -106,8 +84,12 @@ public class RestNotificacion extends RestBase {
         this.texto = texto;
     }
 
-    public List<String> getHabilities() {
-        return habilities;
+    public List<String> getSkills() {
+        return skills;
+    }
+
+    public void setSkills(List<String> skills) {
+        this.skills = skills;
     }
 
     public Boolean getDone() {
@@ -118,7 +100,4 @@ public class RestNotificacion extends RestBase {
         this.done = done;
     }
 
-    public void setHabilities(List<String> habilities) {
-        this.habilities = habilities;
-    }
 }

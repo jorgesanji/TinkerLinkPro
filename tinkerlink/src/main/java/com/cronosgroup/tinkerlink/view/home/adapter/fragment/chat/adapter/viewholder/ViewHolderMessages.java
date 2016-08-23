@@ -39,7 +39,7 @@ public class ViewHolderMessages extends BaseViewHolder<RestChat> {
         final RestUser user = chat.getUser().getUser();
         mUserChat.setUserImageFromUrl(user.getPhoto());
         mUserChat.setTitle(user.getName());
-        mUserChat.setSubTitle(user.getProfile().getProfession());
+        mUserChat.setSubTitle(user.getProfession());
         mUserChat.setTime("12:40");
         mBackgrondChatItem.setBackgroundColor(getContext().getResources().getColor((getAdapterPosition() % 2 == 0) ? R.color.gray_50 : R.color.white));
     }

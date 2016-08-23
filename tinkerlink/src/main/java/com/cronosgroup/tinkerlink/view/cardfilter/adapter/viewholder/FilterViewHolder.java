@@ -5,7 +5,7 @@ import android.view.View;
 import com.cronosgroup.core.view.recyclerview.BaseViewHolder;
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.enums.StackCardType;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestCategoria;
+import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestCategory;
 import com.cronosgroup.tinkerlink.view.customviews.TLImageView;
 import com.cronosgroup.tinkerlink.view.customviews.TLTextView;
 
@@ -15,7 +15,7 @@ import butterknife.ButterKnife;
 /**
  * Created by jorgesanmartin on 8/1/16.
  */
-public class FilterViewHolder extends BaseViewHolder<RestCategoria> {
+public class FilterViewHolder extends BaseViewHolder<RestCategory> {
 
     // Vars
 
@@ -40,7 +40,7 @@ public class FilterViewHolder extends BaseViewHolder<RestCategoria> {
     }
 
     @Override
-    public void configureItem(RestCategoria item) {
+    public void configureItem(RestCategory item) {
         super.configureItem(item);
         mCategoryName.setText(item.getCategoria());
         mNumberCardsCategory.setVisibility(item.isSelected() ? View.VISIBLE : View.GONE);

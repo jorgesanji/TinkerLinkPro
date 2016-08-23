@@ -3,7 +3,7 @@ package com.cronosgroup.tinkerlink.view.createcard.adapter.fragments.category;
 import android.view.View;
 
 import com.cronosgroup.tinkerlink.enums.SourceImageType;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestCategoria;
+import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestCategory;
 import com.cronosgroup.tinkerlink.presenter.createcard.CategorySelectionPresenter;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
 import com.cronosgroup.tinkerlink.view.dialog.category.CategoryDialogFragment;
@@ -52,7 +52,7 @@ public class CategorySelectionFragment extends MVPTinkerLinkFragment<CategorySel
     //region ************** CategorySelectionPresenter.View **************
 
     @Override
-    public void setCategories(List<RestCategoria> categories) {
+    public void setCategories(List<RestCategory> categories) {
     }
 
     //endregion

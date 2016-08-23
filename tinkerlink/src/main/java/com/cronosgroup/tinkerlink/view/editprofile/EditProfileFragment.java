@@ -58,7 +58,7 @@ public class EditProfileFragment extends MVPTinkerLinkFragment<EditProfilePresen
         TLStudyView studyView = new TLStudyView(getContext());
         studyView.setLayoutParams(params);
 
-        studyView.setCourseName(restStudy.getCourse());
+        studyView.setCourseName(restStudy.getCourseName());
         studyView.setInstituteName(restStudy.getSchool());
         studyView.setCourseDate("Marzo 2016");
 

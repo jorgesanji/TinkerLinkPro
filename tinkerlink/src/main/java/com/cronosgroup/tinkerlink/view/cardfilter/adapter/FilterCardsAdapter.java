@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import com.cronosgroup.core.view.BaseAdapter;
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.enums.StackCardType;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestCategoria;
+import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestCategory;
 import com.cronosgroup.tinkerlink.view.cardfilter.adapter.viewholder.FilterViewHolder;
 
 import java.util.List;
@@ -15,7 +15,7 @@ import java.util.List;
 /**
  * Created by jorgesanmartin on 8/1/16.
  */
-public class FilterCardsAdapter extends BaseAdapter<FilterViewHolder, RestCategoria> {
+public class FilterCardsAdapter extends BaseAdapter<FilterViewHolder, RestCategory> {
 
     private StackCardType type;
 
@@ -34,7 +34,7 @@ public class FilterCardsAdapter extends BaseAdapter<FilterViewHolder, RestCatego
     }
 
     @Override
-    public List<RestCategoria> filterBy(String query) {
+    public List<RestCategory> filterBy(String query) {
         return null;
     }
 

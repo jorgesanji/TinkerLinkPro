@@ -47,7 +47,7 @@ public class ViewHolderSuggestions extends ViewHolderPostBase {
 
         TLUserView userView = new TLUserView(getContext());
         userView.setTitle(user.getName());
-        userView.setSubTitle(user.getProfile().getLocation());
+//        userView.setSubTitle(user.getProfile().getLocation());
         userView.setUserImageFromUrl(user.getPhoto());
 
         userView.setAddContactListener(new IOAddContactListener() {

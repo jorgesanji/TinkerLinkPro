@@ -190,20 +190,7 @@ public class UserForm {
 
     public RestPost toRestPost() {
         RestPost restPost = new RestPost();
-        restPost.setProfession(getProfession());
-        restPost.setCategory(getCategory());
-        restPost.setSkills(getHabilities());
-        restPost.setExperience(getExperience());
-        restPost.setSalary(getCost());
-        restPost.setSalaryType(getCurrency());
-        restPost.setTimeByProject(getCostByTime());
-        restPost.setPictures(getImageAsString());
-        restPost.setCity(getAddress().getLocality());
-        restPost.setCountry(getAddress().getCountryName());
-        restPost.setLatitude(getAddress().getLatitude());
-        restPost.setLongitude(getAddress().getLongitude());
         restPost.setStatus(PostStatus.TO_PUBLISH);
-        restPost.setDescription(getDescription());
 
         RestContact contacto = new RestContact();
         contacto.setUsuario(TLUsers.toRest(TinkerLinkApplication.getApp().getCurrentUserLoged(), true));

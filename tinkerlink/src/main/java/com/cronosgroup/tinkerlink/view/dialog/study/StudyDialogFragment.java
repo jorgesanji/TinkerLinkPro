@@ -35,7 +35,7 @@ public class StudyDialogFragment extends TinkerDialogFragment implements StudyDi
     public void onAddPressed() {
         if (studyDialogScreen.getCourseName().length() > 0 && studyDialogScreen.getInstitutionName().length() > 0) {
             RestStudy estudio = new RestStudy();
-            estudio.setCourse(studyDialogScreen.getCourseName());
+            estudio.setCourseName(studyDialogScreen.getCourseName());
             estudio.setSchool(studyDialogScreen.getInstitutionName());
             Bundle bundle = new Bundle();
             bundle.putSerializable(STUDY_ADDED, estudio);

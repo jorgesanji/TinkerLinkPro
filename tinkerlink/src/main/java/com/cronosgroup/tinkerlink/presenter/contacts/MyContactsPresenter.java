@@ -5,7 +5,6 @@ import android.os.Bundle;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestChat;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContact;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestMessage;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestProfile;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestUser;
 import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenter;
 import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenterView;
@@ -39,11 +38,6 @@ public class MyContactsPresenter extends TinkerLinkPresenter<MyContactsPresenter
             @Override
             public List<RestContact> doInBackground() {
 
-                RestProfile restProfile = new RestProfile();
-                restProfile.setProfession("Fontanero");
-                restProfile.setCity("Barcelona");
-                restProfile.setCountry("España");
-
                 List<RestContact> list = new ArrayList<>();
 
                 for (int contacts = 0; contacts < 20; contacts++) {
@@ -51,7 +45,9 @@ public class MyContactsPresenter extends TinkerLinkPresenter<MyContactsPresenter
                     RestUser restUser1 = new RestUser();
                     restUser1.setName("Eddy Samaniego");
                     restUser1.setPhoto("http://qsrock.com/wp-content/uploads/2016/04/130699422.jpg");
-                    restUser1.setProfile(restProfile);
+                    restUser1.setProfession("Fontanero");
+                    restUser1.setCity("Barcelona");
+                    restUser1.setCountry("España");
 
                     RestContact contacto = new RestContact();
                     contacto.setUser(restUser1);

@@ -32,11 +32,11 @@ public class RecommendationViewHolder extends BaseViewHolder<RestRecommendation>
     @Override
     public void configureItem(RestRecommendation item) {
         super.configureItem(item);
-        RestUser restUser = item.getUser().getUser();
+        RestUser restUser = item.getUser();
         mUser.setTitle(restUser.getName());
-        mUser.setSubTitle(restUser.getProfile().getProfession());
+        mUser.setSubTitle(restUser.getProfession());
         mUser.setUserImageFromUrl(restUser.getPhoto());
-        mUser.setTime(item.getCreateDate());
-        mRecommendationText.setText(item.getRecomendacion());
+//        mUser.setTime(item.getCreateDate());
+//        mRecommendationText.setText(item.getRecomendacion());
     }
 }

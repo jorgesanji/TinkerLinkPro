@@ -56,17 +56,19 @@ public class AppGcmNotificationsManager {
 
     private void notificationReceived(String notification) {
         RestNotificacion restNotification = (RestNotificacion) AppRestManager.mapping.mappingJson(notification, KEY_NOTIFICATION, RestNotificacion.class);
-        if (restNotification != null && (NotificationsManager.notificationsAllowed.contains(restNotification.getTipo()) || NotificationsManager.notificationsAllowedWithoutAction.contains(restNotification.getTipo()))) {
-            if (restNotification.getTipo().intValue() == NotificationsManager.NOTIFICACION_TIPO_USUARIO_DUPLICADO) {
+        if (restNotification != null
+                && (NotificationsManager.notificationsAllowed.contains(restNotification.getType())
+                || NotificationsManager.notificationsAllowedWithoutAction.contains(restNotification.getType()))) {
+            if (restNotification.getType().intValue() == NotificationsManager.NOTIFICACION_TIPO_USUARIO_DUPLICADO) {
                 if (TinkerLinkApplication.getApp() != null) {
                     appUserSessionManager.logout();
                 }
-            } else if (restNotification.getTipo().intValue() == NotificationsManager.NOTIFICACION_CONTACT_DELETED_TO_ME) {
+            } else if (restNotification.getType().intValue() == NotificationsManager.NOTIFICACION_CONTACT_DELETED_TO_ME) {
                 if (TinkerLinkApplication.getApp() != null) {
                     appContactsManager.loadContacts();
                 }
                 EventBus.getDefault().post(new UpdateContactStatus(restNotification.getUser()));
-            } else if (restNotification.getTipo().intValue() == NotificationsManager.NOTIFICACION_CONTACT_REJECTED_TO_ME) {
+            } else if (restNotification.getType().intValue() == NotificationsManager.NOTIFICACION_CONTACT_REJECTED_TO_ME) {
                 TLNotification tlNotification = notificationManager.getNotificationById(restNotification.getId());
                 if (tlNotification != null) {
                     tlNotification.delete();
@@ -79,15 +81,15 @@ public class AppGcmNotificationsManager {
                     if (notificationsUnReadNumber > 0) {
                         EventBus.getDefault().post(new UpdateNotificationsEvent(notificationsUnReadNumber));
                     }
-                    if (restNotification.getTipo() == NotificationsManager.NOTIFICACION_CONTACT_ACCEPTED_TO_ME) {
+                    if (restNotification.getType() == NotificationsManager.NOTIFICACION_CONTACT_ACCEPTED_TO_ME) {
                         appContactsManager.loadContacts();
                         EventBus.getDefault().post(new UpdateContactStatus(restNotification.getUser()));
                     }
-                    if (restNotification.getTipo() == NotificationsManager.NOTIFICACION_CONTACT_REQUESTED_TO_ME) {
+                    if (restNotification.getType() == NotificationsManager.NOTIFICACION_CONTACT_REQUESTED_TO_ME) {
                         EventBus.getDefault().post(new UpdateContactStatus(restNotification.getUser()));
                     }
                 }
-                Pair<Integer, Integer> resources = UINotificationHelper.getResourcesFromType(restNotification.getTipo());
+                Pair<Integer, Integer> resources = UINotificationHelper.getResourcesFromType(restNotification.getType());
                 String message = String.format(mContext.getResources().getString(resources.second), restNotification.getUser().getUser().getName());
                 sendNotification(NOTIFICATION_TYPE, mContext.getString(R.string.app_name), message, restNotification.getUser());
             }

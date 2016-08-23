@@ -11,7 +11,7 @@ public class RestSign extends RestBase {
     @SerializedName("exist")
     private Boolean exists = Boolean.FALSE;
 
-    @SerializedName("usuario")
+    @SerializedName("user")
     private RestUser user = new RestUser();
 
     public Boolean getExists() {

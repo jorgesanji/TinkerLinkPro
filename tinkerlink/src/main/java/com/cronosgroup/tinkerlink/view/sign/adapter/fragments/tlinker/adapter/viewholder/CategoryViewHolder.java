@@ -6,7 +6,7 @@ import android.widget.LinearLayout;
 import com.bignerdranch.expandablerecyclerview.ViewHolder.ParentViewHolder;
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.enums.StackCardType;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestCategoria;
+import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestCategory;
 import com.cronosgroup.tinkerlink.view.customviews.TLImageView;
 import com.cronosgroup.tinkerlink.view.sign.adapter.fragments.tlinker.adapter.CategoriesAdapter;
 import com.cronosgroup.tinkerlink.view.customviews.TLTextView;
@@ -40,7 +40,7 @@ public class CategoryViewHolder extends ParentViewHolder {
         this.type = type;
     }
 
-    public void configureItem(RestCategoria categoria) {
+    public void configureItem(RestCategory categoria) {
         mTitle.setText(categoria.getCategoria());
         reset();
     }

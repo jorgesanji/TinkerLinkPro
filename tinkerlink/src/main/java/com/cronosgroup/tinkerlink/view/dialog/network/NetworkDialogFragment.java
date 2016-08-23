@@ -94,7 +94,7 @@ public class NetworkDialogFragment extends MVPTinkerLinkDialogFragment<NetworkPr
                 userList = userList.subList(0, 4);
             }
             for (RestUser user : userList) {
-                networkScreen.addContactFriend(user.getPhoto(), user.getName(), user.getProfile().getProfession());
+                networkScreen.addContactFriend(user.getPhoto(), user.getName(), user.getProfession());
             }
         }
 

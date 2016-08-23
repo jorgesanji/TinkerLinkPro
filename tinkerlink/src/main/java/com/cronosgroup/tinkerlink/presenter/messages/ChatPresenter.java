@@ -5,7 +5,6 @@ import android.os.Bundle;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestChat;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContact;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestMessage;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestProfile;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestUser;
 import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenter;
 import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenterView;
@@ -40,13 +39,11 @@ public class ChatPresenter extends TinkerLinkPresenter<ChatPresenter.View> {
                 List<RestChat> restChatArrayList = new ArrayList<>();
 
                 for (int i = 0; i < 20; i++) {
-                    RestProfile restProfile = new RestProfile();
-                    restProfile.setProfession("pintor");
 
                     RestUser restUser = new RestUser();
                     restUser.setName("Edgar Sanchez");
                     restUser.setPhoto("https://pixabay.com/static/uploads/photo/2016/03/28/12/35/cat-1285634_960_720.png");
-                    restUser.setProfile(restProfile);
+                    restUser.setProfession("Pintor");
 
                     RestContact restContact = new RestContact();
                     restContact.setUser(restUser);
@@ -66,7 +63,6 @@ public class ChatPresenter extends TinkerLinkPresenter<ChatPresenter.View> {
 
                     restChatArrayList.add(restChat);
                 }
-
 
                 return restChatArrayList;
             }

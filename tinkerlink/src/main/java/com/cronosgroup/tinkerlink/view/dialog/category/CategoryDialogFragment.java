@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.cronosgroup.tinkerlink.enums.StackCardType;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestCategoria;
+import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestCategory;
 import com.cronosgroup.tinkerlink.presenter.category.CategoryPresenter;
 import com.cronosgroup.tinkerlink.view.dialog.base.MVPTinkerLinkDialogFragment;
 
@@ -18,7 +18,7 @@ public class CategoryDialogFragment extends MVPTinkerLinkDialogFragment<Category
     // Vars
     public static final int CODE = 890;
     public static final String CATEGORY_SELECTED = "CATEGORY_SELECTED";
-    private RestCategoria categoria;
+    private RestCategory categoria;
 
     // Views
     private CategoryDialogScreen categoryDialogScreen;
@@ -52,7 +52,7 @@ public class CategoryDialogFragment extends MVPTinkerLinkDialogFragment<Category
     //region **************  CategoryPresenter.View **************
 
     @Override
-    public void setCategories(List<RestCategoria> list) {
+    public void setCategories(List<RestCategory> list) {
         categoryDialogScreen.setItems(list);
     }
 
@@ -61,7 +61,7 @@ public class CategoryDialogFragment extends MVPTinkerLinkDialogFragment<Category
     //region **************  CategoryScreen.Listener **************
 
     @Override
-    public void setCurrentCategorySelected(RestCategoria categoria) {
+    public void setCurrentCategorySelected(RestCategory categoria) {
         this.categoria = categoria;
     }
 

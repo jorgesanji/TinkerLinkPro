@@ -4,7 +4,6 @@ import android.os.Bundle;
 
 import com.cronosgroup.tinkerlink.enums.StackCardType;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContact;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestProfile;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestUser;
 import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenter;
 import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenterView;
@@ -38,15 +37,12 @@ public class ProfilePresenter extends TinkerLinkPresenter<ProfilePresenter.View>
             @Override
             public RestContact doInBackground() {
 
-                RestProfile restProfile = new RestProfile();
-                restProfile.setProfession("Fontanero");
-                restProfile.setCity("Barcelona");
-                restProfile.setCountry("España");
-
                 RestUser restUser = new RestUser();
                 restUser.setName("Jorge Sanmartin");
                 restUser.setPhoto("http://qsrock.com/wp-content/uploads/2016/04/130699422.jpg");
-                restUser.setProfile(restProfile);
+                restUser.setProfession("Fontanero");
+                restUser.setCity("Barcelona");
+                restUser.setCountry("España");
 
                 RestContact restContact = new RestContact();
                 restContact.setUser(restUser);
@@ -58,7 +54,9 @@ public class ProfilePresenter extends TinkerLinkPresenter<ProfilePresenter.View>
                     RestUser restUser1 = new RestUser();
                     restUser1.setName("Eddy Samaniego");
                     restUser1.setPhoto("http://qsrock.com/wp-content/uploads/2016/04/130699422.jpg");
-                    restUser1.setProfile(restProfile);
+                    restUser.setProfession("Fontanero");
+                    restUser.setCity("Barcelona");
+                    restUser.setCountry("España");
 
                     RestContact contacto = new RestContact();
                     contacto.setUser(restUser1);

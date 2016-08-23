@@ -45,7 +45,6 @@ public class UserManager {
         user.setPhone(restUser.getPhone());
         user.setPhoto(restUser.getPhoto());
         user.setEmail(restUser.getEmail());
-        user.setVisibility(restUser.getVisibility());
         user.save();
 
         return user;

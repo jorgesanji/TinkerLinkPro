@@ -8,20 +8,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.util.Pair;
 
-import com.cronosgroup.core.rest.Callback;
-import com.cronosgroup.core.rest.RestError;
 import com.cronosgroup.core.view.sectionable.Item;
 import com.cronosgroup.tinkerlink.application.TinkerLinkApplication;
-import com.cronosgroup.tinkerlink.event.UpdateUserContactsEvent;
+import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContact;
 import com.cronosgroup.tinkerlink.model.manager.model.Contact;
 import com.cronosgroup.tinkerlink.model.manager.model.EntryItem;
 import com.cronosgroup.tinkerlink.model.manager.model.SectionItem;
-import com.cronosgroup.tinkerlink.model.business.logic.ContactsUseCases;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContact;
 import com.cronosgroup.tinkerlink.utils.AsyncLoader;
 import com.google.gson.Gson;
-
-import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -186,83 +180,17 @@ public class AppContactsManager {
     }
 
     public void loadContactsFromPhoneBook() {
-        AsyncLoader asyncLoader = new AsyncLoader<String>() {
-            @Override
-            public String doInBackground() {
-                return getContactsWithName();
-            }
 
-            @Override
-            public void postProcess(String result) {
-                ContactsUseCases.getContactsFromAgenda(result, new Callback<List<RestContact>, RestError>() {
-                    @Override
-                    public void onResponse(List<RestContact> response) {
-                        getListSectionableAndOrderAlphabetical(response, new IORecoverContactsInOrder() {
-                            @Override
-                            public void onContacts(Pair<List<Item>, List<Item>> pair) {
-                                contactFromAgenda = (pair == null) ? new ArrayList<Item>() : pair.first;
-                                tinkerLinksContacts = (pair == null) ? new ArrayList<Item>() : pair.second;
-
-                                EventBus.getDefault().post(new UpdateUserContactsEvent(contactFromAgenda, PHONEBOOK_CONTACTS));
-
-                            }
-                        }, true);
-                    }
-
-                    @Override
-                    public void onErrorResponse(RestError error) {
-                    }
-
-                }, mContext);
-            }
-        };
-        asyncLoader.start();
     }
 
     public void loadSuggestionContacts() {
-        ContactsUseCases.getSuggestionContacts(new Callback<List<RestContact>, RestError>() {
-            @Override
-            public void onResponse(List<RestContact> response) {
-                getListSectionableAndOrderAlphabetical(response, new IORecoverContactsInOrder() {
-                    @Override
-                    public void onContacts(Pair<List<Item>, List<Item>> pair) {
-                        suggestionContacts = (pair == null) ? new ArrayList<Item>() : pair.first;
 
-                        EventBus.getDefault().post(new UpdateUserContactsEvent(suggestionContacts, SUGGESTION_CONTACTS));
-
-                    }
-                }, false);
-            }
-
-            @Override
-            public void onErrorResponse(RestError error) {
-            }
-
-        }, mContext);
     }
 
     public void loadUserContacts() {
         if (mUserSessionManager.getCurrentUser() != null) {
             String idUser = mUserSessionManager.getCurrentUser().getIdUser();
-            ContactsUseCases.getUserContacts(idUser, new Callback<List<RestContact>, RestError>() {
-                @Override
-                public void onResponse(List<RestContact> response) {
-                    getListSectionableAndOrderAlphabetical(response, new IORecoverContactsInOrder() {
-                        @Override
-                        public void onContacts(Pair<List<Item>, List<Item>> pair) {
-                            userContacts = (pair == null) ? new ArrayList<Item>() : pair.first;
 
-                            EventBus.getDefault().post(new UpdateUserContactsEvent(userContacts, TINKELINK_CONTACTS));
-
-                        }
-                    }, false);
-                }
-
-                @Override
-                public void onErrorResponse(RestError error) {
-                }
-
-            }, mContext);
         }
     }
 

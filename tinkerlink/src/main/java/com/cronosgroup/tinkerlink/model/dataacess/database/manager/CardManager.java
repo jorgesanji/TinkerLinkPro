@@ -21,4 +21,11 @@ public class CardManager {
                 .where().queryList();
         TransactionManager.getInstance().addTransaction(new DeleteModelListTransaction<>(ProcessModelInfo.<TLCard>withModels().models(cards)));
     }
+
+    public List<TLCard> getAll() {
+        List<TLCard> cards = new Select().from(TLCard.class)
+                .where().queryList();
+
+        return cards;
+    }
 }

@@ -28,7 +28,7 @@ public class ChatUserActivity extends TinkerLinkActivity<ChatUserFragment> {
         restChat = (RestChat) getIntent().getExtras().getSerializable(ITEMS_KEY);
         final RestUser restUser = restChat.getUser().getUser();
         setTitle(restUser.getName());
-        setSubtitle(restUser.getProfile().getProfession());
+        setSubtitle(restUser.getProfession());
         setToolBarIconFromUrl(restUser.getPhoto(), R.mipmap.newsfeed_avatar_hombre);
     }
 

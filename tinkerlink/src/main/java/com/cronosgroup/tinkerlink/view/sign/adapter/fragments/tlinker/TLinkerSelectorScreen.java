@@ -12,7 +12,7 @@ import android.widget.RelativeLayout;
 import com.bignerdranch.expandablerecyclerview.Adapter.ExpandableRecyclerAdapter;
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.enums.StackCardType;
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestCategoria;
+import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestCategory;
 import com.cronosgroup.tinkerlink.view.customviews.TLRecyclerView;
 import com.cronosgroup.tinkerlink.view.customviews.TLTextView;
 import com.cronosgroup.tinkerlink.view.sign.adapter.fragments.tlinker.adapter.CategoriesAdapter;
@@ -29,7 +29,7 @@ import butterknife.ButterKnife;
 public class TLinkerSelectorScreen extends RelativeLayout {
 
     public interface Listener {
-        void setCurrentCategorySelected(RestCategoria categoria);
+        void setCurrentCategorySelected(RestCategory categoria);
 
         void skillSelectAtPosition(int position);
     }
@@ -129,7 +129,7 @@ public class TLinkerSelectorScreen extends RelativeLayout {
                 if (viewHolderSelected != null) {
                     viewHolderSelected.collapse();
                 }
-                listener.setCurrentCategorySelected((RestCategoria) mAdapter.getParentItemList().get(position));
+                listener.setCurrentCategorySelected((RestCategory) mAdapter.getParentItemList().get(position));
             }
 
             @Override
@@ -179,15 +179,15 @@ public class TLinkerSelectorScreen extends RelativeLayout {
         initUI();
     }
 
-    public void setItems(List<RestCategoria> restCategorias) {
-        mAdapter = new CategoriesAdapter(restCategorias, getContext());
+    public void setItems(List<RestCategory> restCategories) {
+        mAdapter = new CategoriesAdapter(restCategories, getContext());
         mAdapter.setTypeTinker(getTypeTinker());
         mCategoriesList.setAdapter(mAdapter);
         initListeners();
     }
 
-    public List<RestCategoria> getItems() {
-        return (List<RestCategoria>) mAdapter.getParentItemList();
+    public List<RestCategory> getItems() {
+        return (List<RestCategory>) mAdapter.getParentItemList();
     }
 
     public void setTextTitle(String title, String textToPaint, int colorToPain) {

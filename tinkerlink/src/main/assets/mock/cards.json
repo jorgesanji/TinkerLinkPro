@@ -1,109 +1,214 @@
 {
-  "posts": [
+  "cards": [
     {
-      "_id": "573af043e9818a8e73f8e80c",
-      "tipo": "tinker",
-      "usuario": {},
-      "pais": "Spain",
-      "ciudad": "Barcelona",
-      "categoria": "Eventos",
-      "descripcion": "My job is to make sure your brand is out there making money for you! Hire Me!!",
-      "duracion": "To discuss",
-      "experiencia": "0 to 1 year",
-      "profesion": "Planificador de eventos",
-      "salario": "To discuss",
-      "tipoSalario": "Euros",
-      "fecha": "2016-05-17 10:19:47.007 +00:00",
-      "latitude": 2.1734035,
-      "longitude": 41.3850639,
-      "__v": 1,
-      "like": false,
-      "compartido": false,
-      "intervalo": "hace un mes",
-      "habilidades": [
-        "Conferencias",
-        "Eventos-Especiales",
-        "tradeshows"
+      "id": "",
+      "type": "",
+      "user": {
+        "id": "",
+        "name": "",
+        "lastname": "",
+        "photo": ""
+      },
+      "category": "",
+      "description": "",
+      "budget": "",
+      "paymentMethod": "",
+      "profession": "",
+      "country": "",
+      "city": "",
+      "latitude": 0.0,
+      "longitude": 0.0,
+      "skills": [
+        {
+          "name": "",
+          "id": ""
+        }
       ],
-      "fotos": [
-        "photo1463480387010-0.jpg",
-        "photo1463480387010-1.jpg",
-        "photo1463480387010-2.jpg",
-        "photo1463480387010-3.jpg"
+      "timeByProject": "",
+      "experience": "",
+      "date": "",
+      "recommendations": [
+        {
+          "id": "",
+          "user": {
+            "id": "",
+            "name": "",
+            "lastname": "",
+            "photo": "",
+            "profession": ""
+          },
+          "date": "",
+          "text": "",
+          "skills": [
+            {
+              "id": "",
+              "name": ""
+            }
+          ]
+        },
+        {
+          "id": "",
+          "user": {
+            "id": "",
+            "name": "",
+            "lastname": "",
+            "photo": "",
+            "profession": ""
+          },
+          "date": "",
+          "text": "",
+          "skills": [
+            {
+              "id": "",
+              "name": ""
+            }
+          ]
+        }
       ],
-      "shares": 1,
-      "visto": 8,
-      "usersCompartido": [
-        "573c8fa9c2ad179f06b4cd64"
-      ],
-      "usersLike": [
-      ],
-      "likes": 0
+      "images": [
+        "",
+        ""
+      ]
     },
     {
-      "_id": "573ad4abe9818a8e73f8e248",
-      "tipo": "tinker",
-      "usuario": {
-        "usuario": {
-          "_id": "573ad147e9818a8e73f8de14",
-          "nombreCompleto": "Oscar Llorca",
-          "foto": "photo1463472784759.jpg",
-          "regId": "eZLxiv0zEg4:APA91bF9iu7CMyDqI58uk6fTRkufYIbrN0X5r-ZwMWGe0c6XiDu-lpBOmZC2ln-KTg9Tl-LUOZVoZ6RX_WV6KflrlPeBXNwKiZof7f1_SnYvx-ZcgoDPYt0CXSjQbWljyepIR6oXyelt",
-          "recommendations": 0,
-          "perfil": {
-            "like": false,
-            "compartido": false,
-            "profesion": "Diseñador",
-            "comparticiones": 1,
-            "visto": 6
-          },
-          "linker": 1,
-          "tinker": 1,
-          "visibility": "public",
-          "state": "active"
-        },
-        "status": "none",
-        "orden": 0
+      "id": "",
+      "type": "",
+      "user": {
+        "id": "",
+        "name": "",
+        "lastname": "",
+        "photo": ""
       },
-      "pais": "España",
-      "ciudad": "Barcelona",
-      "categoria": "Creatividad",
-      "descripcion": "Diseñador Mis habilidades son html,css,photoshop,ilustración,logos,Lettering,character design",
-      "duracion": "A Negociar",
-      "experiencia": "3 a 5 años",
-      "profesion": "Diseñador",
-      "salario": "A Negociar",
-      "tipoSalario": "Euros",
-      "fecha": "2016-05-17 08:22:03.539 +00:00",
-      "latitude": 2.1687989,
-      "longitude": 41.3885963,
-      "__v": 1,
-      "like": false,
-      "compartido": false,
-      "intervalo": "hace un mes",
-      "habilidades": [
-        "html",
-        "css",
-        "photoshop",
-        "ilustración",
-        "logos",
-        "Lettering",
-        "character design"
+      "category": "",
+      "description": "",
+      "budget": "",
+      "paymentMethod": "",
+      "profession": "",
+      "country": "",
+      "city": "",
+      "latitude": 0.0,
+      "longitude": 0.0,
+      "skills": [
+        {
+          "name": "",
+          "id": ""
+        }
       ],
-      "fotos": [
-        "photo1463473323542-0.jpg",
-        "photo1463473323542-1.jpg",
-        "photo1463473323542-2.jpg",
-        "photo1463473323542-3.jpg"
+      "timeByProject": "",
+      "experience": "",
+      "date": "",
+      "recommendations": [
+        {
+          "id": "",
+          "user": {
+            "id": "",
+            "name": "",
+            "lastname": "",
+            "photo": "",
+            "profession": ""
+          },
+          "date": "",
+          "text": "",
+          "skills": [
+            {
+              "id": "",
+              "name": ""
+            }
+          ]
+        },
+        {
+          "id": "",
+          "user": {
+            "id": "",
+            "name": "",
+            "lastname": "",
+            "photo": "",
+            "profession": ""
+          },
+          "date": "",
+          "text": "",
+          "skills": [
+            {
+              "id": "",
+              "name": ""
+            }
+          ]
+        }
       ],
-      "shares": 1,
-      "visto": 103903,
-      "usersCompartido": [
-        "573ae2efe9818a8e73f8e467"
+      "images": [
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "",
+      "type": "",
+      "user": {
+        "id": "",
+        "name": "",
+        "lastname": "",
+        "photo": ""
+      },
+      "category": "",
+      "description": "",
+      "budget": "",
+      "paymentMethod": "",
+      "profession": "",
+      "country": "",
+      "city": "",
+      "latitude": 0.0,
+      "longitude": 0.0,
+      "skills": [
+        {
+          "name": "",
+          "id": ""
+        }
       ],
-      "usersLike": [
+      "timeByProject": "",
+      "experience": "",
+      "date": "",
+      "recommendations": [
+        {
+          "id": "",
+          "user": {
+            "id": "",
+            "name": "",
+            "lastname": "",
+            "photo": "",
+            "profession": ""
+          },
+          "date": "",
+          "text": "",
+          "skills": [
+            {
+              "id": "",
+              "name": ""
+            }
+          ]
+        },
+        {
+          "id": "",
+          "user": {
+            "id": "",
+            "name": "",
+            "lastname": "",
+            "photo": "",
+            "profession": ""
+          },
+          "date": "",
+          "text": "",
+          "skills": [
+            {
+              "id": "",
+              "name": ""
+            }
+          ]
+        }
       ],
-      "likes": 0
+      "images": [
+        "",
+        ""
+      ]
     }
   ]
 }

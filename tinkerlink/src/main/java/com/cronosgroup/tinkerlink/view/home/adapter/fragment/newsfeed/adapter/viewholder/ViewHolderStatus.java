@@ -1,13 +1,10 @@
 package com.cronosgroup.tinkerlink.view.home.adapter.fragment.newsfeed.adapter.viewholder;
 
-import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
-import android.text.util.Linkify;
 import android.view.View;
-import android.widget.ImageView;
 
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.interfaces.IOIconListener;
@@ -21,8 +18,6 @@ import com.cronosgroup.tinkerlink.view.customviews.TLTextView;
 import com.cronosgroup.tinkerlink.view.customviews.TLUserView;
 import com.cronosgroup.tinkerlink.view.home.adapter.fragment.newsfeed.adapter.viewholder.base.ViewHolderPostBase;
 import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.assist.FailReason;
-import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 
 import java.util.Date;
 
@@ -150,19 +145,19 @@ public class ViewHolderStatus extends ViewHolderPostBase<RestPost> {
         });
 
         mUserName.setText(user.getName());
-        if (user.getProfile().getProfession().isEmpty()) {
+        if (user.getProfession().isEmpty()) {
             mUserOcupation.setVisibility(View.GONE);
         } else {
-            mUserOcupation.setText(user.getProfile().getProfession());
+            mUserOcupation.setText(user.getProfession());
             mUserOcupation.setVisibility(View.VISIBLE);
         }
 
-        if (user.getProfile().getLocation() == null) {
-            mUserLocation.setVisibility(View.GONE);
-        } else {
-            mUserLocation.setText(user.getProfile().getLocation());
-            mUserLocation.setVisibility(View.VISIBLE);
-        }
+//        if (user.getProfile().getLocation() == null) {
+//            mUserLocation.setVisibility(View.GONE);
+//        } else {
+//            mUserLocation.setText(user.getProfile().getLocation());
+//            mUserLocation.setVisibility(View.VISIBLE);
+//        }
     }
 
     protected void setInfoButtons(int recommendations, int shares, int views) {
@@ -176,62 +171,62 @@ public class ViewHolderStatus extends ViewHolderPostBase<RestPost> {
         mLinkDescription.setVisibility(View.GONE);
         mLink.setVisibility(View.GONE);
 
-        String urlImage = "";
-        if (!post.getPictures().isEmpty()) {
-            urlImage = post.getPictures().get(0);
-        } else if (!post.getLinkUrl().isEmpty()) {
-            mLinkTitle.setVisibility(View.VISIBLE);
-            mLinkDescription.setVisibility(View.VISIBLE);
-            mLink.setVisibility(View.VISIBLE);
-            urlImage = post.getLinkImage();
-            mLinkTitle.setText(post.getLinkTitle());
-            mLinkDescription.setText(post.getLinkDescription());
-            mLink.setText(post.getLinkUrl());
-        }
+//        String urlImage = "";
+//        if (!post.getPictures().isEmpty()) {
+//            urlImage = post.getPictures().get(0);
+//        } else if (!post.getLinkUrl().isEmpty()) {
+//            mLinkTitle.setVisibility(View.VISIBLE);
+//            mLinkDescription.setVisibility(View.VISIBLE);
+//            mLink.setVisibility(View.VISIBLE);
+//            urlImage = post.getLinkImage();
+//            mLinkTitle.setText(post.getLinkTitle());
+//            mLinkDescription.setText(post.getLinkDescription());
+//            mLink.setText(post.getLinkUrl());
+//        }
 
-        if (post.getText().isEmpty()) {
-            mCardDescription.setVisibility(View.GONE);
-        } else {
-            mCardDescription.setVisibility(View.VISIBLE);
-            mCardDescription.setText(post.getText());
-            Linkify.addLinks(mCardDescription, Linkify.WEB_URLS);
-            mCardDescription.setLinkTextColor(getResources().getColor(R.color.tinkercolor));
-        }
+//
 
-        if (!urlImage.isEmpty()) {
-            mCardShareImage.setVisibility(View.VISIBLE);
-            mCardShareImage.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            mCardShareImage.setImageFromUrl(urlImage, new ImageLoadingListener() {
-                @Override
-                public void onLoadingStarted(String imageUri, View view) {
-
-                }
-
-                @Override
-                public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
-                    mCardShareImage.setScaleType(ImageView.ScaleType.CENTER);
-                }
-
-                @Override
-                public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
-                    mCardShareImage.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                }
-
-                @Override
-                public void onLoadingCancelled(String imageUri, View view) {
-                    mCardShareImage.setScaleType(ImageView.ScaleType.CENTER);
-                }
-            });
-
-            mCardShareImage.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    getActionButtons().onUserImagePressed(getAdapterPosition());
-                }
-            });
-
-        } else {
-            mCardShareImage.setVisibility(View.GONE);
-        }
+//        if (!urlImage.isEmpty()) {
+//            mCardShareImage.setVisibility(View.VISIBLE);
+//            mCardShareImage.setScaleType(ImageView.ScaleType.CENTER_CROP);
+//            mCardShareImage.setImageFromUrl(urlImage, new ImageLoadingListener() {
+//                @Override
+//                public void onLoadingStarted(String imageUri, View view) {
+//
+//                }
+//  if (post.getText().isEmpty()) {
+//            mCardDescription.setVisibility(View.GONE);
+//        } else {
+//            mCardDescription.setVisibility(View.VISIBLE);
+//            mCardDescription.setText(post.getText());
+//            Linkify.addLinks(mCardDescription, Linkify.WEB_URLS);
+//            mCardDescription.setLinkTextColor(getResources().getColor(R.color.tinkercolor));
+//        }
+//                @Override
+//                public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
+//                    mCardShareImage.setScaleType(ImageView.ScaleType.CENTER);
+//                }
+//
+//                @Override
+//                public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
+//                    mCardShareImage.setScaleType(ImageView.ScaleType.CENTER_CROP);
+//                }
+//
+//                @Override
+//                public void onLoadingCancelled(String imageUri, View view) {
+//                    mCardShareImage.setScaleType(ImageView.ScaleType.CENTER);
+//                }
+//            });
+//
+//            mCardShareImage.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    getActionButtons().onUserImagePressed(getAdapterPosition());
+//                }
+//            });
+//
+//        } else {
+//            mCardShareImage.setVisibility(View.GONE);
+//        }
     }
 }

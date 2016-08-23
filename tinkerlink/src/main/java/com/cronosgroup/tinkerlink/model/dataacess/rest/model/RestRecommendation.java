@@ -4,6 +4,7 @@ import com.cronosgroup.core.rest.RestBase;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -11,21 +12,20 @@ import java.util.List;
  */
 public class RestRecommendation extends RestBase {
 
-    @SerializedName("_id")
+    @SerializedName("id")
     private String id = "";
 
     @SerializedName("user")
-    private RestContact user = new RestContact();
+    private RestUser user = new RestUser();
 
-    @SerializedName("create_date")
-    private String createDate = "";
+    @SerializedName("date")
+    private Date date;
 
-    @SerializedName("texto")
-    private String recomendacion = "";
+    @SerializedName("text")
+    private String text = "";
 
-    @SerializedName("habilidades")
-    private List<String> habilidades = new ArrayList<String>();
-
+    @SerializedName("skills")
+    private List<String> skills = new ArrayList<String>();
 
     public String getId() {
         return id;
@@ -35,35 +35,35 @@ public class RestRecommendation extends RestBase {
         this.id = id;
     }
 
-    public RestContact getUser() {
+    public RestUser getUser() {
         return user;
     }
 
-    public void setUser(RestContact user) {
+    public void setUser(RestUser user) {
         this.user = user;
     }
 
-    public String getCreateDate() {
-        return createDate;
+    public Date getCreateDate() {
+        return date;
     }
 
-    public void setCreateDate(String createDate) {
-        this.createDate = createDate;
+    public void setCreateDate(Date createDate) {
+        this.date = createDate;
     }
 
-    public String getRecomendacion() {
-        return recomendacion;
+    public String getText() {
+        return text;
     }
 
-    public void setRecomendacion(String recomendacion) {
-        this.recomendacion = recomendacion;
+    public void setText(String text) {
+        this.text = text;
     }
 
-    public List<String> getHabilidades() {
-        return habilidades;
+    public List<String> getSkills() {
+        return skills;
     }
 
-    public void setHabilidades(List<String> habilidades) {
-        this.habilidades = habilidades;
+    public void setSkills(List<String> skills) {
+        this.skills = skills;
     }
 }

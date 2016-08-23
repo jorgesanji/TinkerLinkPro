@@ -67,25 +67,25 @@ public class ViewHolderShareUpdateProfile extends ViewHolderUpdateProfile {
         });
 
         mUserName.setText(user.getName());
-        if (user.getProfile().getProfession().isEmpty()) {
+        if (user.getProfession().isEmpty()) {
             mUserOcupation.setVisibility(View.GONE);
         } else {
-            mUserOcupation.setText(user.getProfile().getProfession());
+            mUserOcupation.setText(user.getProfession());
             mUserOcupation.setVisibility(View.VISIBLE);
         }
 
-        if (user.getProfile().getLocation() == null) {
-            mUserLocation.setVisibility(View.GONE);
-        } else {
-            mUserLocation.setText(user.getProfile().getLocation());
-            mUserLocation.setVisibility(View.VISIBLE);
-        }
+//        if (user.getProfile().getLocation() == null) {
+//            mUserLocation.setVisibility(View.GONE);
+//        } else {
+//            mUserLocation.setText(user.getProfile().getLocation());
+//            mUserLocation.setVisibility(View.VISIBLE);
+//        }
 
-        if (post.getText().isEmpty()) {
-            mCardDescription.setVisibility(View.GONE);
-        } else {
-            mCardDescription.setText(post.getText());
-            mCardDescription.setVisibility(View.VISIBLE);
-        }
+//        if (post.getText().isEmpty()) {
+//            mCardDescription.setVisibility(View.GONE);
+//        } else {
+//            mCardDescription.setText(post.getText());
+//            mCardDescription.setVisibility(View.VISIBLE);
+//        }
     }
 }

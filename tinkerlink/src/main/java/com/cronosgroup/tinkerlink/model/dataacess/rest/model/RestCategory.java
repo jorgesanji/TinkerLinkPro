@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * Created by jorgesanmartin on 11/17/15.
  */
-public class RestCategoria extends RestBase implements ParentListItem {
+public class RestCategory extends RestBase implements ParentListItem {
 
     private boolean selected;
 

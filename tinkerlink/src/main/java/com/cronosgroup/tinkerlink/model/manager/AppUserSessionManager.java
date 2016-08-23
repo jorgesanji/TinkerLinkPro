@@ -25,7 +25,7 @@ import com.cronosgroup.tinkerlink.view.tutorial.TutorialActivity;
 public class AppUserSessionManager implements SessionStatus {
 
     public interface IOSessionCallback {
-        void onSessionStatus(RestUser.UserStatus status);
+//        void onSessionStatus(RestUser.UserStatus status);
     }
 
     private final Context mContext;
@@ -115,28 +115,26 @@ public class AppUserSessionManager implements SessionStatus {
 
         if (user == null) {
             if (callback != null) {
-                callback.onSessionStatus(RestUser.UserStatus.NONE);
+//                callback.onSessionStatus(RestUser.UserStatus.NONE);
             }
         } else {
             appUserManager.updateProfileData(user.getIdUser(), new Callback<RestUser, RestError>() {
                 @Override
                 public void onResponse(RestUser response) {
                     if (callback != null) {
-                        if (response != null && response.isActive()) {
+                        if (response != null) {
                             user.setName(response.getName());
                             user.setPhoto(response.getPhoto());
                             user.setBirthday(response.getBirthday());
                             user.setEmail(response.getEmail());
-                            user.setVisibility(response.getVisibility());
-                            user.setCategory(response.getProfile().getCategory());
-                            user.setOcupation(response.getProfile().getProfession());
-                            user.setJobDescription(response.getProfile().getDescripcion());
-                            user.setEducation(AppRestManager.mapping.mappingToStringJson(response.getProfile().getStudies()));
+                            user.setCategory(response.getCategory());
+                            user.setOcupation(response.getProfession());
+                            user.setEducation(AppRestManager.mapping.mappingToStringJson(response.getStudies()));
                             user.save();
 
-                            callback.onSessionStatus(RestUser.UserStatus.ACTIVE);
+//                            callback.onSessionStatus(RestUser.UserStatus.ACTIVE);
                         } else {
-                            callback.onSessionStatus(RestUser.UserStatus.INACTIVE);
+//                            callback.onSessionStatus(RestUser.UserStatus.INACTIVE);
                         }
                     }
                 }
@@ -144,7 +142,7 @@ public class AppUserSessionManager implements SessionStatus {
                 @Override
                 public void onErrorResponse(RestError error) {
                     if (callback != null) {
-                        callback.onSessionStatus(RestUser.UserStatus.NONE);
+//                        callback.onSessionStatus(RestUser.UserStatus.NONE);
                     }
                 }
             });

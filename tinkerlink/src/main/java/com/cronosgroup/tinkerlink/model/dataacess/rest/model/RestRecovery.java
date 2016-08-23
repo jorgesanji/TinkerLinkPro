@@ -8,7 +8,7 @@ import com.google.gson.annotations.SerializedName;
  */
 public class RestRecovery extends RestBase {
 
-    @SerializedName("usuario")
+    @SerializedName("user")
     private RestUser usuario = new RestUser();
 
     public RestUser getUsuario() {

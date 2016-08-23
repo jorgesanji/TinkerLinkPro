@@ -7,7 +7,7 @@ import java.util.Date;
 
 public class RestMessage extends RestBase {
 
-    @SerializedName("_id")
+    @SerializedName("")
     private String id = "";
 
     @SerializedName("chat")

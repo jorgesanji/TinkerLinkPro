@@ -2,7 +2,7 @@ package com.cronosgroup.tinkerlink.presenter.createcard;
 
 import android.graphics.Bitmap;
 
-import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestCategoria;
+import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestCategory;
 import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkImagePickerPresenter;
 import com.cronosgroup.tinkerlink.presenter.base.TinkerLinkPresenterView;
 import com.cronosgroup.tinkerlink.utils.AsyncLoader;
@@ -19,7 +19,7 @@ public class CategorySelectionPresenter extends TinkerLinkImagePickerPresenter<C
      * Contacts listeners.
      */
     public interface View extends TinkerLinkPresenterView {
-        void setCategories(List<RestCategoria> categories);
+        void setCategories(List<RestCategory> categories);
     }
 
     // public methods
@@ -28,13 +28,13 @@ public class CategorySelectionPresenter extends TinkerLinkImagePickerPresenter<C
 
         getView().showLoading();
 
-        AsyncLoader<List<RestCategoria>> asyncLoader = new AsyncLoader<List<RestCategoria>>() {
+        AsyncLoader<List<RestCategory>> asyncLoader = new AsyncLoader<List<RestCategory>>() {
             @Override
-            public List<RestCategoria> doInBackground() {
-                final List<RestCategoria> list = new ArrayList<>();
+            public List<RestCategory> doInBackground() {
+                final List<RestCategory> list = new ArrayList<>();
 
                 for (int i = 0; i < 10; i++) {
-                    final RestCategoria categoria = new RestCategoria();
+                    final RestCategory categoria = new RestCategory();
                     categoria.setCategoria("Reparación");
                     final List<String> stringList = new ArrayList<>();
                     for (int j = 0; j < 10; j++) {
@@ -48,7 +48,7 @@ public class CategorySelectionPresenter extends TinkerLinkImagePickerPresenter<C
             }
 
             @Override
-            public void postProcess(List<RestCategoria> result) {
+            public void postProcess(List<RestCategory> result) {
                 getView().setCategories(result);
                 getView().hideLoading();
             }

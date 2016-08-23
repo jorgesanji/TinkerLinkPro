@@ -1,0 +1,72 @@
+{
+  "user": {
+    "id": "",
+    "name": "",
+    "lastname": "",
+    "photo": "",
+    "profession": "",
+    "phone": "",
+    "gender": "",
+    "email": "",
+    "birthday": "",
+    "contacts": [
+      {
+        "id": "",
+        "name": "",
+        "lastname": "",
+        "photo": "",
+        "profession": ""
+      },
+      {
+        "id": "",
+        "name": "",
+        "lastname": "",
+        "photo": "",
+        "profession": ""
+      },
+      {
+        "id": "",
+        "name": "",
+        "lastname": "",
+        "photo": "",
+        "profession": ""
+      }
+    ],
+    "numberLinkers": 0,
+    "numberTinkers": 0,
+    "recommendations": 0,
+    "description": "",
+    "category": "",
+    "profession": "",
+    "studies": [
+      {
+        "school": "",
+        "courseName": ""
+      },
+      {
+        "school": "",
+        "courseName": ""
+      }
+    ],
+    "skills": [
+      {
+        "id": "",
+        "name": ""
+      },
+      {
+        "id": "",
+        "name": ""
+      },
+      {
+        "id": "",
+        "name": ""
+      }
+    ],
+    "gallery": [
+      "",
+      ""
+    ],
+    "country": "",
+    "city": ""
+  }
+}
