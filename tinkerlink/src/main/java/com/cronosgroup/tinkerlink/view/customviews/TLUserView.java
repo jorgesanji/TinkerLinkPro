@@ -16,7 +16,7 @@ import com.cronosgroup.tinkerlink.enums.ImageType;
 import com.cronosgroup.tinkerlink.interfaces.IOAddContactListener;
 import com.cronosgroup.tinkerlink.interfaces.IOIconListener;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContact;
-import com.cronosgroup.tinkerlink.view.customviews.base.TLBaseView;
+import com.cronosgroup.tinkerlink.view.base.TLBaseView;
 
 import butterknife.BindView;
 import butterknife.OnClick;

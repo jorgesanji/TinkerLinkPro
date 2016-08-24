@@ -7,7 +7,7 @@ import com.cronosgroup.tinkerlink.event.FormRegistrationEvent;
 import com.cronosgroup.tinkerlink.event.RegistrationStepsEvent;
 import com.cronosgroup.tinkerlink.event.SmsEvent;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestUser;
-import com.cronosgroup.tinkerlink.presenter.sign.ValidationPresenter;
+import com.cronosgroup.tinkerlink.presenter.sign.VerifyRegistrationPresenter;
 import com.cronosgroup.tinkerlink.view.dialog.base.MVPTinkerLinkDialogFragment;
 
 import org.greenrobot.eventbus.EventBus;
@@ -16,8 +16,8 @@ import org.greenrobot.eventbus.Subscribe;
 /**
  * Created by jorgesanmartin on 1/29/16.
  */
-public class ValidationDialogFragment extends MVPTinkerLinkDialogFragment<ValidationPresenter, ValidationPresenter.View>
-        implements ValidationPresenter.View, ValidationDialogScreen.Listener {
+public class ValidationDialogFragment extends MVPTinkerLinkDialogFragment<VerifyRegistrationPresenter, VerifyRegistrationPresenter.View>
+        implements VerifyRegistrationPresenter.View, ValidationDialogScreen.Listener {
 
     public static final int CODE = 123;
 
@@ -76,12 +76,12 @@ public class ValidationDialogFragment extends MVPTinkerLinkDialogFragment<Valida
     //region **************  MVPFragment **************
 
     @Override
-    protected ValidationPresenter createPresenter() {
-        return new ValidationPresenter();
+    protected VerifyRegistrationPresenter createPresenter() {
+        return new VerifyRegistrationPresenter();
     }
 
     @Override
-    protected ValidationPresenter.View getPresenterView() {
+    protected VerifyRegistrationPresenter.View getPresenterView() {
         return this;
     }
 

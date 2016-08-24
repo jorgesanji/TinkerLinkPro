@@ -13,7 +13,7 @@ import android.view.animation.LinearInterpolator;
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.enums.StackCardType;
 import com.cronosgroup.tinkerlink.view.customviews.TLViewPager;
-import com.cronosgroup.tinkerlink.view.customviews.base.TLBaseView;
+import com.cronosgroup.tinkerlink.view.base.TLBaseView;
 import com.cronosgroup.tinkerlink.view.stack.adapter.StackAdapter;
 
 import butterknife.BindView;

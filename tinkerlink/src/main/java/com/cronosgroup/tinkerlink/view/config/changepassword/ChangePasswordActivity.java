@@ -32,7 +32,7 @@ public class ChangePasswordActivity extends TinkerLinkActivity<ChangePasswordFra
     }
 
     @Override
-    public ToolBarStyle getActivityStyle() {
+    public ToolBarStyle getToolBarStyle() {
         return ToolBarStyle.DEFAULTSTYLE;
     }
 

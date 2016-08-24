@@ -1,12 +1,13 @@
 package com.cronosgroup.tinkerlink.model.business.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by jorgesanmartin on 10/23/15.
  */
-public class AppUser {
+public class AppUser implements Serializable {
 
 //     Current Json from facebook API
 //    {

@@ -25,7 +25,7 @@ public class FilterCardsActivity extends TinkerLinkActivity<FilterCardsFragment>
     }
 
     @Override
-    public ToolBarStyle getActivityStyle() {
+    public ToolBarStyle getToolBarStyle() {
         return ToolBarStyle.DEFAULTSTYLE;
     }
 

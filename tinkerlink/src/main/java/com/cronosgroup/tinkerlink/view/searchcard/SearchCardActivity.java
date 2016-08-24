@@ -20,7 +20,7 @@ public class SearchCardActivity extends TinkerLinkActivity<SearchCardFragment> {
     }
 
     @Override
-    public ToolBarStyle getActivityStyle() {
+    public ToolBarStyle getToolBarStyle() {
         return ToolBarStyle.DEFAULTSTYLE;
     }
 

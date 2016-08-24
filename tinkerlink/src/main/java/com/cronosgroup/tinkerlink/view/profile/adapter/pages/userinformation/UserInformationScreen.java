@@ -7,7 +7,7 @@ import android.os.Build;
 import android.util.AttributeSet;
 
 import com.cronosgroup.tinkerlink.R;
-import com.cronosgroup.tinkerlink.view.customviews.base.TLBaseView;
+import com.cronosgroup.tinkerlink.view.base.TLBaseView;
 
 import butterknife.OnClick;
 

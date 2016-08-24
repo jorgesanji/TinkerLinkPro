@@ -17,7 +17,7 @@ import com.cronosgroup.tinkerlink.view.customviews.TLImageView;
 import com.cronosgroup.tinkerlink.view.customviews.TLStackButton;
 import com.cronosgroup.tinkerlink.view.customviews.TLTextView;
 import com.cronosgroup.tinkerlink.view.customviews.TLViewPager;
-import com.cronosgroup.tinkerlink.view.customviews.base.TLBaseView;
+import com.cronosgroup.tinkerlink.view.base.TLBaseView;
 import com.cronosgroup.tinkerlink.view.profile.adapter.ProfileAdapter;
 
 import java.util.List;

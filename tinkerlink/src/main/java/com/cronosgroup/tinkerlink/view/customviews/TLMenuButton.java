@@ -15,7 +15,7 @@ import android.widget.LinearLayout;
 
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.utils.DimenUtils;
-import com.cronosgroup.tinkerlink.view.customviews.base.TLBaseView;
+import com.cronosgroup.tinkerlink.view.base.TLBaseView;
 import com.nineoldandroids.animation.Animator;
 import com.nineoldandroids.animation.AnimatorSet;
 import com.nineoldandroids.animation.ObjectAnimator;

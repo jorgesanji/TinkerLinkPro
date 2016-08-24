@@ -10,7 +10,6 @@ import com.cronosgroup.tinkerlink.presenter.detailcard.DetailCardPresenter;
 import com.cronosgroup.tinkerlink.utils.TLMMenuBuilder;
 import com.cronosgroup.tinkerlink.utils.TLMMenuItem;
 import com.cronosgroup.tinkerlink.view.base.MVPTinkerLinkFragment;
-import com.cronosgroup.tinkerlink.view.detailcard.DetailCardScreen;
 import com.cronosgroup.tinkerlink.view.detailcard.DetailStackActivity;
 import com.cronosgroup.tinkerlink.view.dialog.network.NetworkDialogFragment;
 

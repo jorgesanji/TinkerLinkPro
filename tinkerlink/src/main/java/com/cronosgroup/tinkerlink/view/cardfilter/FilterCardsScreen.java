@@ -15,7 +15,7 @@ import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestCategory;
 import com.cronosgroup.tinkerlink.utils.TLDIviderGridSpacingDecoration;
 import com.cronosgroup.tinkerlink.view.cardfilter.adapter.FilterCardsAdapter;
 import com.cronosgroup.tinkerlink.view.customviews.TLRecyclerView;
-import com.cronosgroup.tinkerlink.view.customviews.base.TLBaseView;
+import com.cronosgroup.tinkerlink.view.base.TLBaseView;
 
 import java.util.List;
 

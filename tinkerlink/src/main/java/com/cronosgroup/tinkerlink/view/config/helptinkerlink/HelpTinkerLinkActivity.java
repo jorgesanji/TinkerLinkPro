@@ -32,7 +32,7 @@ public class HelpTinkerLinkActivity extends TinkerLinkActivity<HelpTinkerLinkFra
     }
 
     @Override
-    public ToolBarStyle getActivityStyle() {
+    public ToolBarStyle getToolBarStyle() {
         return ToolBarStyle.DEFAULTSTYLE;
     }
 

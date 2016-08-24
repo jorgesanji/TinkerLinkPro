@@ -131,7 +131,7 @@
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".view.sign.SignActivity"
+            android:name=".view.sign.userformregistration.UserRegistrationActivity"
             android:screenOrientation="portrait" />
 
         <activity
@@ -239,6 +239,22 @@
 
         <activity
             android:name=".view.verifyemail.VerifyEmailActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".view.sign.socialnetworkregistration.SocialNetWorkRegistrationActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".view.sign.createaccountregistration.CreateAccountRegistrationActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".view.sign.phoneregistration.PhoneRegistrationActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".view.useterms.UseTermsActivity"
             android:screenOrientation="portrait" />
 
     </application>

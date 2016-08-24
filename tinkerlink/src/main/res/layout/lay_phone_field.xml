@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/background_edit_text"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_tiny"
+        android:background="@android:color/transparent"
+        android:spinnerMode="dropdown"
+        android:tag="@string/com_lamudi_phonefield_flag_spinner" />
+
+    <com.cronosgroup.tinkerlink.view.customviews.TLImageView
+        android:id="@+id/showCountries"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/margin_tiny"
+        android:layout_marginRight="@dimen/margin_tiny"
+        android:scaleType="center"
+        android:src="@mipmap/ic_expand_more" />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/phoneInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <com.cronosgroup.tinkerlink.view.customviews.TLEditText
+        style="@style/EditFormStyle"
+        android:background="@android:color/transparent"
+        android:inputType="phone"
+        android:tag="@string/com_lamudi_phonefield_edittext" />
+
+    </android.support.design.widget.TextInputLayout>
+
+</LinearLayout>

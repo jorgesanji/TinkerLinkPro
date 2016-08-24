@@ -12,7 +12,7 @@ import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.view.customviews.TLActionButton;
 import com.cronosgroup.tinkerlink.view.customviews.TLMenuButton;
 import com.cronosgroup.tinkerlink.view.customviews.TLViewPager;
-import com.cronosgroup.tinkerlink.view.customviews.base.TLBaseView;
+import com.cronosgroup.tinkerlink.view.base.TLBaseView;
 import com.cronosgroup.tinkerlink.view.home.adapter.HomeAdapter;
 
 import butterknife.BindView;

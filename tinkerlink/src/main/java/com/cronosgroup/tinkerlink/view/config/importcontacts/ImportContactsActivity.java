@@ -32,7 +32,7 @@ public class ImportContactsActivity extends TinkerLinkActivity<ImportContactsFra
     }
 
     @Override
-    public ToolBarStyle getActivityStyle() {
+    public ToolBarStyle getToolBarStyle() {
         return ToolBarStyle.DEFAULTSTYLE;
     }
 

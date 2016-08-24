@@ -23,7 +23,7 @@ public class ProfileActivity extends TinkerLinkActivity<ProfileFragment> {
     }
 
     @Override
-    public ToolBarStyle getActivityStyle() {
+    public ToolBarStyle getToolBarStyle() {
         return ToolBarStyle.DEFAULTSTYLE;
     }
 

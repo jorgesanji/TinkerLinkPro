@@ -19,7 +19,7 @@ import com.cronosgroup.tinkerlink.view.chatuser.adapter.ChatUserAdapter;
 import com.cronosgroup.tinkerlink.view.customviews.TLButton;
 import com.cronosgroup.tinkerlink.view.customviews.TLEditText;
 import com.cronosgroup.tinkerlink.view.customviews.TLRecyclerView;
-import com.cronosgroup.tinkerlink.view.customviews.base.TLBaseView;
+import com.cronosgroup.tinkerlink.view.base.TLBaseView;
 
 import java.util.List;
 

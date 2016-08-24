@@ -41,6 +41,7 @@
         <attr name="underLineColor" format="color" />
         <attr name="underLineText" format="string" />
         <attr name="hasMessageStyle" format="boolean" />
+        <attr name="textToBold" format="string" />
     </declare-styleable>
 
     <declare-styleable name="TLEditText">

@@ -4,10 +4,12 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Build;
 import android.text.Html;
 import android.text.Spannable;
 import android.text.SpannableString;
+import android.text.Spanned;
 import android.text.style.ForegroundColorSpan;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -15,6 +17,7 @@ import android.widget.TextView;
 
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.enums.Font;
+import com.cronosgroup.tinkerlink.utils.TLTypeFaceSpan;
 import com.cronosgroup.tinkerlink.utils.TypeFaceUtils;
 
 /**
@@ -24,9 +27,7 @@ public class TLTextView extends TextView {
 
     private static final String TAG = TLTextView.class.toString();
     public static final int DEFAULT_TITLE_FONT = Font.REGULAR.getType();
-    public static final int DEFAULT_SUBTITLE_FONT = Font.REGULAR.getType();
     public static final int DEFAULT_TITLE_SIZE = R.dimen.text_size_mediun;
-    public static final int DEFAULT_SUBTITLE_SIZE = R.dimen.text_size_small;
     public static final int DEFAULT_COLOR = Color.BLACK;
     private static final int DEFAULT_UNDERLINE_COLOR = Color.TRANSPARENT;
 
@@ -67,6 +68,7 @@ public class TLTextView extends TextView {
                 setUnderlineColor(attributes.getColor(R.styleable.TLTextView_underLineColor, DEFAULT_UNDERLINE_COLOR));
                 setTextToUnderline(attributes.getString(R.styleable.TLTextView_underLineText));
                 setStyleMessage(attributes.getBoolean(R.styleable.TLTextView_hasMessageStyle, false));
+                textToBold(attributes.getString(R.styleable.TLTextView_textToBold));
             } catch (Exception ex) {
                 Log.e(TAG, ex.getMessage(), ex);
             } finally {
@@ -142,4 +144,15 @@ public class TLTextView extends TextView {
         } catch (Exception ex) {
         }
     }
+
+    public void textToBold(String text) {
+        if (text != null) {
+            Typeface typeFace = TypeFaceUtils.getFont(getContext(), Font.BOLD.getFontName());
+            final SpannableString spannableString = new SpannableString(getText());
+            int start = getText().toString().indexOf(text);
+            spannableString.setSpan(new TLTypeFaceSpan("", typeFace), start, start + text.length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
+            setText(spannableString);
+        }
+    }
+
 }

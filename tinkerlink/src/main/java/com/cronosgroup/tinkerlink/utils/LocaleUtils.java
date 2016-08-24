@@ -22,4 +22,8 @@ public class LocaleUtils {
     public static boolean isES() {
         return getCurrentLanguage() == EN_LANGUAGE;
     }
+
+    public  static String getIsoCode(){
+        return  Locale.getDefault().getCountry();
+    }
 }

@@ -20,7 +20,7 @@ public class SearchNewsFeedActivity extends TinkerLinkActivity<SearchNewsFeedFra
     }
 
     @Override
-    public ToolBarStyle getActivityStyle() {
+    public ToolBarStyle getToolBarStyle() {
         return ToolBarStyle.DEFAULTSTYLE;
     }
 

@@ -33,7 +33,7 @@ public class CreateRecommendationActivity extends TinkerLinkActivity<CreateRecom
     }
 
     @Override
-    public ToolBarStyle getActivityStyle() {
+    public ToolBarStyle getToolBarStyle() {
         return ToolBarStyle.RECOMMENDATIONSSTYLE;
     }
 

@@ -11,7 +11,7 @@ import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.enums.StackCardType;
 import com.cronosgroup.tinkerlink.model.dataacess.database.entities.TLCard;
 import com.cronosgroup.tinkerlink.view.customviews.TLTextView;
-import com.cronosgroup.tinkerlink.view.customviews.base.TLBaseView;
+import com.cronosgroup.tinkerlink.view.base.TLBaseView;
 import com.cronosgroup.tinkerlink.view.customviews.card.TLCardStack;
 import com.cronosgroup.tinkerlink.view.stack.adapter.stackcards.adapter.CardsAdapter;
 import com.cronosgroup.tinkerlink.view.stack.adapter.stackcards.adapter.card.CardScreen;

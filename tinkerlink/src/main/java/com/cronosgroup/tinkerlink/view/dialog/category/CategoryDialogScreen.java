@@ -16,8 +16,8 @@ import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestCategory;
 import com.cronosgroup.tinkerlink.view.customviews.TLLinearLayout;
 import com.cronosgroup.tinkerlink.view.customviews.TLRecyclerView;
 import com.cronosgroup.tinkerlink.view.customviews.TLTextView;
-import com.cronosgroup.tinkerlink.view.sign.adapter.fragments.tlinker.adapter.CategoriesAdapter;
-import com.cronosgroup.tinkerlink.view.sign.adapter.fragments.tlinker.adapter.viewholder.CategoryViewHolder;
+import com.cronosgroup.tinkerlink.view.sign.userformregistration.adapter.fragments.tlinker.adapter.CategoriesAdapter;
+import com.cronosgroup.tinkerlink.view.sign.userformregistration.adapter.fragments.tlinker.adapter.viewholder.CategoryViewHolder;
 
 import java.util.List;
 

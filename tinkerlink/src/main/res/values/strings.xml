@@ -2,6 +2,10 @@
     <string name="app_name">Tinkerlink</string>
     <string name="app_name_truncate_to_paint">link</string>
 
+    <!-- Error Forms-->
+    <string name="error_form_phone">Introduzca un numero telefonico valido</string>
+
+
     <!-- Status messages-->
 
     <string name="error_internet_connection">No hemos podido enviar tu petición. Revisa tu conexión a internet</string>
@@ -191,6 +195,20 @@
     <string name="sign_register_user_studies">ESTUDIOS Ó CURSOS</string>
     <string name="sign_register_user_studies_add">Agregar estudio o curso</string>
     <string name="sign_register_words" formatted="false">%s/%s</string>
+    <string name="sign_phone_use_terms">Al registrarme acepto los Terminos de uso</string>
+    <string name="sign_phone_use_terms_bold">Terminos de uso</string>
+    <string name="sign_phone_use_terms_title">Política de privacidad</string>
+
+
+    <string name="sign_phone_register_title">¡Comienza creando tu cuenta gratis!</string>
+    <string name="sign_phone_register_subtitle">Creá una cuenta gratuita en Tinkerlink y comienza a ampliar tu red de contactos de trabajo con gente  de tu confianza</string>
+    <string name="sign_phone_register_phone_title">Número de teléfono</string>
+    <string name="sign_phone_register_phone_send_code">ENVIAR CODIGO</string>
+    <string name="sign_phone_register_phone_edit_phone">EDITAR NÚMERO</string>
+    <string name="sign_phone_register_phone_code_message">Ingresa el numero de verificacioón del SMS enviado</string>
+    <string name="sign_phone_register_phone_code_hint">Ej: 9845</string>
+    <string name="sign_phone_register_phone_code_reintent">REINTENTAR(%s)</string>
+    <string name="sign_phone_register_phone_verify">VERIFICAR</string>
 
     <!--  Home  -->
     <string name="home_newsfeed">TinkerFeed</string>

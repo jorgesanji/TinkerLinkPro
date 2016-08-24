@@ -26,19 +26,6 @@ android {
             debuggable true
         }
     }
-
-    sourceSets {
-        main {
-            res.srcDirs =
-                    [
-                            'src/main/res/layouts/layout_activities',
-                            'src/main/res/layouts/layout_dialogs',
-                            'src/main/res/layouts/layout_fragments',
-                            'src/main/res/layouts/layout_customviews',
-                            'src/main/res'
-                    ]
-        }
-    }
 }
 
 dependencies {
@@ -94,8 +81,11 @@ dependencies {
     releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2'
     testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2'
 
-    //Streams
-//    compile 'com.annimon:stream:1.1.2'
+    // Country phone
+
+    compile ('com.lamudi.phonefield:phone-field:0.1.0@aar') {
+        transitive = true
+    }
 
     //Rx android
     compile 'io.reactivex:rxandroid:1.2.1'

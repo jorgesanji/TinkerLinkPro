@@ -1,0 +1,55 @@
+package com.cronosgroup.tinkerlink.view.sign.userformregistration.adapter;
+
+import android.content.Context;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentStatePagerAdapter;
+
+import com.cronosgroup.tinkerlink.enums.StackCardType;
+import com.cronosgroup.tinkerlink.view.sign.userformregistration.adapter.fragments.formuser.FormUserFragment;
+import com.cronosgroup.tinkerlink.view.sign.userformregistration.adapter.fragments.profile.SignProfileFragment;
+import com.cronosgroup.tinkerlink.view.sign.userformregistration.adapter.fragments.tlinker.TLinkerSelectorFragment;
+
+/**
+ * Created by jorgesanmartin on 11/16/15.
+ */
+public class SignAdapter extends FragmentStatePagerAdapter {
+    public static final int TINKER = 0;
+    public static final int LINKER = 1;
+    public static final int USERFORM = 2;
+    public static final int VALITATION = 3;
+
+    Class[] fragments = {TLinkerSelectorFragment.class, TLinkerSelectorFragment.class, FormUserFragment.class, SignProfileFragment.class};
+
+    // Vars
+    private final Context mContext;
+
+    public SignAdapter(FragmentManager fm, Context context) {
+        super(fm);
+        this.mContext = context;
+    }
+
+    @Override
+    public Fragment getItem(int position) {
+        Bundle bundle = new Bundle();
+        if (position == TINKER) {
+            bundle.putSerializable(TLinkerSelectorFragment.KEY_TYPE, StackCardType.TINKER);
+        } else if (position == LINKER) {
+            bundle.putSerializable(TLinkerSelectorFragment.KEY_TYPE, StackCardType.LINKER);
+        }
+
+        return Fragment.instantiate(mContext, fragments[position].getName(), bundle);
+    }
+
+    @Override
+    public int getItemPosition(Object object) {
+        return POSITION_NONE;
+    }
+
+    @Override
+    public int getCount() {
+        return fragments.length;
+    }
+
+}

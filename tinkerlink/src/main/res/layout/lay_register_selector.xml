@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
@@ -7,7 +8,7 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/margin_big">
 
         <LinearLayout
@@ -19,22 +20,23 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin_mediun"
+                android:layout_marginTop="@dimen/margin_mediun"
                 android:gravity="center_horizontal"
                 android:orientation="vertical">
 
-                <com.cronosgroup.tinkerlink.view.customviews.TLImageView
-                    android:layout_width="@dimen/view_max_height_big"
-                    android:layout_height="@dimen/view_max_height_big"
-                    android:layout_marginTop="@dimen/margin_big"
-                    android:background="@mipmap/icon_tinkerlink_app" />
-
                 <com.cronosgroup.tinkerlink.view.customviews.TLTextView
                     style="@style/Text_24_Gray_Regular_Style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_mediun"
+                    android:layout_marginRight="@dimen/margin_mediun"
+                    android:text="@string/sign_register_title" />
+
+                <com.cronosgroup.tinkerlink.view.customviews.TLImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_big"
-                    android:text="@string/sign_register_title" />
+                    android:background="@mipmap/registro_sms_g" />
 
                 <com.cronosgroup.tinkerlink.view.customviews.TLButton
                     android:id="@+id/loginbt"
@@ -63,8 +65,6 @@
                     style="@style/Text_14_SemiBlack_Regular_Style"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/margin_small"
-                    android:layout_marginRight="@dimen/margin_small"
                     android:gravity="center"
                     android:text="@string/sign_register_or" />
 
@@ -98,4 +98,18 @@
 
     </ScrollView>
 
-</LinearLayout>
+    <com.cronosgroup.tinkerlink.view.customviews.TLTextView
+        android:id="@+id/useTermstv"
+        style="@style/Text_14_SemiBlack_Regular_Style"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_default_states"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/margin_big"
+        android:layout_marginLeft="@dimen/margin_mediun"
+        android:layout_marginRight="@dimen/margin_mediun"
+        android:gravity="center_horizontal"
+        android:text="@string/sign_phone_use_terms"
+        app:textToBold="@string/sign_phone_use_terms_bold" />
+
+</RelativeLayout>

@@ -20,7 +20,7 @@ import com.cronosgroup.tinkerlink.view.customviews.TLMenuButton;
 import com.cronosgroup.tinkerlink.view.customviews.TLRecyclerView;
 import com.cronosgroup.tinkerlink.view.customviews.TLSearchView;
 import com.cronosgroup.tinkerlink.view.customviews.TLUserContactView;
-import com.cronosgroup.tinkerlink.view.customviews.base.TLBaseView;
+import com.cronosgroup.tinkerlink.view.base.TLBaseView;
 import com.cronosgroup.tinkerlink.view.home.adapter.fragment.contacts.adapter.pages.mycontacts.adapter.MyContactsAdapter;
 
 import java.util.List;

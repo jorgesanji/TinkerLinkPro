@@ -32,7 +32,7 @@ public class ConfigActivity extends TinkerLinkActivity<ConfigFragment> {
     }
 
     @Override
-    public ToolBarStyle getActivityStyle() {
+    public ToolBarStyle getToolBarStyle() {
         return ToolBarStyle.DEFAULTSTYLE;
     }
 

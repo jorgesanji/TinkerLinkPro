@@ -11,7 +11,7 @@ import android.widget.LinearLayout;
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.utils.DimenUtils;
 import com.cronosgroup.tinkerlink.view.customviews.TLRecommendationView;
-import com.cronosgroup.tinkerlink.view.customviews.base.TLBaseView;
+import com.cronosgroup.tinkerlink.view.base.TLBaseView;
 
 import butterknife.BindView;
 import butterknife.OnClick;

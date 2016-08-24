@@ -32,7 +32,7 @@ public class VerifyPhonenActivity extends TinkerLinkActivity<VerifyPhoneFragment
     }
 
     @Override
-    public ToolBarStyle getActivityStyle() {
+    public ToolBarStyle getToolBarStyle() {
         return ToolBarStyle.DEFAULTSTYLE;
     }
 

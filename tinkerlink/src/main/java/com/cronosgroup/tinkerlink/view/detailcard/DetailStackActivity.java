@@ -38,7 +38,7 @@ public class DetailStackActivity extends TinkerLinkActivity<DetailStackFragment>
     }
 
     @Override
-    public ToolBarStyle getActivityStyle() {
+    public ToolBarStyle getToolBarStyle() {
         return getIntent().getExtras().getSerializable(StackActivity.STACK_TYPE) == StackCardType.LINKER ? ToolBarStyle.LINKERSTYLE : ToolBarStyle.TINKERSTYLE;
     }
 

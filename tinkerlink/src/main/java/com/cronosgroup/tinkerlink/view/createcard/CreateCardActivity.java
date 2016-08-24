@@ -34,7 +34,7 @@ public class CreateCardActivity extends TinkerLinkActivity<CreateCardFragment> {
     }
 
     @Override
-    public ToolBarStyle getActivityStyle() {
+    public ToolBarStyle getToolBarStyle() {
         return getIntent().getExtras().getSerializable(StackActivity.STACK_TYPE) == StackCardType.LINKER ? ToolBarStyle.LINKERSTYLE : ToolBarStyle.TINKERSTYLE;
     }
 

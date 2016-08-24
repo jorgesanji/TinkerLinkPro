@@ -32,7 +32,7 @@ public class ChangePhoneNumberActivity extends TinkerLinkActivity<ChangePhoneNum
     }
 
     @Override
-    public ToolBarStyle getActivityStyle() {
+    public ToolBarStyle getToolBarStyle() {
         return ToolBarStyle.DEFAULTSTYLE;
     }
 

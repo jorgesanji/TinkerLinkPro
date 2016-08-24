@@ -32,7 +32,7 @@ public class EditProfileActivity extends TinkerLinkActivity<EditProfileFragment>
     }
 
     @Override
-    public ToolBarStyle getActivityStyle() {
+    public ToolBarStyle getToolBarStyle() {
         return ToolBarStyle.DEFAULTSTYLE;
     }
 

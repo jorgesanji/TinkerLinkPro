@@ -75,7 +75,7 @@ public class TutorialPresenter extends TinkerLinkPresenter<TutorialPresenter.Vie
     }
 
     public void onLaunchSign() {
-        navigation.onLaunchSign(getView().getActivity(), null);
+        navigation.onLaunchSocialNetWorkRegistration(getView().getActivity(), null);
     }
 
     public boolean isUserLoged() {

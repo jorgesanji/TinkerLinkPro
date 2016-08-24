@@ -30,7 +30,7 @@ public class StackActivity extends TinkerLinkActivity<StackFragment> {
     }
 
     @Override
-    public ToolBarStyle getActivityStyle() {
+    public ToolBarStyle getToolBarStyle() {
         return ToolBarStyle.DEFAULTSTYLE;
     }
 

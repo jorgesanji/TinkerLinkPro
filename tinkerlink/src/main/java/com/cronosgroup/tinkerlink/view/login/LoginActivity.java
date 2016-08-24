@@ -23,7 +23,7 @@ public class LoginActivity extends TinkerLinkActivity<LoginFragment> {
     }
 
     @Override
-    public ToolBarStyle getActivityStyle() {
+    public ToolBarStyle getToolBarStyle() {
         return ToolBarStyle.DEFAULTSTYLE;
     }
 

@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
+import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.Toolbar;
 import android.text.SpannableString;
 import android.view.MenuItem;
@@ -21,6 +22,7 @@ import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.application.TinkerLinkApplication;
 import com.cronosgroup.tinkerlink.enums.Font;
 import com.cronosgroup.tinkerlink.enums.ToolBarStyle;
+import com.cronosgroup.tinkerlink.model.dataacess.rest.manager.AppRestManager;
 import com.cronosgroup.tinkerlink.utils.ImageLoaderHelper;
 import com.cronosgroup.tinkerlink.utils.Reflector;
 import com.cronosgroup.tinkerlink.utils.TypeFaceUtils;
@@ -40,15 +42,15 @@ public abstract class TinkerLinkActivity<F extends MVPTinkerLinkFragment> extend
     private F currentFragment;
 
     @Inject
-    Logger mLooger;
+    protected Logger mLooger;
 
     // Views
 
     @BindView(R.id.toolbar)
-    Toolbar mToolbar;
+    protected Toolbar mToolbar;
 
     @BindView(R.id.progressBar)
-    View mLoader;
+    protected View mLoader;
 
     protected ViewGroup view;
 
@@ -56,9 +58,13 @@ public abstract class TinkerLinkActivity<F extends MVPTinkerLinkFragment> extend
 
     public abstract boolean hasToolbar();
 
-    public abstract ToolBarStyle getActivityStyle();
+    public abstract ToolBarStyle getToolBarStyle();
 
     public abstract Class<F> getFragment();
+
+    /**
+     * Init Default methods in activity
+     */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,7 +87,7 @@ public abstract class TinkerLinkActivity<F extends MVPTinkerLinkFragment> extend
     @Override
     public ViewGroup getView() {
         if (view == null) {
-            view = (ViewGroup) getLayoutInflater().inflate(getActivityStyle().getLayout(), null);
+            view = (ViewGroup) getLayoutInflater().inflate(getToolBarStyle().getLayout(), null);
         }
         return view;
     }
@@ -96,11 +102,15 @@ public abstract class TinkerLinkActivity<F extends MVPTinkerLinkFragment> extend
         return (super.onOptionsItemSelected(menuItem));
     }
 
+    /**
+     *  Configuration toolbar from Toolbar style
+     */
+
     protected void initToolbar() {
         if (!hasToolbar()) {
             mToolbar.setVisibility(View.GONE);
         } else {
-            ToolBarStyle style = getActivityStyle();
+            ToolBarStyle style = getToolBarStyle();
             configToolBar(style);
             setSupportActionBar(mToolbar);
             if (style != ToolBarStyle.HOMESTYLE) {
@@ -180,7 +190,9 @@ public abstract class TinkerLinkActivity<F extends MVPTinkerLinkFragment> extend
         return null;
     }
 
-    // Public methods
+    /**
+     *  Access to activity properties
+     */
 
     public View addOverLayView(View view, boolean clean) {
         View overLayView = findViewById(R.id.overlay_view);
@@ -210,25 +222,14 @@ public abstract class TinkerLinkActivity<F extends MVPTinkerLinkFragment> extend
         mLoader.setVisibility(View.GONE);
     }
 
-    @Override
-    public int getStatusColor() {
-        return getResources().getColor(getActivityStyle().getStatusColor());
+    public void setDefaultToolBarElevation(){
+        ViewCompat.setTranslationZ(mToolbar, getResources().getDimension(R.dimen.view_elevation));
     }
 
-    @Override
-    public boolean canLaunchPermission() {
-        return false;
-    }
-
-    @Override
-    public List<PermissionsManager.Permission> getRequestPermission() {
-        return null;
-    }
-
-    @Override
-    public void finish() {
-        super.finish();
-        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+    public void setIconAndBackButton(){
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        setDefaultToolBarElevation();
+        setTitle(R.string.app_name);
     }
 
     @Override
@@ -239,7 +240,7 @@ public abstract class TinkerLinkActivity<F extends MVPTinkerLinkFragment> extend
     @Override
     public void setTitle(CharSequence title) {
         SpannableString spannableTitle = null;
-        if (getActivityStyle() != ToolBarStyle.HOMESTYLE) {
+        if (getToolBarStyle() != ToolBarStyle.HOMESTYLE) {
             getSupportActionBar().setDisplayShowHomeEnabled(false);
             getSupportActionBar().setHomeButtonEnabled(true);
             spannableTitle = TypeFaceUtils.getStringByFontType(this, title.toString(), Font.REGULAR);
@@ -269,10 +270,41 @@ public abstract class TinkerLinkActivity<F extends MVPTinkerLinkFragment> extend
     }
 
     @Override
+    public int getStatusColor() {
+        return getResources().getColor(getToolBarStyle().getStatusColor());
+    }
+
+    /**
+     * Handling permissions
+     */
+
+    @Override
+    public boolean canLaunchPermission() {
+        return false;
+    }
+
+    @Override
+    public List<PermissionsManager.Permission> getRequestPermission() {
+        return null;
+    }
+
+
+    /**
+     * Handling navigation
+     */
+
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+    }
+
+    @Override
     public void onBackPressed() {
-        if (getCurrentFragment() != null && getCurrentFragment().onBackPressed()) {
+        if (getCurrentFragment() != null && (getCurrentFragment()).onBackPressed()) {
             return;
         }
+        AppRestManager.sharedManager().cancelAllRequestWithTag(this);
         super.onBackPressed();
     }
 
@@ -280,5 +312,6 @@ public abstract class TinkerLinkActivity<F extends MVPTinkerLinkFragment> extend
     protected void onDestroy() {
         super.onDestroy();
         Reflector.fixInputMethodManager(this);
+        AppRestManager.sharedManager().cancelAllRequestWithTag(this);
     }
 }

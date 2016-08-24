@@ -20,7 +20,7 @@ public class SearchContactsActivity extends TinkerLinkActivity<SearchContactsFra
     }
 
     @Override
-    public ToolBarStyle getActivityStyle() {
+    public ToolBarStyle getToolBarStyle() {
         return ToolBarStyle.DEFAULTSTYLE;
     }
 

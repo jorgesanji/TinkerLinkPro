@@ -12,7 +12,7 @@ public interface IONavigation {
 
     void onLaunchLogin(Activity activity, Bundle bundle);
 
-    void onLaunchSign(Activity activity, Bundle bundle);
+    void onLaunchUserFormRegistration(Activity activity, Bundle bundle);
 
     void onLaunchStack(Activity activity, Bundle bundle);
 
@@ -67,5 +67,13 @@ public interface IONavigation {
     void onLaunchDragAndDrop(Activity activity, Bundle bundle);
 
     void onLaunchVerifyEmail(Activity activity, Bundle bundle);
+
+    void onLaunchSocialNetWorkRegistration(Activity activity, Bundle bundle);
+
+    void onLaunchCreateAccountRegistration(Activity activity, Bundle bundle);
+
+    void onLaunchPhoneRegistration(Activity activity, Bundle bundle);
+
+    void onLaunchUseTerms(Activity activity, Bundle bundle);
 
 }

@@ -43,7 +43,7 @@ public class ChatUserActivity extends TinkerLinkActivity<ChatUserFragment> {
     }
 
     @Override
-    public ToolBarStyle getActivityStyle() {
+    public ToolBarStyle getToolBarStyle() {
         return ToolBarStyle.DEFAULTSTYLE;
     }
 

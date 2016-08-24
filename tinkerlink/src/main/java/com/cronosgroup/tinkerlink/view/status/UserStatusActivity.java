@@ -32,7 +32,7 @@ public class UserStatusActivity extends TinkerLinkActivity<UserStatusFragment> {
     }
 
     @Override
-    public ToolBarStyle getActivityStyle() {
+    public ToolBarStyle getToolBarStyle() {
         return ToolBarStyle.DEFAULTSTYLE;
     }
 

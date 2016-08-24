@@ -75,7 +75,6 @@ public class TutorialFragment extends MVPTinkerLinkFragment<TutorialPresenter, T
 
     //region **************  TutorialScreen.Listener **************
 
-
     @Override
     public void onSignPressed() {
         getPresenter().onLaunchSign();

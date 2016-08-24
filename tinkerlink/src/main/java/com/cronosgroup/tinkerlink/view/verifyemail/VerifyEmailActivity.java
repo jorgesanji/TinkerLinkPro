@@ -32,7 +32,7 @@ public class VerifyEmailActivity extends TinkerLinkActivity<VerifyEmailFragment>
     }
 
     @Override
-    public ToolBarStyle getActivityStyle() {
+    public ToolBarStyle getToolBarStyle() {
         return ToolBarStyle.DEFAULTSTYLE;
     }
 

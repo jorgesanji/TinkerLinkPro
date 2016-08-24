@@ -31,10 +31,14 @@ import com.cronosgroup.tinkerlink.view.recommendations.RecommendationsActivity;
 import com.cronosgroup.tinkerlink.view.searchcard.SearchCardActivity;
 import com.cronosgroup.tinkerlink.view.searchcontacts.SearchContactsActivity;
 import com.cronosgroup.tinkerlink.view.searchnewsfeed.SearchNewsFeedActivity;
-import com.cronosgroup.tinkerlink.view.sign.SignActivity;
+import com.cronosgroup.tinkerlink.view.sign.phoneregistration.PhoneRegistrationActivity;
+import com.cronosgroup.tinkerlink.view.sign.userformregistration.UserRegistrationActivity;
+import com.cronosgroup.tinkerlink.view.sign.socialnetworkregistration.SocialNetWorkRegistrationActivity;
+import com.cronosgroup.tinkerlink.view.sign.createaccountregistration.CreateAccountRegistrationActivity;
 import com.cronosgroup.tinkerlink.view.stack.StackActivity;
 import com.cronosgroup.tinkerlink.view.status.UserStatusActivity;
 import com.cronosgroup.tinkerlink.view.usercontacts.UserContactsActivity;
+import com.cronosgroup.tinkerlink.view.useterms.UseTermsActivity;
 import com.cronosgroup.tinkerlink.view.verifyemail.VerifyEmailActivity;
 
 /**
@@ -88,7 +92,7 @@ public final class AppNavigation implements IONavigation {
     // ------------------------ ACTIVITY INTENTS CREATION  -----------------------------------
 
     private static Intent sign(Activity context, Bundle bundle) {
-        return newTask(context, SignActivity.class, bundle);
+        return newTask(context, UserRegistrationActivity.class, bundle);
     }
 
     private static Intent login(Activity context, Bundle bundle) {
@@ -207,6 +211,22 @@ public final class AppNavigation implements IONavigation {
         return newTask(context, VerifyEmailActivity.class, bundle);
     }
 
+    private static Intent socialNetwork(Activity context, Bundle bundle) {
+        return newTask(context, SocialNetWorkRegistrationActivity.class, bundle);
+    }
+
+    private static Intent createAccountRegistration(Activity context, Bundle bundle) {
+        return newTask(context, CreateAccountRegistrationActivity.class, bundle);
+    }
+
+    private static Intent phoneRegistration(Activity context, Bundle bundle) {
+        return newTask(context, PhoneRegistrationActivity.class, bundle);
+    }
+
+    private static Intent useTerms(Activity context, Bundle bundle) {
+        return newTask(context, UseTermsActivity.class, bundle);
+    }
+
     // ******************************
     //      ACTIONS DEFINITION
     // *************************++***
@@ -241,7 +261,7 @@ public final class AppNavigation implements IONavigation {
      * @param bundle
      */
     @Override
-    public void onLaunchSign(Activity activity, Bundle bundle) {
+    public void onLaunchUserFormRegistration(Activity activity, Bundle bundle) {
         startActivity(activity, sign(activity, bundle));
     }
 
@@ -541,6 +561,7 @@ public final class AppNavigation implements IONavigation {
 
     /**
      * Launch drag and drop
+     *
      * @param activity
      * @param bundle
      */
@@ -552,11 +573,59 @@ public final class AppNavigation implements IONavigation {
 
     /**
      * Launch email verification
+     *
      * @param activity
      * @param bundle
      */
     @Override
     public void onLaunchVerifyEmail(Activity activity, Bundle bundle) {
         startActivity(activity, verifyEmail(activity, bundle));
+    }
+
+    /**
+     * Launch Social Network activity
+     *
+     * @param activity
+     * @param bundle
+     */
+
+    @Override
+    public void onLaunchSocialNetWorkRegistration(Activity activity, Bundle bundle) {
+        startActivity(activity, socialNetwork(activity, bundle));
+    }
+
+    /**
+     * Launch Verify registration Activity
+     *
+     * @param activity
+     * @param bundle
+     */
+    @Override
+    public void onLaunchCreateAccountRegistration(Activity activity, Bundle bundle) {
+        startActivity(activity, createAccountRegistration(activity, bundle));
+    }
+
+    /**
+     * Launch Phone registration activity
+     *
+     * @param activity
+     * @param bundle
+     */
+
+    @Override
+    public void onLaunchPhoneRegistration(Activity activity, Bundle bundle) {
+        startActivity(activity, phoneRegistration(activity, bundle));
+    }
+
+    /**
+     * Launch Use Terms
+     *
+     * @param activity
+     * @param bundle
+     */
+
+    @Override
+    public void onLaunchUseTerms(Activity activity, Bundle bundle) {
+        startActivity(activity, useTerms(activity, bundle));
     }
 }

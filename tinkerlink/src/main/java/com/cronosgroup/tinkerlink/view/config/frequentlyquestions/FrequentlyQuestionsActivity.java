@@ -32,7 +32,7 @@ public class FrequentlyQuestionsActivity extends TinkerLinkActivity<FrequentlyQu
     }
 
     @Override
-    public ToolBarStyle getActivityStyle() {
+    public ToolBarStyle getToolBarStyle() {
         return ToolBarStyle.DEFAULTSTYLE;
     }
 

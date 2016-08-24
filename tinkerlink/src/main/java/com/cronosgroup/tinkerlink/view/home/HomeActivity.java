@@ -20,7 +20,7 @@ public class HomeActivity extends TinkerLinkActivity<HomeFragment> {
     }
 
     @Override
-    public ToolBarStyle getActivityStyle() {
+    public ToolBarStyle getToolBarStyle() {
         return ToolBarStyle.HOMESTYLE;
     }
 

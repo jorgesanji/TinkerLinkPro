@@ -10,7 +10,7 @@ import android.util.AttributeSet;
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.view.config.main.adapter.ConfigAdapter;
 import com.cronosgroup.tinkerlink.view.customviews.TLViewPager;
-import com.cronosgroup.tinkerlink.view.customviews.base.TLBaseView;
+import com.cronosgroup.tinkerlink.view.base.TLBaseView;
 
 import butterknife.BindView;
 

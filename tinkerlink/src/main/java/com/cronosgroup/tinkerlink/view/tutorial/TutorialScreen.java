@@ -18,7 +18,7 @@ import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.animation.tutorial.DepthPageTransformer;
 import com.cronosgroup.tinkerlink.view.customviews.TLViewPager;
 import com.cronosgroup.tinkerlink.view.customviews.TLViewPagerIndicator;
-import com.cronosgroup.tinkerlink.view.customviews.base.TLBaseView;
+import com.cronosgroup.tinkerlink.view.base.TLBaseView;
 import com.cronosgroup.tinkerlink.view.tutorial.adapter.TutoriaItem;
 import com.cronosgroup.tinkerlink.view.tutorial.adapter.TutorialAdapter;
 

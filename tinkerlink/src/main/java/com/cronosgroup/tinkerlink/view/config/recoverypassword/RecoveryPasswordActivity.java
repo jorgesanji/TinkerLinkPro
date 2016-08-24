@@ -32,7 +32,7 @@ public class RecoveryPasswordActivity extends TinkerLinkActivity<RecoveryPasswor
     }
 
     @Override
-    public ToolBarStyle getActivityStyle() {
+    public ToolBarStyle getToolBarStyle() {
         return ToolBarStyle.DEFAULTSTYLE;
     }
 

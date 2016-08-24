@@ -23,7 +23,7 @@ public class DragAndDropActivity extends TinkerLinkActivity<DragDropFragment> {
     }
 
     @Override
-    public ToolBarStyle getActivityStyle() {
+    public ToolBarStyle getToolBarStyle() {
         return ToolBarStyle.DEFAULTSTYLE;
     }
 

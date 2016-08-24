@@ -33,7 +33,7 @@ public class UserContactsActivity extends TinkerLinkActivity<UserContactsFragmen
     }
 
     @Override
-    public ToolBarStyle getActivityStyle() {
+    public ToolBarStyle getToolBarStyle() {
         return ToolBarStyle.DEFAULTSTYLE;
     }
 

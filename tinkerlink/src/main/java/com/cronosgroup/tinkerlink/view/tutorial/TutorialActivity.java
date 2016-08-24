@@ -40,7 +40,7 @@ public class TutorialActivity extends TinkerLinkActivity<TutorialFragment> {
     }
 
     @Override
-    public ToolBarStyle getActivityStyle() {
+    public ToolBarStyle getToolBarStyle() {
         return ToolBarStyle.DEFAULTSTYLE;
     }
 

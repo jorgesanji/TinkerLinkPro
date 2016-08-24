@@ -28,21 +28,4 @@
 
     </LinearLayout>
 
-    <FrameLayout
-        android:id="@+id/registrationContainer"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/white"
-        android:elevation="@dimen/view_mediun_elevation"
-        android:visibility="visible">
-
-        <fragment
-            android:id="@+id/registrationSelectorFragment"
-            android:name="com.cronosgroup.tinkerlink.view.sign.adapter.fragments.registerselector.RegisterSelectorFragment"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:layout="@layout/lay_register_selector" />
-
-    </FrameLayout>
-
 </RelativeLayout>

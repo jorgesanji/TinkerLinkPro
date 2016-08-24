@@ -32,7 +32,7 @@ public class PrivacyActivity extends TinkerLinkActivity<PrivacyFragment> {
     }
 
     @Override
-    public ToolBarStyle getActivityStyle() {
+    public ToolBarStyle getToolBarStyle() {
         return ToolBarStyle.DEFAULTSTYLE;
     }
 
