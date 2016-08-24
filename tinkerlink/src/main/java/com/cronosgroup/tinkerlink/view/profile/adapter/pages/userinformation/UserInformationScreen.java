@@ -5,17 +5,16 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
 import android.util.AttributeSet;
-import android.widget.RelativeLayout;
 
 import com.cronosgroup.tinkerlink.R;
+import com.cronosgroup.tinkerlink.view.customviews.base.TLBaseView;
 
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
  * Main UserActivity view.
  */
-public class UserInformationScreen extends RelativeLayout {
+public class UserInformationScreen extends TLBaseView {
 
     public interface Listener {
         void onShowAllContactsPressed();
@@ -30,7 +29,7 @@ public class UserInformationScreen extends RelativeLayout {
      * @param context
      */
     public UserInformationScreen(Context context) {
-        this(context, null);
+        super(context);
     }
 
     /**
@@ -38,7 +37,7 @@ public class UserInformationScreen extends RelativeLayout {
      * @param attrs
      */
     public UserInformationScreen(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
+        super(context, attrs);
     }
 
     /**
@@ -47,7 +46,7 @@ public class UserInformationScreen extends RelativeLayout {
      * @param defStyleAttr
      */
     public UserInformationScreen(Context context, AttributeSet attrs, int defStyleAttr) {
-        this(context, attrs, defStyleAttr, 0);
+        super(context, attrs, defStyleAttr);
     }
 
     /**
@@ -59,13 +58,17 @@ public class UserInformationScreen extends RelativeLayout {
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public UserInformationScreen(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        init();
     }
 
-    private void init() {
-        inflate(getContext(), R.layout.lay_information_user, this);
-        ButterKnife.bind(this);
+    @Override
+    public int getLayout() {
+        return R.layout.lay_information_user;
     }
+
+    @Override
+    public void initUI(AttributeSet attributeSet) {
+    }
+
     // Actions
 
     @OnClick(R.id.showAllContacts)

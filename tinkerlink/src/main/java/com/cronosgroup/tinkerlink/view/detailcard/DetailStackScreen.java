@@ -5,23 +5,22 @@ import android.content.Context;
 import android.os.Build;
 import android.support.v4.app.FragmentManager;
 import android.util.AttributeSet;
-import android.widget.RelativeLayout;
 
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.model.dataacess.database.entities.TLCard;
 import com.cronosgroup.tinkerlink.view.customviews.TLViewPager;
+import com.cronosgroup.tinkerlink.view.customviews.base.TLBaseView;
 import com.cronosgroup.tinkerlink.view.detailcard.adapter.DetailStackAdapter;
 
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 
 /**
  * Detail card view.
  */
-public class DetailStackScreen extends RelativeLayout {
+public class DetailStackScreen extends TLBaseView {
 
     public interface Listener {
 
@@ -39,7 +38,7 @@ public class DetailStackScreen extends RelativeLayout {
      * @param context
      */
     public DetailStackScreen(Context context) {
-        this(context, null);
+        super(context);
     }
 
     /**
@@ -47,7 +46,7 @@ public class DetailStackScreen extends RelativeLayout {
      * @param attrs
      */
     public DetailStackScreen(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
+        super(context, attrs);
     }
 
     /**
@@ -57,7 +56,6 @@ public class DetailStackScreen extends RelativeLayout {
      */
     public DetailStackScreen(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init();
     }
 
     /**
@@ -69,13 +67,17 @@ public class DetailStackScreen extends RelativeLayout {
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public DetailStackScreen(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        init();
     }
 
-    private void init() {
-        inflate(getContext(), R.layout.lay_detail_stack, this);
-        ButterKnife.bind(this);
+    @Override
+    public int getLayout() {
+        return R.layout.lay_detail_stack;
     }
+
+    @Override
+    public void initUI(AttributeSet attributeSet) {
+    }
+
 
     // Actions
 

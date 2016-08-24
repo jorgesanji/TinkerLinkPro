@@ -6,21 +6,20 @@ import android.os.Build;
 import android.util.AttributeSet;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
-import android.widget.LinearLayout;
 import android.widget.Spinner;
 
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.view.customviews.TLEditText;
 import com.cronosgroup.tinkerlink.view.customviews.TLTextView;
+import com.cronosgroup.tinkerlink.view.customviews.base.TLBaseView;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
  * Created by jorgesanmartin on 10/26/15.
  */
-public class StudyDialogScreen extends LinearLayout {
+public class StudyDialogScreen extends TLBaseView {
 
     /**
      * listeners of the StudyDialog's screen.
@@ -57,7 +56,7 @@ public class StudyDialogScreen extends LinearLayout {
      * @param context
      */
     public StudyDialogScreen(Context context, Listener listener) {
-        this(context);
+        super(context);
         this.listener = listener;
     }
 
@@ -65,7 +64,7 @@ public class StudyDialogScreen extends LinearLayout {
      * @param context
      */
     public StudyDialogScreen(Context context) {
-        this(context, (AttributeSet) null);
+        super(context);
     }
 
     /**
@@ -73,7 +72,7 @@ public class StudyDialogScreen extends LinearLayout {
      * @param attrs
      */
     public StudyDialogScreen(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
+        super(context, attrs);
     }
 
     /**
@@ -82,7 +81,7 @@ public class StudyDialogScreen extends LinearLayout {
      * @param defStyleAttr
      */
     public StudyDialogScreen(Context context, AttributeSet attrs, int defStyleAttr) {
-        this(context, attrs, defStyleAttr, 0);
+        super(context, attrs, defStyleAttr);
     }
 
     /**
@@ -94,12 +93,15 @@ public class StudyDialogScreen extends LinearLayout {
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public StudyDialogScreen(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        init();
     }
 
-    private void init() {
-        inflate(getContext(), R.layout.lay_dialog_study, this);
-        ButterKnife.bind(this);
+    @Override
+    public int getLayout() {
+        return R.layout.lay_dialog_study;
+    }
+
+    @Override
+    public void initUI(AttributeSet attributeSet) {
 
         mTitleDialog.setText(getResources().getString(R.string.profile_edit_add_study));
         mSelectMonth.setPrompt(getResources().getString(R.string.sign_select_dateBird_month));
@@ -119,6 +121,8 @@ public class StudyDialogScreen extends LinearLayout {
         InputMethodManager imm = (InputMethodManager) getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.showSoftInput(mInstitutionName, InputMethodManager.SHOW_IMPLICIT);
     }
+
+    // Actions
 
     @OnClick(R.id.cancelButton)
     protected void cancelPressed() {

@@ -4,20 +4,19 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
 import android.util.AttributeSet;
-import android.widget.RelativeLayout;
 
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.view.customviews.TLEditText;
+import com.cronosgroup.tinkerlink.view.customviews.base.TLBaseView;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 
 /**
  * Main Network view.
  */
-public class LoginScreen extends RelativeLayout {
+public class LoginScreen extends TLBaseView {
 
     public interface Listener {
         void onLoginPressed();
@@ -43,7 +42,6 @@ public class LoginScreen extends RelativeLayout {
      */
     public LoginScreen(Context context) {
         super(context);
-        init();
     }
 
     /**
@@ -51,7 +49,7 @@ public class LoginScreen extends RelativeLayout {
      * @param attrs
      */
     public LoginScreen(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
+        super(context, attrs);
     }
 
     /**
@@ -61,7 +59,6 @@ public class LoginScreen extends RelativeLayout {
      */
     public LoginScreen(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init();
     }
 
     /**
@@ -73,12 +70,15 @@ public class LoginScreen extends RelativeLayout {
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public LoginScreen(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        init();
     }
 
-    private void init() {
-        inflate(getContext(), R.layout.lay_login, this);
-        ButterKnife.bind(this);
+    @Override
+    public int getLayout() {
+        return R.layout.lay_login;
+    }
+
+    @Override
+    public void initUI(AttributeSet attributeSet) {
     }
 
     // Actions

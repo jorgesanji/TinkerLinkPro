@@ -8,32 +8,41 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LinearInterpolator;
-import android.widget.LinearLayout;
 
 import com.cronosgroup.tinkerlink.R;
+import com.cronosgroup.tinkerlink.view.customviews.base.TLBaseView;
 
 /**
  * Created by jorgesanmartin on 7/29/16.
  */
-public class TLLinearLayout extends LinearLayout {
+public class TLLinearLayout extends TLBaseView {
 
     public static final long ANIMATION_TIME = 200;
 
     public TLLinearLayout(Context context) {
-        this(context, null);
+        super(context);
     }
 
     public TLLinearLayout(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
+        super(context, attrs);
     }
 
     public TLLinearLayout(Context context, AttributeSet attrs, int defStyleAttr) {
-        this(context, attrs, defStyleAttr, 0);
+        super(context, attrs, defStyleAttr);
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public TLLinearLayout(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
+    }
+
+    @Override
+    public int getLayout() {
+        return 0;
+    }
+
+    @Override
+    public void initUI(AttributeSet attributeSet) {
     }
 
     private void animate(final View viewToAnimate, long duration, int animationResource, final boolean hide) {

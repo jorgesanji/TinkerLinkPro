@@ -6,7 +6,6 @@ import android.os.Build;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
-import android.widget.LinearLayout;
 
 import com.cronosgroup.core.view.BaseAdapter;
 import com.cronosgroup.core.view.animator.SlideInUpAnimator;
@@ -16,16 +15,16 @@ import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestCategory;
 import com.cronosgroup.tinkerlink.utils.TLDIviderGridSpacingDecoration;
 import com.cronosgroup.tinkerlink.view.cardfilter.adapter.FilterCardsAdapter;
 import com.cronosgroup.tinkerlink.view.customviews.TLRecyclerView;
+import com.cronosgroup.tinkerlink.view.customviews.base.TLBaseView;
 
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * FilterCards view.
  */
-public class FilterCardsScreen extends LinearLayout {
+public class FilterCardsScreen extends TLBaseView {
 
     /**
      * listeners of the filterCards's screen.
@@ -49,7 +48,7 @@ public class FilterCardsScreen extends LinearLayout {
      * @param context
      */
     public FilterCardsScreen(Context context, Listener listener) {
-        this(context);
+        super(context);
         this.listener = listener;
     }
 
@@ -57,7 +56,7 @@ public class FilterCardsScreen extends LinearLayout {
      * @param context
      */
     public FilterCardsScreen(Context context) {
-        this(context, null, 0);
+        super(context);
     }
 
     /**
@@ -65,7 +64,7 @@ public class FilterCardsScreen extends LinearLayout {
      * @param attrs
      */
     public FilterCardsScreen(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
+        super(context, attrs);
     }
 
     /**
@@ -75,7 +74,6 @@ public class FilterCardsScreen extends LinearLayout {
      */
     public FilterCardsScreen(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init();
     }
 
     /**
@@ -87,12 +85,15 @@ public class FilterCardsScreen extends LinearLayout {
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public FilterCardsScreen(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        init();
     }
 
-    private void init() {
-        inflate(getContext(), R.layout.lay_filter_cards, this);
-        ButterKnife.bind(this);
+    @Override
+    public int getLayout() {
+        return R.layout.lay_filter_cards;
+    }
+
+    @Override
+    public void initUI(AttributeSet attributeSet) {
         initUI();
         initRecyclerView();
         initAdapter();

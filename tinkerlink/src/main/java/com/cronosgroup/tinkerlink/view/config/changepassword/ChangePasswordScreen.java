@@ -4,18 +4,17 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
 import android.util.AttributeSet;
-import android.widget.RelativeLayout;
 
 import com.cronosgroup.tinkerlink.R;
+import com.cronosgroup.tinkerlink.view.customviews.base.TLBaseView;
 
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 
 /**
  * Main Network view.
  */
-public class ChangePasswordScreen extends RelativeLayout {
+public class ChangePasswordScreen extends TLBaseView {
 
     public interface Listener {
         void onRecoveryPressed();
@@ -32,7 +31,6 @@ public class ChangePasswordScreen extends RelativeLayout {
      */
     public ChangePasswordScreen(Context context) {
         super(context);
-        init();
     }
 
     /**
@@ -40,7 +38,7 @@ public class ChangePasswordScreen extends RelativeLayout {
      * @param attrs
      */
     public ChangePasswordScreen(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
+        super(context, attrs);
     }
 
     /**
@@ -50,7 +48,6 @@ public class ChangePasswordScreen extends RelativeLayout {
      */
     public ChangePasswordScreen(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init();
     }
 
     /**
@@ -62,12 +59,15 @@ public class ChangePasswordScreen extends RelativeLayout {
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public ChangePasswordScreen(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        init();
     }
 
-    private void init() {
-        inflate(getContext(), R.layout.lay_change_password, this);
-        ButterKnife.bind(this);
+    @Override
+    public int getLayout() {
+        return R.layout.lay_change_password;
+    }
+
+    @Override
+    public void initUI(AttributeSet attributeSet) {
     }
 
     // Actions

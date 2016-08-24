@@ -4,19 +4,18 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
 import android.util.AttributeSet;
-import android.widget.LinearLayout;
 
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.view.customviews.TLTextView;
+import com.cronosgroup.tinkerlink.view.customviews.base.TLBaseView;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
  * Created by jorgesanmartin on 10/26/15.
  */
-public class MessageOptionsDialogScreen extends LinearLayout {
+public class MessageOptionsDialogScreen extends TLBaseView {
 
     /**
      * listeners MessageOptionsDialog's screen.
@@ -44,7 +43,7 @@ public class MessageOptionsDialogScreen extends LinearLayout {
      * @param context
      */
     public MessageOptionsDialogScreen(Context context, Listener listener) {
-        this(context);
+        super(context);
         this.listener = listener;
     }
 
@@ -52,7 +51,7 @@ public class MessageOptionsDialogScreen extends LinearLayout {
      * @param context
      */
     public MessageOptionsDialogScreen(Context context) {
-        this(context, (AttributeSet) null);
+        super(context);
     }
 
     /**
@@ -60,7 +59,7 @@ public class MessageOptionsDialogScreen extends LinearLayout {
      * @param attrs
      */
     public MessageOptionsDialogScreen(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
+        super(context, attrs);
     }
 
     /**
@@ -69,7 +68,7 @@ public class MessageOptionsDialogScreen extends LinearLayout {
      * @param defStyleAttr
      */
     public MessageOptionsDialogScreen(Context context, AttributeSet attrs, int defStyleAttr) {
-        this(context, attrs, defStyleAttr, 0);
+        super(context, attrs, defStyleAttr);
     }
 
     /**
@@ -81,12 +80,15 @@ public class MessageOptionsDialogScreen extends LinearLayout {
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public MessageOptionsDialogScreen(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        init();
     }
 
-    private void init() {
-        inflate(getContext(), R.layout.lay_dialog_message_options, this);
-        ButterKnife.bind(this);
+    @Override
+    public int getLayout() {
+        return R.layout.lay_dialog_message_options;
+    }
+
+    @Override
+    public void initUI(AttributeSet attributeSet) {
         initUI();
     }
 

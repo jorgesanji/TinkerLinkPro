@@ -7,7 +7,6 @@ import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentManager;
 import android.util.AttributeSet;
-import android.widget.RelativeLayout;
 
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContact;
@@ -18,19 +17,19 @@ import com.cronosgroup.tinkerlink.view.customviews.TLImageView;
 import com.cronosgroup.tinkerlink.view.customviews.TLStackButton;
 import com.cronosgroup.tinkerlink.view.customviews.TLTextView;
 import com.cronosgroup.tinkerlink.view.customviews.TLViewPager;
+import com.cronosgroup.tinkerlink.view.customviews.base.TLBaseView;
 import com.cronosgroup.tinkerlink.view.profile.adapter.ProfileAdapter;
 
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 
 /**
  * Main Profile view.
  */
-public class ProfileScreen extends RelativeLayout {
+public class ProfileScreen extends TLBaseView {
 
     public interface Listener {
         void onClosePressed();
@@ -98,7 +97,6 @@ public class ProfileScreen extends RelativeLayout {
      */
     public ProfileScreen(Context context) {
         super(context);
-        init();
     }
 
     /**
@@ -106,7 +104,7 @@ public class ProfileScreen extends RelativeLayout {
      * @param attrs
      */
     public ProfileScreen(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
+        super(context, attrs);
     }
 
     /**
@@ -116,7 +114,6 @@ public class ProfileScreen extends RelativeLayout {
      */
     public ProfileScreen(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init();
     }
 
     /**
@@ -128,12 +125,15 @@ public class ProfileScreen extends RelativeLayout {
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public ProfileScreen(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        init();
     }
 
-    private void init() {
-        inflate(getContext(), R.layout.lay_profile, this);
-        ButterKnife.bind(this);
+    @Override
+    public int getLayout() {
+        return R.layout.lay_profile;
+    }
+
+    @Override
+    public void initUI(AttributeSet attributeSet) {
     }
 
     private void initUI() {

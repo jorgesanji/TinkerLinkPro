@@ -13,25 +13,24 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LinearInterpolator;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.animation.tutorial.DepthPageTransformer;
 import com.cronosgroup.tinkerlink.view.customviews.TLViewPager;
 import com.cronosgroup.tinkerlink.view.customviews.TLViewPagerIndicator;
+import com.cronosgroup.tinkerlink.view.customviews.base.TLBaseView;
 import com.cronosgroup.tinkerlink.view.tutorial.adapter.TutoriaItem;
 import com.cronosgroup.tinkerlink.view.tutorial.adapter.TutorialAdapter;
 
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
  * Tutorial view.
  */
-class TutorialScreen extends RelativeLayout {
+class TutorialScreen extends TLBaseView {
 
     private static final int INTERVAL_TIME = 2500;
     private static final int INTERVAL_BUTTONS_TIME = 800;
@@ -75,7 +74,7 @@ class TutorialScreen extends RelativeLayout {
      * @param context
      */
     public TutorialScreen(Context context) {
-        this(context, null);
+        super(context);
     }
 
     /**
@@ -83,7 +82,7 @@ class TutorialScreen extends RelativeLayout {
      * @param attrs
      */
     public TutorialScreen(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
+        super(context, attrs);
     }
 
     /**
@@ -93,7 +92,6 @@ class TutorialScreen extends RelativeLayout {
      */
     public TutorialScreen(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init();
     }
 
     /**
@@ -105,12 +103,15 @@ class TutorialScreen extends RelativeLayout {
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public TutorialScreen(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        init();
     }
 
-    private void init() {
-        inflate(getContext(), R.layout.lay_tutorial, this);
-        ButterKnife.bind(this);
+    @Override
+    public int getLayout() {
+        return R.layout.lay_tutorial;
+    }
+
+    @Override
+    public void initUI(AttributeSet attributeSet) {
         initUI();
         initAdapter();
         initListeners();

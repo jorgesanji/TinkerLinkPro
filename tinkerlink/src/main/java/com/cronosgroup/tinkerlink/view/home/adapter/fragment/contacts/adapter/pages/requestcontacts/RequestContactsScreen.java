@@ -4,19 +4,18 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
 import android.util.AttributeSet;
-import android.widget.RelativeLayout;
 
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.view.customviews.TLRecyclerView;
+import com.cronosgroup.tinkerlink.view.customviews.base.TLBaseView;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 
 /**
  * Main RequestContacts view.
  */
-public class RequestContactsScreen extends RelativeLayout {
+public class RequestContactsScreen extends TLBaseView {
 
     public interface Listener {
 
@@ -33,7 +32,7 @@ public class RequestContactsScreen extends RelativeLayout {
      * @param context
      */
     public RequestContactsScreen(Context context) {
-        this(context, null);
+        super(context);
     }
 
     /**
@@ -41,7 +40,7 @@ public class RequestContactsScreen extends RelativeLayout {
      * @param attrs
      */
     public RequestContactsScreen(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
+        super(context, attrs);
     }
 
     /**
@@ -50,7 +49,7 @@ public class RequestContactsScreen extends RelativeLayout {
      * @param defStyleAttr
      */
     public RequestContactsScreen(Context context, AttributeSet attrs, int defStyleAttr) {
-        this(context, attrs, defStyleAttr, 0);
+        super(context, attrs, defStyleAttr);
     }
 
     /**
@@ -62,12 +61,16 @@ public class RequestContactsScreen extends RelativeLayout {
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public RequestContactsScreen(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        init();
     }
 
-    private void init() {
-        inflate(getContext(), R.layout.lay_request_contacts, this);
-        ButterKnife.bind(this);
+    @Override
+    public int getLayout() {
+        return R.layout.lay_request_contacts;
+    }
+
+    @Override
+    public void initUI(AttributeSet attributeSet) {
+
     }
 
     // Public methods

@@ -4,17 +4,15 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
 import android.util.AttributeSet;
-import android.widget.RelativeLayout;
 
 import com.cronosgroup.tinkerlink.R;
-
-import butterknife.ButterKnife;
+import com.cronosgroup.tinkerlink.view.customviews.base.TLBaseView;
 
 
 /**
- * Main Network view.
+ * Main PolicyPrivacy view.
  */
-public class PolicyPrivacyScreen extends RelativeLayout {
+public class PolicyPrivacyScreen extends TLBaseView {
 
     public interface Listener {
 
@@ -30,7 +28,6 @@ public class PolicyPrivacyScreen extends RelativeLayout {
      */
     public PolicyPrivacyScreen(Context context) {
         super(context);
-        init();
     }
 
     /**
@@ -38,7 +35,7 @@ public class PolicyPrivacyScreen extends RelativeLayout {
      * @param attrs
      */
     public PolicyPrivacyScreen(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
+        super(context, attrs);
     }
 
     /**
@@ -48,7 +45,6 @@ public class PolicyPrivacyScreen extends RelativeLayout {
      */
     public PolicyPrivacyScreen(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init();
     }
 
     /**
@@ -60,16 +56,18 @@ public class PolicyPrivacyScreen extends RelativeLayout {
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public PolicyPrivacyScreen(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        init();
     }
 
-    private void init() {
-        inflate(getContext(), R.layout.lay_privacy_policy, this);
-        ButterKnife.bind(this);
+    @Override
+    public int getLayout() {
+        return R.layout.lay_privacy_policy;
+    }
+
+    @Override
+    public void initUI(AttributeSet attributeSet) {
     }
 
     // Actions
-
 
     // Public methods
 

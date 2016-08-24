@@ -7,7 +7,6 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
-import android.widget.RelativeLayout;
 
 import com.bignerdranch.expandablerecyclerview.Adapter.ExpandableRecyclerAdapter;
 import com.cronosgroup.tinkerlink.R;
@@ -15,18 +14,18 @@ import com.cronosgroup.tinkerlink.enums.StackCardType;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestCategory;
 import com.cronosgroup.tinkerlink.view.customviews.TLRecyclerView;
 import com.cronosgroup.tinkerlink.view.customviews.TLTextView;
+import com.cronosgroup.tinkerlink.view.customviews.base.TLBaseView;
 import com.cronosgroup.tinkerlink.view.sign.adapter.fragments.tlinker.adapter.CategoriesAdapter;
 import com.cronosgroup.tinkerlink.view.sign.adapter.fragments.tlinker.adapter.viewholder.CategoryViewHolder;
 
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * Created by jorgesanmartin on 10/26/15.
  */
-public class TLinkerSelectorScreen extends RelativeLayout {
+public class TLinkerSelectorScreen extends TLBaseView {
 
     public interface Listener {
         void setCurrentCategorySelected(RestCategory categoria);
@@ -56,7 +55,7 @@ public class TLinkerSelectorScreen extends RelativeLayout {
      * @param context
      */
     public TLinkerSelectorScreen(Context context, StackCardType typeTinker) {
-        this(context, (AttributeSet)null);
+        super(context);
         setTypeTinker(typeTinker);
     }
 
@@ -64,7 +63,7 @@ public class TLinkerSelectorScreen extends RelativeLayout {
      * @param context
      */
     public TLinkerSelectorScreen(Context context) {
-        this(context, (AttributeSet)null);
+        super(context);
     }
 
     /**
@@ -72,7 +71,7 @@ public class TLinkerSelectorScreen extends RelativeLayout {
      * @param attrs
      */
     public TLinkerSelectorScreen(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
+        super(context, attrs);
     }
 
     /**
@@ -81,7 +80,7 @@ public class TLinkerSelectorScreen extends RelativeLayout {
      * @param defStyleAttr
      */
     public TLinkerSelectorScreen(Context context, AttributeSet attrs, int defStyleAttr) {
-        this(context, attrs, defStyleAttr, 0);
+        super(context, attrs, defStyleAttr);
     }
 
     /**
@@ -93,12 +92,15 @@ public class TLinkerSelectorScreen extends RelativeLayout {
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public TLinkerSelectorScreen(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        init();
     }
 
-    private void init() {
-        inflate(getContext(), R.layout.lay_tlinker_selector, this);
-        ButterKnife.bind(this);
+    @Override
+    public int getLayout() {
+        return R.layout.lay_tlinker_selector;
+    }
+
+    @Override
+    public void initUI(AttributeSet attributeSet) {
         initRecyclerView();
     }
 

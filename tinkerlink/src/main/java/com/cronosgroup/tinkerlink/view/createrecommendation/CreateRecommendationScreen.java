@@ -7,21 +7,20 @@ import android.support.v7.widget.PopupMenu;
 import android.util.AttributeSet;
 import android.view.MenuItem;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.view.customviews.TLTextView;
 import com.cronosgroup.tinkerlink.view.customviews.TLUserView;
+import com.cronosgroup.tinkerlink.view.customviews.base.TLBaseView;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 
 /**
  * Main Network view.
  */
-public class CreateRecommendationScreen extends RelativeLayout {
+public class CreateRecommendationScreen extends TLBaseView {
 
     public interface Listener {
         void onAllContactsPressed();
@@ -45,7 +44,7 @@ public class CreateRecommendationScreen extends RelativeLayout {
      * @param context
      */
     public CreateRecommendationScreen(Context context) {
-        this(context, null);
+        super(context);
     }
 
     /**
@@ -53,7 +52,7 @@ public class CreateRecommendationScreen extends RelativeLayout {
      * @param attrs
      */
     public CreateRecommendationScreen(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
+        super(context, attrs);
     }
 
     /**
@@ -62,7 +61,7 @@ public class CreateRecommendationScreen extends RelativeLayout {
      * @param defStyleAttr
      */
     public CreateRecommendationScreen(Context context, AttributeSet attrs, int defStyleAttr) {
-        this(context, attrs, defStyleAttr, 0);
+        super(context, attrs, defStyleAttr);
     }
 
     /**
@@ -74,13 +73,18 @@ public class CreateRecommendationScreen extends RelativeLayout {
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public CreateRecommendationScreen(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        init();
     }
 
-    private void init() {
-        inflate(getContext(), R.layout.lay_create_recommendation, this);
-        ButterKnife.bind(this);
+    @Override
+    public int getLayout() {
+        return R.layout.lay_create_recommendation;
     }
+
+    @Override
+    public void initUI(AttributeSet attributeSet) {
+    }
+
+    // Actions
 
     @OnClick(R.id.selectorContactsToSend)
     protected void onSelectorContactsPressed() {

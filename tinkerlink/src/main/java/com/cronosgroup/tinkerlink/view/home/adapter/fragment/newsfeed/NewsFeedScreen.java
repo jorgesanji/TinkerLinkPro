@@ -10,7 +10,6 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.RelativeLayout;
 
 import com.cronosgroup.core.view.BaseAdapter;
 import com.cronosgroup.core.view.animator.SlideInUpAnimator;
@@ -23,18 +22,18 @@ import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestPost;
 import com.cronosgroup.tinkerlink.model.manager.AppUserSessionManager;
 import com.cronosgroup.tinkerlink.view.customviews.TLRecyclerView;
 import com.cronosgroup.tinkerlink.view.customviews.TLTextView;
+import com.cronosgroup.tinkerlink.view.customviews.base.TLBaseView;
 import com.cronosgroup.tinkerlink.view.home.adapter.fragment.newsfeed.adapter.NewsFeedAdapter;
 
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
  * Main NewsFeed view.
  */
-public class NewsFeedScreen extends RelativeLayout {
+public class NewsFeedScreen extends TLBaseView {
 
     public static final int MAX_ITEMS = 25;
 
@@ -98,7 +97,7 @@ public class NewsFeedScreen extends RelativeLayout {
      * @param context
      */
     public NewsFeedScreen(Context context, Listener listener) {
-        this(context);
+        super(context);
         this.listener = listener;
     }
 
@@ -106,7 +105,7 @@ public class NewsFeedScreen extends RelativeLayout {
      * @param context
      */
     public NewsFeedScreen(Context context) {
-        this(context, null, 0);
+        super(context);
     }
 
     /**
@@ -114,7 +113,7 @@ public class NewsFeedScreen extends RelativeLayout {
      * @param attrs
      */
     public NewsFeedScreen(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
+        super(context, attrs);
     }
 
     /**
@@ -124,7 +123,6 @@ public class NewsFeedScreen extends RelativeLayout {
      */
     public NewsFeedScreen(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init();
     }
 
     /**
@@ -136,12 +134,15 @@ public class NewsFeedScreen extends RelativeLayout {
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public NewsFeedScreen(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        init();
     }
 
-    private void init() {
-        inflate(getContext(), R.layout.lay_newsfeed, this);
-        ButterKnife.bind(this);
+    @Override
+    public int getLayout() {
+        return R.layout.lay_newsfeed;
+    }
+
+    @Override
+    public void initUI(AttributeSet attributeSet) {
         initUI();
         initRecyclerView();
         initAdapter();

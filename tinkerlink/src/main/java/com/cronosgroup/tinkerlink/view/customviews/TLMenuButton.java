@@ -15,6 +15,7 @@ import android.widget.LinearLayout;
 
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.utils.DimenUtils;
+import com.cronosgroup.tinkerlink.view.customviews.base.TLBaseView;
 import com.nineoldandroids.animation.Animator;
 import com.nineoldandroids.animation.AnimatorSet;
 import com.nineoldandroids.animation.ObjectAnimator;
@@ -23,12 +24,10 @@ import com.nineoldandroids.animation.PropertyValuesHolder;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.ButterKnife;
-
 /**
  * Created by jorgesanmartin on 3/8/16.
  */
-public class TLMenuButton extends LinearLayout {
+public class TLMenuButton extends TLBaseView {
 
     public interface IOMenuButtonState {
         void collapsed();
@@ -56,7 +55,7 @@ public class TLMenuButton extends LinearLayout {
      * @param context
      */
     public TLMenuButton(Context context) {
-        this(context, null, 0);
+        super(context);
     }
 
     /**
@@ -64,7 +63,7 @@ public class TLMenuButton extends LinearLayout {
      * @param attrs
      */
     public TLMenuButton(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
+        super(context, attrs);
     }
 
     /**
@@ -74,7 +73,6 @@ public class TLMenuButton extends LinearLayout {
      */
     public TLMenuButton(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init(attrs);
     }
 
     /**
@@ -86,14 +84,22 @@ public class TLMenuButton extends LinearLayout {
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public TLMenuButton(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        init(attrs);
     }
 
-    private void init(AttributeSet attributeSet) {
+    @Override
+    public int getLayout() {
+        return R.layout.lay_menu_button;
+    }
+
+    @Override
+    protected void init(AttributeSet attrs) {
         setOrientation(VERTICAL);
         setGravity(Gravity.RIGHT);
-        inflate(getContext(), R.layout.lay_menu_button, this);
-        ButterKnife.bind(this);
+        super.init(attrs);
+    }
+
+    @Override
+    public void initUI(AttributeSet attributeSet) {
         initUI();
 
         if (attributeSet != null) {
@@ -114,13 +120,13 @@ public class TLMenuButton extends LinearLayout {
         }
     }
 
+    private void initUI() {
+    }
+
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
         super.onLayout(changed, l, t, r, b);
         animateMenu();
-    }
-
-    private void initUI() {
     }
 
     private void configMainButton() {

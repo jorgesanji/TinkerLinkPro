@@ -20,7 +20,6 @@ import com.cronosgroup.tinkerlink.view.dialog.places.adapter.PlaceAutoCompleteAd
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
@@ -61,7 +60,7 @@ public class PlacesDialogScreen extends TLLinearLayout {
      * @param context
      */
     public PlacesDialogScreen(Context context, Listener listener) {
-        this(context, (AttributeSet) null);
+        super(context);
         this.listener = listener;
     }
 
@@ -69,7 +68,7 @@ public class PlacesDialogScreen extends TLLinearLayout {
      * @param context
      */
     public PlacesDialogScreen(Context context) {
-        this(context, (AttributeSet) null);
+        super(context);
     }
 
     /**
@@ -77,7 +76,7 @@ public class PlacesDialogScreen extends TLLinearLayout {
      * @param attrs
      */
     public PlacesDialogScreen(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
+        super(context, attrs);
     }
 
     /**
@@ -86,7 +85,7 @@ public class PlacesDialogScreen extends TLLinearLayout {
      * @param defStyleAttr
      */
     public PlacesDialogScreen(Context context, AttributeSet attrs, int defStyleAttr) {
-        this(context, attrs, defStyleAttr, 0);
+        super(context, attrs, defStyleAttr);
     }
 
     /**
@@ -98,12 +97,16 @@ public class PlacesDialogScreen extends TLLinearLayout {
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public PlacesDialogScreen(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        init();
     }
 
-    private void init() {
-        inflate(getContext(), R.layout.lay_dialog_places, this);
-        ButterKnife.bind(this);
+    @Override
+    public int getLayout() {
+        return R.layout.lay_dialog_places;
+    }
+
+    @Override
+    public void initUI(AttributeSet attributeSet) {
+        super.initUI(attributeSet);
         initUI();
         initRecyclerView();
         initAdapter();

@@ -4,18 +4,17 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
 import android.util.AttributeSet;
-import android.widget.RelativeLayout;
 
 import com.cronosgroup.tinkerlink.R;
+import com.cronosgroup.tinkerlink.view.customviews.base.TLBaseView;
 
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 
 /**
  * Main Network view.
  */
-public class ChangePhoneNumberScreen extends RelativeLayout {
+public class ChangePhoneNumberScreen extends TLBaseView {
 
     public interface Listener {
         void onVerifyPressed();
@@ -31,7 +30,6 @@ public class ChangePhoneNumberScreen extends RelativeLayout {
      */
     public ChangePhoneNumberScreen(Context context) {
         super(context);
-        init();
     }
 
     /**
@@ -39,7 +37,7 @@ public class ChangePhoneNumberScreen extends RelativeLayout {
      * @param attrs
      */
     public ChangePhoneNumberScreen(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
+        super(context, attrs);
     }
 
     /**
@@ -49,7 +47,6 @@ public class ChangePhoneNumberScreen extends RelativeLayout {
      */
     public ChangePhoneNumberScreen(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init();
     }
 
     /**
@@ -61,12 +58,15 @@ public class ChangePhoneNumberScreen extends RelativeLayout {
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public ChangePhoneNumberScreen(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        init();
     }
 
-    private void init() {
-        inflate(getContext(), R.layout.lay_change_phone_number, this);
-        ButterKnife.bind(this);
+    @Override
+    public int getLayout() {
+        return  R.layout.lay_change_phone_number;
+    }
+
+    @Override
+    public void initUI(AttributeSet attributeSet) {
     }
 
     // Actions

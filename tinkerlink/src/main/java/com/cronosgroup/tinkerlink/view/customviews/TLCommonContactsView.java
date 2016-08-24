@@ -11,16 +11,16 @@ import android.widget.RelativeLayout;
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContact;
 import com.cronosgroup.tinkerlink.utils.DimenUtils;
+import com.cronosgroup.tinkerlink.view.customviews.base.TLBaseView;
 
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * Created by jorgesanmartin on 3/23/16.
  */
-public class TLCommonContactsView extends RelativeLayout {
+public class TLCommonContactsView extends TLBaseView {
 
     //Vars
 
@@ -46,7 +46,7 @@ public class TLCommonContactsView extends RelativeLayout {
      * @param context
      */
     public TLCommonContactsView(Context context) {
-        this(context, null);
+        super(context);
     }
 
     /**
@@ -54,7 +54,7 @@ public class TLCommonContactsView extends RelativeLayout {
      * @param attrs
      */
     public TLCommonContactsView(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
+        super(context, attrs);
     }
 
     /**
@@ -63,7 +63,7 @@ public class TLCommonContactsView extends RelativeLayout {
      * @param defStyleAttr
      */
     public TLCommonContactsView(Context context, AttributeSet attrs, int defStyleAttr) {
-        this(context, attrs, defStyleAttr, 0);
+        super(context, attrs, defStyleAttr);
     }
 
     /**
@@ -75,12 +75,15 @@ public class TLCommonContactsView extends RelativeLayout {
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public TLCommonContactsView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        init(attrs);
     }
 
-    private void init(AttributeSet attributeSet) {
-        inflate(getContext(), R.layout.lay_common_contacts, this);
-        ButterKnife.bind(this);
+    @Override
+    public int getLayout() {
+        return R.layout.lay_common_contacts;
+    }
+
+    @Override
+    public void initUI(AttributeSet attributeSet) {
         if (attributeSet != null) {
             TypedArray attributes = null;
             try {

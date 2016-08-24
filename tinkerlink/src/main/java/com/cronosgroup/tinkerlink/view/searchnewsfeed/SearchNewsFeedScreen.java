@@ -6,19 +6,18 @@ import android.os.Build;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentManager;
 import android.util.AttributeSet;
-import android.widget.LinearLayout;
 
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.view.customviews.TLViewPager;
+import com.cronosgroup.tinkerlink.view.customviews.base.TLBaseView;
 import com.cronosgroup.tinkerlink.view.searchnewsfeed.adapter.SearchNewsFeedAdapter;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * DetailStack view.
  */
-public class SearchNewsFeedScreen extends LinearLayout {
+public class SearchNewsFeedScreen extends TLBaseView {
 
     /**
      * listeners of the detailstack's screen.
@@ -44,7 +43,7 @@ public class SearchNewsFeedScreen extends LinearLayout {
      * @param context
      */
     public SearchNewsFeedScreen(Context context, Listener listener) {
-        this(context);
+        super(context);
         this.listener = listener;
     }
 
@@ -52,7 +51,7 @@ public class SearchNewsFeedScreen extends LinearLayout {
      * @param context
      */
     public SearchNewsFeedScreen(Context context) {
-        this(context, null, 0);
+        super(context);
     }
 
     /**
@@ -60,7 +59,7 @@ public class SearchNewsFeedScreen extends LinearLayout {
      * @param attrs
      */
     public SearchNewsFeedScreen(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
+        super(context, attrs);
     }
 
     /**
@@ -70,7 +69,6 @@ public class SearchNewsFeedScreen extends LinearLayout {
      */
     public SearchNewsFeedScreen(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init();
     }
 
     /**
@@ -82,12 +80,15 @@ public class SearchNewsFeedScreen extends LinearLayout {
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public SearchNewsFeedScreen(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        init();
     }
 
-    private void init() {
-        inflate(getContext(), R.layout.lay_search_newsfeed, this);
-        ButterKnife.bind(this);
+    @Override
+    public int getLayout() {
+        return R.layout.lay_search_newsfeed;
+    }
+
+    @Override
+    public void initUI(AttributeSet attributeSet) {
     }
 
     private void initUI() {

@@ -11,18 +11,17 @@ import android.support.design.widget.FloatingActionButton;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.util.TypedValue;
-import android.widget.LinearLayout;
 
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.utils.TypeFaceUtils;
+import com.cronosgroup.tinkerlink.view.customviews.base.TLBaseView;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * Created by jorgesanmartin on 3/8/16.
  */
-public class TLMenuItem extends LinearLayout {
+public class TLMenuItem extends TLBaseView {
 
     //Vars
     public static final int DEFAULT_FONT = 0;
@@ -39,7 +38,7 @@ public class TLMenuItem extends LinearLayout {
      * @param context
      */
     public TLMenuItem(Context context) {
-        this(context, null, 0);
+        super(context);
     }
 
     /**
@@ -47,7 +46,7 @@ public class TLMenuItem extends LinearLayout {
      * @param attrs
      */
     public TLMenuItem(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
+        super(context, attrs);
     }
 
     /**
@@ -57,7 +56,6 @@ public class TLMenuItem extends LinearLayout {
      */
     public TLMenuItem(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init(attrs);
     }
 
     /**
@@ -69,13 +67,15 @@ public class TLMenuItem extends LinearLayout {
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public TLMenuItem(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        init(attrs);
     }
 
-    private void init(AttributeSet attributeSet) {
-        inflate(getContext(), R.layout.lay_item_menu, this);
-        ButterKnife.bind(this);
+    @Override
+    public int getLayout() {
+        return R.layout.lay_item_menu;
+    }
 
+    @Override
+    public void initUI(AttributeSet attributeSet) {
         if (attributeSet != null) {
             TypedArray attributes = null;
             try {

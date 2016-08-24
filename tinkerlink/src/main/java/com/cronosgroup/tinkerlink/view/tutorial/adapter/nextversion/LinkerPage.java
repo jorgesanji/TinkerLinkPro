@@ -7,19 +7,18 @@ import android.os.Build;
 import android.support.design.widget.FloatingActionButton;
 import android.util.AttributeSet;
 import android.view.View;
-import android.widget.LinearLayout;
 
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.view.customviews.TLImageRoundBorder;
 import com.cronosgroup.tinkerlink.view.customviews.TLTextView;
+import com.cronosgroup.tinkerlink.view.customviews.base.TLBaseView;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * Created by jorgesanmartin on 7/20/16.
  */
-public class LinkerPage extends LinearLayout {
+public class LinkerPage extends TLBaseView {
 
     //Views
 
@@ -42,26 +41,29 @@ public class LinkerPage extends LinearLayout {
     protected View backgroundCard;
 
     public LinkerPage(Context context) {
-        this(context, null);
+        super(context);
     }
 
     public LinkerPage(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
+        super(context, attrs);
     }
 
     public LinkerPage(Context context, AttributeSet attrs, int defStyleAttr) {
-        this(context, attrs, defStyleAttr, 0);
+        super(context, attrs, defStyleAttr);
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public LinkerPage(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        init();
     }
 
-    private void init() {
-        inflate(getContext(), R.layout.lay_tutorial_linker, this);
-        ButterKnife.bind(this);
+    @Override
+    public int getLayout() {
+        return R.layout.lay_tutorial_linker;
+    }
+
+    @Override
+    public void initUI(AttributeSet attributeSet) {
         initUI();
     }
 

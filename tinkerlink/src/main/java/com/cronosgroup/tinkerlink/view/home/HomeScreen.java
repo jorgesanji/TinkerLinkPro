@@ -7,22 +7,21 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.view.View;
-import android.widget.RelativeLayout;
 
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.view.customviews.TLActionButton;
 import com.cronosgroup.tinkerlink.view.customviews.TLMenuButton;
 import com.cronosgroup.tinkerlink.view.customviews.TLViewPager;
+import com.cronosgroup.tinkerlink.view.customviews.base.TLBaseView;
 import com.cronosgroup.tinkerlink.view.home.adapter.HomeAdapter;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
  * Main Home view.
  */
-public class HomeScreen extends RelativeLayout {
+public class HomeScreen extends TLBaseView {
 
     /**
      * listeners of the home's screen.
@@ -66,7 +65,7 @@ public class HomeScreen extends RelativeLayout {
      * @param context
      */
     public HomeScreen(Context context, Listener listener) {
-        this(context);
+        super(context);
         this.listener = listener;
     }
 
@@ -74,7 +73,7 @@ public class HomeScreen extends RelativeLayout {
      * @param context
      */
     public HomeScreen(Context context) {
-        this(context, null, 0);
+        super(context);
     }
 
     /**
@@ -82,7 +81,7 @@ public class HomeScreen extends RelativeLayout {
      * @param attrs
      */
     public HomeScreen(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
+        super(context, attrs);
     }
 
     /**
@@ -92,7 +91,6 @@ public class HomeScreen extends RelativeLayout {
      */
     public HomeScreen(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init();
     }
 
     /**
@@ -104,12 +102,15 @@ public class HomeScreen extends RelativeLayout {
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public HomeScreen(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        init();
     }
 
-    private void init() {
-        inflate(getContext(), R.layout.lay_home, this);
-        ButterKnife.bind(this);
+    @Override
+    public int getLayout() {
+        return R.layout.lay_home;
+    }
+
+    @Override
+    public void initUI(AttributeSet attributeSet) {
         initListeners();
         initUI();
     }

@@ -7,19 +7,18 @@ import android.os.Build;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentManager;
 import android.util.AttributeSet;
-import android.widget.RelativeLayout;
 
 import com.cronosgroup.tinkerlink.R;
-import com.cronosgroup.tinkerlink.view.usercontacts.adapter.UserContactsAdapter;
 import com.cronosgroup.tinkerlink.view.customviews.TLViewPager;
+import com.cronosgroup.tinkerlink.view.customviews.base.TLBaseView;
+import com.cronosgroup.tinkerlink.view.usercontacts.adapter.UserContactsAdapter;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
- * Main  Recommendations view.
+ * Main  UserContacs view.
  */
-public class UserContactsScreen extends RelativeLayout {
+public class UserContactsScreen extends TLBaseView {
 
     public interface Listener {
     }
@@ -39,7 +38,7 @@ public class UserContactsScreen extends RelativeLayout {
      * @param context
      */
     public UserContactsScreen(Context context) {
-        this(context, null);
+        super(context);
     }
 
     /**
@@ -47,7 +46,7 @@ public class UserContactsScreen extends RelativeLayout {
      * @param attrs
      */
     public UserContactsScreen(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
+        super(context, attrs);
     }
 
     /**
@@ -56,7 +55,7 @@ public class UserContactsScreen extends RelativeLayout {
      * @param defStyleAttr
      */
     public UserContactsScreen(Context context, AttributeSet attrs, int defStyleAttr) {
-        this(context, attrs, defStyleAttr, 0);
+        super(context, attrs, defStyleAttr);
     }
 
     /**
@@ -68,12 +67,15 @@ public class UserContactsScreen extends RelativeLayout {
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public UserContactsScreen(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        init();
     }
 
-    private void init() {
-        inflate(getContext(), R.layout.lay_user_contacts, this);
-        ButterKnife.bind(this);
+    @Override
+    public int getLayout() {
+        return R.layout.lay_user_contacts;
+    }
+
+    @Override
+    public void initUI(AttributeSet attributeSet) {
     }
 
     private void initUI() {

@@ -5,16 +5,14 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
 import android.util.AttributeSet;
-import android.widget.RelativeLayout;
 
 import com.cronosgroup.tinkerlink.R;
-
-import butterknife.ButterKnife;
+import com.cronosgroup.tinkerlink.view.customviews.base.TLBaseView;
 
 /**
  * Main  UserRecommendations view.
  */
-public class GiveRecommendationsScreen extends RelativeLayout {
+public class GiveRecommendationsScreen extends TLBaseView {
 
     public interface Listener {
     }
@@ -28,7 +26,7 @@ public class GiveRecommendationsScreen extends RelativeLayout {
      * @param context
      */
     public GiveRecommendationsScreen(Context context) {
-        this(context, null);
+        super(context);
     }
 
     /**
@@ -36,7 +34,7 @@ public class GiveRecommendationsScreen extends RelativeLayout {
      * @param attrs
      */
     public GiveRecommendationsScreen(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
+        super(context, attrs);
     }
 
     /**
@@ -45,7 +43,7 @@ public class GiveRecommendationsScreen extends RelativeLayout {
      * @param defStyleAttr
      */
     public GiveRecommendationsScreen(Context context, AttributeSet attrs, int defStyleAttr) {
-        this(context, attrs, defStyleAttr, 0);
+        super(context, attrs, defStyleAttr);
     }
 
     /**
@@ -57,12 +55,15 @@ public class GiveRecommendationsScreen extends RelativeLayout {
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public GiveRecommendationsScreen(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        init();
     }
 
-    private void init() {
-        inflate(getContext(), R.layout.lay_give_recommendation, this);
-        ButterKnife.bind(this);
+    @Override
+    public int getLayout() {
+        return R.layout.lay_give_recommendation;
+    }
+
+    @Override
+    public void initUI(AttributeSet attributeSet) {
     }
 
     // Public methods

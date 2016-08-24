@@ -35,7 +35,8 @@ public class TLImageRoundBorder extends FrameLayout {
     }
 
     public TLImageRoundBorder(Context context, AttributeSet attrs, int defStyleAttr) {
-        this(context, attrs, defStyleAttr, -1);
+        super(context, attrs, defStyleAttr);
+        init(attrs);
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)

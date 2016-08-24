@@ -5,20 +5,19 @@ import android.content.Context;
 import android.os.Build;
 import android.support.v4.widget.NestedScrollView;
 import android.util.AttributeSet;
-import android.widget.RelativeLayout;
 
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.view.customviews.TLImageView;
 import com.cronosgroup.tinkerlink.view.customviews.TLTextView;
+import com.cronosgroup.tinkerlink.view.customviews.base.TLBaseView;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
  * Account user view.
  */
-public class AccountScreen extends RelativeLayout {
+public class AccountScreen extends TLBaseView {
 
     /**
      * listeners of the  Account user's screen.
@@ -60,7 +59,7 @@ public class AccountScreen extends RelativeLayout {
      * @param context
      */
     public AccountScreen(Context context, Listener listener) {
-        this(context);
+        super(context);
         this.listener = listener;
     }
 
@@ -68,7 +67,7 @@ public class AccountScreen extends RelativeLayout {
      * @param context
      */
     public AccountScreen(Context context) {
-        this(context, null, 0);
+        super(context);
     }
 
     /**
@@ -76,7 +75,7 @@ public class AccountScreen extends RelativeLayout {
      * @param attrs
      */
     public AccountScreen(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
+        super(context, attrs);
     }
 
     /**
@@ -86,7 +85,6 @@ public class AccountScreen extends RelativeLayout {
      */
     public AccountScreen(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init();
     }
 
     /**
@@ -98,14 +96,16 @@ public class AccountScreen extends RelativeLayout {
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public AccountScreen(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        init();
     }
 
-    private void init() {
-        inflate(getContext(), R.layout.lay_account, this);
-        ButterKnife.bind(this);
+    @Override
+    public int getLayout() {
+        return R.layout.lay_account;
     }
 
+    @Override
+    public void initUI(AttributeSet attributeSet) {
+    }
 
     // **************  UI Actions **************
 

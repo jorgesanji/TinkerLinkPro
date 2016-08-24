@@ -6,17 +6,16 @@ import android.content.res.TypedArray;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.util.Log;
-import android.widget.LinearLayout;
 
 import com.cronosgroup.tinkerlink.R;
+import com.cronosgroup.tinkerlink.view.customviews.base.TLBaseView;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * Created by jorgesanmartin on 7/26/16.
  */
-public class TLRowView extends LinearLayout {
+public class TLRowView extends TLBaseView {
 
     //Vars
 
@@ -28,27 +27,35 @@ public class TLRowView extends LinearLayout {
     protected TLTextView mSubTitleRoww;
 
     public TLRowView(Context context) {
-        this(context, null);
+        super(context);
     }
 
     public TLRowView(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
+        super(context, attrs);
     }
 
     public TLRowView(Context context, AttributeSet attrs, int defStyleAttr) {
-        this(context, attrs, defStyleAttr, 0);
+        super(context, attrs, defStyleAttr);
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public TLRowView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        init(attrs);
     }
 
-    private void init(AttributeSet attributeSet) {
+    @Override
+    public void init(AttributeSet attributeSet) {
         setBackgroundResource(R.drawable.button_default_states);
-        inflate(getContext(), R.layout.lay_row_view, this);
-        ButterKnife.bind(this);
+        super.init(attributeSet);
+    }
+
+    @Override
+    public int getLayout() {
+        return  R.layout.lay_row_view;
+    }
+
+    @Override
+    public void initUI(AttributeSet attributeSet) {
         if (attributeSet != null) {
             TypedArray attributes = null;
             try {

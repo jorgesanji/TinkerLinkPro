@@ -7,20 +7,19 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentManager;
 import android.util.AttributeSet;
 import android.view.View;
-import android.widget.RelativeLayout;
 
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.view.customviews.TLViewPager;
+import com.cronosgroup.tinkerlink.view.customviews.base.TLBaseView;
 import com.cronosgroup.tinkerlink.view.home.adapter.fragment.contacts.adapter.ContactsAdapter;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
  * Main contacts view.
  */
-public class ContactsScreen extends RelativeLayout {
+public class ContactsScreen extends TLBaseView {
 
 
     /**
@@ -49,7 +48,7 @@ public class ContactsScreen extends RelativeLayout {
      * @param context
      */
     public ContactsScreen(Context context, Listener listener) {
-        this(context);
+        super(context);
         this.listener = listener;
     }
 
@@ -57,7 +56,7 @@ public class ContactsScreen extends RelativeLayout {
      * @param context
      */
     public ContactsScreen(Context context) {
-        this(context, null, 0);
+        super(context);
     }
 
     /**
@@ -65,7 +64,7 @@ public class ContactsScreen extends RelativeLayout {
      * @param attrs
      */
     public ContactsScreen(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
+        super(context, attrs);
     }
 
     /**
@@ -75,7 +74,6 @@ public class ContactsScreen extends RelativeLayout {
      */
     public ContactsScreen(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init();
     }
 
     /**
@@ -87,12 +85,15 @@ public class ContactsScreen extends RelativeLayout {
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public ContactsScreen(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        init();
     }
 
-    private void init() {
-        inflate(getContext(), R.layout.lay_contacts, this);
-        ButterKnife.bind(this);
+    @Override
+    public int getLayout() {
+        return R.layout.lay_contacts;
+    }
+
+    @Override
+    public void initUI(AttributeSet attributeSet) {
     }
 
     private void initUI() {

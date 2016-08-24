@@ -1,23 +1,22 @@
-package com.cronosgroup.tinkerlink.view.detailcard;
+package com.cronosgroup.tinkerlink.view.detailcard.adapter.page;
 
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
 import android.util.AttributeSet;
-import android.widget.RelativeLayout;
 
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.view.customviews.TLImageButton;
+import com.cronosgroup.tinkerlink.view.customviews.base.TLBaseView;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 
 /**
  * Detail card view.
  */
-public class DetailCardScreen extends RelativeLayout {
+public class DetailCardScreen extends TLBaseView {
 
     public interface Listener {
 
@@ -38,7 +37,7 @@ public class DetailCardScreen extends RelativeLayout {
      * @param context
      */
     public DetailCardScreen(Context context) {
-        this(context, null);
+        super(context);
     }
 
     /**
@@ -46,7 +45,7 @@ public class DetailCardScreen extends RelativeLayout {
      * @param attrs
      */
     public DetailCardScreen(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
+        super(context, attrs);
     }
 
     /**
@@ -56,7 +55,6 @@ public class DetailCardScreen extends RelativeLayout {
      */
     public DetailCardScreen(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init();
     }
 
     /**
@@ -68,12 +66,15 @@ public class DetailCardScreen extends RelativeLayout {
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public DetailCardScreen(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        init();
     }
 
-    private void init() {
-        inflate(getContext(), R.layout.lay_detail_card, this);
-        ButterKnife.bind(this);
+    @Override
+    public int getLayout() {
+        return R.layout.lay_detail_card;
+    }
+
+    @Override
+    public void initUI(AttributeSet attributeSet) {
     }
 
     // Actions

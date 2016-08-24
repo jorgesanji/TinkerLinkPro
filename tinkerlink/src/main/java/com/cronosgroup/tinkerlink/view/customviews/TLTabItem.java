@@ -11,19 +11,18 @@ import android.util.Log;
 import android.util.TypedValue;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.LinearLayout;
 
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContact;
 import com.cronosgroup.tinkerlink.utils.TypeFaceUtils;
+import com.cronosgroup.tinkerlink.view.customviews.base.TLBaseView;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * Created by jorgesanmartin on 11/23/15.
  */
-public class TLTabItem extends LinearLayout {
+public class TLTabItem extends TLBaseView {
 
     // Vars
     private Drawable icon;
@@ -40,7 +39,7 @@ public class TLTabItem extends LinearLayout {
      * @param context
      */
     public TLTabItem(Context context) {
-        this(context, null, 0);
+        super(context);
     }
 
     /**
@@ -48,7 +47,7 @@ public class TLTabItem extends LinearLayout {
      * @param attrs
      */
     public TLTabItem(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
+        super(context, attrs);
     }
 
     /**
@@ -58,7 +57,6 @@ public class TLTabItem extends LinearLayout {
      */
     public TLTabItem(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init(attrs);
     }
 
     /**
@@ -70,13 +68,21 @@ public class TLTabItem extends LinearLayout {
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public TLTabItem(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        init(attrs);
     }
 
-    private void init(AttributeSet attributeSet) {
+    @Override
+    public void init(AttributeSet attributeSet) {
         setBackgroundResource(R.drawable.button_default_states);
-        inflate(getContext(), R.layout.lay_info_field, this);
-        ButterKnife.bind(this);
+        super.init(attributeSet);
+    }
+
+    @Override
+    public int getLayout() {
+        return R.layout.lay_info_field;
+    }
+
+    @Override
+    public void initUI(AttributeSet attributeSet) {
         if (attributeSet != null) {
             TypedArray attributes = null;
             try {

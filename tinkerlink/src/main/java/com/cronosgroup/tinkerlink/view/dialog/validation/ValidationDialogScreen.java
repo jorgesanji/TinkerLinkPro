@@ -12,7 +12,6 @@ import com.cronosgroup.tinkerlink.view.customviews.TLLinearLayout;
 import com.cronosgroup.tinkerlink.view.customviews.TLTextView;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
@@ -50,7 +49,7 @@ public class ValidationDialogScreen extends TLLinearLayout {
      * @param context
      */
     public ValidationDialogScreen(Context context) {
-        this(context, null);
+        super(context);
     }
 
     /**
@@ -58,7 +57,7 @@ public class ValidationDialogScreen extends TLLinearLayout {
      * @param attrs
      */
     public ValidationDialogScreen(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
+        super(context, attrs);
     }
 
     /**
@@ -68,7 +67,6 @@ public class ValidationDialogScreen extends TLLinearLayout {
      */
     public ValidationDialogScreen(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init();
     }
 
     /**
@@ -80,17 +78,22 @@ public class ValidationDialogScreen extends TLLinearLayout {
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public ValidationDialogScreen(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        init();
     }
 
-    private void init() {
-        inflate(getContext(), R.layout.lay_dialog_validation, this);
-        ButterKnife.bind(this);
+    @Override
+    public int getLayout() {
+        return R.layout.lay_dialog_validation;
+    }
+
+    @Override
+    public void initUI(AttributeSet attributeSet) {
+        super.initUI(attributeSet);
         mValidationContainer.setVisibility(INVISIBLE);
         mProgressBar.setVisibility(GONE);
     }
 
     // Actions
+
     @OnClick(R.id.verifybt)
     protected void verifyPressed() {
         listener.onVeryfiedPressed();
