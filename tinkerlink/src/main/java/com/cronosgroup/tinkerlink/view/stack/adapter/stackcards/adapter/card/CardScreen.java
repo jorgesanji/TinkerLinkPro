@@ -22,7 +22,6 @@ import com.cronosgroup.tinkerlink.view.stack.adapter.stackcards.adapter.card.rec
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
@@ -101,7 +100,7 @@ public class CardScreen extends TLLinearLayout implements TLCardView {
      * @param context
      */
     public CardScreen(Context context) {
-        this(context, null, 0);
+        super(context);
     }
 
     /**
@@ -109,7 +108,7 @@ public class CardScreen extends TLLinearLayout implements TLCardView {
      * @param attrs
      */
     public CardScreen(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
+        super(context, attrs);
     }
 
     /**
@@ -119,7 +118,6 @@ public class CardScreen extends TLLinearLayout implements TLCardView {
      */
     public CardScreen(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init();
     }
 
     /**
@@ -131,15 +129,18 @@ public class CardScreen extends TLLinearLayout implements TLCardView {
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public CardScreen(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        init();
     }
 
-    private void init() {
-        inflate(getContext(), R.layout.lay_card, this);
-        ButterKnife.bind(this);
+    @Override
+    public int getLayout() {
+        return R.layout.lay_card;
+    }
+
+    @Override
+    public void initUI(AttributeSet attributeSet) {
+        super.initUI(attributeSet);
         mImageContainer.setTag(TAG_SCREEN);
         mCardOverlay.setImageResource(R.mipmap.card_bg_shadow_white);
-
     }
 
     // **************  UI Actions **************

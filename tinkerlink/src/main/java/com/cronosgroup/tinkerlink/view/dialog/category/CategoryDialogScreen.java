@@ -22,7 +22,6 @@ import com.cronosgroup.tinkerlink.view.sign.adapter.fragments.tlinker.adapter.vi
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
@@ -60,7 +59,7 @@ public class CategoryDialogScreen extends TLLinearLayout {
      * @param context
      */
     public CategoryDialogScreen(Context context, StackCardType typeTinker, Listener listener) {
-        this(context, null);
+        super(context);
         setTypeTinker(typeTinker);
         setListener(listener);
     }
@@ -69,7 +68,7 @@ public class CategoryDialogScreen extends TLLinearLayout {
      * @param context
      */
     public CategoryDialogScreen(Context context) {
-        this(context, null);
+        super(context);
     }
 
     /**
@@ -77,7 +76,7 @@ public class CategoryDialogScreen extends TLLinearLayout {
      * @param attrs
      */
     public CategoryDialogScreen(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
+        super(context, attrs);
     }
 
     /**
@@ -86,7 +85,7 @@ public class CategoryDialogScreen extends TLLinearLayout {
      * @param defStyleAttr
      */
     public CategoryDialogScreen(Context context, AttributeSet attrs, int defStyleAttr) {
-        this(context, attrs, defStyleAttr, 0);
+        super(context, attrs, defStyleAttr);
     }
 
     /**
@@ -98,12 +97,16 @@ public class CategoryDialogScreen extends TLLinearLayout {
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public CategoryDialogScreen(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        init();
     }
 
-    private void init() {
-        inflate(getContext(), R.layout.lay_dialog_category, this);
-        ButterKnife.bind(this);
+    @Override
+    public int getLayout() {
+        return R.layout.lay_dialog_category;
+    }
+
+    @Override
+    public void initUI(AttributeSet attributeSet) {
+        super.initUI(attributeSet);
         initUI();
         initRecyclerView();
     }

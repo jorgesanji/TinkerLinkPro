@@ -6,7 +6,6 @@ import android.content.Context;
 import android.os.Build;
 import android.support.v7.widget.LinearLayoutManager;
 import android.util.AttributeSet;
-import android.widget.RelativeLayout;
 
 import com.cronosgroup.core.view.BaseAdapter;
 import com.cronosgroup.core.view.animator.SlideInUpAnimator;
@@ -14,18 +13,18 @@ import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestRecommendation;
 import com.cronosgroup.tinkerlink.utils.TLDividerItemDecoration;
 import com.cronosgroup.tinkerlink.view.customviews.TLRecyclerView;
+import com.cronosgroup.tinkerlink.view.customviews.base.TLBaseView;
 import com.cronosgroup.tinkerlink.view.recommendations.adapter.RecommendationsAdapter;
 
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
  * Main  Recommendations view.
  */
-public class RecommendationsScreen extends RelativeLayout {
+public class RecommendationsScreen extends TLBaseView {
 
     public interface Listener {
         void onItemPressed(int position);
@@ -46,7 +45,7 @@ public class RecommendationsScreen extends RelativeLayout {
      * @param context
      */
     public RecommendationsScreen(Context context) {
-        this(context, null);
+        super(context);
     }
 
     /**
@@ -54,7 +53,7 @@ public class RecommendationsScreen extends RelativeLayout {
      * @param attrs
      */
     public RecommendationsScreen(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
+        super(context, attrs);
     }
 
     /**
@@ -63,7 +62,7 @@ public class RecommendationsScreen extends RelativeLayout {
      * @param defStyleAttr
      */
     public RecommendationsScreen(Context context, AttributeSet attrs, int defStyleAttr) {
-        this(context, attrs, defStyleAttr, 0);
+        super(context, attrs, defStyleAttr);
     }
 
     /**
@@ -75,12 +74,15 @@ public class RecommendationsScreen extends RelativeLayout {
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public RecommendationsScreen(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        init();
     }
 
-    private void init() {
-        inflate(getContext(), R.layout.lay_recommendations, this);
-        ButterKnife.bind(this);
+    @Override
+    public int getLayout() {
+        return R.layout.lay_recommendations;
+    }
+
+    @Override
+    public void initUI(AttributeSet attributeSet) {
         initUI();
         initRecyclerView();
         initAdapter();

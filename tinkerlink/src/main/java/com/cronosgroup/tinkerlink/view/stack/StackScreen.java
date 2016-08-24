@@ -9,22 +9,21 @@ import android.support.v4.app.FragmentManager;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
-import android.widget.RelativeLayout;
 
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.enums.StackCardType;
 import com.cronosgroup.tinkerlink.view.customviews.TLViewPager;
+import com.cronosgroup.tinkerlink.view.customviews.base.TLBaseView;
 import com.cronosgroup.tinkerlink.view.stack.adapter.StackAdapter;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 
 /**
  * StackCard view.
  */
-public class StackScreen extends RelativeLayout {
+public class StackScreen extends TLBaseView {
 
     public static final long TIME_TO_ANIMATION = 100;
 
@@ -58,7 +57,7 @@ public class StackScreen extends RelativeLayout {
      * @param context
      */
     public StackScreen(Context context, Listener listener) {
-        this(context);
+        super(context);
         this.listener = listener;
     }
 
@@ -66,7 +65,7 @@ public class StackScreen extends RelativeLayout {
      * @param context
      */
     public StackScreen(Context context) {
-        this(context, null, 0);
+        super(context);
     }
 
     /**
@@ -74,7 +73,7 @@ public class StackScreen extends RelativeLayout {
      * @param attrs
      */
     public StackScreen(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
+        super(context, attrs);
     }
 
     /**
@@ -84,7 +83,6 @@ public class StackScreen extends RelativeLayout {
      */
     public StackScreen(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init();
     }
 
     /**
@@ -96,12 +94,15 @@ public class StackScreen extends RelativeLayout {
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public StackScreen(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        init();
     }
 
-    private void init() {
-        inflate(getContext(), R.layout.lay_stack, this);
-        ButterKnife.bind(this);
+    @Override
+    public int getLayout() {
+        return R.layout.lay_stack;
+    }
+
+    @Override
+    public void initUI(AttributeSet attributeSet) {
         mBackgroundIn.setAlpha(0);
         mPager.setDisableSwipe(true);
     }

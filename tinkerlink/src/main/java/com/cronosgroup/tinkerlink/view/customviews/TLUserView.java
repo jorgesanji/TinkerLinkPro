@@ -10,22 +10,21 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.LinearLayout;
 
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.enums.ImageType;
 import com.cronosgroup.tinkerlink.interfaces.IOAddContactListener;
 import com.cronosgroup.tinkerlink.interfaces.IOIconListener;
 import com.cronosgroup.tinkerlink.model.dataacess.rest.model.RestContact;
+import com.cronosgroup.tinkerlink.view.customviews.base.TLBaseView;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
  * Created by jorgesanmartin on 11/11/15.
  */
-public class TLUserView extends LinearLayout {
+public class TLUserView extends TLBaseView {
 
     public interface Listener {
         void onRemoveUserPressed();
@@ -68,7 +67,7 @@ public class TLUserView extends LinearLayout {
      * @param context
      */
     public TLUserView(Context context) {
-        this(context, null);
+        super(context);
     }
 
     /**
@@ -76,7 +75,7 @@ public class TLUserView extends LinearLayout {
      * @param attrs
      */
     public TLUserView(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
+        super(context, attrs);
     }
 
     /**
@@ -86,7 +85,6 @@ public class TLUserView extends LinearLayout {
      */
     public TLUserView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init(attrs);
     }
 
     /**
@@ -98,12 +96,15 @@ public class TLUserView extends LinearLayout {
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public TLUserView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        init(attrs);
     }
 
-    private void init(AttributeSet attributeSet) {
-        inflate(getContext(), R.layout.lay_user_item, this);
-        ButterKnife.bind(this);
+    @Override
+    public int getLayout() {
+        return  R.layout.lay_user_item;
+    }
+
+    @Override
+    public void initUI(AttributeSet attributeSet) {
         mUserImage.setRounded(true);
         if (attributeSet != null) {
             TypedArray attributes = null;

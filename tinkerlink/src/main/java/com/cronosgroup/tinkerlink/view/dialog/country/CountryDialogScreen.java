@@ -19,7 +19,6 @@ import com.cronosgroup.tinkerlink.view.dialog.country.adapter.CountryAdapter;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
@@ -52,7 +51,7 @@ public class CountryDialogScreen extends TLLinearLayout {
      * @param context
      */
     public CountryDialogScreen(Context context, Listener listener) {
-        this(context);
+        super(context);
         this.listener = listener;
     }
 
@@ -60,7 +59,7 @@ public class CountryDialogScreen extends TLLinearLayout {
      * @param context
      */
     public CountryDialogScreen(Context context) {
-        this(context, (AttributeSet) null);
+        super(context);
     }
 
     /**
@@ -68,7 +67,7 @@ public class CountryDialogScreen extends TLLinearLayout {
      * @param attrs
      */
     public CountryDialogScreen(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
+        super(context, attrs);
     }
 
     /**
@@ -77,7 +76,7 @@ public class CountryDialogScreen extends TLLinearLayout {
      * @param defStyleAttr
      */
     public CountryDialogScreen(Context context, AttributeSet attrs, int defStyleAttr) {
-        this(context, attrs, defStyleAttr, 0);
+        super(context, attrs, defStyleAttr);
     }
 
     /**
@@ -89,12 +88,16 @@ public class CountryDialogScreen extends TLLinearLayout {
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public CountryDialogScreen(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        init();
     }
 
-    private void init() {
-        inflate(getContext(), R.layout.lay_dialog_country, this);
-        ButterKnife.bind(this);
+    @Override
+    public int getLayout() {
+        return R.layout.lay_dialog_country;
+    }
+
+    @Override
+    public void initUI(AttributeSet attributeSet) {
+        super.initUI(attributeSet);
         mCountryContainer.setVisibility(INVISIBLE);
         initSearch();
         initRecyclerView();

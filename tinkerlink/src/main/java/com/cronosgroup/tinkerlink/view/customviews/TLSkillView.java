@@ -6,18 +6,17 @@ import android.os.Build;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.widget.CheckBox;
-import android.widget.LinearLayout;
 
 import com.cronosgroup.tinkerlink.R;
+import com.cronosgroup.tinkerlink.view.customviews.base.TLBaseView;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
  * Created by jorgesanmartin on 3/11/16.
  */
-public class TLSkillView extends LinearLayout {
+public class TLSkillView extends TLBaseView {
 
     //Vars
 
@@ -33,7 +32,6 @@ public class TLSkillView extends LinearLayout {
      */
     public TLSkillView(Context context) {
         super(context);
-        init();
     }
 
     /**
@@ -41,7 +39,7 @@ public class TLSkillView extends LinearLayout {
      * @param attrs
      */
     public TLSkillView(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
+        super(context, attrs);
     }
 
     /**
@@ -51,7 +49,6 @@ public class TLSkillView extends LinearLayout {
      */
     public TLSkillView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init();
     }
 
     /**
@@ -63,14 +60,23 @@ public class TLSkillView extends LinearLayout {
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public TLSkillView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        init();
     }
 
-    private void init() {
+    @Override
+    protected void init(AttributeSet attrs) {
         setBackgroundColor(getContext().getResources().getColor(android.R.color.transparent));
-        inflate(getContext(), R.layout.lay_skills_item, this);
-        ButterKnife.bind(this);
+        super.init(attrs);
     }
+
+    @Override
+    public int getLayout() {
+        return R.layout.lay_skills_item;
+    }
+
+    @Override
+    public void initUI(AttributeSet attributeSet) {
+    }
+
     // Actions
 
     @OnClick(R.id.titleSkill)
@@ -95,6 +101,7 @@ public class TLSkillView extends LinearLayout {
     public void setTitleSize(float size) {
         mHabilityTitle.setTextSize(TypedValue.COMPLEX_UNIT_PX, size);
     }
+
     public void setTitleColor(int color) {
         mHabilityTitle.setTextColor(color);
     }

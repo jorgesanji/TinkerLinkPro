@@ -4,16 +4,14 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
 import android.util.AttributeSet;
-import android.widget.LinearLayout;
 
 import com.cronosgroup.tinkerlink.R;
-
-import butterknife.ButterKnife;
+import com.cronosgroup.tinkerlink.view.customviews.base.TLBaseView;
 
 /**
  * Created by jorgesanmartin on 7/20/16.
  */
-public class TinkerExperienceSelectionScreen extends LinearLayout {
+public class TinkerExperienceSelectionScreen extends TLBaseView {
 
     public interface Listener {
 
@@ -23,27 +21,29 @@ public class TinkerExperienceSelectionScreen extends LinearLayout {
     private Listener listener;
 
     public TinkerExperienceSelectionScreen(Context context) {
-        this(context, null);
+        super(context);
     }
 
     public TinkerExperienceSelectionScreen(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
+        super(context, attrs);
     }
 
     public TinkerExperienceSelectionScreen(Context context, AttributeSet attrs, int defStyleAttr) {
-        this(context, attrs, defStyleAttr, 0);
+        super(context, attrs, defStyleAttr);
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public TinkerExperienceSelectionScreen(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        init(attrs);
     }
 
-    private void init(AttributeSet attrs) {
-        inflate(getContext(), R.layout.lay_tinker_experience_selection, this);
-        ButterKnife.bind(this);
+    @Override
+    public int getLayout() {
+        return R.layout.lay_tinker_experience_selection;
+    }
 
+    @Override
+    public void initUI(AttributeSet attributeSet) {
     }
 
     // Public methods

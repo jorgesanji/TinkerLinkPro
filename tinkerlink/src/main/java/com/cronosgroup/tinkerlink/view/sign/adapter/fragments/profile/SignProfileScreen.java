@@ -7,19 +7,18 @@ import android.support.v7.widget.PopupMenu;
 import android.util.AttributeSet;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.RelativeLayout;
 
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.view.customviews.TLImageButton;
+import com.cronosgroup.tinkerlink.view.customviews.base.TLBaseView;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
  * Created by jorgesanmartin on 10/28/15.
  */
-public class SignProfileScreen extends RelativeLayout {
+public class SignProfileScreen extends TLBaseView {
 
     public static final int IMAGE_WALL = 0;
     public static final int IMAGE_PROFILE = 1;
@@ -49,7 +48,7 @@ public class SignProfileScreen extends RelativeLayout {
      * @param context
      */
     public SignProfileScreen(Context context) {
-        this(context, null);
+        super(context);
     }
 
     /**
@@ -57,7 +56,7 @@ public class SignProfileScreen extends RelativeLayout {
      * @param attrs
      */
     public SignProfileScreen(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
+        super(context, attrs);
     }
 
     /**
@@ -66,7 +65,7 @@ public class SignProfileScreen extends RelativeLayout {
      * @param defStyleAttr
      */
     public SignProfileScreen(Context context, AttributeSet attrs, int defStyleAttr) {
-        this(context, attrs, defStyleAttr, 0);
+        super(context, attrs, defStyleAttr);
     }
 
     /**
@@ -78,12 +77,15 @@ public class SignProfileScreen extends RelativeLayout {
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public SignProfileScreen(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        init();
     }
 
-    private void init() {
-        inflate(getContext(), R.layout.lay_sign_profile, this);
-        ButterKnife.bind(this);
+    @Override
+    public int getLayout() {
+        return R.layout.lay_sign_profile;
+    }
+
+    @Override
+    public void initUI(AttributeSet attributeSet) {
     }
 
     private void launchPopup(final int type, View anchor) {

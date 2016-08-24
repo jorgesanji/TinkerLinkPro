@@ -5,13 +5,13 @@ import android.content.Context;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.view.View;
-import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.enums.StackCardType;
 import com.cronosgroup.tinkerlink.model.dataacess.database.entities.TLCard;
 import com.cronosgroup.tinkerlink.view.customviews.TLTextView;
+import com.cronosgroup.tinkerlink.view.customviews.base.TLBaseView;
 import com.cronosgroup.tinkerlink.view.customviews.card.TLCardStack;
 import com.cronosgroup.tinkerlink.view.stack.adapter.stackcards.adapter.CardsAdapter;
 import com.cronosgroup.tinkerlink.view.stack.adapter.stackcards.adapter.card.CardScreen;
@@ -19,13 +19,12 @@ import com.cronosgroup.tinkerlink.view.stack.adapter.stackcards.adapter.card.Car
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 
 /**
  * StackCard view.
  */
-public class StackCardsScreen extends RelativeLayout {
+public class StackCardsScreen extends TLBaseView {
 
     private static final float DEFAULT_ALPHA = 0.6f;
 
@@ -61,7 +60,7 @@ public class StackCardsScreen extends RelativeLayout {
      * @param context
      */
     public StackCardsScreen(Context context, Listener listener) {
-        this(context);
+        super(context);
         this.listener = listener;
     }
 
@@ -69,7 +68,7 @@ public class StackCardsScreen extends RelativeLayout {
      * @param context
      */
     public StackCardsScreen(Context context) {
-        this(context, null, 0);
+        super(context);
     }
 
     /**
@@ -77,7 +76,7 @@ public class StackCardsScreen extends RelativeLayout {
      * @param attrs
      */
     public StackCardsScreen(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
+        super(context, attrs);
     }
 
     /**
@@ -87,7 +86,6 @@ public class StackCardsScreen extends RelativeLayout {
      */
     public StackCardsScreen(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init();
     }
 
     /**
@@ -99,12 +97,15 @@ public class StackCardsScreen extends RelativeLayout {
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public StackCardsScreen(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        init();
     }
 
-    private void init() {
-        inflate(getContext(), R.layout.lay_stack_card, this);
-        ButterKnife.bind(this);
+    @Override
+    public int getLayout() {
+        return R.layout.lay_stack_card;
+    }
+
+    @Override
+    public void initUI(AttributeSet attributeSet) {
         initUI();
         initListener();
     }

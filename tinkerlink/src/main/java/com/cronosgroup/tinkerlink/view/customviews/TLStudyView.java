@@ -5,18 +5,17 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.os.Build;
 import android.util.AttributeSet;
-import android.widget.LinearLayout;
 
 import com.cronosgroup.tinkerlink.R;
+import com.cronosgroup.tinkerlink.view.customviews.base.TLBaseView;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
  * Created by jorgesanmartin on 7/26/16.
  */
-public class TLStudyView extends LinearLayout {
+public class TLStudyView extends TLBaseView {
 
     public interface Listener {
         void onRemoveStudy();
@@ -45,26 +44,29 @@ public class TLStudyView extends LinearLayout {
     protected TLImageButton mRemoveStudy;
 
     public TLStudyView(Context context) {
-        this(context, null);
+        super(context);
     }
 
     public TLStudyView(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
+        super(context, attrs);
     }
 
     public TLStudyView(Context context, AttributeSet attrs, int defStyleAttr) {
-        this(context, attrs, defStyleAttr, 0);
+        super(context, attrs, defStyleAttr);
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public TLStudyView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        init(attrs);
     }
 
-    private void init(AttributeSet attributeSet) {
-        inflate(getContext(), R.layout.lay_study_item, this);
-        ButterKnife.bind(this);
+    @Override
+    public int getLayout() {
+        return R.layout.lay_study_item;
+    }
+
+    @Override
+    public void initUI(AttributeSet attributeSet) {
         if (attributeSet != null) {
             TypedArray attributes = null;
             try {

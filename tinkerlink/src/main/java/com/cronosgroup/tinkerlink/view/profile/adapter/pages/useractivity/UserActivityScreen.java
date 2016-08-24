@@ -1,21 +1,18 @@
 package com.cronosgroup.tinkerlink.view.profile.adapter.pages.useractivity;
 
 
-import android.widget.RelativeLayout;
-
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
 import android.util.AttributeSet;
 
 import com.cronosgroup.tinkerlink.R;
-
-import butterknife.ButterKnife;
+import com.cronosgroup.tinkerlink.view.customviews.base.TLBaseView;
 
 /**
  * Main UserActivity view.
  */
-public class UserActivityScreen extends RelativeLayout {
+public class UserActivityScreen extends TLBaseView {
 
     public interface Listener {
 
@@ -31,7 +28,7 @@ public class UserActivityScreen extends RelativeLayout {
      * @param context
      */
     public UserActivityScreen(Context context) {
-        this(context, null);
+        super(context);
     }
 
     /**
@@ -39,7 +36,7 @@ public class UserActivityScreen extends RelativeLayout {
      * @param attrs
      */
     public UserActivityScreen(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
+        super(context, attrs);
     }
 
     /**
@@ -48,7 +45,7 @@ public class UserActivityScreen extends RelativeLayout {
      * @param defStyleAttr
      */
     public UserActivityScreen(Context context, AttributeSet attrs, int defStyleAttr) {
-        this(context, attrs, defStyleAttr, 0);
+        super(context, attrs, defStyleAttr);
     }
 
     /**
@@ -60,13 +57,17 @@ public class UserActivityScreen extends RelativeLayout {
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public UserActivityScreen(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        init();
     }
 
-    private void init() {
-        inflate(getContext(), R.layout.lay_user_newsfeed, this);
-        ButterKnife.bind(this);
+    @Override
+    public int getLayout() {
+        return R.layout.lay_user_newsfeed;
     }
+
+    @Override
+    public void initUI(AttributeSet attributeSet) {
+    }
+
 
     // Public methods
 

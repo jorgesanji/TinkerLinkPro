@@ -6,20 +6,19 @@ import android.os.Build;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentManager;
 import android.util.AttributeSet;
-import android.widget.RelativeLayout;
 
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.view.config.main.adapter.ConfigAdapter;
 import com.cronosgroup.tinkerlink.view.customviews.TLViewPager;
+import com.cronosgroup.tinkerlink.view.customviews.base.TLBaseView;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 
 /**
  * Main Config view.
  */
-public class ConfigScreen extends RelativeLayout {
+public class ConfigScreen extends TLBaseView {
 
     public interface Listener {
 
@@ -42,7 +41,7 @@ public class ConfigScreen extends RelativeLayout {
      * @param context
      */
     public ConfigScreen(Context context) {
-        this(context, null);
+        super(context);
     }
 
     /**
@@ -50,7 +49,7 @@ public class ConfigScreen extends RelativeLayout {
      * @param attrs
      */
     public ConfigScreen(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
+        super(context, attrs);
     }
 
     /**
@@ -59,7 +58,7 @@ public class ConfigScreen extends RelativeLayout {
      * @param defStyleAttr
      */
     public ConfigScreen(Context context, AttributeSet attrs, int defStyleAttr) {
-        this(context, attrs, defStyleAttr, 0);
+        super(context, attrs, defStyleAttr);
     }
 
     /**
@@ -71,12 +70,15 @@ public class ConfigScreen extends RelativeLayout {
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public ConfigScreen(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        init();
     }
 
-    private void init() {
-        inflate(getContext(), R.layout.lay_config_account, this);
-        ButterKnife.bind(this);
+    @Override
+    public int getLayout() {
+        return R.layout.lay_config_account;
+    }
+
+    @Override
+    public void initUI(AttributeSet attributeSet) {
     }
 
     private void initUI() {
@@ -98,7 +100,6 @@ public class ConfigScreen extends RelativeLayout {
             }
         });
     }
-
 
     // Public methods
 

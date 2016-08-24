@@ -12,7 +12,6 @@ import com.cronosgroup.tinkerlink.view.customviews.TLLinearLayout;
 import com.cronosgroup.tinkerlink.view.customviews.TLTextView;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 
@@ -47,28 +46,31 @@ public class ShareDialogScreen extends TLLinearLayout {
     @BindView(R.id.containerShare)
     protected View mContainerShare;
 
-
     public ShareDialogScreen(Context context) {
-        this(context, null);
+        super(context);
     }
 
     public ShareDialogScreen(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
+        super(context, attrs);
     }
 
     public ShareDialogScreen(Context context, AttributeSet attrs, int defStyleAttr) {
-        this(context, attrs, defStyleAttr, 0);
+        super(context, attrs, defStyleAttr);
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public ShareDialogScreen(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        init(attrs);
     }
 
-    private void init(AttributeSet attributeSet) {
-        inflate(getContext(), R.layout.lay_dialog_share, this);
-        ButterKnife.bind(this);
+    @Override
+    public int getLayout() {
+        return R.layout.lay_dialog_share;
+    }
+
+    @Override
+    public void initUI(AttributeSet attributeSet) {
+        super.initUI(attributeSet);
         initUI();
     }
 

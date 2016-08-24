@@ -22,7 +22,6 @@ import com.cronosgroup.tinkerlink.view.dialog.occupation.adapter.OccupationAdapt
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
@@ -60,16 +59,8 @@ public class OccupationDialogScreen extends TLLinearLayout {
     /**
      * @param context
      */
-    public OccupationDialogScreen(Context context, Listener listener) {
-        this(context);
-        this.listener = listener;
-    }
-
-    /**
-     * @param context
-     */
     public OccupationDialogScreen(Context context) {
-        this(context, (AttributeSet) null);
+        super(context);
     }
 
     /**
@@ -77,7 +68,7 @@ public class OccupationDialogScreen extends TLLinearLayout {
      * @param attrs
      */
     public OccupationDialogScreen(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
+        super(context, attrs);
     }
 
     /**
@@ -86,7 +77,7 @@ public class OccupationDialogScreen extends TLLinearLayout {
      * @param defStyleAttr
      */
     public OccupationDialogScreen(Context context, AttributeSet attrs, int defStyleAttr) {
-        this(context, attrs, defStyleAttr, 0);
+        super(context, attrs, defStyleAttr);
     }
 
     /**
@@ -98,12 +89,16 @@ public class OccupationDialogScreen extends TLLinearLayout {
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public OccupationDialogScreen(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        init();
     }
 
-    private void init() {
-        inflate(getContext(), R.layout.lay_dialog_occupation, this);
-        ButterKnife.bind(this);
+    @Override
+    public int getLayout() {
+        return R.layout.lay_dialog_occupation;
+    }
+
+    @Override
+    public void initUI(AttributeSet attributeSet) {
+        super.initUI(attributeSet);
         initRecyclerView();
         mContainerOccupation.setVisibility(INVISIBLE);
     }

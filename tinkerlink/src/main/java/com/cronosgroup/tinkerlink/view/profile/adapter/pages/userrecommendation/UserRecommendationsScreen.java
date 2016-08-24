@@ -7,20 +7,19 @@ import android.os.Build;
 import android.util.AttributeSet;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.utils.DimenUtils;
 import com.cronosgroup.tinkerlink.view.customviews.TLRecommendationView;
+import com.cronosgroup.tinkerlink.view.customviews.base.TLBaseView;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
  * Main  UserRecommendations view.
  */
-public class UserRecommendationsScreen extends RelativeLayout {
+public class UserRecommendationsScreen extends TLBaseView {
 
     public interface Listener {
         void onItemPressed(int position);
@@ -41,7 +40,7 @@ public class UserRecommendationsScreen extends RelativeLayout {
      * @param context
      */
     public UserRecommendationsScreen(Context context) {
-        this(context, null);
+        super(context);
     }
 
     /**
@@ -49,7 +48,7 @@ public class UserRecommendationsScreen extends RelativeLayout {
      * @param attrs
      */
     public UserRecommendationsScreen(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
+        super(context, attrs);
     }
 
     /**
@@ -58,7 +57,7 @@ public class UserRecommendationsScreen extends RelativeLayout {
      * @param defStyleAttr
      */
     public UserRecommendationsScreen(Context context, AttributeSet attrs, int defStyleAttr) {
-        this(context, attrs, defStyleAttr, 0);
+        super(context, attrs, defStyleAttr);
     }
 
     /**
@@ -70,12 +69,15 @@ public class UserRecommendationsScreen extends RelativeLayout {
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public UserRecommendationsScreen(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        init();
     }
 
-    private void init() {
-        inflate(getContext(), R.layout.lay_recommendations_user, this);
-        ButterKnife.bind(this);
+    @Override
+    public int getLayout() {
+        return R.layout.lay_recommendations_user;
+    }
+
+    @Override
+    public void initUI(AttributeSet attributeSet) {
     }
 
     // Actions

@@ -4,18 +4,17 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
 import android.util.AttributeSet;
-import android.widget.RelativeLayout;
 
 import com.cronosgroup.tinkerlink.R;
+import com.cronosgroup.tinkerlink.view.customviews.base.TLBaseView;
 
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 
 /**
  * Main Verification view.
  */
-public class VerifyPhoneScreen extends RelativeLayout {
+public class VerifyPhoneScreen extends TLBaseView {
 
     public interface Listener {
         void onSendPressed();
@@ -33,7 +32,6 @@ public class VerifyPhoneScreen extends RelativeLayout {
      */
     public VerifyPhoneScreen(Context context) {
         super(context);
-        init();
     }
 
     /**
@@ -41,7 +39,7 @@ public class VerifyPhoneScreen extends RelativeLayout {
      * @param attrs
      */
     public VerifyPhoneScreen(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
+        super(context, attrs);
     }
 
     /**
@@ -51,7 +49,6 @@ public class VerifyPhoneScreen extends RelativeLayout {
      */
     public VerifyPhoneScreen(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init();
     }
 
     /**
@@ -63,13 +60,15 @@ public class VerifyPhoneScreen extends RelativeLayout {
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public VerifyPhoneScreen(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        init();
     }
 
+    @Override
+    public int getLayout() {
+        return R.layout.lay_verify_phone;
+    }
 
-    private void init() {
-        inflate(getContext(), R.layout.lay_verify_phone, this);
-        ButterKnife.bind(this);
+    @Override
+    public void initUI(AttributeSet attributeSet) {
     }
 
     // Actions
@@ -82,7 +81,6 @@ public class VerifyPhoneScreen extends RelativeLayout {
     protected void selectorCountryPressed() {
         listener.onSelectorCountryPressed();
     }
-
 
     // Public methods
 

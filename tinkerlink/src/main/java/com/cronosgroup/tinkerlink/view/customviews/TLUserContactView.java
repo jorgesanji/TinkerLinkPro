@@ -9,15 +9,15 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 import com.cronosgroup.tinkerlink.R;
+import com.cronosgroup.tinkerlink.view.customviews.base.TLBaseView;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
  * Created by jorgesanmartin on 7/27/16.
  */
-public class TLUserContactView extends LinearLayout {
+public class TLUserContactView extends TLBaseView {
 
     public enum ContactsType {
         EMAIL(0, R.string.contacts_undo, R.mipmap.nav_mensajes, R.mipmap.nav_mensajes),
@@ -101,29 +101,36 @@ public class TLUserContactView extends LinearLayout {
     @BindView(R.id.optionsButton)
     protected TLImageButton mOptionsButton;
 
-
     public TLUserContactView(Context context) {
-        this(context, null);
+        super(context);
     }
 
     public TLUserContactView(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
+        super(context, attrs);
     }
 
     public TLUserContactView(Context context, AttributeSet attrs, int defStyleAttr) {
-        this(context, attrs, defStyleAttr, 0);
+        super(context, attrs, defStyleAttr);
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public TLUserContactView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        init(attrs);
     }
 
-    private void init(AttributeSet attributeSet) {
+    @Override
+    protected void init(AttributeSet attrs) {
         setBackgroundResource(R.drawable.button_default_states);
-        inflate(getContext(), R.layout.lay_user_contacts_view, this);
-        ButterKnife.bind(this);
+        super.init(attrs);
+    }
+
+    @Override
+    public int getLayout() {
+        return R.layout.lay_user_contacts_view;
+    }
+
+    @Override
+    public void initUI(AttributeSet attributeSet) {
         if (attributeSet != null) {
             TypedArray attributes = null;
             try {

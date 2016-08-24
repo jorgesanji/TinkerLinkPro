@@ -5,19 +5,18 @@ import android.content.Context;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.widget.CheckBox;
-import android.widget.LinearLayout;
 
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.view.customviews.TLTextView;
+import com.cronosgroup.tinkerlink.view.customviews.base.TLBaseView;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
  * Created by jorgesanmartin on 10/26/15.
  */
-public class ReportContactDialogScreen extends LinearLayout {
+public class ReportContactDialogScreen extends TLBaseView {
 
     /**
      * listeners BlockContactsDialog's screen.
@@ -60,7 +59,7 @@ public class ReportContactDialogScreen extends LinearLayout {
      * @param context
      */
     public ReportContactDialogScreen(Context context, Listener listener) {
-        this(context);
+        super(context);
         this.listener = listener;
     }
 
@@ -68,7 +67,7 @@ public class ReportContactDialogScreen extends LinearLayout {
      * @param context
      */
     public ReportContactDialogScreen(Context context) {
-        this(context, (AttributeSet) null);
+        super(context);
     }
 
     /**
@@ -76,7 +75,7 @@ public class ReportContactDialogScreen extends LinearLayout {
      * @param attrs
      */
     public ReportContactDialogScreen(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
+        super(context, attrs);
     }
 
     /**
@@ -85,7 +84,7 @@ public class ReportContactDialogScreen extends LinearLayout {
      * @param defStyleAttr
      */
     public ReportContactDialogScreen(Context context, AttributeSet attrs, int defStyleAttr) {
-        this(context, attrs, defStyleAttr, 0);
+        super(context, attrs, defStyleAttr);
     }
 
     /**
@@ -97,12 +96,15 @@ public class ReportContactDialogScreen extends LinearLayout {
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public ReportContactDialogScreen(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        init();
     }
 
-    private void init() {
-        inflate(getContext(), R.layout.lay_dialog_report, this);
-        ButterKnife.bind(this);
+    @Override
+    public int getLayout() {
+        return R.layout.lay_dialog_report;
+    }
+
+    @Override
+    public void initUI(AttributeSet attributeSet) {
         initUI();
     }
 

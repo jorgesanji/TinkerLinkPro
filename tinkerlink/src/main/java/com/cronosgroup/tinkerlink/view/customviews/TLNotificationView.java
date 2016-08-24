@@ -5,17 +5,16 @@ import android.content.Context;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.view.View;
-import android.widget.LinearLayout;
 
 import com.cronosgroup.tinkerlink.R;
+import com.cronosgroup.tinkerlink.view.customviews.base.TLBaseView;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * Created by jorgesanmartin on 7/15/16.
  */
-public class TLNotificationView extends LinearLayout {
+public class TLNotificationView extends TLBaseView {
 
     // Vars
 
@@ -62,26 +61,29 @@ public class TLNotificationView extends LinearLayout {
     protected TLTextView mNotificationTime;
 
     public TLNotificationView(Context context) {
-        this(context, null);
+        super(context);
     }
 
     public TLNotificationView(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
+        super(context, attrs);
     }
 
     public TLNotificationView(Context context, AttributeSet attrs, int defStyleAttr) {
-        this(context, attrs, defStyleAttr, 0);
+        super(context, attrs, defStyleAttr);
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public TLNotificationView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        init(attrs);
     }
 
-    private void init(AttributeSet attributeSet) {
-        inflate(getContext(), R.layout.lay_item_notification, this);
-        ButterKnife.bind(this);
+    @Override
+    public int getLayout() {
+        return  R.layout.lay_item_notification;
+    }
+
+    @Override
+    public void initUI(AttributeSet attributeSet) {
     }
 
     //Public methods

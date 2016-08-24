@@ -11,7 +11,6 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
 import android.view.View;
-import android.widget.RelativeLayout;
 
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.model.dataacess.database.entities.TLMessage;
@@ -20,18 +19,18 @@ import com.cronosgroup.tinkerlink.view.chatuser.adapter.ChatUserAdapter;
 import com.cronosgroup.tinkerlink.view.customviews.TLButton;
 import com.cronosgroup.tinkerlink.view.customviews.TLEditText;
 import com.cronosgroup.tinkerlink.view.customviews.TLRecyclerView;
+import com.cronosgroup.tinkerlink.view.customviews.base.TLBaseView;
 
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 
 /**
- * Main Network view.
+ * Main ChatUser view.
  */
-public class ChatUserScreen extends RelativeLayout {
+public class ChatUserScreen extends TLBaseView {
 
     /**
      * listeners of the chat user's screen.
@@ -71,7 +70,7 @@ public class ChatUserScreen extends RelativeLayout {
      * @param context
      */
     public ChatUserScreen(Context context) {
-        this(context, null);
+        super(context);
     }
 
     /**
@@ -79,7 +78,7 @@ public class ChatUserScreen extends RelativeLayout {
      * @param attrs
      */
     public ChatUserScreen(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
+        super(context, attrs);
     }
 
     /**
@@ -88,7 +87,7 @@ public class ChatUserScreen extends RelativeLayout {
      * @param defStyleAttr
      */
     public ChatUserScreen(Context context, AttributeSet attrs, int defStyleAttr) {
-        this(context, attrs, defStyleAttr, 0);
+        super(context, attrs, defStyleAttr);
     }
 
     /**
@@ -100,12 +99,15 @@ public class ChatUserScreen extends RelativeLayout {
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public ChatUserScreen(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        init();
     }
 
-    private void init() {
-        inflate(getContext(), R.layout.lay_chat_user, this);
-        ButterKnife.bind(this);
+    @Override
+    public int getLayout() {
+        return R.layout.lay_chat_user;
+    }
+
+    @Override
+    public void initUI(AttributeSet attributeSet) {
         initUI();
         initRecyclerView();
         initAdapter();

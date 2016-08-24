@@ -5,45 +5,52 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.os.Build;
 import android.util.AttributeSet;
-import android.widget.LinearLayout;
 
 import com.cronosgroup.tinkerlink.R;
+import com.cronosgroup.tinkerlink.view.customviews.base.TLBaseView;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * Created by jorgesanmartin on 8/10/16.
  */
-public class TLSelectorForm extends LinearLayout {
+public class TLSelectorForm extends TLBaseView {
+
     // Views
 
     @BindView(R.id.text)
     protected TLTextView mText;
 
     public TLSelectorForm(Context context) {
-        this(context, null);
+        super(context);
     }
 
     public TLSelectorForm(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
+        super(context, attrs);
     }
 
     public TLSelectorForm(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init(attrs);
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public TLSelectorForm(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        init(attrs);
     }
 
-    private void init(AttributeSet attributeSet) {
+    @Override
+    public void init(AttributeSet attributeSet) {
         setBackgroundResource(R.drawable.button_default_states);
-        inflate(getContext(), R.layout.lay_selector_form, this);
-        ButterKnife.bind(this);
+        super.init(attributeSet);
+    }
+
+    @Override
+    public int getLayout() {
+        return R.layout.lay_selector_form;
+    }
+
+    @Override
+    public void initUI(AttributeSet attributeSet) {
         if (attributeSet != null) {
             TypedArray attributes = null;
             try {

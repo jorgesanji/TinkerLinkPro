@@ -4,16 +4,14 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
 import android.util.AttributeSet;
-import android.widget.LinearLayout;
 
 import com.cronosgroup.tinkerlink.R;
-
-import butterknife.ButterKnife;
+import com.cronosgroup.tinkerlink.view.customviews.base.TLBaseView;
 
 /**
  * SearchContacts view.
  */
-public class SearchContactsScreen extends LinearLayout {
+public class SearchContactsScreen extends TLBaseView {
 
     /**
      * listeners of the SearchContact's screen.
@@ -32,7 +30,7 @@ public class SearchContactsScreen extends LinearLayout {
      * @param context
      */
     public SearchContactsScreen(Context context, Listener listener) {
-        this(context);
+        super(context);
         this.listener = listener;
     }
 
@@ -40,7 +38,7 @@ public class SearchContactsScreen extends LinearLayout {
      * @param context
      */
     public SearchContactsScreen(Context context) {
-        this(context, null, 0);
+        super(context);
     }
 
     /**
@@ -48,7 +46,7 @@ public class SearchContactsScreen extends LinearLayout {
      * @param attrs
      */
     public SearchContactsScreen(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
+        super(context, attrs);
     }
 
     /**
@@ -58,7 +56,6 @@ public class SearchContactsScreen extends LinearLayout {
      */
     public SearchContactsScreen(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init();
     }
 
     /**
@@ -70,12 +67,15 @@ public class SearchContactsScreen extends LinearLayout {
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public SearchContactsScreen(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        init();
     }
 
-    private void init() {
-        inflate(getContext(), R.layout.lay_search_contacts, this);
-        ButterKnife.bind(this);
+    @Override
+    public int getLayout() {
+        return  R.layout.lay_search_contacts;
+    }
+
+    @Override
+    public void initUI(AttributeSet attributeSet) {
     }
 
     // **************  UI Actions **************
