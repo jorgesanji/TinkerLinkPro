@@ -3,12 +3,14 @@ package com.cronosgroup.tinkerlink.view.sign.phoneregistration;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.AttributeSet;
 
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.view.base.TLBaseView;
 import com.cronosgroup.tinkerlink.view.customviews.TLButton;
-import com.cronosgroup.tinkerlink.view.customviews.TLEditText;
+import com.cronosgroup.tinkerlink.view.customviews.TLEditextForm;
 import com.cronosgroup.tinkerlink.view.customviews.TLPhonefield;
 import com.cronosgroup.tinkerlink.view.customviews.TLTextView;
 
@@ -42,7 +44,7 @@ public class PhoneRegistrationScreen extends TLBaseView {
     protected TLButton mSendcodebt;
 
     @BindView(R.id.codetd)
-    protected TLEditText mCodetd;
+    protected TLEditextForm mCodetd;
 
     @BindView(R.id.phoneUser)
     protected TLTextView mPhoneUser;
@@ -96,6 +98,23 @@ public class PhoneRegistrationScreen extends TLBaseView {
     @Override
     public void initUI(AttributeSet attributeSet) {
         enableInputCode(mCodeSended);
+        mPhoneInput.hideErrorMessage();
+        mPhoneInput.getEditText().addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                mPhoneInput.hideErrorMessage();
+            }
+        });
     }
 
     // **************  UI Actions **************
@@ -104,17 +123,21 @@ public class PhoneRegistrationScreen extends TLBaseView {
     protected void sendCodePressded() {
         if (mCodeSended) {
             enableInputCode(false);
+            mPhoneInput.hideErrorMessage();
         } else if (mPhoneInput.isValid()) {
+            mPhoneInput.hideErrorMessage();
             enableInputCode(true);
             listener.onSendCodePressed();
             String text = mPhoneInput.getPhoneNumber();
             mPhoneUser.setText(text);
+        } else {
+            mPhoneInput.shoErrorMessage();
         }
     }
 
     @OnClick(R.id.verifybt)
     protected void verifyPressed() {
-        if (mCodetd.getText().toString().length() >= 4) {
+        if (mCodetd.getText().length() >= 4) {
             listener.onVerifyPressed();
         }
     }
@@ -130,9 +153,9 @@ public class PhoneRegistrationScreen extends TLBaseView {
         mCodetd.setEnabled(enable);
         mCodetd.setText(null);
         if (enable) {
-            mCodetd.requestFocus();
+            mCodetd.editRequestFocus();
         } else {
-            mCodetd.clearFocus();
+            mCodetd.editClearFocus();
         }
         mVerifybt.setTextColor(getResources().getColor(!enable ? R.color.text_black_gray : R.color.white));
         mVerifybt.setEnabled(enable);

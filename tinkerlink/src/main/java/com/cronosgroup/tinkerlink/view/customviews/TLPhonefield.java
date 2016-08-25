@@ -14,6 +14,7 @@ import com.lamudi.phonefield.PhoneField;
  */
 public class TLPhonefield extends PhoneField {
 
+    private String mErrorMessage;
     protected TextInputLayout mImput;
 
     public TLPhonefield(Context context) {
@@ -32,27 +33,39 @@ public class TLPhonefield extends PhoneField {
     }
 
     private void init() {
-
-        mImput = (TextInputLayout) findViewById(R.id.phoneInput);
-
+        this.mImput = (TextInputLayout) findViewById(R.id.messageError);
         findViewById(R.id.showCountries).setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 getSpinner().performClick();
             }
         });
+        mImput.setErrorEnabled(true);
     }
 
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
-        setDefaultCountry(LocaleUtils.getIsoCode());
+        setError(getContext().getString(R.string.error_form_phone));
         setHint(R.string.sign_select_phone_hint);
-        mImput.setError(getContext().getString(R.string.error_form_phone));
+        setDefaultCountry(LocaleUtils.getIsoCode());
     }
 
     @Override
     public int getLayoutResId() {
         return R.layout.lay_phone_field;
+    }
+
+    public void shoErrorMessage() {
+        mImput.setError(mErrorMessage);
+    }
+
+    public void hideErrorMessage() {
+        mImput.setError(null);
+    }
+
+    public void setError(String error) {
+        this.mErrorMessage = error;
+        mImput.setError(error);
     }
 }

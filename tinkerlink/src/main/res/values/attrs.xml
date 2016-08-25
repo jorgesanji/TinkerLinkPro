@@ -240,4 +240,14 @@
         </attr>
     </declare-styleable>
 
+    <declare-styleable name="TLEditextForm">
+        <attr name="form_error_message" format="string" />
+        <attr name="form_hint" format="string" />
+        <attr name="form_imputType" format="enum">
+            <enum name="text" value="0" />
+            <enum name="password" value="1" />
+            <enum name="email" value="1" />
+        </attr>
+    </declare-styleable>
+
 </resources>

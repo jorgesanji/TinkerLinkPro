@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/background_white_and_texts_color"
     android:clipChildren="false"
     android:clipToPadding="false"
@@ -74,11 +75,12 @@
                 android:layout_marginTop="@dimen/margin_plus_big"
                 android:text="@string/sign_phone_register_phone_code_message" />
 
-            <com.cronosgroup.tinkerlink.view.customviews.TLEditText
+            <com.cronosgroup.tinkerlink.view.customviews.TLEditextForm
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
                 android:id="@+id/codetd"
-                style="@style/EditFormStyle"
                 android:layout_marginTop="@dimen/margin_tiny"
-                android:hint="@string/sign_phone_register_phone_code_hint" />
+                app:form_hint="@string/sign_phone_register_phone_code_hint" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
