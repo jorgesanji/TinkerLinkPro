@@ -10,7 +10,7 @@ import android.util.AttributeSet;
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.view.base.TLBaseView;
 import com.cronosgroup.tinkerlink.view.customviews.TLButton;
-import com.cronosgroup.tinkerlink.view.customviews.TLEditextForm;
+import com.cronosgroup.tinkerlink.view.customviews.TLEditTextForm;
 import com.cronosgroup.tinkerlink.view.customviews.TLPhonefield;
 import com.cronosgroup.tinkerlink.view.customviews.TLTextView;
 
@@ -44,7 +44,7 @@ public class PhoneRegistrationScreen extends TLBaseView {
     protected TLButton mSendcodebt;
 
     @BindView(R.id.codetd)
-    protected TLEditextForm mCodetd;
+    protected TLEditTextForm mCodetd;
 
     @BindView(R.id.phoneUser)
     protected TLTextView mPhoneUser;
@@ -139,6 +139,9 @@ public class PhoneRegistrationScreen extends TLBaseView {
     protected void verifyPressed() {
         if (mCodetd.getText().length() >= 4) {
             listener.onVerifyPressed();
+            mCodetd.hideErrorMessage();
+        } else {
+            mCodetd.showErrorMessage();
         }
     }
 
@@ -174,7 +177,7 @@ public class PhoneRegistrationScreen extends TLBaseView {
     }
 
     public String getCode() {
-        return mCodetd.getText().toString();
+        return mCodetd.getText();
     }
 
     public void setCode(String code) {

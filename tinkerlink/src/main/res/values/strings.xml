@@ -4,6 +4,7 @@
 
     <!-- Error Forms-->
     <string name="error_form_phone">Introduzca un numero telefonico valido</string>
+    <string name="error_form_code">Código no valido</string>
 
 
     <!-- Status messages-->
@@ -209,6 +210,7 @@
     <string name="sign_phone_register_phone_code_hint">Ej: 9845</string>
     <string name="sign_phone_register_phone_code_reintent">REINTENTAR(%s)</string>
     <string name="sign_phone_register_phone_verify">VERIFICAR</string>
+
 
     <!--  Home  -->
     <string name="home_newsfeed">TinkerFeed</string>
