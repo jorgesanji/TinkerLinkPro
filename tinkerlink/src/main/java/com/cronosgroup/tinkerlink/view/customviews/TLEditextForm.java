@@ -3,9 +3,11 @@ package com.cronosgroup.tinkerlink.view.customviews;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.support.design.widget.TextInputLayout;
-import android.text.InputType;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.inputmethod.InputMethodManager;
 
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.view.base.TLBaseView;
@@ -17,17 +19,17 @@ import butterknife.BindView;
  */
 public class TLEditextForm extends TLBaseView {
 
-    public enum ImputType {
-        TEXT(0, InputType.TYPE_TEXT_VARIATION_NORMAL),
-        PASSWORD(1, InputType.TYPE_TEXT_VARIATION_PASSWORD),
-        EMAIL(2, InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
+    public enum InputType {
+        TEXT(0, android.text.InputType.TYPE_CLASS_TEXT | android.text.InputType.TYPE_TEXT_VARIATION_NORMAL),
+        PASSWORD(1, android.text.InputType.TYPE_CLASS_TEXT | android.text.InputType.TYPE_TEXT_VARIATION_PASSWORD),
+        EMAIL(2, android.text.InputType.TYPE_CLASS_TEXT | android.text.InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
 
         private final int imputType;
         private final int id;
 
-        ImputType(int imputType, int id) {
-            this.imputType = imputType;
+        InputType(int id, int imputType) {
             this.id = id;
+            this.imputType = imputType;
         }
 
         public int getId() {
@@ -38,7 +40,7 @@ public class TLEditextForm extends TLBaseView {
             return imputType;
         }
 
-        public static ImputType TypefromId(int id) {
+        public static InputType TypefromId(int id) {
             if (id == EMAIL.getId()) {
                 return EMAIL;
             } else if (id == PASSWORD.getId()) {
@@ -88,7 +90,7 @@ public class TLEditextForm extends TLBaseView {
                 attributes = getContext().obtainStyledAttributes(attributeSet, R.styleable.TLEditextForm);
                 setHint(attributes.getString(R.styleable.TLEditextForm_form_hint));
                 setError(attributes.getString(R.styleable.TLEditextForm_form_error_message));
-                setImputType(ImputType.TypefromId(attributes.getInt(R.styleable.TLEditextForm_form_imputType, ImputType.TEXT.getId())));
+                setImputType(InputType.TypefromId(attributes.getInt(R.styleable.TLEditextForm_form_imputType, InputType.TEXT.getId())));
 
             } catch (Exception ex) {
                 Log.e(TLEditextForm.class.getName(), ex.getMessage(), ex);
@@ -100,16 +102,35 @@ public class TLEditextForm extends TLBaseView {
         }
         mImputMessage.setErrorEnabled(true);
         hideErrorMessage();
+        mEditText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                hideErrorMessage();
+            }
+        });
     }
 
     // Public
 
     public void editRequestFocus() {
         mEditText.requestFocus();
+        ((InputMethodManager) getContext().getSystemService(Context.INPUT_METHOD_SERVICE))
+                .showSoftInput(mEditText, InputMethodManager.SHOW_FORCED);
     }
 
     public void editClearFocus() {
         mEditText.clearFocus();
+        ((InputMethodManager) getContext().getSystemService(Context.INPUT_METHOD_SERVICE))
+                .hideSoftInputFromWindow(mEditText.getWindowToken(), 0);
     }
 
     @Override
@@ -135,15 +156,18 @@ public class TLEditextForm extends TLBaseView {
         mEditText.setHint(hint);
     }
 
-    public void setImputType(ImputType imputType) {
+    public void setImputType(InputType imputType) {
         mEditText.setInputType(imputType.getImputType());
     }
 
     public String getText() {
-        return mEditText.getText().toString();
+        return mEditText.getText().toString().trim();
     }
 
     public void setText(String text) {
         mEditText.setText(text);
+        if (text != null) {
+            mEditText.setSelection(text.length());
+        }
     }
 }

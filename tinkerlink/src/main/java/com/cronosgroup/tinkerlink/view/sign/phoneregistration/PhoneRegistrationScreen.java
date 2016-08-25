@@ -139,6 +139,9 @@ public class PhoneRegistrationScreen extends TLBaseView {
     protected void verifyPressed() {
         if (mCodetd.getText().length() >= 4) {
             listener.onVerifyPressed();
+            mCodetd.hideErrorMessage();
+        } else {
+            mCodetd.showErrorMessage();
         }
     }
 
@@ -174,7 +177,7 @@ public class PhoneRegistrationScreen extends TLBaseView {
     }
 
     public String getCode() {
-        return mCodetd.getText().toString();
+        return mCodetd.getText();
     }
 
     public void setCode(String code) {
