@@ -6,6 +6,7 @@ import android.os.Build;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
+import android.view.View;
 
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.view.base.TLBaseView;
@@ -30,11 +31,16 @@ public class PhoneRegistrationScreen extends TLBaseView {
         void onSendCodePressed();
 
         void onVerifyPressed();
+
+        void onCreateAccountPressed();
     }
 
     // Vars
+
+    public static int VALIDATION_LENGTH = 4;
     private Listener listener;
     private boolean mCodeSended;
+
 
     // Views
     @BindView(R.id.phoneInput)
@@ -54,6 +60,18 @@ public class PhoneRegistrationScreen extends TLBaseView {
 
     @BindView(R.id.verifybt)
     protected TLButton mVerifybt;
+
+    @BindView(R.id.verificationContainer)
+    protected View mVerificationContainer;
+
+    @BindView(R.id.passwordContainer)
+    protected View mPasswordContainer;
+
+    @BindView(R.id.passworef)
+    protected TLEditTextForm mPassworef;
+
+    @BindView(R.id.passwordRepeatef)
+    protected TLEditTextForm mPasswordRepeatef;
 
     /**
      * @param context
@@ -137,11 +155,21 @@ public class PhoneRegistrationScreen extends TLBaseView {
 
     @OnClick(R.id.verifybt)
     protected void verifyPressed() {
-        if (mCodetd.getText().length() >= 4) {
+        if (mCodetd.getText().length() >= VALIDATION_LENGTH) {
             listener.onVerifyPressed();
             mCodetd.hideErrorMessage();
         } else {
             mCodetd.showErrorMessage();
+        }
+    }
+
+    @OnClick(R.id.createaccountbt)
+    protected void createAccountPressed() {
+        if (mPassworef.getText().equalsIgnoreCase(mPasswordRepeatef.getText())) {
+            mPasswordRepeatef.hideErrorMessage();
+            listener.onCreateAccountPressed();
+        } else {
+            mPasswordRepeatef.showErrorMessage();
         }
     }
 
@@ -182,5 +210,18 @@ public class PhoneRegistrationScreen extends TLBaseView {
 
     public void setCode(String code) {
         mCodetd.setText(code);
+    }
+
+    public void setValidCode(boolean validCode) {
+        if (validCode) {
+            mVerificationContainer.setVisibility(GONE);
+            mPasswordContainer.setVisibility(VISIBLE);
+        } else {
+            mCodetd.showErrorMessage();
+        }
+    }
+
+    public String getPassword() {
+        return mPassworef.getText();
     }
 }

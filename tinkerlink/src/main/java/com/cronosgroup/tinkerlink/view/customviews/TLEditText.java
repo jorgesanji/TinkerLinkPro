@@ -4,6 +4,7 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.os.Build;
+import android.text.InputFilter;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.widget.EditText;
@@ -85,5 +86,32 @@ public class TLEditText extends EditText {
     public void setFontName(int fontName) {
         this.fontName = fontName;
         this.setTypeface(TypeFaceUtils.getFontWithFlag(getContext(), fontName));
+    }
+
+    public void setMaxLength(int length) {
+        InputFilter curFilters[];
+        InputFilter.LengthFilter lengthFilter;
+        int idx;
+
+        lengthFilter = new InputFilter.LengthFilter(length);
+
+        curFilters = this.getFilters();
+        if (curFilters != null) {
+            for (idx = 0; idx < curFilters.length; idx++) {
+                if (curFilters[idx] instanceof InputFilter.LengthFilter) {
+                    curFilters[idx] = lengthFilter;
+                    return;
+                }
+            }
+
+            // since the length filter was not part of the list, but
+            // there are filters, then add the length filter
+            InputFilter newFilters[] = new InputFilter[curFilters.length + 1];
+            System.arraycopy(curFilters, 0, newFilters, 0, curFilters.length);
+            newFilters[curFilters.length] = lengthFilter;
+            this.setFilters(newFilters);
+        } else {
+            this.setFilters(new InputFilter[] { lengthFilter });
+        }
     }
 }

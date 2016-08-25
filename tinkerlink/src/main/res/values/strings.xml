@@ -5,7 +5,8 @@
     <!-- Error Forms-->
     <string name="error_form_phone">Introduzca un numero telefonico valido</string>
     <string name="error_form_code">Código no valido</string>
-
+    <string name="error_form_password">Password no valido</string>
+    <string name="error_form_password_again">Password no coinciden</string>
 
     <!-- Status messages-->
 
@@ -154,25 +155,25 @@
     <string name="login_start_facebook_session">Iniciar sesion con facebook</string>
 
     <!--  Sign  -->
-    <string name="sign_title">Crea tu cuenta</string>
-    <string name="sign_message">Te enviaremos un SMS gratuito con\n tu código¡ de confirmación</string>
+    <string name="sign_title">¿Bienvenido, ya eres un Tinker!</string>
+    <string name="sign_message">Ya estamos comenzando, cuéntanos un poco de ti...</string>
     <string name="sign_select_country">Selecciona la cobertura</string>
     <string name="sign_select_country_hint">Ej. España(+34)</string>
     <string name="sign_select_phone">Escribe tu número de móvil</string>
     <string name="sign_select_phone_hint">Ej. 734 56 47 32</string>
     <string name="sign_select_password">CONTRASEÑA</string>
     <string name="sign_select_password_hint">Define una contraseña para tu cuenta</string>
-    <string name="sign_select_name">NOMBRE</string>
-    <string name="sign_select_name_hint">Escribe tu nombre</string>
-    <string name="sign_select_cogname">APELLIDO</string>
-    <string name="sign_select_cogname_hint">Escribe tu apellido</string>
-    <string name="sign_select_dateBird">FECHA DE NACIMIENTO</string>
+    <string name="sign_select_name">Nombre</string>
+    <string name="sign_select_name_hint">Escribe tu nombre...</string>
+    <string name="sign_select_cogname">Apellido</string>
+    <string name="sign_select_cogname_hint">Escribe tu apellido...</string>
+    <string name="sign_select_dateBird">Fecha de nacimiento</string>
     <string name="sign_select_dateBird_day">Día</string>
     <string name="sign_select_dateBird_month">Mes</string>
     <string name="sign_select_dateBird_year">Año</string>
-    <string name="sign_select_gender">SEXO</string>
-    <string name="sign_select_gender_women">Mujer</string>
-    <string name="sign_select_gender_men">Hombre</string>
+    <string name="sign_select_gender">Género</string>
+    <string name="sign_select_gender_women">Femenino</string>
+    <string name="sign_select_gender_men">Masculino</string>
     <string name="sign_register_title">!Registrate gratis!</string>
     <string name="sign_register_sms">Registrarse con SMS</string>
     <string name="sign_register_gmail">Registrarse con Gmail</string>
@@ -210,6 +211,16 @@
     <string name="sign_phone_register_phone_code_hint">Ej: 9845</string>
     <string name="sign_phone_register_phone_code_reintent">REINTENTAR(%s)</string>
     <string name="sign_phone_register_phone_verify">VERIFICAR</string>
+
+    <string name="sign_phone_register_phone_code_verify">Código de verificación</string>
+    <string name="sign_phone_register_phone_code_verified">Verificado</string>
+    <string name="sign_phone_register_password_title">Define una contraseña</string>
+    <string name="sign_phone_register_password_hint">Password</string>
+    <string name="sign_phone_register_password_repeat">Repite la contraseña</string>
+    <string name="sign_phone_register_password_create_account">CREAR CUENTA</string>
+    <string name="sign_phone_register_day_hint">DD</string>
+    <string name="sign_phone_register_month_hint">MM</string>
+    <string name="sign_phone_register_year_hint">AAAA</string>
 
 
     <!--  Home  -->

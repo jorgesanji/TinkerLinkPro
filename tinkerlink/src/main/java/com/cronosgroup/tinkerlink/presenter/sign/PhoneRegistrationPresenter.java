@@ -28,7 +28,11 @@ public class PhoneRegistrationPresenter extends TinkerLinkDialogPresenter<PhoneR
 
         String getPhoneNumber();
 
+        String getPassword();
+
         void setCode(String code);
+
+        void setValidCode(boolean validCode);
     }
 
     //region **************  BasePresenter **************
@@ -51,7 +55,7 @@ public class PhoneRegistrationPresenter extends TinkerLinkDialogPresenter<PhoneR
             public void run() {
                 if (getView().getActivity() != null) {
                     getView().hideLoading();
-                    navigation.onLaunchCreateAccountRegistration(getView().getActivity(), null);
+                    getView().setValidCode(true);
                 }
             }
         }, 3000);
@@ -59,7 +63,7 @@ public class PhoneRegistrationPresenter extends TinkerLinkDialogPresenter<PhoneR
     }
 
     public void sendPhoneNumber() {
-        String code = getView().getPhoneNumber();
+        String phoneNumber = getView().getPhoneNumber();
         getView().showLoading();
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -70,7 +74,20 @@ public class PhoneRegistrationPresenter extends TinkerLinkDialogPresenter<PhoneR
                 }
             }
         }, 3000);
+    }
 
+    public void createAccount() {
+        String password = getView().getPassword();
+        getView().showLoading();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (getView().getActivity() != null) {
+                    getView().hideLoading();
+                    navigation.onLaunchUserFormRegistration(getView().getActivity(), null);
+                }
+            }
+        }, 3000);
     }
 
     public void initSmsBroadCastReceiver() {

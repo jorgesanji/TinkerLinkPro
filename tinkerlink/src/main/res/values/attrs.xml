@@ -241,12 +241,15 @@
     </declare-styleable>
 
     <declare-styleable name="TLEditTextForm">
+        <attr name="form_max_length" format="integer" />
         <attr name="form_error_message" format="string" />
         <attr name="form_hint" format="string" />
         <attr name="form_imputType" format="enum">
             <enum name="text" value="0" />
             <enum name="password" value="1" />
-            <enum name="email" value="1" />
+            <enum name="email" value="2" />
+            <enum name="date" value="3" />
+
         </attr>
     </declare-styleable>
 

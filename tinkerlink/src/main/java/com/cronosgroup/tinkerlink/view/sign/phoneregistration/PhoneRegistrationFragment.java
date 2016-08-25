@@ -60,6 +60,17 @@ public class PhoneRegistrationFragment extends MVPTinkerLinkFragment<PhoneRegist
     public void onVerifyPressed() {
         getPresenter().checkCode();
     }
+
+    @Override
+    public void setValidCode(boolean validCode) {
+        signScreen.setValidCode(validCode);
+    }
+
+    @Override
+    public String getPassword() {
+        return signScreen.getPassword();
+    }
+
     //endregion
 
     //region **************  PhoneRegistrationScreen.Listener **************
@@ -74,9 +85,10 @@ public class PhoneRegistrationFragment extends MVPTinkerLinkFragment<PhoneRegist
         signScreen.setCode(code);
     }
 
-    //endregion
-
-    //region **************  EventBus **************
+    @Override
+    public void onCreateAccountPressed() {
+        getPresenter().createAccount();
+    }
 
     //endregion
 }

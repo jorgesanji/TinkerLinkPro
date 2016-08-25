@@ -20,7 +20,7 @@ public class SignAdapter extends FragmentStatePagerAdapter {
     public static final int USERFORM = 2;
     public static final int VALITATION = 3;
 
-    Class[] fragments = {TLinkerSelectorFragment.class, TLinkerSelectorFragment.class, FormUserFragment.class, SignProfileFragment.class};
+    Class[] fragments = {FormUserFragment.class, TLinkerSelectorFragment.class, TLinkerSelectorFragment.class, SignProfileFragment.class};
 
     // Vars
     private final Context mContext;

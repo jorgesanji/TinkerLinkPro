@@ -2,6 +2,12 @@
     <string name="app_name">Tinkerlink</string>
     <string name="app_name_truncate_to_paint">link</string>
 
+    <!-- Error Forms-->
+    <string name="error_form_phone">Introduzca un numero telefonico valido</string>
+    <string name="error_form_code">Código no valido</string>
+    <string name="error_form_password">Password no valido</string>
+    <string name="error_form_password_again">Password no coinciden</string>
+
     <!-- Status messages-->
 
     <string name="error_internet_connection">No hemos podido enviar tu petición. Revisa tu conexión a internet</string>
@@ -149,25 +155,25 @@
     <string name="login_start_facebook_session">Iniciar sesion con facebook</string>
 
     <!--  Sign  -->
-    <string name="sign_title">Crea tu cuenta</string>
-    <string name="sign_message">Te enviaremos un SMS gratuito con\n tu código¡ de confirmación</string>
+    <string name="sign_title">¿Bienvenido, ya eres un Tinker!</string>
+    <string name="sign_message">Ya estamos comenzando, cuéntanos un poco de ti...</string>
     <string name="sign_select_country">Selecciona la cobertura</string>
     <string name="sign_select_country_hint">Ej. España(+34)</string>
     <string name="sign_select_phone">Escribe tu número de móvil</string>
     <string name="sign_select_phone_hint">Ej. 734 56 47 32</string>
     <string name="sign_select_password">CONTRASEÑA</string>
     <string name="sign_select_password_hint">Define una contraseña para tu cuenta</string>
-    <string name="sign_select_name">NOMBRE</string>
-    <string name="sign_select_name_hint">Escribe tu nombre</string>
-    <string name="sign_select_cogname">APELLIDO</string>
-    <string name="sign_select_cogname_hint">Escribe tu apellido</string>
-    <string name="sign_select_dateBird">FECHA DE NACIMIENTO</string>
+    <string name="sign_select_name">Nombre</string>
+    <string name="sign_select_name_hint">Escribe tu nombre...</string>
+    <string name="sign_select_cogname">Apellido</string>
+    <string name="sign_select_cogname_hint">Escribe tu apellido...</string>
+    <string name="sign_select_dateBird">Fecha de nacimiento</string>
     <string name="sign_select_dateBird_day">Día</string>
     <string name="sign_select_dateBird_month">Mes</string>
     <string name="sign_select_dateBird_year">Año</string>
-    <string name="sign_select_gender">SEXO</string>
-    <string name="sign_select_gender_women">Mujer</string>
-    <string name="sign_select_gender_men">Hombre</string>
+    <string name="sign_select_gender">Género</string>
+    <string name="sign_select_gender_women">Femenino</string>
+    <string name="sign_select_gender_men">Masculino</string>
     <string name="sign_register_title">!Registrate gratis!</string>
     <string name="sign_register_sms">Registrarse con SMS</string>
     <string name="sign_register_gmail">Registrarse con Gmail</string>
@@ -191,6 +197,31 @@
     <string name="sign_register_user_studies">ESTUDIOS Ó CURSOS</string>
     <string name="sign_register_user_studies_add">Agregar estudio o curso</string>
     <string name="sign_register_words" formatted="false">%s/%s</string>
+    <string name="sign_phone_use_terms">Al registrarme acepto los Terminos de uso</string>
+    <string name="sign_phone_use_terms_bold">Terminos de uso</string>
+    <string name="sign_phone_use_terms_title">Política de privacidad</string>
+
+
+    <string name="sign_phone_register_title">¡Comienza creando tu cuenta gratis!</string>
+    <string name="sign_phone_register_subtitle">Creá una cuenta gratuita en Tinkerlink y comienza a ampliar tu red de contactos de trabajo con gente  de tu confianza</string>
+    <string name="sign_phone_register_phone_title">Número de teléfono</string>
+    <string name="sign_phone_register_phone_send_code">ENVIAR CODIGO</string>
+    <string name="sign_phone_register_phone_edit_phone">EDITAR NÚMERO</string>
+    <string name="sign_phone_register_phone_code_message">Ingresa el numero de verificacioón del SMS enviado</string>
+    <string name="sign_phone_register_phone_code_hint">Ej: 9845</string>
+    <string name="sign_phone_register_phone_code_reintent">REINTENTAR(%s)</string>
+    <string name="sign_phone_register_phone_verify">VERIFICAR</string>
+
+    <string name="sign_phone_register_phone_code_verify">Código de verificación</string>
+    <string name="sign_phone_register_phone_code_verified">Verificado</string>
+    <string name="sign_phone_register_password_title">Define una contraseña</string>
+    <string name="sign_phone_register_password_hint">Password</string>
+    <string name="sign_phone_register_password_repeat">Repite la contraseña</string>
+    <string name="sign_phone_register_password_create_account">CREAR CUENTA</string>
+    <string name="sign_phone_register_day_hint">DD</string>
+    <string name="sign_phone_register_month_hint">MM</string>
+    <string name="sign_phone_register_year_hint">AAAA</string>
+
 
     <!--  Home  -->
     <string name="home_newsfeed">TinkerFeed</string>
@@ -503,6 +534,24 @@
 
     <!-- GIVE RECOMMENDATIOM-->
     <string name="give_recommendation_title">Dar una recomendación</string>
+
+    <!-- PRENEWSFEED -->
+    <string name="prenewsfeed_intro_title">Navega entre las tarjetas</string>
+    <string name="prenewsfeed_intro_message">Encuentra al experto de confianza recomendado por tu red de contactos cercana</string>
+    <string name="prenewsfeed_intro_button">ENTENDIDO</string>
+    <string name="prenewsfeed_intro_time">¿Tienes unos minutos?</string>
+    <string name="prenewsfeed_intro_email">Correo electrónico</string>
+    <string name="prenewsfeed_intro_email_verify_message">Verifica tu dirección de correo electrónico para aumentar la confianza de la comunidad Tinkerlin</string>
+    <string name="prenewsfeed_intro_verify_title">VERIFICAR</string>
+    <string name="prenewsfeed_intro_complete_your_profile">Completa tu perfil</string>
+    <string name="prenewsfeed_intro_complete_your_profile_message">Incluye una breve descripción y agrega tus estudios para que los demas usuarios de Tinkerlink te conozcan un poco mejor antes de contactarte.</string>
+    <string name="prenewsfeed_intro_complete_title">COMPLETAR</string>
+
+    <!-- VERIFY EMAIL -->
+    <string name="verify_email_title">Verificar correo electrónico</string>
+    <string name="verify_email_message">Ingresa tu correo electrónico</string>
+    <string name="verify_email_hint">ejemplo@ejemplo.com</string>
+    <string name="verify_email_verify_title">VERIFY</string>
 
 
 </resources>

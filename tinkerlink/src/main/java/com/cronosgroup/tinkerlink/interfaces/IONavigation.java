@@ -70,8 +70,6 @@ public interface IONavigation {
 
     void onLaunchSocialNetWorkRegistration(Activity activity, Bundle bundle);
 
-    void onLaunchCreateAccountRegistration(Activity activity, Bundle bundle);
-
     void onLaunchPhoneRegistration(Activity activity, Bundle bundle);
 
     void onLaunchUseTerms(Activity activity, Bundle bundle);

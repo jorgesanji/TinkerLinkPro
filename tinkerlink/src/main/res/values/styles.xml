@@ -358,7 +358,7 @@
 
     <!-- TEXTVIEW STYLES -->
 
-    <style name="TextViewLoginSecctionsStyle" parent="Text_14_Black_SemiBold_Style">
+    <style name="TextViewLoginSecctionsStyle" parent="Text_14_SemiBlack_Regular_Style">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:gravity">center</item>

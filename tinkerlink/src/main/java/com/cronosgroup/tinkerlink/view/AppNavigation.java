@@ -32,9 +32,8 @@ import com.cronosgroup.tinkerlink.view.searchcard.SearchCardActivity;
 import com.cronosgroup.tinkerlink.view.searchcontacts.SearchContactsActivity;
 import com.cronosgroup.tinkerlink.view.searchnewsfeed.SearchNewsFeedActivity;
 import com.cronosgroup.tinkerlink.view.sign.phoneregistration.PhoneRegistrationActivity;
-import com.cronosgroup.tinkerlink.view.sign.userformregistration.UserRegistrationActivity;
 import com.cronosgroup.tinkerlink.view.sign.socialnetworkregistration.SocialNetWorkRegistrationActivity;
-import com.cronosgroup.tinkerlink.view.sign.createaccountregistration.CreateAccountRegistrationActivity;
+import com.cronosgroup.tinkerlink.view.sign.userformregistration.UserRegistrationActivity;
 import com.cronosgroup.tinkerlink.view.stack.StackActivity;
 import com.cronosgroup.tinkerlink.view.status.UserStatusActivity;
 import com.cronosgroup.tinkerlink.view.usercontacts.UserContactsActivity;
@@ -215,9 +214,6 @@ public final class AppNavigation implements IONavigation {
         return newTask(context, SocialNetWorkRegistrationActivity.class, bundle);
     }
 
-    private static Intent createAccountRegistration(Activity context, Bundle bundle) {
-        return newTask(context, CreateAccountRegistrationActivity.class, bundle);
-    }
 
     private static Intent phoneRegistration(Activity context, Bundle bundle) {
         return newTask(context, PhoneRegistrationActivity.class, bundle);
@@ -592,17 +588,6 @@ public final class AppNavigation implements IONavigation {
     @Override
     public void onLaunchSocialNetWorkRegistration(Activity activity, Bundle bundle) {
         startActivity(activity, socialNetwork(activity, bundle));
-    }
-
-    /**
-     * Launch Verify registration Activity
-     *
-     * @param activity
-     * @param bundle
-     */
-    @Override
-    public void onLaunchCreateAccountRegistration(Activity activity, Bundle bundle) {
-        startActivity(activity, createAccountRegistration(activity, bundle));
     }
 
     /**

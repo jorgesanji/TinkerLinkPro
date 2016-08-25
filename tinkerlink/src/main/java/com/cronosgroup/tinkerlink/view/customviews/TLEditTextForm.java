@@ -22,7 +22,8 @@ public class TLEditTextForm extends TLBaseView {
     public enum InputType {
         TEXT(0, android.text.InputType.TYPE_CLASS_TEXT | android.text.InputType.TYPE_TEXT_VARIATION_NORMAL),
         PASSWORD(1, android.text.InputType.TYPE_CLASS_TEXT | android.text.InputType.TYPE_TEXT_VARIATION_PASSWORD),
-        EMAIL(2, android.text.InputType.TYPE_CLASS_TEXT | android.text.InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
+        EMAIL(2, android.text.InputType.TYPE_CLASS_TEXT | android.text.InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS),
+        DATE(3, android.text.InputType.TYPE_CLASS_DATETIME | android.text.InputType.TYPE_DATETIME_VARIATION_DATE);
 
         private final int imputType;
         private final int id;
@@ -45,6 +46,8 @@ public class TLEditTextForm extends TLBaseView {
                 return EMAIL;
             } else if (id == PASSWORD.getId()) {
                 return PASSWORD;
+            } else if (id == DATE.getId()) {
+                return DATE;
             } else {
                 return TEXT;
             }
@@ -53,6 +56,7 @@ public class TLEditTextForm extends TLBaseView {
 
     //Vars
     private String mErrorMessage;
+    private int maxLength;
 
     //Views
     @BindView(R.id.messageError)
@@ -91,7 +95,7 @@ public class TLEditTextForm extends TLBaseView {
                 setHint(attributes.getString(R.styleable.TLEditTextForm_form_hint));
                 setError(attributes.getString(R.styleable.TLEditTextForm_form_error_message));
                 setImputType(InputType.TypefromId(attributes.getInt(R.styleable.TLEditTextForm_form_imputType, InputType.TEXT.getId())));
-
+                setMaxLength(attributes.getInt(R.styleable.TLEditTextForm_form_max_length, Integer.MAX_VALUE));
             } catch (Exception ex) {
                 Log.e(TLEditTextForm.class.getName(), ex.getMessage(), ex);
             } finally {
@@ -169,5 +173,10 @@ public class TLEditTextForm extends TLBaseView {
         if (text != null) {
             mEditText.setSelection(text.length());
         }
+    }
+
+    public void setMaxLength(int length) {
+        this.maxLength = length;
+        mEditText.setMaxLength(length);
     }
 }

@@ -8,15 +8,12 @@ import android.util.AttributeSet;
 import com.cronosgroup.tinkerlink.R;
 import com.cronosgroup.tinkerlink.view.base.TLBaseView;
 
-import butterknife.OnClick;
-
 /**
  * Created by jorgesanmartin on 10/26/15.
  */
 public class FormUserScreen extends TLBaseView {
 
     public interface Listener {
-        void onSelectCountry();
     }
 
     //Vars
@@ -69,11 +66,6 @@ public class FormUserScreen extends TLBaseView {
     }
 
     // Actions
-
-    @OnClick(R.id.selectorCountry)
-    protected void selectorPressed() {
-        listener.onSelectCountry();
-    }
 
     // Public method
 

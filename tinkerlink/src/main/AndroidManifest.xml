@@ -246,10 +246,6 @@
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".view.sign.createaccountregistration.CreateAccountRegistrationActivity"
-            android:screenOrientation="portrait" />
-
-        <activity
             android:name=".view.sign.phoneregistration.PhoneRegistrationActivity"
             android:screenOrientation="portrait" />
 
